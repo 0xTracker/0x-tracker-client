@@ -1,0 +1,93 @@
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import * as metricsActionCreators from '../actions';
+import { getDisplayCurrency } from '../../currencies/selectors';
+import { getHistoricalTokenVolume } from '../selectors';
+import { METRIC_TYPE } from '../constants';
+import LoadingIndicator from '../../../components/loading-indicator';
+import sharedPropTypes from '../../../prop-types';
+import TokenVolumeChart from './token-volume-chart';
+
+class TokenVolume extends Component {
+  static propTypes = {
+    autoReloadKey: PropTypes.string,
+    displayCurrency: PropTypes.string.isRequired,
+    fetchMetrics: PropTypes.func.isRequired,
+    metrics: PropTypes.array,
+    period: sharedPropTypes.timePeriod.isRequired,
+    token: PropTypes.shape({
+      address: PropTypes.string.isRequired,
+      symbol: PropTypes.string.isRequired,
+    }).isRequired,
+  };
+
+  static defaultProps = {
+    autoReloadKey: undefined,
+    metrics: undefined,
+  };
+
+  async componentDidMount() {
+    this.fetchData();
+  }
+
+  async componentDidUpdate(prevProps) {
+    const { autoReloadKey, period, token } = this.props;
+
+    if (
+      prevProps.autoReloadKey !== autoReloadKey ||
+      prevProps.period !== period ||
+      prevProps.token !== token
+    ) {
+      this.fetchData();
+    }
+  }
+
+  fetchData() {
+    const { fetchMetrics, period, token } = this.props;
+
+    fetchMetrics(METRIC_TYPE.TOKEN_VOLUME, period, { token: token.address });
+  }
+
+  render() {
+    const { displayCurrency, metrics, period, token } = this.props;
+
+    if (metrics === undefined) {
+      return <LoadingIndicator isCentered />;
+    }
+
+    const data = metrics.map(metric => ({
+      date: new Date(metric.date),
+      tokenVolume: metric.volume[token.symbol],
+      volume: metric.volume[displayCurrency],
+    }));
+
+    return (
+      <TokenVolumeChart
+        data={data}
+        displayCurrency={displayCurrency}
+        period={period}
+        token={token.symbol}
+      />
+    );
+  }
+}
+
+const mapStateToProps = (state, ownProps) => ({
+  autoReloadKey: state.autoReload.key,
+  displayCurrency: getDisplayCurrency(state),
+  metrics: getHistoricalTokenVolume(ownProps.token.address, ownProps.period)(
+    state,
+  ),
+});
+
+const mapDispatchToProps = dispatch => ({
+  ...bindActionCreators(metricsActionCreators, dispatch),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(TokenVolume);

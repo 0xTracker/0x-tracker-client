@@ -1,0 +1,28 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/dist
+
+# misc
+.DS_Store
+
+# configuration
+.env
+
+# npm
+npm-debug.log*
+
+# eslint
+.eslintcache
+
+# storybook
+storybook-static
+
+# firebase
+firebase-debug.log

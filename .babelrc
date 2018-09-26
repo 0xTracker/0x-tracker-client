@@ -1,0 +1,10 @@
+{
+  "presets": ["env", "react"],
+  "plugins": [
+    "lodash",
+    "react-hot-loader/babel",
+    "recharts",
+    "transform-object-rest-spread",
+    "transform-class-properties"
+  ]
+}

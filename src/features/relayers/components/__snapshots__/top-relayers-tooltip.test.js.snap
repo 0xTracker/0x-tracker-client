@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render for ETH currency 1`] = `
+<div
+  class="wrapper_145ycme"
+>
+  <h1
+    class="title_4pkhqx"
+  >
+    Radar Relay
+  </h1>
+  <dl>
+    <div>
+      <dt
+        class="itemTitle_6ns8d4"
+      >
+        market share
+        :
+      </dt>
+      <dd
+        class="itemValue_1poxida"
+      >
+        50%
+      </dd>
+    </div>
+    <div>
+      <dt
+        class="itemTitle_6ns8d4"
+      >
+        total trades
+        :
+      </dt>
+      <dd
+        class="itemValue_1poxida"
+      >
+        50
+      </dd>
+    </div>
+    <div>
+      <dt
+        class="itemTitle_6ns8d4"
+      >
+        volume (ETH)
+        :
+      </dt>
+      <dd
+        class="itemValue_1poxida"
+      >
+        Ξ 540,600.000000
+      </dd>
+    </div>
+  </dl>
+</div>
+`;
+
+exports[`should render with payload 1`] = `
+<div
+  class="wrapper_145ycme"
+>
+  <h1
+    class="title_4pkhqx"
+  >
+    Radar Relay
+  </h1>
+  <dl>
+    <div>
+      <dt
+        class="itemTitle_6ns8d4"
+      >
+        market share
+        :
+      </dt>
+      <dd
+        class="itemValue_1poxida"
+      >
+        22.5%
+      </dd>
+    </div>
+    <div>
+      <dt
+        class="itemTitle_6ns8d4"
+      >
+        total trades
+        :
+      </dt>
+      <dd
+        class="itemValue_1poxida"
+      >
+        50
+      </dd>
+    </div>
+    <div>
+      <dt
+        class="itemTitle_6ns8d4"
+      >
+        volume (USD)
+        :
+      </dt>
+      <dd
+        class="itemValue_1poxida"
+      >
+        $540,600.00
+      </dd>
+    </div>
+  </dl>
+</div>
+`;

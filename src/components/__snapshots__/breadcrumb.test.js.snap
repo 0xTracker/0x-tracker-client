@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render with items 1`] = `
+<nav
+  aria-label="breadcrumb"
+>
+  <ol
+    class="list_1t51cia breadcrumb"
+  >
+    <li
+      class="breadcrumb-item"
+    >
+      <a
+        href="/"
+      >
+        Home
+      </a>
+    </li>
+    <li
+      class="breadcrumb-item"
+    >
+      <a
+        href="/tokens"
+      >
+        Tokens
+      </a>
+    </li>
+    <li
+      aria-current="page"
+      class="breadcrumb-item active"
+    >
+      Ether
+    </li>
+  </ol>
+</nav>
+`;

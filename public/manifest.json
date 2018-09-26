@@ -1,0 +1,6 @@
+{
+  "short_name": "0x Tracker",
+  "name": "0x Tracker",
+  "start_url": "./index.html",
+  "display": "standalone"
+}

@@ -1,0 +1,2 @@
+# redirect all requests to index.html since it's a single page application
+/*    /index.html   200
