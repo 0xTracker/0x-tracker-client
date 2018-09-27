@@ -1,5 +1,7 @@
+import _ from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { compose } from 'recompose';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -10,6 +12,7 @@ import { getNetworkMetrics } from '../selectors';
 import { getDisplayCurrency } from '../../currencies/selectors';
 import LoadingIndicator from '../../../components/loading-indicator';
 import NetworkVolumeChart from './network-volume-chart';
+import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 class NetworkVolume extends Component {
   async componentDidMount() {
@@ -33,9 +36,15 @@ class NetworkVolume extends Component {
   }
 
   render() {
-    const { displayCurrency, metrics, period, type } = this.props;
+    const {
+      conversionRate,
+      displayCurrency,
+      metrics,
+      period,
+      type,
+    } = this.props;
 
-    if (metrics === undefined) {
+    if (_.some([metrics, conversionRate], _.isUndefined)) {
       return <LoadingIndicator isCentered />;
     }
 
@@ -58,6 +67,7 @@ class NetworkVolume extends Component {
 
 NetworkVolume.propTypes = {
   autoReloadKey: PropTypes.string,
+  conversionRate: PropTypes.number,
   displayCurrency: PropTypes.string.isRequired,
   fetchMetrics: PropTypes.func.isRequired,
   metrics: PropTypes.arrayOf(
@@ -74,6 +84,7 @@ NetworkVolume.propTypes = {
 
 NetworkVolume.defaultProps = {
   autoReloadKey: undefined,
+  conversionRate: undefined,
   metrics: undefined,
   period: TIME_PERIOD.MONTH,
   relayerId: undefined,
@@ -93,7 +104,12 @@ const mapDispatchToProps = dispatch => ({
   ...bindActionCreators(metricsActionCreators, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(NetworkVolume);
+const enhance = compose(
+  withConversionRate,
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+);
+
+export default enhance(NetworkVolume);

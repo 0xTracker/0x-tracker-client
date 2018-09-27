@@ -1,3 +1,5 @@
+import _ from 'lodash';
+import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
@@ -10,25 +12,9 @@ import { METRIC_TYPE } from '../constants';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
 import TokenVolumeChart from './token-volume-chart';
+import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 class TokenVolume extends Component {
-  static propTypes = {
-    autoReloadKey: PropTypes.string,
-    displayCurrency: PropTypes.string.isRequired,
-    fetchMetrics: PropTypes.func.isRequired,
-    metrics: PropTypes.array,
-    period: sharedPropTypes.timePeriod.isRequired,
-    token: PropTypes.shape({
-      address: PropTypes.string.isRequired,
-      symbol: PropTypes.string.isRequired,
-    }).isRequired,
-  };
-
-  static defaultProps = {
-    autoReloadKey: undefined,
-    metrics: undefined,
-  };
-
   async componentDidMount() {
     this.fetchData();
   }
@@ -52,9 +38,15 @@ class TokenVolume extends Component {
   }
 
   render() {
-    const { displayCurrency, metrics, period, token } = this.props;
+    const {
+      conversionRate,
+      displayCurrency,
+      metrics,
+      period,
+      token,
+    } = this.props;
 
-    if (metrics === undefined) {
+    if (_.some([metrics, conversionRate], _.isUndefined)) {
       return <LoadingIndicator isCentered />;
     }
 
@@ -75,6 +67,25 @@ class TokenVolume extends Component {
   }
 }
 
+TokenVolume.propTypes = {
+  autoReloadKey: PropTypes.string,
+  conversionRate: PropTypes.number,
+  displayCurrency: PropTypes.string.isRequired,
+  fetchMetrics: PropTypes.func.isRequired,
+  metrics: PropTypes.array,
+  period: sharedPropTypes.timePeriod.isRequired,
+  token: PropTypes.shape({
+    address: PropTypes.string.isRequired,
+    symbol: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+TokenVolume.defaultProps = {
+  autoReloadKey: undefined,
+  conversionRate: undefined,
+  metrics: undefined,
+};
+
 const mapStateToProps = (state, ownProps) => ({
   autoReloadKey: state.autoReload.key,
   displayCurrency: getDisplayCurrency(state),
@@ -87,7 +98,12 @@ const mapDispatchToProps = dispatch => ({
   ...bindActionCreators(metricsActionCreators, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(TokenVolume);
+const enhance = compose(
+  withConversionRate,
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+);
+
+export default enhance(TokenVolume);

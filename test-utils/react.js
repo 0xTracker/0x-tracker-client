@@ -7,14 +7,6 @@ import React from 'react';
 
 import reducer from '../src/redux/reducer';
 
-const withRedux = (
-  component,
-  { initialState, store = createStore(reducer, initialState) } = {},
-) => ({
-  component: <Provider store={store}>{component}</Provider>,
-  store,
-});
-
 function renderWithRouter(
   element,
   {
@@ -25,15 +17,6 @@ function renderWithRouter(
   return {
     ...render(<Router history={history}>{element}</Router>),
     history,
-  };
-}
-
-function renderWithRedux(component, options) {
-  const wrappedComponent = withRedux(component, options);
-
-  return {
-    ...render(wrappedComponent.component),
-    store: wrappedComponent.store,
   };
 }
 
@@ -54,4 +37,4 @@ const renderWithAppContext = (
   history,
 });
 
-export { renderWithAppContext, renderWithRedux, renderWithRouter, withRedux };
+export { renderWithAppContext, renderWithRouter };

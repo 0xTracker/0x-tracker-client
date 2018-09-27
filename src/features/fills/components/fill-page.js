@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { compose, mapProps } from 'recompose';
+import { mapProps } from 'recompose';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
@@ -18,7 +18,6 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import TokenAmount from '../../tokens/components/token-amount';
 import TokenLink from '../../tokens/components/token-link';
-import withRates from '../../currencies/components/with-rates';
 
 class FillPage extends PureComponent {
   constructor() {
@@ -190,9 +189,4 @@ FillPage.propTypes = {
   fillId: PropTypes.string.isRequired,
 };
 
-const enhance = compose(
-  mapProps(({ match }) => ({ fillId: match.params.id })),
-  withRates,
-);
-
-export default enhance(FillPage);
+export default mapProps(({ match }) => ({ fillId: match.params.id }))(FillPage);

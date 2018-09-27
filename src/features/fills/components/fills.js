@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import { compact, flow, join } from 'lodash/fp';
 import { connect } from 'react-redux';
-import { compose } from 'recompose';
 import { StyleSheet, css } from 'aphrodite';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
@@ -186,6 +185,4 @@ const mapStateToProps = state => ({
   autoReloadKey: state.autoReload.key,
 });
 
-const enhancer = compose(connect(mapStateToProps));
-
-export default enhancer(Fills);
+export default connect(mapStateToProps)(Fills);

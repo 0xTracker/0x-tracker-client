@@ -7,7 +7,6 @@ import { URL } from '../../../constants';
 import ContentHeader from '../../../components/content-header';
 import ContentSection from '../../../components/content-section';
 import TokenList from './token-list';
-import withRates from '../../currencies/components/with-rates';
 
 const PAGE_SIZE = 50;
 
@@ -23,7 +22,6 @@ const TokensPage = ({ history, page }) => [
 ];
 
 const enhance = compose(
-  withRates,
   withProps(({ location }) => ({
     querystring: qs.parse(location.search.substring(1)),
   })),

@@ -14,7 +14,6 @@ import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
-import withRates from '../../currencies/components/with-rates';
 
 const CHARTS_HEIGHT = 265;
 
@@ -82,7 +81,6 @@ const mapStateToProps = state => ({
 const enhance = compose(
   withRouter,
   connect(mapStateToProps),
-  withRates,
 );
 
 export default enhance(Dashboard);

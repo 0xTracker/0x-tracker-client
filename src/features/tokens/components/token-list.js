@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { compose } from 'recompose';
 import { chunk, get, flow } from 'lodash/fp';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -25,6 +26,7 @@ import sharedPropTypes from '../../../prop-types';
 import tokensPropTypes from '../prop-types';
 import TokenAmount from './token-amount';
 import getTokensWithStats from '../selectors/get-tokens-with-stats';
+import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 const DEFAULT_PERIOD = TIME_PERIOD.DAY;
 
@@ -219,7 +221,12 @@ const mapStateToProps = (state, ownProps) => ({
   }),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(TokenList);
+const enhance = compose(
+  withConversionRate,
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+);
+
+export default enhance(TokenList);

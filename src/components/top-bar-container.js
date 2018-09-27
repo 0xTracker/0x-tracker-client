@@ -10,7 +10,7 @@ import * as statsActionCreators from '../features/stats/actions';
 import { TIME_PERIOD } from '../constants';
 import { getNetworkStats } from '../features/stats/selectors';
 import TopBar from './top-bar';
-import withRates from '../features/currencies/components/with-rates';
+import withConversionRate from '../features/currencies/components/with-conversion-rate';
 
 class TopBarContainer extends PureComponent {
   constructor() {
@@ -95,7 +95,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const enhance = compose(
-  withRates,
+  withConversionRate,
   connect(
     mapStateToProps,
     mapDispatchToProps,

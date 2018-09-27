@@ -1,32 +1,34 @@
-import { applyMiddleware, compose, createStore } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist';
+import { init } from '@rematch/core';
 import { responsiveStoreEnhancer } from 'redux-responsive';
-import storage from 'redux-persist/es/storage';
+import createRematchPersist, { getPersistor } from '@rematch/persist';
 import createSagaMiddleware from 'redux-saga';
+import storage from 'redux-persist/es/storage';
 
-import rootReducer from './reducer';
+import debounceMiddleware from './debounce-middleware';
+import reducers from './reducers';
 import rootSaga from './root-saga';
-
-const config = {
-  key: 'root',
-  storage,
-  whitelist: ['preferences'],
-};
-const reducer = persistReducer(config, rootReducer);
+import ratesModel from '../features/currencies/models/rates-model';
 
 const storeFactory = () => {
-  /* eslint-disable no-underscore-dangle */
-  const composeEnhancers =
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  /* eslint-enable */
-
   const sagaMiddleware = createSagaMiddleware();
-  const enhancer = composeEnhancers(
-    responsiveStoreEnhancer,
-    applyMiddleware(sagaMiddleware),
-  );
-  const store = createStore(reducer, enhancer);
-  const persistor = persistStore(store);
+  const store = init({
+    models: {
+      rates: ratesModel,
+    },
+    plugins: [
+      createRematchPersist({
+        key: 'root',
+        storage,
+        whitelist: ['preferences'],
+      }),
+    ],
+    redux: {
+      enhancers: [responsiveStoreEnhancer],
+      middlewares: [sagaMiddleware, debounceMiddleware()],
+      reducers,
+    },
+  });
+  const persistor = getPersistor();
 
   sagaMiddleware.run(rootSaga);
 

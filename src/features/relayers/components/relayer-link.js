@@ -11,7 +11,7 @@ const RelayerLink = ({ relayer }) => (
 RelayerLink.propTypes = {
   relayer: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    slud: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
   }).isRequired,
 };
 

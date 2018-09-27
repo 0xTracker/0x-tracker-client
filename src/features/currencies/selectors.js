@@ -12,11 +12,13 @@ const getConversionRate = createSelector(
     }
 
     if (rates === null) {
-      return null;
+      return undefined;
     }
 
     return rates[displayCurrency];
   },
 );
 
-export { getDisplayCurrency, getConversionRate };
+const getRates = state => state.rates || undefined;
+
+export { getDisplayCurrency, getConversionRate, getRates };

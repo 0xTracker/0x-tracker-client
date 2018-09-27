@@ -1,3 +1,5 @@
+import _ from 'lodash';
+import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import React, { PureComponent } from 'react';
@@ -7,9 +9,9 @@ import * as metricsActionCreators from '../actions';
 import { TIME_PERIOD } from '../../../constants';
 import { METRIC_TYPE } from '../constants';
 import { getNetworkMetrics } from '../selectors';
-import { getDisplayCurrency } from '../../currencies/selectors';
 import LoadingIndicator from '../../../components/loading-indicator';
 import NetworkFeesChart from './network-fees-chart';
+import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 class FeesChart extends PureComponent {
   async componentDidMount() {
@@ -35,9 +37,9 @@ class FeesChart extends PureComponent {
   }
 
   render() {
-    const { displayCurrency, metrics, period } = this.props;
+    const { conversionRate, displayCurrency, metrics, period } = this.props;
 
-    if (metrics === undefined) {
+    if (_.some([metrics, conversionRate], _.isUndefined)) {
       return <LoadingIndicator isCentered />;
     }
 
@@ -53,6 +55,7 @@ class FeesChart extends PureComponent {
 
 FeesChart.propTypes = {
   autoReloadKey: PropTypes.string,
+  conversionRate: PropTypes.number,
   displayCurrency: PropTypes.string.isRequired,
   fetchMetrics: PropTypes.func.isRequired,
   metrics: PropTypes.array,
@@ -62,6 +65,7 @@ FeesChart.propTypes = {
 
 FeesChart.defaultProps = {
   autoReloadKey: undefined,
+  conversionRate: undefined,
   metrics: undefined,
   period: TIME_PERIOD.MONTH,
   relayerId: undefined,
@@ -69,7 +73,6 @@ FeesChart.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => ({
   autoReloadKey: state.autoReload.key,
-  displayCurrency: getDisplayCurrency(state),
   metrics: getNetworkMetrics(state, {
     period: ownProps.period || FeesChart.defaultProps.period,
     relayerId: ownProps.relayerId,
@@ -80,7 +83,12 @@ const mapDispatchToProps = dispatch => ({
   ...bindActionCreators(metricsActionCreators, dispatch),
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(FeesChart);
+const enhance = compose(
+  withConversionRate,
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  ),
+);
+
+export default enhance(FeesChart);

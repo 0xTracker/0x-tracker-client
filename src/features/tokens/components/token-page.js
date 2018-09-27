@@ -13,7 +13,6 @@ import Fills from '../../fills/components/fills';
 import getIsMobile from '../../../selectors/get-is-mobile';
 import LoadingIndicator from '../../../components/loading-indicator';
 import TokenVolume from '../../metrics/components/token-volume';
-import withRates from '../../currencies/components/with-rates';
 
 class TokenPage extends PureComponent {
   constructor() {
@@ -93,7 +92,6 @@ TokenPage.propTypes = {
 };
 
 const enhance = compose(
-  withRates,
   mapProps(({ match }) => ({ tokenAddress: match.params.address })),
   connect(state => ({ isMobile: getIsMobile(state) })),
 );

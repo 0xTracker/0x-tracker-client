@@ -10,7 +10,7 @@ import getRelayersWithStats from '../selectors/get-relayers-with-stats';
 import LoadingIndicator from '../../../components/loading-indicator';
 import RelayerList from './relayer-list';
 import relayersPropTypes from '../prop-types';
-import withRates from '../../currencies/components/with-rates';
+import withConversionRate from '../../currencies/components/with-conversion-rate';
 import withRelayerStats from '../../stats/components/with-relayer-stats';
 import withRelayers from './with-relayers';
 
@@ -45,7 +45,7 @@ const mapStateToProps = state => ({
 const enhance = compose(
   withRelayers,
   withRelayerStats,
-  withRates,
+  withConversionRate,
   connect(mapStateToProps),
 );
 

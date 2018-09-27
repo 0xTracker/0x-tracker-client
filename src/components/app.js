@@ -1,4 +1,3 @@
-import { BrowserRouter as Router } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import React from 'react';
 
@@ -7,20 +6,18 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import Footer from './footer';
 import Nav from './nav';
+import Router from './router';
 import Routes from './routes';
-import ScrollToTop from './scroll-to-top';
 import TopBarContainer from './top-bar-container';
 
 import '../styles/global.css';
 
 const App = () => (
   <Router>
-    <ScrollToTop>
-      <TopBarContainer />
-      <Nav />
-      <Routes />
-      <Footer />
-    </ScrollToTop>
+    <TopBarContainer />
+    <Nav />
+    <Routes />
+    <Footer />
   </Router>
 );
 

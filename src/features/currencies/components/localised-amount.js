@@ -1,10 +1,9 @@
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { getConversionRate, getDisplayCurrency } from '../selectors';
 import formatCurrency from '../../../util/format-currency';
 import LoadingIndicator from '../../../components/loading-indicator';
+import withConversionRate from './with-conversion-rate';
 
 const LocalisedAmount = ({
   amount,
@@ -12,13 +11,14 @@ const LocalisedAmount = ({
   displayCurrency,
   loadingIndicator,
 }) => {
-  if (conversionRate === null) {
+  if (conversionRate === undefined) {
     return loadingIndicator === undefined ? (
       <LoadingIndicator size="small" type="cylon" />
     ) : (
       loadingIndicator
     );
   }
+
   return formatCurrency(amount * conversionRate, displayCurrency);
 };
 
@@ -34,9 +34,4 @@ LocalisedAmount.defaultProps = {
   loadingIndicator: undefined,
 };
 
-const mapStateToProps = state => ({
-  conversionRate: getConversionRate(state),
-  displayCurrency: getDisplayCurrency(state),
-});
-
-export default connect(mapStateToProps)(LocalisedAmount);
+export default withConversionRate(LocalisedAmount);
