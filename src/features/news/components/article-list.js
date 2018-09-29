@@ -13,7 +13,7 @@ class ArticleList extends Component {
   constructor() {
     super();
 
-    this.state = { articles: null, page: 1 };
+    this.state = { page: 1 };
     this.fetchData = this.fetchData.bind(this);
     this.handleLoadMore = this.handleLoadMore.bind(this);
   }
@@ -47,7 +47,7 @@ class ArticleList extends Component {
     const { articles, page, pageCount } = this.state;
     const { screen } = this.props;
 
-    if (articles === null) {
+    if (articles === undefined) {
       return <LoadingIndicator isCentered />;
     }
 

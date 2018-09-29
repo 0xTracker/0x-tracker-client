@@ -5,16 +5,14 @@ import createSagaMiddleware from 'redux-saga';
 import storage from 'redux-persist/es/storage';
 
 import debounceMiddleware from './debounce-middleware';
+import models from './models';
 import reducers from './reducers';
 import rootSaga from './root-saga';
-import ratesModel from '../features/currencies/models/rates-model';
 
 const storeFactory = () => {
   const sagaMiddleware = createSagaMiddleware();
   const store = init({
-    models: {
-      rates: ratesModel,
-    },
+    models,
     plugins: [
       createRematchPersist({
         key: 'root',

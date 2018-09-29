@@ -11,7 +11,6 @@ import React, { PureComponent } from 'react';
 import Scroll from 'react-scroll';
 
 import * as statsActionCreators from '../../stats/actions';
-import * as tokensActionCreators from '../actions';
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { TIME_PERIOD, URL, DATE_FORMAT } from '../../../constants';
 import buildFillUrl from '../../fills/util/build-fill-url';
@@ -211,7 +210,7 @@ TokenList.defaultProps = {
 
 const mapDispatchToProps = dispatch => ({
   ...bindActionCreators(statsActionCreators, dispatch),
-  ...bindActionCreators(tokensActionCreators, dispatch),
+  fetchTokens: dispatch.tokens.fetch,
 });
 
 const mapStateToProps = (state, ownProps) => ({

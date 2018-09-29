@@ -25,11 +25,11 @@ const getNetworkMetrics = (state, { period, relayerId }) => {
   const displayCurrency = getDisplayCurrency(state);
   const metrics = getMetrics(METRIC_TYPE.NETWORK, period, { relayerId })(state);
 
-  if (displayCurrency === BASE_CURRENCY || metrics === undefined) {
+  if (displayCurrency === BASE_CURRENCY) {
     return metrics;
   }
 
-  if (conversionRate === null) {
+  if (_.some([metrics, conversionRate], _.isUndefined)) {
     return undefined;
   }
 
@@ -54,7 +54,7 @@ const getHistoricalTokenVolume = (token, period) => state => {
     return metrics;
   }
 
-  if (metrics === undefined || conversionRate === null) {
+  if (_.some([metrics, conversionRate], _.isUndefined)) {
     return undefined;
   }
 

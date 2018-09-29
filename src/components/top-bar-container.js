@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import PropTypes from 'prop-types';
 
-import * as currenciesActionCreators from '../features/currencies/actions';
-import * as preferencesActionCreators from '../features/preferences/actions';
 import * as statsActionCreators from '../features/stats/actions';
 import { TIME_PERIOD } from '../constants';
 import { getNetworkStats } from '../features/stats/selectors';
@@ -89,9 +87,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(currenciesActionCreators, dispatch),
-  ...bindActionCreators(preferencesActionCreators, dispatch),
   ...bindActionCreators(statsActionCreators, dispatch),
+  fetchZrxPrice: dispatch.zrxPrice.fetch,
+  setCurrency: dispatch.preferences.setCurrency,
 });
 
 const enhance = compose(

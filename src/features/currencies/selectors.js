@@ -3,22 +3,21 @@ import { createSelector } from 'reselect';
 import { BASE_CURRENCY } from './constants';
 
 const getDisplayCurrency = state => state.preferences.currency;
+const getRates = state => state.rates || undefined;
 
 const getConversionRate = createSelector(
-  [getDisplayCurrency, state => state.rates],
+  [getDisplayCurrency, getRates],
   (displayCurrency, rates) => {
     if (displayCurrency === BASE_CURRENCY) {
       return 1;
     }
 
-    if (rates === null) {
+    if (rates === undefined) {
       return undefined;
     }
 
     return rates[displayCurrency];
   },
 );
-
-const getRates = state => state.rates || undefined;
 
 export { getDisplayCurrency, getConversionRate, getRates };

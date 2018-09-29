@@ -1,10 +1,8 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
-import * as preferencesActionCreators from '../actions';
 import CurrencySelector from '../../currencies/components/currency-selector';
 
 class SettingsDialog extends PureComponent {
@@ -109,7 +107,7 @@ SettingsDialog.defaultProps = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(preferencesActionCreators, dispatch),
+  setCurrency: dispatch.preferences.setCurrency,
 });
 
 export default connect(

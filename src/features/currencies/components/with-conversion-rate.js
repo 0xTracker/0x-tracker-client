@@ -14,6 +14,14 @@ const withConversionRate = WrappedComponent => {
       }
     }
 
+    componentDidUpdate() {
+      const { conversionRate, fetchRates } = this.props;
+
+      if (conversionRate === undefined) {
+        fetchRates();
+      }
+    }
+
     render() {
       return <WrappedComponent {...this.props} />;
     }
