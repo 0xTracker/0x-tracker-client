@@ -1,10 +1,8 @@
 import { filter, flow, map, take } from 'lodash/fp';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
-import * as statsActionCreators from '../../stats/actions';
 import { getDisplayCurrency } from '../../currencies/selectors';
 import getTokensWithStats from '../selectors/get-tokens-with-stats';
 import LoadingIndicator from '../../../components/loading-indicator';
@@ -31,7 +29,7 @@ class TopTokens extends PureComponent {
   async loadData() {
     const { fetchTokenStats, fetchTokens, period, relayerId } = this.props;
 
-    await Promise.all([fetchTokenStats(period, { relayerId }), fetchTokens()]);
+    await Promise.all([fetchTokenStats({ period, relayerId }), fetchTokens()]);
   }
 
   render() {
@@ -79,8 +77,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(statsActionCreators, dispatch),
   fetchTokens: dispatch.tokens.fetch,
+  fetchTokenStats: dispatch.stats.fetchTokenStats,
 });
 
 export default connect(

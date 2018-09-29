@@ -26,7 +26,7 @@ const TopRelayersTooltip = ({ currency, payload }) => {
         },
         {
           label: `volume (${currency})`,
-          value: formatCurrency(volume, currency),
+          value: formatCurrency(volume[currency], currency),
         },
       ]}
       title={relayer.name}

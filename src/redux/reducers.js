@@ -1,7 +1,6 @@
 import { createResponsiveStateReducer } from 'redux-responsive';
 
 import metrics from '../features/metrics/reducer';
-import stats from '../features/stats/reducer';
 
 const reducers = {
   metrics,
@@ -14,7 +13,6 @@ const reducers = {
     },
     { infinity: 'extraLarge' },
   ),
-  stats,
 };
 
 export default reducers;
