@@ -79,7 +79,7 @@
     "browserslist": "3.2.8",
     "browserslist-ga": "0.0.10",
     "clean-webpack-plugin": "0.1.19",
-    "codecov": "3.0.4",
+    "codecov": "3.1.0",
     "copy-webpack-plugin": "4.5.2",
     "dotenv-webpack": "1.5.7",
     "eslint": "4.19.1",
