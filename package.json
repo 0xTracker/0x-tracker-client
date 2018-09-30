@@ -92,7 +92,7 @@
     "eslint-plugin-import": "2.14.0",
     "eslint-plugin-jest": "21.22.0",
     "eslint-plugin-lodash": "2.7.0",
-    "eslint-plugin-prettier": "2.6.2",
+    "eslint-plugin-prettier": "2.7.0",
     "eslint-plugin-promise": "3.8.0",
     "eslint-plugin-react": "7.9.1",
     "file-loader": "1.1.11",
