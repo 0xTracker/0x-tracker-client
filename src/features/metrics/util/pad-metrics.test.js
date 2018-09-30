@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import MockDate from 'mockdate';
+import timekeeper from 'timekeeper';
 
 import { TIME_PERIOD } from '../../../constants';
 import padMetrics from './pad-metrics';
@@ -11,11 +11,11 @@ const defaults = {
 
 describe('features/metrics/util/pad-metrics', () => {
   beforeAll(() => {
-    MockDate.set(new Date('2018-03-07T07:32:00Z'));
+    timekeeper.freeze('2018-03-07T07:32:00Z');
   });
 
   afterAll(() => {
-    MockDate.reset();
+    timekeeper.reset();
   });
 
   it('pads metrics for year time period', () => {
