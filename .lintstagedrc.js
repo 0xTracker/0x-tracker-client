@@ -1,3 +1,3 @@
 module.exports = {
-  '*.{js}': 'eslint --quiet --report-unused-disable-directives',
+  '*.js': 'eslint --quiet --report-unused-disable-directives',
 };
