@@ -93,7 +93,10 @@ class FillPage extends PureComponent {
               <FillStatusLabel status={fill.status} />
             </dd>
 
-            <dt className="mt-4">Amounts</dt>
+            <dt>0x Protocol</dt>
+            <dd>v{fill.protocolVersion}</dd>
+
+            <dt className="mt-4">Trade</dt>
             <dd className="mt-md-4">
               <TokenAmount amount={fill.makerAmount} token={fill.makerToken} />{' '}
               &#8651;{' '}
