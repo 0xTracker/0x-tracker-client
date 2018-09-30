@@ -78,7 +78,9 @@ class TokenList extends PureComponent {
       if (token.trades === 0) {
         return (
           <React.Fragment>
-            None<br />
+            None
+            {''}
+            <br />
           </React.Fragment>
         );
       }

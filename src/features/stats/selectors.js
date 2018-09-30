@@ -9,7 +9,7 @@ const getNetworkStats = createSelector(
   [
     getConversionRate,
     getDisplayCurrency,
-    (state, props) => props.period, // eslint-disable-line react/destructuring-assignment
+    (state, props) => props.period,
     state => _.get(state, 'stats.network'),
   ],
   (conversionRate, displayCurrency, period, networkStats) => {
@@ -33,7 +33,7 @@ const getNetworkStats = createSelector(
 const getRelayersStats = createSelector(
   [
     getConversionRate,
-    (state, props) => props.period, // eslint-disable-line react/destructuring-assignment
+    (state, props) => props.period,
     state => _.get(state, 'stats.relayers'),
     getDisplayCurrency,
   ],

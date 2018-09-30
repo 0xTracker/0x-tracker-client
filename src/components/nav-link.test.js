@@ -1,8 +1,12 @@
-import { Simulate } from 'react-testing-library';
+import { fireEvent, cleanup } from 'react-testing-library';
 import React from 'react';
 
 import { renderWithRouter } from '../../test-utils/react';
 import NavLink from './nav-link';
+
+afterEach(() => {
+  cleanup();
+});
 
 it('should render with url', () => {
   const { container } = renderWithRouter(
@@ -25,14 +29,14 @@ it('should render with active class when url matches current url', () => {
 });
 
 it('should call onClick handler when link is clicked', () => {
-  const onClick = jest.fn();
-  const { queryByText } = renderWithRouter(
-    <NavLink currentUrl="/relayers" onClick={onClick}>
+  const handleClick = jest.fn();
+  const { getByText } = renderWithRouter(
+    <NavLink currentUrl="/relayers" onClick={handleClick}>
       Relayers
     </NavLink>,
   );
 
-  Simulate.click(queryByText('Relayers'));
+  fireEvent.click(getByText('Relayers'));
 
-  expect(onClick).toHaveBeenCalledTimes(1);
+  expect(handleClick).toHaveBeenCalledTimes(1);
 });
