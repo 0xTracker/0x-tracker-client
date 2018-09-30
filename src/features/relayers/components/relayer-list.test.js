@@ -65,5 +65,5 @@ it('renders for one month time period', () => {
     <RelayerList {...basicProps} timePeriod={TIME_PERIOD.MONTH} />,
   );
 
-  getByText('Volume ( 1M )');
+  getByText('Volume (1M)');
 });

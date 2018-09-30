@@ -24,7 +24,8 @@ const SearchPage = ({ searchQuery }) =>
       />
       <ContentSection key="content">
         <Fills filter={{ address: _.toLower(searchQuery) }} showSummary />
-      </ContentSection>,
+      </ContentSection>
+      ,
     </React.Fragment>
   );
 
