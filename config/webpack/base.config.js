@@ -1,3 +1,4 @@
+const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
@@ -44,6 +45,14 @@ const getConfig = environment => ({
     new HtmlWebpackPlugin({
       template: path.resolve(paths.staticFiles, 'index.html'),
       templateParameters: { NODE_ENV: environment },
+    }),
+
+    new UnusedFilesWebpackPlugin({
+      failOnUnused: true,
+      globOptions: {
+        ignore: ['src/**/*.test.js', 'src/**/*.test.js.snap'],
+      },
+      patterns: ['src/**/*.*'],
     }),
   ],
 });
