@@ -1,11 +1,10 @@
 import { createMemoryHistory } from 'history';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { render } from 'react-testing-library';
 import { Router } from 'react-router-dom';
 import React from 'react';
 
-import reducer from '../src/redux/reducer';
+import storeFactory from '../src/redux/store-factory';
 
 function renderWithRouter(
   element,
@@ -25,16 +24,18 @@ const renderWithAppContext = (
   {
     route = '/',
     history = createMemoryHistory({ initialEntries: [route] }),
-    initialState,
-    store = createStore(reducer, initialState),
   } = {},
-) => ({
-  ...render(
-    <Provider store={store}>
-      <Router history={history}>{component}</Router>
-    </Provider>,
-  ),
-  history,
-});
+) => {
+  const { store } = storeFactory();
+
+  return {
+    ...render(
+      <Provider store={store}>
+        <Router history={history}>{component}</Router>
+      </Provider>,
+    ),
+    history,
+  };
+};
 
 export { renderWithAppContext, renderWithRouter };

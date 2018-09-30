@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';

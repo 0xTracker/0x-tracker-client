@@ -25,7 +25,7 @@
     "*.{js}": "eslint --quiet --report-unused-disable-directives"
   },
   "dependencies": {
-    "@rematch/core": "^1.0.0-beta.4",
+    "@rematch/core": "^1.0.1",
     "@rematch/persist": "^1.1.0",
     "aphrodite": "2.2.3",
     "axios": "^0.18.0",

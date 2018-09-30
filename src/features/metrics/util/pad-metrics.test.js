@@ -1,4 +1,4 @@
-import { filter, find } from 'lodash';
+import _ from 'lodash';
 import MockDate from 'mockdate';
 
 import { TIME_PERIOD } from '../../../constants';
@@ -32,7 +32,7 @@ describe('features/metrics/util/pad-metrics', () => {
       { date: new Date('2018-02-16T00:00:00Z'), volume: 52, tokenVolume: 2 },
     ];
     const paddedData = padMetrics(data, TIME_PERIOD.YEAR, defaults);
-    const date = find(paddedData, { date: new Date('2018-02-15T00:00:00Z') });
+    const date = _.find(paddedData, { date: new Date('2018-02-15T00:00:00Z') });
 
     expect(date).toBeDefined();
     expect(date.volume).toBe(0);
@@ -42,7 +42,7 @@ describe('features/metrics/util/pad-metrics', () => {
     const data = [{ date: new Date('2018-02-16'), volume: 52, tokenVolume: 2 }];
     const paddedData = padMetrics(data, TIME_PERIOD.YEAR, defaults);
 
-    const dates = filter(paddedData, {
+    const dates = _.filter(paddedData, {
       date: new Date('2018-02-16T00:00:00Z'),
     });
 
