@@ -29,7 +29,10 @@ class TopTokens extends PureComponent {
   async loadData() {
     const { fetchTokenStats, fetchTokens, period, relayerId } = this.props;
 
-    await Promise.all([fetchTokenStats({ period, relayerId }), fetchTokens()]);
+    await Promise.all([
+      fetchTokenStats({ period, relayer: relayerId }),
+      fetchTokens(),
+    ]);
   }
 
   render() {

@@ -34,7 +34,7 @@ class FeesChart extends PureComponent {
     fetchMetrics({
       metricType: METRIC_TYPE.NETWORK,
       period,
-      filter: { relayerId },
+      filter: { relayer: relayerId },
     });
   }
 
@@ -77,7 +77,7 @@ const mapStateToProps = (state, ownProps) => ({
   autoReloadKey: state.autoReload.key,
   metrics: getNetworkMetrics(state, {
     period: ownProps.period || FeesChart.defaultProps.period,
-    relayerId: ownProps.relayerId,
+    relayer: ownProps.relayerId,
   }),
 });
 

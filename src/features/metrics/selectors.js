@@ -20,10 +20,10 @@ const getMetrics = (metricType, period, filter) => state => {
   return metrics.map(metric => ({ ...metric, date: new Date(metric.date) }));
 };
 
-const getNetworkMetrics = (state, { period, relayerId }) => {
+const getNetworkMetrics = (state, { period, relayer }) => {
   const conversionRate = getConversionRate(state);
   const displayCurrency = getDisplayCurrency(state);
-  const metrics = getMetrics(METRIC_TYPE.NETWORK, period, { relayerId })(state);
+  const metrics = getMetrics(METRIC_TYPE.NETWORK, period, { relayer })(state);
 
   if (displayCurrency === BASE_CURRENCY) {
     return metrics;

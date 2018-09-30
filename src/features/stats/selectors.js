@@ -59,7 +59,7 @@ const getTokensStats = (state, { period, relayerId }) => {
   const displayCurrency = getDisplayCurrency(state);
   const stats = _.get(
     state,
-    `stats.tokens.${objectHash({ period, relayerId })}`,
+    `stats.tokens.${objectHash({ period, relayer: relayerId })}`,
   );
 
   if (_.some([stats, conversionRate], _.isUndefined)) {

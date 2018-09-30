@@ -41,7 +41,13 @@ const RelayerPage = ({ isMobile, relayer }) =>
                     component: <NetworkVolume relayerId={relayer.id} />,
                   },
                   {
-                    title: 'Network Fees',
+                    title: 'Fills',
+                    component: (
+                      <NetworkVolume relayerId={relayer.id} type="fills" />
+                    ),
+                  },
+                  {
+                    title: 'Fees',
                     component: <NetworkFees relayerId={relayer.id} />,
                   },
                 ]}

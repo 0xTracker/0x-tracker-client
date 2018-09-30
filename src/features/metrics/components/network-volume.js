@@ -33,7 +33,7 @@ class NetworkVolume extends Component {
     fetchMetrics({
       metricType: METRIC_TYPE.NETWORK,
       period,
-      filter: { relayerId },
+      filter: { relayer: relayerId },
     });
   }
 
@@ -98,7 +98,7 @@ const mapStateToProps = (state, ownProps) => ({
   displayCurrency: getDisplayCurrency(state),
   metrics: getNetworkMetrics(state, {
     period: ownProps.period || NetworkVolume.defaultProps.period,
-    relayerId: ownProps.relayerId,
+    relayer: ownProps.relayerId,
   }),
 });
 

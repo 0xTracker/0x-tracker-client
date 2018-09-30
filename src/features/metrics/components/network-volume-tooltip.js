@@ -34,9 +34,11 @@ NetworkVolumeTooltip.propTypes = {
   currency: PropTypes.string.isRequired,
   payload: PropTypes.arrayOf(
     PropTypes.shape({
-      date: PropTypes.instanceOf(Date).isRequired,
-      fills: PropTypes.number.isRequired,
-      volume: PropTypes.number.isRequired,
+      payload: PropTypes.shape({
+        date: PropTypes.string.isRequired,
+        fills: PropTypes.number.isRequired,
+        volume: PropTypes.number.isRequired,
+      }).isRequired,
     }),
   ),
 };

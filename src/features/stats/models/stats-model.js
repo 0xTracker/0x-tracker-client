@@ -16,11 +16,11 @@ const statsModel = {
 
       dispatch.stats.updateRelayerStats({ stats, period });
     },
-    async fetchTokenStats({ period, relayerId }) {
-      const params = { period, relayerId };
+    async fetchTokenStats({ period, relayer }) {
+      const params = { period, relayer };
       const stats = await callApi('stats/tokens', params);
 
-      dispatch.stats.updateTokenStats({ stats, period, relayerId });
+      dispatch.stats.updateTokenStats({ stats, period, relayer });
     },
   }),
   reducers: {
@@ -30,8 +30,8 @@ const statsModel = {
     updateRelayerStats(state, { stats, period }) {
       return { ...state, relayers: { ...state.relayers, [period]: stats } };
     },
-    updateTokenStats(state, { stats, period, relayerId }) {
-      const key = objectHash({ period, relayerId });
+    updateTokenStats(state, { stats, period, relayer }) {
+      const key = objectHash({ period, relayer });
 
       return { ...state, tokens: { ...state.tokens, [key]: stats } };
     },
