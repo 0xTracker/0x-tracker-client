@@ -42,7 +42,7 @@
     "qs": "6.5.2",
     "react": "16.4.1",
     "react-dom": "16.4.1",
-    "react-hot-loader": "4.3.2",
+    "react-hot-loader": "4.3.11",
     "react-icons": "2.2.7",
     "react-loading": "2.0.3",
     "react-modal": "3.5.1",
