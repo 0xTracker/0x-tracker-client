@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render with props 1`] = `
+exports[`should render with url 1`] = `
 <li
   class="nav-item"
 >

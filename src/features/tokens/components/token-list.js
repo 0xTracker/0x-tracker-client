@@ -3,15 +3,12 @@ import { compose } from 'recompose';
 import { chunk, get, flow } from 'lodash/fp';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
 import { css, StyleSheet } from 'aphrodite';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import Scroll from 'react-scroll';
 
-import * as statsActionCreators from '../../stats/actions';
-import * as tokensActionCreators from '../actions';
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { TIME_PERIOD, URL, DATE_FORMAT } from '../../../constants';
 import buildFillUrl from '../../fills/util/build-fill-url';
@@ -48,14 +45,14 @@ class TokenList extends PureComponent {
     const { fetchTokens, fetchTokenStats, period } = this.props;
 
     fetchTokens();
-    fetchTokenStats(period);
+    fetchTokenStats({ period });
   }
 
   componentDidUpdate(prevProps) {
     const { autoReloadKey, fetchTokenStats, period } = this.props;
 
     if (prevProps.autoReloadKey !== autoReloadKey) {
-      fetchTokenStats(period);
+      fetchTokenStats({ period });
     }
   }
 
@@ -210,8 +207,8 @@ TokenList.defaultProps = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(statsActionCreators, dispatch),
-  ...bindActionCreators(tokensActionCreators, dispatch),
+  fetchTokens: dispatch.tokens.fetch,
+  fetchTokenStats: dispatch.stats.fetchTokenStats,
 });
 
 const mapStateToProps = (state, ownProps) => ({

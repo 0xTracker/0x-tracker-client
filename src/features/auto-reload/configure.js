@@ -1,13 +1,11 @@
 import initSubscriber from 'redux-subscriber';
 import ms from 'ms';
 
-import { reloadData } from './actions';
-
 let timer = null;
 
 const setTimer = store => {
   timer = setTimeout(() => {
-    store.dispatch(reloadData());
+    store.dispatch.autoReload.trigger();
     setTimer(store);
   }, ms(process.env.REACT_APP_AUTO_RELOAD_INTERVAL));
 };

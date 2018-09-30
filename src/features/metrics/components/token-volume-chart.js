@@ -1,4 +1,4 @@
-import { map } from 'lodash';
+import _ from 'lodash';
 import {
   Area,
   AreaChart,
@@ -54,7 +54,7 @@ class TokenVolumeChart extends PureComponent {
       tokenVolume: '0',
       volume: 0,
     });
-    const sanitizedData = map(paddedMetrics, dataPoint => ({
+    const sanitizedData = _.map(paddedMetrics, dataPoint => ({
       ...dataPoint,
       date: dataPoint.date.toISOString(),
     }));

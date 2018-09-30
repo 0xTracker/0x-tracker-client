@@ -13,10 +13,10 @@ const getNetworkStats = createSelector(
     state => _.get(state, 'stats.network'),
   ],
   (conversionRate, displayCurrency, period, networkStats) => {
-    const stats = _.get(networkStats, `${period}`, null);
+    const stats = _.get(networkStats, `${period}`);
 
-    if (_.isNil(stats)) {
-      return null;
+    if (stats === undefined) {
+      return undefined;
     }
 
     return {
@@ -40,7 +40,7 @@ const getRelayersStats = createSelector(
   (conversionRate, period, relayerStats, displayCurrency) => {
     const stats = _.get(relayerStats, `${period}`);
 
-    if (_.isUndefined(stats)) {
+    if (stats === undefined) {
       return undefined;
     }
 
@@ -62,7 +62,7 @@ const getTokensStats = (state, { period, relayerId }) => {
     `stats.tokens.${objectHash({ period, relayerId })}`,
   );
 
-  if (_.some([stats, conversionRate], _.isNil)) {
+  if (_.some([stats, conversionRate], _.isUndefined)) {
     return undefined;
   }
 

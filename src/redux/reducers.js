@@ -1,20 +1,6 @@
 import { createResponsiveStateReducer } from 'redux-responsive';
 
-import autoReload from '../features/auto-reload/reducer';
-import metrics from '../features/metrics/reducer';
-import preferences from '../features/preferences/reducer';
-import relayers from '../features/relayers/reducer';
-// import rates from '../features/currencies/reducers/rates';
-import stats from '../features/stats/reducer';
-import tokens from '../features/tokens/reducer';
-import zrxPrice from '../features/currencies/reducers/zrx-price';
-
 const reducers = {
-  autoReload,
-  metrics,
-  preferences,
-  // rates,
-  relayers,
   screen: createResponsiveStateReducer(
     {
       extraSmall: 575,
@@ -24,9 +10,6 @@ const reducers = {
     },
     { infinity: 'extraLarge' },
   ),
-  stats,
-  tokens,
-  zrxPrice,
 };
 
 export default reducers;

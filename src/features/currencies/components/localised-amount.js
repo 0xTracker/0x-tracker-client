@@ -30,7 +30,7 @@ LocalisedAmount.propTypes = {
 };
 
 LocalisedAmount.defaultProps = {
-  conversionRate: null,
+  conversionRate: undefined,
   loadingIndicator: undefined,
 };
 

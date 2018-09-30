@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { compose, mapProps } from 'recompose';
 import { connect } from 'react-redux';
 import React from 'react';

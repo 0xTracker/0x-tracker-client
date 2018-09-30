@@ -1,9 +1,7 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import * as relayersActionCreators from '../actions';
 import getRelayers from '../selectors/get-relayers';
 import relayersPropTypes from '../prop-types';
 
@@ -36,7 +34,7 @@ const withRelayers = WrappedComponent => {
   });
 
   const mapDispatchToProps = dispatch => ({
-    ...bindActionCreators(relayersActionCreators, dispatch),
+    fetchRelayers: dispatch.relayers.fetch,
   });
 
   return connect(

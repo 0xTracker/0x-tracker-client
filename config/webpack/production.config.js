@@ -1,5 +1,5 @@
+const _ = require('lodash');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { compact } = require('lodash');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -44,7 +44,7 @@ module.exports = (env = {}) =>
     output: {
       filename: 'assets/js/[name].[chunkhash].bundle.js',
     },
-    plugins: compact([
+    plugins: _.compact([
       new CleanWebpackPlugin([paths.output], {
         root: path.resolve(__dirname, '../../'),
       }),

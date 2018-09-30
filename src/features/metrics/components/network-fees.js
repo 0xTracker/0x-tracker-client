@@ -1,11 +1,9 @@
 import _ from 'lodash';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import * as metricsActionCreators from '../actions';
 import { TIME_PERIOD } from '../../../constants';
 import { METRIC_TYPE } from '../constants';
 import { getNetworkMetrics } from '../selectors';
@@ -33,7 +31,11 @@ class FeesChart extends PureComponent {
   async loadData() {
     const { fetchMetrics, period, relayerId } = this.props;
 
-    fetchMetrics(METRIC_TYPE.NETWORK, period, { relayerId });
+    fetchMetrics({
+      metricType: METRIC_TYPE.NETWORK,
+      period,
+      filter: { relayerId },
+    });
   }
 
   render() {
@@ -80,7 +82,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(metricsActionCreators, dispatch),
+  fetchMetrics: dispatch.metrics.fetch,
 });
 
 const enhance = compose(

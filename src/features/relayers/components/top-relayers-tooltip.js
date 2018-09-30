@@ -26,7 +26,7 @@ const TopRelayersTooltip = ({ currency, payload }) => {
         },
         {
           label: `volume (${currency})`,
-          value: formatCurrency(volume, currency),
+          value: formatCurrency(volume[currency], currency),
         },
       ]}
       title={relayer.name}
@@ -38,12 +38,14 @@ TopRelayersTooltip.propTypes = {
   currency: PropTypes.string.isRequired,
   payload: PropTypes.arrayOf(
     PropTypes.shape({
-      relayer: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-      }),
-      share: PropTypes.number.isRequired,
-      tradeCount: PropTypes.number.isRequired,
-      volume: PropTypes.number.isRequired,
+      payload: PropTypes.shape({
+        relayer: PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        }),
+        share: PropTypes.number.isRequired,
+        trades: PropTypes.number.isRequired,
+        volume: PropTypes.object.isRequired,
+      }).isRequired,
     }),
   ),
 };

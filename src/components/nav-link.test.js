@@ -4,7 +4,7 @@ import React from 'react';
 import { renderWithRouter } from '../../test-utils/react';
 import NavLink from './nav-link';
 
-it('should render with props', () => {
+it('should render with url', () => {
   const { container } = renderWithRouter(
     <NavLink currentUrl="/" url="/trades/">
       Trades
@@ -27,7 +27,7 @@ it('should render with active class when url matches current url', () => {
 it('should call onClick handler when link is clicked', () => {
   const onClick = jest.fn();
   const { queryByText } = renderWithRouter(
-    <NavLink currentUrl="/relayers" onClick={onClick} url="/relayers">
+    <NavLink currentUrl="/relayers" onClick={onClick}>
       Relayers
     </NavLink>,
   );

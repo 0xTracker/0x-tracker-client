@@ -46,9 +46,11 @@ const debounceMiddleware = () => {
         timers[key] = setTimeout(later(resolve), time);
       });
     }
+
+    return undefined;
   };
 
-  middleware._timers = timers;
+  middleware._timers = timers; // eslint-disable-line no-underscore-dangle
 
   return middleware;
 };

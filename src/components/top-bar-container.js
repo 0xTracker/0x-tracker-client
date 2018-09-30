@@ -1,12 +1,8 @@
 import React, { PureComponent } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import PropTypes from 'prop-types';
 
-import * as currenciesActionCreators from '../features/currencies/actions';
-import * as preferencesActionCreators from '../features/preferences/actions';
-import * as statsActionCreators from '../features/stats/actions';
 import { TIME_PERIOD } from '../constants';
 import { getNetworkStats } from '../features/stats/selectors';
 import TopBar from './top-bar';
@@ -17,30 +13,30 @@ class TopBarContainer extends PureComponent {
     super();
 
     this.handleChangeCurrency = this.handleChangeCurrency.bind(this);
+    this.loadData = this.loadData.bind(this);
   }
 
   componentDidMount() {
-    const { displayCurrency, fetchNetworkStats, fetchZrxPrice } = this.props;
-
-    fetchNetworkStats(TIME_PERIOD.DAY);
-    fetchZrxPrice(displayCurrency);
+    this.loadData();
   }
 
   componentDidUpdate(prevProps) {
-    const {
-      autoReloadKey,
-      displayCurrency,
-      fetchNetworkStats,
-      fetchZrxPrice,
-    } = this.props;
+    const { autoReloadKey, displayCurrency } = this.props;
+    const autoReload = prevProps.autoReloadKey !== autoReloadKey;
 
-    if (
-      prevProps.autoReloadKey !== autoReloadKey ||
-      prevProps.displayCurrency !== displayCurrency
-    ) {
-      fetchNetworkStats(TIME_PERIOD.DAY);
-      fetchZrxPrice(displayCurrency);
+    if (autoReload || prevProps.displayCurrency !== displayCurrency) {
+      this.loadData({ loadStats: autoReload });
     }
+  }
+
+  loadData(options = { loadStats: true }) {
+    const { displayCurrency, fetchNetworkStats, fetchZrxPrice } = this.props;
+
+    if (options.loadStats) {
+      fetchNetworkStats({ period: TIME_PERIOD.DAY });
+    }
+
+    fetchZrxPrice(displayCurrency);
   }
 
   handleChangeCurrency(currency) {
@@ -89,9 +85,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(currenciesActionCreators, dispatch),
-  ...bindActionCreators(preferencesActionCreators, dispatch),
-  ...bindActionCreators(statsActionCreators, dispatch),
+  fetchNetworkStats: dispatch.stats.fetchNetworkStats,
+  fetchZrxPrice: dispatch.zrxPrice.fetch,
+  setCurrency: dispatch.preferences.setCurrency,
 });
 
 const enhance = compose(

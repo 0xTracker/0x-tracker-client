@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { format as formatDate } from 'date-fns';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -7,7 +8,7 @@ import formatCurrency from '../../../util/format-currency';
 import formatToken from '../../../util/format-token';
 
 const TokenVolumeTooltip = ({ currency, payload, token }) => {
-  if (payload === undefined || payload.length === 0) {
+  if (_.isEmpty(payload)) {
     return null;
   }
 

@@ -18,7 +18,7 @@ class TokenPage extends PureComponent {
   constructor() {
     super();
 
-    this.state = { token: null };
+    this.state = {};
   }
 
   async componentDidMount() {
@@ -44,7 +44,7 @@ class TokenPage extends PureComponent {
     const { token } = this.state;
     const { isMobile } = this.props;
 
-    if (token === null) {
+    if (token === undefined) {
       return <LoadingIndicator isCentered />;
     }
 

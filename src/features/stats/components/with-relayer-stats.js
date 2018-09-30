@@ -1,9 +1,7 @@
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import * as statsActionCreators from '../actions';
 import { TIME_PERIOD } from '../../../constants';
 import { getRelayersStats } from '../selectors';
 import sharedPropTypes from '../../../prop-types';
@@ -14,7 +12,7 @@ const withRelayerStats = WrappedComponent => {
       const { fetchRelayerStats, period, stats } = this.props;
 
       if (stats === undefined) {
-        fetchRelayerStats(period);
+        fetchRelayerStats({ period });
       }
     }
 
@@ -25,7 +23,7 @@ const withRelayerStats = WrappedComponent => {
         prevProps.autoReloadKey !== autoReloadKey ||
         prevProps.period !== period
       ) {
-        fetchRelayerStats(period);
+        fetchRelayerStats({ period });
       }
     }
 
@@ -53,7 +51,7 @@ const withRelayerStats = WrappedComponent => {
   });
 
   const mapDispatchToProps = dispatch => ({
-    ...bindActionCreators(statsActionCreators, dispatch),
+    fetchRelayerStats: dispatch.stats.fetchRelayerStats,
   });
 
   return connect(
