@@ -94,7 +94,7 @@
     "eslint-plugin-lodash": "2.7.0",
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-promise": "3.8.0",
-    "eslint-plugin-react": "7.9.1",
+    "eslint-plugin-react": "7.11.1",
     "file-loader": "1.1.11",
     "firebase-tools": "3.19.3",
     "history": "4.7.2",
