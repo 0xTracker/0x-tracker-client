@@ -13,16 +13,12 @@
     "build:serve": "npm-run-all -s build serve",
     "deploy": "firebase deploy --token \"$FIREBASE_DEPLOY_TOKEN\"",
     "lint": "eslint --ext .js --report-unused-disable-directives .",
-    "precommit": "lint-staged",
     "serve": "firebase serve --port 3000",
     "start": "webpack-dev-server --open --config config/webpack/development.config.js",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
-  },
-  "lint-staged": {
-    "*.{js}": "eslint --quiet --report-unused-disable-directives"
   },
   "dependencies": {
     "@rematch/core": "1.0.1",
@@ -97,7 +93,7 @@
     "firebase-tools": "^4.2.1",
     "history": "4.7.2",
     "html-webpack-plugin": "3.2.0",
-    "husky": "0.14.3",
+    "husky": "^1.0.1",
     "jest": "23.6.0",
     "jest-dom": "1.12.1",
     "lint-staged": "7.3.0",
