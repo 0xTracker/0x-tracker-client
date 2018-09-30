@@ -43,7 +43,7 @@ const getNetworkMetrics = (state, { period, relayerId }) => {
   }));
 };
 
-const getHistoricalTokenVolume = (token, period) => state => {
+const getTokenVolumeMetrics = (token, period) => state => {
   const conversionRate = getConversionRate(state);
   const displayCurrency = getDisplayCurrency(state);
   const metrics = getMetrics(METRIC_TYPE.TOKEN_VOLUME, period, { token })(
@@ -67,4 +67,4 @@ const getHistoricalTokenVolume = (token, period) => state => {
   }));
 };
 
-export { getHistoricalTokenVolume, getNetworkMetrics };
+export { getTokenVolumeMetrics, getNetworkMetrics };

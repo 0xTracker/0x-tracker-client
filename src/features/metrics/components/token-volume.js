@@ -1,13 +1,11 @@
 import _ from 'lodash';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import * as metricsActionCreators from '../actions';
 import { getDisplayCurrency } from '../../currencies/selectors';
-import { getHistoricalTokenVolume } from '../selectors';
+import { getTokenVolumeMetrics } from '../selectors';
 import { METRIC_TYPE } from '../constants';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
@@ -34,7 +32,11 @@ class TokenVolume extends Component {
   fetchData() {
     const { fetchMetrics, period, token } = this.props;
 
-    fetchMetrics(METRIC_TYPE.TOKEN_VOLUME, period, { token: token.address });
+    fetchMetrics({
+      metricType: METRIC_TYPE.TOKEN_VOLUME,
+      period,
+      filter: { token: token.address },
+    });
   }
 
   render() {
@@ -89,13 +91,13 @@ TokenVolume.defaultProps = {
 const mapStateToProps = (state, ownProps) => ({
   autoReloadKey: state.autoReload.key,
   displayCurrency: getDisplayCurrency(state),
-  metrics: getHistoricalTokenVolume(ownProps.token.address, ownProps.period)(
+  metrics: getTokenVolumeMetrics(ownProps.token.address, ownProps.period)(
     state,
   ),
 });
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators(metricsActionCreators, dispatch),
+  fetchMetrics: dispatch.metrics.fetch,
 });
 
 const enhance = compose(

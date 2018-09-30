@@ -1,9 +1,6 @@
 import { createResponsiveStateReducer } from 'redux-responsive';
 
-import metrics from '../features/metrics/reducer';
-
 const reducers = {
-  metrics,
   screen: createResponsiveStateReducer(
     {
       extraSmall: 575,
