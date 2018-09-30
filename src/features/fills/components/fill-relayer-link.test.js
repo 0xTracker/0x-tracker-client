@@ -3,8 +3,13 @@ import React from 'react';
 import { renderWithRouter } from '../../../../test-utils/react';
 import FillRelayerLink from './fill-relayer-link';
 
+const simpleFill = {
+  feeRecipient: '0x0000000000000000000000000000000000000000',
+};
+
 it('returns relayer link when trade has a relayer', () => {
   const fill = {
+    ...simpleFill,
     relayer: {
       name: 'Google',
       slug: 'google',

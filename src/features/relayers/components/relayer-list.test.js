@@ -11,6 +11,7 @@ const basicProps = {
       name: 'Radar Relay',
       slug: 'radar-relay',
       stats: {
+        share: 50,
         trades: 512,
         volume: { USD: 100000 },
       },
@@ -21,6 +22,7 @@ const basicProps = {
       name: 'DDEX',
       slug: 'ddex',
       stats: {
+        share: 40,
         trades: 256,
         volume: { USD: 150456.56 },
       },
@@ -31,6 +33,7 @@ const basicProps = {
       name: 'Paradex',
       slug: 'paradex',
       stats: {
+        share: 10,
         trades: 345,
         volume: { USD: 124000 },
       },
@@ -41,6 +44,7 @@ const basicProps = {
       name: 'Sad Relayer',
       slug: 'sad-relayer',
       stats: {
+        share: 0,
         trades: 0,
         volume: { USD: 0 },
       },

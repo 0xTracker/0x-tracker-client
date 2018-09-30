@@ -1,7 +1,7 @@
 import { init } from '@rematch/core';
 import { responsiveStoreEnhancer } from 'redux-responsive';
 import createRematchPersist, { getPersistor } from '@rematch/persist';
-import storage from 'redux-persist/es/storage';
+import storage from 'redux-persist/lib/storage';
 
 import debounceMiddleware from './middleware/debounce-middleware';
 import models from './models';
