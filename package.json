@@ -114,7 +114,7 @@
     "storybook-router": "0.3.4",
     "timekeeper": "2.1.2",
     "uglifyjs-webpack-plugin": "1.3.0",
-    "webpack": "4.17.1",
+    "webpack": "4.20.2",
     "webpack-bundle-analyzer": "2.13.1",
     "webpack-cli": "3.1.0",
     "webpack-dev-server": "3.1.6",
