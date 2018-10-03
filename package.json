@@ -21,7 +21,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@rematch/core": "1.0.1",
+    "@rematch/core": "1.0.4",
     "@rematch/persist": "1.1.0",
     "aphrodite": "2.2.3",
     "axios": "0.18.0",
