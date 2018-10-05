@@ -1,5 +1,17 @@
 {
   "extends": ["config:base"],
   "prHourlyLimit": 0,
-  "rebaseStalePrs": true
+  "rebaseStalePrs": true,
+  "packageRules": [
+    {
+      "packagePatterns": ["^eslint|prettier|lint-staged|husky"],
+      "groupName": "linting"
+    },
+    {
+      "packagePatterns": [
+        "react-testing-library|babel-jest|jest-dom|jest|timekeeper"
+      ],
+      "groupName": "testing"
+    }
+  ]
 }
