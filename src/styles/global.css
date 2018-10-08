@@ -213,43 +213,6 @@ a:hover {
   overflow: hidden;
 }
 
-.top-bar.currency-selector .Select-control {
-  background: none;
-  border: none;
-  font-size: 14px;
-  text-align: right;
-  user-select: none;
-  width: 200px;
-}
-
-.top-bar.currency-selector .Select-value-label {
-  color: white !important;
-  padding-right: 20px;
-}
-
-.top-bar.currency-selector .Select-arrow {
-  border-top-color: white !important;
-  margin-top: 5px;
-  vertical-align: top;
-}
-
-.top-bar.currency-selector.is-open .Select-arrow {
-  border-color: transparent transparent white;
-}
-
-.top-bar.currency-selector .Select-menu-outer {
-  border: none;
-  background-color: #222;
-  color: white;
-  padding: 0 10px 10px;
-  width: calc(100% + 20px);
-}
-
-.top-bar.currency-selector .Select-option {
-  background-color: #222;
-  color: white;
-}
-
 @media (min-width: 768px) {
   .fill-details dl {
     display: flex;
