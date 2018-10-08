@@ -49,6 +49,12 @@ module.exports = (env = {}) =>
         root: path.resolve(__dirname, '../../'),
       }),
 
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+      new MiniCssExtractPlugin({
+        filename: 'assets/css/[name].[contenthash].bundle.css',
+        chunkFilename: 'assets/css/[name].[contenthash].bundle.css',
+      }),
+
       // Launch the bundle analyzer if --env.analyze=true is passed via  CLI
       env.analyze && new BundleAnalyzerPlugin(),
 
@@ -56,10 +62,6 @@ module.exports = (env = {}) =>
         NODE_ENV: ENVIRONMENT,
         REACT_APP_API_ENDPOINT: 'https://api.0xtracker.com',
         REACT_APP_AUTO_RELOAD_INTERVAL: '30 seconds',
-      }),
-      new MiniCssExtractPlugin({
-        filename: 'assets/css/[name].[contenthash].bundle.css',
-        chunkFilename: 'assets/css/[name].[contenthash].bundle.css',
       }),
     ]),
   });
