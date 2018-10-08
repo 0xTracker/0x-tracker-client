@@ -5,11 +5,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import Container from './container';
-import CurrencySelector from '../features/currencies/components/currency-selector';
 import formatCurrency from '../util/format-currency';
 import LocalisedAmount from '../features/currencies/components/localised-amount';
 import media from '../styles/media';
 import LoadingIndicator from './loading-indicator';
+import TopBarCurrencySelector from './top-bar-currency-selector';
 
 const styles = StyleSheet.create({
   container: {
@@ -130,7 +130,7 @@ const TopBar = ({
             </span>
           </div>
         </div>
-        <CurrencySelector onChange={onCurrencyChange} variant="top-bar" />
+        <TopBarCurrencySelector onChange={onCurrencyChange} />
       </Container>
     </div>
   );

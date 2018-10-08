@@ -4,6 +4,7 @@
     "lodash",
     "react-hot-loader/babel",
     "recharts",
-    "@babel/plugin-proposal-class-properties"
+    "@babel/plugin-proposal-class-properties",
+    "babel-plugin-styled-components"
   ]
 }

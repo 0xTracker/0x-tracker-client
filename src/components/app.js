@@ -1,7 +1,6 @@
 import { hot } from 'react-hot-loader';
 import React from 'react';
 
-import 'react-select/dist/react-select.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import Footer from './footer';
