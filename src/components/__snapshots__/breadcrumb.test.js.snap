@@ -3,9 +3,10 @@
 exports[`should render with items 1`] = `
 <nav
   aria-label="breadcrumb"
+  class="breadcrumb__StyledBreadcrumb-yqtjg0-0 eCKXTH"
 >
   <ol
-    class="list_1t51cia breadcrumb"
+    class="breadcrumb"
   >
     <li
       class="breadcrumb-item"
@@ -27,7 +28,7 @@ exports[`should render with items 1`] = `
     </li>
     <li
       aria-current="page"
-      class="breadcrumb-item active"
+      class="active breadcrumb-item"
     >
       Ether
     </li>
