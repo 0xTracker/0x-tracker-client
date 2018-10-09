@@ -1,19 +1,30 @@
-import { StyleSheet, css } from 'aphrodite';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import ReactLoading from 'react-loading';
 import ReactPaginate from 'react-paginate';
 
-const styles = StyleSheet.create({
-  wrapper: {
-    alignItems: 'center',
-    display: 'flex',
-    justifyContent: 'flex-end',
-  },
-  spinner: {
-    marginRight: '15px',
-  },
-});
+import { media } from '../styles/util';
+
+const StyledPaginator = styled.div`
+  align-items: center;
+  display: none;
+  justify-content: flex-end;
+
+  ${media.md`
+    display: flex;
+  `};
+`;
+
+const LoadingIndicator = styled(ReactLoading).attrs({
+  color: '#333333',
+  delay: 0,
+  height: 30,
+  type: 'spin',
+  width: 30,
+})`
+  margin-right: 15px;
+`;
 
 class Paginator extends PureComponent {
   constructor() {
@@ -40,17 +51,8 @@ class Paginator extends PureComponent {
     }
 
     return (
-      <div className={`${css(styles.wrapper)} d-none d-md-block`}>
-        {changingPage && (
-          <ReactLoading
-            className={css(styles.spinner)}
-            color="#333333"
-            delay={0}
-            height={30}
-            type="spin"
-            width={30}
-          />
-        )}
+      <StyledPaginator>
+        {changingPage && <LoadingIndicator />}
         <ReactPaginate
           activeClassName="active"
           breakClassName="d-none"
@@ -67,7 +69,7 @@ class Paginator extends PureComponent {
           previousClassName="page-item"
           previousLinkClassName="page-link"
         />
-      </div>
+      </StyledPaginator>
     );
   }
 }
