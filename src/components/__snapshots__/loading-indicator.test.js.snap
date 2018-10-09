@@ -2,7 +2,7 @@
 
 exports[`renders centered indicator 1`] = `
 <div
-  class="wrapper_1uqy0lh"
+  class="loading-indicator__AlignCenter-sc-1hkz55d-0 kPaiDU"
 >
   <div
     style="fill: #333; height: 64px; width: 64px;"
