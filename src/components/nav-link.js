@@ -1,13 +1,14 @@
 import _ from 'lodash';
+import { withRouter } from 'react-router';
 import { NavItem, NavLink as BootstrapNavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Link from './link';
 
-const NavLink = ({ children, currentUrl, onClick, url }) => (
-  <NavItem active={_.isString(url) && currentUrl.startsWith(url)}>
-    <BootstrapNavLink href={url} onClick={onClick} tag={Link}>
+const NavLink = ({ children, onClick, href, location: { pathname } }) => (
+  <NavItem active={_.isString(href) && pathname.startsWith(href)}>
+    <BootstrapNavLink href={href} onClick={onClick} tag={Link}>
       {children}
     </BootstrapNavLink>
   </NavItem>
@@ -15,14 +16,15 @@ const NavLink = ({ children, currentUrl, onClick, url }) => (
 
 NavLink.propTypes = {
   children: PropTypes.node.isRequired,
-  currentUrl: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  location: PropTypes.shape({ pathname: PropTypes.string.isRequired })
+    .isRequired,
   onClick: PropTypes.func,
-  url: PropTypes.string,
 };
 
 NavLink.defaultProps = {
+  href: undefined,
   onClick: undefined,
-  url: undefined,
 };
 
-export default NavLink;
+export default withRouter(NavLink);

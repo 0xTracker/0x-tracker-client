@@ -10,9 +10,7 @@ afterEach(() => {
 
 it('should render with url', () => {
   const { container } = renderWithRouter(
-    <NavLink currentUrl="/" url="/trades/">
-      Trades
-    </NavLink>,
+    <NavLink href="/trades/">Trades</NavLink>,
   );
 
   expect(container.firstChild).toMatchSnapshot();
@@ -20,9 +18,8 @@ it('should render with url', () => {
 
 it('should render with active class when url matches current url', () => {
   const { container } = renderWithRouter(
-    <NavLink currentUrl="/relayers" url="/relayers">
-      Relayers
-    </NavLink>,
+    <NavLink href="/relayers">Relayers</NavLink>,
+    { route: '/relayers' },
   );
 
   expect(container.firstChild).toHaveClass('active');
@@ -31,9 +28,7 @@ it('should render with active class when url matches current url', () => {
 it('should call onClick handler when link is clicked', () => {
   const handleClick = jest.fn();
   const { getByText } = renderWithRouter(
-    <NavLink currentUrl="/relayers" onClick={handleClick}>
-      Relayers
-    </NavLink>,
+    <NavLink onClick={handleClick}>Relayers</NavLink>,
   );
 
   fireEvent.click(getByText('Relayers'));
