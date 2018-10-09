@@ -1,42 +1,41 @@
-import { StyleSheet, css } from 'aphrodite';
 import { getYear } from 'date-fns';
+import { Col, Row } from 'reactstrap';
 import React from 'react';
+import styled from 'styled-components';
 
+import { colors } from '../styles/constants';
 import Container from './container';
 import Link from './link';
 
-const styles = StyleSheet.create({
-  container: {
-    background: '#4e4e4e',
-    color: '#c3c1c1',
-    padding: '30px',
-  },
-  link: {
-    color: '#fff',
-    textDecoration: 'none',
-    ':hover': {
-      textDecoration: 'underline',
-    },
-  },
-});
+const StyledFooter = styled.div`
+  background: ${colors.tundora};
+  color: ${colors.silver};
+  padding: 30px;
+`;
+
+const FooterLink = styled(Link)`
+  color: ${colors.white};
+  text-decoration: none;
+
+  &:hover {
+    color: ${colors.white};
+    text-decoration: underline;
+  }
+`;
 
 const Footer = () => (
-  <footer className={css(styles.container)}>
+  <StyledFooter>
     <Container>
-      <div className="row">
-        <div className="col-6">
-          Copyright &copy; 0x Tracker {getYear(new Date())}
-        </div>
-        <div className="col-6 text-right">
+      <Row>
+        <Col xs={6}>Copyright &copy; 0x Tracker {getYear(new Date())}</Col>
+        <Col className="text-right" xs={6}>
           Built by{' '}
-          <Link className={css(styles.link)} href="https://github.com/cbovis">
-            @cbovis
-          </Link>{' '}
-          in Melbourne Australia 🐨
-        </div>
-      </div>
+          <FooterLink href="https://github.com/cbovis">@cbovis</FooterLink> in
+          Melbourne Australia 🐨
+        </Col>
+      </Row>
     </Container>
-  </footer>
+  </StyledFooter>
 );
 
 export default Footer;
