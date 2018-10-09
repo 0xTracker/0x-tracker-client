@@ -7,6 +7,7 @@ import { colors } from '../styles/constants';
 
 const linkStyles = css`
   color: ${colors.moodyBlue};
+  cursor: pointer;
 
   &:hover {
     color: ${colors.moodyBlue};

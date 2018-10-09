@@ -12,7 +12,7 @@ exports[`should render with items 1`] = `
       class="breadcrumb-item"
     >
       <a
-        class="link__StyledInternalLink-sc-1m1n17q-1 fOjWaW"
+        class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
         href="/"
       >
         Home
@@ -22,7 +22,7 @@ exports[`should render with items 1`] = `
       class="breadcrumb-item"
     >
       <a
-        class="link__StyledInternalLink-sc-1m1n17q-1 fOjWaW"
+        class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
         href="/tokens"
       >
         Tokens
