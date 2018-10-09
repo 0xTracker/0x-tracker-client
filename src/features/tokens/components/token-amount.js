@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import buildTokenUrl from '../util/build-token-url';
 import formatToken from '../../../util/format-token';
+import Link from '../../../components/link';
 
 const TokenAmount = ({ amount, token }) =>
   amount === null ? (
@@ -11,7 +11,7 @@ const TokenAmount = ({ amount, token }) =>
   ) : (
     <span title={`${amount} ${token.symbol}`}>
       {formatToken(amount)}{' '}
-      <Link to={buildTokenUrl(token)}>{token.symbol}</Link>
+      <Link href={buildTokenUrl(token)}>{token.symbol}</Link>
     </span>
   );
 

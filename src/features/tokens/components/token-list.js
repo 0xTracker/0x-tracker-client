@@ -2,7 +2,6 @@ import _ from 'lodash';
 import { compose } from 'recompose';
 import { chunk, get, flow } from 'lodash/fp';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { css, StyleSheet } from 'aphrodite';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
@@ -15,6 +14,7 @@ import buildFillUrl from '../../fills/util/build-fill-url';
 import buildTokenUrl from '../util/build-token-url';
 import formatDate from '../../../util/format-date';
 import formatToken from '../../../util/format-token';
+import Link from '../../../components/link';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import Paginator from '../../../components/paginator';
@@ -143,7 +143,7 @@ class TokenList extends PureComponent {
                   )}
                 </td>
                 <td width="99%">
-                  <Link to={buildTokenUrl(token)}>{token.name}</Link>
+                  <Link href={buildTokenUrl(token)}>{token.name}</Link>
                   <br />
                   {token.symbol}
                 </td>
@@ -152,7 +152,7 @@ class TokenList extends PureComponent {
                   !_.isEmpty(token.price.lastTrade) ? (
                     <Link
                       className={css(styles.lastTrade)}
-                      to={buildFillUrl(token.price.lastTrade.id)}
+                      href={buildFillUrl(token.price.lastTrade.id)}
                     >
                       <LocalisedAmount
                         amount={token.price.lastPrice[BASE_CURRENCY]}

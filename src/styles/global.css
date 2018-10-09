@@ -76,12 +76,6 @@ h4:not(.card-title) {
   background-color: #f4f4f4;
 }
 
-a,
-a:hover {
-  color: #7a68d2;
-  cursor: pointer;
-}
-
 .pagination {
   margin: 0;
   padding: 0;

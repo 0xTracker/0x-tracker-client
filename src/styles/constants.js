@@ -5,4 +5,11 @@ const breakpoints = {
   xl: 1200,
 };
 
-export { breakpoints };
+const colors = {
+  moodyBlue: '#7a68d2',
+  silver: '#c0c0c0',
+  tundora: '#4e4e4e',
+  white: '#fff',
+};
+
+export { breakpoints, colors };
