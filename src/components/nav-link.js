@@ -1,21 +1,16 @@
 import _ from 'lodash';
-import classNames from 'classnames';
+import { NavItem, NavLink as BootstrapNavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import Link from './link';
 
 const NavLink = ({ children, currentUrl, onClick, url }) => (
-  <li
-    className={classNames({
-      'nav-item': true,
-      active: _.isString(url) && currentUrl.startsWith(url),
-    })}
-  >
-    <Link className="nav-link" href={url} onClick={onClick}>
+  <NavItem active={_.isString(url) && currentUrl.startsWith(url)}>
+    <BootstrapNavLink href={url} onClick={onClick} tag={Link}>
       {children}
-    </Link>
-  </li>
+    </BootstrapNavLink>
+  </NavItem>
 );
 
 NavLink.propTypes = {
