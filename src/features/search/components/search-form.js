@@ -1,29 +1,34 @@
 import _ from 'lodash';
-import { css, StyleSheet } from 'aphrodite';
+import { Button, Form, Input } from 'reactstrap';
 import { withRouter } from 'react-router';
-import classNames from 'classnames';
 import IoSearch from 'react-icons/lib/io/search';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
+import styled from 'styled-components';
 
 import buildSearchUrl from '../util/build-search-url';
 
-const styles = StyleSheet.create({
-  button: {
-    borderTopLeftRadius: 0,
-    borderBottomLeftRadius: 0,
-    height: '34px',
-  },
-  input: {
-    border: 'none',
-    borderBottomRightRadius: 0,
-    borderTopRightRadius: 0,
-    height: '34px',
-    fontSize: '14px',
-    padding: '0 0.7rem',
-    width: '300px',
-  },
-});
+const SearchInput = styled(Input)`
+  && {
+    border: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    height: 34px;
+    font-size: 14px;
+    padding: 0 0.7rem;
+    width: 300px;
+  }
+`;
+
+const SearchButton = styled(Button).attrs({
+  color: 'secondary',
+  type: 'submit',
+})`
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  height: 34px;
+  line-height: 1;
+`;
 
 class SearchForm extends PureComponent {
   constructor() {
@@ -53,29 +58,19 @@ class SearchForm extends PureComponent {
     const { searchQuery } = this.state;
 
     return (
-      <form className="form-inline" method="get" onSubmit={this.handleSubmit}>
-        <input
+      <Form inline onSubmit={this.handleSubmit}>
+        <SearchInput
           aria-label="Search"
-          className={classNames('form-control', css(styles.input))}
           onChange={this.handleSearchQueryChange}
           placeholder="Order Hash / Tx Hash / Maker / Taker"
           required
           type="search"
           value={searchQuery}
         />
-        <button
-          className={classNames(
-            'btn',
-            'btn-secondary',
-            'btn-icon',
-            css(styles.button),
-          )}
-          onClick={this.handleSubmit}
-          type="submit"
-        >
+        <SearchButton onClick={this.handleSubmit}>
           <IoSearch />
-        </button>
-      </form>
+        </SearchButton>
+      </Form>
     );
   }
 }
