@@ -2,11 +2,11 @@ import _ from 'lodash';
 import { compose } from 'recompose';
 import { chunk, get, flow } from 'lodash/fp';
 import { connect } from 'react-redux';
-import { css, StyleSheet } from 'aphrodite';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import Scroll from 'react-scroll';
+import styled from 'styled-components';
 
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { TIME_PERIOD, URL, DATE_FORMAT } from '../../../constants';
@@ -27,12 +27,14 @@ import withConversionRate from '../../currencies/components/with-conversion-rate
 
 const DEFAULT_PERIOD = TIME_PERIOD.DAY;
 
-const styles = StyleSheet.create({
-  lastTrade: {
-    color: 'inherit',
-    textDecoration: 'none',
-  },
-});
+const LastTradeLink = styled(Link)`
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
 
 class TokenList extends PureComponent {
   constructor() {
@@ -150,8 +152,7 @@ class TokenList extends PureComponent {
                 <td className="align-middle text-right">
                   {_.has(token, 'price.lastTrade') &&
                   !_.isEmpty(token.price.lastTrade) ? (
-                    <Link
-                      className={css(styles.lastTrade)}
+                    <LastTradeLink
                       href={buildFillUrl(token.price.lastTrade.id)}
                     >
                       <LocalisedAmount
@@ -165,7 +166,7 @@ class TokenList extends PureComponent {
                         )}{' '}
                         ago
                       </small>
-                    </Link>
+                    </LastTradeLink>
                   ) : (
                     '-'
                   )}
