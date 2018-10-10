@@ -32,16 +32,6 @@ h4:not(.card-title) {
   margin: 0;
 }
 
-.content {
-  flex: 1;
-  padding-bottom: 20px;
-  padding-top: 20px;
-}
-
-.top-charts {
-  margin-bottom: 20px;
-}
-
 .table td {
   border-bottom: 1px solid #ebebeb;
   padding: 7px;
@@ -114,51 +104,6 @@ h4:not(.card-title) {
   color: #c6c6c6;
 }
 
-.token-volume,
-.historical-volume {
-  background: #f4f4f4;
-  display: flex;
-  flex-wrap: wrap;
-  height: 300px;
-}
-
-.token-volume h1,
-.historical-volume h1 {
-  background-color: #6ea3a1;
-  border-bottom: 4px solid #537c7a;
-  color: white;
-  padding: 0 20px;
-  font-size: 1em;
-  text-align: center;
-  width: 100%;
-  flex-grow: 0;
-  flex-shrink: 1;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.token-volume .inner,
-.historical-volume .inner {
-  width: 0;
-  margin: 20px;
-  flex-grow: 1;
-}
-
-.historical-volume {
-  flex-grow: 1;
-  flex-shrink: 1;
-}
-
-.spinner {
-  margin: 0px auto;
-}
-
-.card-header a {
-  color: currentColor;
-}
-
 .card-header .nav-tabs .nav-link:hover:not(.active) {
   border-color: transparent;
 }
@@ -180,15 +125,6 @@ h4:not(.card-title) {
 .fill-details dd {
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.btn-icon {
-  line-height: 1;
-}
-
-.input-group,
-.page-item.active .page-link {
-  z-index: 0;
 }
 
 /*Modal*/
