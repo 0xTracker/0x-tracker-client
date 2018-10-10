@@ -100,7 +100,11 @@ NetworkVolumeChart.propTypes = {
   data: PropTypes.array.isRequired,
   displayCurrency: PropTypes.string.isRequired,
   period: sharedPropTypes.timePeriod.isRequired,
-  type: PropTypes.string.isRequired,
+  type: PropTypes.string,
+};
+
+NetworkVolumeChart.defaultProps = {
+  type: 'volume',
 };
 
 export default NetworkVolumeChart;

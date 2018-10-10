@@ -20,18 +20,6 @@ import TokenVolumeTooltip from './token-volume-tooltip';
 const formatAxisDate = date => formatDate(date, 'MMM DD');
 
 class TokenVolumeChart extends PureComponent {
-  static propTypes = {
-    data: PropTypes.arrayOf(
-      PropTypes.shape({
-        date: PropTypes.object.isRequired,
-        volume: PropTypes.number.isRequired,
-      }),
-    ).isRequired,
-    displayCurrency: PropTypes.string.isRequired,
-    period: sharedPropTypes.timePeriod.isRequired,
-    token: PropTypes.string.isRequired,
-  };
-
   constructor() {
     super();
 
@@ -100,5 +88,17 @@ class TokenVolumeChart extends PureComponent {
     );
   }
 }
+
+TokenVolumeChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.object.isRequired,
+      volume: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+  displayCurrency: PropTypes.string.isRequired,
+  period: sharedPropTypes.timePeriod.isRequired,
+  token: PropTypes.string.isRequired,
+};
 
 export default TokenVolumeChart;
