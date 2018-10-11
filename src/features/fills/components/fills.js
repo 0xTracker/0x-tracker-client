@@ -1,36 +1,21 @@
 import _ from 'lodash';
 import { compact, flow, join } from 'lodash/fp';
 import { connect } from 'react-redux';
-import { StyleSheet, css } from 'aphrodite';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Scroll from 'react-scroll';
+import styled from 'styled-components';
 
 import FillList from './fill-list';
 import LoadingIndicator from '../../../components/loading-indicator';
 import Paginator from '../../../components/paginator';
 
-const styles = StyleSheet.create({
-  footer: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    margin: '15px 0 0 0',
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    margin: '0 0 15px 0',
-    alignItems: 'center',
-  },
-  paginator: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  spinner: {
-    marginRight: '15px',
-  },
-});
+const FillsHeader = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 15px 0;
+`;
 
 class Fills extends PureComponent {
   constructor() {
@@ -125,9 +110,9 @@ class Fills extends PureComponent {
     const { changingPage, page, pageCount, fills, resultCount } = this.state;
 
     return (
-      <div>
+      <React.Fragment>
         {_.isString(heading) && (
-          <div className={css(styles.header)}>
+          <FillsHeader>
             <h4>{heading}</h4>
             <Paginator
               changingPage={changingPage}
@@ -135,7 +120,7 @@ class Fills extends PureComponent {
               page={page}
               pageCount={pageCount}
             />
-          </div>
+          </FillsHeader>
         )}
         {fills !== undefined &&
           _.has(filter, 'address') && (
@@ -157,7 +142,7 @@ class Fills extends PureComponent {
           page={page}
           pageCount={pageCount}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }

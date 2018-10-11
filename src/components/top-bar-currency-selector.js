@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
+import { media } from '../styles/util';
 import CurrencySelector from '../features/currencies/components/currency-selector';
 
 const TopBarCurrencySelector = styled(CurrencySelector)`
+  display: none;
   width: 220px;
+
+  ${media.lg`
+    display: block;
+  `};
 
   && &__control {
     background-color: transparent;

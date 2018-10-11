@@ -61,7 +61,7 @@ class ArticleList extends Component {
     const chunkedArticles = _.chunk(articles, deckSize);
 
     return (
-      <div>
+      <React.Fragment>
         <div className="mt-2 mb-4">
           <p className="lead">
             Keep up to date with the most important 0x ecosystem news and
@@ -93,7 +93,7 @@ class ArticleList extends Component {
             </Link>
           </p>
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }

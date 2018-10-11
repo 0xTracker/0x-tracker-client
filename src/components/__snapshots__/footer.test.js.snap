@@ -5,7 +5,7 @@ exports[`should render without props 1`] = `
   class="footer__StyledFooter-htpw4v-0 uuCzF"
 >
   <div
-    class="container_58zt44 container-fluid"
+    class="container__StyledContainer-cj53s7-0 eMKfDZ container-fluid"
   >
     <div
       class="row"

@@ -1,4 +1,5 @@
 const DotenvPlugin = require('dotenv-webpack');
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 
@@ -39,5 +40,7 @@ module.exports = merge(getConfig(ENVIRONMENT), {
     // Hot module reloading
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
+
+    new ErrorOverlayPlugin(),
   ],
 });
