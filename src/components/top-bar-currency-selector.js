@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
+import { media } from '../styles/util';
+import { colors } from '../styles/constants';
 import CurrencySelector from '../features/currencies/components/currency-selector';
 
 const TopBarCurrencySelector = styled(CurrencySelector)`
+  display: none;
   width: 220px;
+
+  ${media.lg`
+    display: block;
+  `};
 
   && &__control {
     background-color: transparent;
@@ -28,7 +35,7 @@ const TopBarCurrencySelector = styled(CurrencySelector)`
   }
 
   && &__menu {
-    background: #222;
+    background: ${colors.mineShaft};
     box-shadow: none;
     color: white;
     margin: 0;
@@ -37,12 +44,12 @@ const TopBarCurrencySelector = styled(CurrencySelector)`
   && &__option:hover,
   && &__option:active,
   && &__option--is-focused {
-    background: #666;
+    background: ${colors.scampi};
     cursor: pointer;
   }
 
   && &__option--is-selected {
-    background: #444;
+    background: ${colors.tuna};
   }
 `;
 

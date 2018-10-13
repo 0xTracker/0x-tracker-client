@@ -2,12 +2,11 @@ import _ from 'lodash';
 import { compose } from 'recompose';
 import { chunk, get, flow } from 'lodash/fp';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { css, StyleSheet } from 'aphrodite';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import Scroll from 'react-scroll';
+import styled from 'styled-components';
 
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { TIME_PERIOD, URL, DATE_FORMAT } from '../../../constants';
@@ -15,6 +14,7 @@ import buildFillUrl from '../../fills/util/build-fill-url';
 import buildTokenUrl from '../util/build-token-url';
 import formatDate from '../../../util/format-date';
 import formatToken from '../../../util/format-token';
+import Link from '../../../components/link';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import Paginator from '../../../components/paginator';
@@ -27,12 +27,14 @@ import withConversionRate from '../../currencies/components/with-conversion-rate
 
 const DEFAULT_PERIOD = TIME_PERIOD.DAY;
 
-const styles = StyleSheet.create({
-  lastTrade: {
-    color: 'inherit',
-    textDecoration: 'none',
-  },
-});
+const LastTradeLink = styled(Link)`
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
 
 class TokenList extends PureComponent {
   constructor() {
@@ -143,16 +145,15 @@ class TokenList extends PureComponent {
                   )}
                 </td>
                 <td width="99%">
-                  <Link to={buildTokenUrl(token)}>{token.name}</Link>
+                  <Link href={buildTokenUrl(token)}>{token.name}</Link>
                   <br />
                   {token.symbol}
                 </td>
                 <td className="align-middle text-right">
                   {_.has(token, 'price.lastTrade') &&
                   !_.isEmpty(token.price.lastTrade) ? (
-                    <Link
-                      className={css(styles.lastTrade)}
-                      to={buildFillUrl(token.price.lastTrade.id)}
+                    <LastTradeLink
+                      href={buildFillUrl(token.price.lastTrade.id)}
                     >
                       <LocalisedAmount
                         amount={token.price.lastPrice[BASE_CURRENCY]}
@@ -165,7 +166,7 @@ class TokenList extends PureComponent {
                         )}{' '}
                         ago
                       </small>
-                    </Link>
+                    </LastTradeLink>
                   ) : (
                     '-'
                   )}

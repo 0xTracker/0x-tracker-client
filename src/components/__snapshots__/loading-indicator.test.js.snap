@@ -2,10 +2,10 @@
 
 exports[`renders centered indicator 1`] = `
 <div
-  class="wrapper_1uqy0lh"
+  class="loading-indicator__AlignCenter-sc-1hkz55d-0 kPaiDU"
 >
   <div
-    style="fill: #333; height: 64px; width: 64px;"
+    style="fill: #363a40; height: 64px; width: 64px;"
   >
     <svg
       viewBox="0 0 32 32"
@@ -46,7 +46,7 @@ exports[`renders centered indicator 1`] = `
 
 exports[`renders cylon 1`] = `
 <div
-  style="fill: #333; height: 64px; width: 64px;"
+  style="fill: #363a40; height: 64px; width: 64px;"
 >
   <svg
     viewBox="0 0 32 32"
@@ -130,7 +130,7 @@ exports[`renders cylon 1`] = `
 
 exports[`renders spinner by default 1`] = `
 <div
-  style="fill: #333; height: 64px; width: 64px;"
+  style="fill: #363a40; height: 64px; width: 64px;"
 >
   <svg
     viewBox="0 0 32 32"

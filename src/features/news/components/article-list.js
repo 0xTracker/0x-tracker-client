@@ -1,13 +1,29 @@
 import _ from 'lodash';
 import { connect } from 'react-redux';
+import { Button } from 'reactstrap';
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
+import { colors } from '../../../styles/constants';
 import Article from './article';
 import callApi from '../../../util/call-api';
-import Link from '../../../components/link';
 import LoadingIndicator from '../../../components/loading-indicator';
+
+const LoadMoreButton = styled(Button).attrs({
+  block: true,
+  outline: true,
+  size: 'lg',
+})`
+  border-color: currentColor;
+  color: ${colors.tuna};
+
+  &:hover {
+    background-color: ${colors.tuna};
+    border-color: ${colors.tuna};
+  }
+`;
 
 class ArticleList extends Component {
   constructor() {
@@ -61,7 +77,7 @@ class ArticleList extends Component {
     const chunkedArticles = _.chunk(articles, deckSize);
 
     return (
-      <div>
+      <React.Fragment>
         <div className="mt-2 mb-4">
           <p className="lead">
             Keep up to date with the most important 0x ecosystem news and
@@ -84,16 +100,11 @@ class ArticleList extends Component {
           </div>
         ))}
         {page < pageCount && (
-          <p>
-            <Link
-              className="btn btn-outline-dark btn-lg btn-block"
-              onClick={this.handleLoadMore}
-            >
-              Load More Stories
-            </Link>
-          </p>
+          <LoadMoreButton onClick={this.handleLoadMore}>
+            Load More Stories
+          </LoadMoreButton>
         )}
-      </div>
+      </React.Fragment>
     );
   }
 }

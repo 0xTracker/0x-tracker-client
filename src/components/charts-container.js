@@ -1,32 +1,46 @@
-import { css, StyleSheet } from 'aphrodite';
-import classNames from 'classnames';
+import { Card, CardBody, CardHeader, Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
+import styled from 'styled-components';
 
-import Link from './link';
+import { colors } from '../styles/constants';
 
-const styles = StyleSheet.create({
-  activePeriod: {
-    backgroundColor: '#EBEBEB',
-    color: 'inherit',
-  },
-  header: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    paddingTop: '0.5rem',
-  },
-  periods: {
-    alignSelf: 'flex-end',
-    fontSize: '12px',
-    marginBottom: '-.2rem',
-  },
-  period: {
-    padding: '.2rem .7rem',
-  },
-  wrapper: {
-    borderRadius: 'none',
-  },
-});
+const StyledChartsContainer = styled(Card)`
+  border-radius: none;
+`;
+
+const ChartsContainerHeader = styled(CardHeader)`
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+`;
+
+const ChartsContainerBody = styled(CardBody)`
+  align-items: center;
+  display: flex;
+  height: ${({ chartsHeight }) => chartsHeight}px;
+  justify-content: center;
+`;
+
+const ChartLink = styled(NavLink)`
+  cursor: pointer;
+`;
+
+const PeriodLink = styled(NavLink)`
+  cursor: pointer;
+  padding: 0.2rem 0.7rem;
+
+  &&.active {
+    background-color: ${colors.gallery};
+    color: inherit;
+  }
+`;
+
+const Periods = styled(Nav).attrs({ pills: true })`
+  align-self: flex-end;
+  font-size: 12px;
+  margin-bottom: -0.2rem;
+`;
 
 class ChartsContainer extends PureComponent {
   constructor(props) {
@@ -44,74 +58,57 @@ class ChartsContainer extends PureComponent {
     const { charts, chartsHeight, periods } = this.props;
     const { selectedPeriod, selectedChart } = this.state;
 
-    const CardBody = charts.find(chart => chart.title === selectedChart)
-      .component;
-
-    const bodyProps = { period: selectedPeriod };
+    const Chart = charts.find(chart => chart.title === selectedChart).component;
+    const chartProps = { period: selectedPeriod };
 
     return (
-      <div className={classNames('card', css(styles.wrapper))}>
-        <div className={classNames('card-header', css(styles.header))}>
+      <StyledChartsContainer>
+        <ChartsContainerHeader>
           {charts.length === 1 ? (
             charts[0].title
           ) : (
-            <ul className="nav nav-tabs card-header-tabs">
+            <Nav card tabs>
               {charts.map(chart => (
-                <li className="nav-item" key={chart.title}>
-                  <Link
-                    className={classNames({
-                      'nav-link': true,
-                      active: selectedChart === chart.title,
-                    })}
+                <NavItem key={chart.title}>
+                  <ChartLink
+                    active={selectedChart === chart.title}
+                    // eslint-disable-next-line react/jsx-no-bind
                     onClick={() =>
                       this.setState({ selectedChart: chart.title })
                     }
                   >
                     {chart.title}
-                  </Link>
-                </li>
+                  </ChartLink>
+                </NavItem>
               ))}
-            </ul>
+            </Nav>
           )}
           {periods && (
-            <ul className={classNames('nav', 'nav-pills', css(styles.periods))}>
+            <Periods>
               {periods.map(period => (
-                <li className="nav-item" key={period.value}>
-                  <Link
-                    className={classNames({
-                      'nav-link': true,
-                      active: selectedPeriod === period.value,
-                      [css(styles.activePeriod)]:
-                        selectedPeriod === period.value,
-                      [css(styles.period)]: true,
-                    })}
+                <NavItem key={period.value}>
+                  <PeriodLink
+                    active={selectedPeriod === period.value}
+                    // eslint-disable-next-line react/jsx-no-bind
                     onClick={() =>
                       this.setState({ selectedPeriod: period.value })
                     }
                   >
                     {period.label}
-                  </Link>
-                </li>
+                  </PeriodLink>
+                </NavItem>
               ))}
-            </ul>
+            </Periods>
           )}
-        </div>
-        <div
-          className="card-body"
-          style={{
-            alignItems: 'center',
-            display: 'flex',
-            height: `${chartsHeight}px`,
-            justifyContent: 'center',
-          }}
-        >
-          {React.isValidElement(CardBody) ? (
-            React.cloneElement(CardBody, bodyProps)
+        </ChartsContainerHeader>
+        <ChartsContainerBody chartsHeight={chartsHeight}>
+          {React.isValidElement(Chart) ? (
+            React.cloneElement(Chart, chartProps)
           ) : (
-            <CardBody {...bodyProps} />
+            <Chart {...chartProps} />
           )}
-        </div>
-      </div>
+        </ChartsContainerBody>
+      </StyledChartsContainer>
     );
   }
 }

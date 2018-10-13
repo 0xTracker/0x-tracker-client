@@ -12,6 +12,7 @@ import { format as formatDate } from 'date-fns';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import { colors } from '../../../styles/constants';
 import formatCurrency from '../../../util/format-currency';
 import padMetrics from '../util/pad-metrics';
 import sharedPropTypes from '../../../prop-types';
@@ -20,18 +21,6 @@ import TokenVolumeTooltip from './token-volume-tooltip';
 const formatAxisDate = date => formatDate(date, 'MMM DD');
 
 class TokenVolumeChart extends PureComponent {
-  static propTypes = {
-    data: PropTypes.arrayOf(
-      PropTypes.shape({
-        date: PropTypes.object.isRequired,
-        volume: PropTypes.number.isRequired,
-      }),
-    ).isRequired,
-    displayCurrency: PropTypes.string.isRequired,
-    period: sharedPropTypes.timePeriod.isRequired,
-    token: PropTypes.string.isRequired,
-  };
-
   constructor() {
     super();
 
@@ -65,11 +54,11 @@ class TokenVolumeChart extends PureComponent {
           data={sanitizedData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
-          <CartesianGrid stroke="#f5f5f5" />
+          <CartesianGrid stroke={colors.wildSand} />
           <Area
             animationDuration={0}
             dataKey="volume"
-            fill="#99BEBD"
+            fill={colors.halfBaked}
             fillOpacity={1}
             stroke="none"
             type="monotone"
@@ -100,5 +89,17 @@ class TokenVolumeChart extends PureComponent {
     );
   }
 }
+
+TokenVolumeChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.object.isRequired,
+      volume: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
+  displayCurrency: PropTypes.string.isRequired,
+  period: sharedPropTypes.timePeriod.isRequired,
+  token: PropTypes.string.isRequired,
+};
 
 export default TokenVolumeChart;
