@@ -7,8 +7,6 @@ import StoryRouter from 'storybook-router';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'babel-polyfill';
 
-import '../src/styles/global.css';
-
 addDecorator(new StoryRouter());
 
 setOptions({

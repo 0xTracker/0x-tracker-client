@@ -1,10 +1,29 @@
 import { connect } from 'react-redux';
-import Modal from 'react-modal';
+import {
+  Button,
+  FormGroup,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from 'reactstrap';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
+import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
 import CurrencySelector from '../../currencies/components/currency-selector';
+
+const StyledModal = styled(Modal)`
+  .modal-content {
+    border: none;
+    border-radius: 0;
+  }
+
+  .modal-header {
+    background-color: ${colors.gallery};
+  }
+`;
 
 class SettingsDialog extends PureComponent {
   constructor() {
@@ -22,8 +41,9 @@ class SettingsDialog extends PureComponent {
 
     if (currency !== null) {
       setCurrency(currency);
-      handleClose();
     }
+
+    handleClose();
   }
 
   handleChangeCurrency(currency) {
@@ -34,65 +54,30 @@ class SettingsDialog extends PureComponent {
     const { handleClose, isOpen } = this.props;
 
     return (
-      <Modal
-        isOpen={isOpen}
-        // eslint-disable-next-line react/forbid-component-props
-        style={{
-          content: {
-            backgroundColor: colors.wildSand,
-            border: '0',
-            borderRadius: '7px',
-            bottom: 'auto',
-            height: 'auto',
-            left: '50%',
-            padding: '0',
-            position: 'fixed',
-            right: 'auto',
-            top: '50%',
-            transform: 'translate(-50%,-50%)',
-            width: '300px',
-          },
-          overlay: { backgroundColor: 'rgba(51, 51, 51, 0.8)' },
-        }}
-      >
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title">Settings</h5>
-              <button
-                aria-label="Close"
-                className="close"
-                onClick={handleClose}
-                type="button"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div className="modal-body">
-              <div className="form-group">
-                <label htmlFor="inputEmail3">Base Currency</label>
-                <CurrencySelector onChange={this.handleChangeCurrency} />
-              </div>
-            </div>
-            <div className="modal-footer">
-              <button
-                className="btn btn-primary"
-                onClick={this.handleSave}
-                type="button"
-              >
-                Save changes
-              </button>
-              <button
-                className="btn btn-secondary"
-                onClick={handleClose}
-                type="button"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </Modal>
+      <React.Fragment>
+        {/* eslint-disable-next-line react/jsx-handler-names */}
+        <StyledModal centered isOpen={isOpen} toggle={this.handleClose}>
+          {/* eslint-disable-next-line react/jsx-handler-names */}
+          <ModalHeader toggle={this.handleClose}>Settings</ModalHeader>
+          <ModalBody>
+            <FormGroup>
+              <label htmlFor="displayCurrency">Display Currency</label>
+              <CurrencySelector
+                name="displayCurrency"
+                onChange={this.handleChangeCurrency}
+              />
+            </FormGroup>
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.handleSave}>
+              Save changes
+            </Button>{' '}
+            <Button color="secondary" onClick={handleClose}>
+              Close
+            </Button>
+          </ModalFooter>
+        </StyledModal>
+      </React.Fragment>
     );
   }
 }

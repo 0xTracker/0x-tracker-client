@@ -101,6 +101,27 @@ const GlobalStyles = createGlobalStyle`
   .card-header .nav-tabs .nav-link:hover:not(.active) {
     border-color: transparent;
   }
+
+  .text-muted a {
+    color: currentColor;
+  }
+
+  .modal-backdrop.show {
+    opacity: 0.8;
+  }
+
+  .btn-primary {
+    background-color: ${colors.blueMarguerite};
+    border-color: ${colors.blueMarguerite};
+
+    &&&& {
+      &:hover,
+      &:active {
+        background-color: ${colors.scampi};
+        border-color: ${colors.scampi};
+      }
+    }
+  }
 `;
 
 export default GlobalStyles;

@@ -17,6 +17,10 @@ const FillsHeader = styled.div`
   margin: 0 0 15px 0;
 `;
 
+const FillsHeading = styled.h4`
+  margin: 0;
+`;
+
 class Fills extends PureComponent {
   constructor() {
     super();
@@ -113,7 +117,7 @@ class Fills extends PureComponent {
       <React.Fragment>
         {_.isString(heading) && (
           <FillsHeader>
-            <h4>{heading}</h4>
+            <FillsHeading>{heading}</FillsHeading>
             <Paginator
               changingPage={changingPage}
               onPageChange={this.handlePageChange}

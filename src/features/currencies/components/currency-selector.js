@@ -24,7 +24,7 @@ class CurrencySelector extends PureComponent {
   }
 
   render() {
-    const { className, defaultValue } = this.props;
+    const { className, defaultValue, name } = this.props;
 
     return (
       <Select
@@ -32,8 +32,10 @@ class CurrencySelector extends PureComponent {
         classNamePrefix={className}
         controlShouldRenderValue
         defaultValue={OPTIONS.find(option => option.value === defaultValue)}
+        inputId={name}
         isClearable={false}
         isSearchable={false}
+        name={name}
         onChange={this.handleChange}
         options={OPTIONS}
       />
@@ -44,6 +46,7 @@ class CurrencySelector extends PureComponent {
 CurrencySelector.propTypes = {
   className: PropTypes.string,
   defaultValue: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

@@ -58,7 +58,9 @@ class Nav extends Component {
 
   toggleSettings() {
     this.handleClickedLink();
-    this.setState(prevState => ({ settingsVisible: !prevState.showSettings }));
+    this.setState(prevState => ({
+      settingsVisible: !prevState.settingsVisible,
+    }));
   }
 
   render() {

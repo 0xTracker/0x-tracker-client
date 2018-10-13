@@ -10,8 +10,6 @@ import Router from './router';
 import Routes from './routes';
 import TopBarContainer from './top-bar-container';
 
-import '../styles/global.css';
-
 const App = () => (
   <Router>
     <GlobalStyles />

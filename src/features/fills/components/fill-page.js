@@ -2,14 +2,17 @@ import _ from 'lodash';
 import { mapProps } from 'recompose';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
+import styled from 'styled-components';
 
 import { DATE_FORMAT, URL, ZRX_TOKEN } from '../../../constants';
+import { media } from '../../../styles/util';
 import buildFillUrl from '../util/build-fill-url';
 import buildSearchUrl from '../../search/util/build-search-url';
 import callApi from '../../../util/call-api';
 import ContentHeader from '../../../components/content-header';
 import ContentSection from '../../../components/content-section';
 import EthereumAddressLink from '../../ethereum/components/ethereum-address-link';
+import FillDetail from './fill-detail';
 import FillRelayerLink from './fill-relayer-link';
 import FillStatusLabel from './fill-status-label';
 import formatDate from '../../../util/format-date';
@@ -18,6 +21,19 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import TokenAmount from '../../tokens/components/token-amount';
 import TokenLink from '../../tokens/components/token-link';
+
+const FillDetailList = styled.dl`
+  margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  ${media.md`
+    display: flex;
+    flex-wrap: wrap;
+  `};
+`;
 
 class FillPage extends PureComponent {
   constructor() {
@@ -64,125 +80,93 @@ class FillPage extends PureComponent {
         title="Fill Details"
       />,
       <ContentSection key="content">
-        <div className="fill-details">
-          <dl>
-            <dt>Transaction Hash</dt>
-            <dd>
-              <Link href={`https://etherscan.io/tx/${fill.transactionHash}`}>
-                {fill.transactionHash}
-              </Link>
-            </dd>
+        <FillDetailList>
+          <FillDetail title="Transaction Hash">
+            <Link href={`https://etherscan.io/tx/${fill.transactionHash}`}>
+              {fill.transactionHash}
+            </Link>
+          </FillDetail>
+          <FillDetail title="Order Hash">
+            <Link href={buildSearchUrl(fill.orderHash)}>{fill.orderHash}</Link>
+          </FillDetail>
+          <FillDetail title="Date">
+            {formatDate(fill.date, DATE_FORMAT.FULL)}
+          </FillDetail>
+          <FillDetail title="Relayer">
+            <FillRelayerLink fill={fill} />
+          </FillDetail>
+          <FillDetail title="Status">
+            <FillStatusLabel status={fill.status} />
+          </FillDetail>
+          <FillDetail title="0x Protocol">v{fill.protocolVersion}</FillDetail>
+        </FillDetailList>
+        <FillDetailList>
+          <FillDetail title="Trade">
+            <TokenAmount amount={fill.makerAmount} token={fill.makerToken} />{' '}
+            &#8651;{' '}
+            <TokenAmount amount={fill.takerAmount} token={fill.takerToken} />
+          </FillDetail>
 
-            <dt>Order Hash</dt>
-            <dd>
-              <Link href={buildSearchUrl(fill.orderHash)}>
-                {fill.orderHash}
-              </Link>
-            </dd>
+          {_.has(fill.amount, 'USD') && (
+            <FillDetail title="Value">
+              <LocalisedAmount amount={fill.amount.USD} />
+            </FillDetail>
+          )}
+        </FillDetailList>
+        <FillDetailList>
+          <FillDetail title="Maker">
+            <EthereumAddressLink address={fill.makerAddress} />
+          </FillDetail>
+          <FillDetail title="Maker Token">
+            <TokenLink token={fill.makerToken} />
+          </FillDetail>
 
-            <dt>Date</dt>
-            <dd>{formatDate(fill.date, DATE_FORMAT.FULL)}</dd>
+          {_.has(fill, 'makerPrice.USD') && (
+            <FillDetail title="Maker Price">
+              <LocalisedAmount amount={fill.makerPrice.USD} />
+            </FillDetail>
+          )}
+        </FillDetailList>
+        <FillDetailList>
+          <FillDetail title="Taker">
+            <EthereumAddressLink address={fill.takerAddress} />
+          </FillDetail>
+          <FillDetail title="Taker Token">
+            <TokenLink token={fill.takerToken} />
+          </FillDetail>
 
-            <dt>Relayer</dt>
-            <dd>
-              <FillRelayerLink fill={fill} />
-            </dd>
-
-            <dt>Status</dt>
-            <dd>
-              <FillStatusLabel status={fill.status} />
-            </dd>
-
-            <dt>0x Protocol</dt>
-            <dd>v{fill.protocolVersion}</dd>
-
-            <dt className="mt-4">Trade</dt>
-            <dd className="mt-md-4">
-              <TokenAmount amount={fill.makerAmount} token={fill.makerToken} />{' '}
-              &#8651;{' '}
-              <TokenAmount amount={fill.takerAmount} token={fill.takerToken} />
-            </dd>
-
-            {_.has(fill.amount, 'USD') && (
-              <React.Fragment>
-                <dt>Value</dt>
-                <dd>
-                  <LocalisedAmount amount={fill.amount.USD} />
-                </dd>
-              </React.Fragment>
+          {_.has(fill, 'takerPrice.USD') && (
+            <FillDetail title="Taker Price">
+              <LocalisedAmount amount={fill.takerPrice.USD} />
+            </FillDetail>
+          )}
+        </FillDetailList>
+        <FillDetailList>
+          <FillDetail title="Maker Fee">
+            {fill.makerFee.ZRX !== '0' ? (
+              <TokenAmount amount={fill.makerFee.ZRX} token={ZRX_TOKEN} />
+            ) : (
+              'None'
             )}
-
-            <dt className="mt-4">Maker</dt>
-            <dd className="mt-md-4">
-              <EthereumAddressLink address={fill.makerAddress} />
-            </dd>
-
-            <dt>Maker Token</dt>
-            <dd>
-              <TokenLink token={fill.makerToken} />
-            </dd>
-
-            {_.has(fill, 'makerPrice.USD') && (
-              <React.Fragment>
-                <dt>Maker Price</dt>
-                <dd>
-                  <LocalisedAmount amount={fill.makerPrice.USD} />
-                </dd>
-              </React.Fragment>
+          </FillDetail>
+          <FillDetail title="Taker Fee">
+            {fill.takerFee.ZRX !== '0' ? (
+              <TokenAmount amount={fill.takerFee.ZRX} token={ZRX_TOKEN} />
+            ) : (
+              'None'
             )}
+          </FillDetail>
 
-            <dt className="mt-4">Taker</dt>
-            <dd className="mt-md-4">
-              <EthereumAddressLink address={fill.takerAddress} />
-            </dd>
+          {fill.totalFees.ZRX !== '0' && (
+            <FillDetail title="Total Fees">
+              <TokenAmount amount={fill.totalFees.ZRX} token={ZRX_TOKEN} />
+            </FillDetail>
+          )}
 
-            <dt>Taker Token</dt>
-            <dd>
-              <TokenLink token={fill.takerToken} />
-            </dd>
-
-            {_.has(fill, 'takerPrice.USD') && (
-              <React.Fragment>
-                <dt>Taker Price</dt>
-                <dd>
-                  <LocalisedAmount amount={fill.takerPrice.USD} />
-                </dd>
-              </React.Fragment>
-            )}
-
-            <dt className="mt-4">Maker Fee</dt>
-            <dd className="mt-md-4">
-              {fill.makerFee.ZRX !== '0' ? (
-                <TokenAmount amount={fill.makerFee.ZRX} token={ZRX_TOKEN} />
-              ) : (
-                'None'
-              )}
-            </dd>
-
-            <dt>Taker Fee</dt>
-            <dd>
-              {fill.takerFee.ZRX !== '0' ? (
-                <TokenAmount amount={fill.takerFee.ZRX} token={ZRX_TOKEN} />
-              ) : (
-                'None'
-              )}
-            </dd>
-
-            {fill.totalFees.ZRX !== '0' && (
-              <React.Fragment>
-                <dt>Total Fees</dt>
-                <dd>
-                  <TokenAmount amount={fill.totalFees.ZRX} token={ZRX_TOKEN} />
-                </dd>
-              </React.Fragment>
-            )}
-
-            <dt>Fee Recipient</dt>
-            <dd>
-              <EthereumAddressLink address={fill.feeRecipient} />
-            </dd>
-          </dl>
-        </div>
+          <FillDetail title="Fee Recipient">
+            <EthereumAddressLink address={fill.feeRecipient} />
+          </FillDetail>
+        </FillDetailList>
       </ContentSection>,
     ];
   }

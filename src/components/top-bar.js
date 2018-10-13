@@ -78,7 +78,7 @@ const TopBar = ({
               ? numeral(tradeCount).format('0,0')
               : loadingIndicator}
           </TopBarStat>
-          <Visible above="md">
+          <Visible above="sm">
             <TopBarStat title="ZRX Price">
               {zrxPrice === undefined ? (
                 loadingIndicator
