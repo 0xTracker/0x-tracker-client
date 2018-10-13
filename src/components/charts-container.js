@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
+import { colors } from '../styles/constants';
+
 const StyledChartsContainer = styled(Card)`
   border-radius: none;
 `;
@@ -29,7 +31,7 @@ const PeriodLink = styled(NavLink)`
   padding: 0.2rem 0.7rem;
 
   &&.active {
-    background-color: #ebebeb;
+    background-color: ${colors.gallery};
     color: inherit;
   }
 `;

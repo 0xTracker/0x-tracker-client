@@ -3,6 +3,8 @@ import React from 'react';
 import ReactLoading from 'react-loading';
 import styled from 'styled-components';
 
+import { colors } from '../styles/constants';
+
 const AlignCenter = styled.div`
   align-items: center;
   display: flex;
@@ -13,7 +15,7 @@ const AlignCenter = styled.div`
 const LoadingIndicator = ({ color, isCentered, size, type }) => {
   const indicator = (
     <ReactLoading
-      color={color === 'light' ? '#fff' : '#333'}
+      color={color === 'light' ? colors.white : colors.tuna}
       delay={0}
       height={size === 'small' ? 22 : undefined}
       type={type === 'cylon' ? 'cylon' : 'spin'}

@@ -12,6 +12,7 @@ import { format as formatDate } from 'date-fns';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import { colors } from '../../../styles/constants';
 import formatCurrency from '../../../util/format-currency';
 import padMetrics from '../util/pad-metrics';
 import sharedPropTypes from '../../../prop-types';
@@ -53,11 +54,11 @@ class TokenVolumeChart extends PureComponent {
           data={sanitizedData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
-          <CartesianGrid stroke="#f5f5f5" />
+          <CartesianGrid stroke={colors.wildSand} />
           <Area
             animationDuration={0}
             dataKey="volume"
-            fill="#99BEBD"
+            fill={colors.halfBaked}
             fillOpacity={1}
             stroke="none"
             type="monotone"

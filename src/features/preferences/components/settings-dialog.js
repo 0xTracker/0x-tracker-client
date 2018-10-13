@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
+import { colors } from '../../../styles/constants';
 import CurrencySelector from '../../currencies/components/currency-selector';
 
 class SettingsDialog extends PureComponent {
@@ -38,7 +39,7 @@ class SettingsDialog extends PureComponent {
         // eslint-disable-next-line react/forbid-component-props
         style={{
           content: {
-            backgroundColor: '#f4f4f4',
+            backgroundColor: colors.wildSand,
             border: '0',
             borderRadius: '7px',
             bottom: 'auto',

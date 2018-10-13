@@ -2,9 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import { colors } from '../styles/constants';
+
 const ChartTooltipWrapper = styled.div`
-  background-color: #fff;
-  border: 1px solid #ebebeb;
+  background-color: ${colors.white};
+  border: 1px solid ${colors.gallery};
   padding: 1rem;
   text-align: left;
 `;

@@ -12,6 +12,7 @@ import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
+import { colors } from '../../../styles/constants';
 import formatCurrency from '../../../util/format-currency';
 import NetworkVolumeTooltip from './network-volume-tooltip';
 import padMetrics from '../util/pad-metrics';
@@ -60,11 +61,11 @@ class NetworkVolumeChart extends PureComponent {
           data={sanitizedData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
-          <CartesianGrid stroke="#f5f5f5" />
+          <CartesianGrid stroke={colors.wildSand} />
           <Area
             animationDuration={0}
             dataKey={type}
-            fill="#99BEBD"
+            fill={colors.halfBaked}
             fillOpacity={1}
             stroke="none"
             type="monotone"

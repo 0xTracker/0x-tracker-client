@@ -8,7 +8,7 @@ import Container from './container';
 import Link from './link';
 
 const StyledFooter = styled.div`
-  background: ${colors.tundora};
+  background: ${colors.tuna};
   color: ${colors.silver};
   padding: 30px;
 `;

@@ -4,6 +4,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import Footer from './footer';
+import GlobalStyles from './global-styles';
 import Nav from './nav';
 import Router from './router';
 import Routes from './routes';
@@ -13,6 +14,7 @@ import '../styles/global.css';
 
 const App = () => (
   <Router>
+    <GlobalStyles />
     <TopBarContainer />
     <Nav />
     <Routes />

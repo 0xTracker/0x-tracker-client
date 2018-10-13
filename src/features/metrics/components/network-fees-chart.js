@@ -5,13 +5,13 @@ import {
   CartesianGrid,
   XAxis,
   YAxis,
-  Text,
   Tooltip,
 } from 'recharts';
 import { format as formatDate } from 'date-fns';
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { colors } from '../../../styles/constants';
 import formatCurrency from '../../../util/format-currency';
 import NetworkFeesTooltip from './network-fees-tooltip';
 import padMetrics from '../util/pad-metrics';
@@ -38,13 +38,11 @@ const NetworkFeesChart = ({ data, displayCurrency, period }) => {
         data={sanitizedData}
         margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
       >
-        <CartesianGrid stroke="#f5f5f5" />
-        <Text>No data available for time period</Text>
-
+        <CartesianGrid stroke={colors.wildSand} />
         <Area
           animationDuration={0}
           dataKey="localizedFees"
-          fill="#99BEBD"
+          fill={colors.halfBaked}
           fillOpacity={1}
           stroke="none"
           type="monotone"

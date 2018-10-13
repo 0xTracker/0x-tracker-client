@@ -5,6 +5,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../styles/util';
+import { colors } from '../styles/constants';
 import Container from './container';
 import formatCurrency from '../util/format-currency';
 import LocalisedAmount from '../features/currencies/components/localised-amount';
@@ -14,9 +15,8 @@ import TopBarStat from './top-bar-stat';
 import Visible from './visible';
 
 const StyledTopBar = styled.div`
-  background-color: #222;
-  color: #fff;
-  font-family: 'Monda';
+  background-color: ${colors.mineShaft};
+  color: ${colors.white};
   line-height: 1.2;
   height: 50px;
   padding: 9px 0;

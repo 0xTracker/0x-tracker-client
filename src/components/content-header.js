@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import { colors } from '../styles/constants';
 import { media } from '../styles/util';
 import Breadcrumb from './breadcrumb';
 import Container from './container';
 
 const StyledContentHeader = styled.div`
-  background: #f4f4f4;
+  background: ${colors.wildSand};
   padding: 20px 0;
 `;
 
@@ -35,8 +36,6 @@ const BreadcrumbContainer = styled(Col).attrs({ xs: 12, md: 6 })`
   `};
 `;
 
-const SubTitle = styled.small.attrs({ className: 'text-muted' });
-
 const ContentHeader = ({ breadcrumbItems, subTitle, title }) => (
   <StyledContentHeader>
     <Container>
@@ -44,7 +43,7 @@ const ContentHeader = ({ breadcrumbItems, subTitle, title }) => (
         <TitleContainer>
           <Title>
             {title}
-            {subTitle && <SubTitle> {subTitle}</SubTitle>}
+            {subTitle && <small className="text-muted"> {subTitle}</small>}
           </Title>
         </TitleContainer>
         <BreadcrumbContainer>
