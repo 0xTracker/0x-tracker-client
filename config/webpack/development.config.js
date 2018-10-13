@@ -17,7 +17,6 @@ module.exports = merge(getConfig(ENVIRONMENT), {
     port: 3000,
     stats: 'errors-only',
   },
-  entry: { main: ['babel-polyfill', './src/index.js'] },
   mode: 'development',
   module: {
     rules: [
