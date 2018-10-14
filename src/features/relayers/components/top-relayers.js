@@ -6,16 +6,16 @@ import React from 'react';
 
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { getDisplayCurrency } from '../../currencies/selectors';
+import AsyncTopRelayersChart from './async-top-relayers-chart';
 import getRelayersWithStats from '../selectors/get-relayers-with-stats';
 import LoadingIndicator from '../../../components/loading-indicator';
 import relayerPropTypes from '../prop-types';
-import TopRelayersChart from './top-relayers-chart';
 import withRelayerStats from '../../stats/components/with-relayer-stats';
 import withRelayers from './with-relayers';
 
 const TopRelayers = ({ displayCurrency, relayers }) => {
   if (relayers === undefined) {
-    return <LoadingIndicator isCentered />;
+    return <LoadingIndicator centered />;
   }
 
   const topRelayers = flow([
@@ -25,7 +25,7 @@ const TopRelayers = ({ displayCurrency, relayers }) => {
   ])(relayers);
 
   return (
-    <TopRelayersChart
+    <AsyncTopRelayersChart
       displayCurrency={displayCurrency}
       relayers={topRelayers}
     />

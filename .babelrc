@@ -7,8 +7,18 @@
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-syntax-dynamic-import",
     "babel-plugin-styled-components",
+    "date-fns",
     "lodash",
     "react-hot-loader/babel",
-    "recharts"
+    "recharts",
+    [
+      "transform-imports",
+      {
+        "reactstrap": {
+          "transform": "reactstrap/lib/${member}",
+          "preventFullImport": true
+        }
+      }
+    ]
   ]
 }

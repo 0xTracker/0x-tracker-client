@@ -12,7 +12,7 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
-import CurrencySelector from '../../currencies/components/currency-selector';
+import AsyncCurrencySelector from '../../currencies/components/async-currency-selector';
 
 const StyledModal = styled(Modal)`
   .modal-content {
@@ -62,7 +62,7 @@ class SettingsDialog extends PureComponent {
           <ModalBody>
             <FormGroup>
               <label htmlFor="displayCurrency">Display Currency</label>
-              <CurrencySelector
+              <AsyncCurrencySelector
                 name="displayCurrency"
                 onChange={this.handleChangeCurrency}
               />

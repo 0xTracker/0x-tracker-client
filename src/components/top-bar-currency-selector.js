@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 import { media } from '../styles/util';
 import { colors } from '../styles/constants';
-import CurrencySelector from '../features/currencies/components/currency-selector';
+import AsyncCurrencySelector from '../features/currencies/components/async-currency-selector';
 
-const TopBarCurrencySelector = styled(CurrencySelector)`
+const TopBarCurrencySelector = styled(AsyncCurrencySelector)`
   display: none;
   width: 220px;
 

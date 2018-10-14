@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 import { getDisplayCurrency } from '../../currencies/selectors';
 import { getTokenVolumeMetrics } from '../selectors';
 import { METRIC_TYPE } from '../constants';
+import AsyncTokenVolumeChart from './async-token-volume-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
-import TokenVolumeChart from './token-volume-chart';
 import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 class TokenVolume extends Component {
@@ -59,7 +59,7 @@ class TokenVolume extends Component {
     }));
 
     return (
-      <TokenVolumeChart
+      <AsyncTokenVolumeChart
         data={data}
         displayCurrency={displayCurrency}
         period={period}

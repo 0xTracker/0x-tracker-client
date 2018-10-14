@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
 import { getDisplayCurrency } from '../../currencies/selectors';
+import AsyncTopTokensChart from './async-top-tokens-chart';
 import getTokensWithStats from '../selectors/get-tokens-with-stats';
 import LoadingIndicator from '../../../components/loading-indicator';
 import tokensPropTypes from '../prop-types';
-import TopTokensChart from './top-tokens-chart';
 
 class TopTokens extends PureComponent {
   async componentDidMount() {
@@ -53,7 +53,9 @@ class TopTokens extends PureComponent {
       take(5),
     ])(tokens);
 
-    return <TopTokensChart data={data} displayCurrency={displayCurrency} />;
+    return (
+      <AsyncTopTokensChart data={data} displayCurrency={displayCurrency} />
+    );
   }
 }
 
