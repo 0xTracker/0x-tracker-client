@@ -10,7 +10,7 @@ storiesOf('Common|LoadingIndicator', module)
   .addWithJSX('small cylon', () => (
     <LoadingIndicator size="small" type="cylon" />
   ))
-  .addWithJSX('centered spinner', () => <LoadingIndicator isCentered />)
+  .addWithJSX('centered spinner', () => <LoadingIndicator centered />)
   .addWithJSX('centered cylon', () => (
-    <LoadingIndicator isCentered type="cylon" />
+    <LoadingIndicator centered type="cylon" />
   ));

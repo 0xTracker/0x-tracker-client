@@ -135,7 +135,7 @@ class Fills extends PureComponent {
               </p>
             </div>
           )}
-        {fills === undefined && <LoadingIndicator isCentered />}
+        {fills === undefined && <LoadingIndicator centered />}
         {fills !== undefined &&
           fills.length > 0 && (
             <FillList {...{ excludeColumns, showStatus, fills }} />

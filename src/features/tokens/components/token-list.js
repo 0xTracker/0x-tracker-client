@@ -70,7 +70,7 @@ class TokenList extends PureComponent {
     const offset = (page - 1) * limit;
 
     if (_.some([tokens], _.isNil)) {
-      return <LoadingIndicator isCentered />;
+      return <LoadingIndicator centered />;
     }
 
     const tokensChunk = flow([chunk(limit), get(page - 1)])(tokens);
