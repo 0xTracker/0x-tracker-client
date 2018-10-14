@@ -42,7 +42,7 @@ class FeesChart extends PureComponent {
     const { conversionRate, displayCurrency, metrics, period } = this.props;
 
     if (_.some([metrics, conversionRate], _.isUndefined)) {
-      return <LoadingIndicator isCentered />;
+      return <LoadingIndicator centered />;
     }
 
     const data = metrics.map(metric => ({

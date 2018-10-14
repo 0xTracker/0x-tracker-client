@@ -64,7 +64,7 @@ class ArticleList extends Component {
     const { screen } = this.props;
 
     if (articles === undefined) {
-      return <LoadingIndicator isCentered />;
+      return <LoadingIndicator centered />;
     }
 
     let deckSize = 3;

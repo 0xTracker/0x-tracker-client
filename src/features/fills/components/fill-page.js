@@ -64,7 +64,7 @@ class FillPage extends PureComponent {
     const { fill } = this.state;
 
     if (fill === undefined) {
-      return <LoadingIndicator isCentered />;
+      return <LoadingIndicator centered />;
     }
 
     return [

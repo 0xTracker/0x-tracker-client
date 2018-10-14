@@ -12,7 +12,7 @@ const AlignCenter = styled.div`
   justify-content: center;
 `;
 
-const LoadingIndicator = ({ color, isCentered, size, type }) => {
+const LoadingIndicator = ({ color, centered, size, type }) => {
   const indicator = (
     <ReactLoading
       color={color === 'light' ? colors.white : colors.tuna}
@@ -23,7 +23,7 @@ const LoadingIndicator = ({ color, isCentered, size, type }) => {
     />
   );
 
-  if (isCentered) {
+  if (centered) {
     return <AlignCenter>{indicator}</AlignCenter>;
   }
 

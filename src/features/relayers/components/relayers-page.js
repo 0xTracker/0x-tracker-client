@@ -22,7 +22,7 @@ const RelayersPage = ({ relayers }) => (
     />
     <ContentSection>
       {relayers === undefined ? (
-        <LoadingIndicator isCentered />
+        <LoadingIndicator centered />
       ) : (
         <RelayerList relayers={relayers} timePeriod={TIME_PERIOD.DAY} />
       )}

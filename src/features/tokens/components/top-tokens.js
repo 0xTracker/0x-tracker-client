@@ -39,7 +39,7 @@ class TopTokens extends PureComponent {
     const { displayCurrency, tokens } = this.props;
 
     if (tokens === undefined) {
-      return <LoadingIndicator isCentered />;
+      return <LoadingIndicator centered />;
     }
 
     const data = flow([
