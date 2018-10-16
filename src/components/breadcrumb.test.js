@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { renderWithRouter } from '../../test-utils/react';
+import { renderWithRouter } from '../test-util/react';
 import Breadcrumb from './breadcrumb';
 
 it('should render with items', () => {

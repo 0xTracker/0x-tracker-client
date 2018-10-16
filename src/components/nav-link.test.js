@@ -1,7 +1,7 @@
 import { fireEvent, cleanup } from 'react-testing-library';
 import React from 'react';
 
-import { renderWithRouter } from '../../test-utils/react';
+import { renderWithRouter } from '../test-util/react';
 import NavLink from './nav-link';
 
 afterEach(() => {
