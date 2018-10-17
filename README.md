@@ -80,13 +80,13 @@ The project has a fairly extensive set of dependencies, each with a particular p
 
 ## Developer Experience
 
-- storybook
-- react hot loader
-- error-overlay-webpack-plugin
-- unused-files-webpack-plugin
-- firebase tools
-- Webpack Bundle Analyzer
-- Renovate
+- **[Storybook](https://storybook.js.org/)** - Provides an isolated React component development environment.
+- **[Firebase CLI](https://duckduckgo.com/?q=firebase+tools&atb=v122-2o_&ia=software)** - Used for deployments and more importantly simulating the production environment.
+- **[React Hot Loader](https://github.com/gaearon/react-hot-loader)** - Enables hot reloading of React components during development.
+- **[Error Overlay Webpack Plugin](https://github.com/smooth-code/error-overlay-webpack-plugin)** - Displays runtime errors where you'll see them.
+- **[unused-files-webpack-plugin](https://github.com/smooth-code/error-overlay-webpack-plugin)** - Keeps the codebase clean by alerting any unused files
+- **[Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)** - Used for analyzing bundle sizes.
+- **[Renovate](https://renovatebot.com/)** - Helps keep dependencies up to date by monitoring for updates and automatically opening pull requests.
 
 # 🌳 Project Structure
 
@@ -129,10 +129,21 @@ A number of NPM scripts are provided for automating common tasks such as buildin
 - **build:analyze** - Build for production and launch Webpack Bundle Analyzer against the resulting bundle.
 - **build:serve** - Build for production and serve locally via the Firebase CLI.
 - **deploy** - Deploy the last build to production using Firebase CLI. Typically only used by project owner.
-- **lint**
-- **serve**
-- **start**
-- **storybook**
-- **storybook:build**
-- **test**
-- **test:watch**
+- **lint** - Lint all code files in the project.
+- **serve** - Serve the last production build locally via Firebase CLI.
+- **start** - Start the development server.
+- **storybook** - Start the Storybook application.
+- **test** - Run unit/integration tests and produce coverage report.
+- **test:watch** - Run unit/integration tests in watch mode.
+
+# 🚨 Continuous Integration
+
+Continuous integration for the project is handled by [Travis CI](https://travis-ci.org/cbovis/0x-tracker-client/builds) which runs linting, tests, and builds the sources for every branch. Merged pull requests are automatically deployed to production.
+
+## 👨‍💻 Maintainers
+
+- Craig Bovis ([@cbovis](https://github.com/cbovis))
+
+## 👩‍⚖️ License
+
+[Apache 2.0](https://github.com/0xTracker/0x-tracker-worker/blob/master/LICENSE)
