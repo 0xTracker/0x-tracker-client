@@ -55,7 +55,7 @@
     "redux-responsive": "4.3.8",
     "redux-subscriber": "1.1.0",
     "reselect": "3.0.1",
-    "styled-components": "4.0.0-beta.11.3",
+    "styled-components": "4.0.2",
     "uuid": "3.3.2"
   },
   "devDependencies": {
