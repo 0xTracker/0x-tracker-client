@@ -80,7 +80,7 @@
     "browserslist": "4.1.1",
     "browserslist-ga": "0.0.10",
     "clean-webpack-plugin": "0.1.19",
-    "copy-webpack-plugin": "4.5.2",
+    "copy-webpack-plugin": "4.5.4",
     "dotenv-webpack": "1.5.7",
     "error-overlay-webpack-plugin": "0.1.5",
     "eslint": "5.6.1",
