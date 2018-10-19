@@ -88,7 +88,7 @@ The project has a fairly extensive set of dependencies, each with a particular p
 
 # 🌳 Project Structure
 
-The project has a very deliberate structure which is designed to minimize the number of directories, increase discoverability and ensure related code is grouped together. Feature code is grouped based on what "feels right" and is subject to refactoring over time.
+The project structure is designed to minimize the number of directories, increase discoverability and ensure related code is grouped together. Feature code is grouped based on what "feels right" and is subject to refactoring over time.
 
 If a convention exists for locating configuration files related to developer tooling then it should be followed (e.g. `.babelrc` or `.eslintrc.js`).
 
