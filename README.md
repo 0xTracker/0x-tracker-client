@@ -81,7 +81,6 @@ The project has a fairly extensive set of dependencies, each with a particular p
 ## Developer Experience
 
 - **[Storybook](https://storybook.js.org/)** - Provides an isolated React component development environment.
-- **[Firebase CLI](https://duckduckgo.com/?q=firebase+tools&atb=v122-2o_&ia=software)** - Used for deployments and more importantly simulating the production environment.
 - **[React Hot Loader](https://github.com/gaearon/react-hot-loader)** - Enables hot reloading of React components during development.
 - **[Error Overlay Webpack Plugin](https://github.com/smooth-code/error-overlay-webpack-plugin)** - Displays runtime errors where you'll see them.
 - **[unused-files-webpack-plugin](https://github.com/smooth-code/error-overlay-webpack-plugin)** - Keeps the codebase clean by alerting any unused files
@@ -95,7 +94,7 @@ The project has a very deliberate structure which is designed to minimize the nu
 If a convention exists for locating configuration files related to developer tooling then it should be followed (e.g. `.babelrc` or `.eslintrc.js`).
 
 - **config** - Tooling configuration which doesn't have a conventional location.
-- **public** - Static code files. This directory is combined with bundled assets before deploying to Firebase.
+- **public** - Static code files. This directory is combined with bundled assets when building for production and whilst using the development server.
 - **src** - Application specific code and test files.
   - **components** - Shared or non-feature specific React components.
   - **features** - Feature code is grouped together to ensure import paths are kept short and reduce navigation.
@@ -127,10 +126,9 @@ A number of NPM scripts are provided for automating common tasks such as buildin
 - **browsers:update** - Sync the supported browsers with a Google Analytics property, typically only used by project owner.
 - **build** - Build a production ready distribution into the `dist` folder.
 - **build:analyze** - Build for production and launch Webpack Bundle Analyzer against the resulting bundle.
-- **build:serve** - Build for production and serve locally via the Firebase CLI.
-- **deploy** - Deploy the last build to production using Firebase CLI. Typically only used by project owner.
+- **build:serve** - Build for production and serve locally.
 - **lint** - Lint all code files in the project.
-- **serve** - Serve the last production build locally via Firebase CLI.
+- **serve** - Serve the last production build locally.
 - **start** - Start the development server.
 - **storybook** - Start the Storybook application.
 - **test** - Run unit/integration tests and produce coverage report.
@@ -139,6 +137,8 @@ A number of NPM scripts are provided for automating common tasks such as buildin
 # 🚨 Continuous Integration
 
 Continuous integration for the project is handled by [Travis CI](https://travis-ci.org/cbovis/0x-tracker-client/builds) which runs linting, tests, and builds the sources for every branch. Merged pull requests are automatically deployed to production.
+
+Hosting is provided by [Netlify](https://netlify.com) which means every pull request gets a deploy preview where the PRs changes can be previewed in a "close to live" environment. Look for the Netlify bot comment on PRs once the build has finished.
 
 ## 👨‍💻 Maintainers
 
