@@ -3,18 +3,17 @@
 exports[`should render without props 1`] = `
 <form
   class="form-inline"
-  method="get"
 >
   <input
     aria-label="Search"
-    class="form-control input_b3fn8f"
+    class="search-form__SearchInput-sc-1o6ih16-0 gsccYo form-control"
     placeholder="Order Hash / Tx Hash / Maker / Taker"
     required=""
     type="search"
     value=""
   />
   <button
-    class="btn btn-secondary btn-icon button_aompql"
+    class="search-form__SearchButton-sc-1o6ih16-1 gPYEHe btn btn-secondary"
     type="submit"
   >
     <svg

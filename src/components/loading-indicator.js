@@ -1,21 +1,21 @@
-import { css, StyleSheet } from 'aphrodite';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactLoading from 'react-loading';
+import styled from 'styled-components';
 
-const styles = StyleSheet.create({
-  wrapper: {
-    alignItems: 'center',
-    display: 'flex',
-    height: '100%',
-    justifyContent: 'center',
-  },
-});
+import { colors } from '../styles/constants';
 
-const LoadingIndicator = ({ color, isCentered, size, type }) => {
+const AlignCenter = styled.div`
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+`;
+
+const LoadingIndicator = ({ color, centered, size, type }) => {
   const indicator = (
     <ReactLoading
-      color={color === 'light' ? '#fff' : '#333'}
+      color={color === 'light' ? colors.white : colors.tuna}
       delay={0}
       height={size === 'small' ? 22 : undefined}
       type={type === 'cylon' ? 'cylon' : 'spin'}
@@ -23,8 +23,8 @@ const LoadingIndicator = ({ color, isCentered, size, type }) => {
     />
   );
 
-  if (isCentered) {
-    return <div className={css(styles.wrapper)}>{indicator}</div>;
+  if (centered) {
+    return <AlignCenter>{indicator}</AlignCenter>;
   }
 
   return indicator;

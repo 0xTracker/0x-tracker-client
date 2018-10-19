@@ -6,7 +6,3 @@ script:
   - npm run lint
   - npm test
   - npm run build
-deploy:
-  skip_cleanup: true
-  provider: script
-  script: npm run deploy

@@ -1,62 +1,43 @@
 import _ from 'lodash';
-import { css, StyleSheet } from 'aphrodite';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
+import { media } from '../styles/util';
+import { colors } from '../styles/constants';
 import Container from './container';
-import CurrencySelector from '../features/currencies/components/currency-selector';
 import formatCurrency from '../util/format-currency';
 import LocalisedAmount from '../features/currencies/components/localised-amount';
-import media from '../styles/media';
 import LoadingIndicator from './loading-indicator';
+import TopBarCurrencySelector from './top-bar-currency-selector';
+import TopBarStat from './top-bar-stat';
+import Visible from './visible';
 
-const styles = StyleSheet.create({
-  container: {
-    [media.desktop]: {
-      display: 'flex',
-      justifyContent: 'space-between',
-    },
-  },
-  stat: {
-    fontSize: '13px',
-    textTransform: 'uppercase',
-    [media.desktop]: {
-      marginRight: '50px',
-      ':last-child': {
-        marginRight: 0,
-      },
-    },
-  },
-  stats: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    [media.desktop]: {
-      flexGrow: 1,
-      justifyContent: 'flex-start',
-    },
-  },
-  statLabel: {
-    fontWeight: 'bold',
-  },
-  statValue: {
-    color: 'rgb(136, 135, 135)',
-  },
-  topBar: {
-    backgroundColor: '#222',
-    color: 'white',
-    fontFamily: 'Monda',
-    padding: '9px 0',
-    lineHeight: 1.2,
-    height: '50px',
-  },
-  zrxPrice: {
-    display: 'none',
-    [media.desktop]: {
-      display: 'block',
-    },
-  },
-});
+const StyledTopBar = styled.div`
+  background-color: ${colors.mineShaft};
+  color: ${colors.white};
+  line-height: 1.2;
+  height: 50px;
+  padding: 9px 0;
+`;
+
+const TopBarContainer = styled(Container)`
+  ${media.lg`
+    display: flex;
+    justify-content: space-between;
+  `};
+`;
+
+const TopBarStats = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  ${media.lg`
+    flex-grow: 1;
+    justify-content: flex-start;
+  `};
+`;
 
 const TopBar = ({
   displayCurrency,
@@ -69,54 +50,40 @@ const TopBar = ({
   const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
   return (
-    <div className={css(styles.topBar)}>
-      <Container styles={styles.container}>
-        <div className={css(styles.stats)}>
-          <div className={css(styles.stat)}>
-            <span className={css(styles.statLabel)}>Network Volume (24H)</span>
-            <br />
-            <span className={css(styles.statValue)}>
-              {_.isNumber(volume) ? (
-                <LocalisedAmount
-                  amount={volume}
-                  loadingIndicator={loadingIndicator}
-                />
-              ) : (
-                loadingIndicator
-              )}
-            </span>
-          </div>
-          <div className={css(styles.stat)}>
-            <span className={css(styles.statLabel)}>Network Fees (24H)</span>
-            <br />
-            <span className={css(styles.statValue)}>
-              {_.isNumber(fees) ? (
-                <LocalisedAmount
-                  amount={fees}
-                  loadingIndicator={loadingIndicator}
-                />
-              ) : (
-                loadingIndicator
-              )}
-            </span>
-          </div>
-          <div className={css(styles.stat)}>
-            <span className={css(styles.statLabel)}>Trades (24H)</span>
-            <br />
-            <span className={css(styles.statValue)}>
-              {_.isNumber(tradeCount)
-                ? numeral(tradeCount).format('0,0')
-                : loadingIndicator}
-            </span>
-          </div>
-          <div className={css(styles.stat, styles.zrxPrice)}>
-            <span className={css(styles.statLabel)}>ZRX Price</span>
-            <br />
-            <span className={css(styles.statValue)}>
+    <StyledTopBar>
+      <TopBarContainer>
+        <TopBarStats>
+          <TopBarStat title="Network Volume (24H)">
+            {_.isNumber(volume) ? (
+              <LocalisedAmount
+                amount={volume}
+                loadingIndicator={loadingIndicator}
+              />
+            ) : (
+              loadingIndicator
+            )}
+          </TopBarStat>
+          <TopBarStat title="Network Fees (24H)">
+            {_.isNumber(fees) ? (
+              <LocalisedAmount
+                amount={fees}
+                loadingIndicator={loadingIndicator}
+              />
+            ) : (
+              loadingIndicator
+            )}
+          </TopBarStat>
+          <TopBarStat title="Trades (24H)">
+            {_.isNumber(tradeCount)
+              ? numeral(tradeCount).format('0,0')
+              : loadingIndicator}
+          </TopBarStat>
+          <Visible above="sm">
+            <TopBarStat title="ZRX Price">
               {zrxPrice === undefined ? (
                 loadingIndicator
               ) : (
-                <span>
+                <React.Fragment>
                   {formatCurrency(zrxPrice.value, displayCurrency)}{' '}
                   <span
                     className={`text-${
@@ -125,14 +92,14 @@ const TopBar = ({
                   >
                     ({`${numeral(zrxPrice.change).format('0.[00]')}%`})
                   </span>
-                </span>
+                </React.Fragment>
               )}
-            </span>
-          </div>
-        </div>
-        <CurrencySelector onChange={onCurrencyChange} variant="top-bar" />
-      </Container>
-    </div>
+            </TopBarStat>
+          </Visible>
+        </TopBarStats>
+        <TopBarCurrencySelector onChange={onCurrencyChange} />
+      </TopBarContainer>
+    </StyledTopBar>
   );
 };
 

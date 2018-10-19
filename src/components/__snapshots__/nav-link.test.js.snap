@@ -5,7 +5,7 @@ exports[`should render with url 1`] = `
   class="nav-item"
 >
   <a
-    class="nav-link"
+    class="nav-link link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
     href="/trades/"
   >
     Trades

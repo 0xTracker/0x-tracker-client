@@ -1,187 +1,193 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders with basic props 1`] = `
-<div>
-  <table
-    class="table table-responsive"
-  >
-    <thead>
-      <tr>
-        <th>
-          #
-        </th>
-        <th>
-          Name
-        </th>
-        <th>
-          Website
-        </th>
-        <th
-          class="text-right"
-        >
-          Trades (
-          24H
-          )
-        </th>
-        <th
-          class="text-right"
-        >
-          Volume (
-          24H
-          )
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr
-        class=""
+<table
+  class="table table-responsive"
+>
+  <thead>
+    <tr>
+      <th>
+        #
+      </th>
+      <th>
+        Name
+      </th>
+      <th>
+        Website
+      </th>
+      <th
+        class="text-right"
       >
-        <td>
-          1
-        </td>
-        <td
-          width="50%"
-        >
-          <a
-            href="/relayers/ddex"
-          >
-            DDEX
-          </a>
-        </td>
-        <td
-          width="49%"
-        >
-          <a
-            href="https://ddex.io"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            https://ddex.io
-          </a>
-        </td>
-        <td
-          class="text-right"
-        >
-          256
-        </td>
-        <td
-          class="text-right"
-        >
-          $150,456.56
-        </td>
-      </tr>
-      <tr
-        class=""
+        Trades (
+        24H
+        )
+      </th>
+      <th
+        class="text-right"
       >
-        <td>
-          2
-        </td>
-        <td
-          width="50%"
-        >
-          <a
-            href="/relayers/paradex"
-          >
-            Paradex
-          </a>
-        </td>
-        <td
-          width="49%"
-        >
-          <a
-            href="https://paradex.io"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            https://paradex.io
-          </a>
-        </td>
-        <td
-          class="text-right"
-        >
-          345
-        </td>
-        <td
-          class="text-right"
-        >
-          $124,000.00
-        </td>
-      </tr>
-      <tr
-        class=""
+        Volume (
+        24H
+        )
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      class=""
+    >
+      <td>
+        1
+      </td>
+      <td
+        width="50%"
       >
-        <td>
-          3
-        </td>
-        <td
-          width="50%"
+        <a
+          class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
+          href="/relayers/ddex"
         >
-          <a
-            href="/relayers/radar-relay"
-          >
-            Radar Relay
-          </a>
-        </td>
-        <td
-          width="49%"
-        >
-          <a
-            href="https://radarrelay.com"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            https://radarrelay.com
-          </a>
-        </td>
-        <td
-          class="text-right"
-        >
-          512
-        </td>
-        <td
-          class="text-right"
-        >
-          $100,000.00
-        </td>
-      </tr>
-      <tr
-        class="text-muted"
+          DDEX
+        </a>
+      </td>
+      <td
+        width="49%"
       >
-        <td>
-          4
-        </td>
-        <td
-          width="50%"
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 NhScu"
+          href="https://ddex.io"
+          rel="noreferrer noopener"
+          target="_blank"
         >
-          <a
-            href="/relayers/sad-relayer"
-          >
-            Sad Relayer
-          </a>
-        </td>
-        <td
-          width="49%"
+          https://ddex.io
+        </a>
+      </td>
+      <td
+        class="text-right"
+      >
+        256
+      </td>
+      <td
+        class="text-right"
+      >
+        $150,456.56
+      </td>
+    </tr>
+    <tr
+      class=""
+    >
+      <td>
+        2
+      </td>
+      <td
+        width="50%"
+      >
+        <a
+          class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
+          href="/relayers/paradex"
         >
-          <a
-            href="https://google.com"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            https://google.com
-          </a>
-        </td>
-        <td
-          class="text-right"
+          Paradex
+        </a>
+      </td>
+      <td
+        width="49%"
+      >
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 NhScu"
+          href="https://paradex.io"
+          rel="noreferrer noopener"
+          target="_blank"
         >
-          -
-        </td>
-        <td
-          class="text-right"
+          https://paradex.io
+        </a>
+      </td>
+      <td
+        class="text-right"
+      >
+        345
+      </td>
+      <td
+        class="text-right"
+      >
+        $124,000.00
+      </td>
+    </tr>
+    <tr
+      class=""
+    >
+      <td>
+        3
+      </td>
+      <td
+        width="50%"
+      >
+        <a
+          class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
+          href="/relayers/radar-relay"
         >
-          -
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+          Radar Relay
+        </a>
+      </td>
+      <td
+        width="49%"
+      >
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 NhScu"
+          href="https://radarrelay.com"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          https://radarrelay.com
+        </a>
+      </td>
+      <td
+        class="text-right"
+      >
+        512
+      </td>
+      <td
+        class="text-right"
+      >
+        $100,000.00
+      </td>
+    </tr>
+    <tr
+      class="text-muted"
+    >
+      <td>
+        4
+      </td>
+      <td
+        width="50%"
+      >
+        <a
+          class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
+          href="/relayers/sad-relayer"
+        >
+          Sad Relayer
+        </a>
+      </td>
+      <td
+        width="49%"
+      >
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 NhScu"
+          href="https://google.com"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          https://google.com
+        </a>
+      </td>
+      <td
+        class="text-right"
+      >
+        -
+      </td>
+      <td
+        class="text-right"
+      >
+        -
+      </td>
+    </tr>
+  </tbody>
+</table>
 `;

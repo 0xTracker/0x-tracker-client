@@ -1,12 +1,12 @@
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import buildTokenUrl from '../util/build-token-url';
+import Link from '../../../components/link';
 
 const TokenLink = ({ token }) => (
-  <Link to={buildTokenUrl(token)}>
+  <Link href={buildTokenUrl(token)}>
     {_.isString(token.name) ? token.name : token.address}
   </Link>
 );

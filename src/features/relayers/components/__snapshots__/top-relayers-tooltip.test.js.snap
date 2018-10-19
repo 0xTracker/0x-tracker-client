@@ -2,49 +2,49 @@
 
 exports[`should render for ETH currency 1`] = `
 <div
-  class="wrapper_145ycme"
+  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 lmVxSZ"
 >
   <h1
-    class="title_4pkhqx"
+    class="chart-tooltip__ChartTooltipTitle-sc-1bnoebf-1 jaVyDc"
   >
     Radar Relay
   </h1>
   <dl>
     <div>
       <dt
-        class="itemTitle_6ns8d4"
+        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
       >
         market share
         :
       </dt>
       <dd
-        class="itemValue_1poxida"
+        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
       >
         50%
       </dd>
     </div>
     <div>
       <dt
-        class="itemTitle_6ns8d4"
+        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
       >
         total trades
         :
       </dt>
       <dd
-        class="itemValue_1poxida"
+        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
       >
         50
       </dd>
     </div>
     <div>
       <dt
-        class="itemTitle_6ns8d4"
+        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
       >
         volume (ETH)
         :
       </dt>
       <dd
-        class="itemValue_1poxida"
+        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
       >
         Ξ 540,600.000000
       </dd>
@@ -55,49 +55,49 @@ exports[`should render for ETH currency 1`] = `
 
 exports[`should render with payload 1`] = `
 <div
-  class="wrapper_145ycme"
+  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 lmVxSZ"
 >
   <h1
-    class="title_4pkhqx"
+    class="chart-tooltip__ChartTooltipTitle-sc-1bnoebf-1 jaVyDc"
   >
     Radar Relay
   </h1>
   <dl>
     <div>
       <dt
-        class="itemTitle_6ns8d4"
+        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
       >
         market share
         :
       </dt>
       <dd
-        class="itemValue_1poxida"
+        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
       >
         22.5%
       </dd>
     </div>
     <div>
       <dt
-        class="itemTitle_6ns8d4"
+        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
       >
         total trades
         :
       </dt>
       <dd
-        class="itemValue_1poxida"
+        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
       >
         50
       </dd>
     </div>
     <div>
       <dt
-        class="itemTitle_6ns8d4"
+        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
       >
         volume (USD)
         :
       </dt>
       <dd
-        class="itemValue_1poxida"
+        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
       >
         $540,600.00
       </dd>

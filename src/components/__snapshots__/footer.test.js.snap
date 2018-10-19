@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render without props 1`] = `
-<footer
-  class="container_1jw8qep"
+<div
+  class="footer__StyledFooter-htpw4v-0 gOoPUQ"
 >
   <div
-    class="container_58zt44 container-fluid"
+    class="container__StyledContainer-cj53s7-0 eMKfDZ container-fluid"
   >
     <div
       class="row"
@@ -17,22 +17,21 @@ exports[`should render without props 1`] = `
         2019
       </div>
       <div
-        class="col-6 text-right"
+        class="text-right col-6"
       >
         Built by
          
         <a
-          class="link_13aj73h"
+          class="footer__FooterLink-htpw4v-1 dnGTp link__StyledLink-sc-1m1n17q-0 NhScu"
           href="https://github.com/cbovis"
           rel="noreferrer noopener"
           target="_blank"
         >
           @cbovis
         </a>
-         
-        in Melbourne Australia 🐨
+         in Melbourne Australia 🐨
       </div>
     </div>
   </div>
-</footer>
+</div>
 `;

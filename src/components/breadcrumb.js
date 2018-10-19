@@ -1,45 +1,40 @@
-import { css, StyleSheet } from 'aphrodite';
+import { Breadcrumb as BootstrapBreadcrumb, BreadcrumbItem } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
 import Link from './link';
 
-const styles = StyleSheet.create({
-  list: {
-    margin: 0,
-    background: 'none',
-    padding: 0,
-  },
-});
+const StyledBreadcrumb = styled(BootstrapBreadcrumb)`
+  .breadcrumb {
+    background: none;
+    margin: 0;
+    padding: 0;
+  }
+`;
 
 const Breadcrumb = ({ items }) => (
-  <nav aria-label="breadcrumb">
-    <ol className={`${css(styles.list)} breadcrumb`}>
-      <li className="breadcrumb-item">
-        <Link href="/">Home</Link>
-      </li>
+  <StyledBreadcrumb>
+    <BreadcrumbItem>
+      <Link href="/">Home</Link>
+    </BreadcrumbItem>
 
-      {items.map((item, index) => {
-        if (index === items.length - 1) {
-          return (
-            <li
-              aria-current="page"
-              className="breadcrumb-item active"
-              key={item.url}
-            >
-              {item.title}
-            </li>
-          );
-        }
-
+    {items.map((item, index) => {
+      if (index === items.length - 1) {
         return (
-          <li className="breadcrumb-item" key={item.url}>
-            <Link href={item.url}>{item.title}</Link>
-          </li>
+          <BreadcrumbItem active aria-current="page" key={item.url}>
+            {item.title}
+          </BreadcrumbItem>
         );
-      })}
-    </ol>
-  </nav>
+      }
+
+      return (
+        <BreadcrumbItem key={item.url}>
+          <Link href={item.url}>{item.title}</Link>
+        </BreadcrumbItem>
+      );
+    })}
+  </StyledBreadcrumb>
 );
 
 Breadcrumb.propTypes = {

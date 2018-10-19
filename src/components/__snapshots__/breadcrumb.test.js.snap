@@ -3,14 +3,16 @@
 exports[`should render with items 1`] = `
 <nav
   aria-label="breadcrumb"
+  class="breadcrumb__StyledBreadcrumb-yqtjg0-0 eCKXTH"
 >
   <ol
-    class="list_1t51cia breadcrumb"
+    class="breadcrumb"
   >
     <li
       class="breadcrumb-item"
     >
       <a
+        class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
         href="/"
       >
         Home
@@ -20,6 +22,7 @@ exports[`should render with items 1`] = `
       class="breadcrumb-item"
     >
       <a
+        class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
         href="/tokens"
       >
         Tokens
@@ -27,7 +30,7 @@ exports[`should render with items 1`] = `
     </li>
     <li
       aria-current="page"
-      class="breadcrumb-item active"
+      class="active breadcrumb-item"
     >
       Ether
     </li>

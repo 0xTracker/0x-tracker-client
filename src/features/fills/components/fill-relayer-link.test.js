@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { renderWithRouter } from '../../../../test-utils/react';
+import { renderWithRouter } from '../../../test-util/react';
 import FillRelayerLink from './fill-relayer-link';
 
 const simpleFill = {

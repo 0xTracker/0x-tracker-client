@@ -45,7 +45,7 @@ class TokenPage extends PureComponent {
     const { isMobile } = this.props;
 
     if (token === undefined) {
-      return <LoadingIndicator isCentered />;
+      return <LoadingIndicator centered />;
     }
 
     return [

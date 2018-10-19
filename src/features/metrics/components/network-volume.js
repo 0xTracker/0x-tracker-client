@@ -8,8 +8,8 @@ import { TIME_PERIOD } from '../../../constants';
 import { METRIC_TYPE } from '../constants';
 import { getNetworkMetrics } from '../selectors';
 import { getDisplayCurrency } from '../../currencies/selectors';
+import AsyncNetworkVolumeChart from './async-network-volume-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
-import NetworkVolumeChart from './network-volume-chart';
 import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 class NetworkVolume extends Component {
@@ -47,7 +47,7 @@ class NetworkVolume extends Component {
     } = this.props;
 
     if (_.some([metrics, conversionRate], _.isUndefined)) {
-      return <LoadingIndicator isCentered />;
+      return <LoadingIndicator centered />;
     }
 
     const data = metrics.map(metric => ({
@@ -57,7 +57,7 @@ class NetworkVolume extends Component {
     }));
 
     return (
-      <NetworkVolumeChart
+      <AsyncNetworkVolumeChart
         data={data}
         displayCurrency={displayCurrency}
         period={period}

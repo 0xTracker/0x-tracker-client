@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 import { TIME_PERIOD } from '../../../constants';
 import { METRIC_TYPE } from '../constants';
 import { getNetworkMetrics } from '../selectors';
+import AsyncNetworkFeesChart from './async-network-fees-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
-import NetworkFeesChart from './network-fees-chart';
 import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 class FeesChart extends PureComponent {
@@ -42,7 +42,7 @@ class FeesChart extends PureComponent {
     const { conversionRate, displayCurrency, metrics, period } = this.props;
 
     if (_.some([metrics, conversionRate], _.isUndefined)) {
-      return <LoadingIndicator isCentered />;
+      return <LoadingIndicator centered />;
     }
 
     const data = metrics.map(metric => ({
@@ -51,7 +51,7 @@ class FeesChart extends PureComponent {
       localizedFees: metric.fees[displayCurrency],
     }));
 
-    return <NetworkFeesChart {...{ data, displayCurrency, period }} />;
+    return <AsyncNetworkFeesChart {...{ data, displayCurrency, period }} />;
   }
 }
 
