@@ -1,8 +1,8 @@
-import { subDays, subMonths, subWeeks, subYears } from 'date-fns';
+import moment from 'moment';
 import ms from 'ms';
 
-import getDatesInRange from './get-dates-in-range';
 import { GENESIS_DATE, TIME_PERIOD } from '../constants';
+import getDatesInRange from './get-dates-in-range';
 
 function dateFloor(date, duration) {
   return Math.floor(date / duration) * duration;
@@ -35,19 +35,31 @@ const getDatesForTimePeriod = (period, fromDate = new Date()) => {
   switch (period) {
     case TIME_PERIOD.DAY:
       endDate = dateFloor(fromDate, ms('30 minutes'));
-      startDate = subDays(endDate, 1);
+      startDate = moment
+        .utc(endDate)
+        .subtract(1, 'days')
+        .toDate();
       break;
     case TIME_PERIOD.WEEK:
       endDate = utcStartOfHour(fromDate);
-      startDate = subWeeks(endDate, 1);
+      startDate = moment
+        .utc(endDate)
+        .subtract(1, 'weeks')
+        .toDate();
       break;
     case TIME_PERIOD.MONTH:
       endDate = utcStartOfDay(fromDate);
-      startDate = subMonths(endDate, 1);
+      startDate = moment
+        .utc(endDate)
+        .subtract(1, 'months')
+        .toDate();
       break;
     case TIME_PERIOD.YEAR:
       endDate = utcStartOfDay(fromDate);
-      startDate = subYears(endDate, 1);
+      startDate = moment
+        .utc(endDate)
+        .subtract(1, 'years')
+        .toDate();
       break;
     case TIME_PERIOD.ALL:
       endDate = utcStartOfDay(fromDate);

@@ -1,9 +1,29 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-react"],
+  "presets": [
+    ["@babel/preset-env", { "useBuiltIns": "usage" }],
+    "@babel/preset-react"
+  ],
   "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import",
+    "babel-plugin-styled-components",
+    "date-fns",
     "lodash",
     "react-hot-loader/babel",
     "recharts",
-    "@babel/plugin-proposal-class-properties"
-  ]
+    [
+      "transform-imports",
+      {
+        "reactstrap": {
+          "transform": "reactstrap/lib/${member}",
+          "preventFullImport": true
+        }
+      }
+    ]
+  ],
+  "env": {
+    "production": {
+      "plugins": ["transform-react-remove-prop-types"]
+    }
+  }
 }

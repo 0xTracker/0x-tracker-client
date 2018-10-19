@@ -14,11 +14,18 @@ import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
+import { colors } from '../../../styles/constants';
 import buildTokenUrl from '../util/build-token-url';
 import formatCurrency from '../../../util/format-currency';
 import TopTokensTooltip from './top-tokens-tooltip';
 
-const COLORS = ['#F0DB79', '#3992CA', '#E24F8B', '#8DC6C4', '#877E91'];
+const COLORS = [
+  colors.goldenSand,
+  colors.bostonBlue,
+  colors.cranberry,
+  colors.halfBaked,
+  colors.blueMarguerite,
+];
 
 const formatPercentage = value => `${numeral(value).format('0')}%`;
 
@@ -61,7 +68,7 @@ class TopTokensChart extends PureComponent {
     return (
       <ResponsiveContainer>
         <BarChart data={data} margin={{ bottom: 0, left: 0, right: 0, top: 0 }}>
-          <CartesianGrid stroke="#f5f5f5" />
+          <CartesianGrid stroke={colors.wildSand} />
           <XAxis
             axisLine={false}
             dataKey="token.symbol"

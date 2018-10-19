@@ -10,6 +10,9 @@ const paths = {
 };
 
 const getConfig = environment => ({
+  entry: {
+    main: ['./src/index.js'],
+  },
   module: {
     rules: [
       {
@@ -50,7 +53,11 @@ const getConfig = environment => ({
     new UnusedFilesWebpackPlugin({
       failOnUnused: true,
       globOptions: {
-        ignore: ['src/**/*.test.js', 'src/**/*.test.js.snap'],
+        ignore: [
+          'src/**/*.test.js',
+          'src/**/*.test.js.snap',
+          'src/test-util/**/*.*',
+        ],
       },
       patterns: ['src/**/*.*'],
     }),

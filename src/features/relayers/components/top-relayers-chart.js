@@ -14,11 +14,18 @@ import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { colors } from '../../../styles/constants';
 import buildRelayerUrl from '../util/build-relayer-url';
 import relayersPropTypes from '../prop-types';
 import TopRelayersTooltip from './top-relayers-tooltip';
 
-const COLORS = ['#F0DB79', '#3992CA', '#E24F8B', '#8DC6C4', '#877E91'];
+const COLORS = [
+  colors.blueMarguerite,
+  colors.halfBaked,
+  colors.cranberry,
+  colors.bostonBlue,
+  colors.goldenSand,
+];
 
 const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
   const data = flow([
@@ -51,7 +58,7 @@ const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
         layout="vertical"
         margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
       >
-        <CartesianGrid stroke="#f5f5f5" />
+        <CartesianGrid stroke={colors.wildSand} />
         <XAxis
           axisLine={false}
           domain={[0, 100]}

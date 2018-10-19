@@ -16,7 +16,7 @@ it('renders cylon', () => {
 });
 
 it('renders centered indicator', () => {
-  const { container } = render(<LoadingIndicator isCentered />);
+  const { container } = render(<LoadingIndicator centered />);
 
   expect(container.firstChild).toMatchSnapshot();
 });
