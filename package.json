@@ -1,7 +1,7 @@
 {
   "name": "0x-tracker-client",
   "version": "1.0.0",
-  "repository": "https://cbovis@github.com/cbovis/0x-tracker-client.git",
+  "repository": "https://github.com/0xTracker/0x-tracker-client.git",
   "author": "Craig Bovis <craig@bovis.me.uk>",
   "license": "Apache-2.0",
   "private": true,
