@@ -2,7 +2,7 @@ import { getByText } from 'react-testing-library';
 import React from 'react';
 import timekeeper from 'timekeeper';
 
-import { renderWithRouter } from '../../test-utils/react';
+import { renderWithRouter } from '../test-util/react';
 import Footer from './footer';
 
 beforeAll(() => {

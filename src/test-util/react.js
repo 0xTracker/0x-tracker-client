@@ -4,7 +4,7 @@ import { render } from 'react-testing-library';
 import { Router } from 'react-router-dom';
 import React from 'react';
 
-import storeFactory from '../src/redux/store-factory';
+import storeFactory from '../redux/store-factory';
 
 function renderWithRouter(
   element,
