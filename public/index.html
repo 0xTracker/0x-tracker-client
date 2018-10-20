@@ -11,14 +11,20 @@
   <link rel="icon" type="image/png" href="/assets/img/favicon-2-16x16.png" sizes="16x16">
   <title>0x Tracker</title>
   <% if (process.env.NODE_ENV === 'production') { %>
+  <script src="//d2wy8f7a9ursnm.cloudfront.net/v4/bugsnag.min.js"></script>
+  <script>
+    window.bugsnagClient = bugsnag({
+      apiKey: 'be53ca8607a2b0fcc5e34f3402f61afb',
+    })
+  </script>
   <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KFLWLVC');</script>
+        w[l] = w[l] || []; w[l].push({
+          'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-KFLWLVC');</script>
   <% } %>
 </head>
 
