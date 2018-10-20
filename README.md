@@ -120,7 +120,7 @@ If a convention exists for locating configuration files related to developer too
 
 # 🤖 NPM Scripts
 
-A number of NPM scripts are provided for automating common tasks such as building and linting.
+A number of NPM scripts are provided for automating common tasks.
 
 - **browsers:list** - List out the projects supported browsers.
 - **browsers:update** - Sync the supported browsers with a Google Analytics property, typically only used by project owner.
@@ -136,7 +136,7 @@ A number of NPM scripts are provided for automating common tasks such as buildin
 
 # 🚨 Continuous Integration
 
-Continuous integration for the project is handled by [Travis CI](https://travis-ci.org/cbovis/0x-tracker-client/builds) which runs linting, tests, and builds the sources for every branch. Merged pull requests are automatically deployed to production.
+Continuous integration for the project is handled by [Travis CI](https://travis-ci.org/cbovis/0x-tracker-client/builds) which runs linting, tests, and builds the sources for every pull request. Merged pull requests are automatically deployed to production.
 
 Hosting is provided by [Netlify](https://netlify.com) which means every pull request gets a deploy preview where the PRs changes can be previewed in a "close to live" environment. Look for the Netlify bot comment on PRs once the build has finished.
 
