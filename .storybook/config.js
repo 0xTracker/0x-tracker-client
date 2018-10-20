@@ -2,11 +2,23 @@ import _ from 'lodash';
 import { setOptions } from '@storybook/addon-options';
 import { addDecorator, configure, setAddon } from '@storybook/react';
 import JSXAddon from 'storybook-addon-jsx';
+import React from 'react';
 import StoryRouter from 'storybook-router';
 
-import 'bootstrap/dist/css/bootstrap.css';
-import 'babel-polyfill';
+import 'bootstrap/dist/css/bootstrap.css'; // This must come before GlobalStyles due to import precedence
 
+import GlobalStyles from '../src/components/global-styles';
+
+function withGlobalStyles(storyFn) {
+  return (
+    <React.Fragment>
+      <GlobalStyles />
+      {storyFn()}
+    </React.Fragment>
+  );
+}
+
+addDecorator(withGlobalStyles);
 addDecorator(new StoryRouter());
 
 setOptions({
