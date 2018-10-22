@@ -6,7 +6,7 @@ import PageLayout from '../src/components/page-layout';
 const simpleProps = {
   breadcrumbItems: [
     { title: 'Tokens', url: '/tokens' },
-    { title: 'DAI Stablecoin', url: '/tokens/0x98273981273' },
+    { title: 'DAI Stablecoin', url: '/tokens/0x982739812734' },
   ],
   subTitle: 'DAI',
   title: 'DAI Stablecoin',
