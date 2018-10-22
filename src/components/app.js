@@ -3,20 +3,17 @@ import React from 'react';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
-import Footer from './footer';
+import AppLayout from './app-layout';
 import GlobalStyles from './global-styles';
-import Nav from './nav';
 import Router from './router';
 import Routes from './routes';
-import TopBarContainer from './top-bar-container';
 
 const App = () => (
   <Router>
     <GlobalStyles />
-    <TopBarContainer />
-    <Nav />
-    <Routes />
-    <Footer />
+    <AppLayout>
+      <Routes />
+    </AppLayout>
   </Router>
 );
 

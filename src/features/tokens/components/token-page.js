@@ -7,11 +7,10 @@ import { TIME_PERIOD, URL } from '../../../constants';
 import buildTokenUrl from '../util/build-token-url';
 import callApi from '../../../util/call-api';
 import ChartsContainer from '../../../components/charts-container';
-import ContentHeader from '../../../components/content-header';
-import ContentSection from '../../../components/content-section';
 import Fills from '../../fills/components/fills';
 import getIsMobile from '../../../selectors/get-is-mobile';
 import LoadingIndicator from '../../../components/loading-indicator';
+import PageLayout from '../../../components/page-layout';
 import TokenVolume from '../../metrics/components/token-volume';
 
 class TokenPage extends PureComponent {
@@ -48,17 +47,15 @@ class TokenPage extends PureComponent {
       return <LoadingIndicator centered />;
     }
 
-    return [
-      <ContentHeader
+    return (
+      <PageLayout
         breadcrumbItems={[
           { title: 'Tokens', url: URL.TOKENS },
           { title: token.name, url: buildTokenUrl(token) },
         ]}
-        key="pageHeading"
         subTitle={token.symbol}
         title={token.name}
-      />,
-      <ContentSection key="content">
+      >
         <div className="mb-4">
           <ChartsContainer
             charts={[
@@ -81,8 +78,8 @@ class TokenPage extends PureComponent {
           />
         </div>
         <Fills filter={{ token: token.address }} heading="Recent Fills" />
-      </ContentSection>,
-    ];
+      </PageLayout>
+    );
   }
 }
 
