@@ -2,18 +2,15 @@ import React from 'react';
 
 import { URL } from '../../../constants';
 import ArticleList from './article-list';
-import ContentHeader from '../../../components/content-header';
-import ContentSection from '../../../components/content-section';
+import PageLayout from '../../../components/page-layout';
 
-const NewsPage = () => [
-  <ContentHeader
+const NewsPage = () => (
+  <PageLayout
     breadcrumbItems={[{ title: 'News & Updates', url: URL.NEWS }]}
-    key="page-heading"
     title="News & Updates"
-  />,
-  <ContentSection key="content">
+  >
     <ArticleList />
-  </ContentSection>,
-];
+  </PageLayout>
+);
 
 export default NewsPage;

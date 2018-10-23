@@ -5,28 +5,22 @@ import React from 'react';
 import qs from 'qs';
 
 import buildSearchUrl from '../util/build-search-url';
-import ContentHeader from '../../../components/content-header';
-import ContentSection from '../../../components/content-section';
 import Fills from '../../fills/components/fills';
+import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 
 const SearchPage = ({ searchQuery }) =>
   _.isEmpty(searchQuery) ? (
     <PageNotFound />
   ) : (
-    <React.Fragment>
-      <ContentHeader
-        breadcrumbItems={[
-          { title: 'Search Results', url: buildSearchUrl(searchQuery) },
-        ]}
-        key="pageHeading"
-        title="Search Results"
-      />
-      <ContentSection key="content">
-        <Fills filter={{ address: _.toLower(searchQuery) }} showSummary />
-      </ContentSection>
-      ,
-    </React.Fragment>
+    <PageLayout
+      breadcrumbItems={[
+        { title: 'Search Results', url: buildSearchUrl(searchQuery) },
+      ]}
+      title="Search Results"
+    >
+      <Fills filter={{ address: _.toLower(searchQuery) }} showSummary />
+    </PageLayout>
   );
 
 SearchPage.propTypes = {

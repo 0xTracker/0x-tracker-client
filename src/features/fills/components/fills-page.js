@@ -1,19 +1,16 @@
 import React from 'react';
 
 import { URL } from '../../../constants';
-import ContentHeader from '../../../components/content-header';
-import ContentSection from '../../../components/content-section';
 import Fills from './fills';
+import PageLayout from '../../../components/page-layout';
 
-const FillsPage = () => [
-  <ContentHeader
+const FillsPage = () => (
+  <PageLayout
     breadcrumbItems={[{ title: 'Recent Fills', url: URL.FILLS }]}
-    key="page-heading"
     title="Recent Fills"
-  />,
-  <ContentSection key="content">
+  >
     <Fills />
-  </ContentSection>,
-];
+  </PageLayout>
+);
 
 export default FillsPage;
