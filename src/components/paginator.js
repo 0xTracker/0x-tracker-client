@@ -34,14 +34,14 @@ class Paginator extends PureComponent {
     this.handlePageChange = this.handlePageChange.bind(this);
   }
 
-  async setPage(page) {
+  setPage(page) {
     const { onPageChange } = this.props;
 
     onPageChange(page);
   }
 
-  async handlePageChange(meta) {
-    await this.setPage(meta.selected + 1);
+  handlePageChange(meta) {
+    this.setPage(meta.selected + 1);
   }
 
   render() {
