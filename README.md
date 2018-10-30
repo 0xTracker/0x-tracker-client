@@ -7,7 +7,7 @@
 
 > Single page application built using React which provides an interface for exploring data from the 0x Tracker API.
 
-# Contents
+## Contents
 
 - [Requirements](#requirements)
 - [Getting Started](#getting-started)
@@ -20,13 +20,13 @@
 - [Maintainers](#maintainers)
 - [License](#license)
 
-# 👮‍♂️ Requirements
+## 👮‍♂️ Requirements
 
 Whilst the application is served as a static web application at https://0xtracker.com, you'll need [Node.js](https://nodejs.org/en/) installed if you wish to build the application sources. A `.nvmrc` file is provided for the convenience of using [NVM](https://github.com/creationix/nvm).
 
 It's also recommended that you use [Prettier](https://prettier.io) and [ESLint](https://eslint.org) editor plugins if contributing to the project. Pre-commit hooks are in place which will prevent code which doesn't conform to Prettier/ESLint rules from being committed.
 
-# 🐣 Getting Started
+## 🐣 Getting Started
 
 The project is configured to work with https://api.0xtracker.com out of the box so getting started is simple. Run the following terminal commands to install dependencies, configure your environment, and launch the development server:
 
@@ -36,11 +36,11 @@ $ cp .env.example .env
 $ npm start
 ```
 
-# 🦄 Tech Stack
+## 🦄 Tech Stack
 
 The project has a fairly extensive set of dependencies, each with a particular purpose. If you plan to contribute to the project then its worthwhile familiarising yourself with most of them.
 
-## Core Libraries
+### Core Libraries
 
 - **[React](https://reactjs.org)** - Manages UI and dom manipulation.
 - **[React Router](https://reacttraining.com/react-router/web/guides/philosophy)** - Used for managing application routes.
@@ -54,7 +54,7 @@ The project has a fairly extensive set of dependencies, each with a particular p
 - **[Moment.js](http://momentjs.com/)** - Begrudgingly used as a fallback when manipulating UTC dates whilst awaiting UTC support in date-fns.
 - **[Loadable Components](https://github.com/smooth-code/loadable-components)** - Used for writing async React components which enable [code splitting](https://webpack.js.org/guides/code-splitting/) in the Webpack build process.
 
-## Styling & UI
+### Styling & UI
 
 - **[Bootstrap](http://getbootstrap.com/)/[Reactstrap](https://reactstrap.github.io/)** - UI component library which serves as the basis for most page elements in the project.
 - **[Styled Components](https://styled-components.com)** - CSS-in-JS solution used for styling custom components.
@@ -62,13 +62,13 @@ The project has a fairly extensive set of dependencies, each with a particular p
 - **[Redux Responsive](https://github.com/AlecAivazis/redux-responsive)** - Provides bootstrap breakpoint responsiveness to React components via Redux.
 - **[React Icons](https://github.com/react-icons/react-icons)** - Extensive React icon library which provides components for every icon in 0x Tracker's preferred icon set, [Ionicons](https://ionicons.com/).
 
-## Build Process
+### Build Process
 
 - **[Webpack](https://webpack.js.org/)** - The heart of the build process, webpack coordinates the execution of various transpiling, bundling, optimisation, and development tools.
 - **[Babel](https://babeljs.io)** - Handles transpilation of modern javascript into browser friendly code as well as some code optimisations. By using the [env preset](https://babeljs.io/docs/en/babel-preset-env) and [babel polyfill](https://babeljs.io/docs/en/babel-polyfill) in conjunction with Browserslist, code is transpiled to ensure compatibility with most visitors browsers.
 - **[Browserslist](https://github.com/browserslist/browserslist)** - Defines the list of browsers that need to be supported by Babel's transpilation process. [Browserslist-GA](https://github.com/browserslist/browserslist-ga) is used to keep the list in sync with visitor analytics.
 
-## Testing & Linting
+### Testing & Linting
 
 - **[Jest](https://jestjs.io/)** - All-in-one Javascript testing framework which executes unit & integration tests.
 - **[react-testing-library](https://github.com/kentcdodds/react-testing-library)** - Simple and complete React DOM testing utilities that encourage good testing practices.
@@ -78,7 +78,7 @@ The project has a fairly extensive set of dependencies, each with a particular p
 - **[husky](https://github.com/typicode/husky)** - Ensures git pre-commit hooks are in place to enforce ESLint & Prettier rules.
 - **[lint-staged](https://github.com/okonet/lint-staged)** - Speeds up pre-commit hooks by ensuring only the modified files are linted.
 
-## Developer Experience
+### Developer Experience
 
 - **[Storybook](https://storybook.js.org/)** - Provides an isolated React component development environment.
 - **[React Hot Loader](https://github.com/gaearon/react-hot-loader)** - Enables hot reloading of React components during development.
@@ -87,7 +87,7 @@ The project has a fairly extensive set of dependencies, each with a particular p
 - **[Webpack Bundle Analyzer](https://github.com/webpack-contrib/webpack-bundle-analyzer)** - Used for analyzing bundle sizes.
 - **[Renovate](https://renovatebot.com/)** - Helps keep dependencies up to date by monitoring for updates and automatically opening pull requests.
 
-# 🌳 Project Structure
+## 🌳 Project Structure
 
 The project structure is designed to minimize the number of directories, increase discoverability and ensure related code is grouped together. Feature code is grouped based on what "feels right" and is subject to refactoring over time.
 
@@ -118,7 +118,7 @@ If a convention exists for locating configuration files related to developer too
   - **prop-types.js** - Common non-feature specific prop-types.
 - **stories** - Storybook stories.
 
-# 🤖 NPM Scripts
+## 🤖 NPM Scripts
 
 A number of NPM scripts are provided for automating common tasks.
 
@@ -134,7 +134,7 @@ A number of NPM scripts are provided for automating common tasks.
 - **test** - Run unit/integration tests and produce coverage report.
 - **test:watch** - Run unit/integration tests in watch mode.
 
-# 🚨 Continuous Integration
+## 🚨 Continuous Integration
 
 Continuous integration for the project is handled by [Travis CI](https://travis-ci.org/cbovis/0x-tracker-client/builds) which runs linting, tests, and builds the sources for every pull request. Merged pull requests are automatically deployed to production.
 
