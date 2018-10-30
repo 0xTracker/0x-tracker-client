@@ -9,16 +9,16 @@
 
 ## Contents
 
-- [Requirements](#requirements)
-- [Getting Started](#getting-started)
-- [Tech Stack](#tech-stack)
-- [Project Structure](#project-structure)
-- [NPM Scripts](#npm-scripts)
-- [Continuous Integration](#continuous-integration)
-- [Testing](#testing)
-- [Browser Support](#browser-support)
-- [Maintainers](#maintainers)
-- [License](#license)
+- [Requirements](#-requirements)
+- [Getting Started](#-getting-started)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [NPM Scripts](#-npm-scripts)
+- [Continuous Integration](#-continuous-integration)
+- [Testing](#-testing)
+- [Browser Support](#-browser-support)
+- [Maintainers](#-maintainers)
+- [License](#-license)
 
 ## 👮‍♂️ Requirements
 
