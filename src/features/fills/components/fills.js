@@ -126,20 +126,18 @@ class Fills extends PureComponent {
             />
           </FillsHeader>
         )}
-        {fills !== undefined &&
-          _.has(filter, 'address') && (
-            <div className="mb-5">
-              <p className="lead text-center">
-                {resultCount || 'No'} results found for <br />
-                <strong>{filter.address}</strong>
-              </p>
-            </div>
-          )}
+        {fills !== undefined && _.has(filter, 'address') && (
+          <div className="mb-5">
+            <p className="lead text-center">
+              {resultCount || 'No'} results found for <br />
+              <strong>{filter.address}</strong>
+            </p>
+          </div>
+        )}
         {fills === undefined && <LoadingIndicator centered />}
-        {fills !== undefined &&
-          fills.length > 0 && (
-            <FillList {...{ excludeColumns, showStatus, fills }} />
-          )}
+        {fills !== undefined && fills.length > 0 && (
+          <FillList {...{ excludeColumns, showStatus, fills }} />
+        )}
         <Paginator
           changingPage={changingPage}
           onPageChange={this.handlePageChangeBottom}
