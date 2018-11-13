@@ -4,12 +4,13 @@
   "rebaseStalePrs": true,
   "packageRules": [
     {
-      "packagePatterns": ["^eslint|prettier|lint-staged|husky"],
+      "packageNames": ["prettier", "lint-staged", "husky"],
+      "packagePatterns": ["^eslint"],
       "groupName": "linting"
     },
     {
-      "packagePatterns": [
-        "react-testing-library|babel-jest|jest-dom|jest|timekeeper"
+      "packageNames": [
+        "react-testing-library", "babel-jest", "jest-dom", "jest", "timekeeper"
       ],
       "groupName": "testing"
     }
