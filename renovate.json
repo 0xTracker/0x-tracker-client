@@ -6,7 +6,8 @@
     {
       "packageNames": ["babel-eslint", "husky", "lint-staged", "prettier"],
       "packagePatterns": ["^eslint"],
-      "groupName": "linting packages"
+      "groupName": "linting packages",
+      "automerge": true
     },
     {
       "packageNames": [
@@ -16,7 +17,8 @@
         "react-testing-library",
         "timekeeper"
       ],
-      "groupName": "testing packages"
+      "groupName": "testing packages",
+      "automerge": true
     },
     {
       "packageNames": [
