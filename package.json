@@ -79,7 +79,7 @@
     "babel-plugin-transform-react-remove-prop-types": "0.4.19",
     "browserslist": "4.3.4",
     "browserslist-ga": "0.0.10",
-    "clean-webpack-plugin": "0.1.19",
+    "clean-webpack-plugin": "1.0.0",
     "copy-webpack-plugin": "4.5.4",
     "dotenv-webpack": "1.5.7",
     "error-overlay-webpack-plugin": "0.1.5",
