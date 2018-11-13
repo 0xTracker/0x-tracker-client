@@ -41,7 +41,7 @@
     "react-hot-loader": "4.3.11",
     "react-icons": "2.2.7",
     "react-loading": "2.0.3",
-    "react-paginate": "5.2.4",
+    "react-paginate": "6.0.0",
     "react-redux": "5.1.0",
     "react-router": "4.3.1",
     "react-router-dom": "4.3.1",
