@@ -4,15 +4,45 @@
   "rebaseStalePrs": true,
   "packageRules": [
     {
-      "packageNames": ["prettier", "lint-staged", "husky"],
+      "packageNames": ["babel-eslint", "husky", "lint-staged", "prettier"],
       "packagePatterns": ["^eslint"],
-      "groupName": "linting"
+      "groupName": "linting packages",
+      "automerge": true
     },
     {
       "packageNames": [
-        "react-testing-library", "babel-jest", "jest-dom", "jest", "timekeeper"
+        "babel-jest",
+        "jest",
+        "jest-dom",
+        "react-testing-library",
+        "timekeeper"
       ],
-      "groupName": "testing"
+      "groupName": "testing packages",
+      "automerge": true
+    },
+    {
+      "packageNames": [
+        "babel-core",
+        "babel-loader",
+        "browserslist",
+        "browserslist-ga",
+        "dotenv-webpack",
+        "file-loader",
+        "html-webpack-plugin",
+        "mini-css-extract-plugin",
+        "regenerator-runtime"
+      ],
+      "packagePatterns": [
+        "^webpack",
+        "^.+-webpack-plugin$",
+        "^babel-plugin",
+        "^@babel/"
+      ],
+      "groupName": "build packages"
+    },
+    {
+      "packagePatterns": ["^@storybook/", "^storybook-"],
+      "groupName": "storybook packages"
     }
   ]
 }
