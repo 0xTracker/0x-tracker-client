@@ -108,7 +108,7 @@
     "optimize-css-assets-webpack-plugin": "5.0.1",
     "prettier": "1.15.2",
     "react-testing-library": "5.2.3",
-    "regenerator-runtime": "0.12.1",
+    "regenerator-runtime": "0.13.1",
     "serve": "10.1.1",
     "storybook-addon-jsx": "5.4.0",
     "storybook-router": "0.3.4",
