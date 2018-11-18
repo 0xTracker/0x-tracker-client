@@ -7,7 +7,10 @@
       "packageNames": ["babel-eslint", "husky", "lint-staged", "prettier"],
       "packagePatterns": ["^eslint"],
       "groupName": "linting packages",
-      "automerge": true
+      "automerge": true,
+      "major": {
+        "automerge": false
+      }
     },
     {
       "packageNames": [
@@ -42,7 +45,11 @@
     },
     {
       "packagePatterns": ["^@storybook/", "^storybook-"],
-      "groupName": "storybook packages"
+      "groupName": "storybook packages",
+      "automerge": true,
+      "major": {
+        "automerge": false
+      }
     }
   ]
 }
