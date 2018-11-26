@@ -59,6 +59,7 @@ module.exports = (env = {}) =>
         NODE_ENV: ENVIRONMENT,
         REACT_APP_API_ENDPOINT: 'https://api.0xtracker.com',
         REACT_APP_AUTO_RELOAD_INTERVAL: '30 seconds',
+        REACT_APP_GA_TRACKING_ID: 'UA-108480050-1',
       }),
     ]),
   });
