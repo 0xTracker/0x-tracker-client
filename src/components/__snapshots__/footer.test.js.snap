@@ -22,9 +22,9 @@ exports[`should render without props 1`] = `
         Built by
          
         <a
-          class="footer__FooterLink-htpw4v-1 dnGTp link__StyledLink-sc-1m1n17q-0 NhScu"
+          class="footer__FooterLink-htpw4v-1 dnGTp link__StyledOutboundLink-sc-1m1n17q-2 jgemoX"
           href="https://github.com/cbovis"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           target="_blank"
         >
           @cbovis

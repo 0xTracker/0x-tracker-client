@@ -1,6 +1,7 @@
 import { Link as InternalLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
+import ReactGA from 'react-ga';
 import styled, { css } from 'styled-components';
 
 import { colors } from '../styles/constants';
@@ -22,6 +23,10 @@ const StyledInternalLink = styled(InternalLink)`
   ${linkStyles};
 `;
 
+const StyledOutboundLink = styled(ReactGA.OutboundLink)`
+  ${linkStyles};
+`;
+
 const Link = ({ children, href, ...otherProps }) => {
   if (href === undefined) {
     return <StyledLink {...otherProps}>{children}</StyledLink>;
@@ -31,14 +36,15 @@ const Link = ({ children, href, ...otherProps }) => {
 
   if (isExternal) {
     return (
-      <StyledLink
-        href={href}
+      <StyledOutboundLink
+        eventLabel={href}
         rel="noreferrer noopener"
         target="_blank"
+        to={href}
         {...otherProps}
       >
         {children}
-      </StyledLink>
+      </StyledOutboundLink>
     );
   }
 

@@ -52,9 +52,9 @@ exports[`renders with basic props 1`] = `
         width="49%"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 NhScu"
+          class="link__StyledOutboundLink-sc-1m1n17q-2 jgemoX"
           href="https://ddex.io"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           target="_blank"
         >
           https://ddex.io
@@ -91,9 +91,9 @@ exports[`renders with basic props 1`] = `
         width="49%"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 NhScu"
+          class="link__StyledOutboundLink-sc-1m1n17q-2 jgemoX"
           href="https://paradex.io"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           target="_blank"
         >
           https://paradex.io
@@ -130,9 +130,9 @@ exports[`renders with basic props 1`] = `
         width="49%"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 NhScu"
+          class="link__StyledOutboundLink-sc-1m1n17q-2 jgemoX"
           href="https://radarrelay.com"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           target="_blank"
         >
           https://radarrelay.com
@@ -169,9 +169,9 @@ exports[`renders with basic props 1`] = `
         width="49%"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 NhScu"
+          class="link__StyledOutboundLink-sc-1m1n17q-2 jgemoX"
           href="https://google.com"
-          rel="noreferrer noopener"
+          rel="noopener noreferrer"
           target="_blank"
         >
           https://google.com
