@@ -2,6 +2,8 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactGA from 'react-ga';
 
+const analyticsEnabled = process.env.REACT_APP_GA_TRACKING_ID !== undefined;
+
 class AnalyticsTracker extends Component {
   componentDidMount() {
     this.trackPageView();
@@ -27,14 +29,16 @@ class AnalyticsTracker extends Component {
   }
 
   trackPageView() {
-    const { location } = this.props;
-    const page = location.pathname + location.search;
+    if (analyticsEnabled) {
+      const { location } = this.props;
+      const page = location.pathname + location.search;
 
-    ReactGA.set({
-      page,
-      location: `${window.location.origin}${page}`,
-    });
-    ReactGA.pageview(page);
+      ReactGA.set({
+        page,
+        location: `${window.location.origin}${page}`,
+      });
+      ReactGA.pageview(page);
+    }
   }
 
   // eslint-disable-next-line lodash/prefer-constant, class-methods-use-this
