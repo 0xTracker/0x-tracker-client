@@ -57,6 +57,7 @@
     "redux-subscriber": "1.1.0",
     "reselect": "4.0.0",
     "styled-components": "4.1.1",
+    "styled-icons": "5.1.0",
     "uuid": "3.3.2"
   },
   "devDependencies": {
@@ -75,7 +76,7 @@
     "babel-plugin-date-fns": "0.2.1",
     "babel-plugin-lodash": "3.3.4",
     "babel-plugin-recharts": "1.2.0",
-    "babel-plugin-styled-components": "1.8.0",
+    "babel-plugin-styled-components": "1.9.0",
     "babel-plugin-transform-imports": "1.5.1",
     "babel-plugin-transform-react-remove-prop-types": "0.4.20",
     "browserslist": "4.3.4",
