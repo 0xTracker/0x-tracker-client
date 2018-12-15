@@ -57,7 +57,7 @@
     "redux-subscriber": "1.1.0",
     "reselect": "4.0.0",
     "styled-components": "4.1.1",
-    "styled-icons": "5.1.0",
+    "styled-icons": "5.5.0",
     "uuid": "3.3.2"
   },
   "devDependencies": {
