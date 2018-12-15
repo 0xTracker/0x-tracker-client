@@ -50,7 +50,6 @@ The project has a fairly extensive set of dependencies, each with a particular p
 - **[Lodash](https://lodash.com/)** - Powerful general purpose utility belt for writing clean code.
 - **[Date-fns](https://date-fns.org/)** - Modern javascript date utility library which encourages immutable code and plays nicely with Lodash FP.
 - **[Moment.js](http://momentjs.com/)** - Begrudgingly used as a fallback when manipulating UTC dates whilst awaiting UTC support in date-fns.
-- **[Loadable Components](https://github.com/smooth-code/loadable-components)** - Used for writing async React components which enable [code splitting](https://webpack.js.org/guides/code-splitting/) in the Webpack build process.
 
 ### Styling & UI
 
