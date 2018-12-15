@@ -39,7 +39,7 @@
     "react": "16.6.3",
     "react-dom": "16.6.3",
     "react-ga": "2.5.6",
-    "react-hot-loader": "4.3.12",
+    "react-hot-loader": "4.6.0",
     "react-icons": "2.2.7",
     "react-loading": "2.0.3",
     "react-paginate": "6.0.0",
