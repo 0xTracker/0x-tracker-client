@@ -8,7 +8,7 @@ const TopBarCurrencySelector = styled(AsyncCurrencySelector)`
   display: none;
   width: 220px;
 
-  ${media.lg`
+  ${media.greaterThan('lg')`
     display: block;
   `};
 
