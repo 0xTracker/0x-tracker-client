@@ -1,5 +1,11 @@
-import loadable from 'loadable-components';
+import React from 'react';
 
-const AsyncCurrencySelector = loadable(() => import('./currency-selector'));
+const CurrencySelector = React.lazy(() => import('./currency-selector'));
+
+const AsyncCurrencySelector = props => (
+  <React.Suspense fallback={<span />}>
+    <CurrencySelector {...props} />
+  </React.Suspense>
+);
 
 export default AsyncCurrencySelector;
