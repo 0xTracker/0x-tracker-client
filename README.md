@@ -58,7 +58,7 @@ The project has a fairly extensive set of dependencies, each with a particular p
 - **[Styled Components](https://styled-components.com)** - CSS-in-JS solution used for styling custom components.
 - **[Recharts](http://recharts.org/)** - React charting library used for rendering all charts on the site.
 - **[Redux Responsive](https://github.com/AlecAivazis/redux-responsive)** - Provides bootstrap breakpoint responsiveness to React components via Redux.
-- **[React Icons](https://github.com/react-icons/react-icons)** - Extensive React icon library which provides components for every icon in 0x Tracker's preferred icon set, [Ionicons](https://ionicons.com/).
+- **[Styled Icons](https://styled-icons.js.org/)** - Extensive React icon library which plays nicely with styled-components.
 
 ### Build Process
 

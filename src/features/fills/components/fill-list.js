@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { distanceInWordsToNow, format as formatDate } from 'date-fns';
-import IoMore from 'react-icons/lib/io/more';
+import { MoreHoriz as MoreIcon } from 'styled-icons/material/MoreHoriz.cjs';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -38,7 +38,7 @@ const FillList = ({ displayCurrency, excludeColumns, showStatus, fills }) => {
           <tr className={index % 2 ? 'even' : 'odd'} key={fill.id}>
             <td className="text-center">
               <Link href={buildFillUrl(fill.id)} title="View Transaction">
-                <IoMore height="24px" width="24px" />
+                <MoreIcon height={24} width={24} />
               </Link>
             </td>
             <td title={formatDate(fill.date, 'dddd, MMMM Do YYYY, h:mm:ss a')}>

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { Button, Form, Input } from 'reactstrap';
 import { withRouter } from 'react-router';
-import IoSearch from 'react-icons/lib/io/search';
+import { Search as SearchIcon } from 'styled-icons/fa-solid/Search.cjs';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
@@ -68,7 +68,7 @@ class SearchForm extends PureComponent {
           value={searchQuery}
         />
         <SearchButton onClick={this.handleSubmit}>
-          <IoSearch />
+          <SearchIcon height={16} width={16} />
         </SearchButton>
       </Form>
     );
