@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { media } from '../../../styles/util';
 
 const Title = styled.dt`
-  ${media.md`
+  ${media.greaterThan('md')`
     width: 20%;
   `};
 `;
@@ -14,7 +14,7 @@ const Value = styled.dd`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  ${media.md`
+  ${media.greaterThan('md')`
     width: 80%;
   `};
 `;

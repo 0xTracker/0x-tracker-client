@@ -16,7 +16,7 @@ const StyledContentHeader = styled.div`
 const TitleContainer = styled(Col).attrs({ xs: 12, md: 6 })`
   order: 2;
   text-align: center;
-  ${media.md`
+  ${media.greaterThan('md')`
     order: initial;
     text-align:left;
   `};
@@ -30,7 +30,7 @@ const Title = styled.h1`
 const BreadcrumbContainer = styled(Col).attrs({ xs: 12, md: 6 })`
   display: none;
 
-  ${media.md`
+  ${media.greaterThan('md')`
     display: flex;
     justify-content: flex-end;
   `};

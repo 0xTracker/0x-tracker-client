@@ -25,7 +25,7 @@ const FooterIconLink = styled(Link)`
     color: ${colors.white};
   }
 
-  ${media.md`
+  ${media.greaterThan('md')`
     margin-left: 13px;
   `}
 `;
@@ -35,7 +35,7 @@ const FooterIcon = styled.svg`
   vertical-align: middle;
   width: 25px;
 
-  ${media.md`
+  ${media.greaterThan('md')`
     height: 20px;
     width: 20px;
   `}
@@ -61,7 +61,7 @@ const Footer = () => (
             justify-content: center;
             margin-bottom: 20px;
 
-            ${media.md`
+            ${media.greaterThan('md')`
               justify-content: flex-end;
               margin-bottom: 0;
               order: 2;
@@ -83,7 +83,7 @@ const Footer = () => (
                 height: 21px;
                 width: 21px;
 
-                ${media.md`
+                ${media.greaterThan('md')`
                   height: 16px; 
                   width: 16px;
                 `}
@@ -107,7 +107,7 @@ const Footer = () => (
           css={`
             justify-content: center;
 
-            ${media.md`
+            ${media.greaterThan('md')`
               justify-content: flex-start;
             `}
           `}

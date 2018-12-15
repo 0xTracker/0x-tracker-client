@@ -23,7 +23,7 @@ const StyledTopBar = styled.div`
 `;
 
 const TopBarContainer = styled(Container)`
-  ${media.lg`
+  ${media.greaterThan('lg')`
     display: flex;
     justify-content: space-between;
   `};
@@ -33,7 +33,7 @@ const TopBarStats = styled.div`
   display: flex;
   justify-content: space-between;
 
-  ${media.lg`
+  ${media.greaterThan('lg')`
     flex-grow: 1;
     justify-content: flex-start;
   `};

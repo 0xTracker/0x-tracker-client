@@ -28,7 +28,7 @@ const FillDetailList = styled.dl`
     margin-bottom: 0;
   }
 
-  ${media.md`
+  ${media.greaterThan('md')`
     display: flex;
     flex-wrap: wrap;
   `};

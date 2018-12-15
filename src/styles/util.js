@@ -1,15 +1,9 @@
-import { css } from 'styled-components';
+import _ from 'lodash';
+import { generateMedia } from 'styled-media-query';
 
 import { breakpoints } from './constants';
 
-const media = Object.keys(breakpoints).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (min-width: ${breakpoints[label]}px) {
-      ${css(...args)};
-    }
-  `;
-
-  return acc;
-}, {});
+const pixelBreakpoints = _.mapValues(breakpoints, value => `${value}px`);
+const media = generateMedia(pixelBreakpoints);
 
 export { media };

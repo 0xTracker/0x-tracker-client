@@ -8,7 +8,7 @@ const StyledTopBarStat = styled.div`
   font-size: 13px;
   text-transform: uppercase;
 
-  ${media.lg`
+  ${media.greaterThan('lg')`
     margin-right: 50px;
 
     &:last-child {

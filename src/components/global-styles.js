@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body {
+    background-color: transparent;
     color: ${colors.tuna};
     display: flex;
     flex: 1;

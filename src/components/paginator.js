@@ -12,7 +12,7 @@ const StyledPaginator = styled.div`
   display: none;
   justify-content: flex-end;
 
-  ${media.md`
+  ${media.greaterThan('md')`
     display: flex;
   `};
 `;
