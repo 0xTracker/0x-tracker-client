@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { Button, Form, Input } from 'reactstrap';
 import { withRouter } from 'react-router';
-import { Search as SearchIcon } from 'styled-icons/fa-solid/Search';
+import { Search as SearchIcon } from 'styled-icons/fa-solid/Search.cjs';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';

@@ -1,8 +1,8 @@
 import { getYear } from 'date-fns';
 import { Col, Row } from 'reactstrap';
-import { Github as GitHubIcon } from 'styled-icons/fa-brands/Github';
-import { Twitter as TwitterIcon } from 'styled-icons/fa-brands/Twitter';
-import { MediumM as MediumIcon } from 'styled-icons/fa-brands/MediumM';
+import { Github as GitHubIcon } from 'styled-icons/fa-brands/Github.cjs';
+import { Twitter as TwitterIcon } from 'styled-icons/fa-brands/Twitter.cjs';
+import { MediumM as MediumIcon } from 'styled-icons/fa-brands/MediumM.cjs';
 import React from 'react';
 import styled from 'styled-components';
 

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { distanceInWordsToNow, format as formatDate } from 'date-fns';
-import { MoreHoriz as MoreIcon } from 'styled-icons/material/MoreHoriz';
+import { MoreHoriz as MoreIcon } from 'styled-icons/material/MoreHoriz.cjs';
 import PropTypes from 'prop-types';
 import React from 'react';
 
