@@ -4,7 +4,7 @@ exports[`returns "None" when the trade does not have a fee recipient 1`] = `None
 
 exports[`returns a fee recipient link when the trade does not have a relayer but does have a fee recipient 1`] = `
 <a
-  class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
+  class="link__StyledInternalLink-sc-1m1n17q-1 kIqcgN"
   href="/search?q=0x004e344251110fa1cb09aa31c95c6598ed07dce6"
 >
   Unknown
@@ -13,7 +13,7 @@ exports[`returns a fee recipient link when the trade does not have a relayer but
 
 exports[`returns relayer link when trade has a relayer 1`] = `
 <a
-  class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
+  class="link__StyledInternalLink-sc-1m1n17q-1 kIqcgN"
   href="/relayers/google"
 >
   Google

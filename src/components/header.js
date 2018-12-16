@@ -1,0 +1,51 @@
+import { DollarSign as DollarIcon } from 'styled-icons/fa-solid/DollarSign.cjs';
+import { Search as SearchIcon } from 'styled-icons/fa-solid/Search.cjs';
+import React from 'react';
+import styled from 'styled-components';
+
+import { URL } from '../constants';
+import { colors } from '../styles/constants';
+import Container from './container';
+import Link from './link';
+import logoImage from '../assets/images/logo.png';
+import Navigation from './navigation';
+
+const HeaderButton = styled.div`
+  background: ${colors.charade};
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  padding: 8px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+
+  &:last-child {
+    margin: 0;
+  }
+`;
+
+const Header = () => (
+  <div
+    css={`
+      background-color: ${colors.cinder};
+      padding: 18px 0;
+    `}
+  >
+    <Container css="align-items: center; display: flex; justify-content: space-between;">
+      <Link href={URL.DASHBOARD}>
+        <img alt="0x Tracker" css="width: 150px;" src={logoImage} />
+      </Link>
+      <Navigation css="flex-grow: 1;" />
+      <div css="display: flex;">
+        <HeaderButton>
+          <DollarIcon color={colors.white} height={22} width={22} />
+        </HeaderButton>
+        <HeaderButton>
+          <SearchIcon color={colors.white} height={22} width={22} />
+        </HeaderButton>
+      </div>
+    </Container>
+  </div>
+);
+
+export default Header;

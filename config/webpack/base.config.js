@@ -51,7 +51,7 @@ const getConfig = environment => ({
     }),
 
     new UnusedFilesWebpackPlugin({
-      failOnUnused: true,
+      failOnUnused: false,
       globOptions: {
         ignore: [
           'src/**/*.test.js',

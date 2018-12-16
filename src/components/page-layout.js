@@ -2,24 +2,32 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import Container from './container';
 import ContentHeader from './content-header';
-import ContentSection from './content-section';
 
-const PageBody = styled(ContentSection)`
+const ContentBody = styled(Container)`
+  flex-grow: 1;
+  padding-top: 36px;
+  padding-bottom: 36px;
+`;
+
+const StyledPageLayout = styled.div`
+  display: flex;
+  flex-direction: column;
   height: 100%;
 `;
 
 const PageLayout = ({ breadcrumbItems, children, subTitle, title }) => (
-  <React.Fragment>
-    {breadcrumbItems.length > 0 && (
+  <StyledPageLayout>
+    {breadcrumbItems.length > 0 ? (
       <ContentHeader
         breadcrumbItems={breadcrumbItems}
         subTitle={subTitle}
         title={title}
       />
-    )}
-    <PageBody>{children}</PageBody>
-  </React.Fragment>
+    ) : null}
+    <ContentBody>{children}</ContentBody>
+  </StyledPageLayout>
 );
 
 PageLayout.propTypes = {

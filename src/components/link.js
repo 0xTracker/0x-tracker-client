@@ -7,11 +7,12 @@ import styled, { css } from 'styled-components';
 import { colors } from '../styles/constants';
 
 const linkStyles = css`
-  color: ${colors.moodyBlue};
+  color: ${colors.persianBlue};
   cursor: pointer;
 
   &:hover {
-    color: ${colors.moodyBlue};
+    color: inherit;
+    text-decoration: none;
   }
 `;
 

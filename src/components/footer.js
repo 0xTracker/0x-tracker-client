@@ -49,7 +49,7 @@ const FooterColumn = styled(Col).attrs({ xs: 12, md: 6 })`
 const Footer = () => (
   <div
     css={`
-      background: ${colors.tuna};
+      background: ${colors.shark};
       color: ${colors.silver};
       padding: 30px;
     `}

@@ -42,7 +42,7 @@ exports[`renders with basic props 1`] = `
         width="50%"
       >
         <a
-          class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
+          class="link__StyledInternalLink-sc-1m1n17q-1 kIqcgN"
           href="/relayers/ddex"
         >
           DDEX
@@ -52,7 +52,7 @@ exports[`renders with basic props 1`] = `
         width="49%"
       >
         <a
-          class="link__StyledOutboundLink-sc-1m1n17q-2 jgemoX"
+          class="link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
           href="https://ddex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -81,7 +81,7 @@ exports[`renders with basic props 1`] = `
         width="50%"
       >
         <a
-          class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
+          class="link__StyledInternalLink-sc-1m1n17q-1 kIqcgN"
           href="/relayers/paradex"
         >
           Paradex
@@ -91,7 +91,7 @@ exports[`renders with basic props 1`] = `
         width="49%"
       >
         <a
-          class="link__StyledOutboundLink-sc-1m1n17q-2 jgemoX"
+          class="link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
           href="https://paradex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -120,7 +120,7 @@ exports[`renders with basic props 1`] = `
         width="50%"
       >
         <a
-          class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
+          class="link__StyledInternalLink-sc-1m1n17q-1 kIqcgN"
           href="/relayers/radar-relay"
         >
           Radar Relay
@@ -130,7 +130,7 @@ exports[`renders with basic props 1`] = `
         width="49%"
       >
         <a
-          class="link__StyledOutboundLink-sc-1m1n17q-2 jgemoX"
+          class="link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
           href="https://radarrelay.com"
           rel="noopener noreferrer"
           target="_blank"
@@ -159,7 +159,7 @@ exports[`renders with basic props 1`] = `
         width="50%"
       >
         <a
-          class="link__StyledInternalLink-sc-1m1n17q-1 jZaAPW"
+          class="link__StyledInternalLink-sc-1m1n17q-1 kIqcgN"
           href="/relayers/sad-relayer"
         >
           Sad Relayer
@@ -169,7 +169,7 @@ exports[`renders with basic props 1`] = `
         width="49%"
       >
         <a
-          class="link__StyledOutboundLink-sc-1m1n17q-2 jgemoX"
+          class="link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
           href="https://google.com"
           rel="noopener noreferrer"
           target="_blank"
