@@ -11,6 +11,7 @@ import Container from './container';
 const StyledContentHeader = styled.div`
   background: ${colors.white};
   padding: 20px 0;
+  border-radius: 0px 2px 4px rgba(126, 142, 177, 0.12);
 `;
 
 const TitleContainer = styled(Col).attrs({ xs: 12, md: 6 })`

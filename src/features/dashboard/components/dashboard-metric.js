@@ -8,7 +8,8 @@ const StyledDashboardMetric = styled.dl`
   background-color: ${colors.white};
   border-radius: 3px;
   margin: 0;
-  padding: 15px;
+  padding: 16px;
+  border-radius: 0px 2px 4px rgba(126, 142, 177, 0.12);
 `;
 
 const DashboardMetricTitle = styled.dt`

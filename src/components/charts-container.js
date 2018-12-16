@@ -7,12 +7,16 @@ import { colors } from '../styles/constants';
 
 const StyledChartsContainer = styled(Card)`
   border-radius: none;
+  border: none;
+  box-shadow: 0px 2px 4px rgba(126, 142, 177, 0.12);
 `;
 
 const ChartsContainerHeader = styled(CardHeader)`
+  background: none;
+  border-bottom: 1px solid ${colors.athensGray};
   display: flex;
   justify-content: space-between;
-  padding-top: 0.5rem;
+  padding: 16px;
 `;
 
 const ChartsContainerBody = styled(CardBody)`
@@ -20,10 +24,17 @@ const ChartsContainerBody = styled(CardBody)`
   display: flex;
   height: ${({ chartsHeight }) => chartsHeight}px;
   justify-content: center;
+  padding: 16px;
 `;
 
 const ChartLink = styled(NavLink)`
-  cursor: pointer;
+  &&& {
+    color: ${props => (props.active ? 'inherit' : colors.dustyGray)};
+    cursor: pointer;
+    border: none;
+    margin-right: 16px;
+    padding: 0;
+  }
 `;
 
 const PeriodLink = styled(NavLink)`
@@ -31,7 +42,7 @@ const PeriodLink = styled(NavLink)`
   padding: 0.2rem 0.7rem;
 
   &&.active {
-    background-color: ${colors.gallery};
+    background-color: ${colors.athensGray};
     color: inherit;
   }
 `;
@@ -67,7 +78,7 @@ class ChartsContainer extends PureComponent {
           {charts.length === 1 ? (
             charts[0].title
           ) : (
-            <Nav card tabs>
+            <Nav card css="margin: 0;" tabs>
               {charts.map(chart => (
                 <NavItem key={chart.title}>
                   <ChartLink
