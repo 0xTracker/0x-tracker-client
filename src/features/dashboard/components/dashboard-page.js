@@ -7,6 +7,7 @@ import React from 'react';
 import { TIME_PERIOD } from '../../../constants';
 import ChartsContainer from '../../../components/charts-container';
 import ContentSection from '../../../components/content-section';
+import DashboardMetrics from './dashboard-metrics';
 import Fills from '../../fills/components/fills';
 import getIsMobile from '../../../selectors/get-is-mobile';
 import getPeriodOptions from '../../../util/get-period-options';
@@ -19,6 +20,7 @@ const CHARTS_HEIGHT = 265;
 
 const Dashboard = ({ isMobile }) => [
   <ContentSection key="content">
+    <DashboardMetrics css="margin-bottom: 24px;" />
     <div className="row">
       <div className="col-xs-12 col-lg-7 mb-4">
         <ChartsContainer

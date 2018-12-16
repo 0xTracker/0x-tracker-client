@@ -11,13 +11,16 @@ import logoImage from '../assets/images/logo.png';
 import Navigation from './navigation';
 
 const HeaderButton = styled.div`
-  background: ${colors.charade};
-  border-radius: 6px;
+  border-radius: 3px;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   padding: 8px 10px;
-  margin-right: 10px;
-  cursor: pointer;
+  margin-right: 8px;
+
+  &:hover {
+    background: ${colors.charade};
+  }
 
   &:last-child {
     margin: 0;

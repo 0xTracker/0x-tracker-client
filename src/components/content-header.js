@@ -9,7 +9,7 @@ import Breadcrumb from './breadcrumb';
 import Container from './container';
 
 const StyledContentHeader = styled.div`
-  background: ${colors.wildSand};
+  background: ${colors.white};
   padding: 20px 0;
 `;
 

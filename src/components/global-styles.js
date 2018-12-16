@@ -12,12 +12,12 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body {
-    background-color: transparent;
+    background-color: ${colors.athensGray};
     color: ${colors.tuna};
     display: flex;
     flex: 1;
     flex-direction: column;
-    font-family: 'Monda', sans-serif;
+    font-family: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
   }
 
   h1,
