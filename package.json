@@ -47,7 +47,7 @@
     "react-scroll": "1.7.10",
     "react-select": "2.1.2",
     "reactstrap": "6.5.0",
-    "recharts": "1.4.1",
+    "recharts": "1.4.2",
     "recompose": "0.30.0",
     "redux": "4.0.1",
     "redux-persist": "5.10.0",
