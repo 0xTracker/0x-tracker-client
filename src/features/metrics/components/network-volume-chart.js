@@ -8,12 +8,12 @@ import {
   Tooltip,
 } from 'recharts';
 import { format as formatDate } from 'date-fns';
+import currencyFormatter from 'currency-formatter';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
 import { colors } from '../../../styles/constants';
-import formatCurrency from '../../../util/format-currency';
 import NetworkVolumeTooltip from './network-volume-tooltip';
 import padMetrics from '../util/pad-metrics';
 import sharedPropTypes from '../../../prop-types';
@@ -41,7 +41,14 @@ class NetworkVolumeChart extends PureComponent {
 
     const { displayCurrency } = this.props;
 
-    return formatCurrency(amount, displayCurrency, true);
+    const currency = currencyFormatter.findCurrency(displayCurrency);
+    const shortAmount = numeral(amount).format('0.[0]a');
+
+    if (currency.symbolOnLeft) {
+      return `${currency.symbol} ${shortAmount}`;
+    }
+
+    return `${shortAmount} ${currency.symbol}`;
   }
 
   render() {
@@ -65,15 +72,18 @@ class NetworkVolumeChart extends PureComponent {
           <Area
             animationDuration={0}
             dataKey={type}
-            fill={colors.halfBaked}
-            fillOpacity={1}
-            stroke="none"
+            fill={colors.persianBlue}
+            fillOpacity={0.2}
+            stroke={colors.persianBlue}
+            strokeOpacity={0.4}
+            strokeWidth={2}
             type="monotone"
           />
           <XAxis
             axisLine={false}
             dataKey="date"
             minTickGap={60}
+            tick={{ fill: colors.tuna, fontSize: '0.9em' }}
             tickFormatter={formatAxisDate}
             tickLine={false}
           />
@@ -83,6 +93,7 @@ class NetworkVolumeChart extends PureComponent {
             minTickGap={20}
             mirror
             padding={{ top: 25 }}
+            tick={{ fill: colors.tuna, fontSize: '0.9em' }}
             tickFormatter={
               type === 'volume' ? this.formatCurrency : formatFillCount
             }

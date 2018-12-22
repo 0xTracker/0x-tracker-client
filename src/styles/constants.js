@@ -19,6 +19,7 @@ const colors = {
   goldenSand: '#F0DB79',
   halfBaked: '#8DC6C4',
   mineShaft: '#222',
+  minsk: '#2F2B7B',
   moodyBlue: '#7a68d2',
   persianBlue: '#1e42db',
   pomegranate: '#F44336',

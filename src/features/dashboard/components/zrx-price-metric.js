@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import { TrendingDown as TrendingDownIcon } from 'styled-icons/material/TrendingDown.cjs';
 import { TrendingUp as TrendingUpIcon } from 'styled-icons/material/TrendingUp.cjs';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
@@ -59,13 +60,23 @@ class ZRXPriceMetric extends React.PureComponent {
                 font-size: 0.9em;
               `}
             >
-              <TrendingUpIcon
-                color={colors.fruitSalad}
-                css="margin: 0 2px 0 4px;"
-                height={24}
-                width={24}
-              />
               {numeral(zrxPrice.change).format('0.[00]')}%
+              {zrxPrice.change > 0 ? (
+                <TrendingUpIcon
+                  color={colors.fruitSalad}
+                  css="margin: 0 0 0 4px;"
+                  height={24}
+                  width={24}
+                />
+              ) : null}
+              {zrxPrice.change < 0 ? (
+                <TrendingDownIcon
+                  color={colors.pomegranate}
+                  css="margin: 0 0 0 4px;"
+                  height={24}
+                  width={24}
+                />
+              ) : null}
             </span>
           </React.Fragment>
         )}
