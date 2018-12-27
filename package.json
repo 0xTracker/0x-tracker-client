@@ -82,7 +82,7 @@
     "browserslist-ga": "0.0.10",
     "clean-webpack-plugin": "1.0.0",
     "copy-webpack-plugin": "4.6.0",
-    "dotenv-webpack": "1.5.7",
+    "dotenv-webpack": "1.6.0",
     "error-overlay-webpack-plugin": "0.1.5",
     "eslint": "5.11.1",
     "eslint-config-airbnb-base": "13.1.0",
