@@ -17,11 +17,11 @@ const LoadMoreButton = styled(Button).attrs({
   size: 'lg',
 })`
   border-color: currentColor;
-  color: ${colors.tuna};
+  color: ${colors.violet};
 
   &:hover {
-    background-color: ${colors.tuna};
-    border-color: ${colors.tuna};
+    background-color: ${colors.violet};
+    border-color: ${colors.violet};
   }
 `;
 

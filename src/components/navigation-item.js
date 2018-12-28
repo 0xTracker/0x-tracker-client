@@ -3,19 +3,20 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import { colors } from '../styles/constants';
 import Link from './link';
 
 const NavigationLink = styled(Link)`
-  color: ${props => (props.active ? 'white' : 'rgba(255, 255, 255, 0.7)')};
+  color: ${props => (props.active ? 'currentColor' : colors.stormGray)};
 
   &:hover {
-    color: white;
+    color: currentColor;
     text-decoration: none;
   }
 `;
 
 const NavigationItem = ({ href, location, title }) => (
-  <li css="display: inline-block; margin-right: 15px; font-size: 1.1em;">
+  <li css="display: inline-block; margin-right: 15px;">
     <NavigationLink
       active={location.pathname === href}
       href={href}

@@ -2,7 +2,6 @@ import {
   Area,
   AreaChart,
   ResponsiveContainer,
-  CartesianGrid,
   XAxis,
   YAxis,
   Tooltip,
@@ -68,7 +67,6 @@ class NetworkVolumeChart extends PureComponent {
           data={sanitizedData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
-          <CartesianGrid stroke={colors.wildSand} />
           <Area
             animationDuration={0}
             dataKey={type}
@@ -83,7 +81,7 @@ class NetworkVolumeChart extends PureComponent {
             axisLine={false}
             dataKey="date"
             minTickGap={60}
-            tick={{ fill: colors.tuna, fontSize: '0.9em' }}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={formatAxisDate}
             tickLine={false}
           />
@@ -93,7 +91,7 @@ class NetworkVolumeChart extends PureComponent {
             minTickGap={20}
             mirror
             padding={{ top: 25 }}
-            tick={{ fill: colors.tuna, fontSize: '0.9em' }}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={
               type === 'volume' ? this.formatCurrency : formatFillCount
             }

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
+import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import ContentSection from '../../../components/content-section';
 import DashboardMetrics from './dashboard-metrics';
@@ -62,7 +63,11 @@ const Dashboard = ({ isMobile }) => [
         />
       </div>
     </div>
-    {!isMobile && <Fills heading="Recent Fills" />}
+    {!isMobile && (
+      <Card heading="Recent Fills">
+        <Fills />
+      </Card>
+    )}
   </ContentSection>,
 ];
 

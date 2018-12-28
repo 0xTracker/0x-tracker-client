@@ -6,6 +6,7 @@ import React, { PureComponent } from 'react';
 import { TIME_PERIOD, URL } from '../../../constants';
 import buildTokenUrl from '../util/build-token-url';
 import callApi from '../../../util/call-api';
+import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getIsMobile from '../../../selectors/get-is-mobile';
@@ -56,28 +57,29 @@ class TokenPage extends PureComponent {
         subTitle={token.symbol}
         title={token.name}
       >
-        <div className="mb-4">
-          <ChartsContainer
-            charts={[
-              {
-                component: <TokenVolume token={token} />,
-                title: 'Network Volume',
-              },
-            ]}
-            chartsHeight={265}
-            defaultPeriod={TIME_PERIOD.MONTH}
-            periods={
-              !isMobile && [
-                { label: '24H', value: TIME_PERIOD.DAY },
-                { label: '7D', value: TIME_PERIOD.WEEK },
-                { label: '1M', value: TIME_PERIOD.MONTH },
-                { label: '1Y', value: TIME_PERIOD.YEAR },
-                { label: 'ALL', value: TIME_PERIOD.ALL },
-              ]
-            }
-          />
-        </div>
-        <Fills filter={{ token: token.address }} heading="Recent Fills" />
+        <ChartsContainer
+          charts={[
+            {
+              component: <TokenVolume token={token} />,
+              title: 'Network Volume',
+            },
+          ]}
+          chartsHeight={265}
+          css="margin: 0 0 2em 0"
+          defaultPeriod={TIME_PERIOD.MONTH}
+          periods={
+            !isMobile && [
+              { label: '24H', value: TIME_PERIOD.DAY },
+              { label: '7D', value: TIME_PERIOD.WEEK },
+              { label: '1M', value: TIME_PERIOD.MONTH },
+              { label: '1Y', value: TIME_PERIOD.YEAR },
+              { label: 'ALL', value: TIME_PERIOD.ALL },
+            ]
+          }
+        />
+        <Card heading="Recent Fills">
+          <Fills filter={{ token: token.address }} />
+        </Card>
       </PageLayout>
     );
   }

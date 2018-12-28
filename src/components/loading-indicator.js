@@ -15,7 +15,7 @@ const AlignCenter = styled.div`
 const LoadingIndicator = ({ color, centered, size, type }) => {
   const indicator = (
     <ReactLoading
-      color={color === 'light' ? colors.white : colors.tuna}
+      color={color === 'light' ? colors.white : colors.violet}
       delay={0}
       height={size === 'small' ? 22 : undefined}
       type={type === 'cylon' ? 'cylon' : 'spin'}

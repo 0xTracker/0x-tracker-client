@@ -2,7 +2,6 @@ import _ from 'lodash';
 import {
   BarChart,
   Bar,
-  CartesianGrid,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -59,13 +58,12 @@ class TopTokensChart extends PureComponent {
     return (
       <ResponsiveContainer>
         <BarChart data={data} margin={{ bottom: 0, left: 0, right: 0, top: 0 }}>
-          <CartesianGrid stroke={colors.wildSand} />
           <XAxis
             axisLine={false}
             dataKey="token.symbol"
             onClick={this.handleAxisClick}
             style={{ cursor: 'pointer' }} // eslint-disable-line react/forbid-component-props
-            tick={{ fill: colors.tuna, fontSize: '0.9em' }}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickLine={false}
           />
           <YAxis
@@ -73,7 +71,7 @@ class TopTokensChart extends PureComponent {
             domain={[0, 100]}
             minTickGap={15}
             padding={{ top: 25, bottom: 0 }}
-            tick={{ fill: colors.tuna, fontSize: '0.9em' }}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={formatPercentage}
             tickLine={false}
             width={41}
@@ -82,7 +80,7 @@ class TopTokensChart extends PureComponent {
           <Bar
             animationDuration={0}
             dataKey="share"
-            fill="#90A1EA"
+            fill={colors.portage}
             onClick={this.handleBarClick}
             style={{ cursor: 'pointer' }} // eslint-disable-line react/forbid-component-props
           />

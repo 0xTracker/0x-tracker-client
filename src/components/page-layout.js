@@ -7,7 +7,6 @@ import ContentHeader from './content-header';
 
 const ContentBody = styled(Container)`
   flex-grow: 1;
-  padding-top: 36px;
   padding-bottom: 36px;
 `;
 

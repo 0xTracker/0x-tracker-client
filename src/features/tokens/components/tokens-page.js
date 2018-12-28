@@ -5,6 +5,7 @@ import React from 'react';
 import qs from 'qs';
 
 import { URL } from '../../../constants';
+import Card from '../../../components/card';
 import PageLayout from '../../../components/page-layout';
 import TokenList from './token-list';
 
@@ -15,7 +16,9 @@ const TokensPage = ({ history, page }) => (
     breadcrumbItems={[{ title: 'Tokens', url: URL.TOKENS }]}
     title="Traded Tokens"
   >
-    <TokenList history={history} limit={PAGE_SIZE} page={page} />
+    <Card css="height: 100%;">
+      <TokenList history={history} limit={PAGE_SIZE} page={page} />
+    </Card>
   </PageLayout>
 );
 

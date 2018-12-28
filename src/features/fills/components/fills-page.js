@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { URL } from '../../../constants';
+import Card from '../../../components/card';
 import Fills from './fills';
 import PageLayout from '../../../components/page-layout';
 
@@ -9,7 +10,9 @@ const FillsPage = () => (
     breadcrumbItems={[{ title: 'Recent Fills', url: URL.FILLS }]}
     title="Recent Fills"
   >
-    <Fills />
+    <Card css="height: 100%;">
+      <Fills />
+    </Card>
   </PageLayout>
 );
 

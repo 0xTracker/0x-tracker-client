@@ -7,7 +7,7 @@ import { URL } from '../constants';
 import { colors } from '../styles/constants';
 import Container from './container';
 import Link from './link';
-import logoImage from '../assets/images/logo.png';
+import logoImage from '../assets/images/logo-dark.svg';
 import Navigation from './navigation';
 
 const HeaderButton = styled.div`
@@ -19,7 +19,7 @@ const HeaderButton = styled.div`
   margin-right: 8px;
 
   &:hover {
-    background: ${colors.charade};
+    background: ${colors.athensGray};
   }
 
   &:last-child {
@@ -30,7 +30,8 @@ const HeaderButton = styled.div`
 const Header = () => (
   <div
     css={`
-      background-color: ${colors.cinder};
+      background-color: ${colors.white};
+      color: ${colors.violet};
       padding: 18px 0;
     `}
   >
@@ -41,10 +42,10 @@ const Header = () => (
       <Navigation css="flex-grow: 1;" />
       <div css="display: flex;">
         <HeaderButton>
-          <DollarIcon color={colors.white} height={22} width={22} />
+          <DollarIcon color="currentColor" height={22} width={22} />
         </HeaderButton>
         <HeaderButton>
-          <SearchIcon color={colors.white} height={22} width={22} />
+          <SearchIcon color="currentColor" height={22} width={22} />
         </HeaderButton>
       </div>
     </Container>

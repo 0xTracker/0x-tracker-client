@@ -118,12 +118,6 @@ class Fills extends PureComponent {
         {_.isString(heading) && (
           <FillsHeader>
             <FillsHeading>{heading}</FillsHeading>
-            <Paginator
-              changingPage={changingPage}
-              onPageChange={this.handlePageChange}
-              page={page}
-              pageCount={pageCount}
-            />
           </FillsHeader>
         )}
         {fills !== undefined && _.has(filter, 'address') && (

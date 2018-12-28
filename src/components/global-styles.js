@@ -13,18 +13,11 @@ const GlobalStyles = createGlobalStyle`
   
   body {
     background-color: ${colors.athensGray};
-    color: ${colors.tuna};
+    color: ${colors.violet};
     display: flex;
     flex: 1;
     flex-direction: column;
     font-family: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    color: ${colors.tuna};
   }
 
   .table td {
@@ -96,7 +89,7 @@ const GlobalStyles = createGlobalStyle`
   .pagination li.page-item.disabled a.page-link,
   .pagination li.page-item.disabled a.page-link:hover {
     cursor: default;
-    color: ${colors.silver};
+    color: ${colors.stormGray};
   }
 
   .card-header .nav-tabs .nav-link:hover:not(.active) {

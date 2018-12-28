@@ -13,7 +13,7 @@ import Link from './link';
 import SpectrumIcon from './spectrum-icon';
 
 const FooterIconLink = styled(Link)`
-  color: ${colors.silver};
+  color: currentColor;
   display: flex;
   margin-left: 15px;
 
@@ -49,8 +49,8 @@ const FooterColumn = styled(Col).attrs({ xs: 12, md: 6 })`
 const Footer = () => (
   <div
     css={`
-      background: ${colors.shark};
-      color: ${colors.silver};
+      background: ${colors.violet};
+      color: ${colors.santasGray};
       padding: 30px;
     `}
   >

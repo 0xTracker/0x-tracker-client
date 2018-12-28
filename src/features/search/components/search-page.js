@@ -5,6 +5,7 @@ import React from 'react';
 import qs from 'qs';
 
 import buildSearchUrl from '../util/build-search-url';
+import Card from '../../../components/card';
 import Fills from '../../fills/components/fills';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
@@ -19,7 +20,9 @@ const SearchPage = ({ searchQuery }) =>
       ]}
       title="Search Results"
     >
-      <Fills filter={{ address: _.toLower(searchQuery) }} showSummary />
+      <Card css="height: 100%;">
+        <Fills filter={{ address: _.toLower(searchQuery) }} showSummary />
+      </Card>
     </PageLayout>
   );
 

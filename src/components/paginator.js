@@ -4,7 +4,6 @@ import React, { PureComponent } from 'react';
 import ReactLoading from 'react-loading';
 import ReactPaginate from 'react-paginate';
 
-import { colors } from '../styles/constants';
 import { media } from '../styles/util';
 
 const StyledPaginator = styled.div`
@@ -18,7 +17,7 @@ const StyledPaginator = styled.div`
 `;
 
 const LoadingIndicator = styled(ReactLoading).attrs({
-  color: colors.tuna,
+  color: 'currentColor',
   delay: 0,
   height: 30,
   type: 'spin',

@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
 import { media } from '../styles/util';
 import Breadcrumb from './breadcrumb';
 import Container from './container';
+import { colors } from '../styles/constants';
 
 const StyledContentHeader = styled.div`
-  background: ${colors.white};
-  padding: 20px 0;
+  padding: 30px 0;
   border-radius: 0px 2px 4px rgba(126, 142, 177, 0.12);
 `;
 
@@ -24,8 +23,17 @@ const TitleContainer = styled(Col).attrs({ xs: 12, md: 6 })`
 `;
 
 const Title = styled.h1`
+  display: inline;
   font-size: 1.2em;
   margin: 0;
+`;
+
+const SubTitle = styled.h2`
+  color: ${colors.stormGray};
+  display: inline;
+  font-size: 1em;
+  font-weight: normal;
+  margin: 0 0 0 1em;
 `;
 
 const BreadcrumbContainer = styled(Col).attrs({ xs: 12, md: 6 })`
@@ -42,10 +50,8 @@ const ContentHeader = ({ breadcrumbItems, subTitle, title }) => (
     <Container>
       <Row>
         <TitleContainer>
-          <Title>
-            {title}
-            {subTitle && <small className="text-muted"> {subTitle}</small>}
-          </Title>
+          <Title>{title}</Title>
+          {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}
         </TitleContainer>
         <BreadcrumbContainer>
           <Breadcrumb items={breadcrumbItems} />

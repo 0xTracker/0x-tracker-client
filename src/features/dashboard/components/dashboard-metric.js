@@ -3,17 +3,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
-
-const StyledDashboardMetric = styled.dl`
-  background-color: ${colors.white};
-  border-radius: 3px;
-  margin: 0;
-  padding: 16px;
-  border-radius: 0px 2px 4px rgba(126, 142, 177, 0.12);
-`;
+import Card from '../../../components/card';
 
 const DashboardMetricTitle = styled.dt`
-  color: ${colors.dustyGray};
+  color: ${colors.stormGray};
   font-size: 0.8em;
   font-weight: normal;
   margin: 0;
@@ -29,10 +22,12 @@ const DashboardMetricValue = styled.dd`
 `;
 
 const DashboardMetric = ({ title, children }) => (
-  <StyledDashboardMetric>
-    <DashboardMetricTitle>{title}</DashboardMetricTitle>
-    <DashboardMetricValue>{children}</DashboardMetricValue>
-  </StyledDashboardMetric>
+  <Card css="padding: 16px;">
+    <dl css="margin: 0;">
+      <DashboardMetricTitle>{title}</DashboardMetricTitle>
+      <DashboardMetricValue>{children}</DashboardMetricValue>
+    </dl>
+  </Card>
 );
 
 DashboardMetric.propTypes = {

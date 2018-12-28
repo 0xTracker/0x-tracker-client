@@ -8,7 +8,7 @@ import SearchForm from '../src/features/search/components/search-form';
 storiesOf('Search|SearchForm', module)
   .addDecorator(
     withBackgrounds([
-      { name: 'navigation', value: colors.tuna, default: true },
+      { name: 'navigation', value: colors.violet, default: true },
     ]),
   )
   .addWithJSX('default', () => <SearchForm />);

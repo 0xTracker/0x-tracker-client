@@ -29,7 +29,7 @@ const ChartsContainerBody = styled(CardBody)`
 
 const ChartLink = styled(NavLink)`
   &&& {
-    color: ${props => (props.active ? 'inherit' : colors.dustyGray)};
+    color: ${props => (props.active ? 'inherit' : colors.stormGray)};
     cursor: pointer;
     border: none;
     margin-right: 16px;
@@ -66,14 +66,14 @@ class ChartsContainer extends PureComponent {
   }
 
   render() {
-    const { charts, chartsHeight, periods } = this.props;
+    const { charts, chartsHeight, className, periods } = this.props;
     const { selectedPeriod, selectedChart } = this.state;
 
     const Chart = charts.find(chart => chart.title === selectedChart).component;
     const chartProps = { period: selectedPeriod };
 
     return (
-      <StyledChartsContainer>
+      <StyledChartsContainer className={className}>
         <ChartsContainerHeader>
           {charts.length === 1 ? (
             charts[0].title

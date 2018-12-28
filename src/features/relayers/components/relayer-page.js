@@ -1,10 +1,12 @@
 import { compose, mapProps } from 'recompose';
 import { connect } from 'react-redux';
+import { Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
 import buildRelayerUrl from '../util/build-relayer-url';
+import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getIsMobile from '../../../selectors/get-is-mobile';
@@ -28,8 +30,8 @@ const RelayerPage = ({ isMobile, relayer }) =>
       ]}
       title={relayer.name}
     >
-      <div className="row">
-        <div className="col-xs-12 col-lg-7 mb-4">
+      <Row css="margin-bottom: 2em;">
+        <div className="col-xs-12 col-lg-7">
           <ChartsContainer
             charts={[
               {
@@ -58,7 +60,7 @@ const RelayerPage = ({ isMobile, relayer }) =>
             ])}
           />
         </div>
-        <div className="col-xs-12 col-lg-5 mb-4">
+        <div className="col-xs-12 col-lg-5">
           <ChartsContainer
             charts={[
               {
@@ -78,12 +80,10 @@ const RelayerPage = ({ isMobile, relayer }) =>
             }
           />
         </div>
-      </div>
-      <Fills
-        excludeColumns={['relayer']}
-        filter={{ relayer: relayer.id }}
-        heading="Recent Fills"
-      />
+      </Row>
+      <Card heading="Recent Fills">
+        <Fills excludeColumns={['relayer']} filter={{ relayer: relayer.id }} />
+      </Card>
     </PageLayout>
   );
 

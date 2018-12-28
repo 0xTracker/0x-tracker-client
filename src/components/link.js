@@ -7,7 +7,7 @@ import styled, { css } from 'styled-components';
 import { colors } from '../styles/constants';
 
 const linkStyles = css`
-  color: ${colors.persianBlue};
+  color: ${colors.indigo};
   cursor: pointer;
 
   &:hover {

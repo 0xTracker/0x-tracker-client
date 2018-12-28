@@ -2,8 +2,6 @@ import { flow, map, orderBy } from 'lodash/fp';
 import {
   BarChart,
   Bar,
-  CartesianGrid,
-  Cell,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -19,13 +17,7 @@ import buildRelayerUrl from '../util/build-relayer-url';
 import relayersPropTypes from '../prop-types';
 import TopRelayersTooltip from './top-relayers-tooltip';
 
-const COLORS = [
-  colors.blueMarguerite,
-  colors.halfBaked,
-  colors.cranberry,
-  colors.bostonBlue,
-  colors.goldenSand,
-];
+const formatXAxis = share => `${numeral(share).format('0.[00]')}%`;
 
 const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
   const data = flow([
@@ -44,6 +36,7 @@ const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
 
   const handleAxisClick = ({ value }) => {
     const clickedRelayer = relayers.find(relayer => relayer.name === value);
+
     redirectToRelayer(clickedRelayer);
   };
 
@@ -58,11 +51,10 @@ const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
         layout="vertical"
         margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
       >
-        <CartesianGrid stroke={colors.wildSand} />
         <XAxis
           axisLine={false}
           domain={[0, 100]}
-          tickFormatter={share => `${numeral(share).format('0.[00]')}%`}
+          tickFormatter={formatXAxis}
           tickLine={false}
           type="number"
         />
@@ -70,7 +62,6 @@ const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
           axisLine={false}
           dataKey="relayer.name"
           onClick={handleAxisClick}
-          // eslint-disable-next-line react/forbid-component-props
           style={{ cursor: 'pointer' }}
           tickLine={false}
           type="category"
@@ -80,13 +71,10 @@ const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
         <Bar
           animationDuration={0}
           dataKey="share"
+          fill={colors.portage}
           onClick={handleBarClick}
-          style={{ cursor: 'pointer' }} // eslint-disable-line react/forbid-component-props
-        >
-          {data.map((entry, index) => (
-            <Cell fill={COLORS[index]} key={`cell-${entry.name}`} />
-          ))}
-        </Bar>
+          style={{ cursor: 'pointer' }}
+        />
       </BarChart>
     </ResponsiveContainer>
   );
