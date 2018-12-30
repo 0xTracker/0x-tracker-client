@@ -10,6 +10,7 @@ import { colors } from '../../../styles/constants';
 import callApi from '../../../util/call-api';
 import DashboardMetric from './dashboard-metric';
 import formatCurrency from '../../../util/format-currency';
+import Link from '../../../components/link';
 import LoadingIndicator from '../../../components/loading-indicator';
 import withConversionRate from '../../currencies/components/with-conversion-rate';
 
@@ -49,7 +50,10 @@ class ZRXPriceMetric extends React.PureComponent {
         {zrxPrice === undefined ? (
           <LoadingIndicator size="small" type="cylon" />
         ) : (
-          <React.Fragment>
+          <Link
+            css="color: currentColor;"
+            href="https://www.cryptocompare.com/coins/zrx/overview"
+          >
             {formatCurrency(zrxPrice.value, displayCurrency)}{' '}
             <span
               css={`
@@ -78,7 +82,7 @@ class ZRXPriceMetric extends React.PureComponent {
                 />
               ) : null}
             </span>
-          </React.Fragment>
+          </Link>
         )}
       </DashboardMetric>
     );
