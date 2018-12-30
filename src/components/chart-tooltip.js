@@ -6,7 +6,7 @@ import { colors } from '../styles/constants';
 
 const ChartTooltipWrapper = styled.div`
   background-color: ${colors.white};
-  border: 1px solid ${colors.gallery};
+  border: 1px solid ${colors.mischka};
   padding: 1rem;
   text-align: left;
 `;

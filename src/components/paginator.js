@@ -5,6 +5,7 @@ import ReactLoading from 'react-loading';
 import ReactPaginate from 'react-paginate';
 
 import { media } from '../styles/util';
+import { colors } from '../styles/constants';
 
 const StyledPaginator = styled.div`
   align-items: center;
@@ -14,6 +15,44 @@ const StyledPaginator = styled.div`
   ${media.greaterThan('md')`
     display: flex;
   `};
+
+  .pagination {
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-item {
+    margin: 0 3px 0 0;
+  }
+
+  .page-item:last-child {
+    margin: 0;
+  }
+
+  .page-item .page-link {
+    background-color: ${colors.athensGray};
+    border: none;
+    border-radius: 0;
+    color: currentColor;
+    cursor: pointer;
+    display: block;
+    outline: none;
+    padding: 10px 15px;
+  }
+
+  .page-item .page-link:hover {
+    background-color: ${colors.mischka};
+  }
+
+  .page-item.active .page-link {
+    background-color: ${colors.mischka};
+  }
+
+  .page-item.disabled .page-link,
+  .page-item.disabled .page-link:hover {
+    cursor: default;
+    color: ${colors.santasGray};
+  }
 `;
 
 const LoadingIndicator = styled(ReactLoading).attrs({
@@ -44,14 +83,14 @@ class Paginator extends PureComponent {
   }
 
   render() {
-    const { changingPage, page, pageCount } = this.props;
+    const { changingPage, className, page, pageCount } = this.props;
 
     if (page === undefined || pageCount <= 1) {
       return null;
     }
 
     return (
-      <StyledPaginator>
+      <StyledPaginator className={className}>
         {changingPage && <LoadingIndicator />}
         <ReactPaginate
           activeClassName="active"
@@ -76,6 +115,7 @@ class Paginator extends PureComponent {
 
 Paginator.propTypes = {
   changingPage: PropTypes.bool,
+  className: PropTypes.string,
   onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number,
   pageCount: PropTypes.number.isRequired,
@@ -83,6 +123,7 @@ Paginator.propTypes = {
 
 Paginator.defaultProps = {
   changingPage: false,
+  className: undefined,
   page: 1,
 };
 

@@ -2,39 +2,21 @@ import _ from 'lodash';
 import { compose } from 'recompose';
 import { chunk, get, flow } from 'lodash/fp';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 import Scroll from 'react-scroll';
-import styled from 'styled-components';
 
-import { BASE_CURRENCY } from '../../currencies/constants';
-import { TIME_PERIOD, URL, DATE_FORMAT } from '../../../constants';
-import buildFillUrl from '../../fills/util/build-fill-url';
-import buildTokenUrl from '../util/build-token-url';
-import formatDate from '../../../util/format-date';
-import formatToken from '../../../util/format-token';
-import Link from '../../../components/link';
+import { TIME_PERIOD, URL } from '../../../constants';
 import LoadingIndicator from '../../../components/loading-indicator';
-import LocalisedAmount from '../../currencies/components/localised-amount';
 import Paginator from '../../../components/paginator';
 import prettyPeriod from '../../../util/pretty-period';
 import sharedPropTypes from '../../../prop-types';
 import tokensPropTypes from '../prop-types';
-import TokenAmount from './token-amount';
 import getTokensWithStats from '../selectors/get-tokens-with-stats';
 import withConversionRate from '../../currencies/components/with-conversion-rate';
+import TokenListItem from './token-list-item';
 
 const DEFAULT_PERIOD = TIME_PERIOD.DAY;
-
-const LastTradeLink = styled(Link)`
-  color: inherit;
-
-  &:hover {
-    color: inherit;
-    text-decoration: none;
-  }
-`;
 
 class TokenList extends PureComponent {
   constructor() {
@@ -76,48 +58,6 @@ class TokenList extends PureComponent {
     const tokensChunk = flow([chunk(limit), get(page - 1)])(tokens);
     const pageCount = Math.floor(_.size(tokens) / limit);
 
-    const getLocalizedAmountLabel = token => {
-      if (token.trades === 0) {
-        return (
-          <React.Fragment>
-            None
-            {''}
-            <br />
-          </React.Fragment>
-        );
-      }
-
-      if (token.volume[BASE_CURRENCY] === 0) {
-        return null;
-      }
-
-      return (
-        <React.Fragment>
-          <LocalisedAmount amount={token.volume[BASE_CURRENCY]} />
-          <br />
-        </React.Fragment>
-      );
-    };
-
-    const getTokenAmountLabel = token => {
-      if (token.trades === 0) {
-        return <span className="text-muted">None</span>;
-      }
-
-      if (token.volume[BASE_CURRENCY] > 0) {
-        return (
-          <small className="text-muted">
-            <TokenAmount amount={token.volume[token.symbol]} token={token} />
-          </small>
-        );
-      }
-      return (
-        <React.Fragment>
-          {formatToken(token.volume[token.symbol])} {token.symbol}
-        </React.Fragment>
-      );
-    };
-
     return (
       <React.Fragment>
         <table className="table table-responsive">
@@ -125,62 +65,19 @@ class TokenList extends PureComponent {
             <tr>
               <th>#</th>
               <th colSpan="2">Token</th>
-              <th className="text-right">Last Price</th>
-              <th className="text-right">Trades ({prettyPeriod(period)})</th>
-              <th className="text-right">Volume ({prettyPeriod(period)})</th>
+              <th css="text-align: right;">Last Price</th>
+              <th css="text-align: right;">Trades ({prettyPeriod(period)})</th>
+              <th css="text-align: right;">Volume ({prettyPeriod(period)})</th>
             </tr>
           </thead>
           <tbody>
             {_.map(tokensChunk, (token, index) => (
-              <tr
-                className={classNames({
-                  'text-muted': token.trades === 0,
-                })}
-                key={token.address}
-              >
-                <td className="align-middle">{`${index + offset + 1}`}</td>
-                <td className="align-middle">
-                  {_.isString(token.imageUrl) && (
-                    <img height="40" src={token.imageUrl} width="40" />
-                  )}
-                </td>
-                <td width="99%">
-                  <Link href={buildTokenUrl(token)}>{token.name}</Link>
-                  <br />
-                  {token.symbol}
-                </td>
-                <td className="align-middle text-right">
-                  {_.has(token, 'price.lastTrade') &&
-                  !_.isEmpty(token.price.lastTrade) ? (
-                    <LastTradeLink
-                      href={buildFillUrl(token.price.lastTrade.id)}
-                    >
-                      <LocalisedAmount
-                        amount={token.price.lastPrice[BASE_CURRENCY]}
-                      />
-                      <br />
-                      <small className="text-muted">
-                        {formatDate(
-                          token.price.lastTrade.date,
-                          DATE_FORMAT.RELATIVE,
-                        )}{' '}
-                        ago
-                      </small>
-                    </LastTradeLink>
-                  ) : (
-                    '-'
-                  )}
-                </td>
-                <td className="align-middle text-right">{token.trades}</td>
-                <td className="align-middle text-right">
-                  {getLocalizedAmountLabel(token)}
-                  {getTokenAmountLabel(token)}
-                </td>
-              </tr>
+              <TokenListItem position={index + offset + 1} token={token} />
             ))}
           </tbody>
         </table>
         <Paginator
+          css="margin: 16px;"
           onPageChange={this.handlePageChange}
           page={page}
           pageCount={pageCount}

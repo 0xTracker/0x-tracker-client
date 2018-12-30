@@ -19,8 +19,7 @@ const LoadMoreButton = styled.button`
   padding: 1em 0;
 
   &:hover {
-    background-color: ${colors.santasGray};
-    color: ${colors.white};
+    background-color: ${colors.mischka};
   }
 `;
 

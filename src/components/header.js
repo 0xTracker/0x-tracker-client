@@ -31,7 +31,6 @@ const Header = () => (
   <div
     css={`
       background-color: ${colors.white};
-      color: ${colors.violet};
       padding: 18px 0;
     `}
   >

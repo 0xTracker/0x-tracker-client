@@ -134,6 +134,7 @@ class Fills extends PureComponent {
         )}
         <Paginator
           changingPage={changingPage}
+          css="margin: 16px"
           onPageChange={this.handlePageChangeBottom}
           page={page}
           pageCount={pageCount}

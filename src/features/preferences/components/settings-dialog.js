@@ -21,7 +21,7 @@ const StyledModal = styled(Modal)`
   }
 
   .modal-header {
-    background-color: ${colors.gallery};
+    background-color: ${colors.mischka};
   }
 `;
 

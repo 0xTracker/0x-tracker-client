@@ -20,17 +20,19 @@ const GlobalStyles = createGlobalStyle`
     font-family: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
   }
 
+  .table {
+    margin: 0;
+  }
+
   .table td {
-    border-bottom: 1px solid ${colors.gallery};
+    border-bottom: 1px solid ${colors.athensGray};
     padding: 7px;
   }
   
   .table thead th {
-    color: white;
-    background-color: ${colors.blueMarguerite};
-    border-bottom: 4px solid ${colors.scampi};
-    border-top: 1px solid ${colors.blueMarguerite};
-    padding: 5px;
+    border-bottom: 3px solid ${colors.athensGray};
+    border-top: none;
+    padding: 0.75em;
   }
   
   .table tbody td,
@@ -42,54 +44,25 @@ const GlobalStyles = createGlobalStyle`
   
   .table tbody td:first-child,
   .table thead th:first-child {
-    padding-left: 10px;
+    padding-left: 16px;
   }
   
   .table tbody td:last-child,
   .table thead th:last-child {
-    padding-right: 10px;
+    padding-right: 16px;
   }
   
-  .table tbody tr:nth-child(2n) td {
-    background-color: ${colors.wildSand};
+  .table tbody tr:hover td {
+    background-color: ${colors.selago};
   }
-  
-  .pagination {
-    margin: 0;
-    padding: 0;
+
+  .table .faded,
+  .table .faded a {
+    color: ${colors.santasGray};
   }
-  
-  .pagination li.page-item {
-    margin: 0 3px 0 0;
-  }
-  
-  .pagination li.page-item:last-child {
-    margin: 0;
-  }
-  
-  .pagination li.page-item a.page-link {
-    background-color: ${colors.wildSand};
-    border: none;
-    border-radius: 0;
-    color: currentColor;
-    cursor: pointer;
-    display: block;
-    outline: none;
-    padding: 10px 15px;
-  }
-  
-  .pagination li.page-item a.page-link:hover {
-    background-color: ${colors.gallery};
-  }
-  
-  .pagination li.page-item.active a.page-link {
-    background-color: ${colors.bonJour};
-  }
-  
-  .pagination li.page-item.disabled a.page-link,
-  .pagination li.page-item.disabled a.page-link:hover {
-    cursor: default;
-    color: ${colors.stormGray};
+
+  .table .faded img {
+    opacity: 0.5;
   }
 
   .card-header .nav-tabs .nav-link:hover:not(.active) {
@@ -102,19 +75,6 @@ const GlobalStyles = createGlobalStyle`
 
   .modal-backdrop.show {
     opacity: 0.8;
-  }
-
-  .btn-primary {
-    background-color: ${colors.blueMarguerite};
-    border-color: ${colors.blueMarguerite};
-
-    &&&& {
-      &:hover,
-      &:active {
-        background-color: ${colors.scampi};
-        border-color: ${colors.scampi};
-      }
-    }
   }
 `;
 

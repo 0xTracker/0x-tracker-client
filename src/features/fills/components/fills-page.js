@@ -7,8 +7,8 @@ import PageLayout from '../../../components/page-layout';
 
 const FillsPage = () => (
   <PageLayout
-    breadcrumbItems={[{ title: 'Recent Fills', url: URL.FILLS }]}
-    title="Recent Fills"
+    breadcrumbItems={[{ title: 'Order Fills', url: URL.FILLS }]}
+    title="Order Fills"
   >
     <Card css="height: 100%;">
       <Fills />
