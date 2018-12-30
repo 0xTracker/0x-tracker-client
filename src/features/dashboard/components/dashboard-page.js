@@ -2,8 +2,10 @@ import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
 import { TIME_PERIOD, URL } from '../../../constants';
+import { media } from '../../../styles/util';
 import Card from '../../../components/card';
 import CardHeading from '../../../components/card-heading';
 import ChartsContainer from '../../../components/charts-container';
@@ -22,11 +24,23 @@ import TopTokens from '../../tokens/components/top-tokens';
 
 const CHARTS_HEIGHT = 265;
 
+const DashboardColumn = styled(Col)`
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: ${props => (props.lastRow ? '0' : '2rem')};
+  }
+
+  ${media.greaterThan('lg')`
+    margin-bottom: ${props => (props.lastRow ? '0' : '2rem')};
+  `}
+`;
+
 const Dashboard = ({ isMobile }) => (
   <ContentSection>
-    <DashboardMetrics css="margin-bottom: 2em;" />
-    <Row css="margin-bottom: 2em;">
-      <Col lg={7}>
+    <DashboardMetrics css="margin-bottom: 2rem;" />
+    <Row>
+      <DashboardColumn lg={7}>
         <ChartsContainer
           charts={[
             { title: 'Network Volume', component: NetworkVolume },
@@ -46,8 +60,8 @@ const Dashboard = ({ isMobile }) => (
             ])
           }
         />
-      </Col>
-      <Col lg={5}>
+      </DashboardColumn>
+      <DashboardColumn lg={5}>
         <ChartsContainer
           charts={[
             { title: 'Top Tokens', component: TopTokens },
@@ -64,10 +78,10 @@ const Dashboard = ({ isMobile }) => (
             ])
           }
         />
-      </Col>
+      </DashboardColumn>
     </Row>
     <Row>
-      <Col lg={7}>
+      <DashboardColumn lastRow lg={7}>
         <Card
           header={
             <React.Fragment>
@@ -81,8 +95,8 @@ const Dashboard = ({ isMobile }) => (
         >
           <Fills />
         </Card>
-      </Col>
-      <Col lg={5}>
+      </DashboardColumn>
+      <DashboardColumn lastRow lg={5}>
         <Card
           header={
             <React.Fragment>
@@ -96,7 +110,7 @@ const Dashboard = ({ isMobile }) => (
         >
           <LatestNews />
         </Card>
-      </Col>
+      </DashboardColumn>
     </Row>
   </ContentSection>
 );
