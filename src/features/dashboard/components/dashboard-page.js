@@ -3,7 +3,7 @@ import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { TIME_PERIOD } from '../../../constants';
+import { TIME_PERIOD, URL } from '../../../constants';
 import Card from '../../../components/card';
 import CardHeading from '../../../components/card-heading';
 import ChartsContainer from '../../../components/charts-container';
@@ -13,8 +13,10 @@ import Fills from '../../fills/components/fills';
 import getIsMobile from '../../../selectors/get-is-mobile';
 import getPeriodOptions from '../../../util/get-period-options';
 import LatestNews from '../../news/components/latest-news';
+import Link from '../../../components/link';
 import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
+import Pill from '../../../components/pill';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
 
@@ -66,12 +68,32 @@ const Dashboard = ({ isMobile }) => (
     </Row>
     <Row>
       <Col lg={7}>
-        <Card header={<CardHeading>Recent Fills</CardHeading>} padded>
+        <Card
+          header={
+            <React.Fragment>
+              <CardHeading>Recent Fills</CardHeading>
+              <Pill as={Link} highlighted href={URL.FILLS}>
+                View More
+              </Pill>
+            </React.Fragment>
+          }
+          padded
+        >
           <Fills />
         </Card>
       </Col>
       <Col lg={5}>
-        <Card header={<CardHeading>Latest News</CardHeading>} padded>
+        <Card
+          header={
+            <React.Fragment>
+              <CardHeading>Latest News</CardHeading>
+              <Pill as={Link} highlighted href={URL.NEWS}>
+                View More
+              </Pill>
+            </React.Fragment>
+          }
+          padded
+        >
           <LatestNews />
         </Card>
       </Col>
