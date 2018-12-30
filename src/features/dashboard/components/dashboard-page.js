@@ -1,12 +1,11 @@
 import { connect } from 'react-redux';
-import { compose } from 'recompose';
-import { withRouter } from 'react-router';
 import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
 import Card from '../../../components/card';
+import CardHeading from '../../../components/card-heading';
 import ChartsContainer from '../../../components/charts-container';
 import ContentSection from '../../../components/content-section';
 import DashboardMetrics from './dashboard-metrics';
@@ -21,8 +20,8 @@ import TopTokens from '../../tokens/components/top-tokens';
 
 const CHARTS_HEIGHT = 265;
 
-const Dashboard = ({ isMobile }) => [
-  <ContentSection key="content">
+const Dashboard = ({ isMobile }) => (
+  <ContentSection>
     <DashboardMetrics css="margin-bottom: 2em;" />
     <Row css="margin-bottom: 2em;">
       <Col lg={7}>
@@ -67,23 +66,21 @@ const Dashboard = ({ isMobile }) => [
     </Row>
     <Row>
       <Col lg={7}>
-        <Card heading="Recent Fills" padded>
+        <Card header={<CardHeading>Recent Fills</CardHeading>} padded>
           <Fills />
         </Card>
       </Col>
       <Col lg={5}>
-        <Card heading="Latest News" padded>
+        <Card header={<CardHeading>Latest News</CardHeading>} padded>
           <LatestNews />
         </Card>
       </Col>
     </Row>
-  </ContentSection>,
-];
+  </ContentSection>
+);
 
 Dashboard.propTypes = {
   isMobile: PropTypes.bool,
-  location: PropTypes.shape({ pathname: PropTypes.string.isRequired })
-    .isRequired,
 };
 
 Dashboard.defaultProps = {
@@ -94,9 +91,4 @@ const mapStateToProps = state => ({
   isMobile: getIsMobile(state),
 });
 
-const enhance = compose(
-  withRouter,
-  connect(mapStateToProps),
-);
-
-export default enhance(Dashboard);
+export default connect(mapStateToProps)(Dashboard);

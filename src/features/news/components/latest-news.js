@@ -11,7 +11,7 @@ const LatestNews = () => (
         <LoadingIndicator centered />
       ) : (
         <React.Fragment>
-          <ArticleList articles={articles} />
+          <ArticleList articles={articles} compact />
         </React.Fragment>
       )
     }

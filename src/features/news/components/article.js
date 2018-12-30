@@ -9,9 +9,9 @@ import Link from '../../../components/link';
 
 const ArticleImage = styled.img`
   border-radius: 3px;
-  height: 100px;
+  height: ${props => (props.compact ? '60px' : '100px')};
   margin-right: 1em;
-  width: 100px;
+  width: ${props => (props.compact ? '60px' : '100px')};
 `;
 
 const StyledArticle = styled.div`
@@ -23,6 +23,7 @@ const StyledArticle = styled.div`
   &:last-child {
     border: none;
     margin-bottom: 0;
+    padding-bottom: 0;
   }
 `;
 
@@ -59,15 +60,23 @@ const ArticleMetadata = styled.dl`
   }
 `;
 
-const Article = ({ article }) => (
+const ArticleHeading = styled.h4`
+  font-size: ${props => (props.compact ? '1.1em' : '1.2em')};
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+const Article = ({ article, compact }) => (
   <StyledArticle>
     {article.source.imageUrl ? (
-      <ArticleImage alt="" src={article.source.imageUrl} />
+      <ArticleImage alt="" compact={compact} src={article.source.imageUrl} />
     ) : null}
-    <div css="display: flex; flex-direction: column;">
-      <h4 css="font-size: 1.2em; margin: 0;">
+    <div css="display: flex; flex-direction: column; overflow: hidden;">
+      <ArticleHeading compact={compact}>
         <Link href={article.url}>{article.title}</Link>
-      </h4>
+      </ArticleHeading>
       <ArticleMetadata>
         <dt>Source</dt>
         <dd>
@@ -83,7 +92,7 @@ const Article = ({ article }) => (
         <dd>{distanceInWordsToNow(article.date)} ago</dd>
       </ArticleMetadata>
       <p css="flex-grow: 1; margin: 0;">
-        {_.truncate(article.summary, { length: 150 })}
+        {_.truncate(article.summary, { length: compact ? 120 : 150 })}
       </p>
     </div>
   </StyledArticle>
@@ -100,6 +109,11 @@ Article.propTypes = {
     title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
   }).isRequired,
+  compact: PropTypes.bool,
+};
+
+Article.defaultProps = {
+  compact: false,
 };
 
 export default Article;
