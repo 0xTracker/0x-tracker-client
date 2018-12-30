@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { withRouter } from 'react-router';
+import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -12,6 +13,7 @@ import DashboardMetrics from './dashboard-metrics';
 import Fills from '../../fills/components/fills';
 import getIsMobile from '../../../selectors/get-is-mobile';
 import getPeriodOptions from '../../../util/get-period-options';
+import LatestNews from '../../news/components/latest-news';
 import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
 import TopRelayers from '../../relayers/components/top-relayers';
@@ -21,9 +23,9 @@ const CHARTS_HEIGHT = 265;
 
 const Dashboard = ({ isMobile }) => [
   <ContentSection key="content">
-    <DashboardMetrics css="margin-bottom: 24px;" />
-    <div className="row">
-      <div className="col-xs-12 col-lg-7 mb-4">
+    <DashboardMetrics css="margin-bottom: 2em;" />
+    <Row css="margin-bottom: 2em;">
+      <Col lg={7}>
         <ChartsContainer
           charts={[
             { title: 'Network Volume', component: NetworkVolume },
@@ -43,8 +45,8 @@ const Dashboard = ({ isMobile }) => [
             ])
           }
         />
-      </div>
-      <div className="col-xs-12 col-lg-5 mb-4">
+      </Col>
+      <Col lg={5}>
         <ChartsContainer
           charts={[
             { title: 'Top Tokens', component: TopTokens },
@@ -61,13 +63,20 @@ const Dashboard = ({ isMobile }) => [
             ])
           }
         />
-      </div>
-    </div>
-    {!isMobile && (
-      <Card heading="Recent Fills">
-        <Fills />
-      </Card>
-    )}
+      </Col>
+    </Row>
+    <Row>
+      <Col lg={7}>
+        <Card heading="Recent Fills" padded>
+          <Fills />
+        </Card>
+      </Col>
+      <Col lg={5}>
+        <Card heading="Latest News" padded>
+          <LatestNews />
+        </Card>
+      </Col>
+    </Row>
   </ContentSection>,
 ];
 

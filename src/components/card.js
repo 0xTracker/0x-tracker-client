@@ -16,10 +16,10 @@ const CardHeading = styled.h2`
   padding: 16px;
 `;
 
-const Card = ({ children, className, heading }) => (
+const Card = ({ children, className, heading, padded }) => (
   <StyledCard className={className}>
     {heading ? <CardHeading>{heading}</CardHeading> : null}
-    {children}
+    {padded ? <div css="padding: 1em;">{children}</div> : children}
   </StyledCard>
 );
 
@@ -27,11 +27,13 @@ Card.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   heading: PropTypes.string,
+  padded: PropTypes.bool,
 };
 
 Card.defaultProps = {
   className: undefined,
   heading: undefined,
+  padded: false,
 };
 
 export default Card;

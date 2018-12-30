@@ -63,7 +63,7 @@ const TokenListItem = ({ position, token }) => (
       )}
     </td>
     <td className="align-middle" css="text-align: right;">
-      {token.trades}
+      {token.trades === 0 ? '-' : token.trades}
     </td>
     <td className="align-middle" css="text-align: right;">
       <TokenListItemVolume token={token} />
