@@ -1,6 +1,4 @@
-import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -12,7 +10,6 @@ import ChartsContainer from '../../../components/charts-container';
 import ContentSection from '../../../components/content-section';
 import DashboardMetrics from './dashboard-metrics';
 import Fills from '../../fills/components/fills';
-import getIsMobile from '../../../selectors/get-is-mobile';
 import getPeriodOptions from '../../../util/get-period-options';
 import LatestNews from '../../news/components/latest-news';
 import Link from '../../../components/link';
@@ -36,7 +33,7 @@ const DashboardColumn = styled(Col)`
   `}
 `;
 
-const Dashboard = ({ isMobile }) => (
+const DashboardPage = () => (
   <ContentSection>
     <DashboardMetrics css="margin-bottom: 2rem;" />
     <Row>
@@ -49,16 +46,13 @@ const Dashboard = ({ isMobile }) => (
           ]}
           chartsHeight={CHARTS_HEIGHT}
           defaultPeriod={TIME_PERIOD.MONTH}
-          periods={
-            !isMobile &&
-            getPeriodOptions([
-              TIME_PERIOD.DAY,
-              TIME_PERIOD.WEEK,
-              TIME_PERIOD.MONTH,
-              TIME_PERIOD.YEAR,
-              TIME_PERIOD.ALL,
-            ])
-          }
+          periods={getPeriodOptions([
+            TIME_PERIOD.DAY,
+            TIME_PERIOD.WEEK,
+            TIME_PERIOD.MONTH,
+            TIME_PERIOD.YEAR,
+            TIME_PERIOD.ALL,
+          ])}
         />
       </DashboardColumn>
       <DashboardColumn lg={5}>
@@ -69,14 +63,11 @@ const Dashboard = ({ isMobile }) => (
           ]}
           chartsHeight={CHARTS_HEIGHT}
           defaultPeriod={TIME_PERIOD.DAY}
-          periods={
-            !isMobile &&
-            getPeriodOptions([
-              TIME_PERIOD.DAY,
-              TIME_PERIOD.WEEK,
-              TIME_PERIOD.MONTH,
-            ])
-          }
+          periods={getPeriodOptions([
+            TIME_PERIOD.DAY,
+            TIME_PERIOD.WEEK,
+            TIME_PERIOD.MONTH,
+          ])}
         />
       </DashboardColumn>
     </Row>
@@ -115,16 +106,4 @@ const Dashboard = ({ isMobile }) => (
   </ContentSection>
 );
 
-Dashboard.propTypes = {
-  isMobile: PropTypes.bool,
-};
-
-Dashboard.defaultProps = {
-  isMobile: false,
-};
-
-const mapStateToProps = state => ({
-  isMobile: getIsMobile(state),
-});
-
-export default connect(mapStateToProps)(Dashboard);
+export default DashboardPage;

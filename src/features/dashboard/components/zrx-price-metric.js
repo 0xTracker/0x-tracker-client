@@ -42,11 +42,11 @@ class ZRXPriceMetric extends React.PureComponent {
   };
 
   render() {
-    const { displayCurrency } = this.props;
+    const { className, displayCurrency } = this.props;
     const { zrxPrice } = this.state;
 
     return (
-      <DashboardMetric title="ZRX Price">
+      <DashboardMetric className={className} title="ZRX Price">
         {zrxPrice === undefined ? (
           <LoadingIndicator size="small" type="cylon" />
         ) : (
@@ -91,11 +91,13 @@ class ZRXPriceMetric extends React.PureComponent {
 
 ZRXPriceMetric.propTypes = {
   autoReloadKey: PropTypes.string,
+  className: PropTypes.string,
   displayCurrency: PropTypes.string.isRequired,
 };
 
 ZRXPriceMetric.defaultProps = {
   autoReloadKey: undefined,
+  className: undefined,
 };
 
 const mapStateToProps = state => ({

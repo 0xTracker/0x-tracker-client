@@ -2,19 +2,21 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import { Col, Row } from 'reactstrap';
-import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
 import { getNetworkStats } from '../../stats/selectors';
-import DashboardMetric from './dashboard-metric';
-import LoadingIndicator from '../../../components/loading-indicator';
-import LocalisedAmount from '../../currencies/components/localised-amount';
+import NetworkFeesMetric from './network-fees-metric';
+import NetworkVolumeMetric from './network-volume-metric';
+import TradeCountMetric from './trade-count-metric';
 import withConversionRate from '../../currencies/components/with-conversion-rate';
 import ZRXPriceMetric from './zrx-price-metric';
 
-const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
+// Carousel gets loaded lazily because it relies on react-slick
+const AsyncDashboardMetricsCarousel = React.lazy(() =>
+  import('./dashboard-metrics-carousel'),
+);
 
 class DashboardMetrics extends React.PureComponent {
   componentDidMount() {
@@ -37,48 +39,33 @@ class DashboardMetrics extends React.PureComponent {
   };
 
   render() {
-    const { className, displayCurrency, networkStats } = this.props;
+    const { className, displayCurrency, networkStats, screenSize } = this.props;
     const { volume } = _.pick(networkStats, 'volume');
     const fees = _.get(networkStats, `fees[${displayCurrency}]`);
     const tradeCount = _.get(networkStats, 'trades');
 
-    return (
+    return screenSize.greaterThan.lg ? (
       <Row className={className}>
         <Col lg={3} md={6}>
-          <DashboardMetric title="Network Volume (24H)">
-            {_.isNumber(volume) ? (
-              <LocalisedAmount
-                amount={volume}
-                loadingIndicator={loadingIndicator}
-              />
-            ) : (
-              loadingIndicator
-            )}
-          </DashboardMetric>
+          <NetworkVolumeMetric volume={volume} />
         </Col>
         <Col lg={3} md={6}>
-          <DashboardMetric title="Network Fees (24H)">
-            {_.isNumber(fees) ? (
-              <LocalisedAmount
-                amount={fees}
-                loadingIndicator={loadingIndicator}
-              />
-            ) : (
-              loadingIndicator
-            )}
-          </DashboardMetric>
+          <NetworkFeesMetric fees={fees} />
         </Col>
         <Col lg={3} md={6}>
-          <DashboardMetric title="Trades (24H)">
-            {_.isNumber(tradeCount)
-              ? numeral(tradeCount).format('0,0')
-              : loadingIndicator}
-          </DashboardMetric>
+          <TradeCountMetric tradeCount={tradeCount} />
         </Col>
         <Col lg={3} md={6}>
           <ZRXPriceMetric />
         </Col>
       </Row>
+    ) : (
+      <AsyncDashboardMetricsCarousel
+        className={className}
+        fees={fees}
+        tradeCount={tradeCount}
+        volume={volume}
+      />
     );
   }
 }
@@ -89,6 +76,11 @@ DashboardMetrics.propTypes = {
   displayCurrency: PropTypes.string.isRequired,
   fetchNetworkStats: PropTypes.func.isRequired,
   networkStats: PropTypes.object,
+  screenSize: PropTypes.shape({
+    greaterThan: PropTypes.shape({
+      lg: PropTypes.bool.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 DashboardMetrics.defaultProps = {
@@ -101,6 +93,7 @@ const mapStateToProps = state => ({
   autoReloadKey: state.autoReload.key,
   displayCurrency: state.preferences.currency,
   networkStats: getNetworkStats(state, { period: TIME_PERIOD.DAY }),
+  screenSize: state.screen,
 });
 
 const mapDispatchToProps = dispatch => ({

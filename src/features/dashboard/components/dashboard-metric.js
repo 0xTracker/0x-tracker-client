@@ -21,8 +21,8 @@ const DashboardMetricValue = styled.dd`
   margin: 0;
 `;
 
-const DashboardMetric = ({ title, children }) => (
-  <Card css="padding: 16px;">
+const DashboardMetric = ({ className, title, children }) => (
+  <Card className={className} css="padding: 16px;">
     <dl css="margin: 0;">
       <DashboardMetricTitle>{title}</DashboardMetricTitle>
       <DashboardMetricValue>{children}</DashboardMetricValue>
@@ -32,7 +32,12 @@ const DashboardMetric = ({ title, children }) => (
 
 DashboardMetric.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
   title: PropTypes.string.isRequired,
+};
+
+DashboardMetric.defaultProps = {
+  className: undefined,
 };
 
 export default DashboardMetric;
