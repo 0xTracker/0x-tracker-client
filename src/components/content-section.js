@@ -13,6 +13,7 @@ const ContentSection = styled(Container)`
     css`
       align-items: center;
       display: flex;
+      height: 100%;
     `};
 `;
 
