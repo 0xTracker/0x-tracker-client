@@ -10,7 +10,7 @@ import buildFillUrl from '../util/build-fill-url';
 import buildSearchUrl from '../../search/util/build-search-url';
 import callApi from '../../../util/call-api';
 import Card from '../../../components/card';
-import EthereumAddressLink from '../../ethereum/components/ethereum-address-link';
+import EthereumAddressLink from '../../../components/ethereum-address-link';
 import FillDetail from './fill-detail';
 import FillRelayerLink from './fill-relayer-link';
 import FillStatusLabel from './fill-status-label';
@@ -127,10 +127,16 @@ class FillPage extends PureComponent {
               </FillDetailList>
               <FillDetailList>
                 <FillDetail title="Maker">
-                  <EthereumAddressLink address={fill.makerAddress} />
+                  <EthereumAddressLink address={fill.makerAddress}>
+                    {fill.makerAddress}
+                  </EthereumAddressLink>
                 </FillDetail>
                 <FillDetail title="Maker Token">
-                  <TokenLink token={fill.makerToken} />
+                  <TokenLink token={fill.makerToken}>
+                    {fill.makerToken.name
+                      ? fill.makerToken.name
+                      : fill.makerToken.address}
+                  </TokenLink>
                 </FillDetail>
 
                 {_.has(fill, 'makerPrice.USD') && (
@@ -141,10 +147,16 @@ class FillPage extends PureComponent {
               </FillDetailList>
               <FillDetailList>
                 <FillDetail title="Taker">
-                  <EthereumAddressLink address={fill.takerAddress} />
+                  <EthereumAddressLink address={fill.takerAddress}>
+                    {fill.takerAddress}
+                  </EthereumAddressLink>
                 </FillDetail>
                 <FillDetail title="Taker Token">
-                  <TokenLink token={fill.takerToken} />
+                  <TokenLink token={fill.takerToken}>
+                    {fill.takerToken.name
+                      ? fill.takerToken.name
+                      : fill.takerToken.address}
+                  </TokenLink>
                 </FillDetail>
 
                 {_.has(fill, 'takerPrice.USD') && (
@@ -179,7 +191,9 @@ class FillPage extends PureComponent {
                 )}
 
                 <FillDetail title="Fee Recipient">
-                  <EthereumAddressLink address={fill.feeRecipient} />
+                  <EthereumAddressLink address={fill.feeRecipient}>
+                    {fill.feeRecipient}
+                  </EthereumAddressLink>
                 </FillDetail>
               </FillDetailList>
             </React.Fragment>

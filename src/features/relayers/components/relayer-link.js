@@ -5,7 +5,7 @@ import buildRelayerUrl from '../util/build-relayer-url';
 import Link from '../../../components/link';
 
 const RelayerLink = ({ children, relayer }) => (
-  <Link href={buildRelayerUrl(relayer)}>{children || relayer.name}</Link>
+  <Link href={buildRelayerUrl(relayer)}>{children}</Link>
 );
 
 RelayerLink.propTypes = {
