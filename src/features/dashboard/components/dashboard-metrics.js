@@ -44,7 +44,7 @@ class DashboardMetrics extends React.PureComponent {
     const fees = _.get(networkStats, `fees[${displayCurrency}]`);
     const tradeCount = _.get(networkStats, 'trades');
 
-    return screenSize.greaterThan.lg ? (
+    return screenSize.greaterThan.md ? (
       <Row className={className}>
         <Col lg={3} md={6}>
           <NetworkVolumeMetric volume={volume} />
@@ -78,7 +78,7 @@ DashboardMetrics.propTypes = {
   networkStats: PropTypes.object,
   screenSize: PropTypes.shape({
     greaterThan: PropTypes.shape({
-      lg: PropTypes.bool.isRequired,
+      md: PropTypes.bool.isRequired,
     }).isRequired,
   }).isRequired,
 };
