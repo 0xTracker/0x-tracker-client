@@ -2,24 +2,18 @@ import { Col, Row } from 'reactstrap';
 import React from 'react';
 import styled from 'styled-components';
 
-import { TIME_PERIOD, URL } from '../../../constants';
+import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
-import Card from '../../../components/card';
-import CardHeading from '../../../components/card-heading';
 import ChartsContainer from '../../../components/charts-container';
 import ContentSection from '../../../components/content-section';
 import DashboardMetrics from './dashboard-metrics';
-import Fills from '../../fills/components/fills';
 import getPeriodOptions from '../../../util/get-period-options';
-import LatestNews from '../../news/components/latest-news';
-import Link from '../../../components/link';
+import LatestNewsCard from '../../news/components/latest-news-card';
 import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
-import Pill from '../../../components/pill';
+import RecentFillsCard from '../../fills/components/recent-fills-card';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
-
-const CHARTS_HEIGHT = 265;
 
 const DashboardColumn = styled(Col)`
   margin-bottom: 2rem;
@@ -44,7 +38,6 @@ const DashboardPage = () => (
             { title: 'Fills', component: <NetworkVolume type="fills" /> },
             { title: 'Fees', component: NetworkFees },
           ]}
-          chartsHeight={CHARTS_HEIGHT}
           defaultPeriod={TIME_PERIOD.MONTH}
           periods={getPeriodOptions([
             TIME_PERIOD.DAY,
@@ -61,7 +54,6 @@ const DashboardPage = () => (
             { title: 'Top Tokens', component: TopTokens },
             { title: 'Top Relayers', component: TopRelayers },
           ]}
-          chartsHeight={CHARTS_HEIGHT}
           defaultPeriod={TIME_PERIOD.DAY}
           periods={getPeriodOptions([
             TIME_PERIOD.DAY,
@@ -73,34 +65,10 @@ const DashboardPage = () => (
     </Row>
     <Row>
       <DashboardColumn lastRow lg={7}>
-        <Card
-          header={
-            <React.Fragment>
-              <CardHeading>Recent Fills</CardHeading>
-              <Pill as={Link} highlighted href={URL.FILLS}>
-                View More
-              </Pill>
-            </React.Fragment>
-          }
-          padded
-        >
-          <Fills />
-        </Card>
+        <RecentFillsCard />
       </DashboardColumn>
       <DashboardColumn lastRow lg={5}>
-        <Card
-          header={
-            <React.Fragment>
-              <CardHeading>Latest News</CardHeading>
-              <Pill as={Link} highlighted href={URL.NEWS}>
-                View More
-              </Pill>
-            </React.Fragment>
-          }
-          padded
-        >
-          <LatestNews />
-        </Card>
+        <LatestNewsCard />
       </DashboardColumn>
     </Row>
   </ContentSection>

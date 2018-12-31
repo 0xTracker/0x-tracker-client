@@ -38,7 +38,6 @@ storiesOf('Layout|ChartsContainer', module)
           { component: ChartComponent, title: 'Network Volume' },
           { component: ChartComponent, title: 'Network Fees' },
         ]}
-        chartsHeight={270}
       />
     </div>
   ))
@@ -49,7 +48,6 @@ storiesOf('Layout|ChartsContainer', module)
           { component: ChartComponent, title: 'Network Volume' },
           { component: ChartComponent, title: 'Network Fees' },
         ]}
-        chartsHeight={270}
         periods={[
           { label: '24H', value: 'day' },
           { label: '7D', value: 'week' },

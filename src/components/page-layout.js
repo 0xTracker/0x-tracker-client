@@ -16,14 +16,10 @@ const StyledPageLayout = styled.div`
   height: 100%;
 `;
 
-const PageLayout = ({ breadcrumbItems, children, subTitle, title }) => (
+const PageLayout = ({ breadcrumbItems, children, title }) => (
   <StyledPageLayout>
     {breadcrumbItems.length > 0 ? (
-      <ContentHeader
-        breadcrumbItems={breadcrumbItems}
-        subTitle={subTitle}
-        title={title}
-      />
+      <ContentHeader breadcrumbItems={breadcrumbItems} title={title} />
     ) : null}
     <ContentBody>{children}</ContentBody>
   </StyledPageLayout>
@@ -37,13 +33,11 @@ PageLayout.propTypes = {
     }),
   ),
   children: PropTypes.node.isRequired,
-  subTitle: PropTypes.string,
   title: PropTypes.string,
 };
 
 PageLayout.defaultProps = {
   breadcrumbItems: [],
-  subTitle: undefined,
   title: undefined,
 };
 

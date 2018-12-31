@@ -1,15 +1,14 @@
 import { compose, mapProps } from 'recompose';
 import { connect } from 'react-redux';
-import { Row } from 'reactstrap';
-import PropTypes from 'prop-types';
+import { Col, Row } from 'reactstrap';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
 import buildRelayerUrl from '../util/build-relayer-url';
 import Card from '../../../components/card';
+import CardHeading from '../../../components/card-heading';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
-import getIsMobile from '../../../selectors/get-is-mobile';
 import getPeriodOptions from '../../../util/get-period-options';
 import getRelayer from '../selectors/get-relayer';
 import NetworkFees from '../../metrics/components/network-fees';
@@ -19,9 +18,7 @@ import relayersPropTypes from '../prop-types';
 import TopTokens from '../../tokens/components/top-tokens';
 import withRelayers from './with-relayers';
 
-const CHARTS_HEIGHT = 265;
-
-const RelayerPage = ({ isMobile, relayer }) =>
+const RelayerPage = ({ relayer }) =>
   relayer === undefined ? null : (
     <PageLayout
       breadcrumbItems={[
@@ -31,7 +28,7 @@ const RelayerPage = ({ isMobile, relayer }) =>
       title={relayer.name}
     >
       <Row css="margin-bottom: 2em;">
-        <div className="col-xs-12 col-lg-7">
+        <Col lg={7}>
           <ChartsContainer
             charts={[
               {
@@ -49,7 +46,6 @@ const RelayerPage = ({ isMobile, relayer }) =>
                 component: <NetworkFees relayerId={relayer.id} />,
               },
             ]}
-            chartsHeight={CHARTS_HEIGHT}
             defaultPeriod={TIME_PERIOD.MONTH}
             periods={getPeriodOptions([
               TIME_PERIOD.DAY,
@@ -59,8 +55,8 @@ const RelayerPage = ({ isMobile, relayer }) =>
               TIME_PERIOD.ALL,
             ])}
           />
-        </div>
-        <div className="col-xs-12 col-lg-5">
+        </Col>
+        <Col lg={5}>
           <ChartsContainer
             charts={[
               {
@@ -68,37 +64,30 @@ const RelayerPage = ({ isMobile, relayer }) =>
                 component: <TopTokens relayerId={relayer.id} />,
               },
             ]}
-            chartsHeight={CHARTS_HEIGHT}
             defaultPeriod={TIME_PERIOD.DAY}
-            periods={
-              !isMobile &&
-              getPeriodOptions([
-                TIME_PERIOD.DAY,
-                TIME_PERIOD.WEEK,
-                TIME_PERIOD.MONTH,
-              ])
-            }
+            periods={getPeriodOptions([
+              TIME_PERIOD.DAY,
+              TIME_PERIOD.WEEK,
+              TIME_PERIOD.MONTH,
+            ])}
           />
-        </div>
+        </Col>
       </Row>
-      <Card heading="Recent Fills">
+      <Card header={<CardHeading>Recent Fills</CardHeading>}>
         <Fills excludeColumns={['relayer']} filter={{ relayer: relayer.id }} />
       </Card>
     </PageLayout>
   );
 
 RelayerPage.propTypes = {
-  isMobile: PropTypes.bool,
   relayer: relayersPropTypes.relayer,
 };
 
 RelayerPage.defaultProps = {
-  isMobile: false,
   relayer: undefined,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  isMobile: getIsMobile(state),
   relayer: getRelayer(state, ownProps),
 });
 

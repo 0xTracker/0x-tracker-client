@@ -8,7 +8,6 @@ const simpleProps = {
     { title: 'Tokens', url: '/tokens' },
     { title: 'DAI Stablecoin', url: '/tokens/0x982739812734' },
   ],
-  subTitle: 'DAI',
   title: 'DAI Stablecoin',
 };
 

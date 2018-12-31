@@ -1,5 +1,4 @@
 import { compose, mapProps } from 'recompose';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
@@ -7,19 +6,15 @@ import { TIME_PERIOD, URL } from '../../../constants';
 import buildTokenUrl from '../util/build-token-url';
 import callApi from '../../../util/call-api';
 import Card from '../../../components/card';
+import CardHeading from '../../../components/card-heading';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
-import getIsMobile from '../../../selectors/get-is-mobile';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import TokenVolume from '../../metrics/components/token-volume';
 
 class TokenPage extends PureComponent {
-  constructor() {
-    super();
-
-    this.state = {};
-  }
+  state = {};
 
   async componentDidMount() {
     await this.fetchData();
@@ -42,7 +37,6 @@ class TokenPage extends PureComponent {
 
   render() {
     const { token } = this.state;
-    const { isMobile } = this.props;
 
     if (token === undefined) {
       return <LoadingIndicator centered />;
@@ -54,8 +48,7 @@ class TokenPage extends PureComponent {
           { title: 'Tokens', url: URL.TOKENS },
           { title: token.name, url: buildTokenUrl(token) },
         ]}
-        subTitle={token.symbol}
-        title={token.name}
+        title={token.symbol ? `${token.name} (${token.symbol})` : token.name}
       >
         <ChartsContainer
           charts={[
@@ -64,20 +57,17 @@ class TokenPage extends PureComponent {
               title: 'Network Volume',
             },
           ]}
-          chartsHeight={265}
           css="margin: 0 0 2em 0"
           defaultPeriod={TIME_PERIOD.MONTH}
-          periods={
-            !isMobile && [
-              { label: '24H', value: TIME_PERIOD.DAY },
-              { label: '7D', value: TIME_PERIOD.WEEK },
-              { label: '1M', value: TIME_PERIOD.MONTH },
-              { label: '1Y', value: TIME_PERIOD.YEAR },
-              { label: 'ALL', value: TIME_PERIOD.ALL },
-            ]
-          }
+          periods={[
+            { label: '24H', value: TIME_PERIOD.DAY },
+            { label: '7D', value: TIME_PERIOD.WEEK },
+            { label: '1M', value: TIME_PERIOD.MONTH },
+            { label: '1Y', value: TIME_PERIOD.YEAR },
+            { label: 'ALL', value: TIME_PERIOD.ALL },
+          ]}
         />
-        <Card heading="Recent Fills">
+        <Card header={<CardHeading>Recent Fills</CardHeading>}>
           <Fills filter={{ token: token.address }} />
         </Card>
       </PageLayout>
@@ -86,13 +76,11 @@ class TokenPage extends PureComponent {
 }
 
 TokenPage.propTypes = {
-  isMobile: PropTypes.bool.isRequired,
   tokenAddress: PropTypes.string.isRequired,
 };
 
 const enhance = compose(
   mapProps(({ match }) => ({ tokenAddress: match.params.address })),
-  connect(state => ({ isMobile: getIsMobile(state) })),
 );
 
 export default enhance(TokenPage);

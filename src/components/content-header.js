@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { media } from '../styles/util';
 import Breadcrumb from './breadcrumb';
 import Container from './container';
-import { colors } from '../styles/constants';
 
 const StyledContentHeader = styled.div`
   padding: 30px 0;
@@ -28,14 +27,6 @@ const Title = styled.h1`
   margin: 0;
 `;
 
-const SubTitle = styled.h2`
-  color: ${colors.stormGray};
-  display: inline;
-  font-size: 1em;
-  font-weight: normal;
-  margin: 0 0 0 1em;
-`;
-
 const BreadcrumbContainer = styled(Col).attrs({ xs: 12, md: 6 })`
   display: none;
 
@@ -45,13 +36,12 @@ const BreadcrumbContainer = styled(Col).attrs({ xs: 12, md: 6 })`
   `};
 `;
 
-const ContentHeader = ({ breadcrumbItems, subTitle, title }) => (
+const ContentHeader = ({ breadcrumbItems, title }) => (
   <StyledContentHeader>
     <Container>
       <Row>
         <TitleContainer>
           <Title>{title}</Title>
-          {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}
         </TitleContainer>
         <BreadcrumbContainer>
           <Breadcrumb items={breadcrumbItems} />
@@ -68,12 +58,7 @@ ContentHeader.propTypes = {
       url: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  subTitle: PropTypes.string,
   title: PropTypes.string.isRequired,
-};
-
-ContentHeader.defaultProps = {
-  subTitle: undefined,
 };
 
 export default ContentHeader;

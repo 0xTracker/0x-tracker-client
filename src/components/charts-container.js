@@ -22,7 +22,7 @@ const ChartsContainerHeader = styled(CardHeader)`
 const ChartsContainerBody = styled(CardBody)`
   align-items: center;
   display: flex;
-  height: ${({ chartsHeight }) => chartsHeight}px;
+  height: 265px;
   justify-content: center;
   padding: 16px;
 `;
@@ -66,7 +66,7 @@ class ChartsContainer extends PureComponent {
   }
 
   render() {
-    const { charts, chartsHeight, className, periods } = this.props;
+    const { charts, className, periods } = this.props;
     const { selectedPeriod, selectedChart } = this.state;
 
     const Chart = charts.find(chart => chart.title === selectedChart).component;
@@ -112,7 +112,7 @@ class ChartsContainer extends PureComponent {
             </Periods>
           )}
         </ChartsContainerHeader>
-        <ChartsContainerBody chartsHeight={chartsHeight}>
+        <ChartsContainerBody>
           {React.isValidElement(Chart) ? (
             React.cloneElement(Chart, chartProps)
           ) : (
@@ -132,7 +132,6 @@ ChartsContainer.propTypes = {
       title: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  chartsHeight: PropTypes.number.isRequired,
   defaultPeriod: PropTypes.string.isRequired,
   periods: PropTypes.arrayOf(
     PropTypes.shape({

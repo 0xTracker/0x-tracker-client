@@ -11,8 +11,6 @@ const simpleProps = {
   title: 'Basic Attention Token',
 };
 
-storiesOf('Layout|ContentHeader', module)
-  .addWithJSX('default', () => <ContentHeader {...simpleProps} />)
-  .addWithJSX('with sub-title', () => (
-    <ContentHeader {...simpleProps} subTitle="BAT" />
-  ));
+storiesOf('Layout|ContentHeader', module).addWithJSX('default', () => (
+  <ContentHeader {...simpleProps} />
+));
