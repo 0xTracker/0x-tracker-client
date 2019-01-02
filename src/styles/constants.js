@@ -9,6 +9,7 @@ const colors = {
   athensGray: '#f1f2f7', // regular gray
   fruitSalad: '#4CAF50', // positive change
   indigo: '#3f4ac3', // links
+  martinique: '#312F50',
   mischka: '#dcdde4', // dark gray
   persianBlue: '#1e42db', // area charts
   pomegranate: '#F44336', // negative change
