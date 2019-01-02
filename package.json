@@ -78,7 +78,7 @@
     "babel-plugin-styled-components": "1.10.0",
     "babel-plugin-transform-imports": "1.5.1",
     "babel-plugin-transform-react-remove-prop-types": "0.4.21",
-    "browserslist": "4.3.6",
+    "browserslist": "4.3.7",
     "browserslist-ga": "0.0.10",
     "clean-webpack-plugin": "1.0.0",
     "copy-webpack-plugin": "4.6.0",
