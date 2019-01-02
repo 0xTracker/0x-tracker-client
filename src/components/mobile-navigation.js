@@ -38,7 +38,6 @@ const SearchInput = styled.input`
     flex-grow: 1;
     font-size: 14px;
     padding: 0 0.7rem;
-    max-width: 300px;
   }
 `;
 
