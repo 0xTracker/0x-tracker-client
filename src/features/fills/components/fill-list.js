@@ -22,7 +22,6 @@ const FillList = ({ displayCurrency, excludeColumns, showStatus, fills }) => {
     <table className="table table-responsive">
       <thead>
         <tr>
-          <th title="View" />
           <th>Date</th>
           <th className="text-right">Maker Amount</th>
           <th />
@@ -31,16 +30,12 @@ const FillList = ({ displayCurrency, excludeColumns, showStatus, fills }) => {
           {includeColumn('relayer') && <th>Relayer</th>}
           {showStatus && <th>Status</th>}
           <th className="text-right">Fees (ZRX)</th>
+          <th title="View" />
         </tr>
       </thead>
       <tbody>
         {fills.map((fill, index) => (
           <tr className={index % 2 ? 'even' : 'odd'} key={fill.id}>
-            <td className="text-center">
-              <Link href={buildFillUrl(fill.id)} title="View Transaction">
-                <MoreIcon height={24} width={24} />
-              </Link>
-            </td>
             <td title={formatDate(fill.date, 'dddd, MMMM Do YYYY, h:mm:ss a')}>
               {distanceInWordsToNow(fill.date)} ago
             </td>
@@ -72,6 +67,11 @@ const FillList = ({ displayCurrency, excludeColumns, showStatus, fills }) => {
             )}
             <td className="text-right">
               <TokenAmount amount={fill.totalFees.ZRX} token={ZRX_TOKEN} />
+            </td>
+            <td className="text-center">
+              <Link href={buildFillUrl(fill.id)} title="View Transaction">
+                <MoreIcon height={24} width={24} />
+              </Link>
             </td>
           </tr>
         ))}
