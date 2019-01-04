@@ -1,13 +1,15 @@
-import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import useLocation from 'react-use/lib/useLocation';
 
 import { colors } from '../styles/constants';
 import Link from './link';
 
 const NavigationLink = styled(Link)`
   color: ${props => (props.active ? 'currentColor' : colors.stormGray)};
+  display: inline-block;
+  margin-right: 15px;
 
   &:hover {
     color: currentColor;
@@ -15,17 +17,21 @@ const NavigationLink = styled(Link)`
   }
 `;
 
-const NavigationItem = ({ href, location, title }) => (
-  <li css="display: inline-block; margin-right: 15px;">
+const NavigationItem = ({ href, title }) => {
+  const location = useLocation();
+  const active = location.pathname === href;
+
+  return (
     <NavigationLink
-      active={location.pathname === href}
+      active={active}
+      aria-current={active}
       href={href}
       title={title}
     >
       {title}
     </NavigationLink>
-  </li>
-);
+  );
+};
 
 NavigationItem.propTypes = {
   href: PropTypes.string.isRequired,
@@ -35,4 +41,4 @@ NavigationItem.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default withRouter(NavigationItem);
+export default NavigationItem;

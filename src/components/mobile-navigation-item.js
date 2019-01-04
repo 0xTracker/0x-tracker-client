@@ -20,11 +20,9 @@ const NavigationLink = styled(Link)`
 `;
 
 const MobileNavigationItem = ({ children, href, onClick }) => (
-  <li>
-    <NavigationLink href={href} onClick={onClick}>
-      {children}
-    </NavigationLink>
-  </li>
+  <NavigationLink href={href} onClick={onClick}>
+    {children}
+  </NavigationLink>
 );
 
 MobileNavigationItem.propTypes = {

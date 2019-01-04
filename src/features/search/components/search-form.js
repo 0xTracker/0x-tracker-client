@@ -31,7 +31,12 @@ class SearchForm extends PureComponent {
     const { children, className } = this.props;
 
     return (
-      <Form className={className} inline onSubmit={this.handleSubmit}>
+      <Form
+        className={className}
+        inline
+        onSubmit={this.handleSubmit}
+        role="search"
+      >
         {children({
           currentValue: searchQuery,
           handleChange: this.handleSearchQueryChange,

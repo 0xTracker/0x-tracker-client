@@ -156,7 +156,7 @@ module.exports = {
     'react/jsx-max-props-per-line': 'off',
     'react/jsx-max-depth': ['error', { max: 5 }],
     'react/jsx-no-literals': 'off',
-    'react/jsx-no-bind': 'warn', // TODO: Convert to error once fixed
+    'react/jsx-no-bind': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/no-set-state': 'off',
   },

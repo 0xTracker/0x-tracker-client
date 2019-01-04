@@ -1,4 +1,3 @@
-import { Cog as SettingsIcon } from 'styled-icons/fa-solid/Cog.cjs';
 import { Bars as MenuIcon } from 'styled-icons/fa-solid/Bars.cjs';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -9,45 +8,44 @@ import { URL } from '../constants';
 import { colors } from '../styles/constants';
 import Container from './container';
 import Link from './link';
-import logoImage from '../assets/images/logo-dark.svg';
+import logoImage from '../assets/images/logo-light.svg';
+import MobileMenu from './mobile-menu';
 import Navigation from './navigation';
-import MobileNavigation from './mobile-navigation';
-import SearchIcon from './search-icon';
-
-const HeaderButton = styled.div`
-  border-radius: 3px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  padding: 8px 10px;
-  margin-right: 8px;
-
-  &:hover {
-    background: ${colors.athensGray};
-  }
-
-  &:last-child {
-    margin: 0;
-  }
-`;
+import HeaderActions from './header-actions';
 
 const LogoImage = styled.img`
+  height: 42px;
   width: ${props => (props.size === 'small' ? '120px' : '150px')};
 `;
 
+const MenuButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+`;
+
 const Header = ({ screenSize }) => {
-  const [mobileNav, updateMobileNav] = useState('closed');
+  const [mobileMenuState, updateMobileMenuState] = useState('closed');
+
+  const closeMobileMenu = () => {
+    updateMobileMenuState('closed');
+  };
+
+  const openMobileMenu = () => {
+    updateMobileMenuState('open');
+  };
 
   return (
     <React.Fragment>
-      {screenSize.greaterThan.sm || mobileNav === 'closed' ? null : (
-        <MobileNavigation
-          onClose={() => {
-            updateMobileNav('closed');
-          }}
+      {screenSize.greaterThan.sm || mobileMenuState === 'closed' ? null : (
+        <MobileMenu
+          onClose={closeMobileMenu}
+          onNavigate={closeMobileMenu}
+          onSearch={closeMobileMenu}
         />
       )}
-      <div
+      <header
         css={`
           background-color: ${colors.white};
           padding: 18px 0;
@@ -64,26 +62,15 @@ const Header = ({ screenSize }) => {
           {screenSize.greaterThan.sm ? (
             <React.Fragment>
               <Navigation css="flex-grow: 1;" />
-              <div css="display: flex;">
-                <HeaderButton>
-                  <SettingsIcon color="currentColor" height={22} width={22} />
-                </HeaderButton>
-                <HeaderButton>
-                  <SearchIcon color="currentColor" height={22} width={22} />
-                </HeaderButton>
-              </div>
+              <HeaderActions />
             </React.Fragment>
           ) : (
-            <MenuIcon
-              css="cursor: pointer;"
-              height={24}
-              onClick={() => {
-                updateMobileNav('open');
-              }}
-            />
+            <MenuButton onClick={openMobileMenu} title="Open menu">
+              <MenuIcon height={24} />
+            </MenuButton>
           )}
         </Container>
-      </div>
+      </header>
     </React.Fragment>
   );
 };

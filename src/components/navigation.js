@@ -5,14 +5,12 @@ import styled from 'styled-components';
 import { URL } from '../constants';
 import NavigationItem from './navigation-item';
 
-const StyledNavigation = styled.ul`
-  list-style: none;
+const StyledNavigation = styled.nav`
   margin: 0 0 0 30px;
-  padding: 0;
 `;
 
 const Navigation = ({ className }) => (
-  <StyledNavigation className={className}>
+  <StyledNavigation aria-label="Primary" className={className}>
     <NavigationItem href={URL.FILLS} title="Fills" />
     <NavigationItem href={URL.TOKENS} title="Tokens" />
     <NavigationItem href={URL.RELAYERS} title="Relayers" />
