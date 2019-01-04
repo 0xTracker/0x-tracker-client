@@ -1,6 +1,5 @@
-import { DollarSign as DollarIcon } from 'styled-icons/fa-solid/DollarSign.cjs';
-import { Search as SearchIcon } from 'styled-icons/fa-solid/Search.cjs';
-import { Bars as BarsIcon } from 'styled-icons/fa-solid/Bars.cjs';
+import { Cog as SettingsIcon } from 'styled-icons/fa-solid/Cog.cjs';
+import { Bars as MenuIcon } from 'styled-icons/fa-solid/Bars.cjs';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -13,6 +12,7 @@ import Link from './link';
 import logoImage from '../assets/images/logo-dark.svg';
 import Navigation from './navigation';
 import MobileNavigation from './mobile-navigation';
+import SearchIcon from './search-icon';
 
 const HeaderButton = styled.div`
   border-radius: 3px;
@@ -66,7 +66,7 @@ const Header = ({ screenSize }) => {
               <Navigation css="flex-grow: 1;" />
               <div css="display: flex;">
                 <HeaderButton>
-                  <DollarIcon color="currentColor" height={22} width={22} />
+                  <SettingsIcon color="currentColor" height={22} width={22} />
                 </HeaderButton>
                 <HeaderButton>
                   <SearchIcon color="currentColor" height={22} width={22} />
@@ -74,7 +74,7 @@ const Header = ({ screenSize }) => {
               </div>
             </React.Fragment>
           ) : (
-            <BarsIcon
+            <MenuIcon
               css="cursor: pointer;"
               height={24}
               onClick={() => {

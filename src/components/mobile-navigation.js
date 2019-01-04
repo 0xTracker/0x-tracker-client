@@ -1,5 +1,4 @@
 import { Close as CloseIcon } from 'styled-icons/material/Close.cjs';
-import { Search as SearchIcon } from 'styled-icons/fa-solid/Search.cjs';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
@@ -10,6 +9,7 @@ import MobileNavigationItem from './mobile-navigation-item';
 import Link from './link';
 import logoImage from '../assets/images/logo.png';
 import SearchForm from '../features/search/components/search-form';
+import SearchIcon from './search-icon';
 
 const StyledNavigation = styled.ul`
   background-color: ${colors.violet};
