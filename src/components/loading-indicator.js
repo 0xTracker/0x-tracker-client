@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const AlignCenter = styled.div`
   align-items: center;
   display: flex;
-  height: 100%;
+  flex-grow: 1;
   justify-content: center;
 `;
 

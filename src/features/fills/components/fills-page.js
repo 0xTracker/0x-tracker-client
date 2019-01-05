@@ -10,7 +10,7 @@ const FillsPage = () => (
     breadcrumbItems={[{ title: 'Order Fills', url: URL.FILLS }]}
     title="Order Fills"
   >
-    <Card css="height: 100%;">
+    <Card fullHeight>
       <Fills />
     </Card>
   </PageLayout>

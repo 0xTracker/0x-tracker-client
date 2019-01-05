@@ -1,4 +1,6 @@
+import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -27,7 +29,7 @@ const DashboardColumn = styled(Col)`
   `}
 `;
 
-const DashboardPage = () => (
+const DashboardPage = ({ screenSize }) => (
   <ContentSection>
     <DashboardMetrics css="margin-bottom: 2rem;" />
     <Row>
@@ -68,10 +70,21 @@ const DashboardPage = () => (
         <RecentFillsCard />
       </DashboardColumn>
       <DashboardColumn lastRow lg={5}>
-        <LatestNewsCard />
+        <LatestNewsCard
+          compact={screenSize.lessThan.sm || screenSize.greaterThan.md}
+          showImages={screenSize.greaterThan.xs}
+        />
       </DashboardColumn>
     </Row>
   </ContentSection>
 );
 
-export default DashboardPage;
+DashboardPage.propTypes = {
+  screenSize: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => ({
+  screenSize: state.screen,
+});
+
+export default connect(mapStateToProps)(DashboardPage);

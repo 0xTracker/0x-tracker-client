@@ -46,16 +46,20 @@ const RelayerList = ({ relayers, timePeriod }) => {
             </td>
             <td className="align-middle" width="99%">
               <RelayerLink relayer={relayer}>{relayer.name}</RelayerLink>
-              <br />
-              <Link
-                css={`
-                  color: ${colors.stormGray};
-                  font-size: 0.9em;
-                `}
-                href={relayer.url}
-              >
-                {relayer.url}
-              </Link>
+              {relayer.url ? (
+                <>
+                  <br />
+                  <Link
+                    css={`
+                      color: ${colors.stormGray};
+                      font-size: 0.9rem;
+                    `}
+                    href={relayer.url}
+                  >
+                    {relayer.url}
+                  </Link>
+                </>
+              ) : null}
             </td>
             <td className="align-middle text-right">
               {relayer.stats.trades === 0 ? '-' : relayer.stats.trades}

@@ -6,7 +6,7 @@ import { URL } from '../constants';
 import NavigationItem from './navigation-item';
 
 const StyledNavigation = styled.nav`
-  margin: 0 0 0 30px;
+  margin: 0 0 0 2rem;
 `;
 
 const Navigation = ({ className }) => (

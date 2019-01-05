@@ -16,7 +16,7 @@ const TokensPage = ({ history, page }) => (
     breadcrumbItems={[{ title: 'Tokens', url: URL.TOKENS }]}
     title="Traded Tokens"
   >
-    <Card css="height: 100%;">
+    <Card fullHeight>
       <TokenList history={history} limit={PAGE_SIZE} page={page} />
     </Card>
   </PageLayout>

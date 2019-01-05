@@ -14,8 +14,8 @@ import Navigation from './navigation';
 import HeaderActions from './header-actions';
 
 const LogoImage = styled.img`
-  height: 42px;
-  width: ${props => (props.size === 'small' ? '120px' : '150px')};
+  height: 2.75rem;
+  width: ${props => (props.size === 'small' ? '8rem' : '10rem')};
 `;
 
 const MenuButton = styled.button`

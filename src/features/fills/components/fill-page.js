@@ -75,7 +75,7 @@ class FillPage extends PureComponent {
         ]}
         title="Fill Details"
       >
-        <Card css="height: 100%; padding: 32px;">
+        <Card css="padding: 2rem;" fullHeight>
           {fill === undefined ? (
             <LoadingIndicator centered />
           ) : (

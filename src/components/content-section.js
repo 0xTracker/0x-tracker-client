@@ -5,15 +5,14 @@ import Container from './container';
 
 const ContentSection = styled(Container)`
   flex: 1;
-  padding-bottom: 40px;
-  padding-top: 40px;
+  padding-bottom: 2.5rem;
+  padding-top: 2.5rem;
 
   ${({ verticallyCentered }) =>
     verticallyCentered &&
     css`
       align-items: center;
       display: flex;
-      height: 100%;
     `};
 `;
 

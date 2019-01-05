@@ -20,7 +20,7 @@ const SearchPage = ({ searchQuery }) =>
       ]}
       title="Search Results"
     >
-      <Card css="height: 100%;">
+      <Card fullHeight>
         <Fills filter={{ address: _.toLower(searchQuery) }} showSummary />
       </Card>
     </PageLayout>

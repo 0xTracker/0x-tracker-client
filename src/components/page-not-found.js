@@ -13,7 +13,6 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  height: 100%;
   margin: 0 auto;
   max-width: 800px;
   text-align: center;
@@ -47,19 +46,19 @@ const GhostLink = styled(Link)`
 `;
 
 const Heading = styled.h1`
-  font-size: 1.6em;
+  font-size: 1.6rem;
 
   ${media.greaterThan('md')`
-    font-size: 2em;
+    font-size: 2rem;
   `}
 `;
 
 const Message = styled.p`
-  font-size: 1.1em;
+  font-size: 1.1rem;
   margin: 0 0 2rem 0;
 
   ${media.greaterThan('md')`
-    font-size: 1.3em;
+    font-size: 1.3rem;
   `}
 `;
 

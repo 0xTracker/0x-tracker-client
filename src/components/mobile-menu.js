@@ -13,10 +13,10 @@ import MobileSearchForm from './mobile-search-form';
 const StyledMobileMenu = styled.ul`
   background-color: ${colors.violet};
   color: ${colors.white};
-  height: 100%;
+  height: 100vh;
   padding: 5rem 0 0;
   position: absolute;
-  width: 100%;
+  width: 100vw;
   z-index: 100;
 `;
 
@@ -40,9 +40,9 @@ const CloseButton = styled.button`
 
 const Logo = styled.img`
   position: absolute;
-  top: 16px;
-  left: 16px;
-  width: 120px;
+  top: 1rem;
+  left: 1rem;
+  width: 8rem;
 `;
 
 const MobileMenu = ({ onClose, onNavigate, onSearch }) => (

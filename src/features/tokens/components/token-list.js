@@ -72,12 +72,16 @@ class TokenList extends PureComponent {
           </thead>
           <tbody>
             {_.map(tokensChunk, (token, index) => (
-              <TokenListItem position={index + offset + 1} token={token} />
+              <TokenListItem
+                key={token.address}
+                position={index + offset + 1}
+                token={token}
+              />
             ))}
           </tbody>
         </table>
         <Paginator
-          css="margin: 16px;"
+          css="margin: 1rem;"
           onPageChange={this.handlePageChange}
           page={page}
           pageCount={pageCount}

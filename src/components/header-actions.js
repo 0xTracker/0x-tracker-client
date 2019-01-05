@@ -8,12 +8,12 @@ import SearchIcon from './search-icon';
 const ActionButton = styled.button`
   background: none;
   border: none;
-  border-radius: 3px;
+  border-radius: 0.25rem;
   cursor: pointer;
   display: flex;
   justify-content: center;
-  padding: 8px 10px;
-  margin-right: 8px;
+  padding: 0.5rem 0.75rem;
+  margin-right: 0.5rem;
 
   &:hover {
     background: ${colors.athensGray};

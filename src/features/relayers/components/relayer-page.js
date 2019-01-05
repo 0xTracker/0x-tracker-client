@@ -27,7 +27,7 @@ const RelayerPage = ({ relayer }) =>
       ]}
       title={relayer.name}
     >
-      <Row css="margin-bottom: 2em;">
+      <Row css="margin-bottom: 2rem;">
         <Col lg={7}>
           <ChartsContainer
             charts={[

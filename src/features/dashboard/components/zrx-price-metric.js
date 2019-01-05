@@ -60,15 +60,15 @@ class ZRXPriceMetric extends React.PureComponent {
                 color: ${zrxPrice.change > 0
                   ? colors.fruitSalad
                   : colors.pomegranate};
-                margin-left: 8px;
-                font-size: 0.9em;
+                margin-left: 0.5rem;
+                font-size: 1rem;
               `}
             >
               {numeral(zrxPrice.change).format('0.[00]')}%
               {zrxPrice.change > 0 ? (
                 <TrendingUpIcon
                   color={colors.fruitSalad}
-                  css="margin: 0 0 0 4px;"
+                  css="margin: 0 0 0 0.25rem;"
                   height={24}
                   width={24}
                 />
@@ -76,7 +76,7 @@ class ZRXPriceMetric extends React.PureComponent {
               {zrxPrice.change < 0 ? (
                 <TrendingDownIcon
                   color={colors.pomegranate}
-                  css="margin: 0 0 0 4px;"
+                  css="margin: 0 0 0 0.25rem;"
                   height={24}
                   width={24}
                 />

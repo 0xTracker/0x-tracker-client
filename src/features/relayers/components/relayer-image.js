@@ -7,13 +7,20 @@ import { colors } from '../../../styles/constants';
 
 const RelayerImage = ({ imageUrl }) =>
   _.isString(imageUrl) ? (
-    <img css="border-radius: 3px; height: 40px; width: 40px;" src={imageUrl} />
+    <img
+      css="border-radius: 0.25; height: 2.75rem; width: 2.75rem;"
+      src={imageUrl}
+    />
   ) : (
     <SquareIcon color={colors.mischka} height={40} width={40} />
   );
 
 RelayerImage.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
+};
+
+RelayerImage.defaultProps = {
+  imageUrl: undefined,
 };
 
 export default RelayerImage;

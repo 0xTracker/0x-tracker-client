@@ -31,7 +31,6 @@ class Fills extends PureComponent {
       changingPage: false,
       page: 1,
       pageCount: 0,
-      resultCount: 0,
     };
   }
 
@@ -92,12 +91,11 @@ class Fills extends PureComponent {
     ]);
     const response = await fetch(url);
     const result = await response.json();
-    const { pageCount, fills, total } = result;
+    const { pageCount, fills } = result;
 
     this.setState({
       fills,
       pageCount,
-      resultCount: total,
     });
   }
 
@@ -110,8 +108,8 @@ class Fills extends PureComponent {
   }
 
   render() {
-    const { excludeColumns, filter, heading, showStatus } = this.props;
-    const { changingPage, page, pageCount, fills, resultCount } = this.state;
+    const { excludeColumns, heading, showStatus } = this.props;
+    const { changingPage, page, pageCount, fills } = this.state;
 
     return (
       <React.Fragment>
@@ -119,14 +117,6 @@ class Fills extends PureComponent {
           <FillsHeader>
             <FillsHeading>{heading}</FillsHeading>
           </FillsHeader>
-        )}
-        {fills !== undefined && _.has(filter, 'address') && (
-          <div className="mb-5">
-            <p className="lead text-center">
-              {resultCount || 'No'} results found for <br />
-              <strong>{filter.address}</strong>
-            </p>
-          </div>
         )}
         {fills === undefined && <LoadingIndicator centered />}
         {fills !== undefined && fills.length > 0 && (

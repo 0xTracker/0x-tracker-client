@@ -27,7 +27,7 @@ const TokenListItemVolume = ({ token }) => {
       <span
         css={`
           color: ${colors.stormGray};
-          font-size: 0.8em;
+          font-size: 0.8rem;
         `}
       >
         <TokenAmount

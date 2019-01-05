@@ -49,7 +49,7 @@ const TokenListItem = ({ position, token }) => (
           <br />
           <span
             css={`
-              font-size: 0.8em;
+              font-size: 0.8rem;
               color: ${token.trades === 0
                 ? colors.santasGray
                 : colors.stormGray};

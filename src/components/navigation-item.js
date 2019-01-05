@@ -9,7 +9,7 @@ import Link from './link';
 const NavigationLink = styled(Link)`
   color: ${props => (props.active ? 'currentColor' : colors.stormGray)};
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 1rem;
 
   &:hover {
     color: currentColor;
@@ -35,9 +35,6 @@ const NavigationItem = ({ href, title }) => {
 
 NavigationItem.propTypes = {
   href: PropTypes.string.isRequired,
-  location: PropTypes.shape({
-    href: PropTypes.string.isRequired,
-  }).isRequired,
   title: PropTypes.string.isRequired,
 };
 

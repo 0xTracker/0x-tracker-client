@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { URL } from '../../../constants';
@@ -7,7 +8,7 @@ import LatestNews from './latest-news';
 import Link from '../../../components/link';
 import Pill from '../../../components/pill';
 
-const LatestNewsCard = () => (
+const LatestNewsCard = ({ compact, showImages }) => (
   <Card
     header={
       <React.Fragment>
@@ -19,8 +20,18 @@ const LatestNewsCard = () => (
     }
     padded
   >
-    <LatestNews />
+    <LatestNews compact={compact} showImages={showImages} />
   </Card>
 );
+
+LatestNewsCard.propTypes = {
+  compact: PropTypes.bool,
+  showImages: PropTypes.bool,
+};
+
+LatestNewsCard.defaultProps = {
+  compact: undefined,
+  showImages: undefined,
+};
 
 export default LatestNewsCard;

@@ -15,7 +15,7 @@ import SpectrumIcon from './spectrum-icon';
 const FooterIconLink = styled(Link)`
   color: currentColor;
   display: flex;
-  margin-left: 15px;
+  margin-left: 1rem;
 
   &:first-child {
     margin-left: 0;
@@ -24,21 +24,12 @@ const FooterIconLink = styled(Link)`
   &:hover {
     color: ${colors.white};
   }
-
-  ${media.greaterThan('md')`
-    margin-left: 13px;
-  `}
 `;
 
 const FooterIcon = styled.svg`
-  height: 25px;
+  height: 1.5rem;
   vertical-align: middle;
-  width: 25px;
-
-  ${media.greaterThan('md')`
-    height: 20px;
-    width: 20px;
-  `}
+  width: 1.5rem;
 `;
 
 const FooterColumn = styled(Col).attrs({ xs: 12, md: 6 })`
@@ -51,7 +42,7 @@ const Footer = () => (
     css={`
       background: ${colors.violet};
       color: ${colors.santasGray};
-      padding: 30px;
+      padding: 2rem;
     `}
   >
     <Container>
@@ -59,7 +50,7 @@ const Footer = () => (
         <FooterColumn
           css={`
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
 
             ${media.greaterThan('md')`
               justify-content: flex-end;
@@ -80,12 +71,12 @@ const Footer = () => (
           >
             <SpectrumIcon
               css={`
-                height: 21px;
-                width: 21px;
+                height: 1.25rem;
+                width: 1.25rem;
 
                 ${media.greaterThan('md')`
-                  height: 16px; 
-                  width: 16px;
+                  height: 1rem; 
+                  width: 1rem;
                 `}
               `}
             />

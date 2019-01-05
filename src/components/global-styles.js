@@ -26,30 +26,30 @@ const GlobalStyles = createGlobalStyle`
 
   .table td {
     border-bottom: 1px solid ${colors.athensGray};
-    padding: 7px;
+    padding: 0.5rem;
   }
   
   .table thead th {
     border-bottom: 3px solid ${colors.athensGray};
     border-top: none;
-    padding: 0.75em;
+    padding: 0.75rem;
   }
   
   .table tbody td,
   .table thead th {
     white-space: nowrap;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   
   .table tbody td:first-child,
   .table thead th:first-child {
-    padding-left: 16px;
+    padding-left: 1rem;
   }
   
   .table tbody td:last-child,
   .table thead th:last-child {
-    padding-right: 16px;
+    padding-right: 1rem;
   }
   
   .table tbody tr:hover td {

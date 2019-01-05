@@ -21,9 +21,11 @@ class ArticlesProvider extends React.Component {
   };
 
   fetchData = async page => {
+    const { source } = this.props;
+
     this.setState({ isLoading: true });
 
-    const data = await callApi('articles', { page });
+    const data = await callApi('articles', { page, source });
 
     this.setState(prevState => ({
       articles: _.isArray(prevState.articles)
@@ -50,12 +52,14 @@ class ArticlesProvider extends React.Component {
 }
 
 ArticlesProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.func.isRequired,
   limit: PropTypes.number,
+  source: PropTypes.string,
 };
 
 ArticlesProvider.defaultProps = {
   limit: undefined,
+  source: undefined,
 };
 
 export default ArticlesProvider;

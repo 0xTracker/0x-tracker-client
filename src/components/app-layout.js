@@ -12,6 +12,8 @@ const AppContainer = styled.div`
 `;
 
 const AppBody = styled.div`
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 `;
 

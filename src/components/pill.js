@@ -8,7 +8,7 @@ const Pill = styled.span`
   border-radius: 0.25rem;
   color: inherit;
   cursor: pointer;
-  font-size: 0.8em;
+  font-size: 0.8rem;
   padding: 0.2rem 0.7rem;
   text-transform: uppercase;
 

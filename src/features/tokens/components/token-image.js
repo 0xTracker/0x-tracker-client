@@ -7,13 +7,20 @@ import { colors } from '../../../styles/constants';
 
 const TokenImage = ({ imageUrl }) =>
   _.isString(imageUrl) ? (
-    <img css="border-radius: 3px; height: 40px; width: 40px;" src={imageUrl} />
+    <img
+      css="border-radius: 0.25rem; height: 2.75rem; width: 2.75rem;"
+      src={imageUrl}
+    />
   ) : (
     <CircleIcon color={colors.mischka} height={40} width={40} />
   );
 
 TokenImage.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
+};
+
+TokenImage.defaultProps = {
+  imageUrl: undefined,
 };
 
 export default TokenImage;

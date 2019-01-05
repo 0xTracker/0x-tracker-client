@@ -1,21 +1,36 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import ArticleList from './article-list';
 import ArticlesProvider from './articles-provider';
 import LoadingIndicator from '../../../components/loading-indicator';
 
-const LatestNews = () => (
+const LatestNews = ({ compact, showImages }) => (
   <ArticlesProvider limit={4}>
     {({ articles, loadingInitial }) =>
       loadingInitial ? (
         <LoadingIndicator centered />
       ) : (
         <React.Fragment>
-          <ArticleList articles={articles} compact />
+          <ArticleList
+            articles={articles}
+            compact={compact}
+            showImages={showImages}
+          />
         </React.Fragment>
       )
     }
   </ArticlesProvider>
 );
+
+LatestNews.propTypes = {
+  compact: PropTypes.bool,
+  showImages: PropTypes.bool,
+};
+
+LatestNews.defaultProps = {
+  compact: undefined,
+  showImages: undefined,
+};
 
 export default LatestNews;

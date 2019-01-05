@@ -8,7 +8,7 @@ import Breadcrumb from './breadcrumb';
 import Container from './container';
 
 const StyledContentHeader = styled.div`
-  padding: 30px 0;
+  padding: 2rem 0;
   border-radius: 0px 2px 4px rgba(126, 142, 177, 0.12);
 `;
 
@@ -23,7 +23,7 @@ const TitleContainer = styled(Col).attrs({ xs: 12, md: 6 })`
 
 const Title = styled.h1`
   display: inline;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   margin: 0;
 `;
 

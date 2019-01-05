@@ -9,24 +9,23 @@ import SearchIcon from './search-icon';
 const SearchInput = styled.input`
   && {
     border: none;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
     background-color: ${colors.martinique};
     color: ${colors.white};
-    height: 34px;
+    height: 2.5rem;
     flex-grow: 1;
-    font-size: 14px;
-    padding: 0 0.7rem;
+    padding: 0 0.75rem;
   }
 `;
 
 const SearchButton = styled.button`
   background-color: ${colors.stormGray};
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
   border: none;
   color: ${colors.violet};
-  height: 34px;
+  height: 2.5rem;
   line-height: 1;
   padding: 0 0.75rem;
 
@@ -37,7 +36,7 @@ const SearchButton = styled.button`
 
 const MobileSearchForm = ({ onSearch }) => (
   <SearchForm
-    css="margin: 0 16px 16px 16px; display: flex; flex-wrap: nowrap;"
+    css="margin: 0 1rem 1rem 1rem; display: flex; flex-wrap: nowrap;"
     onSearch={onSearch}
   >
     {({ currentValue, handleChange, handleSubmit }) => (

@@ -6,14 +6,16 @@ import Container from './container';
 import ContentHeader from './content-header';
 
 const ContentBody = styled(Container)`
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
-  padding-bottom: 36px;
+  padding-bottom: 2.5rem;
 `;
 
 const StyledPageLayout = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex-grow: 1;
 `;
 
 const PageLayout = ({ breadcrumbItems, children, title }) => (

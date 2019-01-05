@@ -8,17 +8,17 @@ import { colors } from '../../../styles/constants';
 import Link from '../../../components/link';
 
 const ArticleImage = styled.img`
-  border-radius: 3px;
+  border-radius: 0.25rem;
   height: ${props => (props.compact ? '60px' : '100px')};
-  margin-right: 1em;
+  margin-right: 1rem;
   width: ${props => (props.compact ? '60px' : '100px')};
 `;
 
 const StyledArticle = styled.div`
   border-bottom: 1px solid ${colors.athensGray};
   display: flex;
-  margin: 0 0 1.5em 0;
-  padding: 0 0 1.5em 0;
+  margin: 0 0 1.5rem 0;
+  padding: 0 0 1.5rem 0;
 
   &:last-child {
     border: none;
@@ -29,8 +29,8 @@ const StyledArticle = styled.div`
 
 const ArticleMetadata = styled.dl`
   color: ${colors.stormGray};
-  font-size: 0.9em;
-  margin: 0 0 0.5em;
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
 
   dt {
     display: none;
@@ -44,12 +44,12 @@ const ArticleMetadata = styled.dl`
     &::after {
       content: '';
       border-radius: 50%;
-      width: 5px;
-      height: 5px;
+      width: 0.25rem;
+      height: 0.25rem;
       background-color: currentColor;
       display: inline-block;
       vertical-align: middle;
-      margin: 0 0.5em;
+      margin: 0 0.5rem;
     }
 
     &:last-child {
@@ -61,17 +61,19 @@ const ArticleMetadata = styled.dl`
 `;
 
 const ArticleHeading = styled.h4`
-  font-size: ${props => (props.compact ? '1.1em' : '1.2em')};
+  font-size: 1.1rem;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: ${props => (props.compact ? 'wrap' : 'nowrap')};
 `;
 
-const Article = ({ article, compact }) => (
+const Article = ({ article, compact, showImage }) => (
   <StyledArticle>
-    {article.source.imageUrl ? (
-      <ArticleImage alt="" compact={compact} src={article.source.imageUrl} />
+    {showImage && article.source.imageUrl ? (
+      <Link css="color: currentColor;" href={article.source.url}>
+        <ArticleImage alt="" compact={compact} src={article.source.imageUrl} />
+      </Link>
     ) : null}
     <div css="display: flex; flex-direction: column; overflow: hidden;">
       <ArticleHeading compact={compact}>
@@ -110,10 +112,12 @@ Article.propTypes = {
     url: PropTypes.string.isRequired,
   }).isRequired,
   compact: PropTypes.bool,
+  showImage: PropTypes.bool,
 };
 
 Article.defaultProps = {
   compact: false,
+  showImage: true,
 };
 
 export default Article;

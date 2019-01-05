@@ -37,7 +37,7 @@ const StyledPaginator = styled.div`
     cursor: pointer;
     display: block;
     outline: none;
-    padding: 10px 15px;
+    padding: 0.75rem 1rem;
   }
 
   .page-item .page-link:hover {
@@ -62,7 +62,7 @@ const LoadingIndicator = styled(ReactLoading).attrs({
   type: 'spin',
   width: 30,
 })`
-  margin-right: 15px;
+  margin-right: 1rem;
 `;
 
 class Paginator extends PureComponent {

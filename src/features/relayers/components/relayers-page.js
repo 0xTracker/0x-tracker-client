@@ -19,7 +19,7 @@ const RelayersPage = ({ relayers }) => (
     breadcrumbItems={[{ title: 'Relayers', url: URL.RELAYERS }]}
     title="Relayers"
   >
-    <Card css="height: 100%;">
+    <Card fullHeight>
       {relayers === undefined ? (
         <LoadingIndicator centered />
       ) : (

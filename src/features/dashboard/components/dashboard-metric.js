@@ -7,7 +7,7 @@ import Card from '../../../components/card';
 
 const DashboardMetricTitle = styled.dt`
   color: ${colors.stormGray};
-  font-size: 0.8em;
+  font-size: 0.8rem;
   font-weight: normal;
   margin: 0;
   text-transform: uppercase;
@@ -16,13 +16,13 @@ const DashboardMetricTitle = styled.dt`
 const DashboardMetricValue = styled.dd`
   display: flex;
   align-items: center;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   font-weight: bold;
   margin: 0;
 `;
 
 const DashboardMetric = ({ className, title, children }) => (
-  <Card className={className} css="padding: 16px;">
+  <Card className={className} padded>
     <dl css="margin: 0;">
       <DashboardMetricTitle>{title}</DashboardMetricTitle>
       <DashboardMetricValue>{children}</DashboardMetricValue>

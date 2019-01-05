@@ -16,7 +16,7 @@ const ChartsContainerHeader = styled(CardHeader)`
   border-bottom: 1px solid ${colors.athensGray};
   display: flex;
   justify-content: space-between;
-  padding: 16px;
+  padding: 1rem;
 `;
 
 const ChartsContainerBody = styled(CardBody)`
@@ -24,7 +24,7 @@ const ChartsContainerBody = styled(CardBody)`
   display: flex;
   height: 265px;
   justify-content: center;
-  padding: 16px;
+  padding: 1rem;
 `;
 
 const ChartLink = styled(NavLink)`
@@ -32,7 +32,7 @@ const ChartLink = styled(NavLink)`
     color: ${props => (props.active ? 'inherit' : colors.stormGray)};
     cursor: pointer;
     border: none;
-    margin-right: 16px;
+    margin-right: 1rem;
     padding: 0;
   }
 `;
@@ -49,7 +49,7 @@ const PeriodLink = styled(NavLink)`
 
 const Periods = styled(Nav).attrs({ pills: true })`
   align-self: flex-end;
-  font-size: 12px;
+  font-size: 0.8rem;
   margin-bottom: -0.2rem;
 `;
 
@@ -83,7 +83,6 @@ class ChartsContainer extends PureComponent {
                 <NavItem key={chart.title}>
                   <ChartLink
                     active={selectedChart === chart.title}
-                    // eslint-disable-next-line react/jsx-no-bind
                     onClick={() =>
                       this.setState({ selectedChart: chart.title })
                     }
@@ -100,7 +99,6 @@ class ChartsContainer extends PureComponent {
                 <NavItem key={period.value}>
                   <PeriodLink
                     active={selectedPeriod === period.value}
-                    // eslint-disable-next-line react/jsx-no-bind
                     onClick={() =>
                       this.setState({ selectedPeriod: period.value })
                     }
