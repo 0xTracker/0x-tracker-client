@@ -7,20 +7,44 @@ import callApi from '../../../util/call-api';
 class ArticlesProvider extends React.Component {
   state = { isLoading: false, page: 1 };
 
-  async componentDidMount() {
-    const { page } = this.state;
+  componentDidMount() {
+    this.fetchInitial().catch(error => {
+      this.setState({ error });
+    });
+  }
 
-    this.fetchData(page);
+  componentDidUpdate(prevProps) {
+    const { source } = this.props;
+
+    if (prevProps.source !== source) {
+      this.fetchInitial().catch(error => {
+        this.setState({ error });
+      });
+    }
   }
 
   handleLoadMore = event => {
     const { page } = this.state;
 
     event.preventDefault();
-    this.fetchData(page + 1);
+    this.fetchMore(page + 1);
   };
 
-  fetchData = async page => {
+  fetchInitial = async () => {
+    const { source } = this.props;
+
+    this.setState({ articles: undefined, isLoading: true });
+
+    const data = await callApi('articles', { page: 1, source });
+
+    this.setState({
+      articles: data.articles,
+      isLoading: false,
+      pageCount: data.pageCount,
+    });
+  };
+
+  fetchMore = async (page = 1) => {
     const { source } = this.props;
 
     this.setState({ isLoading: true });
@@ -28,18 +52,23 @@ class ArticlesProvider extends React.Component {
     const data = await callApi('articles', { page, source });
 
     this.setState(prevState => ({
-      articles: _.isArray(prevState.articles)
-        ? prevState.articles.concat(data.articles)
-        : data.articles,
+      articles: prevState.articles.concat(data.articles),
       isLoading: false,
       page: data.page,
       pageCount: data.pageCount,
     }));
   };
 
+  fetchArticles = async (page = 1, source) =>
+    callApi('articles', { page, source });
+
   render() {
-    const { articles, isLoading, page, pageCount } = this.state;
+    const { articles, error, isLoading, page, pageCount } = this.state;
     const { children, limit } = this.props;
+
+    if (error) {
+      throw error;
+    }
 
     return children({
       articles: limit ? _.take(articles, limit) : articles,

@@ -6,6 +6,8 @@ import { useLocation } from 'react-use';
 import { colors } from '../../../styles/constants';
 import { URL } from '../../../constants';
 import Link from '../../../components/link';
+import ArticleSourcesProvider from './article-sources-provider';
+import LoadingIndicator from '../../../components/loading-indicator';
 
 const FilterItem = styled(Link)`
   border-bottom: 1px solid ${colors.selago};
@@ -20,41 +22,43 @@ const FilterItem = styled(Link)`
 `;
 
 const FilterImage = styled.img.attrs({ alt: '' })`
+  border-radius: 0.25rem;
   width: 1.5rem;
   height: 1.5rem;
 `;
-
-const sources = [
-  { slug: '0x', name: '0x', imageUrl: '/assets/logos/0x.png' },
-  { slug: 'ddex', name: 'DDEX', imageUrl: '/assets/logos/ddex.png' },
-  { slug: 'dharma', name: 'Dharma', imageUrl: '/assets/logos/dharma.png' },
-  { slug: 'dydx', name: 'dYdX', imageUrl: '/assets/logos/dydx.png' },
-];
 
 const ArticlesFilter = () => {
   const location = useLocation();
 
   return (
-    <nav>
-      <FilterItem active={location.pathname === URL.NEWS} href={URL.NEWS}>
-        All
-        <AllIcon height={20} width={20} />
-      </FilterItem>
-      {sources.map(source => {
-        const sourceUrl = `${URL.NEWS}/${source.slug}`;
+    <ArticleSourcesProvider>
+      {({ loading, sources }) =>
+        loading ? (
+          <LoadingIndicator centered />
+        ) : (
+          <nav>
+            <FilterItem active={location.pathname === URL.NEWS} href={URL.NEWS}>
+              All
+              <AllIcon height={20} width={20} />
+            </FilterItem>
+            {sources.map(source => {
+              const sourceUrl = `${URL.NEWS}/${source.slug}`;
 
-        return (
-          <FilterItem
-            active={location.pathname === sourceUrl}
-            href={sourceUrl}
-            key={source.slug}
-          >
-            {source.name}
-            <FilterImage src={source.imageUrl} />
-          </FilterItem>
-        );
-      })}
-    </nav>
+              return (
+                <FilterItem
+                  active={location.pathname === sourceUrl}
+                  href={sourceUrl}
+                  key={source.slug}
+                >
+                  {source.name}
+                  <FilterImage src={source.imageUrl} />
+                </FilterItem>
+              );
+            })}
+          </nav>
+        )
+      }
+    </ArticleSourcesProvider>
   );
 };
 
