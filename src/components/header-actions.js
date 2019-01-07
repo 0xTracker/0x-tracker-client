@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
-import Dialog from './dialog';
 import SearchIcon from './search-icon';
+import SettingsDialog from '../features/preferences/components/settings-dialog';
 
 const ActionButton = styled.button`
   background: none;
@@ -26,7 +26,7 @@ const ActionButton = styled.button`
 `;
 
 const HeaderActions = () => {
-  const [settingsVisible, updateSettingsVisible] = useState(false);
+  const [settingsVisible, updateSettingsVisible] = useState(true);
 
   const showSettings = () => updateSettingsVisible(true);
   const hideSettings = () => updateSettingsVisible(false);
@@ -34,17 +34,15 @@ const HeaderActions = () => {
   return (
     <>
       <div css="display: flex;">
-        <ActionButton onClick={showSettings} title="Show settings">
+        <ActionButton onClick={showSettings} title="Settings">
           <SettingsIcon color="currentColor" height={22} width={22} />
         </ActionButton>
-        <ActionButton title="Show search">
+        <ActionButton title="Search">
           <SearchIcon color="currentColor" height={22} width={22} />
         </ActionButton>
       </div>
       {settingsVisible ? (
-        <Dialog onClose={hideSettings} title="Settings">
-          Hello World
-        </Dialog>
+        <SettingsDialog onClose={hideSettings} onSubmit={hideSettings} />
       ) : null}
     </>
   );

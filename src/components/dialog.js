@@ -13,7 +13,6 @@ const StyledDialog = styled.section`
   border-radius: 0.25rem;
   max-height: ${props => props.height}px;
   height: ${props => props.height}px;
-  overflow: hidden;
   position: relative;
   max-width: ${props => props.width}px;
   width: ${props => props.width}px;
@@ -26,7 +25,7 @@ const Overlay = styled.div`
   justify-content: center;
   height: 100vh;
   padding: 2rem;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -47,6 +46,9 @@ const CloseButton = styled.button`
 
 const DialogHeader = styled.div`
   background-color: ${colors.athensGray};
+  border-radius: 0.25rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;

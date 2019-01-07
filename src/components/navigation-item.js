@@ -22,12 +22,7 @@ const NavigationItem = ({ href, title }) => {
   const active = location.pathname === href;
 
   return (
-    <NavigationLink
-      active={active}
-      aria-current={active}
-      href={href}
-      title={title}
-    >
+    <NavigationLink active={active} aria-current={active} href={href}>
       {title}
     </NavigationLink>
   );
