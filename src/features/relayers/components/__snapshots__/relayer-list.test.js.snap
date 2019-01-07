@@ -9,11 +9,10 @@ exports[`renders with basic props 1`] = `
       <th>
         #
       </th>
-      <th>
-        Name
-      </th>
-      <th>
-        Website
+      <th
+        colspan="2"
+      >
+        Relayer
       </th>
       <th
         class="text-right"
@@ -35,24 +34,49 @@ exports[`renders with basic props 1`] = `
     <tr
       class=""
     >
-      <td>
+      <td
+        class="align-middle"
+      >
         1
       </td>
       <td
-        width="50%"
+        class="align-middle"
       >
         <a
-          class="link__StyledInternalLink-sc-1m1n17q-1 kIqcgN"
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          href="/relayers/ddex"
+        >
+          <svg
+            aria-hidden="true"
+            class="sc-bdVaJa cjEDWs"
+            color="#dcdde4"
+            fill="currentColor"
+            focusable="false"
+            height="40"
+            viewBox="0 0 448 512"
+            width="40"
+          >
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+      </td>
+      <td
+        class="align-middle"
+        width="99%"
+      >
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="/relayers/ddex"
         >
           DDEX
         </a>
-      </td>
-      <td
-        width="49%"
-      >
+        <br />
         <a
-          class="link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
+          _css="#6C6B80"
+          class="sc-htpNat dONRAh link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="https://ddex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -61,12 +85,12 @@ exports[`renders with basic props 1`] = `
         </a>
       </td>
       <td
-        class="text-right"
+        class="align-middle text-right"
       >
         256
       </td>
       <td
-        class="text-right"
+        class="align-middle text-right"
       >
         $150,456.56
       </td>
@@ -74,24 +98,49 @@ exports[`renders with basic props 1`] = `
     <tr
       class=""
     >
-      <td>
+      <td
+        class="align-middle"
+      >
         2
       </td>
       <td
-        width="50%"
+        class="align-middle"
       >
         <a
-          class="link__StyledInternalLink-sc-1m1n17q-1 kIqcgN"
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          href="/relayers/paradex"
+        >
+          <svg
+            aria-hidden="true"
+            class="sc-bdVaJa cjEDWs"
+            color="#dcdde4"
+            fill="currentColor"
+            focusable="false"
+            height="40"
+            viewBox="0 0 448 512"
+            width="40"
+          >
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+      </td>
+      <td
+        class="align-middle"
+        width="99%"
+      >
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="/relayers/paradex"
         >
           Paradex
         </a>
-      </td>
-      <td
-        width="49%"
-      >
+        <br />
         <a
-          class="link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
+          _css="#6C6B80"
+          class="sc-htpNat dONRAh link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="https://paradex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -100,12 +149,12 @@ exports[`renders with basic props 1`] = `
         </a>
       </td>
       <td
-        class="text-right"
+        class="align-middle text-right"
       >
         345
       </td>
       <td
-        class="text-right"
+        class="align-middle text-right"
       >
         $124,000.00
       </td>
@@ -113,24 +162,49 @@ exports[`renders with basic props 1`] = `
     <tr
       class=""
     >
-      <td>
+      <td
+        class="align-middle"
+      >
         3
       </td>
       <td
-        width="50%"
+        class="align-middle"
       >
         <a
-          class="link__StyledInternalLink-sc-1m1n17q-1 kIqcgN"
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          href="/relayers/radar-relay"
+        >
+          <svg
+            aria-hidden="true"
+            class="sc-bdVaJa cjEDWs"
+            color="#dcdde4"
+            fill="currentColor"
+            focusable="false"
+            height="40"
+            viewBox="0 0 448 512"
+            width="40"
+          >
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+      </td>
+      <td
+        class="align-middle"
+        width="99%"
+      >
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="/relayers/radar-relay"
         >
           Radar Relay
         </a>
-      </td>
-      <td
-        width="49%"
-      >
+        <br />
         <a
-          class="link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
+          _css="#6C6B80"
+          class="sc-htpNat dONRAh link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="https://radarrelay.com"
           rel="noopener noreferrer"
           target="_blank"
@@ -139,37 +213,62 @@ exports[`renders with basic props 1`] = `
         </a>
       </td>
       <td
-        class="text-right"
+        class="align-middle text-right"
       >
         512
       </td>
       <td
-        class="text-right"
+        class="align-middle text-right"
       >
         $100,000.00
       </td>
     </tr>
     <tr
-      class="text-muted"
+      class="faded"
     >
-      <td>
+      <td
+        class="align-middle"
+      >
         4
       </td>
       <td
-        width="50%"
+        class="align-middle"
       >
         <a
-          class="link__StyledInternalLink-sc-1m1n17q-1 kIqcgN"
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          href="/relayers/sad-relayer"
+        >
+          <svg
+            aria-hidden="true"
+            class="sc-bdVaJa cjEDWs"
+            color="#dcdde4"
+            fill="currentColor"
+            focusable="false"
+            height="40"
+            viewBox="0 0 448 512"
+            width="40"
+          >
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+      </td>
+      <td
+        class="align-middle"
+        width="99%"
+      >
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="/relayers/sad-relayer"
         >
           Sad Relayer
         </a>
-      </td>
-      <td
-        width="49%"
-      >
+        <br />
         <a
-          class="link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
+          _css="#6C6B80"
+          class="sc-htpNat dONRAh link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="https://google.com"
           rel="noopener noreferrer"
           target="_blank"
@@ -178,12 +277,12 @@ exports[`renders with basic props 1`] = `
         </a>
       </td>
       <td
-        class="text-right"
+        class="align-middle text-right"
       >
         -
       </td>
       <td
-        class="text-right"
+        class="align-middle text-right"
       >
         -
       </td>

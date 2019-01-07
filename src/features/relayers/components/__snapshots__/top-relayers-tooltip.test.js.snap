@@ -2,7 +2,7 @@
 
 exports[`should render for ETH currency 1`] = `
 <div
-  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 lmVxSZ"
+  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 hvIxLX"
 >
   <h1
     class="chart-tooltip__ChartTooltipTitle-sc-1bnoebf-1 jaVyDc"
@@ -55,7 +55,7 @@ exports[`should render for ETH currency 1`] = `
 
 exports[`should render with payload 1`] = `
 <div
-  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 lmVxSZ"
+  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 hvIxLX"
 >
   <h1
     class="chart-tooltip__ChartTooltipTitle-sc-1bnoebf-1 jaVyDc"

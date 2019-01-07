@@ -2,7 +2,7 @@
 
 exports[`should render without props 1`] = `
 <div
-  class="sc-bxivhb cHcdmP"
+  class="sc-bxivhb fctZaO"
 >
   <div
     class="container__StyledContainer-cj53s7-0 eMKfDZ container-fluid"
@@ -20,10 +20,10 @@ exports[`should render without props 1`] = `
             ,
     }
   "
-        class="footer__FooterColumn-htpw4v-2 sc-ifAKCX kYHTzv col-12 col-md-6"
+        class="footer__FooterColumn-htpw4v-2 sc-ifAKCX kBnFPq col-12 col-md-6"
       >
         <a
-          class="footer__FooterIconLink-htpw4v-0 cNDKil link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
+          class="footer__FooterIconLink-htpw4v-0 bReKvn link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="https://github.com/0xtracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -31,7 +31,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="footer__FooterIcon-htpw4v-1 bbOsdP sc-bdVaJa cjEDWs"
+            class="footer__FooterIcon-htpw4v-1 dkzOKO sc-bdVaJa cjEDWs"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 496 512"
@@ -43,7 +43,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="footer__FooterIconLink-htpw4v-0 cNDKil link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
+          class="footer__FooterIconLink-htpw4v-0 bReKvn link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="https://spectrum.chat/0x-tracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -53,12 +53,12 @@ exports[`should render without props 1`] = `
             _css4="
     @media (min-width: ,768px,) {
       ,
-                  height: 16px; 
-                  width: 16px;
+                  height: 1rem; 
+                  width: 1rem;
                 ,
     }
   "
-            class="spectrum-icon__SpectrumIcon-eoh51w-0 sc-EHOje eYOjDp"
+            class="spectrum-icon__SpectrumIcon-eoh51w-0 sc-EHOje dYHcfl"
             viewBox="0 0 15 15"
           >
             <path
@@ -67,7 +67,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="footer__FooterIconLink-htpw4v-0 cNDKil link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
+          class="footer__FooterIconLink-htpw4v-0 bReKvn link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="https://twitter.com/0xTracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -75,7 +75,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="footer__FooterIcon-htpw4v-1 bbOsdP sc-bwzfXH dsFEmQ"
+            class="footer__FooterIcon-htpw4v-1 dkzOKO sc-bwzfXH dsFEmQ"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 512 512"
@@ -87,7 +87,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="footer__FooterIconLink-htpw4v-0 cNDKil link__StyledOutboundLink-sc-1m1n17q-2 dFMXvt"
+          class="footer__FooterIconLink-htpw4v-0 bReKvn link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="https://medium.com/0x-tracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -95,7 +95,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="footer__FooterIcon-htpw4v-1 bbOsdP sc-htpNat hxgniI"
+            class="footer__FooterIcon-htpw4v-1 dkzOKO sc-htpNat hxgniI"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 512 512"
