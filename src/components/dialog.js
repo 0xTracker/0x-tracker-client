@@ -1,7 +1,7 @@
 import { Portal } from 'react-portal';
 import { rgba } from 'polished';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
@@ -35,9 +35,14 @@ const Overlay = styled.div`
 const CloseButton = styled.button`
   background: none;
   border: none;
+  color: ${colors.stormGray};
   cursor: pointer;
   margin-right: -6px; /* Icon doesn't sit flush with bounding box */
   padding: 0;
+
+  &:hover {
+    color: inherit;
+  }
 `;
 
 const DialogHeader = styled.div`
@@ -56,24 +61,45 @@ const DialogBody = styled.div`
   padding: 2rem 1.5rem;
 `;
 
-const Dialog = ({ children, className, onClose, width, height, title }) => (
-  <>
-    <DisableBodyScroll />
-    <Portal>
-      <Overlay className={className}>
-        <StyledDialog height={height} width={width}>
-          <DialogHeader>
-            <DialogHeading>{title}</DialogHeading>
-            <CloseButton onClick={onClose} type="button">
-              <CloseIcon width={32} />
-            </CloseButton>
-          </DialogHeader>
-          <DialogBody>{children}</DialogBody>
-        </StyledDialog>
-      </Overlay>
-    </Portal>
-  </>
-);
+const Dialog = ({ children, className, onClose, width, height, title }) => {
+  const handleKeyDown = ({ key }) => {
+    if (key === 'Escape') {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  });
+
+  return (
+    <>
+      <DisableBodyScroll />
+      <Portal>
+        <Overlay className={className}>
+          <StyledDialog height={height} width={width}>
+            <DialogHeader>
+              <DialogHeading>{title}</DialogHeading>
+              <CloseButton
+                autoFocus
+                onClick={onClose}
+                title="Close"
+                type="button"
+              >
+                <CloseIcon width={32} />
+              </CloseButton>
+            </DialogHeader>
+            <DialogBody>{children}</DialogBody>
+          </StyledDialog>
+        </Overlay>
+      </Portal>
+    </>
+  );
+};
 
 Dialog.propTypes = {
   children: PropTypes.node.isRequired,
