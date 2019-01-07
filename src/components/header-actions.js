@@ -26,7 +26,7 @@ const ActionButton = styled.button`
 `;
 
 const HeaderActions = () => {
-  const [settingsVisible, updateSettingsVisible] = useState(true);
+  const [settingsVisible, updateSettingsVisible] = useState(false);
 
   const showSettings = () => updateSettingsVisible(true);
   const hideSettings = () => updateSettingsVisible(false);
