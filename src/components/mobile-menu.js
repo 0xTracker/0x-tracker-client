@@ -1,10 +1,11 @@
-import { Close as CloseIcon } from 'styled-icons/material/Close.cjs';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import { URL } from '../constants';
+import CloseIcon from './close-icon';
+import DisableBodyScroll from './disable-body-scroll';
 import Link from './link';
 import logoImage from '../assets/images/logo-dark.svg';
 import MobileNavigation from './mobile-navigation';
@@ -18,12 +19,6 @@ const StyledMobileMenu = styled.ul`
   position: absolute;
   width: 100vw;
   z-index: 100;
-`;
-
-const DisableBodyScroll = createGlobalStyle`
-  body {
-    overflow: hidden;
-  }
 `;
 
 const CloseButton = styled.button`
