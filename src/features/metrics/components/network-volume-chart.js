@@ -7,12 +7,12 @@ import {
   Tooltip,
 } from 'recharts';
 import { format as formatDate } from 'date-fns';
-import currencyFormatter from 'currency-formatter';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
 import { colors } from '../../../styles/constants';
+import getCurrencySymbol from '../../../util/get-currency-symbol';
 import NetworkVolumeTooltip from './network-volume-tooltip';
 import padMetrics from '../util/pad-metrics';
 import sharedPropTypes from '../../../prop-types';
@@ -40,14 +40,10 @@ class NetworkVolumeChart extends PureComponent {
 
     const { displayCurrency } = this.props;
 
-    const currency = currencyFormatter.findCurrency(displayCurrency);
+    const currencySymbol = getCurrencySymbol(displayCurrency);
     const shortAmount = numeral(amount).format('0.[0]a');
 
-    if (currency.symbolOnLeft) {
-      return `${currency.symbol} ${shortAmount}`;
-    }
-
-    return `${shortAmount} ${currency.symbol}`;
+    return `${currencySymbol}${shortAmount}`;
   }
 
   render() {
