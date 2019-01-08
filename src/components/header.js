@@ -7,11 +7,12 @@ import styled from 'styled-components';
 import { URL } from '../constants';
 import { colors } from '../styles/constants';
 import Container from './container';
+import HeaderActions from './header-actions';
 import Link from './link';
 import logoImage from '../assets/images/logo-light.svg';
 import MobileMenu from './mobile-menu';
 import Navigation from './navigation';
-import HeaderActions from './header-actions';
+import SettingsDialogProvider from '../features/preferences/components/settings-dialog-provider';
 
 const LogoImage = styled.img`
   height: 2.75rem;
@@ -37,7 +38,7 @@ const Header = ({ screenSize }) => {
   };
 
   return (
-    <React.Fragment>
+    <SettingsDialogProvider>
       {screenSize.greaterThan.sm || mobileMenuState === 'closed' ? null : (
         <MobileMenu
           onClose={closeMobileMenu}
@@ -71,7 +72,7 @@ const Header = ({ screenSize }) => {
           )}
         </Container>
       </header>
-    </React.Fragment>
+    </SettingsDialogProvider>
   );
 };
 

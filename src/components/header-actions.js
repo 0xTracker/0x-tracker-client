@@ -1,10 +1,10 @@
 import { Cog as SettingsIcon } from 'styled-icons/fa-solid/Cog.cjs';
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import SearchIcon from './search-icon';
-import SettingsDialog from '../features/preferences/components/settings-dialog';
+import useSettingsDialog from '../features/preferences/hooks/use-settings-dialog';
 
 const ActionButton = styled.button`
   background: none;
@@ -26,25 +26,17 @@ const ActionButton = styled.button`
 `;
 
 const HeaderActions = () => {
-  const [settingsVisible, updateSettingsVisible] = useState(false);
-
-  const showSettings = () => updateSettingsVisible(true);
-  const hideSettings = () => updateSettingsVisible(false);
+  const settingsDialog = useSettingsDialog();
 
   return (
-    <>
-      <div css="display: flex;">
-        <ActionButton onClick={showSettings} title="Settings">
-          <SettingsIcon color="currentColor" height={22} width={22} />
-        </ActionButton>
-        <ActionButton title="Search">
-          <SearchIcon color="currentColor" height={22} width={22} />
-        </ActionButton>
-      </div>
-      {settingsVisible ? (
-        <SettingsDialog onClose={hideSettings} onSubmit={hideSettings} />
-      ) : null}
-    </>
+    <div css="display: flex;">
+      <ActionButton onClick={() => settingsDialog.show()} title="Settings">
+        <SettingsIcon color="currentColor" height={22} width={22} />
+      </ActionButton>
+      <ActionButton title="Search">
+        <SearchIcon color="currentColor" height={22} width={22} />
+      </ActionButton>
+    </div>
   );
 };
 

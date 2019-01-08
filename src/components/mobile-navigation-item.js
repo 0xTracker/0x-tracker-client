@@ -6,11 +6,16 @@ import Link from './link';
 import { colors } from '../styles/constants';
 
 const NavigationLink = styled(Link)`
+  background: none;
+  border: none;
   border-bottom: 1px solid ${colors.martinique};
   color: currentColor;
+  cursor: pointer;
   display: block;
   margin: 0 1rem;
   padding: 0.75rem 0.5rem;
+  text-align: left;
+  width: 100%;
 
   &:hover {
     background: ${colors.martinique};
@@ -20,7 +25,11 @@ const NavigationLink = styled(Link)`
 `;
 
 const MobileNavigationItem = ({ children, href, onClick }) => (
-  <NavigationLink href={href} onClick={onClick}>
+  <NavigationLink
+    as={href ? undefined : 'button'}
+    href={href}
+    onClick={onClick}
+  >
     {children}
   </NavigationLink>
 );
