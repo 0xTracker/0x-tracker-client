@@ -37,9 +37,11 @@ const Header = ({ screenSize }) => {
     updateMobileMenuState('open');
   };
 
+  const isMobile = screenSize.greaterThan.md;
+
   return (
     <SettingsDialogProvider>
-      {screenSize.greaterThan.sm || mobileMenuState === 'closed' ? null : (
+      {isMobile || mobileMenuState === 'closed' ? null : (
         <MobileMenu
           onClose={closeMobileMenu}
           onNavigate={closeMobileMenu}
@@ -49,18 +51,19 @@ const Header = ({ screenSize }) => {
       <header
         css={`
           background-color: ${colors.white};
-          padding: 18px 0;
+          height: 4.75rem;
+          padding: 1rem 0;
         `}
       >
-        <Container css="align-items: center; display: flex; justify-content: space-between;">
+        <Container css="align-items: center; display: flex; justify-content: space-between; height: 100%;">
           <Link href={URL.DASHBOARD}>
             <LogoImage
               alt="0x Tracker"
-              size={screenSize.greaterThan.sm ? 'large' : 'small'}
+              size={isMobile ? 'large' : 'small'}
               src={logoImage}
             />
           </Link>
-          {screenSize.greaterThan.sm ? (
+          {isMobile ? (
             <React.Fragment>
               <Navigation css="flex-grow: 1;" />
               <HeaderActions />
