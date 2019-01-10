@@ -65,7 +65,7 @@ module.exports = {
     'import/exports-last': 'error',
     'import/extensions': ['error', 'always', { js: 'never' }],
     'import/first': 'error',
-    'import/group-exports': 'warn', // TODO: Change to error once fixed
+    'import/group-exports': 'warn', // TODO: Change to error once fixed id:0
     'import/max-dependencies': 'off',
     'import/named': 'error',
     'import/namespace': 'error',
@@ -147,16 +147,16 @@ module.exports = {
     'promise/valid-params': 'error',
     'promise/prefer-await-to-then': 'error',
     'promise/prefer-await-to-callbacks': 'error',
-    'react/forbid-component-props': ['warn', { forbid: ['style'] }], // TODO: Convert to error once fixed
-    'react/forbid-dom-props': ['warn', { forbid: ['style'] }], // TODO: Convert to error once fixed
-    'react/forbid-prop-types': 'warn', // TODO: Convert to error once fixed
+    'react/forbid-component-props': ['warn', { forbid: ['style'] }], // TODO: Convert to error once fixed id:3
+    'react/forbid-dom-props': ['warn', { forbid: ['style'] }], // TODO: Convert to error once fixed id:7
+    'react/forbid-prop-types': 'warn', // TODO: Convert to error once fixed id:5
     'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     'react/jsx-indent': 'off',
     'react/jsx-indent-props': 'off',
     'react/jsx-max-props-per-line': 'off',
     'react/jsx-max-depth': ['error', { max: 5 }],
     'react/jsx-no-literals': 'off',
-    'react/jsx-no-bind': 'warn', // TODO: Convert to error once fixed
+    'react/jsx-no-bind': 'warn', // TODO: Convert to error once fixed id:9
     'react/jsx-one-expression-per-line': 'off',
     'react/no-set-state': 'off',
   },

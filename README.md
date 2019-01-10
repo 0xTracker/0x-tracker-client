@@ -1,3 +1,5 @@
+[![TODO board](https://imdone.io/api/1.0/projects/5c37d15eee4b07578d33e11c/badge)](https://imdone.io/app#/board/0xTracker/0x-tracker-client)
+
 # 0x Tracker Client
 
 [![Build Status](https://img.shields.io/travis/0xTracker/0x-tracker-client.svg?style=flat-square)](https://travis-ci.org/0xTracker/0x-tracker-client)
