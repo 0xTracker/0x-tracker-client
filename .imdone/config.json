@@ -1,9 +1,32 @@
 {
-  "exclude": [
-    "^(node_modules|bower_components|\\.imdone|target|build|dist|logs|flow-typed|imdone-export.json)[\\/\\\\]?|\\.(git|svn|hg|npmignore)|\\~$|\\.(jpg|png|gif|swp|ttf|otf)$"
+  "noHelp": true,
+  "sync": {
+    "useImdoneioForPriority": true,
+    "name": "0xTracker/0x-tracker-client",
+    "id": "5c37d15eee4b07578d33e11c"
+  },
+  "marked": {
+    "langPrefix": "language-",
+    "smartLists": true,
+    "pedantic": false,
+    "breaks": false,
+    "tables": true,
+    "gfm": true
+  },
+  "lists": [
+    {
+      "name": "HELP",
+      "hidden": false
+    },
+    {
+      "name": "DONE",
+      "hidden": false
+    },
+    {
+      "name": "TODO",
+      "hidden": false
+    }
   ],
-  "watcher": true,
-  "keepEmptyPriority": true,
   "code": {
     "include_lists": [
       "TODO",
@@ -22,32 +45,9 @@
       "HELP"
     ]
   },
-  "lists": [
-    {
-      "name": "HELP",
-      "hidden": false
-    },
-    {
-      "hidden": false,
-      "name": "DONE"
-    },
-    {
-      "name": "TODO",
-      "hidden": false
-    }
-  ],
-  "marked": {
-    "gfm": true,
-    "tables": true,
-    "breaks": false,
-    "pedantic": false,
-    "smartLists": true,
-    "langPrefix": "language-"
-  },
-  "sync": {
-    "id": "5c37d15eee4b07578d33e11c",
-    "name": "0xTracker/0x-tracker-client",
-    "useImdoneioForPriority": true
-  },
-  "noHelp": true
+  "keepEmptyPriority": true,
+  "watcher": true,
+  "exclude": [
+    "^(node_modules|bower_components|\\.imdone|target|build|dist|logs|flow-typed|imdone-export.json)[\\/\\\\]?|\\.(git|svn|hg|npmignore)|\\~$|\\.(jpg|png|gif|swp|ttf|otf)$"
+  ]
 }
