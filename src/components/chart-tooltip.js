@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { rgba } from 'polished';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -7,7 +8,7 @@ import { colors } from '../styles/constants';
 const ChartTooltipWrapper = styled.div`
   background-color: ${colors.selago};
   border-radius: 0.25rem;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px 0 ${rgba(colors.black, 0.2)};
   padding: 1rem;
   text-align: left;
 `;

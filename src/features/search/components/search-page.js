@@ -1,19 +1,25 @@
 import _ from 'lodash';
 import { compose, withProps } from 'recompose';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import qs from 'qs';
 
 import buildSearchUrl from '../util/build-search-url';
 import Card from '../../../components/card';
-import Fills from '../../fills/components/fills';
+import FillsProvider from '../../fills/components/fills-provider';
+import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
+import SearchResults from './search-results';
 
-const SearchPage = ({ searchQuery }) =>
-  _.isEmpty(searchQuery) ? (
-    <PageNotFound />
-  ) : (
+const SearchPage = ({ searchQuery }) => {
+  const [page, setPage] = useState(1);
+
+  if (_.isEmpty(searchQuery)) {
+    return <PageNotFound />;
+  }
+
+  return (
     <PageLayout
       breadcrumbItems={[
         { title: 'Search Results', url: buildSearchUrl(searchQuery) },
@@ -21,10 +27,26 @@ const SearchPage = ({ searchQuery }) =>
       title="Search Results"
     >
       <Card fullHeight>
-        <Fills filter={{ address: _.toLower(searchQuery) }} showSummary />
+        <FillsProvider filter={{ address: _.toLower(searchQuery) }} page={page}>
+          {({ changingPage, fills, loading, pageCount }) =>
+            loading ? (
+              <LoadingIndicator centered />
+            ) : (
+              <SearchResults
+                changingPage={changingPage}
+                fills={fills}
+                onPageChange={setPage}
+                page={page}
+                pageCount={pageCount}
+                searchQuery={_.toLower(searchQuery)}
+              />
+            )
+          }
+        </FillsProvider>
       </Card>
     </PageLayout>
   );
+};
 
 SearchPage.propTypes = {
   searchQuery: PropTypes.string,

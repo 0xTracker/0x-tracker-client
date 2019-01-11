@@ -42,7 +42,7 @@ const StyledCurrencySelector = styled(AsyncCurrencySelector)`
 `;
 
 const FormButton = styled.button`
-  background-color: ${colors.comet};
+  background-color: ${colors.indigo};
   border: none;
   border-radius: 0.25rem;
   color: ${colors.white};
@@ -51,7 +51,7 @@ const FormButton = styled.button`
 
   &:hover,
   &:active {
-    background-color: ${colors.martinique};
+    background-color: ${colors.persianBlue};
   }
 `;
 

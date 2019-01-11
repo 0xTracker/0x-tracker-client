@@ -30,9 +30,12 @@ const GlobalStyles = createGlobalStyle`
   }
   
   .table thead th {
-    border-bottom: 3px solid ${colors.athensGray};
+    background-color: ${colors.indigo};
+    border-bottom: 3px solid ${colors.portage};
     border-top: none;
+    color: ${colors.white};
     padding: 0.75rem;
+    font-weight: normal;
   }
   
   .table tbody td,

@@ -1,3 +1,4 @@
+import { rgba } from 'polished';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -8,7 +9,7 @@ import CloseIcon from './close-icon';
 const CloseButton = styled.button`
   background: none;
   border: none;
-  color: ${colors.stormGray};
+  color: ${rgba(colors.white, 0.7)};
   cursor: pointer;
   margin-right: -6px; /* Icon doesn't sit flush with bounding box */
   padding: 0;
@@ -20,14 +21,17 @@ const CloseButton = styled.button`
 
 const DialogHeading = styled.h1`
   font-size: 1.4rem;
+  line-height: 1;
   margin: 0;
 `;
 
 const StyledDialogHeader = styled.div`
-  background-color: ${colors.athensGray};
+  align-items: center;
+  background-color: ${colors.indigo};
   border-radius: 0.25rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  color: white;
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;

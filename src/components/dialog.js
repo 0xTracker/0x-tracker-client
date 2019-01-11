@@ -12,6 +12,7 @@ import useEscapeKey from '../hooks/use-escape-key';
 const StyledDialog = styled.section`
   background-color: ${colors.white};
   border-radius: 0.25rem;
+  box-shadow: 0 2px 4px 0 ${rgba(colors.black, 0.2)};
   max-height: ${props => props.height}px;
   height: ${props => props.height}px;
   position: relative;
@@ -20,7 +21,7 @@ const StyledDialog = styled.section`
 `;
 
 const Overlay = styled.div`
-  background-color: ${rgba(colors.violet, 0.8)};
+  background-color: ${rgba(colors.athensGray, 0.95)};
   display: flex;
   align-items: center;
   justify-content: center;

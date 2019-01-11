@@ -7,6 +7,7 @@ const breakpoints = {
 
 const colors = {
   athensGray: '#f1f2f7', // regular gray
+  black: '#000',
   comet: '#535174',
   fruitSalad: '#4CAF50', // positive change
   indigo: '#3f4ac3', // links

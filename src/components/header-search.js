@@ -1,7 +1,8 @@
+import { useOutsideClick } from 'react-use';
+import { rgba } from 'polished';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { useOutsideClick } from 'react-use';
 
 import { colors } from '../styles/constants';
 import SearchForm from '../features/search/components/search-form';
@@ -12,10 +13,16 @@ const SearchInput = styled.input`
   && {
     border: none;
     border-radius: 0.25rem;
-    background-color: ${colors.martinique};
+    background-color: ${colors.indigo};
     color: ${colors.white};
     height: 100%;
+    outline: none;
     padding: 0 0.75rem;
+    width: 300px;
+
+    ::placeholder {
+      color: ${rgba(colors.white, 0.6)};
+    }
   }
 `;
 
@@ -48,7 +55,7 @@ const SearchInputWrapper = styled.div`
     height: 0;
     border-top: 0.5rem solid transparent;
     border-bottom: 0.5rem solid transparent;
-    border-left: 0.5rem solid ${colors.martinique};
+    border-left: 0.5rem solid ${colors.indigo};
     content: '';
     display: inline-block;
   }

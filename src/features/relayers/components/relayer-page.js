@@ -6,7 +6,6 @@ import React from 'react';
 import { TIME_PERIOD, URL } from '../../../constants';
 import buildRelayerUrl from '../util/build-relayer-url';
 import Card from '../../../components/card';
-import CardHeading from '../../../components/card-heading';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getPeriodOptions from '../../../util/get-period-options';
@@ -73,7 +72,7 @@ const RelayerPage = ({ relayer }) =>
           />
         </Col>
       </Row>
-      <Card header={<CardHeading>Recent Fills</CardHeading>}>
+      <Card>
         <Fills excludeColumns={['relayer']} filter={{ relayer: relayer.id }} />
       </Card>
     </PageLayout>
