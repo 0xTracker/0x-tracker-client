@@ -43,6 +43,7 @@ module.exports = {
     'lodash',
     'promise',
     'react',
+    'react-hooks',
   ],
   parser: 'babel-eslint',
   parserOptions: {
@@ -159,5 +160,7 @@ module.exports = {
     'react/jsx-no-bind': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/no-set-state': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'sort-keys': ['warn', 'asc', { natural: true }], // TODO: Convert to error when all issues fixed
   },
 };
