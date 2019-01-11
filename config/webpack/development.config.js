@@ -29,7 +29,7 @@ module.exports = merge(getConfig(ENVIRONMENT), {
   },
   plugins: [
     // Replace out process.env.VARIABLE_NAME in source files with values from .env
-    new DotenvPlugin(),
+    new DotenvPlugin({ safe: true }),
 
     // Replace out process.env.NODE_ENV in source files with 'development'
     new webpack.EnvironmentPlugin({
