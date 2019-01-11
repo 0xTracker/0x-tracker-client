@@ -6,7 +6,6 @@ import { TIME_PERIOD, URL } from '../../../constants';
 import buildTokenUrl from '../util/build-token-url';
 import callApi from '../../../util/call-api';
 import Card from '../../../components/card';
-import CardHeading from '../../../components/card-heading';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import LoadingIndicator from '../../../components/loading-indicator';
@@ -67,7 +66,7 @@ class TokenPage extends PureComponent {
             { label: 'ALL', value: TIME_PERIOD.ALL },
           ]}
         />
-        <Card header={<CardHeading>Recent Fills</CardHeading>}>
+        <Card>
           <Fills filter={{ token: token.address }} />
         </Card>
       </PageLayout>
