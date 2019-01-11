@@ -71,7 +71,7 @@ const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
         <Bar
           animationDuration={0}
           dataKey="share"
-          fill={colors.portage}
+          fill={colors.indigo}
           onClick={handleBarClick}
           style={{ cursor: 'pointer' }}
         />

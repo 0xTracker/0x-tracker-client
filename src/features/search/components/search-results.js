@@ -27,7 +27,7 @@ const SearchResults = ({
   if (fills.length === 0) {
     return (
       <NoResults>
-        No results were found matching <br />
+        No results found for <br />
         <span css="font-weight: bold;">&quot;{searchQuery}&quot;</span>
       </NoResults>
     );

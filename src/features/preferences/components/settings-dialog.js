@@ -51,7 +51,7 @@ const FormButton = styled.button`
 
   &:hover,
   &:active {
-    background-color: ${colors.persianBlue};
+    background-color: ${colors.violet};
   }
 `;
 
@@ -75,7 +75,7 @@ const SettingsDialog = ({ onClose, onSubmit, setCurrency, values }) => {
         </FormGroup>
         <div css="margin-top: 2rem;">
           <FormButton onClick={handleSubmit} type="button">
-            Update
+            Save
           </FormButton>
         </div>
       </form>

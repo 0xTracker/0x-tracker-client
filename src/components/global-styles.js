@@ -31,7 +31,7 @@ const GlobalStyles = createGlobalStyle`
   
   .table thead th {
     background-color: ${colors.indigo};
-    border-bottom: 3px solid ${colors.portage};
+    border-bottom: 3px solid ${colors.periwinkleGray};
     border-top: none;
     color: ${colors.white};
     padding: 0.75rem;

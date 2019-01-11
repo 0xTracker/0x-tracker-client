@@ -3,6 +3,7 @@ import { Col, Row } from 'reactstrap';
 import { Github as GitHubIcon } from 'styled-icons/fa-brands/Github.cjs';
 import { Twitter as TwitterIcon } from 'styled-icons/fa-brands/Twitter.cjs';
 import { MediumM as MediumIcon } from 'styled-icons/fa-brands/MediumM.cjs';
+import { rgba } from 'polished';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -13,7 +14,7 @@ import Link from './link';
 import SpectrumIcon from './spectrum-icon';
 
 const FooterIconLink = styled(Link)`
-  color: currentColor;
+  color: ${rgba(colors.white, 0.5)};
   display: flex;
   margin-left: 1rem;
 
@@ -41,7 +42,7 @@ const Footer = () => (
   <div
     css={`
       background: ${colors.violet};
-      color: ${colors.santasGray};
+      color: ${colors.white};
       padding: 2rem;
     `}
   >

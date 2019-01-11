@@ -56,10 +56,10 @@ class TokenVolumeChart extends PureComponent {
           <Area
             animationDuration={0}
             dataKey="volume"
-            fill={colors.persianBlue}
-            fillOpacity={0.2}
-            stroke={colors.persianBlue}
-            strokeOpacity={0.4}
+            fill={colors.periwinkleGray}
+            fillOpacity={1}
+            stroke={colors.indigo}
+            strokeOpacity={0.6}
             strokeWidth={2}
             type="monotone"
           />

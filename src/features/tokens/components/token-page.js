@@ -66,7 +66,7 @@ class TokenPage extends PureComponent {
             { label: 'ALL', value: TIME_PERIOD.ALL },
           ]}
         />
-        <Card>
+        <Card css="flex-grow: 1;">
           <Fills filter={{ token: token.address }} />
         </Card>
       </PageLayout>

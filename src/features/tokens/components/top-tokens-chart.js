@@ -80,7 +80,7 @@ class TopTokensChart extends PureComponent {
           <Bar
             animationDuration={0}
             dataKey="share"
-            fill={colors.portage}
+            fill={colors.indigo}
             onClick={this.handleBarClick}
             style={{ cursor: 'pointer' }}
           />
