@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 
 import FillsProvider from './fills-provider';
 import LoadingIndicator from '../../../components/loading-indicator';
-import FillList from './fill-list';
+import RecentFillsItem from './recent-fills-item';
 
 const RecentFills = ({ filter }) => (
-  <FillsProvider filter={filter} limit={15}>
+  <FillsProvider filter={filter} limit={8}>
     {({ fills, loading }) =>
-      loading ? <LoadingIndicator centered /> : <FillList fills={fills} />
+      loading ? (
+        <LoadingIndicator centered />
+      ) : (
+        fills.map(fill => <RecentFillsItem fill={fill} key={fill.id} />)
+      )
     }
   </FillsProvider>
 );

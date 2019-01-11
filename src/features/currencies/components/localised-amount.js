@@ -7,6 +7,7 @@ import withConversionRate from './with-conversion-rate';
 
 const LocalisedAmount = ({
   amount,
+  className,
   conversionRate,
   displayCurrency,
   loadingIndicator,
@@ -19,17 +20,23 @@ const LocalisedAmount = ({
     );
   }
 
-  return formatCurrency(amount * conversionRate, displayCurrency);
+  return (
+    <span className={className}>
+      {formatCurrency(amount * conversionRate, displayCurrency)}
+    </span>
+  );
 };
 
 LocalisedAmount.propTypes = {
   amount: PropTypes.number.isRequired,
+  className: PropTypes.string,
   conversionRate: PropTypes.number,
   displayCurrency: PropTypes.string.isRequired,
   loadingIndicator: PropTypes.node,
 };
 
 LocalisedAmount.defaultProps = {
+  className: undefined,
   conversionRate: undefined,
   loadingIndicator: undefined,
 };

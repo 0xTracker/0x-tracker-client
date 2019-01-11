@@ -8,7 +8,7 @@ import { colors } from '../../../styles/constants';
 const RelayerImage = ({ imageUrl }) =>
   _.isString(imageUrl) ? (
     <img
-      css="border-radius: 0.25; height: 2.75rem; width: 2.75rem;"
+      css="border-radius: 0.25rem; height: 2.75rem; width: 2.75rem;"
       src={imageUrl}
     />
   ) : (
