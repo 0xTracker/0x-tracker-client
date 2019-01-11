@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
+import { useOutsideClick } from 'react-use';
 
 import { colors } from '../styles/constants';
 import SearchForm from '../features/search/components/search-form';
 import SearchIcon from './search-icon';
+import useEscapeKey from '../hooks/use-escape-key';
 
 const SearchInput = styled.input`
   && {
@@ -53,44 +55,34 @@ const SearchInputWrapper = styled.div`
 `;
 
 const HeaderSearch = ({ onBlur, onSearch }) => {
-  let blurTimeout;
+  const wrapperRef = useRef();
+
+  useOutsideClick(wrapperRef, onBlur);
+  useEscapeKey(onBlur);
 
   return (
-    <SearchForm
-      css="display: flex; flex-wrap: nowrap; height: 100%;"
-      onSearch={onSearch}
-    >
-      {({ currentValue, handleChange, handleSubmit }) => (
-        <>
-          <SearchInputWrapper>
-            <SearchInput
-              aria-label="Search Fills"
-              autoFocus
-              onBlur={() => {
-                blurTimeout = setTimeout(() => {
-                  onBlur();
-                }, 100);
-              }}
-              onChange={handleChange}
-              placeholder="Search Fills"
-              required
-              type="search"
-              value={currentValue}
-            />
-          </SearchInputWrapper>
-          <SearchButton
-            onClick={event => {
-              clearTimeout(blurTimeout);
-              handleSubmit(event);
-            }}
-            title="Search"
-            type="submit"
-          >
-            <SearchIcon height={22} width={22} />
-          </SearchButton>
-        </>
-      )}
-    </SearchForm>
+    <div css="display: flex; flex-wrap: nowrap; height: 100%;" ref={wrapperRef}>
+      <SearchForm onSearch={onSearch}>
+        {({ currentValue, handleChange, handleSubmit }) => (
+          <>
+            <SearchInputWrapper>
+              <SearchInput
+                aria-label="Search Fills"
+                autoFocus
+                onChange={handleChange}
+                placeholder="Search Fills"
+                required
+                type="search"
+                value={currentValue}
+              />
+            </SearchInputWrapper>
+            <SearchButton onClick={handleSubmit} title="Search" type="submit">
+              <SearchIcon height={22} width={22} />
+            </SearchButton>
+          </>
+        )}
+      </SearchForm>
+    </div>
   );
 };
 

@@ -1,12 +1,13 @@
 import { Portal } from 'react-portal';
 import { rgba } from 'polished';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import DialogHeader from './dialog-header';
 import DisableBodyScroll from './disable-body-scroll';
+import useEscapeKey from '../hooks/use-escape-key';
 
 const StyledDialog = styled.section`
   background-color: ${colors.white};
@@ -36,19 +37,7 @@ const DialogBody = styled.div`
 `;
 
 const Dialog = ({ children, className, onClose, width, height, title }) => {
-  const handleKeyDown = ({ key }) => {
-    if (key === 'Escape') {
-      onClose();
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  });
+  useEscapeKey(onClose);
 
   return (
     <>
