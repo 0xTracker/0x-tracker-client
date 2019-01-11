@@ -18,6 +18,8 @@ import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
 
 const DashboardColumn = styled(Col)`
+  display: flex;
+  flex-direction: column;
   margin-bottom: 2rem;
 
   &:last-child {
@@ -66,12 +68,13 @@ const DashboardPage = ({ screenSize }) => (
       </DashboardColumn>
     </Row>
     <Row>
-      <DashboardColumn lastRow lg={7}>
-        <RecentFillsCard />
+      <DashboardColumn css="flex-grow: 1;" lastRow lg={7}>
+        <RecentFillsCard css="flex-grow: 1;" />
       </DashboardColumn>
-      <DashboardColumn lastRow lg={5}>
+      <DashboardColumn css="flex-grow: 1;" lastRow lg={5}>
         <LatestNewsCard
           compact={screenSize.lessThan.sm || screenSize.greaterThan.md}
+          css="flex-grow: 1;"
           showImages={screenSize.greaterThan.xs}
         />
       </DashboardColumn>

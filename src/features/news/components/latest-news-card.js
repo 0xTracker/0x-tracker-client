@@ -8,8 +8,9 @@ import LatestNews from './latest-news';
 import Link from '../../../components/link';
 import Pill from '../../../components/pill';
 
-const LatestNewsCard = ({ compact, showImages }) => (
+const LatestNewsCard = ({ className, compact, showImages }) => (
   <Card
+    className={className}
     header={
       <>
         <CardHeading>Latest News</CardHeading>
@@ -25,11 +26,13 @@ const LatestNewsCard = ({ compact, showImages }) => (
 );
 
 LatestNewsCard.propTypes = {
+  className: PropTypes.string,
   compact: PropTypes.bool,
   showImages: PropTypes.bool,
 };
 
 LatestNewsCard.defaultProps = {
+  className: undefined,
   compact: undefined,
   showImages: undefined,
 };

@@ -39,7 +39,7 @@ class FillsProvider extends PureComponent {
   }
 
   async fetchFills(reload = false) {
-    const { filter, page } = this.props;
+    const { filter, limit, page } = this.props;
     const { address, relayer, token } = filter;
 
     if (reload) {
@@ -48,18 +48,22 @@ class FillsProvider extends PureComponent {
       this.setState({ loading: true });
     }
 
-    const { fills, limit, pageCount, total } = await callApi('fills', {
-      page,
-      q: address,
-      relayer,
-      token,
-    });
+    const { fills, limit: pageSize, pageCount, total } = await callApi(
+      'fills',
+      {
+        limit,
+        page,
+        q: address,
+        relayer,
+        token,
+      },
+    );
 
     this.setState({
       fills,
       loading: false,
       pageCount,
-      pageSize: limit,
+      pageSize,
       reloading: false,
       total,
     });
@@ -100,12 +104,14 @@ FillsProvider.propTypes = {
     address: PropTypes.string,
     token: PropTypes.string,
   }),
+  limit: PropTypes.number,
   page: PropTypes.number,
 };
 
 FillsProvider.defaultProps = {
   autoReloadKey: undefined,
   filter: {},
+  limit: undefined,
   page: 1,
 };
 
