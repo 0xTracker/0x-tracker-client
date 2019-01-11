@@ -36,9 +36,9 @@ const DashboardPage = ({ screenSize }) => (
       <DashboardColumn lg={7}>
         <ChartsContainer
           charts={[
-            { title: 'Network Volume', component: NetworkVolume },
-            { title: 'Fills', component: <NetworkVolume type="fills" /> },
-            { title: 'Fees', component: NetworkFees },
+            { component: NetworkVolume, title: 'Network Volume' },
+            { component: <NetworkVolume type="fills" />, title: 'Fills' },
+            { component: NetworkFees, title: 'Fees' },
           ]}
           defaultPeriod={TIME_PERIOD.MONTH}
           periods={getPeriodOptions([
@@ -53,8 +53,8 @@ const DashboardPage = ({ screenSize }) => (
       <DashboardColumn lg={5}>
         <ChartsContainer
           charts={[
-            { title: 'Top Tokens', component: TopTokens },
-            { title: 'Top Relayers', component: TopRelayers },
+            { component: TopTokens, title: 'Top Tokens' },
+            { component: TopRelayers, title: 'Top Relayers' },
           ]}
           defaultPeriod={TIME_PERIOD.DAY}
           periods={getPeriodOptions([

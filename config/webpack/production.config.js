@@ -48,8 +48,8 @@ module.exports = (env = {}) =>
 
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new MiniCssExtractPlugin({
-        filename: 'assets/css/[name].[contenthash].bundle.css',
         chunkFilename: 'assets/css/[name].[contenthash].bundle.css',
+        filename: 'assets/css/[name].[contenthash].bundle.css',
       }),
 
       // Launch the bundle analyzer if --env.analyze=true is passed via  CLI

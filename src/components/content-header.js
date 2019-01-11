@@ -12,7 +12,7 @@ const StyledContentHeader = styled.div`
   border-radius: 0px 2px 4px rgba(126, 142, 177, 0.12);
 `;
 
-const TitleContainer = styled(Col).attrs({ xs: 12, md: 6 })`
+const TitleContainer = styled(Col).attrs({ md: 6, xs: 12 })`
   order: 2;
   text-align: center;
   ${media.greaterThan('md')`
@@ -27,7 +27,7 @@ const Title = styled.h1`
   margin: 0;
 `;
 
-const BreadcrumbContainer = styled(Col).attrs({ xs: 12, md: 6 })`
+const BreadcrumbContainer = styled(Col).attrs({ md: 6, xs: 12 })`
   display: none;
 
   ${media.greaterThan('md')`

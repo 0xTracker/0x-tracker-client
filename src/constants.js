@@ -3,11 +3,11 @@ import { parse as parseDate } from 'date-fns';
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 const TIME_PERIOD = {
-  DAY: 'day',
-  WEEK: 'week',
-  MONTH: 'month',
-  YEAR: 'year',
   ALL: 'all',
+  DAY: 'day',
+  MONTH: 'month',
+  WEEK: 'week',
+  YEAR: 'year',
 };
 
 const DATE_FORMAT = {
@@ -22,8 +22,8 @@ const URL = {
   FILL: '/fills/:id',
   FILLS: '/fills',
   NEWS: '/news-and-updates',
-  RELAYERS: '/relayers',
   RELAYER: '/relayers/:slug',
+  RELAYERS: '/relayers',
   SEARCH: '/search',
   TOKEN: '/tokens/:address',
   TOKENS: '/tokens',

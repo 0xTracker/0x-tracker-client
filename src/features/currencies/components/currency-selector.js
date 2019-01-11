@@ -6,8 +6,8 @@ import Select from 'react-select';
 import { CURRENCIES } from '../constants';
 
 const OPTIONS = CURRENCIES.map(currency => ({
-  value: currency.symbol,
   label: `${currency.name} (${currency.symbol})`,
+  value: currency.symbol,
 }));
 
 class CurrencySelector extends PureComponent {

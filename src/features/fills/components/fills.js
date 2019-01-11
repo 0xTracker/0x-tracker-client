@@ -54,7 +54,7 @@ class Fills extends PureComponent {
     const reload = prevProps.autoReloadKey !== autoReloadKey;
 
     if (filterUpdated) {
-      this.setState({ page: 1, fills: undefined }); // eslint-disable-line react/no-did-update-set-state
+      this.setState({ fills: undefined, page: 1 }); // eslint-disable-line react/no-did-update-set-state
     }
 
     if (fillsChanged && changingPage) {
@@ -120,7 +120,7 @@ class Fills extends PureComponent {
         )}
         {fills === undefined && <LoadingIndicator centered />}
         {fills !== undefined && fills.length > 0 && (
-          <FillList {...{ excludeColumns, showStatus, fills }} />
+          <FillList {...{ excludeColumns, fills, showStatus }} />
         )}
         <Paginator
           changingPage={changingPage}

@@ -32,7 +32,7 @@ const FooterIcon = styled.svg`
   width: 1.5rem;
 `;
 
-const FooterColumn = styled(Col).attrs({ xs: 12, md: 6 })`
+const FooterColumn = styled(Col).attrs({ md: 6, xs: 12 })`
   align-items: center;
   display: flex;
 `;
