@@ -40,7 +40,7 @@ const MobileSearchForm = ({ onSearch }) => (
     onSearch={onSearch}
   >
     {({ currentValue, handleChange, handleSubmit }) => (
-      <React.Fragment>
+      <>
         <SearchInput
           aria-label="Search Fills"
           onChange={handleChange}
@@ -52,7 +52,7 @@ const MobileSearchForm = ({ onSearch }) => (
         <SearchButton onClick={handleSubmit} title="Search" type="submit">
           <SearchIcon height={16} width={16} />
         </SearchButton>
-      </React.Fragment>
+      </>
     )}
   </SearchForm>
 );

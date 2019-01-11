@@ -62,7 +62,7 @@ class TopTokensChart extends PureComponent {
             axisLine={false}
             dataKey="token.symbol"
             onClick={this.handleAxisClick}
-            style={{ cursor: 'pointer' }} // eslint-disable-line react/forbid-component-props
+            style={{ cursor: 'pointer' }}
             tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickLine={false}
           />
@@ -82,7 +82,7 @@ class TopTokensChart extends PureComponent {
             dataKey="share"
             fill={colors.portage}
             onClick={this.handleBarClick}
-            style={{ cursor: 'pointer' }} // eslint-disable-line react/forbid-component-props
+            style={{ cursor: 'pointer' }}
           />
         </BarChart>
       </ResponsiveContainer>

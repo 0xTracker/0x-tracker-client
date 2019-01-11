@@ -112,7 +112,7 @@ class Fills extends PureComponent {
     const { changingPage, page, pageCount, fills } = this.state;
 
     return (
-      <React.Fragment>
+      <>
         {_.isString(heading) && (
           <FillsHeader>
             <FillsHeading>{heading}</FillsHeading>
@@ -129,7 +129,7 @@ class Fills extends PureComponent {
           page={page}
           pageCount={pageCount}
         />
-      </React.Fragment>
+      </>
     );
   }
 }

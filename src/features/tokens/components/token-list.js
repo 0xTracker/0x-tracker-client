@@ -59,7 +59,7 @@ class TokenList extends PureComponent {
     const pageCount = Math.floor(_.size(tokens) / limit);
 
     return (
-      <React.Fragment>
+      <>
         <table className="table table-responsive">
           <thead>
             <tr>
@@ -86,7 +86,7 @@ class TokenList extends PureComponent {
           page={page}
           pageCount={pageCount}
         />
-      </React.Fragment>
+      </>
     );
   }
 }

@@ -11,12 +11,12 @@ import Pill from '../../../components/pill';
 const LatestNewsCard = ({ compact, showImages }) => (
   <Card
     header={
-      <React.Fragment>
+      <>
         <CardHeading>Latest News</CardHeading>
         <Pill as={Link} highlighted href={URL.NEWS}>
           View More
         </Pill>
-      </React.Fragment>
+      </>
     }
     padded
   >

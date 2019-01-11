@@ -61,7 +61,7 @@ const HeaderSearch = ({ onBlur, onSearch }) => {
       onSearch={onSearch}
     >
       {({ currentValue, handleChange, handleSubmit }) => (
-        <React.Fragment>
+        <>
           <SearchInputWrapper>
             <SearchInput
               aria-label="Search Fills"
@@ -88,7 +88,7 @@ const HeaderSearch = ({ onBlur, onSearch }) => {
           >
             <SearchIcon height={22} width={22} />
           </SearchButton>
-        </React.Fragment>
+        </>
       )}
     </SearchForm>
   );

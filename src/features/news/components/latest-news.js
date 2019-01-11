@@ -11,13 +11,13 @@ const LatestNews = ({ compact, showImages }) => (
       loadingInitial ? (
         <LoadingIndicator centered />
       ) : (
-        <React.Fragment>
+        <>
           <ArticleList
             articles={articles}
             compact={compact}
             showImages={showImages}
           />
-        </React.Fragment>
+        </>
       )
     }
   </ArticlesProvider>

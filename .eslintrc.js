@@ -65,7 +65,7 @@ module.exports = {
     'import/exports-last': 'error',
     'import/extensions': ['error', 'always', { js: 'never' }],
     'import/first': 'error',
-    'import/group-exports': 'warn', // TODO: Change to error once fixed
+    'import/group-exports': 'error',
     'import/max-dependencies': 'off',
     'import/named': 'error',
     'import/namespace': 'error',
@@ -147,8 +147,8 @@ module.exports = {
     'promise/valid-params': 'error',
     'promise/prefer-await-to-then': 'error',
     'promise/prefer-await-to-callbacks': 'error',
-    'react/forbid-component-props': ['warn', { forbid: ['style'] }], // TODO: Convert to error once fixed
-    'react/forbid-dom-props': ['warn', { forbid: ['style'] }], // TODO: Convert to error once fixed
+    'react/forbid-component-props': 'off',
+    'react/forbid-dom-props': ['error', { forbid: ['style'] }],
     'react/forbid-prop-types': 'warn', // TODO: Convert to error once fixed
     'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     'react/jsx-indent': 'off',

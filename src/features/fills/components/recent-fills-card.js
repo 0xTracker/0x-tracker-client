@@ -10,12 +10,12 @@ import Pill from '../../../components/pill';
 const RecentFillsCard = () => (
   <Card
     header={
-      <React.Fragment>
+      <>
         <CardHeading>Recent Fills</CardHeading>
         <Pill as={Link} highlighted href={URL.FILLS}>
           View More
         </Pill>
-      </React.Fragment>
+      </>
     }
     padded
   >

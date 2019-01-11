@@ -41,7 +41,7 @@ const Logo = styled.img`
 `;
 
 const MobileMenu = ({ onClose, onNavigate, onSearch }) => (
-  <React.Fragment>
+  <>
     <DisableBodyScroll />
     <StyledMobileMenu aria-label="Menu" aria-modal role="dialog">
       <CloseButton autoFocus onClick={onClose} title="Close" type="button">
@@ -53,7 +53,7 @@ const MobileMenu = ({ onClose, onNavigate, onSearch }) => (
       <MobileSearchForm onSearch={onSearch} />
       <MobileNavigation onClick={onNavigate} />
     </StyledMobileMenu>
-  </React.Fragment>
+  </>
 );
 
 MobileMenu.propTypes = {

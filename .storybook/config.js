@@ -11,10 +11,10 @@ import GlobalStyles from '../src/components/global-styles';
 
 function withGlobalStyles(storyFn) {
   return (
-    <React.Fragment>
+    <>
       <GlobalStyles />
       {storyFn()}
-    </React.Fragment>
+    </>
   );
 }
 

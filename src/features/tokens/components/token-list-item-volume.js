@@ -14,14 +14,14 @@ const TokenListItemVolume = ({ token }) => {
 
   if (token.volume[BASE_CURRENCY] === 0) {
     return (
-      <React.Fragment>
+      <>
         {formatToken(token.volume[token.symbol])} {token.symbol}
-      </React.Fragment>
+      </>
     );
   }
 
   return (
-    <React.Fragment>
+    <>
       <LocalisedAmount amount={token.volume[BASE_CURRENCY]} />
       <br />
       <span
@@ -36,7 +36,7 @@ const TokenListItemVolume = ({ token }) => {
           token={token}
         />
       </span>
-    </React.Fragment>
+    </>
   );
 };
 

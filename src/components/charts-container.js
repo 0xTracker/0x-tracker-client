@@ -130,6 +130,7 @@ ChartsContainer.propTypes = {
       title: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  className: PropTypes.string,
   defaultPeriod: PropTypes.string.isRequired,
   periods: PropTypes.arrayOf(
     PropTypes.shape({
@@ -140,6 +141,7 @@ ChartsContainer.propTypes = {
 };
 
 ChartsContainer.defaultProps = {
+  className: undefined,
   periods: undefined,
 };
 

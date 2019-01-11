@@ -4,7 +4,7 @@ import React from 'react';
 import ChartTooltip from '../src/components/chart-tooltip';
 
 storiesOf('Charts|ChartTooltip', module).addWithJSX('default', () => (
-  <div style={{ width: '300px' }}>
+  <div css="width: 300px;">
     <ChartTooltip
       items={[
         { label: 'volume', value: '$15,000' },

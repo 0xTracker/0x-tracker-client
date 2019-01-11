@@ -79,7 +79,7 @@ class FillPage extends PureComponent {
           {fill === undefined ? (
             <LoadingIndicator centered />
           ) : (
-            <React.Fragment>
+            <>
               <FillDetailList>
                 <FillDetail title="Transaction Hash">
                   <Link
@@ -196,7 +196,7 @@ class FillPage extends PureComponent {
                   </EthereumAddressLink>
                 </FillDetail>
               </FillDetailList>
-            </React.Fragment>
+            </>
           )}
         </Card>
       </PageLayout>

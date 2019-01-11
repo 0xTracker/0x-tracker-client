@@ -64,10 +64,10 @@ const Header = ({ screenSize }) => {
             />
           </Link>
           {isMobile ? (
-            <React.Fragment>
+            <>
               <Navigation css="flex-grow: 1;" />
               <HeaderActions />
-            </React.Fragment>
+            </>
           ) : (
             <MenuButton onClick={openMobileMenu} title="Open menu">
               <MenuIcon height={24} />

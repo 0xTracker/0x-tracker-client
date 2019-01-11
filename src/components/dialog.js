@@ -5,7 +5,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
-import CloseIcon from './close-icon';
+import DialogHeader from './dialog-header';
 import DisableBodyScroll from './disable-body-scroll';
 
 const StyledDialog = styled.section`
@@ -29,34 +29,6 @@ const Overlay = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
-`;
-
-const CloseButton = styled.button`
-  background: none;
-  border: none;
-  color: ${colors.stormGray};
-  cursor: pointer;
-  margin-right: -6px; /* Icon doesn't sit flush with bounding box */
-  padding: 0;
-
-  &:hover {
-    color: inherit;
-  }
-`;
-
-const DialogHeader = styled.div`
-  background-color: ${colors.athensGray};
-  border-radius: 0.25rem;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
-`;
-
-const DialogHeading = styled.h1`
-  font-size: 1.4rem;
-  margin: 0;
 `;
 
 const DialogBody = styled.div`
@@ -84,17 +56,7 @@ const Dialog = ({ children, className, onClose, width, height, title }) => {
       <Portal>
         <Overlay className={className}>
           <StyledDialog height={height} width={width}>
-            <DialogHeader>
-              <DialogHeading>{title}</DialogHeading>
-              <CloseButton
-                autoFocus
-                onClick={onClose}
-                title="Close"
-                type="button"
-              >
-                <CloseIcon width={32} />
-              </CloseButton>
-            </DialogHeader>
+            <DialogHeader onClose={onClose}>{title}</DialogHeader>
             <DialogBody>{children}</DialogBody>
           </StyledDialog>
         </Overlay>

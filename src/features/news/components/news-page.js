@@ -75,7 +75,7 @@ const NewsPage = ({ loadingSources, match, screenSize, sources }) => {
                 loadingInitial ? (
                   <LoadingIndicator centered />
                 ) : (
-                  <React.Fragment>
+                  <>
                     <ArticleList
                       articles={articles}
                       compact={screenSize.lessThan.sm}
@@ -90,7 +90,7 @@ const NewsPage = ({ loadingSources, match, screenSize, sources }) => {
                         )}
                       </LoadMoreButton>
                     ) : null}
-                  </React.Fragment>
+                  </>
                 )
               }
             </ArticlesProvider>
