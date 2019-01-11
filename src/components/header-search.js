@@ -13,15 +13,15 @@ const SearchInput = styled.input`
   && {
     border: none;
     border-radius: 0.25rem;
-    background-color: ${colors.indigo};
-    color: ${colors.white};
+    background-color: ${colors.athensGray};
+    color: currentColor;
     height: 100%;
     outline: none;
     padding: 0 0.75rem;
     width: 300px;
 
     ::placeholder {
-      color: ${rgba(colors.white, 0.6)};
+      color: ${rgba(colors.violet, 0.6)};
     }
   }
 `;
@@ -55,7 +55,7 @@ const SearchInputWrapper = styled.div`
     height: 0;
     border-top: 0.5rem solid transparent;
     border-bottom: 0.5rem solid transparent;
-    border-left: 0.5rem solid ${colors.indigo};
+    border-left: 0.5rem solid ${colors.athensGray};
     content: '';
     display: inline-block;
   }
