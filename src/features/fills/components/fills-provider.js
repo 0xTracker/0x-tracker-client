@@ -48,7 +48,7 @@ class FillsProvider extends PureComponent {
       this.setState({ loading: true });
     }
 
-    const { fills, pageCount } = await callApi('fills', {
+    const { fills, limit, pageCount, total } = await callApi('fills', {
       page,
       q: address,
       relayer,
@@ -59,13 +59,23 @@ class FillsProvider extends PureComponent {
       fills,
       loading: false,
       pageCount,
+      pageSize: limit,
       reloading: false,
+      total,
     });
   }
 
   render() {
     const { children } = this.props;
-    const { error, pageCount, fills, loading, reloading } = this.state;
+    const {
+      error,
+      pageCount,
+      fills,
+      loading,
+      pageSize,
+      reloading,
+      total,
+    } = this.state;
 
     if (error) {
       throw error;
@@ -76,7 +86,9 @@ class FillsProvider extends PureComponent {
       fills,
       loading: fills === undefined,
       pageCount,
+      pageSize,
       reloading,
+      total,
     });
   }
 }

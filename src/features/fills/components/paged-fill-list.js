@@ -4,6 +4,7 @@ import Scroll from 'react-scroll';
 
 import FillList from './fill-list';
 import Paginator from '../../../components/paginator';
+import PagingSummary from '../../../components/paging-summary';
 
 class PagedFillList extends React.PureComponent {
   componentDidUpdate(prevProps) {
@@ -22,18 +23,28 @@ class PagedFillList extends React.PureComponent {
       onPageChange,
       page,
       pageCount,
+      pageSize,
+      total,
     } = this.props;
 
     return (
       <>
         <FillList excludeColumns={excludeColumns} fills={fills} />
-        <Paginator
-          changingPage={changingPage}
-          css="margin: 1rem;"
-          onPageChange={onPageChange}
-          page={page}
-          pageCount={pageCount}
-        />
+        <div css="align-items: center; display: flex; justify-content: space-between; margin: 1rem;">
+          <PagingSummary
+            css="font-weight: bold;"
+            page={page}
+            pageSize={pageSize}
+            recordType="order fills"
+            total={total}
+          />
+          <Paginator
+            changingPage={changingPage}
+            onPageChange={onPageChange}
+            page={page}
+            pageCount={pageCount}
+          />
+        </div>
       </>
     );
   }
@@ -46,6 +57,8 @@ PagedFillList.propTypes = {
   onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
   pageCount: PropTypes.number.isRequired,
+  pageSize: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
 };
 
 PagedFillList.defaultProps = {

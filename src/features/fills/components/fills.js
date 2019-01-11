@@ -10,7 +10,7 @@ const Fills = ({ excludeColumns, filter }) => {
 
   return (
     <FillsProvider filter={filter} page={page}>
-      {({ changingPage, fills, loading, pageCount }) =>
+      {({ changingPage, fills, loading, pageCount, pageSize, total }) =>
         loading ? (
           <LoadingIndicator centered />
         ) : (
@@ -21,6 +21,8 @@ const Fills = ({ excludeColumns, filter }) => {
             onPageChange={setPage}
             page={page}
             pageCount={pageCount}
+            pageSize={pageSize}
+            total={total}
           />
         )
       }
