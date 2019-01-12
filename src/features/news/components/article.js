@@ -9,9 +9,9 @@ import Link from '../../../components/link';
 
 const ArticleImage = styled.img`
   border-radius: 0.25rem;
-  height: ${props => (props.compact ? '60px' : '100px')};
+  height: ${props => (props.compact ? '50px' : '70px')};
   margin-right: 1rem;
-  width: ${props => (props.compact ? '60px' : '100px')};
+  width: ${props => (props.compact ? '50px' : '70px')};
 `;
 
 const StyledArticle = styled.div`

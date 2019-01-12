@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import { distanceInWordsToNow } from 'date-fns';
-import { Users as UsersIcon } from 'styled-icons/icomoon/Users.cjs';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -9,9 +8,10 @@ import styled from 'styled-components';
 import { colors } from '../../../styles/constants';
 import { BASE_CURRENCY } from '../../currencies/constants';
 import FillLink from './fill-link';
+import LocalisedAmount from '../../currencies/components/localised-amount';
+import RecentFillsItemImage from './recent-fills-item-image';
 import RelayerLink from '../../relayers/components/relayer-link';
 import TokenAmount from '../../tokens/components/token-amount';
-import LocalisedAmount from '../../currencies/components/localised-amount';
 
 const StyledRecentFillsItem = styled.div`
   align-items: center;
@@ -74,23 +74,21 @@ const FillAmount = styled(LocalisedAmount)`
   font-weight: bold;
 `;
 
+const getRelayerLabel = fill => {
+  if (fill.relayer) {
+    return fill.relayer.name;
+  }
+
+  if (fill.feeRecipient === '0x0000000000000000000000000000000000000000') {
+    return 'No Relayer';
+  }
+
+  return 'Unknown Relayer';
+};
+
 const RecentFillsItem = ({ fill, screenSize }) => (
   <StyledRecentFillsItem>
-    {fill.relayer ? (
-      <RelayerLink css="color: currentColor;" relayer={fill.relayer}>
-        <img
-          alt=""
-          css="width: 50px; height: 50px; margin-right: 1rem;"
-          src={fill.relayer.imageUrl}
-        />
-      </RelayerLink>
-    ) : (
-      <UsersIcon
-        color={colors.stormGray}
-        css="margin-right: 1rem;"
-        width={50}
-      />
-    )}
+    <RecentFillsItemImage fill={fill} />
     <div css="display: flex; flex-direction: column; justify-content: center; flex-grow: 1;">
       <Heading>
         <FillLink fillId={fill.id}>
@@ -112,10 +110,10 @@ const RecentFillsItem = ({ fill, screenSize }) => (
         <dd>
           {fill.relayer ? (
             <RelayerLink css="color: currentColor;" relayer={fill.relayer}>
-              {fill.relayer.name ? fill.relayer.name : 'Unknown Relayer'}
+              {getRelayerLabel(fill)}
             </RelayerLink>
           ) : (
-            'No Relayer'
+            getRelayerLabel(fill)
           )}
         </dd>
         <dt>Date</dt>

@@ -28,7 +28,7 @@ const SearchPage = ({ searchQuery }) => {
     >
       <Card fullHeight>
         <FillsProvider filter={{ address: _.toLower(searchQuery) }} page={page}>
-          {({ changingPage, fills, loading, pageCount }) =>
+          {({ changingPage, fills, loading, pageCount, pageSize, total }) =>
             loading ? (
               <LoadingIndicator centered />
             ) : (
@@ -38,7 +38,9 @@ const SearchPage = ({ searchQuery }) => {
                 onPageChange={setPage}
                 page={page}
                 pageCount={pageCount}
+                pageSize={pageSize}
                 searchQuery={_.toLower(searchQuery)}
+                total={total}
               />
             )
           }

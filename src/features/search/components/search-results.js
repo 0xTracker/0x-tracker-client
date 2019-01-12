@@ -22,7 +22,9 @@ const SearchResults = ({
   onPageChange,
   page,
   pageCount,
+  pageSize,
   searchQuery,
+  total,
 }) => {
   if (fills.length === 0) {
     return (
@@ -40,6 +42,8 @@ const SearchResults = ({
       onPageChange={onPageChange}
       page={page}
       pageCount={pageCount}
+      pageSize={pageSize}
+      total={total}
     />
   );
 };
@@ -50,7 +54,9 @@ SearchResults.propTypes = {
   onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
   pageCount: PropTypes.number.isRequired,
+  pageSize: PropTypes.number.isRequired,
   searchQuery: PropTypes.string.isRequired,
+  total: PropTypes.number.isRequired,
 };
 
 SearchResults.defaultProps = {

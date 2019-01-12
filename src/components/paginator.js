@@ -85,7 +85,7 @@ class Paginator extends PureComponent {
   render() {
     const { changingPage, className, page, pageCount } = this.props;
 
-    if (page === undefined || pageCount <= 1) {
+    if (page === undefined) {
       return null;
     }
 

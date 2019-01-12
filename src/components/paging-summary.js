@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -5,8 +6,8 @@ import React from 'react';
 const formatNumber = value => numeral(value).format('0,0');
 
 const PagingSummary = ({ className, page, pageSize, recordType, total }) => {
-  const endIndex = page * pageSize;
-  const startIndex = endIndex - pageSize + 1;
+  const endIndex = _.clamp(page * pageSize, total);
+  const startIndex = _.clamp(endIndex - pageSize + 1, 1, Infinity);
 
   return (
     <p className={className} css="margin: 0;">

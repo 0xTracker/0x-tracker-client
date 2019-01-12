@@ -4,12 +4,15 @@ import React from 'react';
 import buildRelayerUrl from '../util/build-relayer-url';
 import Link from '../../../components/link';
 
-const RelayerLink = ({ children, relayer }) => (
-  <Link href={buildRelayerUrl(relayer)}>{children}</Link>
+const RelayerLink = ({ children, className, relayer }) => (
+  <Link className={className} href={buildRelayerUrl(relayer)}>
+    {children}
+  </Link>
 );
 
 RelayerLink.propTypes = {
   children: PropTypes.node,
+  className: PropTypes.string,
   relayer: PropTypes.shape({
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
@@ -18,6 +21,7 @@ RelayerLink.propTypes = {
 
 RelayerLink.defaultProps = {
   children: undefined,
+  className: undefined,
 };
 
 export default RelayerLink;
