@@ -13,7 +13,7 @@ const RecentFillsItemImage = ({ fill }) => {
       <RelayerLink css="color: currentColor;" relayer={fill.relayer}>
         <img
           alt=""
-          css="width: 50px; height: 50px; margin-right: 1rem;"
+          css="width: 50px; height: 50px; margin-right: 1rem; border-radius: 0.25rem;"
           src={fill.relayer.imageUrl}
         />
       </RelayerLink>
