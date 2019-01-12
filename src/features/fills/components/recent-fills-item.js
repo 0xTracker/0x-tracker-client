@@ -7,10 +7,12 @@ import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
 import { BASE_CURRENCY } from '../../currencies/constants';
+import buildRelayerUrl from '../../relayers/util/build-relayer-url';
+import buildSearchUrl from '../../search/util/build-search-url';
 import FillLink from './fill-link';
+import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import RecentFillsItemImage from './recent-fills-item-image';
-import RelayerLink from '../../relayers/components/relayer-link';
 import TokenAmount from '../../tokens/components/token-amount';
 
 const StyledRecentFillsItem = styled.div`
@@ -74,57 +76,67 @@ const FillAmount = styled(LocalisedAmount)`
   font-weight: bold;
 `;
 
-const getRelayerLabel = fill => {
+const SourceLink = styled(Link)`
+  color: currentColor;
+
+  &:hover {
+    color: ${colors.violet};
+  }
+`;
+
+const getSource = fill => {
   if (fill.relayer) {
-    return fill.relayer.name;
+    return { label: fill.relayer.name, url: buildRelayerUrl(fill.relayer) };
   }
 
   if (fill.feeRecipient === '0x0000000000000000000000000000000000000000') {
-    return 'No Relayer';
+    return { name: 'No Relayer' };
   }
 
-  return 'Unknown Relayer';
+  return { label: 'Unknown Relayer', url: buildSearchUrl(fill.feeRecipient) };
 };
 
-const RecentFillsItem = ({ fill, screenSize }) => (
-  <StyledRecentFillsItem>
-    <RecentFillsItemImage fill={fill} />
-    <div css="display: flex; flex-direction: column; justify-content: center; flex-grow: 1;">
-      <Heading>
-        <FillLink fillId={fill.id}>
-          <TokenAmount
-            amount={fill.makerAmount}
-            linked={false}
-            token={fill.makerToken}
-          />{' '}
-          &#8651;{' '}
-          <TokenAmount
-            amount={fill.takerAmount}
-            linked={false}
-            token={fill.takerToken}
-          />
-        </FillLink>
-      </Heading>
-      <Metadata>
-        <dt>Relayer</dt>
-        <dd>
-          {fill.relayer ? (
-            <RelayerLink css="color: currentColor;" relayer={fill.relayer}>
-              {getRelayerLabel(fill)}
-            </RelayerLink>
-          ) : (
-            getRelayerLabel(fill)
-          )}
-        </dd>
-        <dt>Date</dt>
-        <dd>{distanceInWordsToNow(fill.date)} ago</dd>
-      </Metadata>
-    </div>
-    {screenSize.greaterThan.xs && _.has(fill, `amount.${BASE_CURRENCY}`) ? (
-      <FillAmount amount={fill.amount[BASE_CURRENCY]} />
-    ) : null}
-  </StyledRecentFillsItem>
-);
+const RecentFillsItem = ({ fill, screenSize }) => {
+  const source = getSource(fill);
+
+  return (
+    <StyledRecentFillsItem>
+      <RecentFillsItemImage fill={fill} />
+      <div css="display: flex; flex-direction: column; justify-content: center; flex-grow: 1;">
+        <Heading>
+          <FillLink fillId={fill.id}>
+            <TokenAmount
+              amount={fill.makerAmount}
+              linked={false}
+              token={fill.makerToken}
+            />{' '}
+            &#8651;{' '}
+            <TokenAmount
+              amount={fill.takerAmount}
+              linked={false}
+              token={fill.takerToken}
+            />
+          </FillLink>
+        </Heading>
+        <Metadata>
+          <dt>Relayer</dt>
+          <dd>
+            {source.url ? (
+              <SourceLink href={source.url}>{source.label}</SourceLink>
+            ) : (
+              source.label
+            )}
+          </dd>
+          <dt>Date</dt>
+          <dd>{distanceInWordsToNow(fill.date)} ago</dd>
+        </Metadata>
+      </div>
+      {screenSize.greaterThan.xs && _.has(fill, `amount.${BASE_CURRENCY}`) ? (
+        <FillAmount amount={fill.amount[BASE_CURRENCY]} />
+      ) : null}
+    </StyledRecentFillsItem>
+  );
+};
 
 RecentFillsItem.propTypes = {
   fill: PropTypes.object.isRequired,
