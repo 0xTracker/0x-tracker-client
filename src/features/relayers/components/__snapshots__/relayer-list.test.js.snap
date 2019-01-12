@@ -92,7 +92,9 @@ exports[`renders with basic props 1`] = `
       <td
         class="align-middle text-right"
       >
-        $150,456.56
+        <span>
+          $150,456.56
+        </span>
       </td>
     </tr>
     <tr
@@ -156,7 +158,9 @@ exports[`renders with basic props 1`] = `
       <td
         class="align-middle text-right"
       >
-        $124,000.00
+        <span>
+          $124,000.00
+        </span>
       </td>
     </tr>
     <tr
@@ -220,7 +224,9 @@ exports[`renders with basic props 1`] = `
       <td
         class="align-middle text-right"
       >
-        $100,000.00
+        <span>
+          $100,000.00
+        </span>
       </td>
     </tr>
     <tr

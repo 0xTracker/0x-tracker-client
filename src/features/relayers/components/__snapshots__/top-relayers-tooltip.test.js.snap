@@ -2,14 +2,16 @@
 
 exports[`should render for ETH currency 1`] = `
 <div
-  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 hvIxLX"
+  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 bfjmva"
 >
   <h1
     class="chart-tooltip__ChartTooltipTitle-sc-1bnoebf-1 jaVyDc"
   >
     Radar Relay
   </h1>
-  <dl>
+  <dl
+    class="sc-bdVaJa hzNPjz"
+  >
     <div>
       <dt
         class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
@@ -55,14 +57,16 @@ exports[`should render for ETH currency 1`] = `
 
 exports[`should render with payload 1`] = `
 <div
-  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 hvIxLX"
+  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 bfjmva"
 >
   <h1
     class="chart-tooltip__ChartTooltipTitle-sc-1bnoebf-1 jaVyDc"
   >
     Radar Relay
   </h1>
-  <dl>
+  <dl
+    class="sc-bdVaJa hzNPjz"
+  >
     <div>
       <dt
         class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
