@@ -116,7 +116,7 @@ NewsPage.propTypes = {
   screenSize: PropTypes.object.isRequired,
   sources: PropTypes.arrayOf(
     PropTypes.shape({
-      imageUrl: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string,
       name: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
     }),

@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { colors } from '../styles/constants';
 
 const Pill = styled.span`
-  background-color: ${props =>
-    props.highlighted ? colors.athensGray : 'transparent'};
+  background-color: ${colors.athensGray};
   border-radius: 0.25rem;
   color: inherit;
   cursor: pointer;

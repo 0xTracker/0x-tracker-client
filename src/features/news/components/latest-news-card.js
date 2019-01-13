@@ -14,7 +14,7 @@ const LatestNewsCard = ({ className, compact, showImages }) => (
     header={
       <>
         <CardHeading>Latest News</CardHeading>
-        <Pill as={Link} highlighted href={URL.NEWS}>
+        <Pill as={Link} href={URL.NEWS}>
           View More
         </Pill>
       </>

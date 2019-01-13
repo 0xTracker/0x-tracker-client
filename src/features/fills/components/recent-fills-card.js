@@ -14,7 +14,7 @@ const RecentFillsCard = ({ className }) => (
     header={
       <>
         <CardHeading>Recent Fills</CardHeading>
-        <Pill as={Link} highlighted href={URL.FILLS}>
+        <Pill as={Link} href={URL.FILLS}>
           View More
         </Pill>
       </>

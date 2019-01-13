@@ -4,6 +4,11 @@ import React from 'react';
 
 import callApi from '../../../util/call-api';
 
+const sanitizeArticle = article => ({
+  ...article,
+  date: new Date(article.date),
+});
+
 class ArticlesProvider extends React.Component {
   state = { isLoading: false, page: 1 };
 
@@ -38,7 +43,7 @@ class ArticlesProvider extends React.Component {
     const data = await callApi('articles', { page: 1, source });
 
     this.setState({
-      articles: data.articles,
+      articles: data.articles.map(sanitizeArticle),
       isLoading: false,
       pageCount: data.pageCount,
     });
@@ -52,7 +57,7 @@ class ArticlesProvider extends React.Component {
     const data = await callApi('articles', { page, source });
 
     this.setState(prevState => ({
-      articles: prevState.articles.concat(data.articles),
+      articles: prevState.articles.concat(data.articles.map(sanitizeArticle)),
       isLoading: false,
       page: data.page,
       pageCount: data.pageCount,

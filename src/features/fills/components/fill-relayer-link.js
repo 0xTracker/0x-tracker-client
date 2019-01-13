@@ -25,7 +25,7 @@ FillRelayerLink.propTypes = {
     feeRecipient: PropTypes.string.isRequired,
     relayer: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
     }),
   }).isRequired,
 };

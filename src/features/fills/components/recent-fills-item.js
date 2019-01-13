@@ -90,7 +90,7 @@ const getSource = fill => {
   }
 
   if (fill.feeRecipient === '0x0000000000000000000000000000000000000000') {
-    return { name: 'No Relayer' };
+    return { label: 'No Relayer' };
   }
 
   return { label: 'Unknown Relayer', url: buildSearchUrl(fill.feeRecipient) };
