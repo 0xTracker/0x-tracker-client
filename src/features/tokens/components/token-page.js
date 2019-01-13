@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
+import { media } from '../../../styles/util';
 import buildTokenUrl from '../util/build-token-url';
 import callApi from '../../../util/call-api';
 import Card from '../../../components/card';
@@ -47,7 +48,7 @@ class TokenPage extends PureComponent {
           { title: 'Tokens', url: URL.TOKENS },
           { title: token.name, url: buildTokenUrl(token) },
         ]}
-        title={token.symbol ? `${token.name} (${token.symbol})` : token.name}
+        title={token.name}
       >
         <ChartsContainer
           charts={[
@@ -56,7 +57,13 @@ class TokenPage extends PureComponent {
               title: 'Network Volume',
             },
           ]}
-          css="margin: 0 0 2em 0"
+          css={`
+            margin: 0 0 1.25em 0;
+
+            ${media.greaterThan('lg')`
+              margin: 0 0 2em 0;
+            `}
+          `}
           defaultPeriod={TIME_PERIOD.MONTH}
           periods={[
             { label: '24H', value: TIME_PERIOD.DAY },

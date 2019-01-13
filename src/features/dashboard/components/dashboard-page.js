@@ -20,20 +20,32 @@ import TopTokens from '../../tokens/components/top-tokens';
 const DashboardColumn = styled(Col)`
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 
   &:last-child {
-    margin-bottom: ${props => (props.lastRow ? '0' : '2rem')};
+    margin-bottom: ${props => (props.lastRow ? '0' : '1.25rem')};
   }
 
   ${media.greaterThan('lg')`
     margin-bottom: ${props => (props.lastRow ? '0' : '2rem')};
+
+    &:last-child {
+      margin-bottom: ${props => (props.lastRow ? '0' : '2rem')};
+    }
+  `}
+`;
+
+const StyledDashboardMetrics = styled(DashboardMetrics)`
+  margin-bottom: 1.25rem;
+
+  ${media.greaterThan('lg')`
+    margin-bottom: 2rem;
   `}
 `;
 
 const DashboardPage = ({ screenSize }) => (
   <ContentSection>
-    <DashboardMetrics css="margin-bottom: 2rem;" />
+    <StyledDashboardMetrics css="" />
     <Row>
       <DashboardColumn lg={7}>
         <ChartsContainer
@@ -43,13 +55,17 @@ const DashboardPage = ({ screenSize }) => (
             { component: NetworkFees, title: 'Fees' },
           ]}
           defaultPeriod={TIME_PERIOD.MONTH}
-          periods={getPeriodOptions([
-            TIME_PERIOD.DAY,
-            TIME_PERIOD.WEEK,
-            TIME_PERIOD.MONTH,
-            TIME_PERIOD.YEAR,
-            TIME_PERIOD.ALL,
-          ])}
+          periods={
+            screenSize.greaterThan.xs
+              ? getPeriodOptions([
+                  TIME_PERIOD.DAY,
+                  TIME_PERIOD.WEEK,
+                  TIME_PERIOD.MONTH,
+                  TIME_PERIOD.YEAR,
+                  TIME_PERIOD.ALL,
+                ])
+              : undefined
+          }
         />
       </DashboardColumn>
       <DashboardColumn lg={5}>
@@ -59,11 +75,15 @@ const DashboardPage = ({ screenSize }) => (
             { component: TopRelayers, title: 'Top Relayers' },
           ]}
           defaultPeriod={TIME_PERIOD.DAY}
-          periods={getPeriodOptions([
-            TIME_PERIOD.DAY,
-            TIME_PERIOD.WEEK,
-            TIME_PERIOD.MONTH,
-          ])}
+          periods={
+            screenSize.greaterThan.xs
+              ? getPeriodOptions([
+                  TIME_PERIOD.DAY,
+                  TIME_PERIOD.WEEK,
+                  TIME_PERIOD.MONTH,
+                ])
+              : undefined
+          }
         />
       </DashboardColumn>
     </Row>

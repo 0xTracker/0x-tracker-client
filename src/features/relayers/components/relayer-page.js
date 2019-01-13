@@ -1,9 +1,12 @@
 import { compose, mapProps } from 'recompose';
 import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
+import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
 import { TIME_PERIOD, URL } from '../../../constants';
+import { media } from '../../../styles/util';
 import buildRelayerUrl from '../util/build-relayer-url';
 import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
@@ -17,7 +20,15 @@ import relayersPropTypes from '../prop-types';
 import TopTokens from '../../tokens/components/top-tokens';
 import withRelayers from './with-relayers';
 
-const RelayerPage = ({ relayer }) =>
+const ChartColumn = styled(Col)`
+  margin-bottom: 1.25rem;
+
+  ${media.greaterThan('lg')`
+    margin-bottom: 2rem;
+  `}
+`;
+
+const RelayerPage = ({ relayer, screenSize }) =>
   relayer === undefined ? null : (
     <PageLayout
       breadcrumbItems={[
@@ -26,8 +37,8 @@ const RelayerPage = ({ relayer }) =>
       ]}
       title={relayer.name}
     >
-      <Row css="margin-bottom: 2rem;">
-        <Col lg={7}>
+      <Row>
+        <ChartColumn lg={7}>
           <ChartsContainer
             charts={[
               {
@@ -46,16 +57,20 @@ const RelayerPage = ({ relayer }) =>
               },
             ]}
             defaultPeriod={TIME_PERIOD.MONTH}
-            periods={getPeriodOptions([
-              TIME_PERIOD.DAY,
-              TIME_PERIOD.WEEK,
-              TIME_PERIOD.MONTH,
-              TIME_PERIOD.YEAR,
-              TIME_PERIOD.ALL,
-            ])}
+            periods={
+              screenSize.greaterThan.xs
+                ? getPeriodOptions([
+                    TIME_PERIOD.DAY,
+                    TIME_PERIOD.WEEK,
+                    TIME_PERIOD.MONTH,
+                    TIME_PERIOD.YEAR,
+                    TIME_PERIOD.ALL,
+                  ])
+                : undefined
+            }
           />
-        </Col>
-        <Col lg={5}>
+        </ChartColumn>
+        <ChartColumn lg={5}>
           <ChartsContainer
             charts={[
               {
@@ -64,13 +79,17 @@ const RelayerPage = ({ relayer }) =>
               },
             ]}
             defaultPeriod={TIME_PERIOD.DAY}
-            periods={getPeriodOptions([
-              TIME_PERIOD.DAY,
-              TIME_PERIOD.WEEK,
-              TIME_PERIOD.MONTH,
-            ])}
+            periods={
+              screenSize.greaterThan.xs
+                ? getPeriodOptions([
+                    TIME_PERIOD.DAY,
+                    TIME_PERIOD.WEEK,
+                    TIME_PERIOD.MONTH,
+                  ])
+                : undefined
+            }
           />
-        </Col>
+        </ChartColumn>
       </Row>
       <Card>
         <Fills excludeColumns={['relayer']} filter={{ relayer: relayer.id }} />
@@ -80,6 +99,7 @@ const RelayerPage = ({ relayer }) =>
 
 RelayerPage.propTypes = {
   relayer: relayersPropTypes.relayer,
+  screenSize: PropTypes.object.isRequired,
 };
 
 RelayerPage.defaultProps = {
@@ -88,6 +108,7 @@ RelayerPage.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => ({
   relayer: getRelayer(state, ownProps),
+  screenSize: state.screen,
 });
 
 const enhance = compose(

@@ -14,7 +14,6 @@ const StyledContentHeader = styled.div`
 
 const TitleContainer = styled(Col).attrs({ md: 6, xs: 12 })`
   order: 2;
-  text-align: center;
   ${media.greaterThan('md')`
     order: initial;
     text-align:left;

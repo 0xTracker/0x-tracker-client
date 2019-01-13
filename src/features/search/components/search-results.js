@@ -8,11 +8,8 @@ const NoResults = styled.p`
   align-items: center;
   display: flex;
   flex-grow: 1;
-  font-size: 1.3rem;
   justify-content: center;
   flex-shrink: 1;
-  text-align: center;
-  word-break: break-word;
   padding: 2rem;
 `;
 
@@ -29,8 +26,10 @@ const SearchResults = ({
   if (fills.length === 0) {
     return (
       <NoResults>
-        No results found for <br />
-        <span css="font-weight: bold;">&quot;{searchQuery}&quot;</span>
+        <p css="font-size: 1.3rem; text-align: center; word-break: break-word;">
+          No results found for <br />
+          <span css="font-weight: bold;">&quot;{searchQuery}&quot;</span>
+        </p>
       </NoResults>
     );
   }

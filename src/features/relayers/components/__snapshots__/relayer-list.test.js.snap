@@ -43,7 +43,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/ddex"
         >
           <svg
@@ -68,7 +68,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/ddex"
         >
           DDEX
@@ -76,7 +76,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="sc-htpNat dONRAh link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="sc-htpNat dONRAh link__OutboundLink-sc-1m1n17q-0 dFkevI"
           href="https://ddex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -109,7 +109,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/paradex"
         >
           <svg
@@ -134,7 +134,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/paradex"
         >
           Paradex
@@ -142,7 +142,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="sc-htpNat dONRAh link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="sc-htpNat dONRAh link__OutboundLink-sc-1m1n17q-0 dFkevI"
           href="https://paradex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -175,7 +175,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/radar-relay"
         >
           <svg
@@ -200,7 +200,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/radar-relay"
         >
           Radar Relay
@@ -208,7 +208,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="sc-htpNat dONRAh link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="sc-htpNat dONRAh link__OutboundLink-sc-1m1n17q-0 dFkevI"
           href="https://radarrelay.com"
           rel="noopener noreferrer"
           target="_blank"
@@ -241,7 +241,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/sad-relayer"
         >
           <svg
@@ -266,7 +266,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/sad-relayer"
         >
           Sad Relayer
@@ -274,7 +274,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="sc-htpNat dONRAh link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="sc-htpNat dONRAh link__OutboundLink-sc-1m1n17q-0 dFkevI"
           href="https://google.com"
           rel="noopener noreferrer"
           target="_blank"

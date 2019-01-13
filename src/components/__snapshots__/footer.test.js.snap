@@ -23,7 +23,7 @@ exports[`should render without props 1`] = `
         class="footer__FooterColumn-htpw4v-2 sc-ifAKCX kBnFPq col-12 col-md-6"
       >
         <a
-          class="footer__FooterIconLink-htpw4v-0 fCORGB link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="footer__FooterIconLink-htpw4v-0 fCORGB link__OutboundLink-sc-1m1n17q-0 dFkevI"
           href="https://github.com/0xtracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -43,7 +43,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="footer__FooterIconLink-htpw4v-0 fCORGB link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="footer__FooterIconLink-htpw4v-0 fCORGB link__OutboundLink-sc-1m1n17q-0 dFkevI"
           href="https://spectrum.chat/0x-tracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -67,7 +67,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="footer__FooterIconLink-htpw4v-0 fCORGB link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="footer__FooterIconLink-htpw4v-0 fCORGB link__OutboundLink-sc-1m1n17q-0 dFkevI"
           href="https://twitter.com/0xTracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -87,7 +87,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="footer__FooterIconLink-htpw4v-0 fCORGB link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="footer__FooterIconLink-htpw4v-0 fCORGB link__OutboundLink-sc-1m1n17q-0 dFkevI"
           href="https://medium.com/0x-tracker"
           rel="noopener noreferrer"
           target="_blank"

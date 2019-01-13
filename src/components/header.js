@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import { URL } from '../constants';
 import { colors } from '../styles/constants';
+import { media } from '../styles/util';
 import Container from './container';
 import HeaderActions from './header-actions';
 import Link from './link';
@@ -24,6 +25,16 @@ const MenuButton = styled.button`
   border: none;
   cursor: pointer;
   padding: 0;
+`;
+
+const StyledHeader = styled.header`
+  background-color: ${colors.white};
+  height: 4rem;
+  padding: 1rem 0;
+
+  ${media.greaterThan('lg')`
+    height: 4.75rem;
+  `}
 `;
 
 const Header = ({ screenSize }) => {
@@ -48,13 +59,7 @@ const Header = ({ screenSize }) => {
           onSearch={closeMobileMenu}
         />
       )}
-      <header
-        css={`
-          background-color: ${colors.white};
-          height: 4.75rem;
-          padding: 1rem 0;
-        `}
-      >
+      <StyledHeader>
         <Container css="align-items: center; display: flex; justify-content: space-between; height: 100%;">
           <Link href={URL.DASHBOARD}>
             <LogoImage
@@ -70,11 +75,11 @@ const Header = ({ screenSize }) => {
             </>
           ) : (
             <MenuButton onClick={openMobileMenu} title="Open menu">
-              <MenuIcon height={24} />
+              <MenuIcon height={20} />
             </MenuButton>
           )}
         </Container>
-      </header>
+      </StyledHeader>
     </SettingsDialogProvider>
   );
 };
