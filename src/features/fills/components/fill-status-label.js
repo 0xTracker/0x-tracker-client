@@ -4,8 +4,8 @@ import React from 'react';
 
 const FillStatusLabel = ({ status }) => {
   const className = {
-    pending: 'text-warning',
     failed: 'text-danger',
+    pending: 'text-warning',
     successful: 'text-success',
   }[status];
 

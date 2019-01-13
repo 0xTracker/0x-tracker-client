@@ -2,7 +2,6 @@ import {
   Area,
   AreaChart,
   ResponsiveContainer,
-  CartesianGrid,
   XAxis,
   YAxis,
   Tooltip,
@@ -38,19 +37,21 @@ const NetworkFeesChart = ({ data, displayCurrency, period }) => {
         data={sanitizedData}
         margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
       >
-        <CartesianGrid stroke={colors.wildSand} />
         <Area
           animationDuration={0}
           dataKey="localizedFees"
-          fill={colors.halfBaked}
+          fill={colors.periwinkleGray}
           fillOpacity={1}
-          stroke="none"
+          stroke={colors.indigo}
+          strokeOpacity={0.6}
+          strokeWidth={2}
           type="monotone"
         />
         <XAxis
           axisLine={false}
           dataKey="date"
           minTickGap={60}
+          tick={{ fill: 'currentColor', fontSize: '0.9em' }}
           tickFormatter={formatAxisDate}
           tickLine={false}
         />
@@ -60,6 +61,7 @@ const NetworkFeesChart = ({ data, displayCurrency, period }) => {
           minTickGap={20}
           mirror
           padding={{ top: 25 }}
+          tick={{ fill: 'currentColor', fontSize: '0.9em' }}
           tickFormatter={formatYAxis}
           tickLine={false}
         />

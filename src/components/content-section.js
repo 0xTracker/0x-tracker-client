@@ -1,12 +1,18 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 
+import { media } from '../styles/util';
 import Container from './container';
 
 const ContentSection = styled(Container)`
   flex: 1;
-  padding-bottom: 40px;
-  padding-top: 40px;
+  padding-bottom: 1.75rem;
+  padding-top: 1.75rem;
+
+  ${media.greaterThan('lg')`
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
+  `}
 
   ${({ verticallyCentered }) =>
     verticallyCentered &&

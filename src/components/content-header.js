@@ -3,19 +3,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
 import { media } from '../styles/util';
 import Breadcrumb from './breadcrumb';
 import Container from './container';
 
 const StyledContentHeader = styled.div`
-  background: ${colors.wildSand};
-  padding: 20px 0;
+  padding: 2rem 0;
+  border-radius: 0px 2px 4px rgba(126, 142, 177, 0.12);
 `;
 
-const TitleContainer = styled(Col).attrs({ xs: 12, md: 6 })`
+const TitleContainer = styled(Col).attrs({ md: 6, xs: 12 })`
   order: 2;
-  text-align: center;
   ${media.greaterThan('md')`
     order: initial;
     text-align:left;
@@ -23,11 +21,12 @@ const TitleContainer = styled(Col).attrs({ xs: 12, md: 6 })`
 `;
 
 const Title = styled.h1`
-  font-size: 1.2em;
+  display: inline;
+  font-size: 1.2rem;
   margin: 0;
 `;
 
-const BreadcrumbContainer = styled(Col).attrs({ xs: 12, md: 6 })`
+const BreadcrumbContainer = styled(Col).attrs({ md: 6, xs: 12 })`
   display: none;
 
   ${media.greaterThan('md')`
@@ -36,15 +35,12 @@ const BreadcrumbContainer = styled(Col).attrs({ xs: 12, md: 6 })`
   `};
 `;
 
-const ContentHeader = ({ breadcrumbItems, subTitle, title }) => (
+const ContentHeader = ({ breadcrumbItems, title }) => (
   <StyledContentHeader>
     <Container>
       <Row>
         <TitleContainer>
-          <Title>
-            {title}
-            {subTitle && <small className="text-muted"> {subTitle}</small>}
-          </Title>
+          <Title>{title}</Title>
         </TitleContainer>
         <BreadcrumbContainer>
           <Breadcrumb items={breadcrumbItems} />
@@ -61,12 +57,7 @@ ContentHeader.propTypes = {
       url: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  subTitle: PropTypes.string,
   title: PropTypes.string.isRequired,
-};
-
-ContentHeader.defaultProps = {
-  subTitle: undefined,
 };
 
 export default ContentHeader;

@@ -17,7 +17,7 @@ const FillRelayerLink = ({ fill }) => {
     return <Link href={buildSearchUrl(feeRecipient)}>Unknown</Link>;
   }
 
-  return <RelayerLink relayer={relayer} />;
+  return <RelayerLink relayer={relayer}>{relayer.name}</RelayerLink>;
 };
 
 FillRelayerLink.propTypes = {
@@ -25,7 +25,7 @@ FillRelayerLink.propTypes = {
     feeRecipient: PropTypes.string.isRequired,
     relayer: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired,
     }),
   }).isRequired,
 };

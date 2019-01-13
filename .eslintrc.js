@@ -43,6 +43,7 @@ module.exports = {
     'lodash',
     'promise',
     'react',
+    'react-hooks',
   ],
   parser: 'babel-eslint',
   parserOptions: {
@@ -65,7 +66,7 @@ module.exports = {
     'import/exports-last': 'error',
     'import/extensions': ['error', 'always', { js: 'never' }],
     'import/first': 'error',
-    'import/group-exports': 'warn', // TODO: Change to error once fixed
+    'import/group-exports': 'error',
     'import/max-dependencies': 'off',
     'import/named': 'error',
     'import/namespace': 'error',
@@ -147,8 +148,8 @@ module.exports = {
     'promise/valid-params': 'error',
     'promise/prefer-await-to-then': 'error',
     'promise/prefer-await-to-callbacks': 'error',
-    'react/forbid-component-props': ['warn', { forbid: ['style'] }], // TODO: Convert to error once fixed
-    'react/forbid-dom-props': ['warn', { forbid: ['style'] }], // TODO: Convert to error once fixed
+    'react/forbid-component-props': 'off',
+    'react/forbid-dom-props': ['error', { forbid: ['style'] }],
     'react/forbid-prop-types': 'warn', // TODO: Convert to error once fixed
     'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     'react/jsx-indent': 'off',
@@ -156,8 +157,10 @@ module.exports = {
     'react/jsx-max-props-per-line': 'off',
     'react/jsx-max-depth': ['error', { max: 5 }],
     'react/jsx-no-literals': 'off',
-    'react/jsx-no-bind': 'warn', // TODO: Convert to error once fixed
+    'react/jsx-no-bind': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/no-set-state': 'off',
+    'react-hooks/rules-of-hooks': 'error',
+    'sort-keys': ['warn', 'asc', { natural: true }], // TODO: Convert to error when all issues fixed
   },
 };

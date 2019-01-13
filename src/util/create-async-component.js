@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import LoadingIndicator from '../components/loading-indicator';
@@ -9,6 +10,14 @@ const createAsyncComponent = importer => {
       <AsyncComponent {...props} />
     </React.Suspense>
   );
+
+  ComponentLoader.propTypes = {
+    fallback: PropTypes.node,
+  };
+
+  ComponentLoader.defaultProps = {
+    fallback: undefined,
+  };
 
   return ComponentLoader;
 };

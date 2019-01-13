@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
+import Card from '../../../components/card';
 import getRelayersWithStats from '../selectors/get-relayers-with-stats';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
@@ -18,11 +19,13 @@ const RelayersPage = ({ relayers }) => (
     breadcrumbItems={[{ title: 'Relayers', url: URL.RELAYERS }]}
     title="Relayers"
   >
-    {relayers === undefined ? (
-      <LoadingIndicator centered />
-    ) : (
-      <RelayerList relayers={relayers} timePeriod={TIME_PERIOD.DAY} />
-    )}
+    <Card fullHeight>
+      {relayers === undefined ? (
+        <LoadingIndicator centered />
+      ) : (
+        <RelayerList relayers={relayers} timePeriod={TIME_PERIOD.DAY} />
+      )}
+    </Card>
   </PageLayout>
 );
 

@@ -1,86 +1,113 @@
 import { connect } from 'react-redux';
-import { compose } from 'recompose';
-import { withRouter } from 'react-router';
+import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
+import { media } from '../../../styles/util';
 import ChartsContainer from '../../../components/charts-container';
 import ContentSection from '../../../components/content-section';
-import Fills from '../../fills/components/fills';
-import getIsMobile from '../../../selectors/get-is-mobile';
+import DashboardMetrics from './dashboard-metrics';
 import getPeriodOptions from '../../../util/get-period-options';
+import LatestNewsCard from '../../news/components/latest-news-card';
 import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
+import RecentFillsCard from '../../fills/components/recent-fills-card';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
 
-const CHARTS_HEIGHT = 265;
+const DashboardColumn = styled(Col)`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
 
-const Dashboard = ({ isMobile }) => [
-  <ContentSection key="content">
-    <div className="row">
-      <div className="col-xs-12 col-lg-7 mb-4">
+  &:last-child {
+    margin-bottom: ${props => (props.lastRow ? '0' : '1.25rem')};
+  }
+
+  ${media.greaterThan('lg')`
+    margin-bottom: ${props => (props.lastRow ? '0' : '2rem')};
+
+    &:last-child {
+      margin-bottom: ${props => (props.lastRow ? '0' : '2rem')};
+    }
+  `}
+`;
+
+const StyledDashboardMetrics = styled(DashboardMetrics)`
+  margin-bottom: 1.25rem;
+
+  ${media.greaterThan('lg')`
+    margin-bottom: 2rem;
+  `}
+`;
+
+const DashboardPage = ({ screenSize }) => (
+  <ContentSection>
+    <StyledDashboardMetrics css="" />
+    <Row>
+      <DashboardColumn lg={7}>
         <ChartsContainer
           charts={[
-            { title: 'Network Volume', component: NetworkVolume },
-            { title: 'Fills', component: <NetworkVolume type="fills" /> },
-            { title: 'Fees', component: NetworkFees },
+            { component: NetworkVolume, title: 'Network Volume' },
+            { component: <NetworkVolume type="fills" />, title: 'Fills' },
+            { component: NetworkFees, title: 'Fees' },
           ]}
-          chartsHeight={CHARTS_HEIGHT}
           defaultPeriod={TIME_PERIOD.MONTH}
           periods={
-            !isMobile &&
-            getPeriodOptions([
-              TIME_PERIOD.DAY,
-              TIME_PERIOD.WEEK,
-              TIME_PERIOD.MONTH,
-              TIME_PERIOD.YEAR,
-              TIME_PERIOD.ALL,
-            ])
+            screenSize.greaterThan.xs
+              ? getPeriodOptions([
+                  TIME_PERIOD.DAY,
+                  TIME_PERIOD.WEEK,
+                  TIME_PERIOD.MONTH,
+                  TIME_PERIOD.YEAR,
+                  TIME_PERIOD.ALL,
+                ])
+              : undefined
           }
         />
-      </div>
-      <div className="col-xs-12 col-lg-5 mb-4">
+      </DashboardColumn>
+      <DashboardColumn lg={5}>
         <ChartsContainer
           charts={[
-            { title: 'Top Tokens', component: TopTokens },
-            { title: 'Top Relayers', component: TopRelayers },
+            { component: TopTokens, title: 'Top Tokens' },
+            { component: TopRelayers, title: 'Top Relayers' },
           ]}
-          chartsHeight={CHARTS_HEIGHT}
           defaultPeriod={TIME_PERIOD.DAY}
           periods={
-            !isMobile &&
-            getPeriodOptions([
-              TIME_PERIOD.DAY,
-              TIME_PERIOD.WEEK,
-              TIME_PERIOD.MONTH,
-            ])
+            screenSize.greaterThan.xs
+              ? getPeriodOptions([
+                  TIME_PERIOD.DAY,
+                  TIME_PERIOD.WEEK,
+                  TIME_PERIOD.MONTH,
+                ])
+              : undefined
           }
         />
-      </div>
-    </div>
-    {!isMobile && <Fills heading="Recent Fills" />}
-  </ContentSection>,
-];
+      </DashboardColumn>
+    </Row>
+    <Row>
+      <DashboardColumn css="flex-grow: 1;" lastRow lg={7}>
+        <RecentFillsCard css="flex-grow: 1;" />
+      </DashboardColumn>
+      <DashboardColumn css="flex-grow: 1;" lastRow lg={5}>
+        <LatestNewsCard
+          compact={screenSize.lessThan.sm || screenSize.greaterThan.md}
+          css="flex-grow: 1;"
+          showImages={screenSize.greaterThan.xs}
+        />
+      </DashboardColumn>
+    </Row>
+  </ContentSection>
+);
 
-Dashboard.propTypes = {
-  isMobile: PropTypes.bool,
-  location: PropTypes.shape({ pathname: PropTypes.string.isRequired })
-    .isRequired,
-};
-
-Dashboard.defaultProps = {
-  isMobile: false,
+DashboardPage.propTypes = {
+  screenSize: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
-  isMobile: getIsMobile(state),
+  screenSize: state.screen,
 });
 
-const enhance = compose(
-  withRouter,
-  connect(mapStateToProps),
-);
-
-export default enhance(Dashboard);
+export default connect(mapStateToProps)(DashboardPage);

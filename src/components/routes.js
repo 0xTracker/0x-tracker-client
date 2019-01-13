@@ -11,7 +11,7 @@ import getSearchRoutes from '../features/search/get-routes';
 import getTokensRoutes from '../features/tokens/get-routes';
 
 const Routes = () => (
-  <React.Fragment>
+  <>
     <AnalyticsRoute /> {/* Track page views */}
     <Switch>
       {getDashboardRoutes()}
@@ -22,7 +22,7 @@ const Routes = () => (
       {getTokensRoutes()}
       <Route component={AsyncPageNotFound} />
     </Switch>
-  </React.Fragment>
+  </>
 );
 
 export default Routes;

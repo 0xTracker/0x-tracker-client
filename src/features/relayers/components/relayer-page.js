@@ -1,13 +1,16 @@
 import { compose, mapProps } from 'recompose';
 import { connect } from 'react-redux';
+import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
 import { TIME_PERIOD, URL } from '../../../constants';
+import { media } from '../../../styles/util';
 import buildRelayerUrl from '../util/build-relayer-url';
+import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
-import getIsMobile from '../../../selectors/get-is-mobile';
 import getPeriodOptions from '../../../util/get-period-options';
 import getRelayer from '../selectors/get-relayer';
 import NetworkFees from '../../metrics/components/network-fees';
@@ -17,9 +20,15 @@ import relayersPropTypes from '../prop-types';
 import TopTokens from '../../tokens/components/top-tokens';
 import withRelayers from './with-relayers';
 
-const CHARTS_HEIGHT = 265;
+const ChartColumn = styled(Col)`
+  margin-bottom: 1.25rem;
 
-const RelayerPage = ({ isMobile, relayer }) =>
+  ${media.greaterThan('lg')`
+    margin-bottom: 2rem;
+  `}
+`;
+
+const RelayerPage = ({ relayer, screenSize }) =>
   relayer === undefined ? null : (
     <PageLayout
       breadcrumbItems={[
@@ -28,8 +37,8 @@ const RelayerPage = ({ isMobile, relayer }) =>
       ]}
       title={relayer.name}
     >
-      <div className="row">
-        <div className="col-xs-12 col-lg-7 mb-4">
+      <Row>
+        <ChartColumn lg={7}>
           <ChartsContainer
             charts={[
               {
@@ -47,18 +56,21 @@ const RelayerPage = ({ isMobile, relayer }) =>
                 component: <NetworkFees relayerId={relayer.id} />,
               },
             ]}
-            chartsHeight={CHARTS_HEIGHT}
             defaultPeriod={TIME_PERIOD.MONTH}
-            periods={getPeriodOptions([
-              TIME_PERIOD.DAY,
-              TIME_PERIOD.WEEK,
-              TIME_PERIOD.MONTH,
-              TIME_PERIOD.YEAR,
-              TIME_PERIOD.ALL,
-            ])}
+            periods={
+              screenSize.greaterThan.xs
+                ? getPeriodOptions([
+                    TIME_PERIOD.DAY,
+                    TIME_PERIOD.WEEK,
+                    TIME_PERIOD.MONTH,
+                    TIME_PERIOD.YEAR,
+                    TIME_PERIOD.ALL,
+                  ])
+                : undefined
+            }
           />
-        </div>
-        <div className="col-xs-12 col-lg-5 mb-4">
+        </ChartColumn>
+        <ChartColumn lg={5}>
           <ChartsContainer
             charts={[
               {
@@ -66,40 +78,37 @@ const RelayerPage = ({ isMobile, relayer }) =>
                 component: <TopTokens relayerId={relayer.id} />,
               },
             ]}
-            chartsHeight={CHARTS_HEIGHT}
             defaultPeriod={TIME_PERIOD.DAY}
             periods={
-              !isMobile &&
-              getPeriodOptions([
-                TIME_PERIOD.DAY,
-                TIME_PERIOD.WEEK,
-                TIME_PERIOD.MONTH,
-              ])
+              screenSize.greaterThan.xs
+                ? getPeriodOptions([
+                    TIME_PERIOD.DAY,
+                    TIME_PERIOD.WEEK,
+                    TIME_PERIOD.MONTH,
+                  ])
+                : undefined
             }
           />
-        </div>
-      </div>
-      <Fills
-        excludeColumns={['relayer']}
-        filter={{ relayer: relayer.id }}
-        heading="Recent Fills"
-      />
+        </ChartColumn>
+      </Row>
+      <Card>
+        <Fills excludeColumns={['relayer']} filter={{ relayer: relayer.id }} />
+      </Card>
     </PageLayout>
   );
 
 RelayerPage.propTypes = {
-  isMobile: PropTypes.bool,
   relayer: relayersPropTypes.relayer,
+  screenSize: PropTypes.object.isRequired,
 };
 
 RelayerPage.defaultProps = {
-  isMobile: false,
   relayer: undefined,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  isMobile: getIsMobile(state),
   relayer: getRelayer(state, ownProps),
+  screenSize: state.screen,
 });
 
 const enhance = compose(

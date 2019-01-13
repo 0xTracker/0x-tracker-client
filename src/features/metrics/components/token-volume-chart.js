@@ -3,7 +3,6 @@ import {
   Area,
   AreaChart,
   ResponsiveContainer,
-  CartesianGrid,
   XAxis,
   YAxis,
   Tooltip,
@@ -54,13 +53,14 @@ class TokenVolumeChart extends PureComponent {
           data={sanitizedData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
-          <CartesianGrid stroke={colors.wildSand} />
           <Area
             animationDuration={0}
             dataKey="volume"
-            fill={colors.halfBaked}
+            fill={colors.periwinkleGray}
             fillOpacity={1}
-            stroke="none"
+            stroke={colors.indigo}
+            strokeOpacity={0.6}
+            strokeWidth={2}
             type="monotone"
           />
           <XAxis

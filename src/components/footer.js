@@ -3,6 +3,7 @@ import { Col, Row } from 'reactstrap';
 import { Github as GitHubIcon } from 'styled-icons/fa-brands/Github.cjs';
 import { Twitter as TwitterIcon } from 'styled-icons/fa-brands/Twitter.cjs';
 import { MediumM as MediumIcon } from 'styled-icons/fa-brands/MediumM.cjs';
+import { rgba } from 'polished';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -13,9 +14,9 @@ import Link from './link';
 import SpectrumIcon from './spectrum-icon';
 
 const FooterIconLink = styled(Link)`
-  color: ${colors.silver};
+  color: ${rgba(colors.white, 0.5)};
   display: flex;
-  margin-left: 15px;
+  margin-left: 1rem;
 
   &:first-child {
     margin-left: 0;
@@ -24,24 +25,15 @@ const FooterIconLink = styled(Link)`
   &:hover {
     color: ${colors.white};
   }
-
-  ${media.greaterThan('md')`
-    margin-left: 13px;
-  `}
 `;
 
 const FooterIcon = styled.svg`
-  height: 25px;
+  height: 1.5rem;
   vertical-align: middle;
-  width: 25px;
-
-  ${media.greaterThan('md')`
-    height: 20px;
-    width: 20px;
-  `}
+  width: 1.5rem;
 `;
 
-const FooterColumn = styled(Col).attrs({ xs: 12, md: 6 })`
+const FooterColumn = styled(Col).attrs({ md: 6, xs: 12 })`
   align-items: center;
   display: flex;
 `;
@@ -49,9 +41,9 @@ const FooterColumn = styled(Col).attrs({ xs: 12, md: 6 })`
 const Footer = () => (
   <div
     css={`
-      background: ${colors.tuna};
-      color: ${colors.silver};
-      padding: 30px;
+      background: ${colors.violet};
+      color: ${colors.white};
+      padding: 2rem;
     `}
   >
     <Container>
@@ -59,7 +51,7 @@ const Footer = () => (
         <FooterColumn
           css={`
             justify-content: center;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
 
             ${media.greaterThan('md')`
               justify-content: flex-end;
@@ -80,12 +72,12 @@ const Footer = () => (
           >
             <SpectrumIcon
               css={`
-                height: 21px;
-                width: 21px;
+                height: 1.25rem;
+                width: 1.25rem;
 
                 ${media.greaterThan('md')`
-                  height: 16px; 
-                  width: 16px;
+                  height: 1rem; 
+                  width: 1rem;
                 `}
               `}
             />

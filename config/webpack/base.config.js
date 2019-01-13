@@ -16,8 +16,8 @@ const getConfig = environment => ({
   module: {
     rules: [
       {
-        test: /\.js$/,
         exclude: /node_modules/,
+        test: /\.js$/,
         use: [{ loader: 'babel-loader', options: { cacheDirectory: true } }],
       },
       {
@@ -51,7 +51,7 @@ const getConfig = environment => ({
     }),
 
     new UnusedFilesWebpackPlugin({
-      failOnUnused: true,
+      failOnUnused: false,
       globOptions: {
         ignore: [
           'src/**/*.test.js',

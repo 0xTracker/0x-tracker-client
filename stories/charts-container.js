@@ -32,24 +32,22 @@ ChartComponent.defaultProps = {
 
 storiesOf('Layout|ChartsContainer', module)
   .addWithJSX('default', () => (
-    <div style={{ padding: '20px', width: '680px' }}>
+    <div css="padding: 20px; width: 680px;">
       <ChartsContainer
         charts={[
           { component: ChartComponent, title: 'Network Volume' },
           { component: ChartComponent, title: 'Network Fees' },
         ]}
-        chartsHeight={270}
       />
     </div>
   ))
   .addWithJSX('with time periods', () => (
-    <div style={{ padding: '20px', width: '680px' }}>
+    <div css="padding: 20px; width: 680px;">
       <ChartsContainer
         charts={[
           { component: ChartComponent, title: 'Network Volume' },
           { component: ChartComponent, title: 'Network Fees' },
         ]}
-        chartsHeight={270}
         periods={[
           { label: '24H', value: 'day' },
           { label: '7D', value: 'week' },

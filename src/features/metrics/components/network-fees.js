@@ -32,9 +32,9 @@ class FeesChart extends PureComponent {
     const { fetchMetrics, period, relayerId } = this.props;
 
     fetchMetrics({
+      filter: { relayer: relayerId },
       metricType: METRIC_TYPE.NETWORK,
       period,
-      filter: { relayer: relayerId },
     });
   }
 

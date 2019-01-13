@@ -3,23 +3,27 @@ import React from 'react';
 import ReactLoading from 'react-loading';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
-
 const AlignCenter = styled.div`
   align-items: center;
   display: flex;
-  height: 100%;
+  flex-grow: 1;
   justify-content: center;
 `;
 
-const LoadingIndicator = ({ color, centered, size, type }) => {
+const dimensions = {
+  large: 50,
+  medium: 30,
+  small: 22,
+};
+
+const LoadingIndicator = ({ centered, size, type }) => {
   const indicator = (
     <ReactLoading
-      color={color === 'light' ? colors.white : colors.tuna}
+      color="currentColor"
       delay={0}
-      height={size === 'small' ? 22 : undefined}
+      height={dimensions[size]}
       type={type === 'cylon' ? 'cylon' : 'spin'}
-      width={size === 'small' ? 22 : undefined}
+      width={dimensions[size]}
     />
   );
 
@@ -31,13 +35,11 @@ const LoadingIndicator = ({ color, centered, size, type }) => {
 };
 
 LoadingIndicator.propTypes = {
-  color: PropTypes.oneOf(['light', 'dark']),
-  size: PropTypes.oneOf(['small', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   type: PropTypes.oneOf(['cylon', 'spinner']),
 };
 
 LoadingIndicator.defaultProps = {
-  color: 'dark',
   size: 'large',
   type: 'spinner',
 };

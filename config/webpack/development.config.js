@@ -8,7 +8,6 @@ const { getConfig, paths } = require('./base.config');
 const ENVIRONMENT = 'development';
 
 module.exports = merge(getConfig(ENVIRONMENT), {
-  devtool: 'cheap-module-source-map',
   devServer: {
     compress: true,
     contentBase: paths.output,
@@ -18,6 +17,7 @@ module.exports = merge(getConfig(ENVIRONMENT), {
     port: 3000,
     stats: 'errors-only',
   },
+  devtool: 'cheap-module-source-map',
   mode: 'development',
   module: {
     rules: [

@@ -11,12 +11,12 @@ const metricsModel = {
       };
       const metrics = await callApi(`metrics/${metricType}`, params);
 
-      dispatch.metrics.update({ metricType, period, filter, metrics });
+      dispatch.metrics.update({ filter, metricType, metrics, period });
     },
   }),
   reducers: {
     update(state, { metricType, period, filter, metrics }) {
-      const key = objectHash({ metricType, period, filter });
+      const key = objectHash({ filter, metricType, period });
 
       return { ...state, [key]: metrics };
     },

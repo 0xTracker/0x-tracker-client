@@ -20,10 +20,10 @@ const Value = styled.dd`
 `;
 
 const FillDetail = ({ children, title }) => (
-  <React.Fragment>
+  <>
     <Title>{title}</Title>
     <Value>{children}</Value>
-  </React.Fragment>
+  </>
 );
 
 FillDetail.propTypes = {

@@ -9,7 +9,8 @@ import { media } from '../../../styles/util';
 import buildFillUrl from '../util/build-fill-url';
 import buildSearchUrl from '../../search/util/build-search-url';
 import callApi from '../../../util/call-api';
-import EthereumAddressLink from '../../ethereum/components/ethereum-address-link';
+import Card from '../../../components/card';
+import EthereumAddressLink from '../../../components/ethereum-address-link';
 import FillDetail from './fill-detail';
 import FillRelayerLink from './fill-relayer-link';
 import FillStatusLabel from './fill-status-label';
@@ -74,109 +75,130 @@ class FillPage extends PureComponent {
         ]}
         title="Fill Details"
       >
-        {fill === undefined ? (
-          <LoadingIndicator centered />
-        ) : (
-          <React.Fragment>
-            <FillDetailList>
-              <FillDetail title="Transaction Hash">
-                <Link href={`https://etherscan.io/tx/${fill.transactionHash}`}>
-                  {fill.transactionHash}
-                </Link>
-              </FillDetail>
-              <FillDetail title="Order Hash">
-                <Link href={buildSearchUrl(fill.orderHash)}>
-                  {fill.orderHash}
-                </Link>
-              </FillDetail>
-              <FillDetail title="Date">
-                {formatDate(fill.date, DATE_FORMAT.FULL)}
-              </FillDetail>
-              <FillDetail title="Relayer">
-                <FillRelayerLink fill={fill} />
-              </FillDetail>
-              <FillDetail title="Status">
-                <FillStatusLabel status={fill.status} />
-              </FillDetail>
-              <FillDetail title="0x Protocol">
-                v{fill.protocolVersion}
-              </FillDetail>
-            </FillDetailList>
-            <FillDetailList>
-              <FillDetail title="Trade">
-                <TokenAmount
-                  amount={fill.makerAmount}
-                  token={fill.makerToken}
-                />{' '}
-                &#8651;{' '}
-                <TokenAmount
-                  amount={fill.takerAmount}
-                  token={fill.takerToken}
-                />
-              </FillDetail>
-
-              {_.has(fill.amount, 'USD') && (
-                <FillDetail title="Value">
-                  <LocalisedAmount amount={fill.amount.USD} />
+        <Card css="padding: 2rem;" fullHeight>
+          {fill === undefined ? (
+            <LoadingIndicator centered />
+          ) : (
+            <>
+              <FillDetailList>
+                <FillDetail title="Transaction Hash">
+                  <Link
+                    href={`https://etherscan.io/tx/${fill.transactionHash}`}
+                  >
+                    {fill.transactionHash}
+                  </Link>
                 </FillDetail>
-              )}
-            </FillDetailList>
-            <FillDetailList>
-              <FillDetail title="Maker">
-                <EthereumAddressLink address={fill.makerAddress} />
-              </FillDetail>
-              <FillDetail title="Maker Token">
-                <TokenLink token={fill.makerToken} />
-              </FillDetail>
-
-              {_.has(fill, 'makerPrice.USD') && (
-                <FillDetail title="Maker Price">
-                  <LocalisedAmount amount={fill.makerPrice.USD} />
+                <FillDetail title="Order Hash">
+                  <Link href={buildSearchUrl(fill.orderHash)}>
+                    {fill.orderHash}
+                  </Link>
                 </FillDetail>
-              )}
-            </FillDetailList>
-            <FillDetailList>
-              <FillDetail title="Taker">
-                <EthereumAddressLink address={fill.takerAddress} />
-              </FillDetail>
-              <FillDetail title="Taker Token">
-                <TokenLink token={fill.takerToken} />
-              </FillDetail>
-
-              {_.has(fill, 'takerPrice.USD') && (
-                <FillDetail title="Taker Price">
-                  <LocalisedAmount amount={fill.takerPrice.USD} />
+                <FillDetail title="Date">
+                  {formatDate(fill.date, DATE_FORMAT.FULL)}
                 </FillDetail>
-              )}
-            </FillDetailList>
-            <FillDetailList>
-              <FillDetail title="Maker Fee">
-                {fill.makerFee.ZRX !== '0' ? (
-                  <TokenAmount amount={fill.makerFee.ZRX} token={ZRX_TOKEN} />
-                ) : (
-                  'None'
+                <FillDetail title="Relayer">
+                  <FillRelayerLink fill={fill} />
+                </FillDetail>
+                <FillDetail title="Status">
+                  <FillStatusLabel status={fill.status} />
+                </FillDetail>
+                <FillDetail title="0x Protocol">
+                  v{fill.protocolVersion}
+                </FillDetail>
+              </FillDetailList>
+              <FillDetailList>
+                <FillDetail title="Trade">
+                  <TokenAmount
+                    amount={fill.makerAmount}
+                    token={fill.makerToken}
+                  />{' '}
+                  &#8651;{' '}
+                  <TokenAmount
+                    amount={fill.takerAmount}
+                    token={fill.takerToken}
+                  />
+                </FillDetail>
+
+                {_.has(fill.amount, 'USD') && (
+                  <FillDetail title="Value">
+                    <LocalisedAmount amount={fill.amount.USD} />
+                  </FillDetail>
                 )}
-              </FillDetail>
-              <FillDetail title="Taker Fee">
-                {fill.takerFee.ZRX !== '0' ? (
-                  <TokenAmount amount={fill.takerFee.ZRX} token={ZRX_TOKEN} />
-                ) : (
-                  'None'
-                )}
-              </FillDetail>
-
-              {fill.totalFees.ZRX !== '0' && (
-                <FillDetail title="Total Fees">
-                  <TokenAmount amount={fill.totalFees.ZRX} token={ZRX_TOKEN} />
+              </FillDetailList>
+              <FillDetailList>
+                <FillDetail title="Maker">
+                  <EthereumAddressLink address={fill.makerAddress}>
+                    {fill.makerAddress}
+                  </EthereumAddressLink>
                 </FillDetail>
-              )}
+                <FillDetail title="Maker Token">
+                  <TokenLink token={fill.makerToken}>
+                    {fill.makerToken.name
+                      ? fill.makerToken.name
+                      : fill.makerToken.address}
+                  </TokenLink>
+                </FillDetail>
 
-              <FillDetail title="Fee Recipient">
-                <EthereumAddressLink address={fill.feeRecipient} />
-              </FillDetail>
-            </FillDetailList>
-          </React.Fragment>
-        )}
+                {_.has(fill, 'makerPrice.USD') && (
+                  <FillDetail title="Maker Price">
+                    <LocalisedAmount amount={fill.makerPrice.USD} />
+                  </FillDetail>
+                )}
+              </FillDetailList>
+              <FillDetailList>
+                <FillDetail title="Taker">
+                  <EthereumAddressLink address={fill.takerAddress}>
+                    {fill.takerAddress}
+                  </EthereumAddressLink>
+                </FillDetail>
+                <FillDetail title="Taker Token">
+                  <TokenLink token={fill.takerToken}>
+                    {fill.takerToken.name
+                      ? fill.takerToken.name
+                      : fill.takerToken.address}
+                  </TokenLink>
+                </FillDetail>
+
+                {_.has(fill, 'takerPrice.USD') && (
+                  <FillDetail title="Taker Price">
+                    <LocalisedAmount amount={fill.takerPrice.USD} />
+                  </FillDetail>
+                )}
+              </FillDetailList>
+              <FillDetailList>
+                <FillDetail title="Maker Fee">
+                  {fill.makerFee.ZRX !== '0' ? (
+                    <TokenAmount amount={fill.makerFee.ZRX} token={ZRX_TOKEN} />
+                  ) : (
+                    'None'
+                  )}
+                </FillDetail>
+                <FillDetail title="Taker Fee">
+                  {fill.takerFee.ZRX !== '0' ? (
+                    <TokenAmount amount={fill.takerFee.ZRX} token={ZRX_TOKEN} />
+                  ) : (
+                    'None'
+                  )}
+                </FillDetail>
+
+                {fill.totalFees.ZRX !== '0' && (
+                  <FillDetail title="Total Fees">
+                    <TokenAmount
+                      amount={fill.totalFees.ZRX}
+                      token={ZRX_TOKEN}
+                    />
+                  </FillDetail>
+                )}
+
+                <FillDetail title="Fee Recipient">
+                  <EthereumAddressLink address={fill.feeRecipient}>
+                    {fill.feeRecipient}
+                  </EthereumAddressLink>
+                </FillDetail>
+              </FillDetailList>
+            </>
+          )}
+        </Card>
       </PageLayout>
     );
   }

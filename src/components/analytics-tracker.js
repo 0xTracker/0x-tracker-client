@@ -34,8 +34,8 @@ class AnalyticsTracker extends Component {
       const page = location.pathname + location.search;
 
       ReactGA.set({
-        page,
         location: `${window.location.origin}${page}`,
+        page,
       });
       ReactGA.pageview(page);
     }

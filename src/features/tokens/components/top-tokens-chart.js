@@ -2,8 +2,6 @@ import _ from 'lodash';
 import {
   BarChart,
   Bar,
-  CartesianGrid,
-  Cell,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -18,14 +16,6 @@ import { colors } from '../../../styles/constants';
 import buildTokenUrl from '../util/build-token-url';
 import formatCurrency from '../../../util/format-currency';
 import TopTokensTooltip from './top-tokens-tooltip';
-
-const COLORS = [
-  colors.goldenSand,
-  colors.bostonBlue,
-  colors.cranberry,
-  colors.halfBaked,
-  colors.blueMarguerite,
-];
 
 const formatPercentage = value => `${numeral(value).format('0')}%`;
 
@@ -68,12 +58,12 @@ class TopTokensChart extends PureComponent {
     return (
       <ResponsiveContainer>
         <BarChart data={data} margin={{ bottom: 0, left: 0, right: 0, top: 0 }}>
-          <CartesianGrid stroke={colors.wildSand} />
           <XAxis
             axisLine={false}
             dataKey="token.symbol"
             onClick={this.handleAxisClick}
-            style={{ cursor: 'pointer' }} // eslint-disable-line react/forbid-component-props
+            style={{ cursor: 'pointer' }}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickLine={false}
           />
           <YAxis
@@ -81,21 +71,19 @@ class TopTokensChart extends PureComponent {
             domain={[0, 100]}
             minTickGap={15}
             padding={{ top: 25, bottom: 0 }}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={formatPercentage}
             tickLine={false}
-            width={60}
+            width={41}
           />
           <Tooltip content={<TopTokensTooltip currency={displayCurrency} />} />
           <Bar
             animationDuration={0}
             dataKey="share"
+            fill={colors.indigo}
             onClick={this.handleBarClick}
-            style={{ cursor: 'pointer' }} // eslint-disable-line react/forbid-component-props
-          >
-            {data.map((entry, index) => (
-              <Cell fill={COLORS[index]} key={`cell-${entry.name}`} />
-            ))}
-          </Bar>
+            style={{ cursor: 'pointer' }}
+          />
         </BarChart>
       </ResponsiveContainer>
     );

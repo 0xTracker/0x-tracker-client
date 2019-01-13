@@ -6,20 +6,19 @@ const breakpoints = {
 };
 
 const colors = {
-  blueMarguerite: '#867ac6',
-  bonJour: '#dfdbdb',
-  bostonBlue: '#3992CA',
-  cranberry: '#E24F8B',
-  gallery: '#ebebeb',
-  goldenSand: '#F0DB79',
-  halfBaked: '#8DC6C4',
-  mineShaft: '#222',
-  moodyBlue: '#7a68d2',
-  scampi: '#695f9c',
-  silver: '#c0c0c0',
-  tuna: '#363a40',
-  white: '#fff',
-  wildSand: '#f4f4f4',
+  athensGray: '#f1f2f7', // regular gray
+  black: '#000',
+  fruitSalad: '#4CAF50', // positive change
+  indigo: '#3f4ac3', // links
+  martinique: '#312F50',
+  mischka: '#dcdde4', // dark gray
+  periwinkleGray: '#cdcded',
+  pomegranate: '#F44336', // negative change
+  santasGray: '#9F9EB9',
+  selago: '#f7f8fe', // light gray
+  stormGray: '#6C6B80',
+  violet: '#0A0830', // text color & footer bg
+  white: '#fff', // light text color
 };
 
 export { breakpoints, colors };

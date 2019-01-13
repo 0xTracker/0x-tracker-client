@@ -5,7 +5,12 @@ import { URL } from '../../constants';
 import AsyncNewsPage from './components/async-news-page';
 
 const getRoutes = () => [
-  <Route component={AsyncNewsPage} exact key="news" path={URL.NEWS} />,
+  <Route
+    component={AsyncNewsPage}
+    exact
+    key="news"
+    path={[URL.NEWS, `${URL.NEWS}/:source`]}
+  />,
 ];
 
 export default getRoutes;

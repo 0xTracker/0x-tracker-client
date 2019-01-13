@@ -21,11 +21,16 @@ const formatCurrency = (amount, currency, dropDecimals = false) => {
         symbol: '€',
         thousand: '.',
       });
+    case 'AUD':
+      return currencyFormatter.format(amount, {
+        precision: dropDecimals ? 0 : 2,
+        symbol: 'A$',
+      });
     default:
       if (amount < 1) {
         return currencyFormatter.format(amount, {
           code: currency,
-          precision: dropDecimals ? 0 : 6,
+          precision: dropDecimals ? 0 : 4,
           thousand: currency === 'EUR' ? '.' : ',',
         });
       }
