@@ -11,7 +11,11 @@ const RecentFills = ({ filter }) => (
       loading ? (
         <LoadingIndicator centered />
       ) : (
-        fills.map(fill => <RecentFillsItem fill={fill} key={fill.id} />)
+        <div css="overflow-x: scroll">
+          {fills.map(fill => (
+            <RecentFillsItem fill={fill} key={fill.id} />
+          ))}
+        </div>
       )
     }
   </FillsProvider>

@@ -4,14 +4,13 @@ import Scroll from 'react-scroll';
 
 import FillList from './fill-list';
 import Paginator from '../../../components/paginator';
-import PagingSummary from '../../../components/paging-summary';
 
 class PagedFillList extends React.PureComponent {
   componentDidUpdate(prevProps) {
     const { changingPage } = this.props;
 
     if (prevProps.changingPage && !changingPage) {
-      Scroll.animateScroll.scrollToTop({ duration: 500 });
+      Scroll.animateScroll.scrollToTop({ duration: 200 });
     }
   }
 
@@ -30,21 +29,14 @@ class PagedFillList extends React.PureComponent {
     return (
       <>
         <FillList excludeColumns={excludeColumns} fills={fills} />
-        <div css="align-items: center; display: flex; justify-content: space-between; margin: 1rem;">
-          <PagingSummary
-            css="font-weight: bold;"
-            page={page}
-            pageSize={pageSize}
-            recordType="order fills"
-            total={total}
-          />
-          <Paginator
-            changingPage={changingPage}
-            onPageChange={onPageChange}
-            page={page}
-            pageCount={pageCount}
-          />
-        </div>
+        <Paginator
+          changingPage={changingPage}
+          onPageChange={onPageChange}
+          page={page}
+          pageCount={pageCount}
+          pageSize={pageSize}
+          recordCount={total}
+        />
       </>
     );
   }

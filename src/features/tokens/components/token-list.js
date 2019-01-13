@@ -81,10 +81,11 @@ class TokenList extends PureComponent {
           </tbody>
         </table>
         <Paginator
-          css="margin: 1rem;"
           onPageChange={this.handlePageChange}
           page={page}
           pageCount={pageCount}
+          pageSize={limit}
+          recordCount={tokens.length}
         />
       </>
     );

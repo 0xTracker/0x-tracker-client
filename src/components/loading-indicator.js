@@ -10,14 +10,20 @@ const AlignCenter = styled.div`
   justify-content: center;
 `;
 
+const dimensions = {
+  large: 50,
+  medium: 30,
+  small: 22,
+};
+
 const LoadingIndicator = ({ centered, size, type }) => {
   const indicator = (
     <ReactLoading
       color="currentColor"
       delay={0}
-      height={size === 'small' ? 22 : undefined}
+      height={dimensions[size]}
       type={type === 'cylon' ? 'cylon' : 'spin'}
-      width={size === 'small' ? 22 : undefined}
+      width={dimensions[size]}
     />
   );
 
@@ -29,7 +35,7 @@ const LoadingIndicator = ({ centered, size, type }) => {
 };
 
 LoadingIndicator.propTypes = {
-  size: PropTypes.oneOf(['small', 'large']),
+  size: PropTypes.oneOf(['small', 'medium', 'large']),
   type: PropTypes.oneOf(['cylon', 'spinner']),
 };
 
