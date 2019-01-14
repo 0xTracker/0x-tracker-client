@@ -42,7 +42,7 @@
     "react-hot-loader": "4.6.3",
     "react-kawaii": "0.10.0",
     "react-loading": "2.0.3",
-    "react-paginate": "6.0.0",
+    "react-paginate": "6.2.0",
     "react-portal": "4.2.0",
     "react-redux": "6.0.0",
     "react-router": "4.3.1",
