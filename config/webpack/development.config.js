@@ -12,6 +12,7 @@ module.exports = merge(getConfig(ENVIRONMENT), {
     compress: true,
     contentBase: paths.output,
     historyApiFallback: true,
+    host: '0.0.0.0',
     hot: true,
     overlay: true,
     port: 3000,

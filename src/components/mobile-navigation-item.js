@@ -12,7 +12,6 @@ const NavigationLink = styled(Link)`
   color: currentColor;
   cursor: pointer;
   display: block;
-  margin: 0 1rem;
   padding: 0.75rem 0.5rem;
   text-align: left;
   width: 100%;

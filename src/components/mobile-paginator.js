@@ -9,6 +9,7 @@ import PagingSummary from './paging-summary';
 import LoadingIndicator from './loading-indicator';
 
 const StyledMobilePaginator = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -37,11 +38,7 @@ const PageButton = styled.button.attrs({ type: 'button' })`
 `;
 
 const PageInfo = styled.div`
-  align-items: center;
   display: flex;
-  flex-grow: 1;
-  font-weight: bold;
-  height: 100%;
   justify-content: center;
 `;
 
