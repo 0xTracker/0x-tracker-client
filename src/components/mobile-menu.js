@@ -1,3 +1,4 @@
+import { Portal } from 'react-portal';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -17,6 +18,7 @@ const StyledMobileMenu = styled.ul`
   height: 100vh;
   padding: 5rem 0 0;
   position: absolute;
+  top: 0;
   width: 100vw;
   z-index: 100;
 `;
@@ -41,7 +43,7 @@ const Logo = styled.img`
 `;
 
 const MobileMenu = ({ onClose, onNavigate, onSearch }) => (
-  <>
+  <Portal>
     <DisableBodyScroll />
     <StyledMobileMenu aria-label="Menu" aria-modal role="dialog">
       <CloseButton autoFocus onClick={onClose} title="Close" type="button">
@@ -53,7 +55,7 @@ const MobileMenu = ({ onClose, onNavigate, onSearch }) => (
       <MobileSearchForm onSearch={onSearch} />
       <MobileNavigation onClick={onNavigate} />
     </StyledMobileMenu>
-  </>
+  </Portal>
 );
 
 MobileMenu.propTypes = {
