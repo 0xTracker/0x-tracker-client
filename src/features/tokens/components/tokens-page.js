@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { compose, withProps } from 'recompose';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 import qs from 'qs';
@@ -16,19 +17,24 @@ const TokensPage = ({ history, page, screenSize }) => {
   const pagesToDisplay = screenSize.greaterThan.sm ? 5 : 3;
 
   return (
-    <PageLayout
-      breadcrumbItems={[{ title: 'Tokens', url: URL.TOKENS }]}
-      title="Traded Tokens"
-    >
-      <Card fullHeight>
-        <TokenList
-          history={history}
-          limit={PAGE_SIZE}
-          page={page}
-          pagesToDisplay={pagesToDisplay}
-        />
-      </Card>
-    </PageLayout>
+    <>
+      <Helmet>
+        <title>Traded Tokens</title>
+      </Helmet>
+      <PageLayout
+        breadcrumbItems={[{ title: 'Tokens', url: URL.TOKENS }]}
+        title="Traded Tokens"
+      >
+        <Card fullHeight>
+          <TokenList
+            history={history}
+            limit={PAGE_SIZE}
+            page={page}
+            pagesToDisplay={pagesToDisplay}
+          />
+        </Card>
+      </PageLayout>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import { compose, mapProps } from 'recompose';
 import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -13,6 +14,7 @@ import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getPeriodOptions from '../../../util/get-period-options';
 import getRelayer from '../selectors/get-relayer';
+import LoadingIndicator from '../../../components/loading-indicator';
 import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
@@ -29,72 +31,82 @@ const ChartColumn = styled(Col)`
 `;
 
 const RelayerPage = ({ relayer, screenSize }) =>
-  relayer === undefined ? null : (
-    <PageLayout
-      breadcrumbItems={[
-        { title: 'Relayers', url: URL.RELAYERS },
-        { title: relayer.name, url: buildRelayerUrl(relayer) },
-      ]}
-      title={relayer.name}
-    >
-      <Row>
-        <ChartColumn lg={7}>
-          <ChartsContainer
-            charts={[
-              {
-                title: 'Network Volume',
-                component: <NetworkVolume relayerId={relayer.id} />,
-              },
-              {
-                title: 'Fills',
-                component: (
-                  <NetworkVolume relayerId={relayer.id} type="fills" />
-                ),
-              },
-              {
-                title: 'Fees',
-                component: <NetworkFees relayerId={relayer.id} />,
-              },
-            ]}
-            defaultPeriod={TIME_PERIOD.MONTH}
-            periods={
-              screenSize.greaterThan.xs
-                ? getPeriodOptions([
-                    TIME_PERIOD.DAY,
-                    TIME_PERIOD.WEEK,
-                    TIME_PERIOD.MONTH,
-                    TIME_PERIOD.YEAR,
-                    TIME_PERIOD.ALL,
-                  ])
-                : undefined
-            }
+  relayer === undefined ? (
+    <LoadingIndicator centered />
+  ) : (
+    <>
+      <Helmet>
+        <title>{relayer.name}</title>
+      </Helmet>
+      <PageLayout
+        breadcrumbItems={[
+          { title: 'Relayers', url: URL.RELAYERS },
+          { title: relayer.name, url: buildRelayerUrl(relayer) },
+        ]}
+        title={relayer.name}
+      >
+        <Row>
+          <ChartColumn lg={7}>
+            <ChartsContainer
+              charts={[
+                {
+                  title: 'Network Volume',
+                  component: <NetworkVolume relayerId={relayer.id} />,
+                },
+                {
+                  title: 'Fills',
+                  component: (
+                    <NetworkVolume relayerId={relayer.id} type="fills" />
+                  ),
+                },
+                {
+                  title: 'Fees',
+                  component: <NetworkFees relayerId={relayer.id} />,
+                },
+              ]}
+              defaultPeriod={TIME_PERIOD.MONTH}
+              periods={
+                screenSize.greaterThan.xs
+                  ? getPeriodOptions([
+                      TIME_PERIOD.DAY,
+                      TIME_PERIOD.WEEK,
+                      TIME_PERIOD.MONTH,
+                      TIME_PERIOD.YEAR,
+                      TIME_PERIOD.ALL,
+                    ])
+                  : undefined
+              }
+            />
+          </ChartColumn>
+          <ChartColumn lg={5}>
+            <ChartsContainer
+              charts={[
+                {
+                  title: 'Top Tokens',
+                  component: <TopTokens relayerId={relayer.id} />,
+                },
+              ]}
+              defaultPeriod={TIME_PERIOD.DAY}
+              periods={
+                screenSize.greaterThan.xs
+                  ? getPeriodOptions([
+                      TIME_PERIOD.DAY,
+                      TIME_PERIOD.WEEK,
+                      TIME_PERIOD.MONTH,
+                    ])
+                  : undefined
+              }
+            />
+          </ChartColumn>
+        </Row>
+        <Card>
+          <Fills
+            excludeColumns={['relayer']}
+            filter={{ relayer: relayer.id }}
           />
-        </ChartColumn>
-        <ChartColumn lg={5}>
-          <ChartsContainer
-            charts={[
-              {
-                title: 'Top Tokens',
-                component: <TopTokens relayerId={relayer.id} />,
-              },
-            ]}
-            defaultPeriod={TIME_PERIOD.DAY}
-            periods={
-              screenSize.greaterThan.xs
-                ? getPeriodOptions([
-                    TIME_PERIOD.DAY,
-                    TIME_PERIOD.WEEK,
-                    TIME_PERIOD.MONTH,
-                  ])
-                : undefined
-            }
-          />
-        </ChartColumn>
-      </Row>
-      <Card>
-        <Fills excludeColumns={['relayer']} filter={{ relayer: relayer.id }} />
-      </Card>
-    </PageLayout>
+        </Card>
+      </PageLayout>
+    </>
   );
 
 RelayerPage.propTypes = {
