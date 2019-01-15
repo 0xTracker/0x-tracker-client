@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -47,62 +48,67 @@ const ArticlesColumn = styled(Col).attrs({ md: 8 })`
 const NewsPage = ({ loadingSources, match, screenSize, sources }) => {
   const source = _.find(sources, { slug: match.params.source });
 
-  if (loadingSources) {
-    return <LoadingIndicator centered />;
-  }
-
   return (
-    <PageLayout
-      breadcrumbItems={_.compact([
-        { title: 'News & Updates', url: URL.NEWS },
-        source && {
-          title: source.name,
-        },
-      ])}
-      title={source ? `${source.name} News & Updates` : 'News & Updates'}
-    >
-      <Row css="flex-grow: 1;">
-        <ArticlesColumn>
-          <Card fullHeight padded>
-            <ArticlesProvider source={source ? source.slug : undefined}>
-              {({
-                articles,
-                canLoadMore,
-                loadingInitial,
-                loadingMore,
-                loadMore,
-              }) =>
-                loadingInitial ? (
-                  <LoadingIndicator centered />
-                ) : (
-                  <>
-                    <ArticleList
-                      articles={articles}
-                      compact={screenSize.lessThan.sm}
-                      showImages={screenSize.greaterThan.xs}
-                    />
-                    {canLoadMore ? (
-                      <LoadMoreButton onClick={loadMore} type="button">
-                        {loadingMore ? (
-                          <LoadingIndicator size="small" type="cylon" />
-                        ) : (
-                          'Load More Stories'
-                        )}
-                      </LoadMoreButton>
-                    ) : null}
-                  </>
-                )
-              }
-            </ArticlesProvider>
-          </Card>
-        </ArticlesColumn>
-        <Col md={4}>
-          <Card header={<CardHeading>Filter by source</CardHeading>}>
-            <ArticlesFilter sources={sources} />
-          </Card>
-        </Col>
-      </Row>
-    </PageLayout>
+    <>
+      <Helmet>
+        <title>News &amp; Updates</title>
+      </Helmet>
+      {loadingSources ? (
+        <LoadingIndicator centered />
+      ) : (
+        <PageLayout
+          breadcrumbItems={_.compact([
+            { title: 'News & Updates', url: URL.NEWS },
+            source && {
+              title: source.name,
+            },
+          ])}
+          title={source ? `${source.name} News & Updates` : 'News & Updates'}
+        >
+          <Row css="flex-grow: 1;">
+            <ArticlesColumn>
+              <Card fullHeight padded>
+                <ArticlesProvider source={source ? source.slug : undefined}>
+                  {({
+                    articles,
+                    canLoadMore,
+                    loadingInitial,
+                    loadingMore,
+                    loadMore,
+                  }) =>
+                    loadingInitial ? (
+                      <LoadingIndicator centered />
+                    ) : (
+                      <>
+                        <ArticleList
+                          articles={articles}
+                          compact={screenSize.lessThan.sm}
+                          showImages={screenSize.greaterThan.xs}
+                        />
+                        {canLoadMore ? (
+                          <LoadMoreButton onClick={loadMore} type="button">
+                            {loadingMore ? (
+                              <LoadingIndicator size="small" type="cylon" />
+                            ) : (
+                              'Load More Stories'
+                            )}
+                          </LoadMoreButton>
+                        ) : null}
+                      </>
+                    )
+                  }
+                </ArticlesProvider>
+              </Card>
+            </ArticlesColumn>
+            <Col md={4}>
+              <Card header={<CardHeading>Filter by source</CardHeading>}>
+                <ArticlesFilter sources={sources} />
+              </Card>
+            </Col>
+          </Row>
+        </PageLayout>
+      )}
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import { compose, mapProps } from 'recompose';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
@@ -43,40 +44,45 @@ class TokenPage extends PureComponent {
     }
 
     return (
-      <PageLayout
-        breadcrumbItems={[
-          { title: 'Tokens', url: URL.TOKENS },
-          { title: token.name, url: buildTokenUrl(token) },
-        ]}
-        title={token.name}
-      >
-        <ChartsContainer
-          charts={[
-            {
-              component: <TokenVolume token={token} />,
-              title: 'Network Volume',
-            },
+      <>
+        <Helmet>
+          <title>{token.name}</title>
+        </Helmet>
+        <PageLayout
+          breadcrumbItems={[
+            { title: 'Tokens', url: URL.TOKENS },
+            { title: token.name, url: buildTokenUrl(token) },
           ]}
-          css={`
-            margin: 0 0 1.25em 0;
+          title={token.name}
+        >
+          <ChartsContainer
+            charts={[
+              {
+                component: <TokenVolume token={token} />,
+                title: 'Network Volume',
+              },
+            ]}
+            css={`
+              margin: 0 0 1.25em 0;
 
-            ${media.greaterThan('lg')`
+              ${media.greaterThan('lg')`
               margin: 0 0 2em 0;
             `}
-          `}
-          defaultPeriod={TIME_PERIOD.MONTH}
-          periods={[
-            { label: '24H', value: TIME_PERIOD.DAY },
-            { label: '7D', value: TIME_PERIOD.WEEK },
-            { label: '1M', value: TIME_PERIOD.MONTH },
-            { label: '1Y', value: TIME_PERIOD.YEAR },
-            { label: 'ALL', value: TIME_PERIOD.ALL },
-          ]}
-        />
-        <Card css="flex-grow: 1;">
-          <Fills filter={{ token: token.address }} />
-        </Card>
-      </PageLayout>
+            `}
+            defaultPeriod={TIME_PERIOD.MONTH}
+            periods={[
+              { label: '24H', value: TIME_PERIOD.DAY },
+              { label: '7D', value: TIME_PERIOD.WEEK },
+              { label: '1M', value: TIME_PERIOD.MONTH },
+              { label: '1Y', value: TIME_PERIOD.YEAR },
+              { label: 'ALL', value: TIME_PERIOD.ALL },
+            ]}
+          />
+          <Card css="flex-grow: 1;">
+            <Fills filter={{ token: token.address }} />
+          </Card>
+        </PageLayout>
+      </>
     );
   }
 }

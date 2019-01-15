@@ -1,5 +1,6 @@
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -15,18 +16,23 @@ import withRelayerStats from '../../stats/components/with-relayer-stats';
 import withRelayers from './with-relayers';
 
 const RelayersPage = ({ relayers }) => (
-  <PageLayout
-    breadcrumbItems={[{ title: 'Relayers', url: URL.RELAYERS }]}
-    title="Relayers"
-  >
-    <Card fullHeight>
-      {relayers === undefined ? (
-        <LoadingIndicator centered />
-      ) : (
-        <RelayerList relayers={relayers} timePeriod={TIME_PERIOD.DAY} />
-      )}
-    </Card>
-  </PageLayout>
+  <>
+    <Helmet>
+      <title>Relayers</title>
+    </Helmet>
+    <PageLayout
+      breadcrumbItems={[{ title: 'Relayers', url: URL.RELAYERS }]}
+      title="Relayers"
+    >
+      <Card fullHeight>
+        {relayers === undefined ? (
+          <LoadingIndicator centered />
+        ) : (
+          <RelayerList relayers={relayers} timePeriod={TIME_PERIOD.DAY} />
+        )}
+      </Card>
+    </PageLayout>
+  </>
 );
 
 RelayersPage.propTypes = {

@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import { compose, withProps } from 'recompose';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import qs from 'qs';
@@ -20,33 +21,41 @@ const SearchPage = ({ searchQuery }) => {
   }
 
   return (
-    <PageLayout
-      breadcrumbItems={[
-        { title: 'Search Results', url: buildSearchUrl(searchQuery) },
-      ]}
-      title="Search Results"
-    >
-      <Card fullHeight>
-        <FillsProvider filter={{ address: _.toLower(searchQuery) }} page={page}>
-          {({ changingPage, fills, loading, pageCount, pageSize, total }) =>
-            loading ? (
-              <LoadingIndicator centered />
-            ) : (
-              <SearchResults
-                changingPage={changingPage}
-                fills={fills}
-                onPageChange={setPage}
-                page={page}
-                pageCount={pageCount}
-                pageSize={pageSize}
-                searchQuery={_.toLower(searchQuery)}
-                total={total}
-              />
-            )
-          }
-        </FillsProvider>
-      </Card>
-    </PageLayout>
+    <>
+      <Helmet>
+        <title>Search Results</title>
+      </Helmet>
+      <PageLayout
+        breadcrumbItems={[
+          { title: 'Search Results', url: buildSearchUrl(searchQuery) },
+        ]}
+        title="Search Results"
+      >
+        <Card fullHeight>
+          <FillsProvider
+            filter={{ address: _.toLower(searchQuery) }}
+            page={page}
+          >
+            {({ changingPage, fills, loading, pageCount, pageSize, total }) =>
+              loading ? (
+                <LoadingIndicator centered />
+              ) : (
+                <SearchResults
+                  changingPage={changingPage}
+                  fills={fills}
+                  onPageChange={setPage}
+                  page={page}
+                  pageCount={pageCount}
+                  pageSize={pageSize}
+                  searchQuery={_.toLower(searchQuery)}
+                  total={total}
+                />
+              )
+            }
+          </FillsProvider>
+        </Card>
+      </PageLayout>
+    </>
   );
 };
 
