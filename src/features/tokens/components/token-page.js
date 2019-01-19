@@ -57,7 +57,7 @@ class TokenPage extends PureComponent {
     return (
       <>
         <Helmet>
-          <title>{token.name}</title>
+          <title>{token.known ? token.name : 'Unknown Token'}</title>
         </Helmet>
         <PageLayout
           breadcrumbItems={[
