@@ -15,7 +15,7 @@ import PageLayout from '../../../components/page-layout';
 import TokenVolume from '../../metrics/components/token-volume';
 
 class TokenPage extends PureComponent {
-  state = {};
+  state = { loading: true };
 
   async componentDidMount() {
     await this.fetchData();
@@ -31,53 +31,69 @@ class TokenPage extends PureComponent {
 
   async fetchData() {
     const { tokenAddress } = this.props;
-    const token = await callApi(`tokens/${tokenAddress}`);
 
-    this.setState({ token });
+    let token;
+    try {
+      token = await callApi(`tokens/${tokenAddress}`);
+    } catch (error) {
+      this.setState({
+        loading: false,
+        token: { address: tokenAddress, known: false },
+      });
+    }
+
+    if (token) {
+      this.setState({ loading: false, token: { ...token, known: true } });
+    }
   }
 
   render() {
-    const { token } = this.state;
+    const { loading, token } = this.state;
 
-    if (token === undefined) {
+    if (loading) {
       return <LoadingIndicator centered />;
     }
 
     return (
       <>
         <Helmet>
-          <title>{token.name}</title>
+          <title>{token.known ? token.name : 'Unknown Token'}</title>
         </Helmet>
         <PageLayout
           breadcrumbItems={[
             { title: 'Tokens', url: URL.TOKENS },
-            { title: token.name, url: buildTokenUrl(token) },
+            {
+              title: token.known ? token.name : 'Unknown Token',
+              url: buildTokenUrl(token),
+            },
           ]}
-          title={token.name}
+          title={token.known ? token.name : 'Unknown Token'}
         >
-          <ChartsContainer
-            charts={[
-              {
-                component: <TokenVolume token={token} />,
-                title: 'Network Volume',
-              },
-            ]}
-            css={`
-              margin: 0 0 1.25em 0;
+          {token.known ? (
+            <ChartsContainer
+              charts={[
+                {
+                  component: <TokenVolume token={token} />,
+                  title: 'Network Volume',
+                },
+              ]}
+              css={`
+                margin: 0 0 1.25em 0;
 
-              ${media.greaterThan('lg')`
+                ${media.greaterThan('lg')`
               margin: 0 0 2em 0;
             `}
-            `}
-            defaultPeriod={TIME_PERIOD.MONTH}
-            periods={[
-              { label: '24H', value: TIME_PERIOD.DAY },
-              { label: '7D', value: TIME_PERIOD.WEEK },
-              { label: '1M', value: TIME_PERIOD.MONTH },
-              { label: '1Y', value: TIME_PERIOD.YEAR },
-              { label: 'ALL', value: TIME_PERIOD.ALL },
-            ]}
-          />
+              `}
+              defaultPeriod={TIME_PERIOD.MONTH}
+              periods={[
+                { label: '24H', value: TIME_PERIOD.DAY },
+                { label: '7D', value: TIME_PERIOD.WEEK },
+                { label: '1M', value: TIME_PERIOD.MONTH },
+                { label: '1Y', value: TIME_PERIOD.YEAR },
+                { label: 'ALL', value: TIME_PERIOD.ALL },
+              ]}
+            />
+          ) : null}
           <Card css="flex-grow: 1;">
             <Fills filter={{ token: token.address }} />
           </Card>
