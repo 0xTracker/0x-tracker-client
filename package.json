@@ -92,7 +92,7 @@
     "error-overlay-webpack-plugin": "0.1.5",
     "eslint": "5.12.1",
     "eslint-config-airbnb-base": "13.1.0",
-    "eslint-config-prettier": "3.5.0",
+    "eslint-config-prettier": "3.6.0",
     "eslint-plugin-classes": "0.1.1",
     "eslint-plugin-compat": "2.6.3",
     "eslint-plugin-eslint-comments": "3.0.1",
