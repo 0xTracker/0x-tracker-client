@@ -39,7 +39,7 @@ module.exports = (env = {}) =>
       },
     },
     output: {
-      filename: 'assets/js/[name].[chunkhash].bundle.js',
+      filename: 'assets/js/[name].[contenthash].bundle.js',
     },
     plugins: _.compact([
       new CleanWebpackPlugin([paths.output], {
