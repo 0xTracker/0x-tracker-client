@@ -1,52 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render for ETH currency 1`] = `
+.c0 {
+  background-color: #f7f8fe;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  padding: 1rem;
+  text-align: left;
+}
+
+.c1 {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.c3 {
+  display: inline-block;
+  font-weight: normal;
+}
+
+.c4 {
+  display: inline-block;
+  margin-left: 0.25rem;
+}
+
+.c2 {
+  margin: 0;
+  padding: 0;
+}
+
 <div
-  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 bfjmva"
+  class="c0"
 >
   <h1
-    class="chart-tooltip__ChartTooltipTitle-sc-1bnoebf-1 jaVyDc"
+    class="c1"
   >
     Radar Relay
   </h1>
   <dl
-    class="sc-bdVaJa hzNPjz"
+    class="c2"
   >
     <div>
       <dt
-        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
+        class="c3"
       >
         market share
         :
       </dt>
       <dd
-        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
+        class="c4"
       >
         50%
       </dd>
     </div>
     <div>
       <dt
-        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
+        class="c3"
       >
         total trades
         :
       </dt>
       <dd
-        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
+        class="c4"
       >
         50
       </dd>
     </div>
     <div>
       <dt
-        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
+        class="c3"
       >
         volume (ETH)
         :
       </dt>
       <dd
-        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
+        class="c4"
       >
         Ξ 540,600.000000
       </dd>
@@ -56,52 +86,82 @@ exports[`should render for ETH currency 1`] = `
 `;
 
 exports[`should render with payload 1`] = `
+.c0 {
+  background-color: #f7f8fe;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  padding: 1rem;
+  text-align: left;
+}
+
+.c1 {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.c3 {
+  display: inline-block;
+  font-weight: normal;
+}
+
+.c4 {
+  display: inline-block;
+  margin-left: 0.25rem;
+}
+
+.c2 {
+  margin: 0;
+  padding: 0;
+}
+
 <div
-  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 bfjmva"
+  class="c0"
 >
   <h1
-    class="chart-tooltip__ChartTooltipTitle-sc-1bnoebf-1 jaVyDc"
+    class="c1"
   >
     Radar Relay
   </h1>
   <dl
-    class="sc-bdVaJa hzNPjz"
+    class="c2"
   >
     <div>
       <dt
-        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
+        class="c3"
       >
         market share
         :
       </dt>
       <dd
-        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
+        class="c4"
       >
         22.5%
       </dd>
     </div>
     <div>
       <dt
-        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
+        class="c3"
       >
         total trades
         :
       </dt>
       <dd
-        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
+        class="c4"
       >
         50
       </dd>
     </div>
     <div>
       <dt
-        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
+        class="c3"
       >
         volume (USD)
         :
       </dt>
       <dd
-        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
+        class="c4"
       >
         $540,600.00
       </dd>

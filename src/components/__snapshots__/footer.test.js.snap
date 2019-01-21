@@ -1,11 +1,143 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render without props 1`] = `
+.c6 {
+  display: inline-block;
+  vertical-align: -.125em;
+  overflow: hidden;
+}
+
+.c8 {
+  display: inline-block;
+  vertical-align: -.125em;
+  overflow: hidden;
+}
+
+.c9 {
+  display: inline-block;
+  vertical-align: -.125em;
+  overflow: hidden;
+}
+
+.c1 {
+  max-width: 1170px;
+}
+
+.c4 {
+  color: #3f4ac3;
+  cursor: pointer;
+}
+
+.c4:hover {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3 {
+  color: rgba(255,255,255,0.5);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 1rem;
+}
+
+.c3:first-child {
+  margin-left: 0;
+}
+
+.c3:hover {
+  color: #fff;
+}
+
+.c5 {
+  height: 1.5rem;
+  vertical-align: middle;
+  width: 1.5rem;
+}
+
+.c0 {
+  background: #0A0830;
+  color: #fff;
+  padding: 2rem;
+}
+
+.c2 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.c7 {
+  color: inherit;
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.c7 path {
+  fill: currentColor;
+}
+
+.c10 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin-bottom: 0;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+  }
+}
+
+@media (min-width:768px) {
+  .c7 {
+    height: 1rem;
+    width: 1rem;
+  }
+}
+
+@media (min-width:768px) {
+  .c10 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+}
+
 <div
-  class="sc-bxivhb cdiadm"
+  class="c0"
 >
   <div
-    class="container__StyledContainer-cj53s7-0 eMKfDZ container-fluid"
+    class="c1 container-fluid"
   >
     <div
       class="row"
@@ -20,10 +152,10 @@ exports[`should render without props 1`] = `
             ,
     }
   "
-        class="footer__FooterColumn-htpw4v-2 sc-ifAKCX kBnFPq col-12 col-md-6"
+        class="c2 col-12 col-md-6"
       >
         <a
-          class="footer__FooterIconLink-htpw4v-0 fCORGB link__OutboundLink-sc-1m1n17q-0 dFkevI"
+          class="c3 c4"
           href="https://github.com/0xtracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -31,7 +163,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="footer__FooterIcon-htpw4v-1 dkzOKO sc-bdVaJa cjEDWs"
+            class="c5 c6"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 496 512"
@@ -43,7 +175,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="footer__FooterIconLink-htpw4v-0 fCORGB link__OutboundLink-sc-1m1n17q-0 dFkevI"
+          class="c3 c4"
           href="https://spectrum.chat/0x-tracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -58,7 +190,7 @@ exports[`should render without props 1`] = `
                 ,
     }
   "
-            class="spectrum-icon__SpectrumIcon-eoh51w-0 sc-EHOje dYHcfl"
+            class="c7"
             viewBox="0 0 15 15"
           >
             <path
@@ -67,7 +199,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="footer__FooterIconLink-htpw4v-0 fCORGB link__OutboundLink-sc-1m1n17q-0 dFkevI"
+          class="c3 c4"
           href="https://twitter.com/0xTracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -75,7 +207,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="footer__FooterIcon-htpw4v-1 dkzOKO sc-bwzfXH dsFEmQ"
+            class="c5 c8"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 512 512"
@@ -87,7 +219,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="footer__FooterIconLink-htpw4v-0 fCORGB link__OutboundLink-sc-1m1n17q-0 dFkevI"
+          class="c3 c4"
           href="https://medium.com/0x-tracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -95,7 +227,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="footer__FooterIcon-htpw4v-1 dkzOKO sc-htpNat hxgniI"
+            class="c5 c9"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 512 512"
@@ -115,7 +247,7 @@ exports[`should render without props 1`] = `
             ,
     }
   "
-        class="footer__FooterColumn-htpw4v-2 sc-bZQynM iaMvup col-12 col-md-6"
+        class="c10 col-12 col-md-6"
       >
         Copyright © 0x Tracker 
         2019
