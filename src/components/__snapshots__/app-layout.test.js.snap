@@ -227,6 +227,7 @@ exports[`app layout component should render with children 1`] = `
 }
 
 .c14 {
+  background-color: #f1f2f7;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

@@ -11,13 +11,12 @@ const GlobalStyles = createGlobalStyle`
 
   html,
   body {
-    background-color: transparent;
+    background-color: none;
     font-size: 15px;
     height: 100%;
   }
   
   body {
-    background-color: ${colors.athensGray};
     color: ${colors.violet};
     display: flex;
     flex: 1;
