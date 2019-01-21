@@ -113,7 +113,6 @@ If a convention exists for locating configuration files related to developer too
   - **constants.js** - Shared constants. Each constant should be a named export.
   - **index.js** - Application entry point.
   - **prop-types.js** - Common non-feature specific prop-types.
-- **stories** - Storybook stories.
 
 ## 🤖 NPM Scripts
 
