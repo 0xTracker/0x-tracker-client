@@ -1,6 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders with basic props 1`] = `
+.c3 {
+  color: #3f4ac3;
+  cursor: pointer;
+}
+
+.c3:hover {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 {
+  color: #3f4ac3;
+  cursor: pointer;
+}
+
+.c0:hover {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1 {
+  display: inline-block;
+  vertical-align: -.125em;
+  overflow: hidden;
+}
+
+.c2 {
+  color: #6C6B80;
+  font-size: 0.9rem;
+}
+
 <table
   class="table table-responsive"
 >
@@ -43,12 +76,12 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+          class="c0"
           href="/relayers/ddex"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs"
+            class="c1"
             color="#dcdde4"
             fill="currentColor"
             focusable="false"
@@ -68,7 +101,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <a
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+          class="c0"
           href="/relayers/ddex"
         >
           DDEX
@@ -76,7 +109,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="sc-htpNat dONRAh link__OutboundLink-sc-1m1n17q-0 dFkevI"
+          class="c2 c3"
           href="https://ddex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -109,12 +142,12 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+          class="c0"
           href="/relayers/paradex"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs"
+            class="c1"
             color="#dcdde4"
             fill="currentColor"
             focusable="false"
@@ -134,7 +167,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <a
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+          class="c0"
           href="/relayers/paradex"
         >
           Paradex
@@ -142,7 +175,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="sc-htpNat dONRAh link__OutboundLink-sc-1m1n17q-0 dFkevI"
+          class="c2 c3"
           href="https://paradex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -175,12 +208,12 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+          class="c0"
           href="/relayers/radar-relay"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs"
+            class="c1"
             color="#dcdde4"
             fill="currentColor"
             focusable="false"
@@ -200,7 +233,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <a
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+          class="c0"
           href="/relayers/radar-relay"
         >
           Radar Relay
@@ -208,7 +241,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="sc-htpNat dONRAh link__OutboundLink-sc-1m1n17q-0 dFkevI"
+          class="c2 c3"
           href="https://radarrelay.com"
           rel="noopener noreferrer"
           target="_blank"
@@ -241,12 +274,12 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+          class="c0"
           href="/relayers/sad-relayer"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs"
+            class="c1"
             color="#dcdde4"
             fill="currentColor"
             focusable="false"
@@ -266,7 +299,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <a
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+          class="c0"
           href="/relayers/sad-relayer"
         >
           Sad Relayer
@@ -274,7 +307,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="sc-htpNat dONRAh link__OutboundLink-sc-1m1n17q-0 dFkevI"
+          class="c2 c3"
           href="https://google.com"
           rel="noopener noreferrer"
           target="_blank"

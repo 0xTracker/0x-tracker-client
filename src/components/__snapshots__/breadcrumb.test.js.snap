@@ -1,9 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render with items 1`] = `
+.c1 {
+  color: #3f4ac3;
+  cursor: pointer;
+}
+
+.c1:hover {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 .breadcrumb {
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
 <nav
   aria-label="breadcrumb"
-  class="breadcrumb__StyledBreadcrumb-yqtjg0-0 eCKXTH"
+  class="c0"
 >
   <ol
     class="breadcrumb"
@@ -12,7 +29,7 @@ exports[`should render with items 1`] = `
       class="breadcrumb-item"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="c1"
         href="/"
       >
         Home
@@ -22,7 +39,7 @@ exports[`should render with items 1`] = `
       class="breadcrumb-item"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="c1"
         href="/tokens"
       >
         Tokens

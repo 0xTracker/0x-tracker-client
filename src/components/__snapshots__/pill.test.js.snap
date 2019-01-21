@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pill component should render with children 1`] = `
+.c0 {
+  background-color: #f1f2f7;
+  border-radius: 0.25rem;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.7rem;
+  text-transform: uppercase;
+}
+
+.c0:hover {
+  background-color: #dcdde4;
+  color: currentColor;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<span
+  class="c0"
+>
+  Hello World
+</span>
+`;

@@ -3,8 +3,19 @@
 exports[`returns "None" when the trade does not have a fee recipient 1`] = `None`;
 
 exports[`returns a fee recipient link when the trade does not have a relayer but does have a fee recipient 1`] = `
+.c0 {
+  color: #3f4ac3;
+  cursor: pointer;
+}
+
+.c0:hover {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 <a
-  class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+  class="c0"
   href="/search?q=0x004e344251110fa1cb09aa31c95c6598ed07dce6"
 >
   Unknown
@@ -12,8 +23,19 @@ exports[`returns a fee recipient link when the trade does not have a relayer but
 `;
 
 exports[`returns relayer link when trade has a relayer 1`] = `
+.c0 {
+  color: #3f4ac3;
+  cursor: pointer;
+}
+
+.c0:hover {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 <a
-  class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+  class="c0"
   href="/relayers/google"
 >
   Google

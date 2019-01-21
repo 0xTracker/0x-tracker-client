@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`card component should render with children 1`] = `
+.c0 {
+  background-color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  box-shadow: 0px 2px 4px rgba(126,142,177,0.12);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  overflow: hidden;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  padding: 0;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1"
+  >
+    Hello World
+  </div>
+</div>
+`;
+
+exports[`card component should render with header 1`] = `
+.c1 {
+  background: none;
+  border-bottom: 1px solid #f1f2f7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.c0 {
+  background-color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  box-shadow: 0px 2px 4px rgba(126,142,177,0.12);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  overflow: hidden;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  padding: 0;
+}
+
+.c2 {
+  font-size: 1.1rem;
+  margin: 0;
+  padding: 0;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1 card-header"
+  >
+    <h2
+      class="c2"
+    >
+      Welcome Message
+    </h2>
+  </div>
+  <div
+    class="c3"
+  >
+    Hello World
+  </div>
+</div>
+`;
