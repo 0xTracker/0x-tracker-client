@@ -5,8 +5,13 @@ import { colors } from '../styles/constants';
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Monda');
   
+  #root {
+    height: 100%;
+  }
+
   html,
   body {
+    background-color: transparent;
     font-size: 15px;
     height: 100%;
   }

@@ -3,10 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { subDays } from 'date-fns';
 import React from 'react';
 
-import { TIME_PERIOD } from '../src/constants';
-import TokenVolumeChart from '../src/features/metrics/components/token-volume-chart';
+import { TIME_PERIOD } from '../../../constants';
+import TokenVolumeChart from './token-volume-chart';
 
-storiesOf('Charts|TokenVolumeChart', module).addWithJSX('default', () => {
+storiesOf('Charts|TokenVolumeChart', module).add('default', () => {
   const currentDate = new Date();
 
   const data = _.times(31, index => {

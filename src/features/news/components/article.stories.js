@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import NewsArticle from '../src/features/news/components/article';
+import NewsArticle from './article';
 
 const simpleArticle = {
   id: '123',
@@ -13,9 +13,9 @@ const simpleArticle = {
   url: 'https://0xproject.com',
 };
 
-storiesOf('Articles|Article', module)
-  .addWithJSX('default', () => <NewsArticle article={simpleArticle} />)
-  .addWithJSX('without linked source', () => (
+storiesOf('News|Article', module)
+  .add('default', () => <NewsArticle article={simpleArticle} />)
+  .add('without linked source', () => (
     <NewsArticle
       article={{
         ...simpleArticle,
@@ -23,7 +23,7 @@ storiesOf('Articles|Article', module)
       }}
     />
   ))
-  .addWithJSX('with long summary', () => (
+  .add('with long summary', () => (
     <NewsArticle
       article={{
         ...simpleArticle,
