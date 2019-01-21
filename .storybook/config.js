@@ -1,17 +1,17 @@
 import _ from 'lodash';
 import { setOptions } from '@storybook/addon-options';
-import { addDecorator, configure, setAddon } from '@storybook/react';
+import { addDecorator, configure } from '@storybook/react';
 import { withBackgrounds } from '@storybook/addon-backgrounds';
 import { createGlobalStyle } from 'styled-components';
 import { configureViewport } from '@storybook/addon-viewport';
-import JSXAddon from 'storybook-addon-jsx';
 import React from 'react';
 import StoryRouter from 'storybook-router';
 
-import 'bootstrap/dist/css/bootstrap.css'; // This must come before GlobalStyles due to import precedence
+// This must come before GlobalStyles due to import precedence
+import 'bootstrap/dist/css/bootstrap.css';
 
-import GlobalStyles from '../src/components/global-styles';
 import { colors } from '../src/styles/constants';
+import GlobalStyles from '../src/components/global-styles';
 
 const StorybookStyles = createGlobalStyle`
   body {
@@ -34,8 +34,9 @@ addDecorator(new StoryRouter());
 
 addDecorator(
   withBackgrounds([
-    { default: true, name: 'card', value: colors.white },
-    { name: 'body', value: colors.athensGray },
+    { name: 'athens gray', value: colors.athensGray },
+    { name: 'violet', value: colors.violet },
+    { default: true, name: 'white', value: colors.white },
   ]),
 );
 
@@ -45,13 +46,13 @@ setOptions({
   addonPanelInRight: false,
   hierarchyRootSeparator: /\|/,
   name: '0x Tracker',
+  sortStoriesByKind: true,
 });
 
-const req = require.context('../stories', true, /\.js$/);
+const req = require.context('../src', true, /\.stories.js$/);
 
 function loadStories() {
   _.forEach(req.keys(), filename => req(filename));
 }
 
-setAddon(JSXAddon);
 configure(loadStories, module);

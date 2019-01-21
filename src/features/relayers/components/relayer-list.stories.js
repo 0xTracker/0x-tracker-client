@@ -1,15 +1,16 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { TIME_PERIOD } from '../src/constants';
-import RelayerList from '../src/features/relayers/components/relayer-list';
-import ReduxContext from '../src/components/redux-context';
+import { TIME_PERIOD } from '../../../constants';
+import RelayerList from './relayer-list';
+import ReduxContext from '../../../components/redux-context';
 
-storiesOf('Relayers|RelayerList', module).addWithJSX('default', () => (
+storiesOf('Relayers|RelayerList', module).add('default', () => (
   <ReduxContext>
     <RelayerList
       relayers={[
         {
+          imageUrl: 'https://0xtracker.com/assets/logos/radar-relay.png',
           name: 'Radar Relay',
           slug: 'radar-relay',
           stats: {
@@ -19,6 +20,7 @@ storiesOf('Relayers|RelayerList', module).addWithJSX('default', () => (
           url: 'https://radarrelay.com',
         },
         {
+          imageUrl: 'https://0xtracker.com/assets/logos/ddex.png',
           name: 'DDEX',
           slug: 'ddex',
           stats: {
@@ -28,6 +30,7 @@ storiesOf('Relayers|RelayerList', module).addWithJSX('default', () => (
           url: 'https://ddex.io',
         },
         {
+          imageUrl: 'https://0xtracker.com/assets/logos/paradex.png',
           name: 'Paradex',
           slug: 'paradex',
           stats: {

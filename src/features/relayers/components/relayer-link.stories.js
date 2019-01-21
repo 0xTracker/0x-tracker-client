@@ -1,14 +1,13 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import RelayerLink from '../src/features/relayers/components/relayer-link';
+import RelayerLink from './relayer-link';
 
-storiesOf('Relayers|RelayerLink', module).addWithJSX('default', () => (
+storiesOf('Relayers|RelayerLink', module).add('default', () => (
   <RelayerLink
     relayer={{
       name: 'Radar Relay',
       slug: 'radar-relay',
-      url: 'https://radarrelay.com',
     }}
   >
     Radar Relay

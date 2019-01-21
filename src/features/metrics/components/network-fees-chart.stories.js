@@ -3,10 +3,10 @@ import { subDays } from 'date-fns';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import { TIME_PERIOD } from '../src/constants';
-import NetworkFeesChart from '../src/features/metrics/components/network-fees-chart';
+import { TIME_PERIOD } from '../../../constants';
+import NetworkFeesChart from './network-fees-chart';
 
-storiesOf('Charts|NetworkFeesChart', module).addWithJSX('default', () => {
+storiesOf('Charts|NetworkFeesChart', module).add('default', () => {
   const currentDate = new Date();
 
   const data = _.times(31, index => {

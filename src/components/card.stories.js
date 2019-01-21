@@ -1,8 +1,8 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import Card from '../src/components/card';
-import CardHeading from '../src/components/card-heading';
+import Card from './card';
+import CardHeading from './card-heading';
 
 storiesOf('Layout|Card', module)
   .addDecorator(getStory => (
@@ -10,15 +10,15 @@ storiesOf('Layout|Card', module)
       {getStory()}
     </div>
   ))
-  .addWithJSX('default', () => <Card>Hello World</Card>)
-  .addWithJSX('padded', () => <Card padded>Hello World</Card>)
-  .addWithJSX('full height', () => <Card fullHeight>Hello World</Card>)
-  .addWithJSX('with header', () => (
+  .add('default', () => <Card>Hello World</Card>)
+  .add('padded', () => <Card padded>Hello World</Card>)
+  .add('full height', () => <Card fullHeight>Hello World</Card>)
+  .add('with header', () => (
     <Card header={<CardHeading>Hello World</CardHeading>} padded>
       Welcome to storybook
     </Card>
   ))
-  .addWithJSX('with custom styles', () => (
+  .add('with custom styles', () => (
     <Card css="background-color: chocolate; color: white; padding: 2rem;">
       Hello World
     </Card>

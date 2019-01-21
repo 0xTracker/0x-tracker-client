@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import ContentHeader from '../src/components/content-header';
+import ContentHeader from './content-header';
 
 const simpleProps = {
   breadcrumbItems: [
@@ -11,6 +11,6 @@ const simpleProps = {
   title: 'Basic Attention Token',
 };
 
-storiesOf('Layout|ContentHeader', module).addWithJSX('default', () => (
+storiesOf('Layout|ContentHeader', module).add('default', () => (
   <ContentHeader {...simpleProps} />
 ));

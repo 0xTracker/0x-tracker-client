@@ -1,9 +1,9 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
-import ChartTooltip from '../src/components/chart-tooltip';
+import ChartTooltip from './chart-tooltip';
 
-storiesOf('Charts|ChartTooltip', module).addWithJSX('default', () => (
+storiesOf('Charts|ChartTooltip', module).add('default', () => (
   <div css="width: 300px;">
     <ChartTooltip
       items={[

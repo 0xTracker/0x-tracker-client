@@ -3,10 +3,10 @@ import { storiesOf } from '@storybook/react';
 import { subDays } from 'date-fns';
 import React from 'react';
 
-import { TIME_PERIOD } from '../src/constants';
-import NetworkVolumeChart from '../src/features/metrics/components/network-volume-chart';
+import { TIME_PERIOD } from '../../../constants';
+import NetworkVolumeChart from './network-volume-chart';
 
-storiesOf('Charts|NetworkVolumeChart', module).addWithJSX('default', () => {
+storiesOf('Charts|NetworkVolumeChart', module).add('default', () => {
   const currentDate = new Date();
 
   const data = _.times(31, index => {
