@@ -1,18 +1,11 @@
-import { Route } from 'react-router-dom';
-import React from 'react';
-
 import { URL } from '../../constants';
 import AsyncRelayerPage from './components/async-relayer-page';
 import AsyncRelayersPage from './components/async-relayers-page';
+import createPageRoute from '../../util/create-page-route';
 
 const getRoutes = () => [
-  <Route
-    component={AsyncRelayersPage}
-    exact
-    key="relayers"
-    path={URL.RELAYERS}
-  />,
-  <Route component={AsyncRelayerPage} exact key="relayer" path={URL.RELAYER} />,
+  createPageRoute(URL.RELAYERS, AsyncRelayersPage),
+  createPageRoute(URL.RELAYER, AsyncRelayerPage),
 ];
 
 export default getRoutes;

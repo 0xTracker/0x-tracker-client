@@ -1,16 +1,9 @@
-import { Route } from 'react-router-dom';
-import React from 'react';
-
 import { URL } from '../../constants';
 import AsyncDashboardPage from './components/async-dashboard-page';
+import createPageRoute from '../../util/create-page-route';
 
 const getDashboardRoutes = () => [
-  <Route
-    component={AsyncDashboardPage}
-    exact
-    key="dashboard"
-    path={URL.DASHBOARD}
-  />,
+  createPageRoute(URL.DASHBOARD, AsyncDashboardPage),
 ];
 
 export default getDashboardRoutes;

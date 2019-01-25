@@ -15,7 +15,7 @@ const ContentBody = styled(Container)`
 const StyledPageLayout = styled.div`
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  height: 100%;
 `;
 
 const PageLayout = ({ breadcrumbItems, children, title }) => (

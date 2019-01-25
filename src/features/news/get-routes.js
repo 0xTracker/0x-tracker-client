@@ -1,16 +1,9 @@
-import { Route } from 'react-router-dom';
-import React from 'react';
-
 import { URL } from '../../constants';
 import AsyncNewsPage from './components/async-news-page';
+import createPageRoute from '../../util/create-page-route';
 
 const getRoutes = () => [
-  <Route
-    component={AsyncNewsPage}
-    exact
-    key="news"
-    path={[URL.NEWS, `${URL.NEWS}/:source`]}
-  />,
+  createPageRoute([URL.NEWS, `${URL.NEWS}/:source`], AsyncNewsPage),
 ];
 
 export default getRoutes;

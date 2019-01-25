@@ -4,16 +4,15 @@ import { colors } from '../styles/constants';
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Monda');
-  
+
   #root {
-    height: 100%;
+    min-height: 100vh;
   }
 
   html,
   body {
     background-color: none;
     font-size: 15px;
-    height: 100%;
   }
   
   body {

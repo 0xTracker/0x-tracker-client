@@ -1,11 +1,7 @@
-import { Route } from 'react-router-dom';
-import React from 'react';
-
 import { URL } from '../../constants';
 import AsyncSearchPage from './components/async-search-page';
+import createPageRoute from '../../util/create-page-route';
 
-const getRoutes = () => [
-  <Route component={AsyncSearchPage} exact key="search" path={URL.SEARCH} />,
-];
+const getRoutes = () => [createPageRoute(URL.SEARCH, AsyncSearchPage)];
 
 export default getRoutes;
