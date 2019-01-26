@@ -1,11 +1,8 @@
 import { URL } from '../../constants';
-import AsyncRelayerPage from './components/async-relayer-page';
-import AsyncRelayersPage from './components/async-relayers-page';
-import createPageRoute from '../../util/create-page-route';
 
 const getRoutes = () => [
-  createPageRoute(URL.RELAYERS, AsyncRelayersPage),
-  createPageRoute(URL.RELAYER, AsyncRelayerPage),
+  { loader: () => import('./components/relayers-page'), path: URL.RELAYERS },
+  { loader: () => import('./components/relayer-page'), path: URL.RELAYER },
 ];
 
 export default getRoutes;

@@ -1,7 +1,7 @@
 import { URL } from '../../constants';
-import AsyncSearchPage from './components/async-search-page';
-import createPageRoute from '../../util/create-page-route';
 
-const getRoutes = () => [createPageRoute(URL.SEARCH, AsyncSearchPage)];
+const getRoutes = () => [
+  { loader: () => import('./components/search-page'), path: URL.SEARCH },
+];
 
 export default getRoutes;

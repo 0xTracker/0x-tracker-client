@@ -1,11 +1,8 @@
 import { URL } from '../../constants';
-import AsyncFillPage from './components/async-fill-page';
-import AsyncFillsPage from './components/async-fills-page';
-import createPageRoute from '../../util/create-page-route';
 
 const getRoutes = () => [
-  createPageRoute(URL.FILLS, AsyncFillsPage),
-  createPageRoute(URL.FILL, AsyncFillPage),
+  { loader: () => import('./components/fills-page'), path: URL.FILLS },
+  { loader: () => import('./components/fill-page'), path: URL.FILL },
 ];
 
 export default getRoutes;
