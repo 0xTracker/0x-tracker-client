@@ -17,6 +17,7 @@ import Card from '../../../components/card';
 import CardHeading from '../../../components/card-heading';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
+import PageLoadingIndicator from '../../../components/page-loading-indicator';
 
 const LoadMoreButton = styled.button`
   align-items: center;
@@ -54,7 +55,7 @@ const NewsPage = ({ loadingSources, match, screenSize, sources }) => {
         <title>News &amp; Updates</title>
       </Helmet>
       {loadingSources ? (
-        <LoadingIndicator centered />
+        <PageLoadingIndicator />
       ) : (
         <PageLayout
           breadcrumbItems={_.compact([

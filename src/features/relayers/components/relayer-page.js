@@ -14,10 +14,10 @@ import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getPeriodOptions from '../../../util/get-period-options';
 import getRelayer from '../selectors/get-relayer';
-import LoadingIndicator from '../../../components/loading-indicator';
 import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
+import PageLoadingIndicator from '../../../components/page-loading-indicator';
 import relayersPropTypes from '../prop-types';
 import TopTokens from '../../tokens/components/top-tokens';
 import withRelayers from './with-relayers';
@@ -30,10 +30,12 @@ const ChartColumn = styled(Col)`
   `}
 `;
 
-const RelayerPage = ({ relayer, screenSize }) =>
-  relayer === undefined ? (
-    <LoadingIndicator centered />
-  ) : (
+const RelayerPage = ({ relayer, screenSize }) => {
+  if (relayer === undefined) {
+    return <PageLoadingIndicator />;
+  }
+
+  return (
     <>
       <Helmet>
         <title>{relayer.name}</title>
@@ -50,18 +52,18 @@ const RelayerPage = ({ relayer, screenSize }) =>
             <ChartsContainer
               charts={[
                 {
-                  title: 'Network Volume',
                   component: <NetworkVolume relayerId={relayer.id} />,
+                  title: 'Network Volume',
                 },
                 {
-                  title: 'Fills',
                   component: (
                     <NetworkVolume relayerId={relayer.id} type="fills" />
                   ),
+                  title: 'Fills',
                 },
                 {
-                  title: 'Fees',
                   component: <NetworkFees relayerId={relayer.id} />,
+                  title: 'Fees',
                 },
               ]}
               defaultPeriod={TIME_PERIOD.MONTH}
@@ -82,8 +84,8 @@ const RelayerPage = ({ relayer, screenSize }) =>
             <ChartsContainer
               charts={[
                 {
-                  title: 'Top Tokens',
                   component: <TopTokens relayerId={relayer.id} />,
+                  title: 'Top Tokens',
                 },
               ]}
               defaultPeriod={TIME_PERIOD.DAY}
@@ -108,6 +110,7 @@ const RelayerPage = ({ relayer, screenSize }) =>
       </PageLayout>
     </>
   );
+};
 
 RelayerPage.propTypes = {
   relayer: relayersPropTypes.relayer,

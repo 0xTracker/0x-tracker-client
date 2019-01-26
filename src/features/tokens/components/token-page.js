@@ -10,8 +10,8 @@ import callApi from '../../../util/call-api';
 import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
-import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
+import PageLoadingIndicator from '../../../components/page-loading-indicator';
 import TokenVolume from '../../metrics/components/token-volume';
 
 class TokenPage extends PureComponent {
@@ -36,6 +36,7 @@ class TokenPage extends PureComponent {
     try {
       token = await callApi(`tokens/${tokenAddress}`);
     } catch (error) {
+      // TODO: Bubble up non-404 errors to error boundary
       this.setState({
         loading: false,
         token: { address: tokenAddress, known: false },
@@ -51,7 +52,7 @@ class TokenPage extends PureComponent {
     const { loading, token } = this.state;
 
     if (loading) {
-      return <LoadingIndicator centered />;
+      return <PageLoadingIndicator />;
     }
 
     return (

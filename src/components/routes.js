@@ -1,8 +1,9 @@
-import { Route, Switch } from 'react-router-dom';
+import _ from 'lodash';
+import { Switch } from 'react-router-dom';
 import React from 'react';
 
 import AnalyticsRoute from './analytics-route';
-import AsyncPageNotFound from './async-page-not-found';
+import createPageRoute from '../util/create-page-route';
 import getDashboardRoutes from '../features/dashboard/get-dashboard-routes';
 import getFillsRoutes from '../features/fills/get-routes';
 import getNewsRoutes from '../features/news/get-routes';
@@ -10,19 +11,27 @@ import getRelayersRoutes from '../features/relayers/get-routes';
 import getSearchRoutes from '../features/search/get-routes';
 import getTokensRoutes from '../features/tokens/get-routes';
 
-const Routes = () => (
-  <>
-    <AnalyticsRoute /> {/* Track page views */}
-    <Switch>
-      {getDashboardRoutes()}
-      {getFillsRoutes()}
-      {getNewsRoutes()}
-      {getRelayersRoutes()}
-      {getSearchRoutes()}
-      {getTokensRoutes()}
-      <Route component={AsyncPageNotFound} />
-    </Switch>
-  </>
-);
+const Routes = () => {
+  const routes = _.flatten([
+    getDashboardRoutes(),
+    getFillsRoutes(),
+    getNewsRoutes(),
+    getRelayersRoutes(),
+    getSearchRoutes(),
+    getTokensRoutes(),
+    { key: '404', loader: () => import('./page-not-found') },
+  ]);
+
+  const routeComponents = routes.map(route =>
+    createPageRoute(route.path, route.loader, route.key),
+  );
+
+  return (
+    <>
+      <AnalyticsRoute /> {/* Track page views */}
+      <Switch>{routeComponents}</Switch>
+    </>
+  );
+};
 
 export default Routes;
