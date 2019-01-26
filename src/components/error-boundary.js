@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -24,6 +25,10 @@ class ErrorBoundary extends React.PureComponent {
   state = {};
 
   componentDidCatch(error) {
+    if (_.has(window, 'bugsnagClient')) {
+      window.bugsnagClient.notify(error);
+    }
+
     this.setState({ error });
   }
 
