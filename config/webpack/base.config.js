@@ -51,9 +51,12 @@ const getConfig = environment => ({
     }),
 
     new UnusedFilesWebpackPlugin({
-      failOnUnused: false,
+      failOnUnused: true,
       globOptions: {
         ignore: [
+          'src/**/*.stories.js',
+          'src/components/hidden.js',
+          'src/components/visible.js',
           'src/**/*.test.js',
           'src/**/*.test.js.snap',
           'src/test-util/**/*.*',
