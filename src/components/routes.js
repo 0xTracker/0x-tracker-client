@@ -19,11 +19,11 @@ const Routes = () => {
     getRelayersRoutes(),
     getSearchRoutes(),
     getTokensRoutes(),
-    { loader: () => import('./page-not-found') },
+    { key: '404', loader: () => import('./page-not-found') },
   ]);
 
   const routeComponents = routes.map(route =>
-    createPageRoute(route.path, route.loader),
+    createPageRoute(route.path, route.loader, route.key),
   );
 
   return (

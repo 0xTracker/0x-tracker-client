@@ -78,9 +78,9 @@ class ArticlesProvider extends React.Component {
     return children({
       articles: limit ? _.take(articles, limit) : articles,
       canLoadMore: page < pageCount,
+      loadMore: this.handleLoadMore,
       loadingInitial: articles === undefined,
       loadingMore: isLoading && articles !== undefined,
-      loadMore: this.handleLoadMore,
     });
   }
 }
