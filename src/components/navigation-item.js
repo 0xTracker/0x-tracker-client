@@ -19,7 +19,7 @@ const NavigationLink = styled(Link)`
 
 const NavigationItem = ({ href, title }) => {
   const location = useLocation();
-  const active = location.pathname === href;
+  const active = location.pathname.startsWith(href);
 
   return (
     <NavigationLink active={active} aria-current={active} href={href}>
