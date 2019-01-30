@@ -14,6 +14,8 @@ const AppContainer = styled.div`
 
 const AppBody = styled.div`
   background-color: ${colors.athensGray};
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 `;
 

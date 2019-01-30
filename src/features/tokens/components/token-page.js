@@ -10,8 +10,8 @@ import callApi from '../../../util/call-api';
 import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
+import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
-import PageLoadingIndicator from '../../../components/page-loading-indicator';
 import TokenVolume from '../../metrics/components/token-volume';
 
 class TokenPage extends PureComponent {
@@ -52,7 +52,7 @@ class TokenPage extends PureComponent {
     const { loading, token } = this.state;
 
     if (loading) {
-      return <PageLoadingIndicator />;
+      return <LoadingPage />;
     }
 
     return (
