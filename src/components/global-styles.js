@@ -17,9 +17,6 @@ const GlobalStyles = createGlobalStyle`
   
   body {
     color: ${colors.violet};
-    display: flex;
-    flex: 1;
-    flex-direction: column;
     font-family: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
   }
 

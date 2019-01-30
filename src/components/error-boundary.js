@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import { colors } from '../styles/constants';
 import ErrorMessage from './error-message';
 import H1 from './h1';
 import Lead from './lead';
-import { colors } from '../styles/constants';
+import PageLayout from './page-layout';
 
 const TryAgainButton = styled.button`
   background: none;
@@ -38,21 +39,23 @@ class ErrorBoundary extends React.PureComponent {
 
     if (error) {
       return (
-        <ErrorMessage css="min-height: 100%; padding: 0 4rem;">
-          <H1>Unexpected Error</H1>
-          <Lead>
-            Oops, an unexpected error occurred whilst trying to display this
-            page.
-          </Lead>
-          <TryAgainButton
-            onClick={() => {
-              window.location.reload();
-            }}
-            type="button"
-          >
-            Reload Page
-          </TryAgainButton>
-        </ErrorMessage>
+        <PageLayout centered>
+          <ErrorMessage css="padding: 0 4rem;">
+            <H1>Unexpected Error</H1>
+            <Lead>
+              Oops, an unexpected error occurred whilst trying to display this
+              page.
+            </Lead>
+            <TryAgainButton
+              onClick={() => {
+                window.location.reload();
+              }}
+              type="button"
+            >
+              Reload Page
+            </TryAgainButton>
+          </ErrorMessage>
+        </PageLayout>
       );
     }
 
