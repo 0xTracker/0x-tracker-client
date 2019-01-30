@@ -7,5 +7,11 @@ const getSlug = (state, { relayerSlug }) => relayerSlug;
 
 export default createSelector(
   [getRelayers, getSlug],
-  (relayers, slug) => _.find(relayers, { slug }),
+  (relayers, slug) => {
+    if (relayers === undefined) {
+      return undefined;
+    }
+
+    return _.find(relayers, { slug }) || null;
+  },
 );

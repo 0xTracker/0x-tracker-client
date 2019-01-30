@@ -18,6 +18,7 @@ import LoadingPage from '../../../components/loading-page';
 import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
+import PageNotFound from '../../../components/page-not-found';
 import relayersPropTypes from '../prop-types';
 import TopTokens from '../../tokens/components/top-tokens';
 import withRelayers from './with-relayers';
@@ -33,6 +34,10 @@ const ChartColumn = styled(Col)`
 const RelayerPage = ({ relayer, screenSize }) => {
   if (relayer === undefined) {
     return <LoadingPage />;
+  }
+
+  if (relayer === null) {
+    return <PageNotFound />;
   }
 
   return (
