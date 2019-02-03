@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import PagedFillList from '../../fills/components/paged-fill-list';
 
-const NoResults = styled.p`
+const NoResults = styled.div`
   align-items: center;
   display: flex;
   flex-grow: 1;
