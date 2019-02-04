@@ -39,11 +39,17 @@ const ChartLink = styled(NavLink)`
 
 const PeriodLink = styled(NavLink)`
   cursor: pointer;
-  padding: 0.2rem 0.7rem;
+  margin: 0 0.25rem;
+  padding: 0.2rem 0.5rem;
 
   &&.active {
     background-color: ${colors.athensGray};
     color: inherit;
+  }
+
+  &:hover,
+  &&.active:hover {
+    background-color: ${colors.mischka};
   }
 `;
 
