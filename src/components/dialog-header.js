@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
-import CloseIcon from './close-icon';
+import CloseIcon from './icons/close-icon';
 
 const CloseButton = styled.button`
   background: none;

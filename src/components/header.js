@@ -1,4 +1,3 @@
-import { Bars as MenuIcon } from 'styled-icons/fa-solid/Bars.cjs';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -7,6 +6,7 @@ import styled from 'styled-components';
 import { URL } from '../constants';
 import { colors } from '../styles/constants';
 import { media } from '../styles/util';
+import { MenuIcon } from './icons';
 import Container from './container';
 import HeaderActions from './header-actions';
 import Link from './link';

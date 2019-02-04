@@ -3,8 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
+import { SearchIcon } from './icons';
 import SearchForm from '../features/search/components/search-form';
-import SearchIcon from './search-icon';
 
 const SearchInput = styled.input`
   && {

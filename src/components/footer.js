@@ -1,17 +1,15 @@
 import { getYear } from 'date-fns';
 import { Col, Row } from 'reactstrap';
-import { Github as GitHubIcon } from 'styled-icons/fa-brands/Github.cjs';
-import { Twitter as TwitterIcon } from 'styled-icons/fa-brands/Twitter.cjs';
-import { MediumM as MediumIcon } from 'styled-icons/fa-brands/MediumM.cjs';
 import { rgba } from 'polished';
 import React from 'react';
 import styled from 'styled-components';
 
+import { GitHubIcon, TwitterIcon, MediumIcon } from './icons';
 import { media } from '../styles/util';
 import { colors } from '../styles/constants';
 import Container from './container';
 import Link from './link';
-import SpectrumIcon from './spectrum-icon';
+import SpectrumIcon from './icons/spectrum-icon';
 
 const FooterIconLink = styled(Link)`
   color: ${rgba(colors.white, 0.5)};

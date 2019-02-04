@@ -7,13 +7,13 @@ exports[`should render without props 1`] = `
   overflow: hidden;
 }
 
-.c8 {
+.c9 {
   display: inline-block;
   vertical-align: -.125em;
   overflow: hidden;
 }
 
-.c9 {
+.c8 {
   display: inline-block;
   vertical-align: -.125em;
   overflow: hidden;

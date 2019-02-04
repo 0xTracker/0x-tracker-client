@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import { URL } from '../constants';
-import CloseIcon from './close-icon';
+import CloseIcon from './icons/close-icon';
 import DisableBodyScroll from './disable-body-scroll';
 import Link from './link';
 import logoImage from '../assets/images/logo-dark.svg';

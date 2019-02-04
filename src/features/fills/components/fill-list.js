@@ -1,11 +1,11 @@
 import _ from 'lodash';
 import { distanceInWordsToNow, format as formatDate } from 'date-fns';
-import { MoreHoriz as MoreIcon } from 'styled-icons/material/MoreHoriz.cjs';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { ZRX_TOKEN } from '../../../constants';
+import { MoreIcon } from '../../../components/icons';
 import buildFillUrl from '../util/build-fill-url';
 import FillRelayerLink from './fill-relayer-link';
 import Link from '../../../components/link';
