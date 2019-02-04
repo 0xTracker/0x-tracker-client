@@ -38,7 +38,7 @@
     "qs": "6.6.0",
     "react": "16.7.0-alpha.2",
     "react-dom": "16.7.0-alpha.2",
-    "react-ga": "2.5.6",
+    "react-ga": "2.5.7",
     "react-helmet": "5.2.0",
     "react-hot-loader": "4.6.5",
     "react-kawaii": "0.10.0",
