@@ -1,13 +1,12 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 import { colors } from '../styles/constants';
 import ErrorMessage from './error-message';
 import H1 from './h1';
 import Lead from './lead';
-import PageLayout from './page-layout';
 
 const TryAgainButton = styled.button`
   background: none;
@@ -20,6 +19,20 @@ const TryAgainButton = styled.button`
     color: inherit;
     text-decoration: none;
   }
+`;
+
+const GlobalStyles = createGlobalStyle`
+  #root {
+    min-height: 100vh;
+  }
+`;
+
+const Wrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
 `;
 
 class ErrorBoundary extends React.PureComponent {
@@ -39,23 +52,26 @@ class ErrorBoundary extends React.PureComponent {
 
     if (error) {
       return (
-        <PageLayout centered>
-          <ErrorMessage css="padding: 0 4rem;">
-            <H1>Unexpected Error</H1>
-            <Lead>
-              Oops, an unexpected error occurred whilst trying to display this
-              page.
-            </Lead>
-            <TryAgainButton
-              onClick={() => {
-                window.location.reload();
-              }}
-              type="button"
-            >
-              Reload Page
-            </TryAgainButton>
-          </ErrorMessage>
-        </PageLayout>
+        <>
+          <GlobalStyles />
+          <Wrapper>
+            <ErrorMessage css="padding: 0 4rem;">
+              <H1>Unexpected Error</H1>
+              <Lead>
+                Oops, an unexpected error occurred whilst trying to display this
+                page.
+              </Lead>
+              <TryAgainButton
+                onClick={() => {
+                  window.location.reload();
+                }}
+                type="button"
+              >
+                Reload Page
+              </TryAgainButton>
+            </ErrorMessage>
+          </Wrapper>
+        </>
       );
     }
 

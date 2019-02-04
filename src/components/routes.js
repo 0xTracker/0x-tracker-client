@@ -11,21 +11,21 @@ import getRelayersRoutes from '../features/relayers/get-routes';
 import getSearchRoutes from '../features/search/get-routes';
 import getTokensRoutes from '../features/tokens/get-routes';
 
+const routes = _.flatten([
+  getDashboardRoutes(),
+  getFillsRoutes(),
+  getNewsRoutes(),
+  getRelayersRoutes(),
+  getSearchRoutes(),
+  getTokensRoutes(),
+  { key: '404', loader: () => import('./page-not-found') },
+]);
+
+const routeComponents = routes.map(route =>
+  createPageRoute(route.path, route.loader, route.key),
+);
+
 const Routes = () => {
-  const routes = _.flatten([
-    getDashboardRoutes(),
-    getFillsRoutes(),
-    getNewsRoutes(),
-    getRelayersRoutes(),
-    getSearchRoutes(),
-    getTokensRoutes(),
-    { key: '404', loader: () => import('./page-not-found') },
-  ]);
-
-  const routeComponents = routes.map(route =>
-    createPageRoute(route.path, route.loader, route.key),
-  );
-
   return (
     <>
       <AnalyticsRoute /> {/* Track page views */}
