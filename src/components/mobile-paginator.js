@@ -1,10 +1,9 @@
-import { ChevronLeft as LeftArrowIcon } from 'styled-icons/fa-solid/ChevronLeft.cjs';
-import { ChevronRight as RightArrowIcon } from 'styled-icons/fa-solid/ChevronRight.cjs';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
+import { LeftArrowIcon, RightArrowIcon } from './icons';
 import PagingSummary from './paging-summary';
 import LoadingIndicator from './loading-indicator';
 

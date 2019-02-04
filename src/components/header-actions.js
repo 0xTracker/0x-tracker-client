@@ -1,10 +1,9 @@
-import { Cog as SettingsIcon } from 'styled-icons/fa-solid/Cog.cjs';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
+import { SearchIcon, SettingsIcon } from './icons';
 import HeaderSearch from './header-search';
-import SearchIcon from './search-icon';
 import useSettingsDialog from '../features/preferences/hooks/use-settings-dialog';
 
 const ActionButton = styled.button`

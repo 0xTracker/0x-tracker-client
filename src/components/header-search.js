@@ -5,8 +5,8 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
+import { SearchIcon } from './icons';
 import SearchForm from '../features/search/components/search-form';
-import SearchIcon from './search-icon';
 import useEscapeKey from '../hooks/use-escape-key';
 
 const SearchInput = styled.input`
