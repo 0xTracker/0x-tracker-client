@@ -5,6 +5,7 @@ import Paginator from './paginator';
 import ReduxContext from './redux-context';
 
 const simpleProps = {
+  // eslint-disable-next-line no-console
   onPageChange: page => console.log(`page changed to ${page}`),
   pageCount: 19,
   pageSize: 15,

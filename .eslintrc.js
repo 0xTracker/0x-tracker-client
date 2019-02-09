@@ -162,6 +162,11 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'react/no-set-state': 'off',
     'react-hooks/rules-of-hooks': 'error',
-    'sort-keys': ['warn', 'asc', { natural: true }], // TODO: Convert to error when all issues fixed
+    'sort-keys': ['error', 'asc', { natural: true }],
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 };

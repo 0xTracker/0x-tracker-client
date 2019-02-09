@@ -33,9 +33,9 @@ class TokenVolume extends Component {
     const { fetchMetrics, period, token } = this.props;
 
     fetchMetrics({
+      filter: { token: token.address },
       metricType: METRIC_TYPE.TOKEN_VOLUME,
       period,
-      filter: { token: token.address },
     });
   }
 

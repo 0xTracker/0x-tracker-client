@@ -4,12 +4,12 @@ import React from 'react';
 import NewsArticle from './article';
 
 const simpleArticle = {
-  id: '123',
   date: new Date('2018-02-24'),
+  id: '123',
   source: { name: '0x Project', url: 'https://0xproject.com' },
-  title: 'Hello World',
   summary:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non mollis nibh. Vestibulum non lorem vel nibh sodales sagittis sed at tortor.',
+  title: 'Hello World',
   url: 'https://0xproject.com',
 };
 

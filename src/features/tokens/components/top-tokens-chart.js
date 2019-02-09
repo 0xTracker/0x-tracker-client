@@ -70,7 +70,7 @@ class TopTokensChart extends PureComponent {
             axisLine={false}
             domain={[0, 100]}
             minTickGap={15}
-            padding={{ top: 25, bottom: 0 }}
+            padding={{ bottom: 0, top: 25 }}
             tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={formatPercentage}
             tickLine={false}
@@ -93,11 +93,11 @@ class TopTokensChart extends PureComponent {
 TopTokensChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
+      share: PropTypes.number.isRequired,
       token: PropTypes.shape({
         name: PropTypes.string.isRequired,
         symbol: PropTypes.string.isRequired,
       }).isRequired,
-      share: PropTypes.number.isRequired,
       tokenVolume: PropTypes.string.isRequired,
       volume: PropTypes.number.isRequired,
     }).isRequired,

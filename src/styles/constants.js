@@ -1,7 +1,7 @@
 const breakpoints = {
   sm: 576,
-  md: 768,
-  lg: 992,
+  md: 768, // eslint-disable-line sort-keys
+  lg: 992, // eslint-disable-line sort-keys
   xl: 1200,
 };
 

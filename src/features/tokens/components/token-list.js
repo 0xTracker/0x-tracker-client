@@ -112,8 +112,8 @@ TokenList.defaultProps = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchTokens: dispatch.tokens.fetch,
   fetchTokenStats: dispatch.stats.fetchTokenStats,
+  fetchTokens: dispatch.tokens.fetch,
 });
 
 const mapStateToProps = (state, ownProps) => ({
