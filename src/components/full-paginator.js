@@ -1,9 +1,9 @@
-import { connect } from 'react-redux';
-import styled from 'styled-components';
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactLoading from 'react-loading';
 import ReactPaginate from 'react-paginate';
+import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import PagingSummary from './paging-summary';
@@ -117,8 +117,8 @@ const FullPaginator = ({
 FullPaginator.propTypes = {
   changingPage: PropTypes.bool,
   className: PropTypes.string,
-  onPageChange: PropTypes.func.isRequired,
-  page: PropTypes.number,
+  onPageChange: PropTypes.func,
+  page: PropTypes.number.isRequired,
   pageCount: PropTypes.number.isRequired,
   pageSize: PropTypes.number.isRequired,
   recordCount: PropTypes.number.isRequired,
@@ -127,7 +127,7 @@ FullPaginator.propTypes = {
 FullPaginator.defaultProps = {
   changingPage: false,
   className: undefined,
-  page: 1,
+  onPageChange: _.noop,
 };
 
-export default connect(state => ({ screenSize: state.screen }))(FullPaginator);
+export default FullPaginator;
