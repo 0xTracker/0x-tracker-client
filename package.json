@@ -53,7 +53,7 @@
     "react-slick": "0.23.2",
     "react-use": "5.3.0",
     "reactstrap": "7.1.0",
-    "recharts": "1.4.2",
+    "recharts": "1.4.3",
     "recompose": "0.30.0",
     "redux": "4.0.1",
     "redux-persist": "5.10.0",
