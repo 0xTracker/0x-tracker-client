@@ -1,134 +1,85 @@
-import _ from 'lodash';
 import { compose } from 'recompose';
-import { chunk, get, flow } from 'lodash/fp';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import Scroll from 'react-scroll';
+import React from 'react';
 
-import { TIME_PERIOD, URL } from '../../../constants';
+import { TIME_PERIOD } from '../../../constants';
 import LoadingIndicator from '../../../components/loading-indicator';
 import Paginator from '../../../components/paginator';
 import prettyPeriod from '../../../util/pretty-period';
 import sharedPropTypes from '../../../prop-types';
 import tokensPropTypes from '../prop-types';
-import getTokensWithStats from '../selectors/get-tokens-with-stats';
 import withConversionRate from '../../currencies/components/with-conversion-rate';
 import TokenListItem from './token-list-item';
 
 const DEFAULT_PERIOD = TIME_PERIOD.DAY;
 
-class TokenList extends PureComponent {
-  constructor() {
-    super();
-
-    this.handlePageChange = this.handlePageChange.bind(this);
+const TokenList = ({
+  loading,
+  onPageChange,
+  page,
+  pageCount,
+  pageSize,
+  period,
+  recordCount,
+  tokens,
+}) => {
+  if (loading) {
+    return <LoadingIndicator centered />;
   }
 
-  componentDidMount() {
-    const { fetchTokens, fetchTokenStats, period } = this.props;
+  const offset = (page - 1) * pageSize + 1;
 
-    fetchTokens();
-    fetchTokenStats({ period });
-  }
-
-  componentDidUpdate(prevProps) {
-    const { autoReloadKey, fetchTokenStats, period } = this.props;
-
-    if (prevProps.autoReloadKey !== autoReloadKey) {
-      fetchTokenStats({ period });
-    }
-  }
-
-  handlePageChange(page) {
-    const { history } = this.props;
-
-    history.push(`${URL.TOKENS}?page=${page}`);
-    Scroll.animateScroll.scrollToTop({ duration: 500 });
-  }
-
-  render() {
-    const { limit, page, period, tokens } = this.props;
-    const offset = (page - 1) * limit;
-
-    if (_.some([tokens], _.isNil)) {
-      return <LoadingIndicator centered />;
-    }
-
-    const tokensChunk = flow([chunk(limit), get(page - 1)])(tokens);
-    const pageCount = Math.floor(_.size(tokens) / limit);
-
-    return (
-      <>
-        <table className="table table-responsive">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th colSpan="2">Token</th>
-              <th css="text-align: right;">Last Price</th>
-              <th css="text-align: right;">Trades ({prettyPeriod(period)})</th>
-              <th css="text-align: right;">Volume ({prettyPeriod(period)})</th>
-            </tr>
-          </thead>
-          <tbody>
-            {_.map(tokensChunk, (token, index) => (
-              <TokenListItem
-                key={token.address}
-                position={index + offset + 1}
-                token={token}
-              />
-            ))}
-          </tbody>
-        </table>
-        <Paginator
-          onPageChange={this.handlePageChange}
-          page={page}
-          pageCount={pageCount}
-          pageSize={limit}
-          recordCount={tokens.length}
-        />
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <table className="table table-responsive">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th colSpan="2">Token</th>
+            <th css="text-align: right;">Last Price</th>
+            <th css="text-align: right;">Trades ({prettyPeriod(period)})</th>
+            <th css="text-align: right;">Volume ({prettyPeriod(period)})</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tokens.map((token, index) => (
+            <TokenListItem
+              key={token.address}
+              period
+              position={index + offset}
+              token={token}
+            />
+          ))}
+        </tbody>
+      </table>
+      <Paginator
+        onPageChange={onPageChange}
+        page={page}
+        pageCount={pageCount}
+        pageSize={pageSize}
+        recordCount={recordCount}
+      />
+    </>
+  );
+};
 
 TokenList.propTypes = {
-  autoReloadKey: PropTypes.string,
-  fetchTokenStats: PropTypes.func.isRequired,
-  fetchTokens: PropTypes.func.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-  limit: PropTypes.number.isRequired,
+  loading: PropTypes.bool,
+  onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
+  pageCount: PropTypes.number.isRequired,
+  pageSize: PropTypes.number.isRequired,
   period: sharedPropTypes.timePeriod,
+  recordCount: PropTypes.number.isRequired,
   tokens: PropTypes.arrayOf(tokensPropTypes.tokenWithStats),
 };
 
 TokenList.defaultProps = {
-  autoReloadKey: undefined,
+  loading: false,
   period: DEFAULT_PERIOD,
   tokens: undefined,
 };
 
-const mapDispatchToProps = dispatch => ({
-  fetchTokenStats: dispatch.stats.fetchTokenStats,
-  fetchTokens: dispatch.tokens.fetch,
-});
-
-const mapStateToProps = (state, ownProps) => ({
-  autoReloadKey: state.autoReload.key,
-  tokens: getTokensWithStats(state, {
-    period: ownProps.period || DEFAULT_PERIOD,
-  }),
-});
-
-const enhance = compose(
-  withConversionRate,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
-);
+const enhance = compose(withConversionRate);
 
 export default enhance(TokenList);

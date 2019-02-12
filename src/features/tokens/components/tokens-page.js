@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { connect } from 'react-redux';
 import { compose, withProps } from 'recompose';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -9,12 +8,16 @@ import qs from 'qs';
 import { URL } from '../../../constants';
 import Card from '../../../components/card';
 import PageLayout from '../../../components/page-layout';
+import LoadingIndicator from '../../../components/loading-indicator';
 import TokenList from './token-list';
+import TokensLoader from './tokens-loader';
 
 const PAGE_SIZE = 50;
 
-const TokensPage = ({ history, page, screenSize }) => {
-  const pagesToDisplay = screenSize.greaterThan.sm ? 5 : 3;
+const TokensPage = ({ history, page }) => {
+  const setPage = newPage => {
+    history.push(`${URL.TOKENS}?page=${newPage}`);
+  };
 
   return (
     <>
@@ -26,12 +29,31 @@ const TokensPage = ({ history, page, screenSize }) => {
         title="Traded Tokens"
       >
         <Card fullHeight>
-          <TokenList
-            history={history}
-            limit={PAGE_SIZE}
-            page={page}
-            pagesToDisplay={pagesToDisplay}
-          />
+          <TokensLoader limit={PAGE_SIZE} page={page}>
+            {({
+              changingPage,
+              loadedPage,
+              loading,
+              pageCount,
+              pageSize,
+              recordCount,
+              tokens,
+            }) =>
+              loading ? (
+                <LoadingIndicator centered />
+              ) : (
+                <TokenList
+                  changingPage={changingPage}
+                  onPageChange={setPage}
+                  page={loadedPage}
+                  pageCount={pageCount}
+                  pageSize={pageSize}
+                  recordCount={recordCount}
+                  tokens={tokens}
+                />
+              )
+            }
+          </TokensLoader>
         </Card>
       </PageLayout>
     </>
@@ -43,7 +65,6 @@ TokensPage.propTypes = {
     push: PropTypes.func.isRequired,
   }).isRequired,
   page: PropTypes.number.isRequired,
-  screenSize: PropTypes.object.isRequired,
 };
 
 const enhance = compose(
@@ -53,7 +74,6 @@ const enhance = compose(
   withProps(({ querystring }) => ({
     page: _.toNumber(querystring.page) || 1,
   })),
-  connect(state => ({ screenSize: state.screen })),
 );
 
 export default enhance(TokensPage);

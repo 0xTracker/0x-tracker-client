@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render full size paginator 1`] = `
+.c2 {
+  margin: 0;
+}
+
+.c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.c3 .pagination {
+  margin: 0;
+  padding: 0;
+}
+
+.c3 .page-item {
+  margin: 0 3px 0 0;
+}
+
+.c3 .page-item:last-child {
+  margin: 0;
+}
+
+.c3 .page-item .page-link {
+  background-color: #f1f2f7;
+  border: none;
+  border-radius: 0;
+  color: currentColor;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 0.75rem 1rem;
+}
+
+.c3 .page-item .page-link:hover {
+  background-color: #dcdde4;
+}
+
+.c3 .page-item.active .page-link {
+  background-color: #dcdde4;
+}
+
+.c3 .page-item.disabled .page-link,
+.c3 .page-item.disabled .page-link:hover {
+  cursor: default;
+  color: #9F9EB9;
+}
+
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.c1 {
+  font-weight: bold;
+}
+
+<div
+  class="c0"
+>
+  <p
+    class="c1 c2"
+  >
+    Displaying 
+    1
+     to 
+    15
+     of
+     
+    147
+  </p>
+  <div
+    class="c3"
+  >
+    <ul
+      class="pagination"
+    >
+      <li
+        class="page-item disabled"
+      >
+        <a
+          aria-disabled="true"
+          class="page-link"
+          role="button"
+          tabindex="0"
+        >
+          Previous
+        </a>
+      </li>
+      <li
+        class="page-item active"
+      >
+        <a
+          aria-current="page"
+          aria-label="Page 1 is your current page"
+          class="page-link"
+          role="button"
+          tabindex="0"
+        >
+          1
+        </a>
+      </li>
+      <li
+        class="page-item"
+      >
+        <a
+          aria-label="Page 2"
+          class="page-link"
+          role="button"
+          tabindex="0"
+        >
+          2
+        </a>
+      </li>
+      <li
+        class="page-item"
+      >
+        <a
+          aria-label="Page 3"
+          class="page-link"
+          role="button"
+          tabindex="0"
+        >
+          3
+        </a>
+      </li>
+      <li
+        class="page-item"
+      >
+        <a
+          aria-label="Page 4"
+          class="page-link"
+          role="button"
+          tabindex="0"
+        >
+          4
+        </a>
+      </li>
+      <li
+        class="page-item"
+      >
+        <a
+          aria-label="Page 5"
+          class="page-link"
+          role="button"
+          tabindex="0"
+        >
+          5
+        </a>
+      </li>
+      <li
+        class="page-item"
+      >
+        <a
+          aria-label="Page 6"
+          class="page-link"
+          role="button"
+          tabindex="0"
+        >
+          6
+        </a>
+      </li>
+      <li
+        class="d-none"
+      >
+        <a
+          role="button"
+          tabindex="0"
+        >
+          ...
+        </a>
+      </li>
+      <li
+        class="page-item"
+      >
+        <a
+          aria-disabled="false"
+          class="page-link"
+          role="button"
+          tabindex="0"
+        >
+          Next
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
