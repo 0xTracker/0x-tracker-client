@@ -120,7 +120,7 @@
     "prettier": "1.16.4",
     "react-testing-library": "5.8.0",
     "regenerator-runtime": "0.13.1",
-    "serve": "10.1.1",
+    "serve": "10.1.2",
     "storybook-router": "0.3.4",
     "terser-webpack-plugin": "1.2.2",
     "timekeeper": "2.1.2",
