@@ -24,7 +24,7 @@
     "@rematch/persist": "1.1.5",
     "axios": "0.18.0",
     "babel-polyfill": "6.26.0",
-    "bootstrap": "4.2.1",
+    "bootstrap": "4.3.0",
     "classnames": "2.2.6",
     "currency-formatter": "1.5.3",
     "date-fns": "1.30.1",
