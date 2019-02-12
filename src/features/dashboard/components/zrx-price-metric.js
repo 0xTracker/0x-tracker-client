@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors } from '../../../styles/constants';
+import AutoReload from '../../../util/auto-reload';
 import callApi from '../../../util/call-api';
 import DashboardMetric from './dashboard-metric';
 import formatCurrency from '../../../util/format-currency';
@@ -22,16 +23,24 @@ class ZRXPriceMetric extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.loadData();
+    this.loadData()
+      // eslint-disable-next-line promise/prefer-await-to-then
+      .then(() => AutoReload.addListener(this.loadData))
+      .catch(error => {
+        this.setState({ error });
+      });
   }
 
   componentDidUpdate(prevProps) {
-    const { autoReloadKey, displayCurrency } = this.props;
-    const autoReload = prevProps.autoReloadKey !== autoReloadKey;
+    const { displayCurrency } = this.props;
 
-    if (autoReload || prevProps.displayCurrency !== displayCurrency) {
+    if (prevProps.displayCurrency !== displayCurrency) {
       this.loadData();
     }
+  }
+
+  componentWillUnmount() {
+    AutoReload.removeListener(this.loadData);
   }
 
   loadData = async () => {
@@ -43,7 +52,11 @@ class ZRXPriceMetric extends React.PureComponent {
 
   render() {
     const { className, displayCurrency } = this.props;
-    const { zrxPrice } = this.state;
+    const { error, zrxPrice } = this.state;
+
+    if (error) {
+      throw error;
+    }
 
     return (
       <DashboardMetric className={className} title="ZRX Price">
@@ -90,18 +103,15 @@ class ZRXPriceMetric extends React.PureComponent {
 }
 
 ZRXPriceMetric.propTypes = {
-  autoReloadKey: PropTypes.string,
   className: PropTypes.string,
   displayCurrency: PropTypes.string.isRequired,
 };
 
 ZRXPriceMetric.defaultProps = {
-  autoReloadKey: undefined,
   className: undefined,
 };
 
 const mapStateToProps = state => ({
-  autoReloadKey: state.autoReload.key,
   displayCurrency: state.preferences.currency,
 });
 
