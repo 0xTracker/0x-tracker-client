@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { BASE_CURRENCY } from '../../currencies/constants';
 import { DATE_FORMAT } from '../../../constants';
 import { colors } from '../../../styles/constants';
 import FillLink from '../../fills/components/fill-link';
@@ -13,7 +12,6 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 import TokenImage from './token-image';
 import TokenLink from './token-link';
 import TokenListItemVolume from './token-list-item-volume';
-import tokenPropTypes from '../prop-types';
 
 const LastTradeLink = styled(FillLink)`
   color: inherit;
@@ -24,56 +22,59 @@ const LastTradeLink = styled(FillLink)`
   }
 `;
 
-const TokenListItem = ({ position, token }) => (
-  <tr
-    className={classNames({
-      faded: token.trades === 0,
-    })}
-    key={token.address}
-  >
-    <td className="align-middle">{position}</td>
-    <td className="align-middle">
-      <TokenLink token={token}>
-        <TokenImage imageUrl={token.imageUrl} />
-      </TokenLink>
-    </td>
-    <td width="99%">
-      <TokenLink token={token}>{token.name}</TokenLink>
-      <br />
-      {token.symbol}
-    </td>
-    <td className="align-middle" css="text-align: right;">
-      {_.has(token, 'price.lastTrade') && !_.isEmpty(token.price.lastTrade) ? (
-        <LastTradeLink fillId={token.price.lastTrade.id}>
-          <LocalisedAmount amount={token.price.lastPrice[BASE_CURRENCY]} />
-          <br />
-          <span
-            css={`
-              font-size: 0.8rem;
-              color: ${token.trades === 0
-                ? colors.santasGray
-                : colors.stormGray};
-            `}
-          >
-            {formatDate(token.price.lastTrade.date, DATE_FORMAT.RELATIVE)} ago
-          </span>
-        </LastTradeLink>
-      ) : (
-        '-'
-      )}
-    </td>
-    <td className="align-middle" css="text-align: right;">
-      {token.trades === 0 ? '-' : token.trades}
-    </td>
-    <td className="align-middle" css="text-align: right;">
-      <TokenListItemVolume token={token} />
-    </td>
-  </tr>
-);
+const TokenListItem = ({ position, token }) => {
+  const tradeCount = _.get(token, 'stats.24h.trades', 0);
+
+  return (
+    <tr
+      className={classNames({
+        faded: tradeCount === 0,
+      })}
+    >
+      <td className="align-middle">{position}</td>
+      <td className="align-middle">
+        <TokenLink token={token}>
+          <TokenImage imageUrl={token.imageUrl} />
+        </TokenLink>
+      </td>
+      <td width="99%">
+        <TokenLink token={token}>{token.name}</TokenLink>
+        <br />
+        {token.symbol}
+      </td>
+      <td className="align-middle" css="text-align: right;">
+        {_.has(token, 'price.last') ? (
+          <LastTradeLink fillId={token.lastTrade.id}>
+            <LocalisedAmount amount={token.price.last} />
+            <br />
+            <span
+              css={`
+                font-size: 0.8rem;
+                color: ${tradeCount === 0
+                  ? colors.santasGray
+                  : colors.stormGray};
+              `}
+            >
+              {formatDate(token.lastTrade.date, DATE_FORMAT.RELATIVE)} ago
+            </span>
+          </LastTradeLink>
+        ) : (
+          '-'
+        )}
+      </td>
+      <td className="align-middle" css="text-align: right;">
+        {tradeCount === 0 ? '-' : tradeCount}
+      </td>
+      <td className="align-middle" css="text-align: right;">
+        <TokenListItemVolume token={token} />
+      </td>
+    </tr>
+  );
+};
 
 TokenListItem.propTypes = {
   position: PropTypes.number.isRequired,
-  token: tokenPropTypes.token.isRequired,
+  token: PropTypes.object.isRequired,
 };
 
 export default TokenListItem;

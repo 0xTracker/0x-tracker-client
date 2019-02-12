@@ -4,28 +4,23 @@
   "rebaseStalePrs": true,
   "packageRules": [
     {
-      "packageNames": ["babel-eslint", "husky", "lint-staged", "prettier"],
-      "packagePatterns": ["^eslint"],
-      "groupName": "linting packages",
-      "automerge": true,
-      "major": {
-        "automerge": false
-      }
+      "packageNames": ["lint-staged", "husky", "npm-run-all", "serve"],
+      "groupName": "dev environment packages"
     },
     {
-      "packageNames": [
-        "babel-jest",
-        "jest",
-        "jest-dom",
-        "react-testing-library",
-        "timekeeper"
-      ],
+      "packageNames": ["babel-eslint", "prettier"],
+      "packagePatterns": ["^eslint"],
+      "groupName": "linting packages",
+      "automerge": true
+    },
+    {
+      "packageNames": ["babel-jest", "react-testing-library", "timekeeper"],
+      "packagePatterns": ["^jest"],
       "groupName": "testing packages",
       "automerge": true
     },
     {
       "packageNames": [
-        "babel-core",
         "babel-loader",
         "browserslist",
         "browserslist-ga",
@@ -33,14 +28,13 @@
         "file-loader",
         "html-webpack-plugin",
         "mini-css-extract-plugin",
-        "regenerator-runtime"
+        "regenerator-runtime",
+        "webpack-bundle-analyzer",
+        "webpack-cli",
+        "webpack-dev-server",
+        "webpack-merge"
       ],
-      "packagePatterns": [
-        "^webpack",
-        "^.+-webpack-plugin$",
-        "^babel-plugin",
-        "^@babel/"
-      ],
+      "packagePatterns": ["^.+-webpack-plugin$", "^babel-plugin", "^@babel/"],
       "groupName": "build packages"
     },
     {
