@@ -8,36 +8,38 @@ import { getDisplayCurrency } from '../../currencies/selectors';
 import { getTokenVolumeMetrics } from '../selectors';
 import { METRIC_TYPE } from '../constants';
 import AsyncTokenVolumeChart from './async-token-volume-chart';
+import AutoReload from '../../../util/auto-reload';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
 import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 class TokenVolume extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     this.fetchData();
+    AutoReload.addListener(this.fetchData);
   }
 
-  async componentDidUpdate(prevProps) {
-    const { autoReloadKey, period, token } = this.props;
+  componentDidUpdate(prevProps) {
+    const { period, token } = this.props;
 
-    if (
-      prevProps.autoReloadKey !== autoReloadKey ||
-      prevProps.period !== period ||
-      prevProps.token !== token
-    ) {
+    if (prevProps.period !== period || prevProps.token !== token) {
       this.fetchData();
     }
   }
 
-  fetchData() {
+  componentWillUnmount() {
+    AutoReload.removeListener(this.fetchData);
+  }
+
+  fetchData = () => {
     const { fetchMetrics, period, token } = this.props;
 
     fetchMetrics({
+      filter: { token: token.address },
       metricType: METRIC_TYPE.TOKEN_VOLUME,
       period,
-      filter: { token: token.address },
     });
-  }
+  };
 
   render() {
     const {
@@ -70,7 +72,6 @@ class TokenVolume extends Component {
 }
 
 TokenVolume.propTypes = {
-  autoReloadKey: PropTypes.string,
   conversionRate: PropTypes.number,
   displayCurrency: PropTypes.string.isRequired,
   fetchMetrics: PropTypes.func.isRequired,
@@ -83,13 +84,11 @@ TokenVolume.propTypes = {
 };
 
 TokenVolume.defaultProps = {
-  autoReloadKey: undefined,
   conversionRate: undefined,
   metrics: undefined,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  autoReloadKey: state.autoReload.key,
   displayCurrency: getDisplayCurrency(state),
   metrics: getTokenVolumeMetrics(ownProps.token.address, ownProps.period)(
     state,

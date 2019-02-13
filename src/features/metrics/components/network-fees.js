@@ -8,27 +8,29 @@ import { TIME_PERIOD } from '../../../constants';
 import { METRIC_TYPE } from '../constants';
 import { getNetworkMetrics } from '../selectors';
 import AsyncNetworkFeesChart from './async-network-fees-chart';
+import AutoReload from '../../../util/auto-reload';
 import LoadingIndicator from '../../../components/loading-indicator';
 import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 class FeesChart extends PureComponent {
-  async componentDidMount() {
-    await this.loadData();
+  componentDidMount() {
+    this.loadData();
+    AutoReload.addListener(this.loadData);
   }
 
-  async componentDidUpdate(prevProps) {
-    const { autoReloadKey, period, relayerId } = this.props;
+  componentDidUpdate(prevProps) {
+    const { period, relayerId } = this.props;
 
-    if (
-      prevProps.autoReloadKey !== autoReloadKey ||
-      prevProps.period !== period ||
-      prevProps.relayerId !== relayerId
-    ) {
-      await this.loadData();
+    if (prevProps.period !== period || prevProps.relayerId !== relayerId) {
+      this.loadData();
     }
   }
 
-  async loadData() {
+  componentWillUnmount() {
+    AutoReload.removeListener(this.loadData);
+  }
+
+  loadData = () => {
     const { fetchMetrics, period, relayerId } = this.props;
 
     fetchMetrics({
@@ -36,7 +38,7 @@ class FeesChart extends PureComponent {
       metricType: METRIC_TYPE.NETWORK,
       period,
     });
-  }
+  };
 
   render() {
     const { conversionRate, displayCurrency, metrics, period } = this.props;
@@ -56,7 +58,6 @@ class FeesChart extends PureComponent {
 }
 
 FeesChart.propTypes = {
-  autoReloadKey: PropTypes.string,
   conversionRate: PropTypes.number,
   displayCurrency: PropTypes.string.isRequired,
   fetchMetrics: PropTypes.func.isRequired,
@@ -66,7 +67,6 @@ FeesChart.propTypes = {
 };
 
 FeesChart.defaultProps = {
-  autoReloadKey: undefined,
   conversionRate: undefined,
   metrics: undefined,
   period: TIME_PERIOD.MONTH,
@@ -74,7 +74,6 @@ FeesChart.defaultProps = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  autoReloadKey: state.autoReload.key,
   metrics: getNetworkMetrics(state, {
     period: ownProps.period || FeesChart.defaultProps.period,
     relayer: ownProps.relayerId,

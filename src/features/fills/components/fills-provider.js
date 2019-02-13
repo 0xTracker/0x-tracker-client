@@ -12,7 +12,9 @@ class FillsProvider extends PureComponent {
     this.fetchFills()
       // eslint-disable-next-line promise/prefer-await-to-then
       .then(() => {
-        return AutoReload.addListener(this.reloadFills);
+        AutoReload.addListener(this.reloadFills);
+
+        return undefined;
       })
       .catch(error => {
         this.setState({ error });
@@ -42,14 +44,14 @@ class FillsProvider extends PureComponent {
     AutoReload.removeListener(this.reloadFills);
   }
 
-  reloadFills() {
+  reloadFills = () => {
     // eslint-disable-next-line lodash/prefer-noop
     this.fetchFills(true).catch(() => {
       // TODO: Log error
     });
-  }
+  };
 
-  async fetchFills(reload = false) {
+  fetchFills = async (reload = false) => {
     const { filter, limit, page } = this.props;
     const { address, relayer, token } = filter;
 
@@ -78,7 +80,7 @@ class FillsProvider extends PureComponent {
       reloading: false,
       total,
     });
-  }
+  };
 
   render() {
     const { children } = this.props;

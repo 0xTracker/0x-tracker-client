@@ -4,28 +4,38 @@ import PropTypes from 'prop-types';
 
 import { TIME_PERIOD } from '../../../constants';
 import { getRelayersStats } from '../selectors';
+import AutoReload from '../../../util/auto-reload';
 import sharedPropTypes from '../../../prop-types';
 
 const withRelayerStats = WrappedComponent => {
   class WithRelayerStatsHOC extends PureComponent {
     componentDidMount() {
-      const { fetchRelayerStats, period, stats } = this.props;
+      const { stats } = this.props;
 
       if (stats === undefined) {
-        fetchRelayerStats({ period });
+        this.loadData();
       }
+
+      AutoReload.addListener(this.loadData);
     }
 
     componentDidUpdate(prevProps) {
-      const { autoReloadKey, fetchRelayerStats, period } = this.props;
+      const { period } = this.props;
 
-      if (
-        prevProps.autoReloadKey !== autoReloadKey ||
-        prevProps.period !== period
-      ) {
-        fetchRelayerStats({ period });
+      if (prevProps.period !== period) {
+        this.loadData();
       }
     }
+
+    componentWillUnmount() {
+      AutoReload.removeListener(this.loadData);
+    }
+
+    loadData = () => {
+      const { fetchRelayerStats, period } = this.props;
+
+      fetchRelayerStats({ period });
+    };
 
     render() {
       return <WrappedComponent {...this.props} />;
@@ -33,20 +43,17 @@ const withRelayerStats = WrappedComponent => {
   }
 
   WithRelayerStatsHOC.propTypes = {
-    autoReloadKey: PropTypes.string,
     fetchRelayerStats: PropTypes.func.isRequired,
     period: sharedPropTypes.timePeriod,
     stats: PropTypes.object,
   };
 
   WithRelayerStatsHOC.defaultProps = {
-    autoReloadKey: null,
     period: TIME_PERIOD.DAY,
     stats: undefined,
   };
 
   const mapStateToProps = (state, ownProps) => ({
-    autoReloadKey: state.autoReload.key,
     stats: getRelayersStats(state, ownProps),
   });
 

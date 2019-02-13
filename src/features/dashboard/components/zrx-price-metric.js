@@ -25,7 +25,11 @@ class ZRXPriceMetric extends React.PureComponent {
   componentDidMount() {
     this.loadData()
       // eslint-disable-next-line promise/prefer-await-to-then
-      .then(() => AutoReload.addListener(this.loadData))
+      .then(() => {
+        AutoReload.addListener(this.reloadData);
+
+        return undefined;
+      })
       .catch(error => {
         this.setState({ error });
       });
@@ -35,13 +39,22 @@ class ZRXPriceMetric extends React.PureComponent {
     const { displayCurrency } = this.props;
 
     if (prevProps.displayCurrency !== displayCurrency) {
-      this.loadData();
+      this.loadData().catch(error => {
+        this.setState({ error });
+      });
     }
   }
 
   componentWillUnmount() {
-    AutoReload.removeListener(this.loadData);
+    AutoReload.removeListener(this.reloadData);
   }
+
+  reloadData = () => {
+    // eslint-disable-next-line lodash/prefer-noop
+    this.loadData().catch(() => {
+      // TODO: Log error
+    });
+  };
 
   loadData = async () => {
     const { displayCurrency } = this.props;

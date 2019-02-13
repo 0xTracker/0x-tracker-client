@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -26,11 +25,7 @@ const TokenListItem = ({ position, token }) => {
   const tradeCount = _.get(token, 'stats.24h.trades', 0);
 
   return (
-    <tr
-      className={classNames({
-        faded: tradeCount === 0,
-      })}
-    >
+    <tr className={tradeCount === 0 ? 'faded' : undefined}>
       <td className="align-middle">{position}</td>
       <td className="align-middle">
         <TokenLink token={token}>
