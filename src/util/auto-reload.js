@@ -8,7 +8,7 @@ const addListener = listener => {
 
 const removeListener = listener => {
   // eslint-disable-next-line lodash/prefer-immutable-method
-  _.remove(listeners, listener);
+  _.pull(listeners, listener);
 };
 
 const initialize = interval => {
