@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -33,9 +32,7 @@ const RelayerList = ({ relayers, timePeriod }) => {
       <tbody>
         {sortedRelayers.map((relayer, index) => (
           <tr
-            className={classNames({
-              faded: relayer.stats.trades === 0,
-            })}
+            className={relayer.stats.trades === 0 ? 'faded' : undefined}
             key={relayer.id}
           >
             <td className="align-middle">{`${index + 1}`}</td>

@@ -1,27 +1,33 @@
 import _ from 'lodash';
-import { connect } from 'react-redux';
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import callApi from '../../../util/call-api';
+import AutoReload from '../../../util/auto-reload';
 
 class FillsProvider extends PureComponent {
   state = { pageCount: 0, reloading: false };
 
   componentDidMount() {
-    this.fetchFills().catch(error => {
-      this.setState({ error });
-    });
+    this.fetchFills()
+      // eslint-disable-next-line promise/prefer-await-to-then
+      .then(() => {
+        AutoReload.addListener(this.reloadFills);
+
+        return undefined;
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
   }
 
   componentDidUpdate(prevProps) {
-    const { autoReloadKey, filter, page } = this.props;
+    const { filter, page } = this.props;
 
     const filterChanged = !_.isEqual(filter, prevProps.filter);
     const pageChanged = page !== prevProps.page;
-    const reload = autoReloadKey !== prevProps.autoReloadKey;
 
-    if (!filterChanged && !pageChanged && !reload) {
+    if (!filterChanged && !pageChanged) {
       return;
     }
 
@@ -29,16 +35,23 @@ class FillsProvider extends PureComponent {
       this.setState({ fills: undefined }); // eslint-disable-line react/no-did-update-set-state
     }
 
-    this.fetchFills(reload).catch(error => {
-      if (autoReloadKey === prevProps.autoReloadKey) {
-        this.setState({ error });
-      } else {
-        // TODO: Log error
-      }
+    this.fetchFills().catch(error => {
+      this.setState({ error });
     });
   }
 
-  async fetchFills(reload = false) {
+  componentWillUnmount() {
+    AutoReload.removeListener(this.reloadFills);
+  }
+
+  reloadFills = () => {
+    // eslint-disable-next-line lodash/prefer-noop
+    this.fetchFills(true).catch(() => {
+      // TODO: Log error
+    });
+  };
+
+  fetchFills = async (reload = false) => {
     const { filter, limit, page } = this.props;
     const { address, relayer, token } = filter;
 
@@ -67,7 +80,7 @@ class FillsProvider extends PureComponent {
       reloading: false,
       total,
     });
-  }
+  };
 
   render() {
     const { children } = this.props;
@@ -98,7 +111,6 @@ class FillsProvider extends PureComponent {
 }
 
 FillsProvider.propTypes = {
-  autoReloadKey: PropTypes.string,
   children: PropTypes.func.isRequired,
   filter: PropTypes.shape({
     address: PropTypes.string,
@@ -109,14 +121,9 @@ FillsProvider.propTypes = {
 };
 
 FillsProvider.defaultProps = {
-  autoReloadKey: undefined,
   filter: {},
   limit: undefined,
   page: 1,
 };
 
-const mapStateToProps = state => ({
-  autoReloadKey: state.autoReload.key,
-});
-
-export default connect(mapStateToProps)(FillsProvider);
+export default FillsProvider;

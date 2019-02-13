@@ -7,6 +7,7 @@ import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
 import { getNetworkStats } from '../../stats/selectors';
+import AutoReload from '../../../util/auto-reload';
 import NetworkFeesMetric from './network-fees-metric';
 import NetworkVolumeMetric from './network-volume-metric';
 import TradeCountMetric from './trade-count-metric';
@@ -21,15 +22,19 @@ const AsyncDashboardMetricsCarousel = React.lazy(() =>
 class DashboardMetrics extends React.PureComponent {
   componentDidMount() {
     this.loadData();
+    AutoReload.addListener(this.loadData);
   }
 
   componentDidUpdate(prevProps) {
-    const { autoReloadKey, displayCurrency } = this.props;
-    const autoReload = prevProps.autoReloadKey !== autoReloadKey;
+    const { displayCurrency } = this.props;
 
-    if (autoReload || prevProps.displayCurrency !== displayCurrency) {
-      this.loadData({ loadStats: autoReload });
+    if (prevProps.displayCurrency !== displayCurrency) {
+      this.loadData();
     }
+  }
+
+  componentWillUnmount() {
+    AutoReload.removeListener(this.loadData);
   }
 
   loadData = () => {
@@ -71,7 +76,6 @@ class DashboardMetrics extends React.PureComponent {
 }
 
 DashboardMetrics.propTypes = {
-  autoReloadKey: PropTypes.string,
   className: PropTypes.string,
   displayCurrency: PropTypes.string.isRequired,
   fetchNetworkStats: PropTypes.func.isRequired,
@@ -84,13 +88,11 @@ DashboardMetrics.propTypes = {
 };
 
 DashboardMetrics.defaultProps = {
-  autoReloadKey: undefined,
   className: undefined,
   networkStats: undefined,
 };
 
 const mapStateToProps = state => ({
-  autoReloadKey: state.autoReload.key,
   displayCurrency: state.preferences.currency,
   networkStats: getNetworkStats(state, { period: TIME_PERIOD.DAY }),
   screenSize: state.screen,

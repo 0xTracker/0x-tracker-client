@@ -9,25 +9,29 @@ import { METRIC_TYPE } from '../constants';
 import { getNetworkMetrics } from '../selectors';
 import { getDisplayCurrency } from '../../currencies/selectors';
 import AsyncNetworkVolumeChart from './async-network-volume-chart';
+import AutoReload from '../../../util/auto-reload';
 import LoadingIndicator from '../../../components/loading-indicator';
 import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 class NetworkVolume extends Component {
-  async componentDidMount() {
+  componentDidMount() {
     this.fetchData();
+    AutoReload.addListener(this.fetchData);
   }
 
-  async componentDidUpdate(prevProps) {
-    const { autoReloadKey, period } = this.props;
-    if (
-      prevProps.autoReloadKey !== autoReloadKey ||
-      prevProps.period !== period
-    ) {
+  componentDidUpdate(prevProps) {
+    const { period } = this.props;
+
+    if (prevProps.period !== period) {
       this.fetchData();
     }
   }
 
-  fetchData() {
+  componentWillUnmount() {
+    AutoReload.removeListener(this.fetchData);
+  }
+
+  fetchData = () => {
     const { fetchMetrics, period, relayerId } = this.props;
 
     fetchMetrics({
@@ -35,7 +39,7 @@ class NetworkVolume extends Component {
       metricType: METRIC_TYPE.NETWORK,
       period,
     });
-  }
+  };
 
   render() {
     const {
@@ -68,7 +72,6 @@ class NetworkVolume extends Component {
 }
 
 NetworkVolume.propTypes = {
-  autoReloadKey: PropTypes.string,
   conversionRate: PropTypes.number,
   displayCurrency: PropTypes.string.isRequired,
   fetchMetrics: PropTypes.func.isRequired,
@@ -85,7 +88,6 @@ NetworkVolume.propTypes = {
 };
 
 NetworkVolume.defaultProps = {
-  autoReloadKey: undefined,
   conversionRate: undefined,
   metrics: undefined,
   period: TIME_PERIOD.MONTH,
@@ -94,7 +96,6 @@ NetworkVolume.defaultProps = {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  autoReloadKey: state.autoReload.key,
   displayCurrency: getDisplayCurrency(state),
   metrics: getNetworkMetrics(state, {
     period: ownProps.period || NetworkVolume.defaultProps.period,
