@@ -32,14 +32,18 @@ class TokensLoader extends PureComponent {
     });
   }
 
-  async reloadData() {
+  componentWillUnmount() {
+    AutoReload.removeListener(this.reloadData);
+  }
+
+  reloadData = () => {
     this.fetchTokens(true).catch(error => {
       console.error(error);
       // TODO: Log error
     });
-  }
+  };
 
-  async fetchTokens(reload = false) {
+  fetchTokens = async (reload = false) => {
     const { limit, page } = this.props;
 
     if (reload) {
@@ -72,7 +76,7 @@ class TokensLoader extends PureComponent {
       reloading: false,
       tokens,
     });
-  }
+  };
 
   render() {
     const { children } = this.props;
