@@ -4,7 +4,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const PacktrackerPlugin = require('@packtracker/webpack-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
@@ -62,14 +61,5 @@ module.exports = (env = {}) =>
         REACT_APP_AUTO_RELOAD_INTERVAL: '30 seconds',
         REACT_APP_GA_TRACKING_ID: 'UA-108480050-1',
       }),
-
-      process.env.TRAVIS === 'true' &&
-        new PacktrackerPlugin({
-          branch:
-            process.env.TRAVIS_PULL_REQUEST_BRANCH || process.env.TRAVIS_BRANCH,
-          fail_build: true,
-          project_token: process.env.PACKTRACKER_TOKEN,
-          upload: process.env.CI === 'true',
-        }),
     ]),
   });
