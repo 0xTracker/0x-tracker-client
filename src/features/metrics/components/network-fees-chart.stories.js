@@ -23,7 +23,7 @@ storiesOf('Charts|NetworkFeesChart', module).add('default', () => {
   return (
     <NetworkFeesChart
       data={data}
-      displayCurrency="USD"
+      localCurrency="USD"
       period={TIME_PERIOD.MONTH}
     />
   );

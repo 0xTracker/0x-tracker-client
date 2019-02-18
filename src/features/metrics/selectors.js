@@ -20,29 +20,6 @@ const getMetrics = (metricType, period, filter) => state => {
   return metrics.map(metric => ({ ...metric, date: new Date(metric.date) }));
 };
 
-const getNetworkMetrics = (state, { period, relayer }) => {
-  const conversionRate = getConversionRate(state);
-  const displayCurrency = getDisplayCurrency(state);
-  const metrics = getMetrics(METRIC_TYPE.NETWORK, period, { relayer })(state);
-
-  if (displayCurrency === BASE_CURRENCY) {
-    return metrics;
-  }
-
-  if (_.some([metrics, conversionRate], _.isUndefined)) {
-    return undefined;
-  }
-
-  return metrics.map(metric => ({
-    ...metric,
-    fees: {
-      ...metric.fees,
-      [displayCurrency]: metric.fees[BASE_CURRENCY] * conversionRate,
-    },
-    volume: metric.volume * conversionRate,
-  }));
-};
-
 const getTokenVolumeMetrics = (token, period) => state => {
   const conversionRate = getConversionRate(state);
   const displayCurrency = getDisplayCurrency(state);
@@ -67,4 +44,4 @@ const getTokenVolumeMetrics = (token, period) => state => {
   }));
 };
 
-export { getTokenVolumeMetrics, getNetworkMetrics };
+export { getTokenVolumeMetrics };

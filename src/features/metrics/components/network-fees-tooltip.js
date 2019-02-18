@@ -7,7 +7,7 @@ import ChartTooltip from '../../../components/chart-tooltip';
 import formatCurrency from '../../../util/format-currency';
 import formatToken from '../../../util/format-token';
 
-const NetworkFeesTooltip = ({ currency, payload }) => {
+const NetworkFeesTooltip = ({ localCurrency, payload }) => {
   if (_.isEmpty(payload)) {
     return null;
   }
@@ -18,8 +18,8 @@ const NetworkFeesTooltip = ({ currency, payload }) => {
     <ChartTooltip
       items={[
         {
-          label: `fees (${currency})`,
-          value: formatCurrency(localizedFees, currency),
+          label: `fees (${localCurrency})`,
+          value: formatCurrency(localizedFees, localCurrency),
         },
         {
           label: 'fees (ZRX)',
@@ -32,7 +32,7 @@ const NetworkFeesTooltip = ({ currency, payload }) => {
 };
 
 NetworkFeesTooltip.propTypes = {
-  currency: PropTypes.string.isRequired,
+  localCurrency: PropTypes.string.isRequired,
   payload: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date),
