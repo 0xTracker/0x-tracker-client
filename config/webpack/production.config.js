@@ -66,7 +66,7 @@ module.exports = (env = {}) =>
       new PacktrackerPlugin({
         fail_build: true,
         project_token: process.env.PACKTRACKER_TOKEN,
-        upload: process.env.CI === true,
+        upload: process.env.CI === 'true',
       }),
     ]),
   });
