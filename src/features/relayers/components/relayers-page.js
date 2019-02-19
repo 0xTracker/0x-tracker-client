@@ -7,11 +7,10 @@ import React from 'react';
 import { TIME_PERIOD, URL } from '../../../constants';
 import Card from '../../../components/card';
 import getRelayersWithStats from '../selectors/get-relayers-with-stats';
-import LoadingIndicator from '../../../components/loading-indicator';
+import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
 import RelayerList from './relayer-list';
 import relayersPropTypes from '../prop-types';
-import withConversionRate from '../../currencies/components/with-conversion-rate';
 import withRelayerStats from '../../stats/components/with-relayer-stats';
 import withRelayers from './with-relayers';
 
@@ -20,18 +19,18 @@ const RelayersPage = ({ relayers }) => (
     <Helmet>
       <title>Relayers</title>
     </Helmet>
-    <PageLayout
-      breadcrumbItems={[{ title: 'Relayers', url: URL.RELAYERS }]}
-      title="Relayers"
-    >
-      <Card fullHeight>
-        {relayers === undefined ? (
-          <LoadingIndicator centered />
-        ) : (
+    {relayers === undefined ? (
+      <LoadingPage />
+    ) : (
+      <PageLayout
+        breadcrumbItems={[{ title: 'Relayers', url: URL.RELAYERS }]}
+        title="Relayers"
+      >
+        <Card fullHeight>
           <RelayerList relayers={relayers} timePeriod={TIME_PERIOD.DAY} />
-        )}
-      </Card>
-    </PageLayout>
+        </Card>
+      </PageLayout>
+    )}
   </>
 );
 
@@ -50,7 +49,6 @@ const mapStateToProps = state => ({
 const enhance = compose(
   withRelayers,
   withRelayerStats,
-  withConversionRate,
   connect(mapStateToProps),
 );
 

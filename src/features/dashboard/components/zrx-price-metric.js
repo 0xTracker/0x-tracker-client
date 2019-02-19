@@ -13,7 +13,6 @@ import DashboardMetric from './dashboard-metric';
 import formatCurrency from '../../../util/format-currency';
 import Link from '../../../components/link';
 import LoadingIndicator from '../../../components/loading-indicator';
-import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 class ZRXPriceMetric extends React.PureComponent {
   constructor() {
@@ -128,9 +127,6 @@ const mapStateToProps = state => ({
   displayCurrency: state.preferences.currency,
 });
 
-const enhance = compose(
-  withConversionRate,
-  connect(mapStateToProps),
-);
+const enhance = compose(connect(mapStateToProps));
 
 export default enhance(ZRXPriceMetric);

@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { getDisplayCurrency } from '../../currencies/selectors';
+import {
+  getDisplayCurrency,
+  getConversionRate,
+} from '../../currencies/selectors';
 import AsyncTokenVolumeChart from './async-token-volume-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
 import useTokenVolumeMetrics from '../hooks/use-token-volume-metrics';
-import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 const TokenVolume = ({ conversionRate, displayCurrency, period, token }) => {
   const metrics = useTokenVolumeMetrics(token.address, { period });
@@ -48,12 +50,10 @@ TokenVolume.defaultProps = {
 };
 
 const mapStateToProps = state => ({
+  conversionRate: getConversionRate(state),
   displayCurrency: getDisplayCurrency(state),
 });
 
-const enhance = compose(
-  withConversionRate,
-  connect(mapStateToProps),
-);
+const enhance = compose(connect(mapStateToProps));
 
 export default enhance(TokenVolume);

@@ -11,7 +11,6 @@ import AutoReload from '../../../util/auto-reload';
 import NetworkFeesMetric from './network-fees-metric';
 import NetworkVolumeMetric from './network-volume-metric';
 import TradeCountMetric from './trade-count-metric';
-import withConversionRate from '../../currencies/components/with-conversion-rate';
 import ZRXPriceMetric from './zrx-price-metric';
 
 // Carousel gets loaded lazily because it relies on react-slick
@@ -103,7 +102,6 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const enhance = compose(
-  withConversionRate,
   connect(
     mapStateToProps,
     mapDispatchToProps,

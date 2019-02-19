@@ -1,20 +1,16 @@
-import { compose } from 'recompose';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
-import LoadingIndicator from '../../../components/loading-indicator';
 import Paginator from '../../../components/paginator';
 import prettyPeriod from '../../../util/pretty-period';
 import sharedPropTypes from '../../../prop-types';
 import tokensPropTypes from '../prop-types';
-import withConversionRate from '../../currencies/components/with-conversion-rate';
 import TokenListItem from './token-list-item';
 
 const DEFAULT_PERIOD = TIME_PERIOD.DAY;
 
 const TokenList = ({
-  loading,
   onPageChange,
   page,
   pageCount,
@@ -23,10 +19,6 @@ const TokenList = ({
   recordCount,
   tokens,
 }) => {
-  if (loading) {
-    return <LoadingIndicator centered />;
-  }
-
   const offset = (page - 1) * pageSize + 1;
 
   return (
@@ -64,7 +56,6 @@ const TokenList = ({
 };
 
 TokenList.propTypes = {
-  loading: PropTypes.bool,
   onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
   pageCount: PropTypes.number.isRequired,
@@ -75,11 +66,8 @@ TokenList.propTypes = {
 };
 
 TokenList.defaultProps = {
-  loading: false,
   period: DEFAULT_PERIOD,
   tokens: undefined,
 };
 
-const enhance = compose(withConversionRate);
-
-export default enhance(TokenList);
+export default TokenList;

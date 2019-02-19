@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
-import { compose } from 'recompose';
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
-import { getDisplayCurrency } from '../../currencies/selectors';
+import {
+  getDisplayCurrency,
+  getConversionRate,
+} from '../../currencies/selectors';
 import AsyncNetworkVolumeChart from './async-network-volume-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import useNetworkMetrics from '../hooks/use-network-metrics';
-import withConversionRate from '../../currencies/components/with-conversion-rate';
 
 const NetworkVolume = ({
   conversionRate,
@@ -59,12 +60,8 @@ NetworkVolume.defaultProps = {
 };
 
 const mapStateToProps = state => ({
+  conversionRate: getConversionRate(state),
   displayCurrency: getDisplayCurrency(state),
 });
 
-const enhance = compose(
-  withConversionRate,
-  connect(mapStateToProps),
-);
-
-export default enhance(NetworkVolume);
+export default connect(mapStateToProps)(NetworkVolume);
