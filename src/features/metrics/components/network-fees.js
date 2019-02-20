@@ -1,13 +1,14 @@
-import { compose } from 'recompose';
 import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import { TIME_PERIOD } from '../../../constants';
-import { getDisplayCurrency } from '../../currencies/selectors';
+import {
+  getDisplayCurrency,
+  getConversionRate,
+} from '../../currencies/selectors';
 import AsyncNetworkFeesChart from './async-network-fees-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
-import withConversionRate from '../../currencies/components/with-conversion-rate';
 import useNetworkMetrics from '../hooks/use-network-metrics';
 
 const NetworkFees = ({
@@ -53,12 +54,8 @@ NetworkFees.defaultProps = {
 };
 
 const mapStateToProps = state => ({
+  conversionRate: getConversionRate(state),
   displayCurrency: getDisplayCurrency(state),
 });
 
-const enhance = compose(
-  withConversionRate,
-  connect(mapStateToProps),
-);
-
-export default enhance(NetworkFees);
+export default connect(mapStateToProps)(NetworkFees);

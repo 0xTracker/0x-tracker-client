@@ -69,6 +69,7 @@ class TokenVolumeChart extends PureComponent {
             axisLine={false}
             dataKey="date"
             minTickGap={60}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={formatAxisDate}
             tickLine={false}
           />
@@ -78,6 +79,7 @@ class TokenVolumeChart extends PureComponent {
             minTickGap={20}
             mirror
             padding={{ top: 25 }}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={this.formatValue}
             tickLine={false}
           />
