@@ -64,9 +64,7 @@ exports[`renders with basic props 1`] = `
     </tr>
   </thead>
   <tbody>
-    <tr
-      class=""
-    >
+    <tr>
       <td
         class="align-middle"
       >
@@ -130,9 +128,7 @@ exports[`renders with basic props 1`] = `
         </span>
       </td>
     </tr>
-    <tr
-      class=""
-    >
+    <tr>
       <td
         class="align-middle"
       >
@@ -196,9 +192,7 @@ exports[`renders with basic props 1`] = `
         </span>
       </td>
     </tr>
-    <tr
-      class=""
-    >
+    <tr>
       <td
         class="align-middle"
       >

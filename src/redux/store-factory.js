@@ -3,7 +3,6 @@ import { responsiveStoreEnhancer } from 'redux-responsive';
 import createRematchPersist, { getPersistor } from '@rematch/persist';
 import storage from 'redux-persist/lib/storage';
 
-import debounceMiddleware from './middleware/debounce-middleware';
 import models from './models';
 import reducers from './reducers';
 
@@ -19,7 +18,6 @@ const storeFactory = () => {
     ],
     redux: {
       enhancers: [responsiveStoreEnhancer],
-      middlewares: [debounceMiddleware()],
       reducers,
     },
   });

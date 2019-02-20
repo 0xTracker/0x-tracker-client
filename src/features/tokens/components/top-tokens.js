@@ -5,35 +5,35 @@ import React, { PureComponent } from 'react';
 
 import { getDisplayCurrency } from '../../currencies/selectors';
 import AsyncTopTokensChart from './async-top-tokens-chart';
+import AutoReload from '../../../util/auto-reload';
 import getTokensWithStats from '../selectors/get-tokens-with-stats';
 import LoadingIndicator from '../../../components/loading-indicator';
 import tokensPropTypes from '../prop-types';
 
 class TopTokens extends PureComponent {
-  async componentDidMount() {
-    await this.loadData();
+  componentDidMount() {
+    this.loadData();
+    AutoReload.addListener(this.loadData);
   }
 
-  async componentDidUpdate(prevProps) {
-    const { autoReloadKey, period, relayerId } = this.props;
+  componentDidUpdate(prevProps) {
+    const { period, relayerId } = this.props;
 
-    if (
-      prevProps.autoReloadKey !== autoReloadKey ||
-      prevProps.period !== period ||
-      prevProps.relayerId !== relayerId
-    ) {
-      await this.loadData();
+    if (prevProps.period !== period || prevProps.relayerId !== relayerId) {
+      this.loadData();
     }
   }
 
-  async loadData() {
+  componentWillUnmount() {
+    AutoReload.removeListener(this.loadData);
+  }
+
+  loadData = () => {
     const { fetchTokenStats, fetchTokens, period, relayerId } = this.props;
 
-    await Promise.all([
-      fetchTokenStats({ period, relayer: relayerId }),
-      fetchTokens(),
-    ]);
-  }
+    fetchTokenStats({ period, relayer: relayerId });
+    fetchTokens();
+  };
 
   render() {
     const { displayCurrency, tokens } = this.props;
@@ -60,7 +60,6 @@ class TopTokens extends PureComponent {
 }
 
 TopTokens.propTypes = {
-  autoReloadKey: PropTypes.string,
   displayCurrency: PropTypes.string.isRequired,
   fetchTokenStats: PropTypes.func.isRequired,
   fetchTokens: PropTypes.func.isRequired,
@@ -70,13 +69,11 @@ TopTokens.propTypes = {
 };
 
 TopTokens.defaultProps = {
-  autoReloadKey: undefined,
   relayerId: undefined,
   tokens: undefined,
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  autoReloadKey: state.autoReload.key,
   displayCurrency: getDisplayCurrency(state),
   tokens: getTokensWithStats(state, ownProps),
 });

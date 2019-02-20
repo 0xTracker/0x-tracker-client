@@ -31,17 +31,19 @@ class TokenVolumeChart extends PureComponent {
       return '';
     }
 
-    const { displayCurrency } = this.props;
+    const { localCurrency } = this.props;
 
-    return formatCurrency(value, displayCurrency, true);
+    return formatCurrency(value, localCurrency, true);
   }
 
   render() {
-    const { data, displayCurrency, period, token } = this.props;
+    const { data, localCurrency, period, tokenSymbol } = this.props;
+
     const paddedMetrics = padMetrics(data, period, {
+      localizedVolume: 0,
       tokenVolume: '0',
-      volume: 0,
     });
+
     const sanitizedData = _.map(paddedMetrics, dataPoint => ({
       ...dataPoint,
       date: dataPoint.date.toISOString(),
@@ -55,7 +57,7 @@ class TokenVolumeChart extends PureComponent {
         >
           <Area
             animationDuration={0}
-            dataKey="volume"
+            dataKey="localizedVolume"
             fill={colors.periwinkleGray}
             fillOpacity={1}
             stroke={colors.indigo}
@@ -67,21 +69,26 @@ class TokenVolumeChart extends PureComponent {
             axisLine={false}
             dataKey="date"
             minTickGap={60}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={formatAxisDate}
             tickLine={false}
           />
           <YAxis
             axisLine={false}
-            dataKey="volume"
+            dataKey="localizedVolume"
             minTickGap={20}
             mirror
             padding={{ top: 25 }}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={this.formatValue}
             tickLine={false}
           />
           <Tooltip
             content={
-              <TokenVolumeTooltip currency={displayCurrency} token={token} />
+              <TokenVolumeTooltip
+                localCurrency={localCurrency}
+                tokenSymbol={tokenSymbol}
+              />
             }
           />
         </AreaChart>
@@ -94,12 +101,13 @@ TokenVolumeChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.object.isRequired,
-      volume: PropTypes.number.isRequired,
+      localizedVolume: PropTypes.number.isRequired,
+      tokenVolume: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  displayCurrency: PropTypes.string.isRequired,
+  localCurrency: PropTypes.string.isRequired,
   period: sharedPropTypes.timePeriod.isRequired,
-  token: PropTypes.string.isRequired,
+  tokenSymbol: PropTypes.string.isRequired,
 };
 
 export default TokenVolumeChart;

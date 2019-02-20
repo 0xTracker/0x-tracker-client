@@ -1,33 +1,21 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 
-import callApi from '../../../util/call-api';
+import useApi from '../../../hooks/use-api';
 
-class ArticleSourcesProvider extends React.PureComponent {
-  state = {};
+const ArticleSourcesProvider = ({ children }) => {
+  const { error, loading, response } = useApi('article-sources', {
+    autoReload: true,
+  });
 
-  async componentDidMount() {
-    this.fetchData();
+  if (error) {
+    throw error;
   }
 
-  fetchData = async () => {
-    const sources = await callApi('article-sources');
-
-    this.setState({
-      sources,
-    });
-  };
-
-  render() {
-    const { sources } = this.state;
-    const { children } = this.props;
-
-    return children({
-      loading: sources === undefined,
-      sources,
-    });
-  }
-}
+  return children({
+    loading,
+    sources: response,
+  });
+};
 
 ArticleSourcesProvider.propTypes = {
   children: PropTypes.func.isRequired,

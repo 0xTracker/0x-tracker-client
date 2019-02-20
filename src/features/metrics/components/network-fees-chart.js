@@ -18,7 +18,7 @@ import sharedPropTypes from '../../../prop-types';
 
 const formatAxisDate = date => formatDate(date, 'MMM DD');
 
-const NetworkFeesChart = ({ data, displayCurrency, period }) => {
+const NetworkFeesChart = ({ data, localCurrency, period }) => {
   const paddedMetrics = padMetrics(data, period, {
     fees: '0',
     localizedFees: 0,
@@ -29,7 +29,7 @@ const NetworkFeesChart = ({ data, displayCurrency, period }) => {
   }));
 
   const formatYAxis = amount =>
-    amount === 0 ? '' : formatCurrency(amount, displayCurrency);
+    amount === 0 ? '' : formatCurrency(amount, localCurrency);
 
   return (
     <ResponsiveContainer>
@@ -65,7 +65,9 @@ const NetworkFeesChart = ({ data, displayCurrency, period }) => {
           tickFormatter={formatYAxis}
           tickLine={false}
         />
-        <Tooltip content={<NetworkFeesTooltip currency={displayCurrency} />} />
+        <Tooltip
+          content={<NetworkFeesTooltip localCurrency={localCurrency} />}
+        />
       </AreaChart>
     </ResponsiveContainer>
   );
@@ -79,7 +81,7 @@ NetworkFeesChart.propTypes = {
       localizedFees: PropTypes.number.isRequired,
     }),
   ).isRequired,
-  displayCurrency: PropTypes.string.isRequired,
+  localCurrency: PropTypes.string.isRequired,
   period: sharedPropTypes.timePeriod.isRequired,
 };
 

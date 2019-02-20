@@ -7,8 +7,8 @@ import qs from 'qs';
 
 import { URL } from '../../../constants';
 import Card from '../../../components/card';
+import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
-import LoadingIndicator from '../../../components/loading-indicator';
 import TokenList from './token-list';
 import TokensLoader from './tokens-loader';
 
@@ -24,26 +24,17 @@ const TokensPage = ({ history, page }) => {
       <Helmet>
         <title>Traded Tokens</title>
       </Helmet>
-      <PageLayout
-        breadcrumbItems={[{ title: 'Tokens', url: URL.TOKENS }]}
-        title="Traded Tokens"
-      >
-        <Card fullHeight>
-          <TokensLoader limit={PAGE_SIZE} page={page}>
-            {({
-              changingPage,
-              loadedPage,
-              loading,
-              pageCount,
-              pageSize,
-              recordCount,
-              tokens,
-            }) =>
-              loading ? (
-                <LoadingIndicator centered />
-              ) : (
+      <TokensLoader limit={PAGE_SIZE} page={page}>
+        {({ loadedPage, loading, pageCount, pageSize, recordCount, tokens }) =>
+          loading ? (
+            <LoadingPage />
+          ) : (
+            <PageLayout
+              breadcrumbItems={[{ title: 'Tokens', url: URL.TOKENS }]}
+              title="Traded Tokens"
+            >
+              <Card fullHeight>
                 <TokenList
-                  changingPage={changingPage}
                   onPageChange={setPage}
                   page={loadedPage}
                   pageCount={pageCount}
@@ -51,11 +42,11 @@ const TokensPage = ({ history, page }) => {
                   recordCount={recordCount}
                   tokens={tokens}
                 />
-              )
-            }
-          </TokensLoader>
-        </Card>
-      </PageLayout>
+              </Card>
+            </PageLayout>
+          )
+        }
+      </TokensLoader>
     </>
   );
 };

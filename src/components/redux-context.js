@@ -4,11 +4,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import createStore from '../redux/store-factory';
-import configureAutoReload from '../features/auto-reload/configure';
 
 const { store, persistor } = createStore();
-
-configureAutoReload(store);
 
 const ReduxContext = ({ children }) => (
   <Provider store={store}>

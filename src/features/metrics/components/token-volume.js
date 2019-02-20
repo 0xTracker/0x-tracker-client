@@ -1,80 +1,43 @@
-import _ from 'lodash';
 import { compose } from 'recompose';
 import { connect } from 'react-redux';
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import { getDisplayCurrency } from '../../currencies/selectors';
-import { getTokenVolumeMetrics } from '../selectors';
-import { METRIC_TYPE } from '../constants';
+import {
+  getDisplayCurrency,
+  getConversionRate,
+} from '../../currencies/selectors';
 import AsyncTokenVolumeChart from './async-token-volume-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
-import withConversionRate from '../../currencies/components/with-conversion-rate';
+import useTokenVolumeMetrics from '../hooks/use-token-volume-metrics';
 
-class TokenVolume extends Component {
-  async componentDidMount() {
-    this.fetchData();
+const TokenVolume = ({ conversionRate, displayCurrency, period, token }) => {
+  const metrics = useTokenVolumeMetrics(token.address, { period });
+
+  if (metrics.loading || conversionRate === undefined) {
+    return <LoadingIndicator centered />;
   }
 
-  async componentDidUpdate(prevProps) {
-    const { autoReloadKey, period, token } = this.props;
+  const data = metrics.data.map(metric => ({
+    date: new Date(metric.date),
+    localizedVolume: metric.volume.USD * conversionRate,
+    tokenVolume: metric.volume[token.symbol],
+  }));
 
-    if (
-      prevProps.autoReloadKey !== autoReloadKey ||
-      prevProps.period !== period ||
-      prevProps.token !== token
-    ) {
-      this.fetchData();
-    }
-  }
-
-  fetchData() {
-    const { fetchMetrics, period, token } = this.props;
-
-    fetchMetrics({
-      filter: { token: token.address },
-      metricType: METRIC_TYPE.TOKEN_VOLUME,
-      period,
-    });
-  }
-
-  render() {
-    const {
-      conversionRate,
-      displayCurrency,
-      metrics,
-      period,
-      token,
-    } = this.props;
-
-    if (_.some([metrics, conversionRate], _.isUndefined)) {
-      return <LoadingIndicator centered />;
-    }
-
-    const data = metrics.map(metric => ({
-      date: new Date(metric.date),
-      tokenVolume: metric.volume[token.symbol],
-      volume: metric.volume[displayCurrency],
-    }));
-
-    return (
-      <AsyncTokenVolumeChart
-        data={data}
-        displayCurrency={displayCurrency}
-        period={period}
-        token={token.symbol}
-      />
-    );
-  }
-}
+  return (
+    <AsyncTokenVolumeChart
+      data={data}
+      localCurrency={displayCurrency}
+      period={period}
+      tokenSymbol={token.symbol}
+    />
+  );
+};
 
 TokenVolume.propTypes = {
-  autoReloadKey: PropTypes.string,
   conversionRate: PropTypes.number,
   displayCurrency: PropTypes.string.isRequired,
-  fetchMetrics: PropTypes.func.isRequired,
-  metrics: PropTypes.array,
   period: sharedPropTypes.timePeriod.isRequired,
   token: PropTypes.shape({
     address: PropTypes.string.isRequired,
@@ -83,29 +46,14 @@ TokenVolume.propTypes = {
 };
 
 TokenVolume.defaultProps = {
-  autoReloadKey: undefined,
   conversionRate: undefined,
-  metrics: undefined,
 };
 
-const mapStateToProps = (state, ownProps) => ({
-  autoReloadKey: state.autoReload.key,
+const mapStateToProps = state => ({
+  conversionRate: getConversionRate(state),
   displayCurrency: getDisplayCurrency(state),
-  metrics: getTokenVolumeMetrics(ownProps.token.address, ownProps.period)(
-    state,
-  ),
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchMetrics: dispatch.metrics.fetch,
-});
-
-const enhance = compose(
-  withConversionRate,
-  connect(
-    mapStateToProps,
-    mapDispatchToProps,
-  ),
-);
+const enhance = compose(connect(mapStateToProps));
 
 export default enhance(TokenVolume);

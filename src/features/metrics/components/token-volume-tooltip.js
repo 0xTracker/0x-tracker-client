@@ -7,22 +7,22 @@ import ChartTooltip from '../../../components/chart-tooltip';
 import formatCurrency from '../../../util/format-currency';
 import formatToken from '../../../util/format-token';
 
-const TokenVolumeTooltip = ({ currency, payload, token }) => {
+const TokenVolumeTooltip = ({ localCurrency, payload, tokenSymbol }) => {
   if (_.isEmpty(payload)) {
     return null;
   }
 
-  const { date, tokenVolume, volume } = payload[0].payload;
+  const { date, localizedVolume, tokenVolume } = payload[0].payload;
 
   return (
     <ChartTooltip
       items={[
         {
-          label: `volume (${currency})`,
-          value: formatCurrency(volume, currency),
+          label: `volume (${localCurrency})`,
+          value: formatCurrency(localizedVolume, localCurrency),
         },
         {
-          label: `volume (${token})`,
+          label: `volume (${tokenSymbol})`,
           value: formatToken(tokenVolume),
         },
       ]}
@@ -32,9 +32,9 @@ const TokenVolumeTooltip = ({ currency, payload, token }) => {
 };
 
 TokenVolumeTooltip.propTypes = {
-  currency: PropTypes.string.isRequired,
+  localCurrency: PropTypes.string.isRequired,
   payload: PropTypes.array,
-  token: PropTypes.string.isRequired,
+  tokenSymbol: PropTypes.string.isRequired,
 };
 
 TokenVolumeTooltip.defaultProps = {

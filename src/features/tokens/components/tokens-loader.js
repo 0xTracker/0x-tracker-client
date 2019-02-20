@@ -1,38 +1,49 @@
-import { connect } from 'react-redux';
 import { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import AutoReload from '../../../util/auto-reload';
 import callApi from '../../../util/call-api';
 
 class TokensLoader extends PureComponent {
   state = { loading: true, pageCount: 0, reloading: false };
 
   componentDidMount() {
+    this.fetchTokens()
+      // eslint-disable-next-line promise/prefer-await-to-then
+      .then(() => {
+        AutoReload.addListener(this.reloadData);
+
+        return undefined;
+      })
+      .catch(error => {
+        this.setState({ error });
+      });
+  }
+
+  componentDidUpdate(prevProps) {
+    const { page } = this.props;
+
+    if (page === prevProps.page) {
+      return;
+    }
+
     this.fetchTokens().catch(error => {
       this.setState({ error });
     });
   }
 
-  componentDidUpdate(prevProps) {
-    const { autoReloadKey, page } = this.props;
-
-    const pageChanged = page !== prevProps.page;
-    const reload = autoReloadKey !== prevProps.autoReloadKey;
-
-    if (!pageChanged && !reload) {
-      return;
-    }
-
-    this.fetchTokens(reload).catch(error => {
-      if (autoReloadKey === prevProps.autoReloadKey) {
-        this.setState({ error });
-      } else {
-        // TODO: Log error
-      }
-    });
+  componentWillUnmount() {
+    AutoReload.removeListener(this.reloadData);
   }
 
-  async fetchTokens(reload = false) {
+  reloadData = () => {
+    this.fetchTokens(true).catch(error => {
+      console.error(error);
+      // TODO: Log error
+    });
+  };
+
+  fetchTokens = async (reload = false) => {
     const { limit, page } = this.props;
 
     if (reload) {
@@ -65,7 +76,7 @@ class TokensLoader extends PureComponent {
       reloading: false,
       tokens,
     });
-  }
+  };
 
   render() {
     const { children } = this.props;
@@ -97,20 +108,14 @@ class TokensLoader extends PureComponent {
 }
 
 TokensLoader.propTypes = {
-  autoReloadKey: PropTypes.string,
   children: PropTypes.func.isRequired,
   limit: PropTypes.number,
   page: PropTypes.number,
 };
 
 TokensLoader.defaultProps = {
-  autoReloadKey: undefined,
   limit: undefined,
   page: 1,
 };
 
-const mapStateToProps = state => ({
-  autoReloadKey: state.autoReload.key,
-});
-
-export default connect(mapStateToProps)(TokensLoader);
+export default TokensLoader;

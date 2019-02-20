@@ -45,7 +45,7 @@ const StyledDashboardMetrics = styled(DashboardMetrics)`
 
 const DashboardPage = ({ screenSize }) => (
   <ContentSection>
-    <StyledDashboardMetrics css="" />
+    <StyledDashboardMetrics />
     <Row>
       <DashboardColumn lg={7}>
         <ChartsContainer
