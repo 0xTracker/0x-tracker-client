@@ -79,8 +79,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchTokens: dispatch.tokens.fetch,
   fetchTokenStats: dispatch.stats.fetchTokenStats,
+  fetchTokens: dispatch.tokens.fetch,
 });
 
 export default connect(

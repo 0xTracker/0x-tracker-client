@@ -5,8 +5,8 @@ import ContentHeader from './content-header';
 
 const simpleProps = {
   breadcrumbItems: [
-    { url: '/tokens', title: 'Tokens' },
-    { url: '/tokens/bat', title: 'Basic Attention Token' },
+    { title: 'Tokens', url: '/tokens' },
+    { title: 'Basic Attention Token', url: '/tokens/bat' },
   ],
   title: 'Basic Attention Token',
 };

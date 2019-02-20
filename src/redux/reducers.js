@@ -4,9 +4,9 @@ const reducers = {
   screen: createResponsiveStateReducer(
     {
       xs: 575,
+      md: 991, // eslint-disable-line sort-keys
       sm: 767,
-      md: 991,
-      lg: 1199,
+      lg: 1199, // eslint-disable-line sort-keys
     },
     { infinity: 'xl' },
   ),

@@ -20,7 +20,7 @@ describe('features/metrics/util/pad-metrics', () => {
 
   it('pads metrics for year time period', () => {
     const data = [
-      { date: new Date('2018-02-16T00:00:00Z'), volume: 52, tokenVolume: 2 },
+      { date: new Date('2018-02-16T00:00:00Z'), tokenVolume: 2, volume: 52 },
     ];
     const paddedData = padMetrics(data, TIME_PERIOD.YEAR, defaults);
 
@@ -29,7 +29,7 @@ describe('features/metrics/util/pad-metrics', () => {
 
   it('pads metrics with data for missing dates', () => {
     const data = [
-      { date: new Date('2018-02-16T00:00:00Z'), volume: 52, tokenVolume: 2 },
+      { date: new Date('2018-02-16T00:00:00Z'), tokenVolume: 2, volume: 52 },
     ];
     const paddedData = padMetrics(data, TIME_PERIOD.YEAR, defaults);
     const date = _.find(paddedData, { date: new Date('2018-02-15T00:00:00Z') });
@@ -39,7 +39,7 @@ describe('features/metrics/util/pad-metrics', () => {
   });
 
   it('does not pad data for existing dates', () => {
-    const data = [{ date: new Date('2018-02-16'), volume: 52, tokenVolume: 2 }];
+    const data = [{ date: new Date('2018-02-16'), tokenVolume: 2, volume: 52 }];
     const paddedData = padMetrics(data, TIME_PERIOD.YEAR, defaults);
 
     const dates = _.filter(paddedData, {

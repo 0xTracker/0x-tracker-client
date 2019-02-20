@@ -6,8 +6,8 @@ import Breadcrumb from './breadcrumb';
 storiesOf('Layout|Breadcrumb', module).add('default', () => (
   <Breadcrumb
     items={[
-      { url: '/tokens', title: 'Tokens' },
-      { url: '/tokens/bat', title: 'Basic Attention Token' },
+      { title: 'Tokens', url: '/tokens' },
+      { title: 'Basic Attention Token', url: '/tokens/bat' },
     ]}
   />
 ));

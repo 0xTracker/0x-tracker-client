@@ -8,19 +8,19 @@ const statsModel = {
       const params = { period };
       const stats = await callApi('stats/network', params);
 
-      dispatch.stats.updateNetworkStats({ stats, period });
+      dispatch.stats.updateNetworkStats({ period, stats });
     },
     async fetchRelayerStats({ period }) {
       const params = { period };
       const stats = await callApi('stats/relayers', params);
 
-      dispatch.stats.updateRelayerStats({ stats, period });
+      dispatch.stats.updateRelayerStats({ period, stats });
     },
     async fetchTokenStats({ period, relayer }) {
       const params = { period, relayer };
       const stats = await callApi('stats/tokens', params);
 
-      dispatch.stats.updateTokenStats({ stats, period, relayer });
+      dispatch.stats.updateTokenStats({ period, relayer, stats });
     },
   }),
   reducers: {
