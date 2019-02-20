@@ -18,12 +18,12 @@ it('should return relayers as an array', () => {
 
   expect(relayers).toEqual([
     {
-      id: 'radarRelay',
-      volume: 50000,
-    },
-    {
       id: 'ddex',
       volume: 25000,
+    },
+    {
+      id: 'radarRelay',
+      volume: 50000,
     },
   ]);
 });
