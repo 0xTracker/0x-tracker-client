@@ -7,7 +7,7 @@ const useNetworkMetrics = ({ period, relayerId } = {}) => {
       autoReload: true,
       params: {
         period,
-        relayerId,
+        relayer: relayerId,
       },
     },
     [period, relayerId],
