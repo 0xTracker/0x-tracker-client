@@ -89,7 +89,7 @@
     "copy-webpack-plugin": "5.0.0",
     "dotenv-webpack": "1.7.0",
     "error-overlay-webpack-plugin": "0.1.6",
-    "eslint": "5.15.0",
+    "eslint": "5.15.1",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-config-prettier": "4.1.0",
     "eslint-plugin-classes": "0.1.1",
