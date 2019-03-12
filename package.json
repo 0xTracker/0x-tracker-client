@@ -120,7 +120,7 @@
     "serve": "10.1.2",
     "storybook-router": "0.3.4",
     "terser-webpack-plugin": "1.2.2",
-    "timekeeper": "2.1.2",
+    "timekeeper": "2.2.0",
     "unused-files-webpack-plugin": "3.4.0",
     "webpack": "4.28.4",
     "webpack-bundle-analyzer": "3.0.4",
