@@ -4,11 +4,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 
-const { getConfig, paths } = require('./base.config');
+const { getConfig } = require('./base.config');
 
 const ENVIRONMENT = 'production';
 
@@ -42,9 +41,7 @@ module.exports = (env = {}) =>
       filename: 'assets/js/[name].[contenthash].bundle.js',
     },
     plugins: _.compact([
-      new CleanWebpackPlugin([paths.output], {
-        root: path.resolve(__dirname, '../../'),
-      }),
+      new CleanWebpackPlugin(),
 
       new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new MiniCssExtractPlugin({
