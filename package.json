@@ -20,8 +20,8 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@rematch/core": "1.0.6",
-    "@rematch/persist": "1.1.5",
+    "@rematch/core": "1.1.0",
+    "@rematch/persist": "1.1.6",
     "axios": "0.18.0",
     "babel-polyfill": "6.26.0",
     "bootstrap": "4.3.1",
