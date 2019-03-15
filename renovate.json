@@ -1,7 +1,7 @@
 {
   "extends": ["config:base"],
   "prHourlyLimit": 0,
-  "rebaseStalePrs": true,
+  "rebaseStalePrs": false,
   "packageRules": [
     {
       "packageNames": ["lint-staged", "husky", "npm-run-all", "serve"],
