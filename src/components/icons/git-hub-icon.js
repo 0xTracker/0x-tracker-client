@@ -1,3 +1,3 @@
-import { Github as GitHubIcon } from 'styled-icons/fa-brands/Github.cjs';
+import { Github as GitHubIcon } from 'styled-icons/fa-brands/Github';
 
 export default GitHubIcon;

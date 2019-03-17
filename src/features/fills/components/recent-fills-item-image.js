@@ -1,5 +1,5 @@
-import { Users as PeerToPeerIcon } from 'styled-icons/icomoon/Users.cjs';
-import { QuestionCircle as UnknownIcon } from 'styled-icons/fa-solid/QuestionCircle.cjs';
+import { Users as PeerToPeerIcon } from 'styled-icons/icomoon/Users';
+import { QuestionCircle as UnknownIcon } from 'styled-icons/fa-solid/QuestionCircle';
 import PropTypes from 'prop-types';
 import React from 'react';
 

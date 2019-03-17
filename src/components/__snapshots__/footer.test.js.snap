@@ -7,18 +7,6 @@ exports[`should render without props 1`] = `
   overflow: hidden;
 }
 
-.c9 {
-  display: inline-block;
-  vertical-align: -.125em;
-  overflow: hidden;
-}
-
-.c8 {
-  display: inline-block;
-  vertical-align: -.125em;
-  overflow: hidden;
-}
-
 .c1 {
   max-width: 1170px;
 }
@@ -89,7 +77,7 @@ exports[`should render without props 1`] = `
   fill: currentColor;
 }
 
-.c10 {
+.c8 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -125,7 +113,7 @@ exports[`should render without props 1`] = `
 }
 
 @media (min-width:768px) {
-  .c10 {
+  .c8 {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
     -ms-flex-pack: start;
@@ -207,7 +195,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c5 c8"
+            class="c5 c6"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 512 512"
@@ -227,7 +215,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c5 c9"
+            class="c5 c6"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 512 512"
@@ -247,7 +235,7 @@ exports[`should render without props 1`] = `
             ,
     }
   "
-        class="c10 col-12 col-md-6"
+        class="c8 col-12 col-md-6"
       >
         Copyright © 0x Tracker 
         2019
