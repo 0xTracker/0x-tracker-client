@@ -1,3 +1,3 @@
-import { MediumM as MediumIcon } from 'styled-icons/fa-brands/MediumM.cjs';
+import { MediumM as MediumIcon } from 'styled-icons/fa-brands/MediumM';
 
 export default MediumIcon;

@@ -1,3 +1,3 @@
-import { Close as CloseIcon } from 'styled-icons/material/Close.cjs';
+import { Close as CloseIcon } from 'styled-icons/material/Close';
 
 export default CloseIcon;

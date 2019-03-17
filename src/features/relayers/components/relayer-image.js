@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Square as SquareIcon } from 'styled-icons/fa-solid/Square.cjs';
+import { Square as SquareIcon } from 'styled-icons/fa-solid/Square';
 import PropTypes from 'prop-types';
 import React from 'react';
 

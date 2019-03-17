@@ -1,3 +1,3 @@
-import { Bars as MenuIcon } from 'styled-icons/fa-solid/Bars.cjs';
+import { Bars as MenuIcon } from 'styled-icons/fa-solid/Bars';
 
 export default MenuIcon;
