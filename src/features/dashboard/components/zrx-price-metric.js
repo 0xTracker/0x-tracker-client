@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
-import { TrendingDown as TrendingDownIcon } from 'styled-icons/material/TrendingDown.cjs';
-import { TrendingUp as TrendingUpIcon } from 'styled-icons/material/TrendingUp.cjs';
+import { TrendingDown as TrendingDownIcon } from 'styled-icons/material/TrendingDown';
+import { TrendingUp as TrendingUpIcon } from 'styled-icons/material/TrendingUp';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';

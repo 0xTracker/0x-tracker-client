@@ -1,4 +1,4 @@
-import { Collection as AllIcon } from 'styled-icons/boxicons-regular/Collection.cjs';
+import { Collection as AllIcon } from 'styled-icons/boxicons-regular/Collection';
 import { useLocation } from 'react-use';
 import PropTypes from 'prop-types';
 import React from 'react';
