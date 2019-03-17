@@ -48,11 +48,11 @@ const Header = ({ screenSize }) => {
     updateMobileMenuState('open');
   };
 
-  const isMobile = screenSize.greaterThan.md;
+  const isDesktop = screenSize.greaterThan.md;
 
   return (
     <SettingsDialogProvider>
-      {isMobile || mobileMenuState === 'closed' ? null : (
+      {isDesktop || mobileMenuState === 'closed' ? null : (
         <MobileMenu
           onClose={closeMobileMenu}
           onNavigate={closeMobileMenu}
@@ -64,11 +64,11 @@ const Header = ({ screenSize }) => {
           <Link href={URL.DASHBOARD}>
             <LogoImage
               alt="0x Tracker"
-              size={isMobile ? 'large' : 'small'}
+              size={isDesktop ? 'large' : 'small'}
               src={logoImage}
             />
           </Link>
-          {isMobile ? (
+          {isDesktop ? (
             <>
               <Navigation css="flex-grow: 1;" />
               <HeaderActions />
