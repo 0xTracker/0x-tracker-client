@@ -51,9 +51,6 @@ const NewsPage = ({ loadingSources, match, screenSize, sources }) => {
 
   return (
     <>
-      <Helmet>
-        <title>News &amp; Updates</title>
-      </Helmet>
       {loadingSources ? (
         <LoadingPage />
       ) : (
@@ -66,6 +63,9 @@ const NewsPage = ({ loadingSources, match, screenSize, sources }) => {
           ])}
           title={source ? `${source.name} News & Updates` : 'News & Updates'}
         >
+          <Helmet>
+            <title>News &amp; Updates</title>
+          </Helmet>
           <Row css="flex-grow: 1;">
             <ArticlesColumn>
               <Card fullHeight padded>

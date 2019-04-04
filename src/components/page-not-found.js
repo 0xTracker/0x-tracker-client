@@ -8,7 +8,7 @@ import PageLayout from './page-layout';
 
 const PageNotFound = () => (
   <PageLayout centered>
-    <ErrorMessage css="padding: 0 4rem;">
+    <ErrorMessage css="padding: 3rem 4rem 0;">
       <H1>Page Not Found</H1>
       <Lead>Oops, the page you requested doesn&lsquo;t exist.</Lead>
       <Link href="/">Back to Dashboard</Link>
