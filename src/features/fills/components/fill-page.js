@@ -21,6 +21,7 @@ import LoadingPage from '../../../components/loading-page';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
+import SearchLink from '../../search/components/search-link';
 import TokenAmount from '../../tokens/components/token-amount';
 import TokenLink from '../../tokens/components/token-link';
 import useFill from '../hooks/use-fill';
@@ -81,6 +82,13 @@ const FillPage = ({ fillId }) => {
                   {fill.orderHash}
                 </Link>
               </FillDetail>
+              {fill.senderAddress && (
+                <FillDetail title="Sender Address">
+                  <SearchLink searchQuery={fill.senderAddress}>
+                    {fill.senderAddress}
+                  </SearchLink>
+                </FillDetail>
+              )}
               <FillDetail title="Date">
                 {formatDate(fill.date, DATE_FORMAT.FULL)}
               </FillDetail>
