@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
-import { SearchIcon, SettingsIcon } from './icons';
+import { NotificationsIcon, SearchIcon, SettingsIcon } from './icons';
 import HeaderSearch from './header-search';
 import useSettingsDialog from '../features/preferences/hooks/use-settings-dialog';
 
@@ -27,15 +27,38 @@ const ActionButton = styled.button`
   }
 `;
 
+const NotificationsButton = styled(ActionButton)`
+  position: relative;
+
+  #HW_badge_cont {
+    position: absolute;
+    right: 0;
+    top: -3px;
+  }
+`;
+
 const HeaderActions = () => {
   const [searchVisible, setSearchVisibility] = useState(false);
   const settingsDialog = useSettingsDialog();
   const hideSearch = () => setSearchVisibility(false);
 
+  useEffect(() => {
+    if (typeof Headway !== 'undefined') {
+      Headway.init({
+        account: 'xGOQOx',
+        selector: '.headway',
+        trigger: '.headway',
+      });
+    }
+  }, []);
+
   return searchVisible ? (
     <HeaderSearch onBlur={hideSearch} onSearch={hideSearch} />
   ) : (
     <div css="display: flex; height: 100%;">
+      <NotificationsButton className="headway">
+        <NotificationsIcon color="currentColor" height={22} width={22} />
+      </NotificationsButton>
       <ActionButton onClick={() => settingsDialog.show()} title="Settings">
         <SettingsIcon color="currentColor" height={22} width={22} />
       </ActionButton>
