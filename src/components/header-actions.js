@@ -32,7 +32,7 @@ const NotificationsButton = styled(ActionButton)`
 
   #HW_badge_cont {
     position: absolute;
-    right: 0;
+    right: 3px;
     top: -3px;
   }
 `;
@@ -57,7 +57,7 @@ const HeaderActions = () => {
   ) : (
     <div css="display: flex; height: 100%;">
       <NotificationsButton className="headway">
-        <NotificationsIcon color="currentColor" height={22} width={22} />
+        <NotificationsIcon color="currentColor" height={26} width={26} />
       </NotificationsButton>
       <ActionButton onClick={() => settingsDialog.show()} title="Settings">
         <SettingsIcon color="currentColor" height={22} width={22} />
