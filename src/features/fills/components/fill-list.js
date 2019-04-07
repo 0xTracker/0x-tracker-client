@@ -23,7 +23,7 @@ const FillList = ({ excludeColumns, fills }) => {
           <th className="text-right">Maker Amount</th>
           <th />
           <th className="text-right">Taker Amount</th>
-          <th className="text-right">Amount</th>
+          <th className="text-right">Value</th>
           {includeColumn('relayer') && <th>Relayer</th>}
           <th className="text-right">Fees (ZRX)</th>
           <th title="View" />
@@ -53,7 +53,7 @@ const FillList = ({ excludeColumns, fills }) => {
             </td>
             {includeColumn('relayer') && (
               <td>
-                <FillRelayerLink fill={fill} />
+                <FillRelayerLink fill={fill} showImage />
               </td>
             )}
             <td className="text-right">

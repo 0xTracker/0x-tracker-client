@@ -4,19 +4,17 @@ import React from 'react';
 import buildTokenUrl from '../util/build-token-url';
 import Link from '../../../components/link';
 
-const TokenLink = ({ children, token }) => (
-  <Link href={buildTokenUrl(token)}>{children}</Link>
+const TokenLink = ({ address, children }) => (
+  <Link href={buildTokenUrl(address)}>{children}</Link>
 );
 
 TokenLink.propTypes = {
+  address: PropTypes.string,
   children: PropTypes.node,
-  token: PropTypes.shape({
-    address: PropTypes.string.isRequired,
-    name: PropTypes.string,
-  }).isRequired,
 };
 
 TokenLink.defaultProps = {
+  address: undefined,
   children: undefined,
 };
 

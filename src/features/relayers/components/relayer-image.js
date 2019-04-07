@@ -5,22 +5,38 @@ import React from 'react';
 
 import { colors } from '../../../styles/constants';
 
-const RelayerImage = ({ imageUrl }) =>
+const RelayerImage = ({ className, height, imageUrl, width }) =>
   _.isString(imageUrl) ? (
     <img
-      css="border-radius: 0.25rem; height: 2.75rem; width: 2.75rem;"
+      className={className}
+      css={`
+        border-radius: 0.25rem;
+        height: ${height}px;
+        width: ${width}px;
+      `}
       src={imageUrl}
     />
   ) : (
-    <SquareIcon color={colors.mischka} height={40} width={40} />
+    <SquareIcon
+      className={className}
+      color={colors.mischka}
+      height={height}
+      width={width}
+    />
   );
 
 RelayerImage.propTypes = {
+  className: PropTypes.string,
+  height: PropTypes.number,
   imageUrl: PropTypes.string,
+  width: PropTypes.number,
 };
 
 RelayerImage.defaultProps = {
+  className: undefined,
+  height: 40,
   imageUrl: undefined,
+  width: 40,
 };
 
 export default RelayerImage;

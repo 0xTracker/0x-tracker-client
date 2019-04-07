@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import buildTokenUrl from '../util/build-token-url';
 import formatToken from '../../../util/format-token';
-import Link from '../../../components/link';
+import TokenLink from './token-link';
 
 const TokenAmount = ({ amount, linked, token }) => {
   if (amount === null) {
@@ -13,7 +12,7 @@ const TokenAmount = ({ amount, linked, token }) => {
   return linked ? (
     <span title={`${amount} ${token.symbol}`}>
       {formatToken(amount)}{' '}
-      <Link href={buildTokenUrl(token)}>{token.symbol}</Link>
+      <TokenLink address={token.address}>{token.symbol}</TokenLink>
     </span>
   ) : (
     `${formatToken(amount)} ${token.symbol}`
