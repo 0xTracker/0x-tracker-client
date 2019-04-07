@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -9,7 +8,11 @@ const FillStatusLabel = ({ status }) => {
     successful: 'badge-success',
   }[status];
 
-  return <span className={`badge ${className}`}>{_.startCase(status)}</span>;
+  return (
+    <span className={`badge ${className}`} css="text-transform: uppercase;">
+      {status}
+    </span>
+  );
 };
 
 FillStatusLabel.propTypes = {
