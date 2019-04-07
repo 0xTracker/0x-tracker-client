@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { URL } from '../constants';
 import { colors } from '../styles/constants';
 import { media } from '../styles/util';
-import { MenuIcon } from './icons';
+import { MenuIcon, NotificationsIcon } from './icons';
 import Container from './container';
 import HeaderActions from './header-actions';
 import Link from './link';
@@ -21,9 +21,11 @@ const LogoImage = styled.img`
 `;
 
 const MenuButton = styled.button`
+  align-items: center;
   background: none;
   border: none;
   cursor: pointer;
+  display: flex;
   padding: 0;
 `;
 
@@ -37,6 +39,17 @@ const StyledHeader = styled.header`
   `}
 `;
 
+const NotificationsButton = styled(MenuButton)`
+  margin-right: 1rem;
+  position: relative;
+
+  #HW_badge_cont {
+    position: absolute;
+    right: -10px;
+    top: -13px;
+  }
+`;
+
 const Header = ({ screenSize }) => {
   const [mobileMenuState, updateMobileMenuState] = useState('closed');
 
@@ -47,6 +60,16 @@ const Header = ({ screenSize }) => {
   const openMobileMenu = () => {
     updateMobileMenuState('open');
   };
+
+  useEffect(() => {
+    if (typeof Headway !== 'undefined') {
+      Headway.init({
+        account: 'xGOQOx',
+        selector: '.headway',
+        trigger: '.headway',
+      });
+    }
+  }, []);
 
   const isDesktop = screenSize.greaterThan.md;
 
@@ -74,9 +97,14 @@ const Header = ({ screenSize }) => {
               <HeaderActions />
             </>
           ) : (
-            <MenuButton onClick={openMobileMenu} title="Open menu">
-              <MenuIcon height={20} />
-            </MenuButton>
+            <div css="display: flex; align-items: center;">
+              <NotificationsButton className="headway">
+                <NotificationsIcon height={24} width={24} />
+              </NotificationsButton>
+              <MenuButton onClick={openMobileMenu} title="Open menu">
+                <MenuIcon height={20} />
+              </MenuButton>
+            </div>
           )}
         </Container>
       </StyledHeader>
