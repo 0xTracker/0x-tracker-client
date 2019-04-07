@@ -3,6 +3,9 @@ module.exports = {
     browser: true,
     jest: true,
   },
+  globals: {
+    Headway: true,
+  },
   extends: [
     'airbnb-base',
     'plugin:eslint-comments/recommended',
