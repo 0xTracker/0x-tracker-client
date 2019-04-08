@@ -24,7 +24,7 @@ AssetLabel.propTypes = {
     tokenAddress: PropTypes.string.isRequired,
     tokenId: PropTypes.number,
     tokenSymbol: PropTypes.string,
-    tokenType: PropTypes.string.isRequired,
+    tokenType: PropTypes.string,
   }).isRequired,
 };
 

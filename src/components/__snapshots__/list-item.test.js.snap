@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`list item component should render with children 1`] = `
+.c2 {
+  display: inline-block;
+  vertical-align: -.125em;
+  overflow: hidden;
+}
+
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 0 0.25rem;
+  padding: 0;
+}
+
+.c0:last-child {
+  margin: 0;
+}
+
+.c1 {
+  margin: 2px 0 0 -5px;
+}
+
+<li
+  class="c0"
+>
+  <svg
+    aria-hidden="true"
+    class="c1 c2"
+    color="#9F9EB9"
+    fill="currentColor"
+    focusable="false"
+    height="16"
+    viewBox="0 0 192 512"
+    width="16"
+  >
+    <path
+      d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"
+      fill="currentColor"
+    />
+  </svg>
+  <span>
+    hello world
+  </span>
+</li>
+`;

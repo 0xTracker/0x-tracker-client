@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import { CaretRightIcon } from './icons';
 import { colors } from '../styles/constants';
-import CaretRightIcon from './icons/caret-right-icon';
 
 const Container = styled.li`
   align-items: center;

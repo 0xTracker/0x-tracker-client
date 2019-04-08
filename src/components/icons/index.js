@@ -1,4 +1,5 @@
 // eslint-disable-next-line filenames/no-index
+import CaretRightIcon from './caret-right-icon';
 import CloseIcon from './close-icon';
 import GitHubIcon from './git-hub-icon';
 import LeftArrowIcon from './left-arrow-icon';
@@ -13,6 +14,7 @@ import SpectrumIcon from './spectrum-icon';
 import TwitterIcon from './twitter-icon';
 
 export {
+  CaretRightIcon,
   CloseIcon,
   GitHubIcon,
   LeftArrowIcon,
