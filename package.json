@@ -51,7 +51,7 @@
     "react-select": "2.4.2",
     "react-slick": "0.23.2",
     "react-use": "5.8.0",
-    "reactstrap": "7.1.0",
+    "reactstrap": "8.0.0",
     "recharts": "1.5.0",
     "recompose": "0.30.0",
     "redux": "4.0.1",
