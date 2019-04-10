@@ -14,8 +14,10 @@ storiesOf('Relayers|RelayerList', module).add('default', () => (
           name: 'Radar Relay',
           slug: 'radar-relay',
           stats: {
-            trades: 512,
-            volume: { USD: 100000 },
+            '24h': {
+              trades: 512,
+              volume: 100000,
+            },
           },
           url: 'https://radarrelay.com',
         },
@@ -24,8 +26,10 @@ storiesOf('Relayers|RelayerList', module).add('default', () => (
           name: 'DDEX',
           slug: 'ddex',
           stats: {
-            trades: 256,
-            volume: { USD: 150456.56 },
+            '24h': {
+              trades: 256,
+              volume: 150456.56,
+            },
           },
           url: 'https://ddex.io',
         },
@@ -34,8 +38,10 @@ storiesOf('Relayers|RelayerList', module).add('default', () => (
           name: 'Paradex',
           slug: 'paradex',
           stats: {
-            trades: 345,
-            volume: { USD: 124000 },
+            '24h': {
+              trades: 345,
+              volume: 124000,
+            },
           },
           url: 'https://paradex.io',
         },
@@ -43,8 +49,10 @@ storiesOf('Relayers|RelayerList', module).add('default', () => (
           name: 'Sad Relayer',
           slug: 'sad-relayer',
           stats: {
-            trades: 0,
-            volume: { USD: 0 },
+            '24h': {
+              trades: 0,
+              volume: 0,
+            },
           },
           url: 'https://google.com',
         },

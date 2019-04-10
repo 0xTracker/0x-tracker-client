@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import { TIME_PERIOD } from '../constants';
 
 const periodLabels = {
@@ -8,6 +10,6 @@ const periodLabels = {
   [TIME_PERIOD.ALL]: 'ALL',
 };
 
-const prettyPeriod = period => periodLabels[period];
+const prettyPeriod = period => periodLabels[period] || _.toUpper(period);
 
 export default prettyPeriod;

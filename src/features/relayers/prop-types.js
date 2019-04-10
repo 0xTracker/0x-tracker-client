@@ -6,6 +6,7 @@ const relayerShape = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
+  stats: PropTypes.object,
   url: PropTypes.string,
 };
 

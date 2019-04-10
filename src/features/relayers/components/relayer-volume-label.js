@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { BASE_CURRENCY } from '../../currencies/constants';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 
-const RelayerVolumeLabel = ({ relayer }) => {
-  const volume = relayer.stats.volume[BASE_CURRENCY];
+const RelayerVolumeLabel = ({ stats }) => {
+  const { volume } = stats;
 
-  if (relayer.stats.trades === 0) {
+  if (stats.trades === undefined || stats.trades === 0) {
     return '-';
   }
 
@@ -19,13 +18,9 @@ const RelayerVolumeLabel = ({ relayer }) => {
 };
 
 RelayerVolumeLabel.propTypes = {
-  relayer: PropTypes.shape({
-    stats: PropTypes.shape({
-      trades: PropTypes.number.isRequired,
-      volume: PropTypes.shape({
-        [BASE_CURRENCY]: PropTypes.number.isRequired,
-      }).isRequired,
-    }).isRequired,
+  stats: PropTypes.shape({
+    trades: PropTypes.number,
+    volume: PropTypes.number,
   }).isRequired,
 };
 
