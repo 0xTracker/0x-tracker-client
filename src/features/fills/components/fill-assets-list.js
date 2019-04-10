@@ -12,14 +12,12 @@ const FillAssetsList = ({ assets, condensed }) => {
 
   return (
     <List>
-      {assets.map((asset, index) => {
-        return (
-          // eslint-disable-next-line react/no-array-index-key
-          <ListItem key={index}>
-            <FillAsset asset={asset} condensed={condensed} />
-          </ListItem>
-        );
-      })}
+      {assets.map((asset, index) => (
+        // eslint-disable-next-line react/no-array-index-key
+        <ListItem key={index}>
+          <FillAsset asset={asset} condensed={condensed} />
+        </ListItem>
+      ))}
     </List>
   );
 };

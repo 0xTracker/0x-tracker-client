@@ -25,13 +25,11 @@ const routeComponents = routes.map(route =>
   createPageRoute(route.path, route.loader, route.key),
 );
 
-const Routes = () => {
-  return (
-    <>
-      <AnalyticsRoute /> {/* Track page views */}
-      <Switch>{routeComponents}</Switch>
-    </>
-  );
-};
+const Routes = () => (
+  <>
+    <AnalyticsRoute /> {/* Track page views */}
+    <Switch>{routeComponents}</Switch>
+  </>
+);
 
 export default Routes;

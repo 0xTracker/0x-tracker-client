@@ -59,6 +59,7 @@ module.exports = {
   },
   root: true,
   rules: {
+    'arrow-body-style': ['error', 'as-needed'],
     'classes/style': 'error',
     'classes/name': ['error', 'class', 'method'],
     'classes/space': 'error',
@@ -153,6 +154,7 @@ module.exports = {
     'promise/valid-params': 'error',
     'promise/prefer-await-to-then': 'error',
     'promise/prefer-await-to-callbacks': 'error',
+    quotes: ['error', 'single'],
     'react/forbid-component-props': 'off',
     'react/forbid-dom-props': ['error', { forbid: ['style'] }],
     'react/forbid-prop-types': 'warn', // TODO: Convert to error once fixed
