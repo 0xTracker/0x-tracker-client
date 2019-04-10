@@ -154,6 +154,7 @@ module.exports = {
     'promise/valid-params': 'error',
     'promise/prefer-await-to-then': 'error',
     'promise/prefer-await-to-callbacks': 'error',
+    quotes: ['error', 'single'],
     'react/forbid-component-props': 'off',
     'react/forbid-dom-props': ['error', { forbid: ['style'] }],
     'react/forbid-prop-types': 'warn', // TODO: Convert to error once fixed
