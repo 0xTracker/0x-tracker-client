@@ -21,7 +21,7 @@ const TopRelayersTooltip = ({ currency, payload }) => {
           value: `${numeral(share).format('0.[00]')}%`,
         },
         {
-          label: `total trades`,
+          label: 'total trades',
           value: numeral(trades).format('0,0'),
         },
         {

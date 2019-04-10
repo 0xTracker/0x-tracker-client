@@ -16,19 +16,17 @@ const Container = styled.li`
   }
 `;
 
-const ListItem = ({ children }) => {
-  return (
-    <Container>
-      <CaretRightIcon
-        color={colors.santasGray}
-        css="margin: 2px 0 0 -5px"
-        height={16}
-        width={16}
-      />
-      <span>{children}</span>
-    </Container>
-  );
-};
+const ListItem = ({ children }) => (
+  <Container>
+    <CaretRightIcon
+      color={colors.santasGray}
+      css="margin: 2px 0 0 -5px"
+      height={16}
+      width={16}
+    />
+    <span>{children}</span>
+  </Container>
+);
 
 ListItem.propTypes = {
   children: PropTypes.node.isRequired,
