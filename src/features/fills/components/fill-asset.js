@@ -10,13 +10,13 @@ const AssetTypeBadge = styled.span.attrs({ className: 'badge badge-dark' })`
   margin-left: 0.5rem;
 `;
 
-const FillAsset = ({ asset }) => {
+const FillAsset = ({ asset, condensed }) => {
   return (
     <>
       {asset.amount !== undefined && asset.type !== 'erc-721' && (
         <>{formatToken(asset.amount)} </>
       )}
-      <AssetLabel asset={asset} />{' '}
+      <AssetLabel asset={asset} condensed={condensed} />{' '}
       {asset.type === 'erc-721' && <AssetTypeBadge>ERC-721</AssetTypeBadge>}
       {asset.type === 'erc-20' && <AssetTypeBadge>ERC-20</AssetTypeBadge>}
     </>
@@ -31,6 +31,11 @@ FillAsset.propTypes = {
     tokenSymbol: PropTypes.string,
     type: PropTypes.string.isRequired,
   }).isRequired,
+  condensed: PropTypes.bool,
+};
+
+FillAsset.defaultProps = {
+  condensed: false,
 };
 
 export default FillAsset;

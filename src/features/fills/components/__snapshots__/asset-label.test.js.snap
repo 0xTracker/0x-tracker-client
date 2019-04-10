@@ -72,7 +72,7 @@ exports[`asset label component should render for unknown token 1`] = `
   rel="noopener noreferrer"
   target="_blank"
 >
-  Unknown Token
+  Unknown
    
   #
   999

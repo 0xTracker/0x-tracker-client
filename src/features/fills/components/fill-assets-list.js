@@ -5,7 +5,7 @@ import FillAsset from './fill-asset';
 import List from '../../../components/list';
 import ListItem from '../../../components/list-item';
 
-const FillAssetsList = ({ assets }) => {
+const FillAssetsList = ({ assets, condensed }) => {
   if (assets.length === 0) {
     return null;
   }
@@ -16,7 +16,7 @@ const FillAssetsList = ({ assets }) => {
         return (
           // eslint-disable-next-line react/no-array-index-key
           <ListItem key={index}>
-            <FillAsset asset={asset} />
+            <FillAsset asset={asset} condensed={condensed} />
           </ListItem>
         );
       })}
@@ -34,6 +34,11 @@ FillAssetsList.propTypes = {
       type: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  condensed: PropTypes.bool,
+};
+
+FillAssetsList.defaultProps = {
+  condensed: false,
 };
 
 export default FillAssetsList;

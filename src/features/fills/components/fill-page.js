@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-max-depth */
 import _ from 'lodash';
-import { mapProps } from 'recompose';
+import { compose, mapProps } from 'recompose';
 import { Helmet } from 'react-helmet';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -48,7 +49,7 @@ const PriceBadge = styled.span.attrs({ className: 'badge' })`
   margin-left: 0.5rem;
 `;
 
-const FillPage = ({ fillId }) => {
+const FillPage = ({ fillId, screenSize }) => {
   const { data: fill, error, loading } = useFill(fillId);
 
   if (error) {
@@ -134,11 +135,13 @@ const FillPage = ({ fillId }) => {
               <FillDetail title="Maker Assets">
                 <FillAssetsList
                   assets={_.filter(fill.assets, { traderType: 'maker' })}
+                  condensed={screenSize.lessThan.sm}
                 />
               </FillDetail>
               <FillDetail title="Taker Assets">
                 <FillAssetsList
                   assets={_.filter(fill.assets, { traderType: 'taker' })}
+                  condensed={screenSize.lessThan.sm}
                 />
               </FillDetail>
               <FillDetail title="Maker Fee">
@@ -202,8 +205,20 @@ const FillPage = ({ fillId }) => {
 
 FillPage.propTypes = {
   fillId: PropTypes.string.isRequired,
+  screenSize: PropTypes.shape({
+    lessThan: PropTypes.shape({
+      sm: PropTypes.bool.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
-export default mapProps(({ match }) => ({ fillId: match.params.id }))(FillPage);
+const enhance = compose(
+  mapProps(({ match }) => ({ fillId: match.params.id })),
+  connect(state => ({
+    screenSize: state.screen,
+  })),
+);
+
+export default enhance(FillPage);
 
 /* eslint-enable react/jsx-max-depth */
