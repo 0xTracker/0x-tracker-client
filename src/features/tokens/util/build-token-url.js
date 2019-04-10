@@ -1,5 +1,7 @@
 import { URL } from '../../../constants';
 
-const buildTokenUrl = token => URL.TOKEN.replace(':address', token.address);
+const buildTokenUrl = tokenAddress => {
+  return URL.TOKEN.replace(':address', tokenAddress);
+};
 
 export default buildTokenUrl;

@@ -1,15 +1,18 @@
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 const FillStatusLabel = ({ status }) => {
   const className = {
-    failed: 'text-danger',
-    pending: 'text-warning',
-    successful: 'text-success',
+    failed: 'badge-danger',
+    pending: 'badge-warning',
+    successful: 'badge-success',
   }[status];
 
-  return <span className={className}>{_.startCase(status)}</span>;
+  return (
+    <span className={`badge ${className}`} css="text-transform: uppercase;">
+      {status}
+    </span>
+  );
 };
 
 FillStatusLabel.propTypes = {

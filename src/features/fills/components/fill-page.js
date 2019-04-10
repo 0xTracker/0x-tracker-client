@@ -1,29 +1,34 @@
 /* eslint-disable react/jsx-max-depth */
 import _ from 'lodash';
-import { mapProps } from 'recompose';
+import { compose, mapProps } from 'recompose';
 import { Helmet } from 'react-helmet';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import { colors } from '../../../styles/constants';
 import { DATE_FORMAT, URL, ZRX_TOKEN } from '../../../constants';
 import { media } from '../../../styles/util';
+import AssetLabel from './asset-label';
 import buildFillUrl from '../util/build-fill-url';
 import buildSearchUrl from '../../search/util/build-search-url';
 import Card from '../../../components/card';
 import EthereumAddressLink from '../../../components/ethereum-address-link';
+import FillAssetsList from './fill-assets-list';
 import FillDetail from './fill-detail';
 import FillRelayerLink from './fill-relayer-link';
 import FillStatusLabel from './fill-status-label';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
+import List from '../../../components/list';
+import ListItem from '../../../components/list-item';
 import LoadingPage from '../../../components/loading-page';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 import SearchLink from '../../search/components/search-link';
 import TokenAmount from '../../tokens/components/token-amount';
-import TokenLink from '../../tokens/components/token-link';
 import useFill from '../hooks/use-fill';
 
 const FillDetailList = styled.dl`
@@ -39,7 +44,12 @@ const FillDetailList = styled.dl`
   `};
 `;
 
-const FillPage = ({ fillId }) => {
+const PriceBadge = styled.span.attrs({ className: 'badge' })`
+  background-color: ${colors.mischka};
+  margin-left: 0.5rem;
+`;
+
+const FillPage = ({ fillId, screenSize }) => {
   const { data: fill, error, loading } = useFill(fillId);
 
   if (error) {
@@ -53,6 +63,12 @@ const FillPage = ({ fillId }) => {
   if (fill === undefined) {
     return <PageNotFound />;
   }
+
+  const makerPrice = _.get(fill, 'makerPrice.USD');
+  const takerPrice = _.get(fill, 'takerPrice.USD');
+
+  const makerAsset = _.find(fill.assets, { traderType: 'maker' });
+  const takerAsset = _.find(fill.assets, { traderType: 'taker' });
 
   return (
     <>
@@ -93,7 +109,7 @@ const FillPage = ({ fillId }) => {
                 {formatDate(fill.date, DATE_FORMAT.FULL)}
               </FillDetail>
               <FillDetail title="Relayer">
-                <FillRelayerLink fill={fill} />
+                <FillRelayerLink fill={fill} showImage />
               </FillDetail>
               <FillDetail title="Status">
                 <FillStatusLabel status={fill.status} />
@@ -101,67 +117,33 @@ const FillPage = ({ fillId }) => {
               <FillDetail title="0x Protocol">
                 v{fill.protocolVersion}
               </FillDetail>
-            </FillDetailList>
-            <FillDetailList>
-              <FillDetail title="Trade">
-                <TokenAmount
-                  amount={fill.makerAmount}
-                  token={fill.makerToken}
-                />{' '}
-                &#8651;{' '}
-                <TokenAmount
-                  amount={fill.takerAmount}
-                  token={fill.takerToken}
-                />
-              </FillDetail>
-
               {_.has(fill.amount, 'USD') && (
                 <FillDetail title="Value">
-                  <LocalisedAmount amount={fill.amount.USD} />
+                  <LocalisedAmount amount={fill.value.USD} />
                 </FillDetail>
               )}
-            </FillDetailList>
-            <FillDetailList>
-              <FillDetail title="Maker">
+              <FillDetail title="Maker Address">
                 <EthereumAddressLink address={fill.makerAddress}>
                   {fill.makerAddress}
                 </EthereumAddressLink>
               </FillDetail>
-              <FillDetail title="Maker Token">
-                <TokenLink token={fill.makerToken}>
-                  {fill.makerToken.name
-                    ? fill.makerToken.name
-                    : fill.makerToken.address}
-                </TokenLink>
-              </FillDetail>
-
-              {_.has(fill, 'makerPrice.USD') && (
-                <FillDetail title="Maker Price">
-                  <LocalisedAmount amount={fill.makerPrice.USD} />
-                </FillDetail>
-              )}
-            </FillDetailList>
-            <FillDetailList>
-              <FillDetail title="Taker">
+              <FillDetail title="Taker Address">
                 <EthereumAddressLink address={fill.takerAddress}>
                   {fill.takerAddress}
                 </EthereumAddressLink>
               </FillDetail>
-              <FillDetail title="Taker Token">
-                <TokenLink token={fill.takerToken}>
-                  {fill.takerToken.name
-                    ? fill.takerToken.name
-                    : fill.takerToken.address}
-                </TokenLink>
+              <FillDetail title="Maker Assets">
+                <FillAssetsList
+                  assets={_.filter(fill.assets, { traderType: 'maker' })}
+                  condensed={screenSize.lessThan.sm}
+                />
               </FillDetail>
-
-              {_.has(fill, 'takerPrice.USD') && (
-                <FillDetail title="Taker Price">
-                  <LocalisedAmount amount={fill.takerPrice.USD} />
-                </FillDetail>
-              )}
-            </FillDetailList>
-            <FillDetailList>
+              <FillDetail title="Taker Assets">
+                <FillAssetsList
+                  assets={_.filter(fill.assets, { traderType: 'taker' })}
+                  condensed={screenSize.lessThan.sm}
+                />
+              </FillDetail>
               <FillDetail title="Maker Fee">
                 {fill.makerFee.ZRX !== '0' ? (
                   <TokenAmount amount={fill.makerFee.ZRX} token={ZRX_TOKEN} />
@@ -188,6 +170,31 @@ const FillPage = ({ fillId }) => {
                   {fill.feeRecipient}
                 </EthereumAddressLink>
               </FillDetail>
+
+              <FillDetail last title="Derived Prices">
+                {makerPrice === undefined && takerPrice === undefined ? (
+                  'None'
+                ) : (
+                  <List>
+                    {makerPrice && (
+                      <ListItem>
+                        <AssetLabel asset={makerAsset} />
+                        <PriceBadge>
+                          <LocalisedAmount amount={makerPrice} />
+                        </PriceBadge>
+                      </ListItem>
+                    )}
+                    {takerPrice && (
+                      <ListItem>
+                        <AssetLabel asset={takerAsset} />
+                        <PriceBadge>
+                          <LocalisedAmount amount={takerPrice} />
+                        </PriceBadge>
+                      </ListItem>
+                    )}
+                  </List>
+                )}
+              </FillDetail>
             </FillDetailList>
           </>
         </Card>
@@ -198,8 +205,20 @@ const FillPage = ({ fillId }) => {
 
 FillPage.propTypes = {
   fillId: PropTypes.string.isRequired,
+  screenSize: PropTypes.shape({
+    lessThan: PropTypes.shape({
+      sm: PropTypes.bool.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
-export default mapProps(({ match }) => ({ fillId: match.params.id }))(FillPage);
+const enhance = compose(
+  mapProps(({ match }) => ({ fillId: match.params.id })),
+  connect(state => ({
+    screenSize: state.screen,
+  })),
+);
+
+export default enhance(FillPage);
 
 /* eslint-enable react/jsx-max-depth */

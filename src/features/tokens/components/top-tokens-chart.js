@@ -36,7 +36,7 @@ class TopTokensChart extends PureComponent {
 
   redirectToToken(token) {
     const { history } = this.props;
-    const url = buildTokenUrl(token);
+    const url = buildTokenUrl(token.address);
 
     history.push(url);
   }

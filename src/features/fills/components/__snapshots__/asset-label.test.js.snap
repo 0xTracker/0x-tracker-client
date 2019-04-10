@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`asset label component should render for ERC-20 asset 1`] = `
+.c0 {
+  color: #3f4ac3;
+  cursor: pointer;
+}
+
+.c0:hover {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<a
+  class="c0"
+  href="/tokens/0x12345"
+>
+  Wrapped Ether
+   
+   
+  (
+  WETH
+  )
+</a>
+`;
+
+exports[`asset label component should render for ERC-721 asset 1`] = `
+.c0 {
+  color: #3f4ac3;
+  cursor: pointer;
+}
+
+.c0:hover {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<a
+  class="c0"
+  href="https://opensea.io/assets/0x12345/999"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  CryptoKitties
+   
+  #
+  999
+   
+  (
+  CK
+  )
+</a>
+`;
+
+exports[`asset label component should render for unknown token 1`] = `
+.c0 {
+  color: #3f4ac3;
+  cursor: pointer;
+}
+
+.c0:hover {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<a
+  class="c0"
+  href="https://opensea.io/assets/0x12345/999"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  Unknown
+   
+  #
+  999
+   
+</a>
+`;

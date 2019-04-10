@@ -35,7 +35,7 @@ const TokenPage = ({ tokenAddress }) => {
           { title: 'Tokens', url: URL.TOKENS },
           {
             title: token ? token.name : 'Unknown Token',
-            url: buildTokenUrl(token),
+            url: buildTokenUrl(tokenAddress),
           },
         ]}
         title={token ? token.name : 'Unknown Token'}

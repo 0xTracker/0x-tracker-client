@@ -4,9 +4,10 @@ import React from 'react';
 
 import buildSearchUrl from '../../search/util/build-search-url';
 import Link from '../../../components/link';
+import RelayerImage from '../../relayers/components/relayer-image';
 import RelayerLink from '../../relayers/components/relayer-link';
 
-const FillRelayerLink = ({ fill }) => {
+const FillRelayerLink = ({ fill, showImage }) => {
   const { feeRecipient, relayer } = fill;
 
   if (_.isNil(relayer)) {
@@ -17,7 +18,19 @@ const FillRelayerLink = ({ fill }) => {
     return <Link href={buildSearchUrl(feeRecipient)}>Unknown</Link>;
   }
 
-  return <RelayerLink relayer={relayer}>{relayer.name}</RelayerLink>;
+  return (
+    <RelayerLink css="display: flex; align-items: center;" relayer={relayer}>
+      {showImage && relayer.imageUrl && (
+        <RelayerImage
+          css="margin-right: 0.5rem;"
+          height={20}
+          imageUrl={relayer.imageUrl}
+          width={20}
+        />
+      )}
+      {relayer.name}
+    </RelayerLink>
+  );
 };
 
 FillRelayerLink.propTypes = {
@@ -28,6 +41,11 @@ FillRelayerLink.propTypes = {
       slug: PropTypes.string.isRequired,
     }),
   }).isRequired,
+  showImage: PropTypes.bool,
+};
+
+FillRelayerLink.defaultProps = {
+  showImage: false,
 };
 
 export default FillRelayerLink;

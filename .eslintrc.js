@@ -145,6 +145,7 @@ module.exports = {
     'jest/valid-expect-in-promise': 'error',
     'lodash/import-scope': ['error', 'full'],
     'lodash/prefer-lodash-method': 'off',
+    'lodash/prefer-lodash-chain': 'off',
     'promise/no-nesting': 'error',
     'promise/no-promise-in-callback': 'error',
     'promise/no-callback-in-promise': 'error',

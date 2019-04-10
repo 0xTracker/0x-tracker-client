@@ -28,12 +28,12 @@ const TokenListItem = ({ position, token }) => {
     <tr className={tradeCount === 0 ? 'faded' : undefined}>
       <td className="align-middle">{position}</td>
       <td className="align-middle">
-        <TokenLink token={token}>
+        <TokenLink address={token.address}>
           <TokenImage imageUrl={token.imageUrl} />
         </TokenLink>
       </td>
       <td width="99%">
-        <TokenLink token={token}>{token.name}</TokenLink>
+        <TokenLink address={token.address}>{token.name}</TokenLink>
         <br />
         {token.symbol}
       </td>
