@@ -59,6 +59,7 @@ module.exports = {
   },
   root: true,
   rules: {
+    'arrow-body-style': ['error', 'as-needed'],
     'classes/style': 'error',
     'classes/name': ['error', 'class', 'method'],
     'classes/space': 'error',
