@@ -5,7 +5,7 @@ import { withBackgrounds } from '@storybook/addon-backgrounds';
 import { createGlobalStyle } from 'styled-components';
 import { configureViewport } from '@storybook/addon-viewport';
 import React from 'react';
-import StoryRouter from 'storybook-router';
+import StoryRouter from 'storybook-react-router';
 
 // This must come before GlobalStyles due to import precedence
 import 'bootstrap/dist/css/bootstrap.css';
