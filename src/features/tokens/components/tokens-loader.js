@@ -21,9 +21,13 @@ class TokensLoader extends PureComponent {
   }
 
   componentDidUpdate(prevProps) {
-    const { page } = this.props;
+    const { limit, page, sortBy } = this.props;
 
-    if (page === prevProps.page) {
+    if (
+      page === prevProps.page &&
+      limit === prevProps.limit &&
+      sortBy === prevProps.sortBy
+    ) {
       return;
     }
 
@@ -44,7 +48,7 @@ class TokensLoader extends PureComponent {
   };
 
   fetchTokens = async (reload = false) => {
-    const { limit, page } = this.props;
+    const { limit, page, sortBy } = this.props;
 
     if (reload) {
       this.setState({ reloading: true });
@@ -63,6 +67,7 @@ class TokensLoader extends PureComponent {
       {
         limit,
         page,
+        sortBy,
       },
       { version: 2 },
     );
@@ -111,11 +116,17 @@ TokensLoader.propTypes = {
   children: PropTypes.func.isRequired,
   limit: PropTypes.number,
   page: PropTypes.number,
+  sortBy: PropTypes.oneOf([
+    '24h-volume-share',
+    '7d-volume-share',
+    '1m-volume-share',
+  ]),
 };
 
 TokensLoader.defaultProps = {
   limit: undefined,
   page: 1,
+  sortBy: undefined,
 };
 
 export default TokensLoader;
