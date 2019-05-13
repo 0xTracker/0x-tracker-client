@@ -1,7 +1,7 @@
+import { useLocation } from 'react-use';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import useLocation from 'react-use/lib/useLocation';
 
 import { colors } from '../styles/constants';
 import Link from './link';
