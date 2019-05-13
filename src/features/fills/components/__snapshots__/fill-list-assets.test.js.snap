@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fill list assets component should render for ERC-20 asset 1`] = `
+<div>
+  150
+   
+  WETH
+   
+</div>
+`;
+
+exports[`fill list assets component should render for ERC-721 asset 1`] = `
+<div>
+  CK
+   
+  #
+  999
+</div>
+`;
+
+exports[`fill list assets component should render for multiple assets 1`] = `Multiple Assets`;

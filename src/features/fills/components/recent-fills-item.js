@@ -10,10 +10,10 @@ import { BASE_CURRENCY } from '../../currencies/constants';
 import buildRelayerUrl from '../../relayers/util/build-relayer-url';
 import buildSearchUrl from '../../search/util/build-search-url';
 import FillLink from './fill-link';
+import FillListAssets from './fill-list-assets';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import RecentFillsItemImage from './recent-fills-item-image';
-import TokenAmount from '../../tokens/components/token-amount';
 
 const StyledRecentFillsItem = styled.div`
   align-items: center;
@@ -105,16 +105,12 @@ const RecentFillsItem = ({ fill, screenSize }) => {
       <div css="display: flex; flex-direction: column; justify-content: center; flex-grow: 1;">
         <Heading>
           <FillLink fillId={fill.id}>
-            <TokenAmount
-              amount={fill.makerAmount}
-              linked={false}
-              token={fill.makerToken}
-            />{' '}
+            <FillListAssets
+              assets={_.filter(fill.assets, { traderType: 'maker' })}
+            />
             &#8651;{' '}
-            <TokenAmount
-              amount={fill.takerAmount}
-              linked={false}
-              token={fill.takerToken}
+            <FillListAssets
+              assets={_.filter(fill.assets, { traderType: 'taker' })}
             />
           </FillLink>
         </Heading>
