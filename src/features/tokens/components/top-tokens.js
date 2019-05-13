@@ -1,89 +1,51 @@
-import { filter, flow, map, take } from 'lodash/fp';
+import _ from 'lodash';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 import { getDisplayCurrency } from '../../currencies/selectors';
 import AsyncTopTokensChart from './async-top-tokens-chart';
-import AutoReload from '../../../util/auto-reload';
-import getTokensWithStats from '../selectors/get-tokens-with-stats';
 import LoadingIndicator from '../../../components/loading-indicator';
-import tokensPropTypes from '../prop-types';
+import TokensLoader from './tokens-loader';
+import normalizePeriod from '../../../util/normalize-period';
 
-class TopTokens extends PureComponent {
-  componentDidMount() {
-    this.loadData();
-    AutoReload.addListener(this.loadData);
-  }
+const getDataPointsForPeriod = (tokens, period) => {
+  const normalizedPeriod = normalizePeriod(period);
 
-  componentDidUpdate(prevProps) {
-    const { period, relayerId } = this.props;
+  return tokens.map(token => ({
+    share: _.get(token, `stats.${normalizedPeriod}.volumeShare`, 0),
+    token,
+    tokenVolume: _.get(token, `stats.${normalizedPeriod}.volume.token`, '0'),
+    volume: _.get(token, `stats.${normalizedPeriod}.volume.USD`, 0),
+  }));
+};
 
-    if (prevProps.period !== period || prevProps.relayerId !== relayerId) {
-      this.loadData();
+const TopTokens = ({ displayCurrency, period }) => (
+  <TokensLoader
+    limit={5}
+    page={1}
+    sortBy={`${normalizePeriod(period)}-volume-share`}
+  >
+    {({ loading, tokens }) =>
+      loading ? (
+        <LoadingIndicator centered />
+      ) : (
+        <AsyncTopTokensChart
+          data={getDataPointsForPeriod(tokens, period)}
+          displayCurrency={displayCurrency}
+        />
+      )
     }
-  }
-
-  componentWillUnmount() {
-    AutoReload.removeListener(this.loadData);
-  }
-
-  loadData = () => {
-    const { fetchTokenStats, fetchTokens, period, relayerId } = this.props;
-
-    fetchTokenStats({ period, relayer: relayerId });
-    fetchTokens();
-  };
-
-  render() {
-    const { displayCurrency, tokens } = this.props;
-
-    if (tokens === undefined) {
-      return <LoadingIndicator centered />;
-    }
-
-    const data = flow([
-      map(token => ({
-        share: token.share,
-        token,
-        tokenVolume: token.volume[token.symbol],
-        volume: token.volume[displayCurrency],
-      })),
-      filter(dataPoint => dataPoint.tokenVolume > 0),
-      take(5),
-    ])(tokens);
-
-    return (
-      <AsyncTopTokensChart data={data} displayCurrency={displayCurrency} />
-    );
-  }
-}
+  </TokensLoader>
+);
 
 TopTokens.propTypes = {
   displayCurrency: PropTypes.string.isRequired,
-  fetchTokenStats: PropTypes.func.isRequired,
-  fetchTokens: PropTypes.func.isRequired,
   period: PropTypes.string.isRequired,
-  relayerId: PropTypes.string,
-  tokens: PropTypes.arrayOf(tokensPropTypes.tokenWithStats),
 };
 
-TopTokens.defaultProps = {
-  relayerId: undefined,
-  tokens: undefined,
-};
-
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   displayCurrency: getDisplayCurrency(state),
-  tokens: getTokensWithStats(state, ownProps),
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchTokenStats: dispatch.stats.fetchTokenStats,
-  fetchTokens: dispatch.tokens.fetch,
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(TopTokens);
+export default connect(mapStateToProps)(TopTokens);
