@@ -1,3 +1,4 @@
+import { useTimeout } from 'react-use';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactLoading from 'react-loading';
@@ -17,6 +18,12 @@ const dimensions = {
 };
 
 const LoadingIndicator = ({ centered, size, type }) => {
+  const ready = useTimeout(300);
+
+  if (!ready) {
+    return null;
+  }
+
   const indicator = (
     <ReactLoading
       color="currentColor"
