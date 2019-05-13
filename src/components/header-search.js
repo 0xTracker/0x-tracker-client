@@ -1,4 +1,4 @@
-import { useOutsideClick } from 'react-use';
+import { useClickAway } from 'react-use';
 import { rgba } from 'polished';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
@@ -64,7 +64,7 @@ const SearchInputWrapper = styled.div`
 const HeaderSearch = ({ onBlur, onSearch }) => {
   const wrapperRef = useRef();
 
-  useOutsideClick(wrapperRef, onBlur);
+  useClickAway(wrapperRef, onBlur);
   useEscapeKey(onBlur);
 
   return (
