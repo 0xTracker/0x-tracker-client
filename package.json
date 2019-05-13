@@ -51,7 +51,7 @@
     "react-scroll": "1.7.11",
     "react-select": "2.4.3",
     "react-slick": "0.24.0",
-    "react-use": "5.8.0",
+    "react-use": "9.0.0",
     "reactstrap": "8.0.0",
     "recharts": "1.5.0",
     "recompose": "0.30.0",
