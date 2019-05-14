@@ -9,19 +9,25 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import normalizePeriod from '../../../util/normalize-period';
 import useRelayers from '../hooks/use-relayers';
 
-const getDataPointsForPeriod = (relayers, period) => {
-  const normalizedPeriod = normalizePeriod(period);
-
-  return relayers.map(relayer => ({
+const getDataPointsForPeriod = (relayers, period) =>
+  _.reverse(relayers).map(relayer => ({
     relayer,
-    trades: _.get(relayer, `stats.${normalizedPeriod}.trades`, 0),
-    volume: _.get(relayer, `stats.${normalizedPeriod}.volume`, 0),
-    volumeShare: _.get(relayer, `stats.${normalizedPeriod}.volumeShare`, 0),
+    trades: _.get(relayer, `stats.${period}.trades`, 0),
+    volume: _.get(relayer, `stats.${period}.volume`, 0),
+    volumeShare: _.get(relayer, `stats.${period}.volumeShare`, 0),
   }));
-};
 
 const TopRelayers = ({ displayCurrency, period }) => {
-  const [relayers, loadingRelayers, relayersError] = useRelayers({ limit: 5 });
+  const normalizedPeriod = normalizePeriod(period);
+
+  const [relayers, loadingRelayers, relayersError] = useRelayers(
+    {
+      autoReload: true,
+      limit: 5,
+      sortBy: `${normalizedPeriod}-volume-share`,
+    },
+    [normalizedPeriod],
+  );
 
   if (loadingRelayers) {
     return <LoadingIndicator centered />;
@@ -33,7 +39,7 @@ const TopRelayers = ({ displayCurrency, period }) => {
 
   return (
     <AsyncTopRelayersChart
-      data={getDataPointsForPeriod(relayers.items, period)}
+      data={getDataPointsForPeriod(relayers.items, normalizedPeriod)}
       displayCurrency={displayCurrency}
     />
   );
