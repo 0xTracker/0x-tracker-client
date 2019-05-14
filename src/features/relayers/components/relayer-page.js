@@ -30,10 +30,14 @@ const ChartColumn = styled(Col)`
 `;
 
 const RelayerPage = ({ screenSize, slug }) => {
-  const [relayer, loadingRelayer] = useRelayer(slug);
+  const [relayer, loadingRelayer, relayerError] = useRelayer(slug);
 
   if (loadingRelayer) {
     return <LoadingPage />;
+  }
+
+  if (relayerError) {
+    throw relayerError;
   }
 
   if (relayer === undefined) {
