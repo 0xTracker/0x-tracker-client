@@ -7,6 +7,7 @@ import { BASE_CURRENCY } from '../../currencies/constants';
 import { ZRX_TOKEN } from '../../../constants';
 import { MoreIcon } from '../../../components/icons';
 import buildFillUrl from '../util/build-fill-url';
+import FillListAssets from './fill-list-assets';
 import FillRelayerLink from './fill-relayer-link';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
@@ -36,13 +37,19 @@ const FillList = ({ excludeColumns, fills }) => {
               {distanceInWordsToNow(fill.date)} ago
             </td>
             <td className="text-right">
-              <TokenAmount amount={fill.makerAmount} token={fill.makerToken} />
+              <FillListAssets
+                assets={_.filter(fill.assets, { traderType: 'maker' })}
+                linked
+              />
             </td>
             <td className="text-center" width="99%">
               &#8651;
             </td>
             <td className="text-right">
-              <TokenAmount amount={fill.takerAmount} token={fill.takerToken} />
+              <FillListAssets
+                assets={_.filter(fill.assets, { traderType: 'taker' })}
+                linked
+              />
             </td>
             <td className="text-right">
               {_.has(fill, `amount.${BASE_CURRENCY}`) ? (

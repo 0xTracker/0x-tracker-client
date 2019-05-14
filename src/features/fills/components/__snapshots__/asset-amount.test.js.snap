@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`asset amount component should render amount for ERC-20 asset 1`] = `150`;

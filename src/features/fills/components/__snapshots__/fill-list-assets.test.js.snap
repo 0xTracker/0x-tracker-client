@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fill list assets component should link ERC-20 asset 1`] = `
+.c0 {
+  color: #3f4ac3;
+  cursor: pointer;
+}
+
+.c0:hover {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<div>
+  150
+   
+  <a
+    class="c0"
+    href="/tokens/0x12345"
+  >
+    WETH
+     
+  </a>
+</div>
+`;
+
+exports[`fill list assets component should link ERC-721 asset 1`] = `
+.c0 {
+  color: #3f4ac3;
+  cursor: pointer;
+}
+
+.c0:hover {
+  color: inherit;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+<div>
+  <a
+    class="c0"
+    href="https://opensea.io/assets/0x12345/999"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    CK
+     
+    #
+    999
+  </a>
+</div>
+`;
+
+exports[`fill list assets component should render for ERC-20 asset 1`] = `
+<div>
+  150
+   
+  WETH
+   
+</div>
+`;
+
+exports[`fill list assets component should render for ERC-721 asset 1`] = `
+<div>
+  CK
+   
+  #
+  999
+</div>
+`;
+
+exports[`fill list assets component should render for multiple assets 1`] = `Multiple Assets`;
