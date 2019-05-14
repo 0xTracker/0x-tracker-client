@@ -46,7 +46,7 @@ class DashboardMetrics extends React.PureComponent {
     const { className, displayCurrency, networkStats, screenSize } = this.props;
     const { volume } = _.pick(networkStats, 'volume');
     const fees = _.get(networkStats, `fees[${displayCurrency}]`);
-    const tradeCount = _.get(networkStats, 'trades');
+    const tradeCount = _.get(networkStats, 'fills');
 
     return screenSize.greaterThan.md ? (
       <Row className={className}>
