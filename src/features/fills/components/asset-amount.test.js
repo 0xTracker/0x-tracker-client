@@ -36,4 +36,18 @@ describe('asset amount component', () => {
 
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('should render null for unknown ERC-20 asset', () => {
+    const { container } = render(
+      <AssetAmount
+        asset={{
+          amount: null,
+          tokenAddress: '0x12345',
+          type: 'erc-20',
+        }}
+      />,
+    );
+
+    expect(container.firstChild).toBeNull();
+  });
 });
