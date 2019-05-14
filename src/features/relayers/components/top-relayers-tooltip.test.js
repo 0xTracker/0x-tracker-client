@@ -29,9 +29,9 @@ it('should render with payload', () => {
         {
           payload: {
             relayer: { name: 'Radar Relay' },
-            share: 22.5,
             trades: 50,
-            volume: { USD: 540600 },
+            volume: 540600,
+            volumeShare: 22.5,
           },
         },
       ]}
@@ -49,9 +49,9 @@ it('should render for ETH currency', () => {
         {
           payload: {
             relayer: { name: 'Radar Relay' },
-            share: 50,
             trades: 50,
-            volume: { ETH: 540600 },
+            volume: 540600,
+            volumeShare: 50,
           },
         },
       ]}

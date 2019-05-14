@@ -30,30 +30,6 @@ const getNetworkStats = createSelector(
   },
 );
 
-const getRelayersStats = createSelector(
-  [
-    getConversionRate,
-    (state, props) => props.period,
-    state => _.get(state, 'stats.relayers'),
-    getDisplayCurrency,
-  ],
-  (conversionRate, period, relayerStats, displayCurrency) => {
-    const stats = _.get(relayerStats, `${period}`);
-
-    if (stats === undefined) {
-      return undefined;
-    }
-
-    return _.map(stats, stat => ({
-      ...stat,
-      volume: {
-        [BASE_CURRENCY]: stat.volume,
-        [displayCurrency]: stat.volume * conversionRate,
-      },
-    }));
-  },
-);
-
 const getTokensStats = (state, { period, relayerId }) => {
   const conversionRate = getConversionRate(state);
   const displayCurrency = getDisplayCurrency(state);
@@ -75,4 +51,4 @@ const getTokensStats = (state, { period, relayerId }) => {
   }));
 };
 
-export { getNetworkStats, getTokensStats, getRelayersStats };
+export { getNetworkStats, getTokensStats };
