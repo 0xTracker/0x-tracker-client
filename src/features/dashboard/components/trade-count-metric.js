@@ -9,7 +9,7 @@ import LoadingIndicator from '../../../components/loading-indicator';
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
 const TradeCountMetric = ({ className, tradeCount }) => (
-  <DashboardMetric className={className} title="Trades (24H)">
+  <DashboardMetric className={className} title="Fills (24H)">
     {_.isNumber(tradeCount)
       ? numeral(tradeCount).format('0,0')
       : loadingIndicator}
