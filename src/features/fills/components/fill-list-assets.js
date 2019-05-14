@@ -4,7 +4,7 @@ import React from 'react';
 import AssetLabel from './asset-label';
 import AssetAmount from './asset-amount';
 
-const FillListAssets = ({ assets }) => {
+const FillListAssets = ({ assets, linked }) => {
   if (assets.length > 1) {
     return 'Multiple Assets';
   }
@@ -14,7 +14,7 @@ const FillListAssets = ({ assets }) => {
   return (
     <>
       <AssetAmount asset={asset} />
-      <AssetLabel asset={asset} condensed linked={false} />
+      <AssetLabel asset={asset} condensed linked={linked} />
     </>
   );
 };
@@ -29,6 +29,11 @@ FillListAssets.propTypes = {
       type: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  linked: PropTypes.bool,
+};
+
+FillListAssets.defaultProps = {
+  linked: false,
 };
 
 export default FillListAssets;

@@ -1,6 +1,7 @@
 import { render } from 'react-testing-library';
 import React from 'react';
 
+import { renderWithRouter } from '../../../test-util/react';
 import FillListAssets from './fill-list-assets';
 
 const erc20Asset = {
@@ -38,6 +39,24 @@ describe('fill list assets component', () => {
   it('should render for ERC-721 asset', () => {
     const assets = [erc721Asset];
     const { container } = render(<FillListAssets assets={assets} />);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should link ERC-721 asset', () => {
+    const assets = [erc721Asset];
+    const { container } = renderWithRouter(
+      <FillListAssets assets={assets} linked />,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should link ERC-20 asset', () => {
+    const assets = [erc20Asset];
+    const { container } = renderWithRouter(
+      <FillListAssets assets={assets} linked />,
+    );
 
     expect(container).toMatchSnapshot();
   });
