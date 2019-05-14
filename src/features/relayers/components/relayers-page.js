@@ -9,7 +9,11 @@ import RelayerList from './relayer-list';
 import useRelayers from '../hooks/use-relayers';
 
 const RelayersPage = () => {
-  const [relayers, loadingRelayers, relayersError] = useRelayers();
+  // TODO: Handle pagination correctly. Currently there aren't more than 50 relayers so this works fine.
+  const [relayers, loadingRelayers, relayersError] = useRelayers({
+    autoReload: true,
+    limit: 50,
+  });
 
   if (relayersError) {
     throw relayersError;
@@ -28,7 +32,10 @@ const RelayersPage = () => {
           {loadingRelayers ? (
             <LoadingIndicator centered />
           ) : (
-            <RelayerList relayers={relayers} timePeriod={TIME_PERIOD.DAY} />
+            <RelayerList
+              relayers={relayers.items}
+              timePeriod={TIME_PERIOD.DAY}
+            />
           )}
         </Card>
       </PageLayout>
