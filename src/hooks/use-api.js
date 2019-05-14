@@ -9,7 +9,8 @@ const useApi = (method, options = {}, deps = []) => {
   useEffect(() => {
     setState({ loading: true });
 
-    const performApiCall = () => callApi(method, options.params);
+    const performApiCall = () =>
+      callApi(method, options.params, { version: options.version });
 
     const reload = () => {
       performApiCall()

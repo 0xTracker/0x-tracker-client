@@ -13,15 +13,13 @@ import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getPeriodOptions from '../../../util/get-period-options';
-import getRelayer from '../selectors/get-relayer';
 import LoadingPage from '../../../components/loading-page';
 import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
-import relayersPropTypes from '../prop-types';
 import TopRelayerTokens from '../../tokens/components/top-relayer-tokens';
-import withRelayers from './with-relayers';
+import useRelayer from '../hooks/use-relayer';
 
 const ChartColumn = styled(Col)`
   margin-bottom: 1.25rem;
@@ -31,12 +29,14 @@ const ChartColumn = styled(Col)`
   `}
 `;
 
-const RelayerPage = ({ relayer, screenSize }) => {
-  if (relayer === undefined) {
+const RelayerPage = ({ screenSize, slug }) => {
+  const [relayer, loadingRelayer] = useRelayer(slug);
+
+  if (loadingRelayer) {
     return <LoadingPage />;
   }
 
-  if (relayer === null) {
+  if (relayer === undefined) {
     return <PageNotFound />;
   }
 
@@ -118,22 +118,16 @@ const RelayerPage = ({ relayer, screenSize }) => {
 };
 
 RelayerPage.propTypes = {
-  relayer: relayersPropTypes.relayer,
   screenSize: PropTypes.object.isRequired,
+  slug: PropTypes.string.isRequired,
 };
 
-RelayerPage.defaultProps = {
-  relayer: undefined,
-};
-
-const mapStateToProps = (state, ownProps) => ({
-  relayer: getRelayer(state, ownProps),
+const mapStateToProps = state => ({
   screenSize: state.screen,
 });
 
 const enhance = compose(
-  withRelayers,
-  mapProps(({ match }) => ({ relayerSlug: match.params.slug })),
+  mapProps(({ match }) => ({ slug: match.params.slug })),
   connect(mapStateToProps),
 );
 
