@@ -1,55 +1,55 @@
-import { filter, flow, sortBy, takeLast } from 'lodash/fp';
-import { compose } from 'recompose';
+import _ from 'lodash';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { BASE_CURRENCY } from '../../currencies/constants';
 import { getDisplayCurrency } from '../../currencies/selectors';
 import AsyncTopRelayersChart from './async-top-relayers-chart';
-import getRelayersWithStats from '../selectors/get-relayers-with-stats';
 import LoadingIndicator from '../../../components/loading-indicator';
-import relayerPropTypes from '../prop-types';
-import withRelayerStats from '../../stats/components/with-relayer-stats';
-import withRelayers from './with-relayers';
+import normalizePeriod from '../../../util/normalize-period';
+import useRelayers from '../hooks/use-relayers';
 
-const TopRelayers = ({ displayCurrency, relayers }) => {
-  if (relayers === undefined) {
+const getDataPointsForPeriod = (relayers, period) => {
+  const normalizedPeriod = normalizePeriod(period);
+
+  return relayers.map(relayer => ({
+    relayer,
+    trades: _.get(relayer, `stats.${normalizedPeriod}.trades`, 0),
+    volume: _.get(relayer, `stats.${normalizedPeriod}.volume`, 0),
+    volumeShare: _.get(relayer, `stats.${normalizedPeriod}.volumeShare`, 0),
+  }));
+};
+
+const TopRelayers = ({ displayCurrency, period }) => {
+  const [relayers, loadingRelayers, relayersError] = useRelayers({ limit: 5 });
+
+  if (loadingRelayers) {
     return <LoadingIndicator centered />;
   }
 
-  const topRelayers = flow([
-    filter(relayer => relayer.stats.volume[BASE_CURRENCY] > 0),
-    sortBy('stats.share'),
-    takeLast(5),
-  ])(relayers);
+  if (relayersError) {
+    throw relayersError;
+  }
 
   return (
     <AsyncTopRelayersChart
+      data={getDataPointsForPeriod(relayers.items, period)}
       displayCurrency={displayCurrency}
-      relayers={topRelayers}
     />
   );
 };
 
 TopRelayers.propTypes = {
   displayCurrency: PropTypes.string.isRequired,
-  relayers: PropTypes.arrayOf(relayerPropTypes.relayerWithStats),
+  period: PropTypes.string,
 };
 
 TopRelayers.defaultProps = {
-  relayers: undefined,
+  period: undefined,
 };
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
   displayCurrency: getDisplayCurrency(state),
-  relayers: getRelayersWithStats(state, ownProps),
 });
 
-const enhance = compose(
-  withRelayers,
-  withRelayerStats,
-  connect(mapStateToProps),
-);
-
-export default enhance(TopRelayers);
+export default connect(mapStateToProps)(TopRelayers);

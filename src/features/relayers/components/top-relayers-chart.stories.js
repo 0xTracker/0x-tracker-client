@@ -10,18 +10,30 @@ storiesOf('Charts|TopRelayersChart', module)
   .add('default', () => {
     const data = [
       {
-        name: 'Radar Relay',
-        stats: { share: 60, trades: 512, volume: { USD: 120000 } },
+        relayer: {
+          name: 'Radar Relay',
+        },
+        trades: 512,
+        volume: 120000,
+        volumeShare: 60,
       },
       {
-        name: 'Paradex',
-        stats: { share: 30, trades: 210, volume: { USD: 48000 } },
+        relayer: {
+          name: 'Paradex',
+        },
+        trades: 210,
+        volume: 48000,
+        volumeShare: 30,
       },
       {
-        name: 'ERC dEX',
-        stats: { share: 10, trades: 100, volume: { USD: 10000 } },
+        relayer: {
+          name: 'ERC dEX',
+        },
+        trades: 100,
+        volume: 10000,
+        volumeShare: 10,
       },
     ];
 
-    return <TopRelayersChart displayCurrency="USD" relayers={data} />;
+    return <TopRelayersChart data={data} displayCurrency="USD" />;
   });

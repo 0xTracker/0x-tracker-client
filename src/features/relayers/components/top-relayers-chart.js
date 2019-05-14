@@ -1,4 +1,3 @@
-import { flow, map, orderBy } from 'lodash/fp';
 import {
   BarChart,
   Bar,
@@ -14,20 +13,11 @@ import React from 'react';
 
 import { colors } from '../../../styles/constants';
 import buildRelayerUrl from '../util/build-relayer-url';
-import relayersPropTypes from '../prop-types';
 import TopRelayersTooltip from './top-relayers-tooltip';
 
 const formatXAxis = share => `${numeral(share).format('0.[00]')}%`;
 
-const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
-  const data = flow([
-    map(relayer => ({
-      relayer,
-      ...relayer.stats,
-    })),
-    orderBy(['share'], ['asc']),
-  ])(relayers);
-
+const TopRelayersChart = ({ data, history, displayCurrency }) => {
   const redirectToRelayer = relayer => {
     const url = buildRelayerUrl(relayer);
 
@@ -35,7 +25,9 @@ const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
   };
 
   const handleAxisClick = ({ value }) => {
-    const clickedRelayer = relayers.find(relayer => relayer.name === value);
+    const clickedRelayer = data.find(
+      dataPoint => dataPoint.relayer.name === value,
+    );
 
     redirectToRelayer(clickedRelayer);
   };
@@ -70,7 +62,7 @@ const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
         <Tooltip content={<TopRelayersTooltip currency={displayCurrency} />} />
         <Bar
           animationDuration={0}
-          dataKey="share"
+          dataKey="volumeShare"
           fill={colors.indigo}
           onClick={handleBarClick}
           style={{ cursor: 'pointer' }}
@@ -81,11 +73,20 @@ const TopRelayersChart = ({ history, relayers, displayCurrency }) => {
 };
 
 TopRelayersChart.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      relayer: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      }),
+      trades: PropTypes.number.isRequired,
+      volume: PropTypes.number.isRequired,
+      volumeShare: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
   displayCurrency: PropTypes.string.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
-  relayers: PropTypes.arrayOf(relayersPropTypes.relayerWithStats).isRequired,
 };
 
 export default withRouter(TopRelayersChart);

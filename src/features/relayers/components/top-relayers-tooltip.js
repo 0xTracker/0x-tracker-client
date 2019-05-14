@@ -11,14 +11,14 @@ const TopRelayersTooltip = ({ currency, payload }) => {
     return null;
   }
 
-  const { relayer, share, trades, volume } = payload[0].payload;
+  const { relayer, trades, volume, volumeShare } = payload[0].payload;
 
   return (
     <ChartTooltip
       items={[
         {
           label: 'market share',
-          value: `${numeral(share).format('0.[00]')}%`,
+          value: `${numeral(volumeShare).format('0.[00]')}%`,
         },
         {
           label: 'total trades',
@@ -26,7 +26,7 @@ const TopRelayersTooltip = ({ currency, payload }) => {
         },
         {
           label: `volume (${currency})`,
-          value: formatCurrency(volume[currency], currency),
+          value: formatCurrency(volume, currency),
         },
       ]}
       title={relayer.name}
@@ -42,9 +42,9 @@ TopRelayersTooltip.propTypes = {
         relayer: PropTypes.shape({
           name: PropTypes.string.isRequired,
         }),
-        share: PropTypes.number.isRequired,
         trades: PropTypes.number.isRequired,
-        volume: PropTypes.object.isRequired,
+        volume: PropTypes.number.isRequired,
+        volumeShare: PropTypes.number.isRequired,
       }).isRequired,
     }),
   ),
