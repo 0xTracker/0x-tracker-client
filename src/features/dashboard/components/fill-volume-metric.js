@@ -8,8 +8,8 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const NetworkVolumeMetric = ({ className, volume }) => (
-  <DashboardMetric className={className} title="Network Volume (24H)">
+const FillVolumeMetric = ({ className, volume }) => (
+  <DashboardMetric className={className} title="Fill Volume (24H)">
     {_.isNumber(volume) ? (
       <LocalisedAmount amount={volume} loadingIndicator={loadingIndicator} />
     ) : (
@@ -18,14 +18,14 @@ const NetworkVolumeMetric = ({ className, volume }) => (
   </DashboardMetric>
 );
 
-NetworkVolumeMetric.propTypes = {
+FillVolumeMetric.propTypes = {
   className: PropTypes.string,
   volume: PropTypes.number,
 };
 
-NetworkVolumeMetric.defaultProps = {
+FillVolumeMetric.defaultProps = {
   className: undefined,
   volume: undefined,
 };
 
-export default NetworkVolumeMetric;
+export default FillVolumeMetric;
