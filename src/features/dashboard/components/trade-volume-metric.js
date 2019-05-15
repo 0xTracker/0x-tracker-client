@@ -8,24 +8,24 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const NetworkFeesMetric = ({ className, fees }) => (
-  <DashboardMetric className={className} title="Network Fees (24H)">
-    {_.isNumber(fees) ? (
-      <LocalisedAmount amount={fees.USD} loadingIndicator={loadingIndicator} />
+const TradeVolumeMetric = ({ className, volume }) => (
+  <DashboardMetric className={className} title="Trade Volume (24H)">
+    {_.isNumber(volume) ? (
+      <LocalisedAmount amount={volume} loadingIndicator={loadingIndicator} />
     ) : (
       loadingIndicator
     )}
   </DashboardMetric>
 );
 
-NetworkFeesMetric.propTypes = {
-  className: PropTypes.number,
-  fees: PropTypes.number,
+TradeVolumeMetric.propTypes = {
+  className: PropTypes.string,
+  volume: PropTypes.number,
 };
 
-NetworkFeesMetric.defaultProps = {
+TradeVolumeMetric.defaultProps = {
   className: undefined,
-  fees: undefined,
+  volume: undefined,
 };
 
-export default NetworkFeesMetric;
+export default TradeVolumeMetric;
