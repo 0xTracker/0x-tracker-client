@@ -50,9 +50,9 @@ const DashboardPage = ({ screenSize }) => (
       <DashboardColumn lg={7}>
         <ChartsContainer
           charts={[
-            { component: NetworkVolume, title: 'Network Volume' },
-            { component: <NetworkVolume type="fills" />, title: 'Fills' },
-            { component: NetworkFees, title: 'Fees' },
+            { component: NetworkVolume, title: 'Fill Volume' },
+            { component: <NetworkVolume type="fills" />, title: 'Fill Count' },
+            { component: NetworkFees, title: 'ZRX Fees' },
           ]}
           defaultPeriod={TIME_PERIOD.MONTH}
           periods={

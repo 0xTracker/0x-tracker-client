@@ -131,8 +131,11 @@ class ChartsContainer extends PureComponent {
 ChartsContainer.propTypes = {
   charts: PropTypes.arrayOf(
     PropTypes.shape({
-      component: PropTypes.oneOfType([PropTypes.element, PropTypes.func])
-        .isRequired,
+      component: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.node,
+        PropTypes.object,
+      ]).isRequired,
       title: PropTypes.string.isRequired,
     }),
   ).isRequired,

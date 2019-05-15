@@ -7,15 +7,20 @@ import '../../../styles/css/slick-carousel.css';
 
 import { breakpoints } from '../../../styles/constants';
 import FillCountMetric from './fill-count-metric';
-import NetworkFeesMetric from './network-fees-metric';
-import NetworkVolumeMetric from './network-volume-metric';
+import FillVolumeMetric from './fill-volume-metric';
+import TradeVolumeMetric from './trade-volume-metric';
 import ZRXPriceMetric from './zrx-price-metric';
 
 const CarouselMetric = styled.div`
   margin: 0 0.5rem;
 `;
 
-const DashboardMetricsCarousel = ({ className, fees, fillCount, volume }) => (
+const DashboardMetricsCarousel = ({
+  className,
+  fillCount,
+  fillVolume,
+  tradeVolume,
+}) => (
   <Slider
     arrows={false}
     centerMode
@@ -35,8 +40,8 @@ const DashboardMetricsCarousel = ({ className, fees, fillCount, volume }) => (
     slidesToScroll={3}
     slidesToShow={3}
   >
-    <CarouselMetric as={NetworkVolumeMetric} volume={volume} />
-    <CarouselMetric as={NetworkFeesMetric} fees={fees} />
+    <CarouselMetric as={FillVolumeMetric} volume={fillVolume} />
+    <CarouselMetric as={TradeVolumeMetric} volume={tradeVolume} />
     <CarouselMetric as={FillCountMetric} fillCount={fillCount} />
     <CarouselMetric as={ZRXPriceMetric} />
   </Slider>
@@ -44,16 +49,16 @@ const DashboardMetricsCarousel = ({ className, fees, fillCount, volume }) => (
 
 DashboardMetricsCarousel.propTypes = {
   className: PropTypes.string,
-  fees: PropTypes.number,
   fillCount: PropTypes.number,
-  volume: PropTypes.number,
+  fillVolume: PropTypes.number,
+  tradeVolume: PropTypes.number,
 };
 
 DashboardMetricsCarousel.defaultProps = {
   className: undefined,
-  fees: undefined,
   fillCount: undefined,
-  volume: undefined,
+  fillVolume: undefined,
+  tradeVolume: undefined,
 };
 
 export default DashboardMetricsCarousel;
