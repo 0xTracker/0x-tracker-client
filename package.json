@@ -55,7 +55,7 @@
     "react-use": "9.0.0",
     "reactstrap": "8.0.0",
     "rebound": "0.1.0",
-    "recharts": "1.5.0",
+    "recharts": "1.6.0",
     "recompose": "0.30.0",
     "redux": "4.0.1",
     "redux-persist": "5.10.0",
