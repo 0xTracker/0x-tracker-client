@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import ChartTooltip from '../../../components/chart-tooltip';
-import formatCurrency from '../../../util/format-currency';
+import LocalisedAmount from '../../currencies/components/localised-amount';
 
 const TopRelayersTooltip = ({ currency, payload }) => {
   if (_.isEmpty(payload)) {
@@ -26,7 +26,7 @@ const TopRelayersTooltip = ({ currency, payload }) => {
         },
         {
           label: `volume (${currency})`,
-          value: formatCurrency(volume, currency),
+          value: <LocalisedAmount amount={volume} />,
         },
       ]}
       title={relayer.name}
