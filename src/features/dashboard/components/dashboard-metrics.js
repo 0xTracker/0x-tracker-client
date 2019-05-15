@@ -24,14 +24,6 @@ class DashboardMetrics extends React.PureComponent {
     AutoReload.addListener(this.loadData);
   }
 
-  componentDidUpdate(prevProps) {
-    const { displayCurrency } = this.props;
-
-    if (prevProps.displayCurrency !== displayCurrency) {
-      this.loadData();
-    }
-  }
-
   componentWillUnmount() {
     AutoReload.removeListener(this.loadData);
   }
@@ -43,9 +35,9 @@ class DashboardMetrics extends React.PureComponent {
   };
 
   render() {
-    const { className, displayCurrency, networkStats, screenSize } = this.props;
+    const { className, networkStats, screenSize } = this.props;
     const { volume } = _.pick(networkStats, 'volume');
-    const fees = _.get(networkStats, `fees[${displayCurrency}]`);
+    const fees = _.get(networkStats, 'fees.USD');
     const tradeCount = _.get(networkStats, 'fills');
 
     return screenSize.greaterThan.md ? (
@@ -76,7 +68,6 @@ class DashboardMetrics extends React.PureComponent {
 
 DashboardMetrics.propTypes = {
   className: PropTypes.string,
-  displayCurrency: PropTypes.string.isRequired,
   fetchNetworkStats: PropTypes.func.isRequired,
   networkStats: PropTypes.object,
   screenSize: PropTypes.shape({
@@ -92,7 +83,6 @@ DashboardMetrics.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  displayCurrency: state.preferences.currency,
   networkStats: getNetworkStats(state, { period: TIME_PERIOD.DAY }),
   screenSize: state.screen,
 });

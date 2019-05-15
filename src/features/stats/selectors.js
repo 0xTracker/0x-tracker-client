@@ -6,27 +6,11 @@ import { getConversionRate, getDisplayCurrency } from '../currencies/selectors';
 import { BASE_CURRENCY } from '../currencies/constants';
 
 const getNetworkStats = createSelector(
-  [
-    getConversionRate,
-    getDisplayCurrency,
-    (state, props) => props.period,
-    state => _.get(state, 'stats.network'),
-  ],
-  (conversionRate, displayCurrency, period, networkStats) => {
+  [(state, props) => props.period, state => _.get(state, 'stats.network')],
+  (period, networkStats) => {
     const stats = _.get(networkStats, `${period}`);
 
-    if (stats === undefined) {
-      return undefined;
-    }
-
-    return {
-      ...stats,
-      fees: {
-        ...stats.fees,
-        [displayCurrency]: stats.fees[BASE_CURRENCY] * conversionRate,
-      },
-      volume: stats.volume * conversionRate,
-    };
+    return stats;
   },
 );
 
