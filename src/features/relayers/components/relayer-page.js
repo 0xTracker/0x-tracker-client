@@ -62,17 +62,17 @@ const RelayerPage = ({ screenSize, slug }) => {
               charts={[
                 {
                   component: <NetworkVolume relayerId={relayer.id} />,
-                  title: 'Network Volume',
+                  title: 'Fill Volume',
                 },
                 {
                   component: (
                     <NetworkVolume relayerId={relayer.id} type="fills" />
                   ),
-                  title: 'Fills',
+                  title: 'Fill Count',
                 },
                 {
                   component: <NetworkFees relayerId={relayer.id} />,
-                  title: 'Fees',
+                  title: 'ZRX Fees',
                 },
               ]}
               defaultPeriod={TIME_PERIOD.MONTH}

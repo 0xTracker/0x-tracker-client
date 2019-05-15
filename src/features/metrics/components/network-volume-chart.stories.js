@@ -31,4 +31,11 @@ storiesOf('Charts|NetworkVolumeChart', module)
         period={TIME_PERIOD.MONTH}
       />
     );
-  });
+  })
+  .add('without any data', () => (
+    <NetworkVolumeChart
+      data={[]}
+      displayCurrency="USD"
+      period={TIME_PERIOD.MONTH}
+    />
+  ));

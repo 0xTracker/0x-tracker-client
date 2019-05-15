@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {
   BarChart,
   Bar,
@@ -18,6 +19,10 @@ import TopRelayersTooltip from './top-relayers-tooltip';
 const formatXAxis = share => `${numeral(share).format('0.[00]')}%`;
 
 const TopRelayersChart = ({ data, history, displayCurrency }) => {
+  if (_.isEmpty(data)) {
+    return 'No data available';
+  }
+
   const redirectToRelayer = relayer => {
     const url = buildRelayerUrl(relayer);
 

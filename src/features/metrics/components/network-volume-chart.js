@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {
   Area,
   AreaChart,
@@ -48,6 +49,11 @@ class NetworkVolumeChart extends PureComponent {
 
   render() {
     const { displayCurrency, data, period, type } = this.props;
+
+    if (_.isEmpty(data)) {
+      return 'No data available';
+    }
+
     const paddedMetrics = padMetrics(data, period, {
       fills: 0,
       volume: 0,
