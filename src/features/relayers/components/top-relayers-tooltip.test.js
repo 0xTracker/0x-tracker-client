@@ -42,25 +42,3 @@ it('should render with payload', () => {
 
   expect(container.firstChild).toMatchSnapshot();
 });
-
-it('should render for ETH currency', () => {
-  const { container, store } = renderWithAppContext(
-    <TopRelayersTooltip
-      currency="ETH"
-      payload={[
-        {
-          payload: {
-            relayer: { name: 'Radar Relay' },
-            trades: 50,
-            volume: 540600,
-            volumeShare: 50,
-          },
-        },
-      ]}
-    />,
-  );
-
-  store.dispatch.preferences.setCurrency('ETH');
-
-  expect(container.firstChild).toMatchSnapshot();
-});
