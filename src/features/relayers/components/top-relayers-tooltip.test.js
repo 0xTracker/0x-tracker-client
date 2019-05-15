@@ -1,6 +1,6 @@
-import { render } from 'react-testing-library';
 import React from 'react';
 
+import { renderWithAppContext } from '../../../test-util/react';
 import TopRelayersTooltip from './top-relayers-tooltip';
 
 const simpleProps = {
@@ -8,13 +8,15 @@ const simpleProps = {
 };
 
 it('should render null without payload', () => {
-  const { container } = render(<TopRelayersTooltip {...simpleProps} />);
+  const { container } = renderWithAppContext(
+    <TopRelayersTooltip {...simpleProps} />,
+  );
 
   expect(container.firstChild).toBeNull();
 });
 
 it('should render null with empty payload', () => {
-  const { container } = render(
+  const { container } = renderWithAppContext(
     <TopRelayersTooltip {...simpleProps} payload={[]} />,
   );
 
@@ -22,7 +24,7 @@ it('should render null with empty payload', () => {
 });
 
 it('should render with payload', () => {
-  const { container } = render(
+  const { container } = renderWithAppContext(
     <TopRelayersTooltip
       {...simpleProps}
       payload={[
@@ -42,7 +44,7 @@ it('should render with payload', () => {
 });
 
 it('should render for ETH currency', () => {
-  const { container } = render(
+  const { container, store } = renderWithAppContext(
     <TopRelayersTooltip
       currency="ETH"
       payload={[
@@ -57,6 +59,8 @@ it('should render for ETH currency', () => {
       ]}
     />,
   );
+
+  store.dispatch.preferences.setCurrency('ETH');
 
   expect(container.firstChild).toMatchSnapshot();
 });

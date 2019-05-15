@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import ChartTooltip from '../../../components/chart-tooltip';
-import formatCurrency from '../../../util/format-currency';
 import formatToken from '../../../util/format-token';
+import LocalisedAmount from '../../currencies/components/localised-amount';
 
 const TopTokensTooltip = ({ currency, payload }) => {
   if (_.isNil(payload) || _.isEmpty(payload)) {
@@ -24,7 +24,7 @@ const TopTokensTooltip = ({ currency, payload }) => {
         },
         {
           label: `volume (${currency})`,
-          value: volume === 0 ? 'Unknown' : formatCurrency(volume, currency),
+          value: volume === 0 ? 'Unknown' : <LocalisedAmount amount={volume} />,
         },
         {
           label: `volume (${token.symbol})`,

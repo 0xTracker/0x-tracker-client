@@ -77,9 +77,7 @@ exports[`should render for ETH currency 1`] = `
       </dt>
       <dd
         class="c4"
-      >
-        Ξ 540,600.000000
-      </dd>
+      />
     </div>
   </dl>
 </div>
@@ -163,7 +161,9 @@ exports[`should render with payload 1`] = `
       <dd
         class="c4"
       >
-        $540,600.00
+        <span>
+          $540,600.00
+        </span>
       </dd>
     </div>
   </dl>
