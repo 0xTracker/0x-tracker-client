@@ -48,7 +48,7 @@ class TopRelayerTokens extends PureComponent {
         share: token.share,
         token,
         tokenVolume: token.volume[token.symbol],
-        volume: token.volume[displayCurrency],
+        volume: token.volume.USD,
       })),
       filter(dataPoint => dataPoint.tokenVolume > 0),
       take(5),

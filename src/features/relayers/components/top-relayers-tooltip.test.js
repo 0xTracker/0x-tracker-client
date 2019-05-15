@@ -1,6 +1,6 @@
-import { render } from 'react-testing-library';
 import React from 'react';
 
+import { renderWithAppContext } from '../../../test-util/react';
 import TopRelayersTooltip from './top-relayers-tooltip';
 
 const simpleProps = {
@@ -8,13 +8,15 @@ const simpleProps = {
 };
 
 it('should render null without payload', () => {
-  const { container } = render(<TopRelayersTooltip {...simpleProps} />);
+  const { container } = renderWithAppContext(
+    <TopRelayersTooltip {...simpleProps} />,
+  );
 
   expect(container.firstChild).toBeNull();
 });
 
 it('should render null with empty payload', () => {
-  const { container } = render(
+  const { container } = renderWithAppContext(
     <TopRelayersTooltip {...simpleProps} payload={[]} />,
   );
 
@@ -22,7 +24,7 @@ it('should render null with empty payload', () => {
 });
 
 it('should render with payload', () => {
-  const { container } = render(
+  const { container } = renderWithAppContext(
     <TopRelayersTooltip
       {...simpleProps}
       payload={[
@@ -32,26 +34,6 @@ it('should render with payload', () => {
             trades: 50,
             volume: 540600,
             volumeShare: 22.5,
-          },
-        },
-      ]}
-    />,
-  );
-
-  expect(container.firstChild).toMatchSnapshot();
-});
-
-it('should render for ETH currency', () => {
-  const { container } = render(
-    <TopRelayersTooltip
-      currency="ETH"
-      payload={[
-        {
-          payload: {
-            relayer: { name: 'Radar Relay' },
-            trades: 50,
-            volume: 540600,
-            volumeShare: 50,
           },
         },
       ]}

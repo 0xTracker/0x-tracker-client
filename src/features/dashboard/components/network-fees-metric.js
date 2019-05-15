@@ -11,7 +11,7 @@ const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 const NetworkFeesMetric = ({ className, fees }) => (
   <DashboardMetric className={className} title="Network Fees (24H)">
     {_.isNumber(fees) ? (
-      <LocalisedAmount amount={fees} loadingIndicator={loadingIndicator} />
+      <LocalisedAmount amount={fees.USD} loadingIndicator={loadingIndicator} />
     ) : (
       loadingIndicator
     )}

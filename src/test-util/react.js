@@ -35,6 +35,7 @@ const renderWithAppContext = (
       </Provider>,
     ),
     history,
+    store,
   };
 };
 

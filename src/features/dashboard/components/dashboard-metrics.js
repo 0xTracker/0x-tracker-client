@@ -8,9 +8,9 @@ import React from 'react';
 import { TIME_PERIOD } from '../../../constants';
 import { getNetworkStats } from '../../stats/selectors';
 import AutoReload from '../../../util/auto-reload';
+import FillCountMetric from './fill-count-metric';
 import NetworkFeesMetric from './network-fees-metric';
 import NetworkVolumeMetric from './network-volume-metric';
-import TradeCountMetric from './trade-count-metric';
 import ZRXPriceMetric from './zrx-price-metric';
 
 // Carousel gets loaded lazily because it relies on react-slick
@@ -24,14 +24,6 @@ class DashboardMetrics extends React.PureComponent {
     AutoReload.addListener(this.loadData);
   }
 
-  componentDidUpdate(prevProps) {
-    const { displayCurrency } = this.props;
-
-    if (prevProps.displayCurrency !== displayCurrency) {
-      this.loadData();
-    }
-  }
-
   componentWillUnmount() {
     AutoReload.removeListener(this.loadData);
   }
@@ -43,10 +35,10 @@ class DashboardMetrics extends React.PureComponent {
   };
 
   render() {
-    const { className, displayCurrency, networkStats, screenSize } = this.props;
+    const { className, networkStats, screenSize } = this.props;
     const { volume } = _.pick(networkStats, 'volume');
-    const fees = _.get(networkStats, `fees[${displayCurrency}]`);
-    const tradeCount = _.get(networkStats, 'fills');
+    const fees = _.get(networkStats, 'fees.USD');
+    const fillCount = _.get(networkStats, 'fills');
 
     return screenSize.greaterThan.md ? (
       <Row className={className}>
@@ -57,7 +49,7 @@ class DashboardMetrics extends React.PureComponent {
           <NetworkFeesMetric fees={fees} />
         </Col>
         <Col lg={3} md={6}>
-          <TradeCountMetric tradeCount={tradeCount} />
+          <FillCountMetric fillCount={fillCount} />
         </Col>
         <Col lg={3} md={6}>
           <ZRXPriceMetric />
@@ -67,7 +59,7 @@ class DashboardMetrics extends React.PureComponent {
       <AsyncDashboardMetricsCarousel
         className={className}
         fees={fees}
-        tradeCount={tradeCount}
+        fillCount={fillCount}
         volume={volume}
       />
     );
@@ -76,7 +68,6 @@ class DashboardMetrics extends React.PureComponent {
 
 DashboardMetrics.propTypes = {
   className: PropTypes.string,
-  displayCurrency: PropTypes.string.isRequired,
   fetchNetworkStats: PropTypes.func.isRequired,
   networkStats: PropTypes.object,
   screenSize: PropTypes.shape({
@@ -92,7 +83,6 @@ DashboardMetrics.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  displayCurrency: state.preferences.currency,
   networkStats: getNetworkStats(state, { period: TIME_PERIOD.DAY }),
   screenSize: state.screen,
 });
