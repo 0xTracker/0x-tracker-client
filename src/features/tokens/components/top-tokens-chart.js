@@ -55,6 +55,10 @@ class TopTokensChart extends PureComponent {
   render() {
     const { data, displayCurrency } = this.props;
 
+    if (_.isEmpty(data)) {
+      return 'No data available';
+    }
+
     return (
       <ResponsiveContainer>
         <BarChart data={data} margin={{ bottom: 0, left: 0, right: 0, top: 0 }}>

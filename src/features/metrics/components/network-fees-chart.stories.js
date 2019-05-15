@@ -31,4 +31,11 @@ storiesOf('Charts|NetworkFeesChart', module)
         period={TIME_PERIOD.MONTH}
       />
     );
-  });
+  })
+  .add('without any data', () => (
+    <NetworkFeesChart
+      data={[]}
+      localCurrency="USD"
+      period={TIME_PERIOD.MONTH}
+    />
+  ));

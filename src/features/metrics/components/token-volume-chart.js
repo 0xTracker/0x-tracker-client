@@ -39,6 +39,10 @@ class TokenVolumeChart extends PureComponent {
   render() {
     const { data, localCurrency, period, tokenSymbol } = this.props;
 
+    if (_.isEmpty(data)) {
+      return 'No data available';
+    }
+
     const paddedMetrics = padMetrics(data, period, {
       localizedVolume: 0,
       tokenVolume: '0',

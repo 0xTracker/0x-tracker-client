@@ -42,4 +42,7 @@ storiesOf('Charts|TopTokensChart', module)
     ];
 
     return <TopTokensChart data={data} displayCurrency="GBP" />;
-  });
+  })
+  .add('without data', () => (
+    <TopTokensChart data={[]} displayCurrency="GBP" />
+  ));

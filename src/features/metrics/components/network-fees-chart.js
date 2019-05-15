@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import {
   Area,
   AreaChart,
@@ -19,6 +20,10 @@ import sharedPropTypes from '../../../prop-types';
 const formatAxisDate = date => formatDate(date, 'MMM DD');
 
 const NetworkFeesChart = ({ data, localCurrency, period }) => {
+  if (_.isEmpty(data)) {
+    return 'No data available';
+  }
+
   const paddedMetrics = padMetrics(data, period, {
     fees: '0',
     localizedFees: 0,

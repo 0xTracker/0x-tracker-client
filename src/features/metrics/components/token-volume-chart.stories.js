@@ -32,4 +32,12 @@ storiesOf('Charts|TokenVolumeChart', module)
         tokenSymbol="DAI"
       />
     );
-  });
+  })
+  .add('without any data', () => (
+    <TokenVolumeChart
+      data={[]}
+      localCurrency="USD"
+      period={TIME_PERIOD.MONTH}
+      tokenSymbol="DAI"
+    />
+  ));

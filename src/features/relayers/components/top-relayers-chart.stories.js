@@ -36,4 +36,7 @@ storiesOf('Charts|TopRelayersChart', module)
     ];
 
     return <TopRelayersChart data={data} displayCurrency="USD" />;
-  });
+  })
+  .add('without data', () => (
+    <TopRelayersChart data={[]} displayCurrency="USD" />
+  ));
