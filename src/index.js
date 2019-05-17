@@ -17,6 +17,7 @@ OfflinePluginRuntime.install({
   },
   appShell: '/',
   autoUpdate: 60000,
+  excludes: ['**/.*', '**/*.map', '**/*.gz', '_redirects'],
   onUpdateReady: () => {
     console.log('[SW]: Update ready');
     OfflinePluginRuntime.applyUpdate();
