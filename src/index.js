@@ -11,13 +11,9 @@ import ReduxContext from './components/redux-context';
 OfflinePluginRuntime.install({
   ServiceWorker: {
     events: true,
-    prefetchRequest: {
-      mode: 'no-cors',
-    },
   },
   appShell: '/',
   autoUpdate: 60000,
-  excludes: ['**/.*', '**/*.map', '**/*.gz', '_redirects'],
   onUpdateReady: () => {
     console.log('[SW]: Update ready');
     OfflinePluginRuntime.applyUpdate();
