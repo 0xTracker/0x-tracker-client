@@ -60,6 +60,12 @@ module.exports = (env = {}) =>
         REACT_APP_GA_TRACKING_ID: 'UA-108480050-1',
       }),
 
-      new OfflinePlugin(),
+      new OfflinePlugin({
+        ServiceWorker: {
+          events: true,
+        },
+        appShell: '/',
+        autoUpdate: 60000,
+      }),
     ]),
   });

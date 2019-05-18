@@ -9,11 +9,6 @@ import AutoReload from './util/auto-reload';
 import ReduxContext from './components/redux-context';
 
 OfflinePluginRuntime.install({
-  ServiceWorker: {
-    events: true,
-  },
-  appShell: '/',
-  autoUpdate: 60000,
   onUpdateReady: () => {
     console.log('[SW]: Update ready');
     OfflinePluginRuntime.applyUpdate();
