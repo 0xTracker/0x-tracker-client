@@ -3,6 +3,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OfflinePlugin = require('offline-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
@@ -57,6 +58,14 @@ module.exports = (env = {}) =>
         REACT_APP_API_ENDPOINT: 'https://api.0xtracker.com',
         REACT_APP_AUTO_RELOAD_INTERVAL: '30 seconds',
         REACT_APP_GA_TRACKING_ID: 'UA-108480050-1',
+      }),
+
+      new OfflinePlugin({
+        ServiceWorker: {
+          events: true,
+        },
+        appShell: '/',
+        autoUpdate: 60000,
       }),
     ]),
   });
