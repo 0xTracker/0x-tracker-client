@@ -66,6 +66,7 @@ module.exports = (env = {}) =>
         },
         appShell: '/',
         autoUpdate: 60000,
+        excludes: ['**/.*', '**/*.map', '**/*.gz', '_redirects'],
       }),
     ]),
   });
