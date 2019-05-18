@@ -9,7 +9,7 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
 const TradeVolumeMetric = ({ className, volume }) => (
-  <DashboardMetric className={className} title="Trade Volume (24H)">
+  <DashboardMetric className={className} title="Trade (24H)">
     {_.isNumber(volume) ? (
       <LocalisedAmount amount={volume} loadingIndicator={loadingIndicator} />
     ) : (
