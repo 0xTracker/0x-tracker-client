@@ -22,7 +22,7 @@
   "dependencies": {
     "@rematch/core": "1.1.0",
     "@rematch/persist": "1.1.6",
-    "axios": "0.18.0",
+    "axios": "0.19.0",
     "babel-polyfill": "6.26.0",
     "bootstrap": "4.3.1",
     "core-js": "3.1.0",
