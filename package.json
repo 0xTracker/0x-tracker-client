@@ -62,7 +62,7 @@
     "redux-persist": "5.10.0",
     "redux-responsive": "4.3.8",
     "reselect": "4.0.0",
-    "styled-components": "4.2.1",
+    "styled-components": "4.3.1",
     "styled-icons": "7.15.1",
     "styled-media-query": "2.1.1"
   },
