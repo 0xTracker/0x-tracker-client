@@ -50,7 +50,7 @@
     "react-redux": "7.0.3",
     "react-router": "5.0.0",
     "react-router-dom": "5.0.0",
-    "react-scroll": "1.7.11",
+    "react-scroll": "1.7.12",
     "react-select": "2.4.3",
     "react-slick": "0.24.0",
     "react-use": "9.0.0",
