@@ -1,4 +1,4 @@
-import { getByText } from 'react-testing-library';
+import { getByText } from '@testing-library/react';
 import React from 'react';
 import timekeeper from 'timekeeper';
 

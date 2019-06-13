@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render } from 'react-testing-library';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import React from 'react';
 
 import FullPaginator from './full-paginator';
