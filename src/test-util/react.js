@@ -1,6 +1,6 @@
 import { createMemoryHistory } from 'history';
 import { Provider } from 'react-redux';
-import { render } from 'react-testing-library';
+import { render } from '@testing-library/react';
 import { Router } from 'react-router-dom';
 import React from 'react';
 
