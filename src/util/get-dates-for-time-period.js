@@ -4,12 +4,8 @@ import ms from 'ms';
 import { GENESIS_DATE, TIME_PERIOD } from '../constants';
 import getDatesInRange from './get-dates-in-range';
 
-function dateFloor(date, duration) {
-  return Math.floor(date / duration) * duration;
-}
-
 const INTERVAL_BY_PERIOD = {
-  [TIME_PERIOD.DAY]: ms('30 minutes'),
+  [TIME_PERIOD.DAY]: ms('1 hour'),
   [TIME_PERIOD.WEEK]: ms('1 hour'),
   [TIME_PERIOD.MONTH]: ms('1 day'),
   [TIME_PERIOD.YEAR]: ms('1 day'),
@@ -34,7 +30,7 @@ const getDatesForTimePeriod = (period, fromDate = new Date()) => {
 
   switch (period) {
     case TIME_PERIOD.DAY:
-      endDate = dateFloor(fromDate, ms('30 minutes'));
+      endDate = utcStartOfHour(fromDate);
       startDate = moment
         .utc(endDate)
         .subtract(1, 'days')
