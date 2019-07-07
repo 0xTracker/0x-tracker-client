@@ -52,8 +52,8 @@ const FillList = ({ excludeColumns, fills }) => {
               />
             </td>
             <td className="text-right">
-              {_.has(fill, `amount.${BASE_CURRENCY}`) ? (
-                <LocalisedAmount amount={fill.amount[BASE_CURRENCY]} />
+              {_.has(fill, `value.${BASE_CURRENCY}`) ? (
+                <LocalisedAmount amount={fill.value[BASE_CURRENCY]} />
               ) : (
                 '-'
               )}

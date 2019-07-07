@@ -117,7 +117,7 @@ const FillPage = ({ fillId, screenSize }) => {
               <FillDetail title="0x Protocol">
                 v{fill.protocolVersion}
               </FillDetail>
-              {_.has(fill.amount, 'USD') && (
+              {_.has(fill.value, 'USD') && (
                 <FillDetail title="Value">
                   <LocalisedAmount amount={fill.value.USD} />
                 </FillDetail>
