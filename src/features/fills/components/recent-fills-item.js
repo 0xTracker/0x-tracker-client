@@ -127,8 +127,8 @@ const RecentFillsItem = ({ fill, screenSize }) => {
           <dd>{distanceInWordsToNow(fill.date)} ago</dd>
         </Metadata>
       </div>
-      {screenSize.greaterThan.xs && _.has(fill, `amount.${BASE_CURRENCY}`) ? (
-        <FillAmount amount={fill.amount[BASE_CURRENCY]} />
+      {screenSize.greaterThan.xs && _.has(fill, `value.${BASE_CURRENCY}`) ? (
+        <FillAmount amount={fill.value[BASE_CURRENCY]} />
       ) : null}
     </StyledRecentFillsItem>
   );
