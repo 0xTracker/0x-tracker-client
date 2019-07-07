@@ -1,6 +1,5 @@
 import { compose, mapProps } from 'recompose';
 import { connect } from 'react-redux';
-import { Col, Row } from 'reactstrap';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -18,10 +17,9 @@ import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
-import TopRelayerTokens from '../../tokens/components/top-relayer-tokens';
 import useRelayer from '../hooks/use-relayer';
 
-const ChartColumn = styled(Col)`
+const StyledChartsContainer = styled(ChartsContainer)`
   margin-bottom: 1.25rem;
 
   ${media.greaterThan('lg')`
@@ -56,60 +54,34 @@ const RelayerPage = ({ screenSize, slug }) => {
         ]}
         title={relayer.name}
       >
-        <Row>
-          <ChartColumn lg={7}>
-            <ChartsContainer
-              charts={[
-                {
-                  component: <NetworkVolume relayerId={relayer.id} />,
-                  title: 'Fill Volume',
-                },
-                {
-                  component: (
-                    <NetworkVolume relayerId={relayer.id} type="fills" />
-                  ),
-                  title: 'Fill Count',
-                },
-                {
-                  component: <NetworkFees relayerId={relayer.id} />,
-                  title: 'ZRX Fees',
-                },
-              ]}
-              defaultPeriod={TIME_PERIOD.MONTH}
-              periods={
-                screenSize.greaterThan.xs
-                  ? getPeriodOptions([
-                      TIME_PERIOD.DAY,
-                      TIME_PERIOD.WEEK,
-                      TIME_PERIOD.MONTH,
-                      TIME_PERIOD.YEAR,
-                      TIME_PERIOD.ALL,
-                    ])
-                  : undefined
-              }
-            />
-          </ChartColumn>
-          <ChartColumn lg={5}>
-            <ChartsContainer
-              charts={[
-                {
-                  component: <TopRelayerTokens relayerId={relayer.id} />,
-                  title: 'Top Tokens',
-                },
-              ]}
-              defaultPeriod={TIME_PERIOD.DAY}
-              periods={
-                screenSize.greaterThan.xs
-                  ? getPeriodOptions([
-                      TIME_PERIOD.DAY,
-                      TIME_PERIOD.WEEK,
-                      TIME_PERIOD.MONTH,
-                    ])
-                  : undefined
-              }
-            />
-          </ChartColumn>
-        </Row>
+        <StyledChartsContainer
+          charts={[
+            {
+              component: <NetworkVolume relayerId={relayer.id} />,
+              title: 'Fill Volume',
+            },
+            {
+              component: <NetworkVolume relayerId={relayer.id} type="fills" />,
+              title: 'Fill Count',
+            },
+            {
+              component: <NetworkFees relayerId={relayer.id} />,
+              title: 'ZRX Fees',
+            },
+          ]}
+          defaultPeriod={TIME_PERIOD.MONTH}
+          periods={
+            screenSize.greaterThan.xs
+              ? getPeriodOptions([
+                  TIME_PERIOD.DAY,
+                  TIME_PERIOD.WEEK,
+                  TIME_PERIOD.MONTH,
+                  TIME_PERIOD.YEAR,
+                  TIME_PERIOD.ALL,
+                ])
+              : undefined
+          }
+        />
         <Card>
           <Fills
             excludeColumns={['relayer']}
