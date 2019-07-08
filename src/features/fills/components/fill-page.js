@@ -64,11 +64,9 @@ const FillPage = ({ fillId, screenSize }) => {
     return <PageNotFound />;
   }
 
-  const makerPrice = _.get(fill, 'makerPrice.USD');
-  const takerPrice = _.get(fill, 'takerPrice.USD');
-
-  const makerAsset = _.find(fill.assets, { traderType: 'maker' });
-  const takerAsset = _.find(fill.assets, { traderType: 'taker' });
+  const assetsWithPrices = _.filter(fill.assets, asset =>
+    _.isObject(asset.price),
+  );
 
   return (
     <>
@@ -172,26 +170,18 @@ const FillPage = ({ fillId, screenSize }) => {
               </FillDetail>
 
               <FillDetail last title="Derived Prices">
-                {makerPrice === undefined && takerPrice === undefined ? (
+                {assetsWithPrices.length === 0 ? (
                   'None'
                 ) : (
                   <List>
-                    {makerPrice && (
-                      <ListItem>
-                        <AssetLabel asset={makerAsset} />
+                    {assetsWithPrices.map(asset => (
+                      <ListItem key={`${asset.tokenAddress}-${asset.tokenId}`}>
+                        <AssetLabel asset={asset} />
                         <PriceBadge>
-                          <LocalisedAmount amount={makerPrice} />
+                          <LocalisedAmount amount={asset.price.USD} />
                         </PriceBadge>
                       </ListItem>
-                    )}
-                    {takerPrice && (
-                      <ListItem>
-                        <AssetLabel asset={takerAsset} />
-                        <PriceBadge>
-                          <LocalisedAmount amount={takerPrice} />
-                        </PriceBadge>
-                      </ListItem>
-                    )}
+                    ))}
                   </List>
                 )}
               </FillDetail>
