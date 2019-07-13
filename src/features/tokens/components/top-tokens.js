@@ -24,6 +24,7 @@ const TopTokens = ({ displayCurrency, period }) => (
   <TokensLoader
     limit={5}
     page={1}
+    resolved
     sortBy={`${normalizePeriod(period)}-volume-share`}
   >
     {({ loading, tokens }) =>

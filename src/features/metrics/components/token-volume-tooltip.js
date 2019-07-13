@@ -22,8 +22,8 @@ const TokenVolumeTooltip = ({ localCurrency, payload, tokenSymbol }) => {
           value: formatCurrency(localizedVolume, localCurrency),
         },
         {
-          label: `volume (${tokenSymbol})`,
-          value: formatToken(tokenVolume),
+          label: `volume (${tokenSymbol || 'token'})`,
+          value: tokenVolume !== null ? formatToken(tokenVolume) : 'Unknown',
         },
       ]}
       title={formatDate(date, 'MMMM Do YYYY, hh:mm A')}

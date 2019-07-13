@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { mapProps } from 'recompose';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -28,17 +29,19 @@ const TokenPage = ({ tokenAddress }) => {
   return (
     <>
       <Helmet>
-        <title>{token ? token.name : 'Unknown Token'}</title>
+        <title>
+          {_.has(token, 'name') ? token.name : `Token: ${token.address}`}
+        </title>
       </Helmet>
       <PageLayout
         breadcrumbItems={[
           { title: 'Tokens', url: URL.TOKENS },
           {
-            title: token ? token.name : 'Unknown Token',
+            title: _.has(token, 'name') ? token.name : 'Unknown Token',
             url: buildTokenUrl(tokenAddress),
           },
         ]}
-        title={token ? token.name : 'Unknown Token'}
+        title={_.has(token, 'name') ? token.name : `Token: ${token.address}`}
       >
         {token ? (
           <ChartsContainer

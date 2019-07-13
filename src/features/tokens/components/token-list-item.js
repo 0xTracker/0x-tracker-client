@@ -33,9 +33,11 @@ const TokenListItem = ({ position, token }) => {
         </TokenLink>
       </td>
       <td width="99%">
-        <TokenLink address={token.address}>{token.name}</TokenLink>
+        <TokenLink address={token.address}>
+          {token.name || 'Unknown Token'}
+        </TokenLink>
         <br />
-        {token.symbol}
+        {token.symbol || token.address}
       </td>
       <td className="align-middle" css="text-align: right;">
         {_.has(token, 'price.last') ? (
