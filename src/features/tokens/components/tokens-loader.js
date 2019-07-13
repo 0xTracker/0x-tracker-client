@@ -48,7 +48,7 @@ class TokensLoader extends PureComponent {
   };
 
   fetchTokens = async (reload = false) => {
-    const { limit, page, sortBy } = this.props;
+    const { limit, page, resolved, sortBy } = this.props;
 
     if (reload) {
       this.setState({ reloading: true });
@@ -67,6 +67,7 @@ class TokensLoader extends PureComponent {
       {
         limit,
         page,
+        resolved,
         sortBy,
       },
       { version: 2 },
@@ -116,6 +117,7 @@ TokensLoader.propTypes = {
   children: PropTypes.func.isRequired,
   limit: PropTypes.number,
   page: PropTypes.number,
+  resolved: PropTypes.bool,
   sortBy: PropTypes.oneOf([
     '24h-volume-share',
     '7d-volume-share',
@@ -126,6 +128,7 @@ TokensLoader.propTypes = {
 TokensLoader.defaultProps = {
   limit: undefined,
   page: 1,
+  resolved: undefined,
   sortBy: undefined,
 };
 

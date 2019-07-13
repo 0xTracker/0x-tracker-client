@@ -17,6 +17,10 @@ const TokenListItemVolume = ({ token }) => {
   }
 
   if (volume[BASE_CURRENCY] === 0) {
+    if (volume.token === undefined) {
+      return 'Unknown';
+    }
+
     return (
       <>
         {formatToken(volume.token)} {token.symbol}
@@ -27,15 +31,19 @@ const TokenListItemVolume = ({ token }) => {
   return (
     <>
       <LocalisedAmount amount={volume[BASE_CURRENCY]} />
-      <br />
-      <span
-        css={`
-          color: ${colors.stormGray};
-          font-size: 0.8rem;
-        `}
-      >
-        <TokenAmount amount={volume.token} linked={false} token={token} />
-      </span>
+      {volume.token && (
+        <>
+          <br />
+          <span
+            css={`
+              color: ${colors.stormGray};
+              font-size: 0.8rem;
+            `}
+          >
+            <TokenAmount amount={volume.token} linked={false} token={token} />
+          </span>
+        </>
+      )}
     </>
   );
 };
