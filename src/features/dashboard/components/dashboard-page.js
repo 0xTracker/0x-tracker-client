@@ -54,7 +54,7 @@ const DashboardPage = ({ screenSize }) => (
             { component: <NetworkVolume type="fills" />, title: 'Fill Count' },
             { component: NetworkFees, title: 'ZRX Fees' },
           ]}
-          defaultPeriod={TIME_PERIOD.MONTH}
+          defaultPeriod={TIME_PERIOD.YEAR}
           periods={
             screenSize.greaterThan.xs
               ? getPeriodOptions([
@@ -74,7 +74,7 @@ const DashboardPage = ({ screenSize }) => (
             { component: TopTokens, title: 'Top Tokens' },
             { component: TopRelayers, title: 'Top Relayers' },
           ]}
-          defaultPeriod={TIME_PERIOD.DAY}
+          defaultPeriod={TIME_PERIOD.WEEK}
           periods={
             screenSize.greaterThan.xs
               ? getPeriodOptions([

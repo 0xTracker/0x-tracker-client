@@ -69,7 +69,7 @@ const RelayerPage = ({ screenSize, slug }) => {
               title: 'ZRX Fees',
             },
           ]}
-          defaultPeriod={TIME_PERIOD.MONTH}
+          defaultPeriod={TIME_PERIOD.YEAR}
           periods={
             screenSize.greaterThan.xs
               ? getPeriodOptions([
