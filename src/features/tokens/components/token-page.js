@@ -58,7 +58,7 @@ const TokenPage = ({ tokenAddress }) => {
               margin: 0 0 2em 0;
             `}
             `}
-            defaultPeriod={TIME_PERIOD.MONTH}
+            defaultPeriod={TIME_PERIOD.YEAR}
             periods={[
               { label: '24H', value: TIME_PERIOD.DAY },
               { label: '7D', value: TIME_PERIOD.WEEK },
