@@ -22,10 +22,10 @@ const LastTradeLink = styled(FillLink)`
 `;
 
 const TokenListItem = ({ position, token }) => {
-  const tradeCount = _.get(token, 'stats.24h.trades', 0);
+  const fillCount = _.get(token, 'stats.24h.fillCount', 0);
 
   return (
-    <tr className={tradeCount === 0 ? 'faded' : undefined}>
+    <tr className={fillCount === 0 ? 'faded' : undefined}>
       <td className="align-middle">{position}</td>
       <td className="align-middle">
         <TokenLink address={token.address}>
@@ -47,7 +47,7 @@ const TokenListItem = ({ position, token }) => {
             <span
               css={`
                 font-size: 0.8rem;
-                color: ${tradeCount === 0
+                color: ${fillCount === 0
                   ? colors.santasGray
                   : colors.stormGray};
               `}
@@ -60,7 +60,7 @@ const TokenListItem = ({ position, token }) => {
         )}
       </td>
       <td className="align-middle" css="text-align: right;">
-        {tradeCount === 0 ? '-' : tradeCount}
+        {fillCount === 0 ? '-' : fillCount}
       </td>
       <td className="align-middle" css="text-align: right;">
         <TokenListItemVolume token={token} />

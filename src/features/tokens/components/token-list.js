@@ -29,8 +29,12 @@ const TokenList = ({
             <th>#</th>
             <th colSpan="2">Token</th>
             <th css="text-align: right;">Last Price</th>
-            <th css="text-align: right;">Trades ({prettyPeriod(period)})</th>
-            <th css="text-align: right;">Volume ({prettyPeriod(period)})</th>
+            <th css="text-align: right;">
+              Fill Count ({prettyPeriod(period)})
+            </th>
+            <th css="text-align: right;">
+              Fill Volume ({prettyPeriod(period)})
+            </th>
           </tr>
         </thead>
         <tbody>
