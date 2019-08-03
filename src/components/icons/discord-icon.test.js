@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
-import SpectrumIcon from './spectrum-icon';
+import DiscordIcon from './discord-icon';
 
-describe('spectrum icon component', () => {
+describe('discord icon component', () => {
   it('should render without props', () => {
-    const { container } = render(<SpectrumIcon />);
+    const { container } = render(<DiscordIcon />);
 
     expect(container.firstChild).toMatchSnapshot();
   });

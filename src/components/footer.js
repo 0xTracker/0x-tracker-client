@@ -4,12 +4,11 @@ import { rgba } from 'polished';
 import React from 'react';
 import styled from 'styled-components';
 
-import { GitHubIcon, TwitterIcon, MediumIcon } from './icons';
+import { DiscordIcon, GitHubIcon, TwitterIcon, MediumIcon } from './icons';
 import { media } from '../styles/util';
 import { colors } from '../styles/constants';
 import Container from './container';
 import Link from './link';
-import SpectrumIcon from './icons/spectrum-icon';
 
 const FooterIconLink = styled(Link)`
   color: ${rgba(colors.white, 0.5)};
@@ -65,20 +64,10 @@ const Footer = () => (
             <FooterIcon as={GitHubIcon} />
           </FooterIconLink>
           <FooterIconLink
-            href="https://spectrum.chat/0x-tracker"
-            title="0x Tracker on Spectrum"
+            href="https://discord.gg/tnV8hud"
+            title="Discuss on Discord"
           >
-            <SpectrumIcon
-              css={`
-                height: 1.25rem;
-                width: 1.25rem;
-
-                ${media.greaterThan('md')`
-                  height: 1rem; 
-                  width: 1rem;
-                `}
-              `}
-            />
+            <FooterIcon as={DiscordIcon} />
           </FooterIconLink>
           <FooterIconLink
             href="https://twitter.com/0xTracker"
