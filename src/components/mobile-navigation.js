@@ -23,12 +23,6 @@ const MobileNavigation = ({ onClick }) => {
         News & Updates
       </MobileNavigationItem>
       <MobileNavigationItem
-        href="https://0xproject.com/portal/account"
-        onClick={onClick}
-      >
-        My Wallet
-      </MobileNavigationItem>
-      <MobileNavigationItem
         onClick={() => {
           settingsDialog.show();
           onClick();

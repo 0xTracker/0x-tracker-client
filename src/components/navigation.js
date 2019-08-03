@@ -15,10 +15,6 @@ const Navigation = ({ className }) => (
     <NavigationItem href={URL.TOKENS} title="Tokens" />
     <NavigationItem href={URL.RELAYERS} title="Relayers" />
     <NavigationItem href={URL.NEWS} title="News & Updates" />
-    <NavigationItem
-      href="https://0xproject.com/portal/account"
-      title="My Wallet"
-    />
   </StyledNavigation>
 );
 
