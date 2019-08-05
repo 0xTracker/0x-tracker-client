@@ -17,7 +17,7 @@ const TokenListItemVolume = ({ token }) => {
   }
 
   if (volume[BASE_CURRENCY] === 0) {
-    if (volume.token === undefined) {
+    if (_.isNil(volume.token)) {
       return 'Unknown';
     }
 
