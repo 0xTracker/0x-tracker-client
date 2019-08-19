@@ -22,7 +22,7 @@ const StyledPageLayout = styled.div`
 
 const PageLayout = ({ breadcrumbItems, centered, children, title }) => (
   <StyledPageLayout>
-    {breadcrumbItems.length > 0 ? (
+    {title ? (
       <ContentHeader breadcrumbItems={breadcrumbItems} title={title} />
     ) : null}
     <ContentBody centered={centered}>{children}</ContentBody>

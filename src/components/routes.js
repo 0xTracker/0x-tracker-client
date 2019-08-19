@@ -4,6 +4,7 @@ import React from 'react';
 
 import AnalyticsRoute from './analytics-route';
 import createPageRoute from '../util/create-page-route';
+import getAddressesRoutes from '../features/addresses/get-routes';
 import getDashboardRoutes from '../features/dashboard/get-dashboard-routes';
 import getFillsRoutes from '../features/fills/get-routes';
 import getNewsRoutes from '../features/news/get-routes';
@@ -18,6 +19,7 @@ const routes = _.flatten([
   getRelayersRoutes(),
   getSearchRoutes(),
   getTokensRoutes(),
+  getAddressesRoutes(),
   { key: '404', loader: () => import('./page-not-found') },
 ]);
 
