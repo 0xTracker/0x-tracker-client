@@ -42,9 +42,11 @@ const ContentHeader = ({ breadcrumbItems, title }) => (
         <TitleContainer>
           <Title>{title}</Title>
         </TitleContainer>
-        <BreadcrumbContainer>
-          <Breadcrumb items={breadcrumbItems} />
-        </BreadcrumbContainer>
+        {breadcrumbItems.length > 0 ? (
+          <BreadcrumbContainer>
+            <Breadcrumb items={breadcrumbItems} />
+          </BreadcrumbContainer>
+        ) : null}
       </Row>
     </Container>
   </StyledContentHeader>
@@ -56,8 +58,12 @@ ContentHeader.propTypes = {
       title: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
     }),
-  ).isRequired,
+  ),
   title: PropTypes.string.isRequired,
+};
+
+ContentHeader.defaultProps = {
+  breadcrumbItems: [],
 };
 
 export default ContentHeader;
