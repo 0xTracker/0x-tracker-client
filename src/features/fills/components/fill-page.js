@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT, URL, ZRX_TOKEN } from '../../../constants';
 import { media } from '../../../styles/util';
+import AddressLink from '../../addresses/components/address-link';
 import AssetLabel from './asset-label';
 import buildFillUrl from '../util/build-fill-url';
 import buildSearchUrl from '../../search/util/build-search-url';
@@ -121,14 +122,14 @@ const FillPage = ({ fillId, screenSize }) => {
                 </FillDetail>
               )}
               <FillDetail title="Maker Address">
-                <EthereumAddressLink address={fill.makerAddress}>
+                <AddressLink address={fill.makerAddress}>
                   {fill.makerAddress}
-                </EthereumAddressLink>
+                </AddressLink>
               </FillDetail>
               <FillDetail title="Taker Address">
-                <EthereumAddressLink address={fill.takerAddress}>
+                <AddressLink address={fill.takerAddress}>
                   {fill.takerAddress}
-                </EthereumAddressLink>
+                </AddressLink>
               </FillDetail>
               <FillDetail title="Maker Assets">
                 <FillAssetsList
