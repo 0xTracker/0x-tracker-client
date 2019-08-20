@@ -23,6 +23,12 @@ const AddressPage = ({ address }) => (
             component: <AddressMetrics address={address} />,
             title: 'Fill Volume',
           },
+          {
+            component: (
+              <AddressMetrics address={address} keyMetric="fillCount" />
+            ),
+            title: 'Fill Count',
+          },
         ]}
         css={`
           margin: 0 0 1.25em 0;
