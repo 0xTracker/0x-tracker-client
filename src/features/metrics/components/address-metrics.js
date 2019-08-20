@@ -16,6 +16,7 @@ const AddressMetrics = ({
   address,
   conversionRate,
   displayCurrency,
+  keyMetric,
   period,
 }) => {
   const metrics = useAddressMetrics(address, { period });
@@ -33,6 +34,7 @@ const AddressMetrics = ({
   return (
     <AsyncAddressMetricsChart
       data={data}
+      keyMetric={keyMetric}
       localCurrency={displayCurrency}
       period={period}
     />
@@ -43,11 +45,13 @@ AddressMetrics.propTypes = {
   address: PropTypes.string.isRequired,
   conversionRate: PropTypes.number,
   displayCurrency: PropTypes.string.isRequired,
+  keyMetric: PropTypes.string,
   period: sharedPropTypes.timePeriod.isRequired,
 };
 
 AddressMetrics.defaultProps = {
   conversionRate: undefined,
+  keyMetric: 'fillVolume',
 };
 
 const mapStateToProps = state => ({

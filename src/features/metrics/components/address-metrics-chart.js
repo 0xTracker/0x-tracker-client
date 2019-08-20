@@ -27,17 +27,21 @@ class AddressMetricsChart extends PureComponent {
   }
 
   formatValue(value) {
+    const { keyMetric, localCurrency } = this.props;
+
     if (value === 0) {
       return '';
     }
 
-    const { localCurrency } = this.props;
+    if (keyMetric === 'fillCount') {
+      return value;
+    }
 
     return formatCurrency(value, localCurrency, true);
   }
 
   render() {
-    const { data, localCurrency, period } = this.props;
+    const { data, keyMetric, localCurrency, period } = this.props;
 
     if (_.isEmpty(data)) {
       return 'No data available';
@@ -61,7 +65,7 @@ class AddressMetricsChart extends PureComponent {
         >
           <Area
             animationDuration={0}
-            dataKey="fillVolume"
+            dataKey={keyMetric}
             fill={colors.periwinkleGray}
             fillOpacity={1}
             stroke={colors.indigo}
@@ -79,7 +83,7 @@ class AddressMetricsChart extends PureComponent {
           />
           <YAxis
             axisLine={false}
-            dataKey="fillVolume"
+            dataKey={keyMetric}
             minTickGap={20}
             mirror
             padding={{ top: 25 }}
@@ -103,6 +107,7 @@ AddressMetricsChart.propTypes = {
       fillVolume: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  keyMetric: PropTypes.string.isRequired,
   localCurrency: PropTypes.string.isRequired,
   period: sharedPropTypes.timePeriod.isRequired,
 };
