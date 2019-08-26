@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
 import AddressList from './address-list';
