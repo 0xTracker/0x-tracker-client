@@ -5,9 +5,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { TIME_PERIOD, URL } from '../../../constants';
+import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
-import buildRelayerUrl from '../util/build-relayer-url';
 import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
@@ -47,13 +46,7 @@ const RelayerPage = ({ screenSize, slug }) => {
       <Helmet>
         <title>{relayer.name}</title>
       </Helmet>
-      <PageLayout
-        breadcrumbItems={[
-          { title: 'Relayers', url: URL.RELAYERS },
-          { title: relayer.name, url: buildRelayerUrl(relayer) },
-        ]}
-        title={relayer.name}
-      >
+      <PageLayout title={relayer.name}>
         <StyledChartsContainer
           charts={[
             {
