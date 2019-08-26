@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { renderWithAppContext } from '../../../test-util/react';
-import { TIME_PERIOD } from '../../../constants';
 import RelayerList from './relayer-list';
 
 const basicProps = {
