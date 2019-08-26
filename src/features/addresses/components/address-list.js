@@ -12,8 +12,8 @@ const AddressList = ({ addresses, positionOffset }) => (
       <tr>
         <th>#</th>
         <th>Address</th>
-        <th className="text-right">Fill Count</th>
-        <th className="text-right">Fill Volume</th>
+        <th className="text-right">Fills</th>
+        <th className="text-right">Volume</th>
       </tr>
     </thead>
     <tbody>
