@@ -1,9 +1,10 @@
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
 import AddressList from './address-list';
+import AsyncTimePeriodSelector from '../../../components/async-time-period-selector';
 import Card from '../../../components/card';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
@@ -12,27 +13,39 @@ import useAddresses from '../hooks/use-addresses';
 
 const AddressesPage = ({ history, location }) => {
   const params = new URLSearchParams(location.search);
+  const statsPeriod = params.get('statsPeriod') || TIME_PERIOD.DAY;
+  const page = params.get('page') || 1;
 
   const [addresses, loadingAddresses, addressesError] = useAddresses({
     autoReload: true,
     limit: 50,
-    page: params.get('page') || 1,
+    page,
+    statsPeriod,
   });
 
   if (addressesError) {
     throw addressesError;
   }
 
-  const { items, page, pageCount, pageSize, recordCount } = addresses;
+  const { items, pageCount, pageSize, recordCount } = addresses;
 
   return (
     <>
       <Helmet key="addresses">
-        <title>Addresses</title>
+        <title>Active Addresses</title>
       </Helmet>
       <PageLayout
-        breadcrumbItems={[{ title: 'Addresses', url: URL.ADDRESSES }]}
-        title="Addresses"
+        filter={
+          <AsyncTimePeriodSelector
+            defaultValue={statsPeriod}
+            onChange={newPeriod => {
+              history.push(
+                `${URL.ADDRESSES}?page=${page}&statsPeriod=${newPeriod}`,
+              );
+            }}
+          />
+        }
+        title="Active Addresses"
       >
         <Card fullHeight>
           {loadingAddresses ? (
@@ -42,11 +55,12 @@ const AddressesPage = ({ history, location }) => {
               <AddressList
                 addresses={items}
                 positionOffset={(page - 1) * pageSize}
-                timePeriod={TIME_PERIOD.DAY}
               />
               <Paginator
                 onPageChange={newPage => {
-                  history.push(`${URL.ADDRESSES}?page=${newPage}`);
+                  history.push(
+                    `${URL.ADDRESSES}?page=${newPage}&statsPeriod=${statsPeriod}`,
+                  );
                 }}
                 page={page}
                 pageCount={pageCount}

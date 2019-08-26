@@ -4,17 +4,16 @@ import React from 'react';
 import AddressLink from './address-link';
 import AddressVolumeLabel from './address-volume-label';
 import addressesPropTypes from '../prop-types';
-import prettyPeriod from '../../../util/pretty-period';
-import sharedPropTypes from '../../../prop-types';
+import Number from '../../../components/number';
 
-const AddressList = ({ addresses, positionOffset, timePeriod }) => (
+const AddressList = ({ addresses, positionOffset }) => (
   <table className="table table-responsive">
     <thead>
       <tr>
         <th>#</th>
         <th>Address</th>
-        <th className="text-right">Fill Count ({prettyPeriod(timePeriod)})</th>
-        <th className="text-right">Fill Volume ({prettyPeriod(timePeriod)})</th>
+        <th className="text-right">Fill Count</th>
+        <th className="text-right">Fill Volume</th>
       </tr>
     </thead>
     <tbody>
@@ -26,7 +25,9 @@ const AddressList = ({ addresses, positionOffset, timePeriod }) => (
               {address.address}
             </AddressLink>
           </td>
-          <td className="align-middle text-right">{address.stats.fillCount}</td>
+          <td className="align-middle text-right">
+            <Number>{address.stats.fillCount}</Number>
+          </td>
           <td className="align-middle text-right">
             <AddressVolumeLabel stats={address.stats} />
           </td>
@@ -39,7 +40,6 @@ const AddressList = ({ addresses, positionOffset, timePeriod }) => (
 AddressList.propTypes = {
   addresses: PropTypes.arrayOf(addressesPropTypes.addressWithStats).isRequired,
   positionOffset: PropTypes.number,
-  timePeriod: sharedPropTypes.timePeriod.isRequired,
 };
 
 AddressList.defaultProps = {
