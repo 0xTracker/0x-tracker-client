@@ -10,22 +10,18 @@ import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
 import RelayerList from './relayer-list';
 import useRelayers from '../hooks/use-relayers';
+import withPagination from '../../../components/with-pagination';
 
-const RelayersPage = ({ history, location }) => {
+const RelayersPage = ({ history, location, page, setPage }) => {
   const params = new URLSearchParams(location.search);
   const statsPeriod = params.get('statsPeriod') || TIME_PERIOD.DAY;
-  const page = params.get('page') || 1;
 
-  const [relayers, loadingRelayers, relayersError] = useRelayers({
+  const [relayers, loadingRelayers] = useRelayers({
     autoReload: true,
     limit: 50,
     page,
     statsPeriod,
   });
-
-  if (relayersError) {
-    throw relayersError;
-  }
 
   const { items, pageCount, pageSize, recordCount } = relayers;
 
@@ -57,11 +53,7 @@ const RelayersPage = ({ history, location }) => {
                 relayers={items}
               />
               <Paginator
-                onPageChange={newPage => {
-                  history.push(
-                    `${URL.RELAYERS}?page=${newPage}&statsPeriod=${statsPeriod}`,
-                  );
-                }}
+                onPageChange={setPage}
                 page={page}
                 pageCount={pageCount}
                 pageSize={pageSize}
@@ -82,6 +74,8 @@ RelayersPage.propTypes = {
   location: PropTypes.shape({
     search: PropTypes.string.isRequired,
   }).isRequired,
+  page: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
 };
 
-export default RelayersPage;
+export default withPagination(RelayersPage);
