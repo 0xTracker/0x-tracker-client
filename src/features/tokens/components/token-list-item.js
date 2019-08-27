@@ -22,6 +22,13 @@ const LastTradeLink = styled(FillLink)`
   }
 `;
 
+// TODO: Encapsulate this in a reusable component and use on fill page
+const AssetTypeBadge = styled.span.attrs(props => ({
+  className: `badge badge-${props.children === 'ERC-721' ? 'success' : 'dark'}`,
+}))`
+  color: white;
+`;
+
 const TokenListItem = ({ position, token }) => (
   <tr>
     <td className="align-middle">{position}</td>
@@ -37,9 +44,11 @@ const TokenListItem = ({ position, token }) => (
       <br />
       {token.symbol || token.address}
     </td>
-    <td>{token.type.toUpperCase()}</td>
+    <td className="align-middle">
+      <AssetTypeBadge>{token.type.toUpperCase()}</AssetTypeBadge>
+    </td>
     <td className="align-middle" css="text-align: right;">
-      {_.has(token, 'price.last') ? (
+      {_.has(token, 'price.last') && token.type === 'erc-20' ? (
         <LastTradeLink fillId={token.lastTrade.id}>
           <LocalisedAmount amount={token.price.last} />
           <br />
