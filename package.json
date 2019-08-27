@@ -42,7 +42,7 @@
     "react-dom": "16.8.6",
     "react-ga": "2.5.7",
     "react-helmet": "6.0.0-beta",
-    "react-hot-loader": "4.11.1",
+    "react-hot-loader": "4.12.12",
     "react-kawaii": "0.14.4",
     "react-loading": "2.0.3",
     "react-paginate": "6.3.0",
