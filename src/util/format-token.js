@@ -23,7 +23,9 @@ const formatRecursively = (amount, precision) => {
     return formatRecursively(amount, precision + 1);
   }
 
-  return formattedAmount;
+  return Number(formattedAmount).toLocaleString('en', {
+    maximumSignificantDigits: 21,
+  });
 };
 
 const formatToken = amount => formatRecursively(amount, 6);
