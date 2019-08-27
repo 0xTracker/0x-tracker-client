@@ -9,7 +9,7 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import useRelayers from '../hooks/use-relayers';
 
 const TopRelayers = ({ displayCurrency, period }) => {
-  const [relayers, loadingRelayers, relayersError] = useRelayers({
+  const [relayers, loadingRelayers] = useRelayers({
     autoReload: true,
     limit: 5,
     statsPeriod: period,
@@ -17,10 +17,6 @@ const TopRelayers = ({ displayCurrency, period }) => {
 
   if (loadingRelayers) {
     return <LoadingIndicator centered />;
-  }
-
-  if (relayersError) {
-    throw relayersError;
   }
 
   return (

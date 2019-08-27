@@ -9,11 +9,11 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import TokenList from './token-list';
 import useTokens from '../hooks/use-tokens';
+import withPagination from '../../../components/with-pagination';
 
-const TokensPage = ({ history, location }) => {
+const TokensPage = ({ history, location, page, setPage }) => {
   const params = new URLSearchParams(location.search);
   const statsPeriod = params.get('statsPeriod') || TIME_PERIOD.DAY;
-  const page = params.get('page') || 1;
 
   const [tokens, loadingTokens] = useTokens({
     autoReload: true,
@@ -47,11 +47,7 @@ const TokensPage = ({ history, location }) => {
             <LoadingIndicator centered />
           ) : (
             <TokenList
-              onPageChange={newPage => {
-                history.push(
-                  `${URL.TOKENS}?page=${newPage}&statsPeriod=${statsPeriod}`,
-                );
-              }}
+              onPageChange={setPage}
               page={page}
               pageCount={pageCount}
               pageSize={pageSize}
@@ -72,6 +68,8 @@ TokensPage.propTypes = {
   location: PropTypes.shape({
     search: PropTypes.string.isRequired,
   }).isRequired,
+  page: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
 };
 
-export default TokensPage;
+export default withPagination(TokensPage);

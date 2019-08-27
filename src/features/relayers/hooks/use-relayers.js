@@ -11,12 +11,16 @@ const useRelayers = (options = {}) => {
     },
     Object.values(options),
   );
+
+  if (error) {
+    throw error;
+  }
+
   const { limit, page, pageCount, relayers, total } = response || {};
 
   return [
     { items: relayers, page, pageCount, pageSize: limit, recordCount: total },
     loading,
-    error,
   ];
 };
 
