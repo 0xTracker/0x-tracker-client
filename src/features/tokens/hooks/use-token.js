@@ -7,7 +7,11 @@ const useToken = tokenAddress => {
     [tokenAddress],
   );
 
-  return { data: response, error, loading };
+  if (error) {
+    throw error;
+  }
+
+  return [response, loading];
 };
 
 export default useToken;

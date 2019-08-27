@@ -16,13 +16,9 @@ import TokenVolume from '../../metrics/components/token-volume';
 import useToken from '../hooks/use-token';
 
 const TokenPage = ({ tokenAddress }) => {
-  const { data: token, error, loading } = useToken(tokenAddress);
+  const [token, loadingToken] = useToken(tokenAddress);
 
-  if (error) {
-    throw error;
-  }
-
-  if (loading) {
+  if (loadingToken) {
     return <LoadingPage />;
   }
 
