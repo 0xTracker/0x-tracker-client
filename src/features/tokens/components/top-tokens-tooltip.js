@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import ChartTooltip from '../../../components/chart-tooltip';
-import formatToken from '../../../util/format-token';
+import formatTokenAmount from '../../../util/format-token-amount';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 
 const TopTokensTooltip = ({ currency, payload }) => {
@@ -28,7 +28,7 @@ const TopTokensTooltip = ({ currency, payload }) => {
         },
         {
           label: `volume (${token.symbol})`,
-          value: formatToken(tokenVolume),
+          value: formatTokenAmount(tokenVolume),
         },
       ]}
       title={token.name}
