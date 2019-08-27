@@ -9,8 +9,8 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 import TokenAmount from './token-amount';
 
 const TokenListItemVolume = ({ token }) => {
-  const fillCount = _.get(token, 'stats.24h.fillCount', 0);
-  const volume = _.get(token, 'stats.24h.volume');
+  const fillCount = _.get(token, 'stats.fillCount', 0);
+  const volume = _.get(token, 'stats.fillVolume');
 
   if (fillCount === 0) {
     return '-';

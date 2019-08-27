@@ -8,6 +8,7 @@ import { colors } from '../../../styles/constants';
 import FillLink from '../../fills/components/fill-link';
 import formatDate from '../../../util/format-date';
 import LocalisedAmount from '../../currencies/components/localised-amount';
+import Number from '../../../components/number';
 import TokenImage from './token-image';
 import TokenLink from './token-link';
 import TokenListItemVolume from './token-list-item-volume';
@@ -21,53 +22,47 @@ const LastTradeLink = styled(FillLink)`
   }
 `;
 
-const TokenListItem = ({ position, token }) => {
-  const fillCount = _.get(token, 'stats.24h.fillCount', 0);
-
-  return (
-    <tr className={fillCount === 0 ? 'faded' : undefined}>
-      <td className="align-middle">{position}</td>
-      <td className="align-middle">
-        <TokenLink address={token.address}>
-          <TokenImage imageUrl={token.imageUrl} />
-        </TokenLink>
-      </td>
-      <td width="99%">
-        <TokenLink address={token.address}>
-          {token.name || 'Unknown Token'}
-        </TokenLink>
-        <br />
-        {token.symbol || token.address}
-      </td>
-      <td className="align-middle" css="text-align: right;">
-        {_.has(token, 'price.last') ? (
-          <LastTradeLink fillId={token.lastTrade.id}>
-            <LocalisedAmount amount={token.price.last} />
-            <br />
-            <span
-              css={`
-                font-size: 0.8rem;
-                color: ${fillCount === 0
-                  ? colors.santasGray
-                  : colors.stormGray};
-              `}
-            >
-              {formatDate(token.lastTrade.date, DATE_FORMAT.RELATIVE)} ago
-            </span>
-          </LastTradeLink>
-        ) : (
-          '-'
-        )}
-      </td>
-      <td className="align-middle" css="text-align: right;">
-        {fillCount === 0 ? '-' : fillCount}
-      </td>
-      <td className="align-middle" css="text-align: right;">
-        <TokenListItemVolume token={token} />
-      </td>
-    </tr>
-  );
-};
+const TokenListItem = ({ position, token }) => (
+  <tr>
+    <td className="align-middle">{position}</td>
+    <td className="align-middle">
+      <TokenLink address={token.address}>
+        <TokenImage imageUrl={token.imageUrl} />
+      </TokenLink>
+    </td>
+    <td width="99%">
+      <TokenLink address={token.address}>
+        {token.name || 'Unknown Token'}
+      </TokenLink>
+      <br />
+      {token.symbol || token.address}
+    </td>
+    <td className="align-middle" css="text-align: right;">
+      {_.has(token, 'price.last') ? (
+        <LastTradeLink fillId={token.lastTrade.id}>
+          <LocalisedAmount amount={token.price.last} />
+          <br />
+          <span
+            css={`
+              font-size: 0.8rem;
+              color: ${colors.stormGray};
+            `}
+          >
+            {formatDate(token.lastTrade.date, DATE_FORMAT.RELATIVE)} ago
+          </span>
+        </LastTradeLink>
+      ) : (
+        '-'
+      )}
+    </td>
+    <td className="align-middle" css="text-align: right;">
+      <Number>{token.stats.fillCount}</Number>
+    </td>
+    <td className="align-middle" css="text-align: right;">
+      <TokenListItemVolume token={token} />
+    </td>
+  </tr>
+);
 
 TokenListItem.propTypes = {
   position: PropTypes.number.isRequired,
