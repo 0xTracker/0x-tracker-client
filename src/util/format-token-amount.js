@@ -28,6 +28,6 @@ const formatRecursively = (amount, precision) => {
   });
 };
 
-const formatToken = amount => formatRecursively(amount, 6);
+const formatTokenAmount = amount => formatRecursively(amount, 6);
 
-export default formatToken;
+export default formatTokenAmount;

@@ -4,7 +4,7 @@ import React from 'react';
 
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { colors } from '../../../styles/constants';
-import formatToken from '../../../util/format-token';
+import formatTokenAmount from '../../../util/format-token-amount';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import TokenAmount from './token-amount';
 
@@ -23,7 +23,7 @@ const TokenListItemVolume = ({ token }) => {
 
     return (
       <>
-        {formatToken(volume.token)} {token.symbol}
+        {formatTokenAmount(volume.token)} {token.symbol}
       </>
     );
   }
