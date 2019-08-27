@@ -22,6 +22,7 @@ const TokenList = ({
           <tr>
             <th>#</th>
             <th colSpan="2">Token</th>
+            <th>Type</th>
             <th css="text-align: right;">Last Price</th>
             <th css="text-align: right;">Fills</th>
             <th css="text-align: right;">Volume</th>

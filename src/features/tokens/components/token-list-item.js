@@ -37,6 +37,7 @@ const TokenListItem = ({ position, token }) => (
       <br />
       {token.symbol || token.address}
     </td>
+    <td>{token.type.toUpperCase()}</td>
     <td className="align-middle" css="text-align: right;">
       {_.has(token, 'price.last') ? (
         <LastTradeLink fillId={token.lastTrade.id}>
