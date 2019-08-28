@@ -18,9 +18,9 @@ const dimensions = {
 };
 
 const LoadingIndicator = ({ centered, size, type }) => {
-  const ready = useTimeout(300);
+  const [isReady] = useTimeout(300);
 
-  if (!ready) {
+  if (isReady() === false) {
     return null;
   }
 
