@@ -5,7 +5,7 @@ import React from 'react';
 
 import ChartTooltip from '../../../components/chart-tooltip';
 import formatCurrency from '../../../util/format-currency';
-import formatToken from '../../../util/format-token';
+import formatTokenAmount from '../../../util/format-token-amount';
 
 const TokenVolumeTooltip = ({ localCurrency, payload, tokenSymbol }) => {
   if (_.isEmpty(payload)) {
@@ -23,7 +23,8 @@ const TokenVolumeTooltip = ({ localCurrency, payload, tokenSymbol }) => {
         },
         {
           label: `volume (${tokenSymbol || 'token'})`,
-          value: tokenVolume !== null ? formatToken(tokenVolume) : 'Unknown',
+          value:
+            tokenVolume !== null ? formatTokenAmount(tokenVolume) : 'Unknown',
         },
       ]}
       title={formatDate(date, 'MMMM Do YYYY, hh:mm A')}

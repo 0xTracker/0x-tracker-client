@@ -50,16 +50,12 @@ exports[`renders with basic props 1`] = `
       <th
         class="text-right"
       >
-        Trades (
-        24H
-        )
+        Trades
       </th>
       <th
         class="text-right"
       >
-        Volume (
-        24H
-        )
+        Volume
       </th>
     </tr>
   </thead>
@@ -254,70 +250,6 @@ exports[`renders with basic props 1`] = `
         <span>
           $100,000.00
         </span>
-      </td>
-    </tr>
-    <tr
-      class="faded"
-    >
-      <td
-        class="align-middle"
-      >
-        4
-      </td>
-      <td
-        class="align-middle"
-      >
-        <a
-          class="c0"
-          href="/relayers/sad-relayer"
-        >
-          <svg
-            aria-hidden="true"
-            class="c1"
-            color="#dcdde4"
-            fill="currentColor"
-            focusable="false"
-            height="40"
-            viewBox="0 0 448 512"
-            width="40"
-          >
-            <path
-              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48z"
-              fill="currentColor"
-            />
-          </svg>
-        </a>
-      </td>
-      <td
-        class="align-middle"
-        width="99%"
-      >
-        <a
-          class="c0"
-          href="/relayers/sad-relayer"
-        >
-          Sad Relayer
-        </a>
-        <br />
-        <a
-          _css="#6C6B80"
-          class="c2 c3"
-          href="https://google.com"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          https://google.com
-        </a>
-      </td>
-      <td
-        class="align-middle text-right"
-      >
-        -
-      </td>
-      <td
-        class="align-middle text-right"
-      >
-        -
       </td>
     </tr>
   </tbody>

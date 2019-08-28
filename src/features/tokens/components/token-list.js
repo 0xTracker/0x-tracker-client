@@ -1,21 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { TIME_PERIOD } from '../../../constants';
 import Paginator from '../../../components/paginator';
-import prettyPeriod from '../../../util/pretty-period';
-import sharedPropTypes from '../../../prop-types';
 import tokensPropTypes from '../prop-types';
 import TokenListItem from './token-list-item';
-
-const DEFAULT_PERIOD = TIME_PERIOD.DAY;
 
 const TokenList = ({
   onPageChange,
   page,
   pageCount,
   pageSize,
-  period,
   recordCount,
   tokens,
 }) => {
@@ -28,13 +22,10 @@ const TokenList = ({
           <tr>
             <th>#</th>
             <th colSpan="2">Token</th>
+            <th>Type</th>
             <th css="text-align: right;">Last Price</th>
-            <th css="text-align: right;">
-              Fill Count ({prettyPeriod(period)})
-            </th>
-            <th css="text-align: right;">
-              Fill Volume ({prettyPeriod(period)})
-            </th>
+            <th css="text-align: right;">Fills</th>
+            <th css="text-align: right;">Volume</th>
           </tr>
         </thead>
         <tbody>
@@ -64,13 +55,11 @@ TokenList.propTypes = {
   page: PropTypes.number.isRequired,
   pageCount: PropTypes.number.isRequired,
   pageSize: PropTypes.number.isRequired,
-  period: sharedPropTypes.timePeriod,
   recordCount: PropTypes.number.isRequired,
   tokens: PropTypes.arrayOf(tokensPropTypes.tokenWithStats),
 };
 
 TokenList.defaultProps = {
-  period: DEFAULT_PERIOD,
   tokens: undefined,
 };
 

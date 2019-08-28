@@ -3,9 +3,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Container from './container';
-import ContentHeader from './content-header';
+import PageHeader from './page-header';
 
-const ContentBody = styled(Container)`
+const PageBody = styled(Container)`
   align-items: ${props => (props.centered ? 'center' : 'initial')};
   display: flex;
   flex-direction: column;
@@ -20,12 +20,16 @@ const StyledPageLayout = styled.div`
   flex-grow: 1;
 `;
 
-const PageLayout = ({ breadcrumbItems, centered, children, title }) => (
+const PageLayout = ({ breadcrumbItems, centered, children, filter, title }) => (
   <StyledPageLayout>
     {title ? (
-      <ContentHeader breadcrumbItems={breadcrumbItems} title={title} />
+      <PageHeader
+        breadcrumbItems={breadcrumbItems}
+        filter={filter}
+        title={title}
+      />
     ) : null}
-    <ContentBody centered={centered}>{children}</ContentBody>
+    <PageBody centered={centered}>{children}</PageBody>
   </StyledPageLayout>
 );
 
@@ -38,12 +42,14 @@ PageLayout.propTypes = {
   ),
   centered: PropTypes.bool,
   children: PropTypes.node.isRequired,
+  filter: PropTypes.node,
   title: PropTypes.string,
 };
 
 PageLayout.defaultProps = {
   breadcrumbItems: [],
   centered: false,
+  filter: undefined,
   title: undefined,
 };
 

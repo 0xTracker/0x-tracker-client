@@ -4,23 +4,18 @@ import React from 'react';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 
 const RelayerVolumeLabel = ({ stats }) => {
-  const { volume } = stats;
+  const { tradeVolume } = stats;
 
-  if (stats.trades === undefined || stats.trades === 0) {
-    return '-';
-  }
-
-  if (volume === 0) {
+  if (tradeVolume === 0) {
     return 'Unknown';
   }
 
-  return <LocalisedAmount amount={volume} />;
+  return <LocalisedAmount amount={tradeVolume} />;
 };
 
 RelayerVolumeLabel.propTypes = {
   stats: PropTypes.shape({
-    trades: PropTypes.number,
-    volume: PropTypes.number,
+    tradeVolume: PropTypes.number,
   }).isRequired,
 };
 

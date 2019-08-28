@@ -5,7 +5,7 @@ import React from 'react';
 
 import ChartTooltip from '../../../components/chart-tooltip';
 import formatCurrency from '../../../util/format-currency';
-import formatToken from '../../../util/format-token';
+import formatTokenAmount from '../../../util/format-token-amount';
 
 const NetworkFeesTooltip = ({ localCurrency, payload }) => {
   if (_.isEmpty(payload)) {
@@ -23,7 +23,7 @@ const NetworkFeesTooltip = ({ localCurrency, payload }) => {
         },
         {
           label: 'fees (ZRX)',
-          value: `${formatToken(fees)} ZRX`,
+          value: `${formatTokenAmount(fees)} ZRX`,
         },
       ]}
       title={formatDate(date, 'MMMM Do YYYY, hh:mm A')}

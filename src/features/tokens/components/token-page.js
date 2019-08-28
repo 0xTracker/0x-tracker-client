@@ -4,9 +4,8 @@ import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { TIME_PERIOD, URL } from '../../../constants';
+import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
-import buildTokenUrl from '../util/build-token-url';
 import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
@@ -16,13 +15,9 @@ import TokenVolume from '../../metrics/components/token-volume';
 import useToken from '../hooks/use-token';
 
 const TokenPage = ({ tokenAddress }) => {
-  const { data: token, error, loading } = useToken(tokenAddress);
+  const [token, loadingToken] = useToken(tokenAddress);
 
-  if (error) {
-    throw error;
-  }
-
-  if (loading) {
+  if (loadingToken) {
     return <LoadingPage />;
   }
 
@@ -34,13 +29,6 @@ const TokenPage = ({ tokenAddress }) => {
         </title>
       </Helmet>
       <PageLayout
-        breadcrumbItems={[
-          { title: 'Tokens', url: URL.TOKENS },
-          {
-            title: _.has(token, 'name') ? token.name : 'Unknown Token',
-            url: buildTokenUrl(tokenAddress),
-          },
-        ]}
         title={_.has(token, 'name') ? token.name : `Token: ${token.address}`}
       >
         {token ? (
