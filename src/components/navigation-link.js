@@ -6,10 +6,11 @@ import styled from 'styled-components';
 import { colors } from '../styles/constants';
 import Link from './link';
 
-const NavigationLink = styled(Link)`
+const StyledNavigationLink = styled(Link)`
   color: ${props => (props.active ? colors.white : colors.lavenderGray)};
   display: inline-block;
-  margin-right: 1rem;
+  margin-right: 1.75rem;
+  padding: 0.75rem 0;
 
   &:hover {
     color: ${colors.white};
@@ -17,20 +18,20 @@ const NavigationLink = styled(Link)`
   }
 `;
 
-const NavigationItem = ({ href, title }) => {
+const NavigationLink = ({ href, children }) => {
   const location = useLocation();
   const active = location.pathname.startsWith(href);
 
   return (
-    <NavigationLink active={active} aria-current={active} href={href}>
-      {title}
-    </NavigationLink>
+    <StyledNavigationLink active={active} aria-current={active} href={href}>
+      {children}
+    </StyledNavigationLink>
   );
 };
 
-NavigationItem.propTypes = {
+NavigationLink.propTypes = {
+  children: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
 };
 
-export default NavigationItem;
+export default NavigationLink;

@@ -31,11 +31,11 @@ const MenuButton = styled.button`
 
 const StyledHeader = styled.header`
   background-color: ${colors.violet};
-  height: 4rem;
-  padding: 1rem 0;
+  ${'' /* height: 4rem; */}
+  ${'' /* padding: 1rem 0; */}
 
   ${media.greaterThan('lg')`
-    height: 4.75rem;
+    ${'' /* height: 4.75rem; */}
   `}
 `;
 

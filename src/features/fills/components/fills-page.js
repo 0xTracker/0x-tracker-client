@@ -9,11 +9,11 @@ import PageLayout from '../../../components/page-layout';
 const FillsPage = () => (
   <>
     <Helmet>
-      <title>Order Fills</title>
+      <title>Browse Fills</title>
     </Helmet>
     <PageLayout
-      breadcrumbItems={[{ title: 'Order Fills', url: URL.FILLS }]}
-      title="Order Fills"
+      breadcrumbItems={[{ title: 'Browse Fills', url: URL.FILLS }]}
+      title="Browse Fills"
     >
       <Card fullHeight>
         <Fills />

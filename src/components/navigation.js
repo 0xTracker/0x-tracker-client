@@ -3,18 +3,24 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { URL } from '../constants';
-import NavigationItem from './navigation-item';
+import NavigationLink from './navigation-link';
+import SubNavigationParent from './sub-navigation-parent';
 
 const StyledNavigation = styled.nav`
   margin: 0 0 0 2rem;
+  padding: 0.75rem 0 0 0;
 `;
 
 const Navigation = ({ className }) => (
   <StyledNavigation aria-label="Primary" className={className}>
-    <NavigationItem href={URL.FILLS} title="Fills" />
-    <NavigationItem href={URL.TOKENS} title="Tokens" />
-    <NavigationItem href={URL.RELAYERS} title="Relayers" />
-    <NavigationItem href={URL.NEWS} title="News & Updates" />
+    <SubNavigationParent
+      navigationItems={[{ href: URL.FILLS, title: 'Browse Fills' }]}
+    >
+      Network
+    </SubNavigationParent>
+    <NavigationLink href={URL.TOKENS}>Tokens</NavigationLink>
+    <NavigationLink href={URL.RELAYERS}>Relayers</NavigationLink>
+    <NavigationLink href={URL.NEWS}>News & Updates</NavigationLink>
   </StyledNavigation>
 );
 
