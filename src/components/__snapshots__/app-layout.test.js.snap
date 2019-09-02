@@ -107,6 +107,7 @@ exports[`app layout component should render with children 1`] = `
   background: none;
   border: none;
   border-radius: 0.25rem;
+  color: #bfbedf;
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -122,7 +123,8 @@ exports[`app layout component should render with children 1`] = `
 }
 
 .c12:hover {
-  background: #f1f2f7;
+  background: #fff;
+  color: #0A0830;
 }
 
 .c12:last-child {
@@ -137,6 +139,7 @@ exports[`app layout component should render with children 1`] = `
   background: none;
   border: none;
   border-radius: 0.25rem;
+  color: #bfbedf;
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
@@ -153,7 +156,8 @@ exports[`app layout component should render with children 1`] = `
 }
 
 .c10:hover {
-  background: #f1f2f7;
+  background: #fff;
+  color: #0A0830;
 }
 
 .c10:last-child {
@@ -175,13 +179,13 @@ exports[`app layout component should render with children 1`] = `
 }
 
 .c8 {
-  color: #6C6B80;
+  color: #bfbedf;
   display: inline-block;
   margin-right: 1rem;
 }
 
 .c8:hover {
-  color: currentColor;
+  color: #fff;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
@@ -196,7 +200,7 @@ exports[`app layout component should render with children 1`] = `
 }
 
 .c1 {
-  background-color: #fff;
+  background-color: #0A0830;
   height: 4rem;
   padding: 1rem 0;
 }

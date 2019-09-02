@@ -7,12 +7,12 @@ import { colors } from '../styles/constants';
 import Link from './link';
 
 const NavigationLink = styled(Link)`
-  color: ${props => (props.active ? 'currentColor' : colors.stormGray)};
+  color: ${props => (props.active ? colors.white : colors.lavenderGray)};
   display: inline-block;
   margin-right: 1rem;
 
   &:hover {
-    color: currentColor;
+    color: ${colors.white};
     text-decoration: none;
   }
 `;

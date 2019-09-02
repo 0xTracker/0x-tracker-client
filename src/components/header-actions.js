@@ -11,6 +11,7 @@ const ActionButton = styled.button`
   background: none;
   border: none;
   border-radius: 0.25rem;
+  color: ${colors.lavenderGray};
   cursor: pointer;
   display: flex;
   height: 100%;
@@ -19,7 +20,8 @@ const ActionButton = styled.button`
   margin-right: 0.5rem;
 
   &:hover {
-    background: ${colors.athensGray};
+    background: ${colors.white};
+    color: ${colors.violet};
   }
 
   &:last-child {
