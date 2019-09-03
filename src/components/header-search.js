@@ -17,7 +17,7 @@ const SearchInput = styled.input`
     color: currentColor;
     height: 100%;
     outline: none;
-    padding: 0 0.75rem;
+    padding: 0.5rem 0.75rem;
     width: 300px;
 
     ::placeholder {
@@ -31,6 +31,7 @@ const SearchButton = styled.button`
   background: none;
   border: none;
   border-radius: 0.25rem;
+  color: ${colors.lavenderGray};
   cursor: pointer;
   display: flex;
   height: 100%;
@@ -39,6 +40,7 @@ const SearchButton = styled.button`
 
   &:hover {
     background: ${colors.athensGray};
+    color: ${colors.violet};
   }
 `;
 
@@ -68,7 +70,7 @@ const HeaderSearch = ({ onBlur, onSearch }) => {
   useEscapeKey(onBlur);
 
   return (
-    <div css="display: flex; flex-wrap: nowrap; height: 100%;" ref={wrapperRef}>
+    <div css="display: flex; flex-wrap: nowrap;" ref={wrapperRef}>
       <SearchForm onSearch={onSearch}>
         {({ currentValue, handleChange, handleSubmit }) => (
           <>

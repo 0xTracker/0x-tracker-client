@@ -10,33 +10,33 @@ import { MenuIcon, NotificationsIcon } from './icons';
 import Container from './container';
 import HeaderActions from './header-actions';
 import Link from './link';
-import logoImage from '../assets/images/logo-light.svg';
+import logoImage from '../assets/images/logo-dark.svg';
 import MobileMenu from './mobile-menu';
 import Navigation from './navigation';
 import SettingsDialogProvider from '../features/preferences/components/settings-dialog-provider';
 
 const LogoImage = styled.img`
-  height: 2.75rem;
-  width: ${props => (props.size === 'small' ? '8rem' : '10rem')};
+  height: 2.5rem;
 `;
 
 const MenuButton = styled.button`
   align-items: center;
   background: none;
   border: none;
+  color: ${colors.lavenderGray};
   cursor: pointer;
   display: flex;
   padding: 0;
 `;
 
 const StyledHeader = styled.header`
-  background-color: ${colors.white};
-  height: 4rem;
-  padding: 1rem 0;
+  background-color: ${colors.violet};
+  height: 4.5rem;
+  padding: 0.75rem 0;
 
-  ${media.greaterThan('lg')`
-    height: 4.75rem;
-  `}
+  ${media.greaterThan('md')`
+    padding: 0;
+  `};
 `;
 
 const NotificationsButton = styled(MenuButton)`

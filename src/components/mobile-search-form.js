@@ -35,10 +35,7 @@ const SearchButton = styled.button`
 `;
 
 const MobileSearchForm = ({ onSearch }) => (
-  <SearchForm
-    css="margin: 0 1rem 1rem 1rem; display: flex; flex-wrap: nowrap;"
-    onSearch={onSearch}
-  >
+  <SearchForm css="display: flex; flex-wrap: nowrap;" onSearch={onSearch}>
     {({ currentValue, handleChange, handleSubmit }) => (
       <>
         <SearchInput

@@ -9,7 +9,7 @@ const MobileNavigation = ({ onClick }) => {
   const settingsDialog = useSettingsDialog();
 
   return (
-    <nav aria-label="Primary" css="padding: 0 1rem;">
+    <nav aria-label="Primary" css="margin: 1rem 0 0">
       <MobileNavigationItem href={URL.FILLS} onClick={onClick}>
         Fills
       </MobileNavigationItem>

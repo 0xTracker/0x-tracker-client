@@ -12,11 +12,11 @@ import logoImage from '../assets/images/logo-dark.svg';
 import MobileNavigation from './mobile-navigation';
 import MobileSearchForm from './mobile-search-form';
 
-const StyledMobileMenu = styled.ul`
+const StyledMobileMenu = styled.div`
   background-color: ${colors.violet};
   color: ${colors.white};
   height: 100vh;
-  padding: 5rem 0 0;
+  padding: 1rem 1rem 0 1rem;
   position: absolute;
   top: 0;
   width: 100vw;
@@ -31,27 +31,26 @@ const CloseButton = styled.button`
   margin: 0;
   padding: 0;
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.2rem;
+  right: 0.6rem;
 `;
 
 const Logo = styled.img`
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  width: 8rem;
+  height: 2.5rem;
 `;
 
 const MobileMenu = ({ onClose, onNavigate, onSearch }) => (
   <Portal>
     <DisableBodyScroll />
     <StyledMobileMenu aria-label="Menu" aria-modal role="dialog">
-      <CloseButton autoFocus onClick={onClose} title="Close" type="button">
-        <CloseIcon width={32} />
-      </CloseButton>
-      <Link href={URL.DASHBOARD} onClick={onNavigate}>
-        <Logo src={logoImage} title="0x Tracker" />
-      </Link>
+      <div css="height: 4.5rem">
+        <CloseButton autoFocus onClick={onClose} title="Close" type="button">
+          <CloseIcon width={27} />
+        </CloseButton>
+        <Link href={URL.DASHBOARD} onClick={onNavigate}>
+          <Logo src={logoImage} title="0x Tracker" />
+        </Link>
+      </div>
       <MobileSearchForm onSearch={onSearch} />
       <MobileNavigation onClick={onNavigate} />
     </StyledMobileMenu>
