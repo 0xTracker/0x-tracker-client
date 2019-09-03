@@ -8,10 +8,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
-import { DATE_FORMAT, ZRX_TOKEN } from '../../../constants';
+import { DATE_FORMAT, URL, ZRX_TOKEN } from '../../../constants';
 import { media } from '../../../styles/util';
 import AddressLink from '../../addresses/components/address-link';
 import AssetLabel from './asset-label';
+import buildFillUrl from '../util/build-fill-url';
 import buildSearchUrl from '../../search/util/build-search-url';
 import Card from '../../../components/card';
 import EthereumAddressLink from '../../../components/ethereum-address-link';
@@ -73,7 +74,16 @@ const FillPage = ({ fillId, screenSize }) => {
       <Helmet>
         <title>Fill Details</title>
       </Helmet>
-      <PageLayout title="Fill Details">
+      <PageLayout
+        breadcrumbItems={[
+          { title: 'Fills', url: URL.FILLS },
+          {
+            title: 'Fill Details',
+            url: buildFillUrl(fillId),
+          },
+        ]}
+        title="Fill Details"
+      >
         <Card css="padding: 2rem;" fullHeight>
           <>
             <FillDetailList>

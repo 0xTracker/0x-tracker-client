@@ -31,7 +31,6 @@ const SearchButton = styled.button`
   background: none;
   border: none;
   border-radius: 0.25rem;
-  color: ${colors.lavenderGray};
   cursor: pointer;
   display: flex;
   height: 100%;
@@ -40,7 +39,6 @@ const SearchButton = styled.button`
 
   &:hover {
     background: ${colors.athensGray};
-    color: ${colors.violet};
   }
 `;
 
