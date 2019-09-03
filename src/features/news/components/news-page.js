@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import { URL } from '../../../constants';
 import { colors } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import ArticleList from './article-list';
@@ -54,6 +55,12 @@ const NewsPage = ({ loadingSources, match, screenSize, sources }) => {
         <LoadingPage />
       ) : (
         <PageLayout
+          breadcrumbItems={_.compact([
+            { title: 'News & Updates', url: URL.NEWS },
+            source && {
+              title: source.name,
+            },
+          ])}
           title={source ? `${source.name} News & Updates` : 'News & Updates'}
         >
           <Helmet>

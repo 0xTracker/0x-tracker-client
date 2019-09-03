@@ -3,13 +3,13 @@
 exports[`app layout component should render with children 1`] = `
 .c11 {
   display: inline-block;
-  vertical-align: -.125em;
+  vertical-align: middle;
   overflow: hidden;
 }
 
-.c15 {
+.c13 {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: -.125em;
   overflow: hidden;
 }
 
@@ -17,12 +17,12 @@ exports[`app layout component should render with children 1`] = `
   max-width: 1170px;
 }
 
-.c21 {
+.c18 {
   color: #3f4ac3;
   cursor: pointer;
 }
 
-.c21:hover {
+.c18:hover {
   color: inherit;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -39,7 +39,7 @@ exports[`app layout component should render with children 1`] = `
   text-decoration: none;
 }
 
-.c20 {
+.c17 {
   color: rgba(255,255,255,0.5);
   display: -webkit-box;
   display: -webkit-flex;
@@ -48,27 +48,27 @@ exports[`app layout component should render with children 1`] = `
   margin-left: 1rem;
 }
 
-.c20:first-child {
+.c17:first-child {
   margin-left: 0;
 }
 
-.c20:hover {
+.c17:hover {
   color: #fff;
 }
 
-.c22 {
+.c19 {
   height: 1.5rem;
   vertical-align: middle;
   width: 1.5rem;
 }
 
-.c18 {
+.c15 {
   background: #0A0830;
   color: #fff;
   padding: 2rem;
 }
 
-.c19 {
+.c16 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -84,7 +84,7 @@ exports[`app layout component should render with children 1`] = `
   margin-bottom: 1.5rem;
 }
 
-.c23 {
+.c20 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -99,7 +99,7 @@ exports[`app layout component should render with children 1`] = `
   justify-content: center;
 }
 
-.c16 {
+.c12 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -107,30 +107,29 @@ exports[`app layout component should render with children 1`] = `
   background: none;
   border: none;
   border-radius: 0.25rem;
-  color: #bfbedf;
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin: 0 0.5rem 0 0;
-  padding: 0.5rem 0.75rem;
+  padding: 0 0.75rem;
+  margin-right: 0.5rem;
 }
 
-.c16:hover {
-  background: #fff;
-  color: #0A0830;
+.c12:hover {
+  background: #f1f2f7;
 }
 
-.c16:last-child {
+.c12:last-child {
   margin: 0;
 }
 
-.c14 {
+.c10 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -138,37 +137,36 @@ exports[`app layout component should render with children 1`] = `
   background: none;
   border: none;
   border-radius: 0.25rem;
-  color: #bfbedf;
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin: 0 0.5rem 0 0;
-  padding: 0.5rem 0.75rem;
+  padding: 0 0.75rem;
+  margin-right: 0.5rem;
   position: relative;
 }
 
-.c14:hover {
-  background: #fff;
-  color: #0A0830;
+.c10:hover {
+  background: #f1f2f7;
 }
 
-.c14:last-child {
+.c10:last-child {
   margin: 0;
 }
 
-.c14 #HW_badge_cont {
+.c10 #HW_badge_cont {
   position: absolute;
   right: 3px;
   top: -3px;
 }
 
-.c13 {
+.c9 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -176,54 +174,20 @@ exports[`app layout component should render with children 1`] = `
   height: 100%;
 }
 
-.c12 {
-  color: #bfbedf;
-  display: inline-block;
-  margin-right: 1.75rem;
-}
-
-.c12:hover {
-  color: #fff;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 .c8 {
+  color: #6C6B80;
   display: inline-block;
-  position: relative;
+  margin-right: 1rem;
 }
 
-.c9 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-  color: #bfbedf;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  margin-right: 0.75rem;
-  padding: 0 1rem 0;
-  position: relative;
-}
-
-.c9:hover {
+.c8:hover {
+  color: currentColor;
   -webkit-text-decoration: none;
   text-decoration: none;
-}
-
-.c10 {
-  margin-left: 0.5em;
-  margin-top: 0.2em;
-  pointer-events: none;
 }
 
 .c7 {
   margin: 0 0 0 2rem;
-  padding: 0;
 }
 
 .c5 {
@@ -232,7 +196,8 @@ exports[`app layout component should render with children 1`] = `
 }
 
 .c1 {
-  background-color: #0A0830;
+  background-color: #fff;
+  height: 4rem;
   padding: 1rem 0;
 }
 
@@ -270,7 +235,7 @@ exports[`app layout component should render with children 1`] = `
   min-height: 100vh;
 }
 
-.c17 {
+.c14 {
   background-color: #f1f2f7;
   display: -webkit-box;
   display: -webkit-flex;
@@ -286,7 +251,7 @@ exports[`app layout component should render with children 1`] = `
 }
 
 @media (min-width:768px) {
-  .c19 {
+  .c16 {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
@@ -299,11 +264,17 @@ exports[`app layout component should render with children 1`] = `
 }
 
 @media (min-width:768px) {
-  .c23 {
+  .c20 {
     -webkit-box-pack: start;
     -webkit-justify-content: flex-start;
     -ms-flex-pack: start;
     justify-content: flex-start;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    height: 4.75rem;
   }
 }
 
@@ -330,60 +301,44 @@ exports[`app layout component should render with children 1`] = `
         aria-label="Primary"
         class="c6 c7"
       >
-        <div
-          class="c8"
-        >
-          <div
-            class="c9"
-          >
-            Network
-            <svg
-              aria-hidden="true"
-              class="c10 c11"
-              fill="currentColor"
-              focusable="false"
-              height="10"
-              viewBox="0 0 448 512"
-              width="10"
-            >
-              <path
-                d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-        </div>
         <a
           aria-current="false"
-          class="c12 c4"
+          class="c8 c4"
+          href="/fills"
+        >
+          Fills
+        </a>
+        <a
+          aria-current="false"
+          class="c8 c4"
           href="/tokens"
         >
           Tokens
         </a>
         <a
           aria-current="false"
-          class="c12 c4"
+          class="c8 c4"
           href="/relayers"
         >
           Relayers
         </a>
         <a
           aria-current="false"
-          class="c12 c4"
+          class="c8 c4"
           href="/news-and-updates"
         >
           News & Updates
         </a>
       </nav>
       <div
-        class="c13"
+        class="c9"
       >
         <button
-          class="headway c14"
+          class="headway c10"
         >
           <svg
             aria-hidden="true"
-            class="c15"
+            class="c11"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -397,12 +352,12 @@ exports[`app layout component should render with children 1`] = `
           </svg>
         </button>
         <button
-          class="c16"
+          class="c12"
           title="Settings"
         >
           <svg
             aria-hidden="true"
-            class="c11"
+            class="c13"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -417,12 +372,12 @@ exports[`app layout component should render with children 1`] = `
           </svg>
         </button>
         <button
-          class="c16"
+          class="c12"
           title="Search"
         >
           <svg
             aria-hidden="true"
-            class="c11"
+            class="c13"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -440,12 +395,12 @@ exports[`app layout component should render with children 1`] = `
     </div>
   </header>
   <div
-    class="c17"
+    class="c14"
   >
     Hello World
   </div>
   <div
-    class="c18"
+    class="c15"
   >
     <div
       class="c3 container-fluid"
@@ -463,10 +418,10 @@ exports[`app layout component should render with children 1`] = `
             ,
     }
   "
-          class="c19 col-12 col-md-6"
+          class="c16 col-12 col-md-6"
         >
           <a
-            class="c20 c21"
+            class="c17 c18"
             href="https://github.com/0xtracker"
             rel="noopener noreferrer"
             target="_blank"
@@ -474,7 +429,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c22 c11"
+              class="c19 c13"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 496 512"
@@ -486,7 +441,7 @@ exports[`app layout component should render with children 1`] = `
             </svg>
           </a>
           <a
-            class="c20 c21"
+            class="c17 c18"
             href="https://discord.gg/tnV8hud"
             rel="noopener noreferrer"
             target="_blank"
@@ -494,7 +449,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c22 c11"
+              class="c19 c13"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 448 512"
@@ -506,7 +461,7 @@ exports[`app layout component should render with children 1`] = `
             </svg>
           </a>
           <a
-            class="c20 c21"
+            class="c17 c18"
             href="https://twitter.com/0xTracker"
             rel="noopener noreferrer"
             target="_blank"
@@ -514,7 +469,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c22 c11"
+              class="c19 c13"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 512 512"
@@ -526,7 +481,7 @@ exports[`app layout component should render with children 1`] = `
             </svg>
           </a>
           <a
-            class="c20 c21"
+            class="c17 c18"
             href="https://medium.com/0x-tracker"
             rel="noopener noreferrer"
             target="_blank"
@@ -534,7 +489,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c22 c11"
+              class="c19 c13"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 512 512"
@@ -554,7 +509,7 @@ exports[`app layout component should render with children 1`] = `
             ,
     }
   "
-          class="c23 col-12 col-md-6"
+          class="c20 col-12 col-md-6"
         >
           Copyright © 0x Tracker 
           2019

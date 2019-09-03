@@ -10,7 +10,6 @@ const colors = {
   black: '#000',
   fruitSalad: '#4CAF50', // positive change
   indigo: '#3f4ac3', // links
-  lavenderGray: '#bfbedf',
   martinique: '#312F50',
   mischka: '#dcdde4', // dark gray
   periwinkleGray: '#cdcded',
