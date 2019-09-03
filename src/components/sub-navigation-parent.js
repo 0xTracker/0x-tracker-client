@@ -5,14 +5,19 @@ import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import { ChevronDownIcon } from './icons';
-import Link from './link';
+import SubNavigationItem from './sub-navigation-item';
+
+const StyledSubNavigationParent = styled.div`
+  display: inline-block;
+  position: relative;
+`;
 
 const NavigationItem = styled.div`
   align-items: center;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   color: ${props =>
-    props.active || props.highlighted ? colors.white : colors.lavenderGray};
+    props.open || props.highlighted ? colors.white : colors.lavenderGray};
   display: inline-flex;
   margin-right: 0.75rem;
   padding: 0 1rem 0;
@@ -36,32 +41,33 @@ const SubNavigation = styled.div`
   z-index: 999;
 `;
 
-const SubNavigationLink = styled(Link)`
-  color: ${colors.lavenderGray};
-  display: block;
-  padding: 0.75rem 0 0.75rem 1rem;
-
-  &:hover {
-    color: white;
-    text-decoration: none;
-  }
+const SubNavigationIndicator = styled(ChevronDownIcon).attrs({
+  height: 10,
+  width: 10,
+})`
+  margin-left: 0.5em;
+  margin-top: 0.2em;
+  pointer-events: none;
 `;
 
 const SubNavigationParent = ({ children, items }) => {
-  const [active, setActive] = useState(false);
-  const [hoverTimeout, setHoverTimeout] = useState();
+  const [open, setOpen] = useState(false);
+  const [blurTimeout, setBlurTimeout] = useState();
 
   const blurHandler = useCallback(() => {
     const timeout = setTimeout(() => {
-      setActive(false);
+      setOpen(false);
     }, 100);
 
-    setHoverTimeout(timeout);
+    setBlurTimeout(timeout);
   });
 
   const activeHandler = useCallback(() => {
-    clearTimeout(hoverTimeout);
-    setActive(true);
+    // Clear the blur timeout to prevent sub-navigation from disappearing when
+    // the user navigates between elements.
+    clearTimeout(blurTimeout);
+
+    setOpen(true);
   });
 
   const location = useLocation();
@@ -70,23 +76,19 @@ const SubNavigationParent = ({ children, items }) => {
   );
 
   return (
-    <div css="display: inline-block; position: relative;">
+    <StyledSubNavigationParent>
       <NavigationItem
-        active={active}
         highlighted={highlighted}
         onActive={activeHandler}
         onBlur={blurHandler}
         onMouseOut={blurHandler}
         onMouseOver={activeHandler}
+        open={open}
       >
         {children}
-        <ChevronDownIcon
-          css="margin-left: 0.5em; margin-top: 0.2em; pointer-events: none;"
-          height={10}
-          width={10}
-        />
+        <SubNavigationIndicator />
       </NavigationItem>
-      {active && (
+      {open && (
         <SubNavigation
           onActive={activeHandler}
           onBlur={blurHandler}
@@ -94,13 +96,13 @@ const SubNavigationParent = ({ children, items }) => {
           onMouseOver={activeHandler}
         >
           {items.map(item => (
-            <SubNavigationLink href={item.href} key={item.title}>
+            <SubNavigationItem href={item.href} key={item.href}>
               {item.title}
-            </SubNavigationLink>
+            </SubNavigationItem>
           ))}
         </SubNavigation>
       )}
-    </div>
+    </StyledSubNavigationParent>
   );
 };
 
