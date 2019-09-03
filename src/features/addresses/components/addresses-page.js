@@ -32,7 +32,7 @@ const AddressesPage = ({ history, location }) => {
   return (
     <>
       <Helmet key="addresses">
-        <title>Active Addresses</title>
+        <title>Makers & Takers</title>
       </Helmet>
       <PageLayout
         filter={
@@ -45,7 +45,7 @@ const AddressesPage = ({ history, location }) => {
             }}
           />
         }
-        title="Active Addresses"
+        title="Makers & Takers"
       >
         <Card fullHeight>
           {loadingAddresses ? (
