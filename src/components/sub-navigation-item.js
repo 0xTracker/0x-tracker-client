@@ -11,7 +11,7 @@ const StyledLink = styled(Link)`
   padding: 0.75rem 0 0.75rem 1rem;
 
   &:hover {
-    color: white;
+    color: ${colors.white};
     text-decoration: none;
   }
 `;
