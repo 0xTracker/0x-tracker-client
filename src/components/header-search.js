@@ -17,7 +17,7 @@ const SearchInput = styled.input`
     color: currentColor;
     height: 100%;
     outline: none;
-    padding: 0 0.75rem;
+    padding: 0.5rem 0.75rem;
     width: 300px;
 
     ::placeholder {
@@ -70,7 +70,7 @@ const HeaderSearch = ({ onBlur, onSearch }) => {
   useEscapeKey(onBlur);
 
   return (
-    <div css="display: flex; flex-wrap: nowrap; height: 100%;" ref={wrapperRef}>
+    <div css="display: flex; flex-wrap: nowrap;" ref={wrapperRef}>
       <SearchForm onSearch={onSearch}>
         {({ currentValue, handleChange, handleSubmit }) => (
           <>

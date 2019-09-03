@@ -9,6 +9,7 @@ import SubNavigationItem from './sub-navigation-item';
 
 const StyledSubNavigationParent = styled.div`
   display: inline-block;
+  height: 100%;
   position: relative;
 `;
 
@@ -19,8 +20,9 @@ const NavigationItem = styled.div`
   color: ${props =>
     props.open || props.highlighted ? colors.white : colors.lavenderGray};
   display: inline-flex;
+  height: 100%;
   margin-right: 0.75rem;
-  padding: 0 1rem 0;
+  padding: 0 1rem 0 0;
   position: relative;
 
   &:hover {
@@ -32,13 +34,13 @@ const SubNavigation = styled.div`
   background-color: ${colors.violet};
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
-  border-top: 3px solid ${colors.indigo};
+  border-top: 0.25rem solid ${colors.indigo};
   color: ${colors.lavenderGray};
-  margin-top: 1.5rem;
-  min-width: 200px;
+  left: -1rem;
+  min-width: 13.5rem;
   padding: 0.5rem 1rem;
   position: absolute;
-  z-index: 999;
+  z-index: 1;
 `;
 
 const SubNavigationIndicator = styled(ChevronDownIcon).attrs({

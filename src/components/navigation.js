@@ -7,7 +7,8 @@ import NavigationLink from './navigation-link';
 import SubNavigationParent from './sub-navigation-parent';
 
 const StyledNavigation = styled.nav`
-  margin: 0 0 0 2rem;
+  height: 100%;
+  margin: 0 0 0 2.5rem;
   padding: 0;
 `;
 

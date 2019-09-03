@@ -56,7 +56,7 @@ const HeaderActions = () => {
   return searchVisible ? (
     <HeaderSearch onBlur={hideSearch} onSearch={hideSearch} />
   ) : (
-    <div css="display: flex; height: 100%;">
+    <div css="display: flex; align-items: center;">
       <NotificationsButton className="headway">
         <NotificationsIcon color="currentColor" height={26} width={26} />
       </NotificationsButton>

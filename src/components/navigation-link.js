@@ -7,8 +7,10 @@ import { colors } from '../styles/constants';
 import Link from './link';
 
 const StyledNavigationLink = styled(Link)`
+  align-items: center;
   color: ${props => (props.active ? colors.white : colors.lavenderGray)};
-  display: inline-block;
+  display: inline-flex;
+  height: 100%;
   margin-right: 1.75rem;
 
   &:hover {
