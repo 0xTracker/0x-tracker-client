@@ -15,14 +15,14 @@ import Navigation from './navigation';
 import SettingsDialogProvider from '../features/preferences/components/settings-dialog-provider';
 
 const LogoImage = styled.img`
-  height: 2.75rem;
-  width: ${props => (props.size === 'small' ? '8rem' : '10rem')};
+  height: 2.5rem;
 `;
 
 const MenuButton = styled.button`
   align-items: center;
   background: none;
   border: none;
+  color: ${colors.lavenderGray};
   cursor: pointer;
   display: flex;
   padding: 0;
