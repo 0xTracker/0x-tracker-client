@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import { URL } from '../constants';
 import { colors } from '../styles/constants';
-import { media } from '../styles/util';
 import { MenuIcon, NotificationsIcon } from './icons';
 import Container from './container';
 import HeaderActions from './header-actions';
@@ -31,12 +30,7 @@ const MenuButton = styled.button`
 
 const StyledHeader = styled.header`
   background-color: ${colors.violet};
-  ${'' /* height: 4rem; */}
-  ${'' /* padding: 1rem 0; */}
-
-  ${media.greaterThan('lg')`
-    ${'' /* height: 4.75rem; */}
-  `}
+  padding: 1rem 0;
 `;
 
 const NotificationsButton = styled(MenuButton)`

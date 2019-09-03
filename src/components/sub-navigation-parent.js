@@ -1,19 +1,22 @@
+import { useLocation } from 'react-use';
 import PropTypes from 'prop-types';
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import { ChevronDownIcon } from './icons';
+import Link from './link';
 
 const NavigationItem = styled.div`
   align-items: center;
-  display: inline-flex;
-  margin-right: 0.75rem;
-  padding: 0.75rem 1rem 1.5rem;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
+  color: ${props =>
+    props.active || props.highlighted ? colors.white : colors.lavenderGray};
+  display: inline-flex;
+  margin-right: 0.75rem;
+  padding: 0 1rem 0;
   position: relative;
-  color: ${props => (props.active ? colors.white : colors.lavenderGray)};
 
   &:hover {
     text-decoration: none;
@@ -22,17 +25,18 @@ const NavigationItem = styled.div`
 
 const SubNavigation = styled.div`
   background-color: ${colors.violet};
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-top: 3px solid ${colors.indigo};
   color: ${colors.lavenderGray};
+  margin-top: 1.5rem;
+  min-width: 200px;
   padding: 0.5rem 1rem;
   position: absolute;
   z-index: 999;
-  min-width: 200px;
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-  border-top: 3px solid #262dc2;
 `;
 
-const SubNavigationLink = styled.a`
+const SubNavigationLink = styled(Link)`
   color: ${colors.lavenderGray};
   display: block;
   padding: 0.75rem 0 0.75rem 1rem;
@@ -43,7 +47,7 @@ const SubNavigationLink = styled.a`
   }
 `;
 
-const SubNavigationParent = ({ children }) => {
+const SubNavigationParent = ({ children, items }) => {
   const [active, setActive] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState();
 
@@ -60,10 +64,16 @@ const SubNavigationParent = ({ children }) => {
     setActive(true);
   });
 
+  const location = useLocation();
+  const highlighted = items.some(item =>
+    location.pathname.startsWith(item.href),
+  );
+
   return (
     <div css="display: inline-block; position: relative;">
       <NavigationItem
         active={active}
+        highlighted={highlighted}
         onActive={activeHandler}
         onBlur={blurHandler}
         onMouseOut={blurHandler}
@@ -83,13 +93,11 @@ const SubNavigationParent = ({ children }) => {
           onMouseOut={blurHandler}
           onMouseOver={activeHandler}
         >
-          <SubNavigationLink href="/network">
-            Activity Overview
-          </SubNavigationLink>
-          <SubNavigationLink href="/fills">Browse Fills</SubNavigationLink>
-          <SubNavigationLink href="/addresses">
-            Makers & Takers
-          </SubNavigationLink>
+          {items.map(item => (
+            <SubNavigationLink href={item.href} key={item.title}>
+              {item.title}
+            </SubNavigationLink>
+          ))}
         </SubNavigation>
       )}
     </div>
@@ -98,6 +106,12 @@ const SubNavigationParent = ({ children }) => {
 
 SubNavigationParent.propTypes = {
   children: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default SubNavigationParent;

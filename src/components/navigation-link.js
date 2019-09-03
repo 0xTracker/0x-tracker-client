@@ -10,7 +10,6 @@ const StyledNavigationLink = styled(Link)`
   color: ${props => (props.active ? colors.white : colors.lavenderGray)};
   display: inline-block;
   margin-right: 1.75rem;
-  padding: 0.75rem 0;
 
   &:hover {
     color: ${colors.white};

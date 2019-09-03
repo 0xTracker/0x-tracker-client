@@ -8,13 +8,16 @@ import SubNavigationParent from './sub-navigation-parent';
 
 const StyledNavigation = styled.nav`
   margin: 0 0 0 2rem;
-  padding: 0.75rem 0 0 0;
+  padding: 0;
 `;
 
 const Navigation = ({ className }) => (
   <StyledNavigation aria-label="Primary" className={className}>
     <SubNavigationParent
-      navigationItems={[{ href: URL.FILLS, title: 'Browse Fills' }]}
+      items={[
+        { href: URL.FILLS, title: 'Browse Fills' },
+        { href: URL.ADDRESSES, title: 'Makers & Takers' },
+      ]}
     >
       Network
     </SubNavigationParent>
