@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { useLocation } from 'react-use';
 
 import { colors } from '../styles/constants';
 import Link from './link';
 
 const StyledLink = styled(Link)`
-  color: ${colors.lavenderGray};
+  color: ${props => (props.highlighted ? colors.white : colors.lavenderGray)};
   display: block;
   padding: 0.75rem 0 0.75rem 1rem;
 
@@ -16,9 +17,16 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const SubNavigationItem = ({ children, href }) => (
-  <StyledLink href={href}>{children}</StyledLink>
-);
+const SubNavigationItem = ({ children, href }) => {
+  const location = useLocation();
+  const highlighted = location.pathname.startsWith(href);
+
+  return (
+    <StyledLink highlighted={highlighted} href={href}>
+      {children}
+    </StyledLink>
+  );
+};
 
 SubNavigationItem.propTypes = {
   children: PropTypes.string.isRequired,
