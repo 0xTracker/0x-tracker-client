@@ -11,15 +11,16 @@ const ActionButton = styled.button`
   background: none;
   border: none;
   border-radius: 0.25rem;
+  color: ${colors.lavenderGray};
   cursor: pointer;
   display: flex;
-  height: 100%;
   justify-content: center;
-  padding: 0 0.75rem;
-  margin-right: 0.5rem;
+  margin: 0 0.5rem 0 0;
+  padding: 0.5rem 0.75rem;
 
   &:hover {
-    background: ${colors.athensGray};
+    background: ${colors.white};
+    color: ${colors.violet};
   }
 
   &:last-child {
