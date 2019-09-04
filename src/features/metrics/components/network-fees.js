@@ -1,17 +1,17 @@
-import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import { TIME_PERIOD } from '../../../constants';
-import { getConversionRate } from '../../currencies/selectors';
 import AsyncNetworkFeesChart from './async-network-fees-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import useNetworkMetrics from '../hooks/use-network-metrics';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
+import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 
-const NetworkFees = ({ conversionRate, period, relayerId }) => {
+const NetworkFees = ({ period, relayerId }) => {
   const networkMetrics = useNetworkMetrics({ period, relayerId });
   const displayCurrency = useDisplayCurrency();
+  const conversionRate = useConversionRate();
 
   if (networkMetrics.error) {
     throw networkMetrics.error;
@@ -37,19 +37,13 @@ const NetworkFees = ({ conversionRate, period, relayerId }) => {
 };
 
 NetworkFees.propTypes = {
-  conversionRate: PropTypes.number,
   period: PropTypes.string,
   relayerId: PropTypes.string,
 };
 
 NetworkFees.defaultProps = {
-  conversionRate: undefined,
   period: TIME_PERIOD.MONTH,
   relayerId: undefined,
 };
 
-const mapStateToProps = state => ({
-  conversionRate: getConversionRate(state),
-});
-
-export default connect(mapStateToProps)(NetworkFees);
+export default NetworkFees;
