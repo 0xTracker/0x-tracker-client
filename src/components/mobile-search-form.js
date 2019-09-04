@@ -34,8 +34,14 @@ const SearchButton = styled.button`
   }
 `;
 
+const StyledSearchForm = styled(SearchForm)`
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0 1rem;
+`;
+
 const MobileSearchForm = ({ onSearch }) => (
-  <SearchForm css="display: flex; flex-wrap: nowrap;" onSearch={onSearch}>
+  <StyledSearchForm onSearch={onSearch}>
     {({ currentValue, handleChange, handleSubmit }) => (
       <>
         <SearchInput
@@ -51,7 +57,7 @@ const MobileSearchForm = ({ onSearch }) => (
         </SearchButton>
       </>
     )}
-  </SearchForm>
+  </StyledSearchForm>
 );
 
 MobileSearchForm.propTypes = {

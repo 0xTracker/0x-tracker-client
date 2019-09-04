@@ -1,41 +1,47 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
 import { URL } from '../constants';
-import MobileNavigationItem from './mobile-navigation-item';
+import ExpandableMobileNavigationItem from './expandable-mobile-navigation-item';
+import MobileNavigationLink from './mobile-navigation-link';
 import useSettingsDialog from '../features/preferences/hooks/use-settings-dialog';
 
-const MobileNavigation = ({ onClick }) => {
+const StyledNav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0 0;
+`;
+
+const MobileNavigation = ({ onNavigate }) => {
   const settingsDialog = useSettingsDialog();
 
   return (
-    <nav aria-label="Primary" css="margin: 1rem 0 0">
-      <MobileNavigationItem href={URL.FILLS} onClick={onClick}>
-        Fills
-      </MobileNavigationItem>
-      <MobileNavigationItem href={URL.TOKENS} onClick={onClick}>
+    <StyledNav aria-label="Primary">
+      <ExpandableMobileNavigationItem>Network</ExpandableMobileNavigationItem>
+      <MobileNavigationLink href={URL.TOKENS} onClick={onNavigate}>
         Tokens
-      </MobileNavigationItem>
-      <MobileNavigationItem href={URL.RELAYERS} onClick={onClick}>
+      </MobileNavigationLink>
+      <MobileNavigationLink href={URL.RELAYERS} onClick={onNavigate}>
         Relayers
-      </MobileNavigationItem>
-      <MobileNavigationItem href={URL.NEWS} onClick={onClick}>
+      </MobileNavigationLink>
+      <MobileNavigationLink href={URL.NEWS} onClick={onNavigate}>
         News & Updates
-      </MobileNavigationItem>
-      <MobileNavigationItem
+      </MobileNavigationLink>
+      <MobileNavigationLink
         onClick={() => {
           settingsDialog.show();
-          onClick();
+          onNavigate();
         }}
       >
         Settings
-      </MobileNavigationItem>
-    </nav>
+      </MobileNavigationLink>
+    </StyledNav>
   );
 };
 
 MobileNavigation.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onNavigate: PropTypes.func.isRequired,
 };
 
 export default MobileNavigation;
