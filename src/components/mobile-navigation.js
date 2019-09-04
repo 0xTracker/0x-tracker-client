@@ -18,7 +18,15 @@ const MobileNavigation = ({ onNavigate }) => {
 
   return (
     <StyledNav aria-label="Primary">
-      <ExpandableMobileNavigationItem>Network</ExpandableMobileNavigationItem>
+      <ExpandableMobileNavigationItem
+        items={[
+          { href: URL.FILLS, title: 'Browse Fills' },
+          { href: URL.ADDRESSES, title: 'Makers & Takers' },
+        ]}
+        onNavigate={onNavigate}
+      >
+        Network
+      </ExpandableMobileNavigationItem>
       <MobileNavigationLink href={URL.TOKENS} onClick={onNavigate}>
         Tokens
       </MobileNavigationLink>

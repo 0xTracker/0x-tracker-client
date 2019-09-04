@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import { useLocation } from 'react-use';
 
 import { colors } from '../styles/constants';
 import { ChevronDownIcon, ChevronUpIcon } from './icons';
@@ -12,13 +13,17 @@ const StyledItem = styled.button`
   border: none;
   border-bottom: ${props =>
     props.expanded ? 'none' : `1px solid ${colors.martinique}`};
-  color: currentColor;
+  color: ${colors.lavenderGray};
   cursor: pointer;
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
   margin: 0 1rem;
   padding: 0.75rem 0.5rem;
+
+  &:hover {
+    color: ${colors.white};
+  }
 `;
 
 const ExpandableIndicator = styled(ChevronDownIcon).attrs({
@@ -39,8 +44,12 @@ const ContractableIndicator = styled(ChevronUpIcon).attrs({
   pointer-events: none;
 `;
 
-const ExpandableMobileNavigationItem = ({ children }) => {
-  const [expanded, setExpanded] = React.useState(true);
+const ExpandableMobileNavigationItem = ({ children, items, onNavigate }) => {
+  const location = useLocation();
+  const highlighted = items.some(item =>
+    location.pathname.startsWith(item.href),
+  );
+  const [expanded, setExpanded] = React.useState(highlighted);
   const handleClick = () => setExpanded(!expanded);
 
   return (
@@ -49,13 +58,22 @@ const ExpandableMobileNavigationItem = ({ children }) => {
         {children}
         {expanded ? <ContractableIndicator /> : <ExpandableIndicator />}
       </StyledItem>
-      {expanded ? <MobileSubNavigation /> : null}
+      {expanded ? (
+        <MobileSubNavigation items={items} onNavigate={onNavigate} />
+      ) : null}
     </>
   );
 };
 
 ExpandableMobileNavigationItem.propTypes = {
   children: PropTypes.node.isRequired,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      href: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+  onNavigate: PropTypes.func.isRequired,
 };
 
 export default ExpandableMobileNavigationItem;
