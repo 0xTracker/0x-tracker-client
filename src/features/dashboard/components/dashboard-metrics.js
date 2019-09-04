@@ -17,16 +17,8 @@ const AsyncDashboardMetricsCarousel = React.lazy(() =>
 );
 
 const DashboardMetrics = ({ className, screenSize }) => {
-  const [networkStats, , networkStatsError] = useNetworkStats();
-  const [relayerStats, , relayerStatsError] = useRelayerStats();
-
-  if (networkStatsError) {
-    throw networkStatsError;
-  }
-
-  if (relayerStatsError) {
-    throw relayerStatsError;
-  }
+  const [networkStats] = useNetworkStats();
+  const [relayerStats] = useRelayerStats();
 
   const fees = _.get(networkStats, 'fees.USD');
   const fillCount = _.get(networkStats, 'fills');

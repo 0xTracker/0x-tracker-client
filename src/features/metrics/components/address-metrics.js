@@ -9,15 +9,15 @@ import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 
 const AddressMetrics = ({ address, keyMetric, period }) => {
-  const metrics = useAddressMetrics(address, { period });
+  const [metrics, loading] = useAddressMetrics(address, { period });
   const displayCurrency = useDisplayCurrency();
   const conversionRate = useConversionRate();
 
-  if (metrics.loading || conversionRate === undefined) {
+  if (loading || conversionRate === undefined) {
     return <LoadingIndicator centered />;
   }
 
-  const data = metrics.data.map(metric => ({
+  const data = metrics.map(metric => ({
     date: new Date(metric.date),
     fillCount: metric.fillCount,
     fillVolume: metric.fillVolume.USD * conversionRate,

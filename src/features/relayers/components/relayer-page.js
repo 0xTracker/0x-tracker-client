@@ -27,14 +27,10 @@ const StyledChartsContainer = styled(ChartsContainer)`
 `;
 
 const RelayerPage = ({ screenSize, slug }) => {
-  const [relayer, loadingRelayer, relayerError] = useRelayer(slug);
+  const [relayer, loadingRelayer] = useRelayer(slug);
 
   if (loadingRelayer) {
     return <LoadingPage />;
-  }
-
-  if (relayerError) {
-    throw relayerError;
   }
 
   if (relayer === undefined) {

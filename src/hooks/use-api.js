@@ -1,56 +1,50 @@
+import _ from 'lodash';
 import { useEffect, useState } from 'react';
 
 import callApi from '../util/call-api';
 import AutoReload from '../util/auto-reload';
 
-const useApi = (method, options = {}, deps = []) => {
+const useApi = (method, options = {}) => {
   const [state, setState] = useState({ loading: true });
+
+  const opts = _.defaults({}, options, {
+    autoReload: false,
+    params: {},
+    version: 1,
+  });
 
   useEffect(() => {
     setState({ loading: true });
 
-    const performApiCall = () =>
-      callApi(method, options.params, { version: options.version });
+    const fetchData = async () => {
+      const response = await callApi(method, opts.params, {
+        version: opts.version,
+      });
 
-    const reload = () => {
-      performApiCall()
-        // eslint-disable-next-line promise/prefer-await-to-then
-        .then(response => {
-          setState({ loading: false, response });
-
-          return undefined;
-        })
-        .catch(error => {
-          console.error(error);
-          // TODO: Log error
-        });
+      setState({ loading: false, response });
     };
 
-    performApiCall()
-      // eslint-disable-next-line promise/prefer-await-to-then
-      .then(response => {
-        setState({ loading: false, response });
-
-        if (options.autoReload) {
-          AutoReload.addListener(reload);
+    fetchData()
+      .then(() => {
+        if (opts.autoReload) {
+          AutoReload.addListener(fetchData);
         }
-
-        return undefined;
       })
       .catch(error => {
+        // Stash the error so that it can be rethrown in render scope
         setState({ error, loading: false });
       });
 
-    if (options.autoReload) {
-      return () => {
-        AutoReload.removeListener(reload);
-      };
-    }
+    // Ensure auto-reload stops when the component unmounts
+    return () => AutoReload.removeListener(fetchData);
+  }, [method, opts.version, opts.autoReload, ...Object.values(opts.params)]);
 
-    return undefined;
-  }, deps);
+  // Bail out if the API call failed
+  if (state.error) {
+    throw state.error;
+  }
 
-  return state;
+  return [state.response, state.loading];
 };
 
 export default useApi;

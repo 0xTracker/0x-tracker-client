@@ -50,11 +50,7 @@ const PriceBadge = styled.span.attrs({ className: 'badge' })`
 `;
 
 const FillPage = ({ fillId, screenSize }) => {
-  const { data: fill, error, loading } = useFill(fillId);
-
-  if (error) {
-    throw error;
-  }
+  const [fill, loading] = useFill(fillId);
 
   if (loading) {
     return <LoadingPage />;

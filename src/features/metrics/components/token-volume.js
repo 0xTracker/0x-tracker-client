@@ -9,15 +9,17 @@ import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 
 const TokenVolume = ({ period, token }) => {
-  const metrics = useTokenVolumeMetrics(token.address, { period });
+  const [metrics, loadingMetrics] = useTokenVolumeMetrics(token.address, {
+    period,
+  });
   const displayCurrency = useDisplayCurrency();
   const conversionRate = useConversionRate();
 
-  if (metrics.loading || conversionRate === undefined) {
+  if (loadingMetrics || conversionRate === undefined) {
     return <LoadingIndicator centered />;
   }
 
-  const data = metrics.data.map(metric => ({
+  const data = metrics.map(metric => ({
     date: new Date(metric.date),
     localizedVolume: metric.volume.USD * conversionRate,
     tokenVolume: metric.volume[token.symbol],
