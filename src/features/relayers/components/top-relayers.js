@@ -1,14 +1,14 @@
 import _ from 'lodash';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { getDisplayCurrency } from '../../currencies/selectors';
 import AsyncTopRelayersChart from './async-top-relayers-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
+import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useRelayers from '../hooks/use-relayers';
 
-const TopRelayers = ({ displayCurrency, period }) => {
+const TopRelayers = ({ period }) => {
+  const displayCurrency = useDisplayCurrency();
   const [relayers, loadingRelayers] = useRelayers({
     autoReload: true,
     limit: 5,
@@ -33,7 +33,6 @@ const TopRelayers = ({ displayCurrency, period }) => {
 };
 
 TopRelayers.propTypes = {
-  displayCurrency: PropTypes.string.isRequired,
   period: PropTypes.string,
 };
 
@@ -41,8 +40,4 @@ TopRelayers.defaultProps = {
   period: undefined,
 };
 
-const mapStateToProps = state => ({
-  displayCurrency: getDisplayCurrency(state),
-});
-
-export default connect(mapStateToProps)(TopRelayers);
+export default TopRelayers;

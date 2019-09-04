@@ -3,23 +3,16 @@ import { connect } from 'react-redux';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  getDisplayCurrency,
-  getConversionRate,
-} from '../../currencies/selectors';
+import { getConversionRate } from '../../currencies/selectors';
 import AsyncAddressMetricsChart from './async-address-metrics-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
 import useAddressMetrics from '../hooks/use-address-metrics';
+import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
-const AddressMetrics = ({
-  address,
-  conversionRate,
-  displayCurrency,
-  keyMetric,
-  period,
-}) => {
+const AddressMetrics = ({ address, conversionRate, keyMetric, period }) => {
   const metrics = useAddressMetrics(address, { period });
+  const displayCurrency = useDisplayCurrency();
 
   if (metrics.loading || conversionRate === undefined) {
     return <LoadingIndicator centered />;
@@ -44,7 +37,6 @@ const AddressMetrics = ({
 AddressMetrics.propTypes = {
   address: PropTypes.string.isRequired,
   conversionRate: PropTypes.number,
-  displayCurrency: PropTypes.string.isRequired,
   keyMetric: PropTypes.string,
   period: sharedPropTypes.timePeriod.isRequired,
 };
@@ -56,7 +48,6 @@ AddressMetrics.defaultProps = {
 
 const mapStateToProps = state => ({
   conversionRate: getConversionRate(state),
-  displayCurrency: getDisplayCurrency(state),
 });
 
 const enhance = compose(connect(mapStateToProps));

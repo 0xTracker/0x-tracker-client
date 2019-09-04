@@ -3,22 +3,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
-import {
-  getDisplayCurrency,
-  getConversionRate,
-} from '../../currencies/selectors';
+import { getConversionRate } from '../../currencies/selectors';
 import AsyncNetworkVolumeChart from './async-network-volume-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import useNetworkMetrics from '../hooks/use-network-metrics';
+import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
-const NetworkVolume = ({
-  conversionRate,
-  displayCurrency,
-  period,
-  relayerId,
-  type,
-}) => {
+const NetworkVolume = ({ conversionRate, period, relayerId, type }) => {
   const networkMetrics = useNetworkMetrics({ period, relayerId });
+  const displayCurrency = useDisplayCurrency();
 
   if (networkMetrics.error) {
     throw networkMetrics.error;
@@ -46,7 +39,6 @@ const NetworkVolume = ({
 
 NetworkVolume.propTypes = {
   conversionRate: PropTypes.number,
-  displayCurrency: PropTypes.string.isRequired,
   period: PropTypes.string,
   relayerId: PropTypes.string,
   type: PropTypes.string,
@@ -61,7 +53,6 @@ NetworkVolume.defaultProps = {
 
 const mapStateToProps = state => ({
   conversionRate: getConversionRate(state),
-  displayCurrency: getDisplayCurrency(state),
 });
 
 export default connect(mapStateToProps)(NetworkVolume);
