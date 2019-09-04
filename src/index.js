@@ -30,4 +30,4 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 
-AutoReload.initialize(ms(process.env.REACT_APP_AUTO_RELOAD_INTERVAL));
+AutoReload.start(ms(process.env.REACT_APP_AUTO_RELOAD_INTERVAL));
