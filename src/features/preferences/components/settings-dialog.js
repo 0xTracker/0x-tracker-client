@@ -1,5 +1,4 @@
 import { FormGroup } from 'reactstrap';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';
@@ -7,6 +6,8 @@ import styled from 'styled-components';
 import { colors } from '../../../styles/constants';
 import AsyncCurrencySelector from '../../currencies/components/async-currency-selector';
 import Dialog from '../../../components/dialog';
+import usePreferences from '../hooks/use-preferences';
+import useDisplayCurrency from '../hooks/use-display-currency';
 
 const StyledCurrencySelector = styled(AsyncCurrencySelector)`
   color: ${colors.violet};
@@ -55,11 +56,14 @@ const FormButton = styled.button`
   }
 `;
 
-const SettingsDialog = ({ onClose, onSubmit, setCurrency, values }) => {
-  const [selectedCurrency, setSelectedCurrency] = useState(values.currency);
+const SettingsDialog = ({ onClose, onSubmit }) => {
+  const displayCurrency = useDisplayCurrency();
+  const preferences = usePreferences();
+
+  const [selectedCurrency, setSelectedCurrency] = useState(displayCurrency);
 
   const handleSubmit = () => {
-    setCurrency(selectedCurrency);
+    preferences.update({ displayCurrency: selectedCurrency });
     onSubmit();
   };
 
@@ -86,23 +90,9 @@ const SettingsDialog = ({ onClose, onSubmit, setCurrency, values }) => {
 SettingsDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  setCurrency: PropTypes.func.isRequired,
   values: PropTypes.shape({
     currency: PropTypes.string.isRequired,
   }).isRequired,
 };
 
-const mapStateToProps = state => ({
-  values: {
-    currency: state.preferences.currency,
-  },
-});
-
-const mapDispatchToProps = dispatch => ({
-  setCurrency: dispatch.preferences.setCurrency,
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(SettingsDialog);
+export default SettingsDialog;
