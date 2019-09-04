@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 
-import { getRates, getConversionRate } from '../selectors';
+import { getRates } from '../selectors';
 import RatesContext from '../contexts/rates-context';
 
 const UnconnectedRatesProvider = ({ children, fetchRates, rates }) => {
@@ -13,7 +13,7 @@ const UnconnectedRatesProvider = ({ children, fetchRates, rates }) => {
   }, [rates]);
 
   return (
-    <RatesContext.Provider rates={rates ? rates.data : undefined}>
+    <RatesContext.Provider value={rates || undefined}>
       {children}
     </RatesContext.Provider>
   );
@@ -30,7 +30,6 @@ UnconnectedRatesProvider.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  conversionRate: getConversionRate(state),
   rates: getRates(state),
 });
 
