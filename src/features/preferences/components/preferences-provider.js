@@ -1,16 +1,18 @@
-import { connect } from 'react-redux';
+import { useLocalStorage } from 'react-use';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { BASE_CURRENCY } from '../../currencies/constants';
 import PreferencesContext from '../contexts/preferences-context';
 
-const UnconnectedPreferencesProvider = ({
-  children,
-  displayCurrency,
-  setCurrency,
-}) => {
+const PreferencesProvider = ({ children }) => {
+  const [displayCurrency, setDisplayCurrency] = useLocalStorage(
+    'preferences.displayCurrency',
+    BASE_CURRENCY,
+  );
+
   const updatePreferences = React.useCallback(newPreferences => {
-    setCurrency(newPreferences.displayCurrency);
+    setDisplayCurrency(newPreferences.displayCurrency);
   }, []);
 
   const [value, setValue] = React.useState({
@@ -32,23 +34,8 @@ const UnconnectedPreferencesProvider = ({
   );
 };
 
-UnconnectedPreferencesProvider.propTypes = {
+PreferencesProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  displayCurrency: PropTypes.string.isRequired,
-  setCurrency: PropTypes.func.isRequired,
 };
-
-const mapStateToProps = state => ({
-  displayCurrency: state.preferences.currency,
-});
-
-const mapDispatchToProps = dispatch => ({
-  setCurrency: dispatch.preferences.setCurrency,
-});
-
-const PreferencesProvider = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(UnconnectedPreferencesProvider);
 
 export default PreferencesProvider;

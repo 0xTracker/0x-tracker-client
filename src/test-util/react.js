@@ -26,7 +26,7 @@ const renderWithAppContext = (
     history = createMemoryHistory({ initialEntries: [route] }),
   } = {},
 ) => {
-  const { store } = storeFactory();
+  const store = storeFactory();
 
   return {
     ...render(
