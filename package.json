@@ -35,7 +35,6 @@
     "offline-plugin": "5.0.7",
     "polished": "3.4.1",
     "prop-types": "15.7.2",
-    "qs": "6.8.0",
     "react": "16.9.0",
     "react-dom": "16.9.0",
     "react-ga": "2.6.0",
