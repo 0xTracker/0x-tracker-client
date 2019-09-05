@@ -9,7 +9,6 @@ import styled from 'styled-components';
 import { colors } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import ArticleList from './article-list';
-import ArticleSourcesProvider from './article-sources-provider';
 import ArticlesFilter from './articles-filter';
 import ArticlesProvider from './articles-provider';
 import Card from '../../../components/card';
@@ -17,6 +16,7 @@ import CardHeading from '../../../components/card-heading';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
+import useArticleSources from '../hooks/use-article-sources';
 
 const LoadMoreButton = styled.button`
   align-items: center;
@@ -45,96 +45,78 @@ const ArticlesColumn = styled(Col).attrs({ md: 8 })`
   `}
 `;
 
-const NewsPage = ({ loadingSources, match, screenSize, sources }) => {
+const NewsPage = ({ match, screenSize }) => {
+  const [sources, loadingSources] = useArticleSources();
+
+  if (loadingSources) {
+    return <LoadingPage />;
+  }
+
   const source = _.find(sources, { slug: match.params.source });
 
   return (
-    <>
-      {loadingSources ? (
-        <LoadingPage />
-      ) : (
-        <PageLayout
-          title={source ? `${source.name} News & Updates` : 'News & Updates'}
-        >
-          <Helmet>
-            <title>News &amp; Updates</title>
-          </Helmet>
-          <Row css="flex-grow: 1;">
-            <ArticlesColumn>
-              <Card fullHeight padded>
-                <ArticlesProvider source={source ? source.slug : undefined}>
-                  {({
-                    articles,
-                    canLoadMore,
-                    loadingInitial,
-                    loadingMore,
-                    loadMore,
-                  }) =>
-                    loadingInitial ? (
-                      <LoadingIndicator centered />
-                    ) : (
-                      <>
-                        <ArticleList
-                          articles={articles}
-                          compact={screenSize.lessThan.sm}
-                          showImages={screenSize.greaterThan.xs}
-                        />
-                        {canLoadMore ? (
-                          <LoadMoreButton onClick={loadMore} type="button">
-                            {loadingMore ? (
-                              <LoadingIndicator size="small" type="cylon" />
-                            ) : (
-                              'Load More Stories'
-                            )}
-                          </LoadMoreButton>
-                        ) : null}
-                      </>
-                    )
-                  }
-                </ArticlesProvider>
-              </Card>
-            </ArticlesColumn>
-            <Col md={4}>
-              <Card header={<CardHeading>Filter by source</CardHeading>}>
-                <ArticlesFilter sources={sources} />
-              </Card>
-            </Col>
-          </Row>
-        </PageLayout>
-      )}
-    </>
+    <PageLayout
+      title={source ? `${source.name} News & Updates` : 'News & Updates'}
+    >
+      <Helmet>
+        <title>News &amp; Updates</title>
+      </Helmet>
+      <Row css="flex-grow: 1;">
+        <ArticlesColumn>
+          <Card fullHeight padded>
+            <ArticlesProvider source={source ? source.slug : undefined}>
+              {({
+                articles,
+                canLoadMore,
+                loadingInitial,
+                loadingMore,
+                loadMore,
+              }) =>
+                loadingInitial ? (
+                  <LoadingIndicator centered />
+                ) : (
+                  <>
+                    <ArticleList
+                      articles={articles}
+                      compact={screenSize.lessThan.sm}
+                      showImages={screenSize.greaterThan.xs}
+                    />
+                    {canLoadMore ? (
+                      <LoadMoreButton onClick={loadMore} type="button">
+                        {loadingMore ? (
+                          <LoadingIndicator size="small" type="cylon" />
+                        ) : (
+                          'Load More Stories'
+                        )}
+                      </LoadMoreButton>
+                    ) : null}
+                  </>
+                )
+              }
+            </ArticlesProvider>
+          </Card>
+        </ArticlesColumn>
+        <Col md={4}>
+          <Card header={<CardHeading>Filter by source</CardHeading>}>
+            <ArticlesFilter sources={sources} />
+          </Card>
+        </Col>
+      </Row>
+    </PageLayout>
   );
 };
 
 NewsPage.propTypes = {
-  loadingSources: PropTypes.bool.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
       source: PropTypes.string,
     }).isRequired,
   }).isRequired,
   screenSize: PropTypes.object.isRequired,
-  sources: PropTypes.arrayOf(
-    PropTypes.shape({
-      imageUrl: PropTypes.string,
-      name: PropTypes.string.isRequired,
-      slug: PropTypes.string.isRequired,
-    }),
-  ),
-};
-
-NewsPage.defaultProps = {
-  sources: undefined,
 };
 
 const mapStateToProps = state => ({
   screenSize: state.screen,
 });
 
-export default connect(mapStateToProps)(props => (
-  <ArticleSourcesProvider>
-    {({ loading, sources }) => (
-      <NewsPage {...props} loadingSources={loading} sources={sources} />
-    )}
-  </ArticleSourcesProvider>
-));
+export default connect(mapStateToProps)(NewsPage);

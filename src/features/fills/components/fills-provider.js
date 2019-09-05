@@ -45,7 +45,6 @@ class FillsProvider extends PureComponent {
   }
 
   reloadFills = () => {
-    // eslint-disable-next-line lodash/prefer-noop
     this.fetchFills(true).catch(() => {
       // TODO: Log error
     });

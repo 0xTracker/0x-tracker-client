@@ -9,19 +9,15 @@ import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 
 const NetworkVolume = ({ period, relayerId, type }) => {
-  const networkMetrics = useNetworkMetrics({ period, relayerId });
+  const [metrics, loading] = useNetworkMetrics({ period, relayerId });
   const displayCurrency = useDisplayCurrency();
   const conversionRate = useConversionRate();
 
-  if (networkMetrics.error) {
-    throw networkMetrics.error;
-  }
-
-  if (networkMetrics.loading || conversionRate === undefined) {
+  if (loading || conversionRate === undefined) {
     return <LoadingIndicator centered />;
   }
 
-  const data = networkMetrics.data.map(metric => ({
+  const data = metrics.map(metric => ({
     date: new Date(metric.date),
     fills: metric.fills,
     volume: (parseFloat(metric.volume) || 0) * conversionRate,

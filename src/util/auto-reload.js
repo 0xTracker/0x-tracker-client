@@ -1,28 +1,41 @@
 import _ from 'lodash';
 
-const listeners = [];
+let listeners = [];
+let interval;
 
 const addListener = listener => {
   listeners.push(listener);
 };
 
-const removeListener = listener => {
-  // eslint-disable-next-line lodash/prefer-immutable-method
-  _.pull(listeners, listener);
+const getListeners = () => listeners;
+
+const removeListener = listenerToRemove => {
+  listeners = _.without(listeners, listenerToRemove);
 };
 
-const initialize = interval => {
-  setInterval(() => {
+const start = ms => {
+  interval = setInterval(() => {
     listeners.forEach(listener => {
       listener();
     });
-  }, interval);
+  }, ms);
+};
+
+const clearListeners = () => {
+  listeners = [];
+};
+
+const stop = () => {
+  clearInterval(interval);
 };
 
 const AutoReload = {
   addListener,
-  initialize,
+  clearListeners,
+  getListeners,
   removeListener,
+  start,
+  stop,
 };
 
 export default AutoReload;
