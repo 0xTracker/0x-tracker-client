@@ -55,7 +55,7 @@
     "recharts": "1.7.1",
     "recompose": "0.30.0",
     "redux": "4.0.4",
-    "redux-persist": "5.10.0",
+    "redux-persist": "6.0.0",
     "redux-responsive": "4.3.8",
     "styled-components": "4.3.2",
     "styled-icons": "8.1.0",
