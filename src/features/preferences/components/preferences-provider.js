@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { getDisplayCurrency } from '../../currencies/selectors';
 import PreferencesContext from '../contexts/preferences-context';
 
 const UnconnectedPreferencesProvider = ({
@@ -40,7 +39,7 @@ UnconnectedPreferencesProvider.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  displayCurrency: getDisplayCurrency(state),
+  displayCurrency: state.preferences.currency,
 });
 
 const mapDispatchToProps = dispatch => ({

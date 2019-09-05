@@ -1,45 +1,42 @@
-import { connect } from 'react-redux';
+import axios from 'axios';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-import { getRates } from '../selectors';
+import { BASE_CURRENCY, CURRENCIES } from '../constants';
 import RatesContext from '../contexts/rates-context';
 
-const UnconnectedRatesProvider = ({ children, fetchRates, rates }) => {
+const RatesProvider = ({ children }) => {
+  const [rates, setRates] = useState();
+  const [error, setError] = useState();
+
   useEffect(() => {
-    if (rates === undefined) {
-      fetchRates();
-    }
-  }, [rates]);
+    const toSymbols = Object.values(CURRENCIES)
+      .map(currency => currency.symbol)
+      .join(',');
+
+    axios
+      .get(
+        `https://min-api.cryptocompare.com/data/pricemulti?fsyms=${BASE_CURRENCY}&tsyms=${toSymbols}`,
+      )
+      .then(response => {
+        setRates(response.data[BASE_CURRENCY]);
+      })
+      .catch(caughtError => {
+        setError(caughtError);
+      });
+  }, []);
+
+  if (error) {
+    throw error;
+  }
 
   return (
-    <RatesContext.Provider value={rates || undefined}>
-      {children}
-    </RatesContext.Provider>
+    <RatesContext.Provider value={rates}>{children}</RatesContext.Provider>
   );
 };
 
-UnconnectedRatesProvider.propTypes = {
+RatesProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  fetchRates: PropTypes.func.isRequired,
-  rates: PropTypes.object,
 };
-
-UnconnectedRatesProvider.defaultProps = {
-  rates: undefined,
-};
-
-const mapStateToProps = state => ({
-  rates: getRates(state),
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchRates: () => dispatch.rates.fetch(),
-});
-
-const RatesProvider = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(UnconnectedRatesProvider);
 
 export default RatesProvider;
