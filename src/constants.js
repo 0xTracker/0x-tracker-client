@@ -18,8 +18,6 @@ const DATE_FORMAT = {
 const GENESIS_DATE = parseDate('2017-08-15T00:00:00Z');
 
 const URL = {
-  ADDRESS: '/addresses/:address',
-  ADDRESSES: '/addresses',
   DASHBOARD: '/',
   FILL: '/fills/:id',
   FILLS: '/fills',
@@ -29,6 +27,8 @@ const URL = {
   SEARCH: '/search',
   TOKEN: '/tokens/:address',
   TOKENS: '/tokens',
+  TRADER: '/traders/:address',
+  TRADERS: '/traders',
 };
 
 const ZRX_TOKEN = {

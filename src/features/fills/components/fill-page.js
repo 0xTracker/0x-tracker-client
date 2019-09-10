@@ -10,7 +10,6 @@ import styled from 'styled-components';
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT, ZRX_TOKEN } from '../../../constants';
 import { media } from '../../../styles/util';
-import AddressLink from '../../addresses/components/address-link';
 import AssetLabel from './asset-label';
 import buildSearchUrl from '../../search/util/build-search-url';
 import Card from '../../../components/card';
@@ -29,6 +28,7 @@ import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 import SearchLink from '../../search/components/search-link';
 import TokenAmount from '../../tokens/components/token-amount';
+import TraderLink from '../../traders/components/trader-link';
 import useFill from '../hooks/use-fill';
 
 const FillDetailList = styled.dl`
@@ -108,14 +108,14 @@ const FillPage = ({ fillId, screenSize }) => {
                 </FillDetail>
               )}
               <FillDetail title="Maker Address">
-                <AddressLink address={fill.makerAddress}>
+                <TraderLink address={fill.makerAddress}>
                   {fill.makerAddress}
-                </AddressLink>
+                </TraderLink>
               </FillDetail>
               <FillDetail title="Taker Address">
-                <AddressLink address={fill.takerAddress}>
+                <TraderLink address={fill.takerAddress}>
                   {fill.takerAddress}
-                </AddressLink>
+                </TraderLink>
               </FillDetail>
               <FillDetail title="Maker Assets">
                 <FillAssetsList

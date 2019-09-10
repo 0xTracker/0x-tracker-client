@@ -21,7 +21,7 @@ const MobileNavigation = ({ onNavigate }) => {
       <ExpandableMobileNavigationItem
         items={[
           { href: URL.FILLS, title: 'Browse Fills' },
-          { href: URL.ADDRESSES, title: 'Makers & Takers' },
+          { href: URL.TRADERS, title: 'Makers & Takers' },
         ]}
         onNavigate={onNavigate}
       >
