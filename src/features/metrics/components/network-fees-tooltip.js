@@ -35,9 +35,11 @@ NetworkFeesTooltip.propTypes = {
   localCurrency: PropTypes.string.isRequired,
   payload: PropTypes.arrayOf(
     PropTypes.shape({
-      date: PropTypes.instanceOf(Date),
-      fees: PropTypes.string.isRequired,
-      localizedFees: PropTypes.number.isRequired,
+      payload: PropTypes.shape({
+        date: PropTypes.instanceOf(Date),
+        fees: PropTypes.string.isRequired,
+        localizedFees: PropTypes.number.isRequired,
+      }),
     }),
   ),
 };

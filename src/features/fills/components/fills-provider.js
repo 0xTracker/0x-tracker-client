@@ -113,6 +113,7 @@ FillsProvider.propTypes = {
   children: PropTypes.func.isRequired,
   filter: PropTypes.shape({
     address: PropTypes.string,
+    relayer: PropTypes.string,
     token: PropTypes.string,
   }),
   limit: PropTypes.number,

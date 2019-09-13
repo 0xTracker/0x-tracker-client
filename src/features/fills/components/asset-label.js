@@ -29,6 +29,7 @@ AssetLabel.propTypes = {
     tokenId: PropTypes.number,
     tokenSymbol: PropTypes.string,
     tokenType: PropTypes.string,
+    type: PropTypes.string.isRequired,
   }).isRequired,
   condensed: PropTypes.bool,
   linked: PropTypes.bool,
