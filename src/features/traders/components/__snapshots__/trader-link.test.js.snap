@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should render an address link 1`] = `
+exports[`should render a trader link 1`] = `
 .c0 {
   color: #3f4ac3;
   cursor: pointer;
@@ -14,7 +14,7 @@ exports[`should render an address link 1`] = `
 
 <a
   class="c0"
-  href="/addresses/0xb14232b0204b2f7bb6ba5aff59ef36030f7fe38b"
+  href="/traders/0xb14232b0204b2f7bb6ba5aff59ef36030f7fe38b"
 >
   Hello World
 </a>

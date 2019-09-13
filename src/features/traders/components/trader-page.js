@@ -11,12 +11,12 @@ import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import PageLayout from '../../../components/page-layout';
 
-const AddressPage = ({ address }) => (
+const TraderPage = ({ address }) => (
   <>
     <Helmet>
-      <title>{`Address: ${address}`}</title>
+      <title>{`Trader: ${address}`}</title>
     </Helmet>
-    <PageLayout title={`Address: ${address}`}>
+    <PageLayout title={`Trader: ${address}`}>
       <ChartsContainer
         charts={[
           {
@@ -53,10 +53,10 @@ const AddressPage = ({ address }) => (
   </>
 );
 
-AddressPage.propTypes = {
+TraderPage.propTypes = {
   address: PropTypes.string.isRequired,
 };
 
 export default mapProps(({ match }) => ({
   address: match.params.address,
-}))(AddressPage);
+}))(TraderPage);

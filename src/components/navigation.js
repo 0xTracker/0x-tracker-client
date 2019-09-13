@@ -17,7 +17,7 @@ const Navigation = ({ className }) => (
     <SubNavigationParent
       items={[
         { href: URL.FILLS, title: 'Browse Fills' },
-        { href: URL.ADDRESSES, title: 'Makers & Takers' },
+        { href: URL.TRADERS, title: 'Makers & Takers' },
       ]}
     >
       Network

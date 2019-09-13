@@ -3,35 +3,31 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import AddressList from './address-list';
 import AsyncTimePeriodSelector from '../../../components/async-time-period-selector';
 import Card from '../../../components/card';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
-import useAddresses from '../hooks/use-addresses';
+import TraderList from './trader-list';
+import useTraders from '../hooks/use-traders';
 
-const AddressesPage = ({ history, location }) => {
+const TradersPage = ({ history, location }) => {
   const params = new URLSearchParams(location.search);
   const statsPeriod = params.get('statsPeriod') || TIME_PERIOD.DAY;
   const page = params.get('page') || 1;
 
-  const [addresses, loadingAddresses, addressesError] = useAddresses({
+  const [traders, loading] = useTraders({
     autoReload: true,
     limit: 50,
     page,
     statsPeriod,
   });
 
-  if (addressesError) {
-    throw addressesError;
-  }
-
-  const { items, pageCount, pageSize, recordCount } = addresses;
+  const { items, pageCount, pageSize, recordCount } = traders;
 
   return (
     <>
-      <Helmet key="addresses">
+      <Helmet>
         <title>Makers & Takers</title>
       </Helmet>
       <PageLayout
@@ -40,7 +36,7 @@ const AddressesPage = ({ history, location }) => {
             defaultValue={statsPeriod}
             onChange={newPeriod => {
               history.push(
-                `${URL.ADDRESSES}?page=${page}&statsPeriod=${newPeriod}`,
+                `${URL.TRADERS}?page=${page}&statsPeriod=${newPeriod}`,
               );
             }}
           />
@@ -48,18 +44,18 @@ const AddressesPage = ({ history, location }) => {
         title="Makers & Takers"
       >
         <Card fullHeight>
-          {loadingAddresses ? (
+          {loading ? (
             <LoadingIndicator centered />
           ) : (
             <>
-              <AddressList
-                addresses={items}
+              <TraderList
                 positionOffset={(page - 1) * pageSize}
+                traders={items}
               />
               <Paginator
                 onPageChange={newPage => {
                   history.push(
-                    `${URL.ADDRESSES}?page=${newPage}&statsPeriod=${statsPeriod}`,
+                    `${URL.TRADERS}?page=${newPage}&statsPeriod=${statsPeriod}`,
                   );
                 }}
                 page={page}
@@ -75,7 +71,7 @@ const AddressesPage = ({ history, location }) => {
   );
 };
 
-AddressesPage.propTypes = {
+TradersPage.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }).isRequired,
@@ -84,4 +80,4 @@ AddressesPage.propTypes = {
   }).isRequired,
 };
 
-export default AddressesPage;
+export default TradersPage;
