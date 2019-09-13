@@ -37,6 +37,7 @@ FillRelayerLink.propTypes = {
   fill: PropTypes.shape({
     feeRecipient: PropTypes.string.isRequired,
     relayer: PropTypes.shape({
+      imageUrl: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       slug: PropTypes.string.isRequired,
     }),

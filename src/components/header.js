@@ -115,7 +115,7 @@ const Header = ({ screenSize }) => {
 Header.propTypes = {
   screenSize: PropTypes.shape({
     greaterThan: PropTypes.shape({
-      sm: PropTypes.bool.isRequired,
+      md: PropTypes.bool.isRequired,
     }).isRequired,
   }).isRequired,
 };

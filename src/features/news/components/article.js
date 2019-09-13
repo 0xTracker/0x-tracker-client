@@ -104,6 +104,7 @@ Article.propTypes = {
   article: PropTypes.shape({
     date: PropTypes.instanceOf(Date).isRequired,
     source: PropTypes.shape({
+      imageUrl: PropTypes.string,
       name: PropTypes.string.isRequired,
       url: PropTypes.string,
     }).isRequired,
