@@ -111,10 +111,10 @@ module.exports = {
       {
         allow: [
           '**/*.css',
-          'babel-polyfill',
-          'jest-dom/extend-expect',
           '@storybook/addon-options/register',
           '@storybook/addon-backgrounds/register',
+          '@testing-library/jest-dom/extend-expect',
+          'babel-polyfill',
           'storybook-addon-jsx/register',
         ],
       },
