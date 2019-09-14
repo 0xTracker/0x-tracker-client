@@ -1,5 +1,7 @@
-# Redirect all requests to index.html since it's a single page application
-/*              /index.html         200
-
 # Redirect addresses page to traders page temporarily (in case the URL needs to be reused in the future)
-/addresses/*    /traders/:splat     301
+/addresses/:address    /traders/:address     301
+/addresses             /traders              301
+
+# Redirect all requests to index.html since it's a single page application
+/*    /index.html    200
+
