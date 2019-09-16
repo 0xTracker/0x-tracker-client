@@ -2,6 +2,8 @@ import { parse as parseDate } from 'date-fns';
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
+const API_CALL_TIMEOUT = process.env.REACT_APP_API_CALL_TIMEOUT || 30000;
+
 const TIME_PERIOD = {
   ALL: 'all',
   DAY: 'day',
@@ -36,4 +38,12 @@ const ZRX_TOKEN = {
   symbol: 'ZRX',
 };
 
-export { API_ENDPOINT, DATE_FORMAT, GENESIS_DATE, TIME_PERIOD, URL, ZRX_TOKEN };
+export {
+  API_CALL_TIMEOUT,
+  API_ENDPOINT,
+  DATE_FORMAT,
+  GENESIS_DATE,
+  TIME_PERIOD,
+  URL,
+  ZRX_TOKEN,
+};

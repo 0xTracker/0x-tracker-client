@@ -2,6 +2,7 @@ import _ from 'lodash';
 import { useEffect, useState } from 'react';
 import axios, { CancelToken } from 'axios';
 
+import { API_CALL_TIMEOUT } from '../constants';
 import AutoReload from '../util/auto-reload';
 import buildApiUrl from '../util/build-api-url';
 
@@ -36,6 +37,7 @@ const useApi = (method, options = {}) => {
       const fetchData = async () => {
         const response = await axios.get(url, {
           cancelToken: source.token,
+          timeout: API_CALL_TIMEOUT,
         });
 
         setState({ ...state, loading: false, response: response.data });
