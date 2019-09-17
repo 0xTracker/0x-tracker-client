@@ -1,19 +1,52 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled, { css } from 'styled-components';
 
-import Number from '../../../components/number';
+import { colors } from '../../../styles/constants';
 import tradersPropTypes from '../prop-types';
 import TraderLink from './trader-link';
+import TraderFillCountLabel from './trader-fill-count-label';
 import TraderVolumeLabel from './trader-volume-label';
+
+const ColumnDescriptor = styled.span`
+  color: ${colors.lavenderGray};
+`;
+
+const SpacerColumn = styled.td`
+  color: ${colors.mischka};
+  font-weight: bold;
+  padding: 0 !important;
+`;
+
+const SplitValueColumn = styled.td`
+  ${props =>
+    props.side === 'left'
+      ? css`
+          padding-right: 1rem !important;
+        `
+      : css`
+          padding-left: 1rem !important;
+        `}
+`;
 
 const TraderList = ({ positionOffset, traders }) => (
   <table className="table table-responsive">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Trader</th>
-        <th className="text-right">Fills</th>
-        <th className="text-right">Volume</th>
+        <th className="align-middle">#</th>
+        <th className="align-middle">Trader</th>
+        <th className="text-center" colSpan={3}>
+          Fill Count
+          {''}
+          <br />
+          <ColumnDescriptor>(maker / taker)</ColumnDescriptor>
+        </th>
+        <th className="text-center" colSpan={3}>
+          Fill Volume
+          {''}
+          <br />
+          <ColumnDescriptor>(maker / taker)</ColumnDescriptor>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -23,12 +56,24 @@ const TraderList = ({ positionOffset, traders }) => (
           <td className="align-middle" width="99%">
             <TraderLink address={trader.address}>{trader.address}</TraderLink>
           </td>
-          <td className="align-middle text-right">
-            <Number>{trader.stats.fillCount.total}</Number>
-          </td>
-          <td className="align-middle text-right">
-            <TraderVolumeLabel stats={trader.stats} />
-          </td>
+          <SplitValueColumn className="align-middle text-center" side="left">
+            <TraderFillCountLabel>
+              {trader.stats.fillCount.maker}
+            </TraderFillCountLabel>
+          </SplitValueColumn>
+          <SpacerColumn className="align-middle text-center">/</SpacerColumn>
+          <SplitValueColumn className="align-middle text-center" side="right">
+            <TraderFillCountLabel>
+              {trader.stats.fillCount.taker}
+            </TraderFillCountLabel>
+          </SplitValueColumn>
+          <SplitValueColumn className="align-middle text-center" side="left">
+            <TraderVolumeLabel value={trader.stats.fillVolume.maker} />
+          </SplitValueColumn>
+          <SpacerColumn className="align-middle text-center">/</SpacerColumn>
+          <SplitValueColumn className="align-middle text-center" side="right">
+            <TraderVolumeLabel value={trader.stats.fillVolume.taker} />
+          </SplitValueColumn>
         </tr>
       ))}
     </tbody>
