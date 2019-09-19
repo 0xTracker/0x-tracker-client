@@ -49,6 +49,8 @@ The project has a fairly extensive set of dependencies, each with a particular p
 - **[Date-fns](https://date-fns.org/)** - Modern javascript date utility library which encourages immutable code and plays nicely with Lodash FP.
 - **[Moment.js](http://momentjs.com/)** - Begrudgingly used as a fallback when manipulating UTC dates whilst awaiting UTC support in date-fns.
 
+** Note: although Redux is listed for global state management it’s actually in the process of being removed in favour of vanilla React APIs.
+
 ### Styling & UI
 
 - **[Bootstrap](http://getbootstrap.com/)/[Reactstrap](https://reactstrap.github.io/)** - UI component library which serves as the basis for most page elements in the project.
