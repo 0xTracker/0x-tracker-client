@@ -4,6 +4,7 @@ import Select from 'react-select';
 import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../constants';
+import { colors } from '../styles/constants';
 
 const OPTIONS = [
   { label: 'Last 24 hours', value: TIME_PERIOD.DAY },
@@ -13,8 +14,16 @@ const OPTIONS = [
   { label: 'All time', value: TIME_PERIOD.ALL },
 ];
 
-const StyledSelect = styled(Select)`
+const StyledSelect = styled(Select).attrs({ classNamePrefix: 'Select' })`
   width: 100%;
+
+  .Select__control {
+    border-color: ${colors.mischka};
+  }
+
+  .Select__indicator-separator {
+    background-color: ${colors.mischka};
+  }
 `;
 
 class TimePeriodSelector extends PureComponent {
@@ -36,7 +45,6 @@ class TimePeriodSelector extends PureComponent {
     return (
       <StyledSelect
         className={className}
-        classNamePrefix={className}
         controlShouldRenderValue
         defaultValue={OPTIONS.find(option => option.value === defaultValue)}
         isClearable={false}
