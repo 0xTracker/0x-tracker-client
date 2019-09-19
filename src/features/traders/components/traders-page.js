@@ -10,6 +10,7 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
 import TraderList from './trader-list';
+import TradersFilterDialog from './traders-filter-dialog';
 import useTraders from '../hooks/use-traders';
 
 const TradersPage = ({ history, location }) => {
@@ -24,7 +25,7 @@ const TradersPage = ({ history, location }) => {
     statsPeriod,
   });
 
-  const [appliedFilters, setAppliedFilters] = React.useState(0);
+  const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
 
   const { items, pageCount, pageSize, recordCount } = traders;
 
@@ -33,6 +34,12 @@ const TradersPage = ({ history, location }) => {
       <Helmet>
         <title>Makers & Takers</title>
       </Helmet>
+      {filtersDialogVisible ? (
+        <TradersFilterDialog
+          onClose={() => setFiltersDialogVisible(false)}
+          onSubmit={() => setFiltersDialogVisible(false)}
+        />
+      ) : null}
       <PageLayout
         filter={
           <>
@@ -45,9 +52,8 @@ const TradersPage = ({ history, location }) => {
               }}
             />
             <FilterButton
-              appliedFilterCount={appliedFilters}
               css="margin-left: 0.5rem; flex-shrink: 0; flex-basis: 38px;"
-              onClick={() => setAppliedFilters(prev => prev + 1)}
+              onClick={() => setFiltersDialogVisible(true)}
               title="Show additional filters"
             />
           </>
