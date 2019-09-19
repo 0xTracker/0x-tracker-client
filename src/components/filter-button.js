@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -19,10 +20,22 @@ const StyledFilterButton = styled.button`
   }
 `;
 
-const FilterButton = props => (
-  <StyledFilterButton {...props} type="button">
-    <FilterIcon height={22} width={22} />
+const FilterButton = ({ appliedFilterCount, ...otherProps }) => (
+  <StyledFilterButton {...otherProps} type="button">
+    <FilterIcon
+      appliedFilterCount={appliedFilterCount}
+      height={20}
+      width={20}
+    />
   </StyledFilterButton>
 );
+
+FilterButton.propTypes = {
+  appliedFilterCount: PropTypes.number,
+};
+
+FilterButton.defaultProps = {
+  appliedFilterCount: undefined,
+};
 
 export default FilterButton;

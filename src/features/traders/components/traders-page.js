@@ -24,6 +24,8 @@ const TradersPage = ({ history, location }) => {
     statsPeriod,
   });
 
+  const [appliedFilters, setAppliedFilters] = React.useState(0);
+
   const { items, pageCount, pageSize, recordCount } = traders;
 
   return (
@@ -43,7 +45,9 @@ const TradersPage = ({ history, location }) => {
               }}
             />
             <FilterButton
+              appliedFilterCount={appliedFilters}
               css="margin-left: 0.5rem; flex-shrink: 0; flex-basis: 38px;"
+              onClick={() => setAppliedFilters(prev => prev + 1)}
               title="Show additional filters"
             />
           </>

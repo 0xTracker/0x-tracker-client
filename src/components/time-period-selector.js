@@ -24,6 +24,12 @@ const StyledSelect = styled(Select).attrs({ classNamePrefix: 'Select' })`
   .Select__indicator-separator {
     background-color: ${colors.mischka};
   }
+
+  .Select__single-value,
+  .Select__dropdown-indicator,
+  .Select__dropdown-indicator:hover {
+    color: currentColor;
+  }
 `;
 
 class TimePeriodSelector extends PureComponent {
