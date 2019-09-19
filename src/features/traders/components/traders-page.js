@@ -5,6 +5,7 @@ import React from 'react';
 import { TIME_PERIOD, URL } from '../../../constants';
 import AsyncTimePeriodSelector from '../../../components/async-time-period-selector';
 import Card from '../../../components/card';
+import FilterButton from '../../../components/filter-button';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
@@ -32,14 +33,20 @@ const TradersPage = ({ history, location }) => {
       </Helmet>
       <PageLayout
         filter={
-          <AsyncTimePeriodSelector
-            defaultValue={statsPeriod}
-            onChange={newPeriod => {
-              history.push(
-                `${URL.TRADERS}?page=${page}&statsPeriod=${newPeriod}`,
-              );
-            }}
-          />
+          <>
+            <AsyncTimePeriodSelector
+              defaultValue={statsPeriod}
+              onChange={newPeriod => {
+                history.push(
+                  `${URL.TRADERS}?page=${page}&statsPeriod=${newPeriod}`,
+                );
+              }}
+            />
+            <FilterButton
+              css="margin-left: 0.5rem; flex-shrink: 0; flex-basis: 38px;"
+              title="Show additional filters"
+            />
+          </>
         }
         title="Makers & Takers"
       >

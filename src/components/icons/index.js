@@ -4,6 +4,7 @@ import ChevronDownIcon from './chevron-down-icon';
 import ChevronUpIcon from './chevron-up-icon';
 import CloseIcon from './close-icon';
 import DiscordIcon from './discord-icon';
+import FilterIcon from './filter-icon';
 import GitHubIcon from './git-hub-icon';
 import LeftArrowIcon from './left-arrow-icon';
 import MediumIcon from './medium-icon';
@@ -21,6 +22,7 @@ export {
   ChevronUpIcon,
   CloseIcon,
   DiscordIcon,
+  FilterIcon,
   GitHubIcon,
   LeftArrowIcon,
   MediumIcon,
