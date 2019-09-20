@@ -33,6 +33,7 @@ const RelayersPage = ({ history, location, page, setPage }) => {
       <PageLayout
         filter={
           <AsyncTimePeriodSelector
+            css="width: 100%;"
             defaultValue={statsPeriod}
             onChange={newPeriod => {
               history.push(
