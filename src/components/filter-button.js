@@ -16,7 +16,7 @@ const StyledFilterButton = styled.button`
   padding: 0;
 
   &:hover {
-    background-color: ${colors.mischka};
+    border-color: ${colors.santasGray};
   }
 `;
 

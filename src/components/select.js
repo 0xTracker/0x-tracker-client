@@ -11,7 +11,6 @@ const Select = styled(ReactSelect).attrs({ classNamePrefix: 'Select' })`
   }
 
   .Select__control--is-focused {
-    border-color: ${colors.santasGray};
     box-shadow: none;
   }
 
@@ -34,6 +33,12 @@ const Select = styled(ReactSelect).attrs({ classNamePrefix: 'Select' })`
   .Select__option--is-selected {
     background: ${colors.athensGray};
     color: ${colors.violet};
+  }
+
+  &:hover {
+    .Select__control {
+      border-color: ${colors.santasGray};
+    }
   }
 `;
 
