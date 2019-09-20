@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import Select from 'react-select';
-import styled from 'styled-components';
+import React from 'react';
 
 import { TIME_PERIOD } from '../constants';
-import { colors } from '../styles/constants';
+import Select from './select';
 
 const OPTIONS = [
   { label: 'Last 24 hours', value: TIME_PERIOD.DAY },
@@ -14,53 +12,17 @@ const OPTIONS = [
   { label: 'All time', value: TIME_PERIOD.ALL },
 ];
 
-const StyledSelect = styled(Select).attrs({ classNamePrefix: 'Select' })`
-  width: 100%;
-
-  .Select__control {
-    border-color: ${colors.mischka};
-  }
-
-  .Select__indicator-separator {
-    background-color: ${colors.mischka};
-  }
-
-  .Select__single-value,
-  .Select__dropdown-indicator,
-  .Select__dropdown-indicator:hover {
-    color: currentColor;
-  }
-`;
-
-class TimePeriodSelector extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(option) {
-    const { onChange } = this.props;
-
-    onChange(option.value);
-  }
-
-  render() {
-    const { className, defaultValue } = this.props;
-
-    return (
-      <StyledSelect
-        className={className}
-        controlShouldRenderValue
-        defaultValue={OPTIONS.find(option => option.value === defaultValue)}
-        isClearable={false}
-        isSearchable={false}
-        onChange={this.handleChange}
-        options={OPTIONS}
-      />
-    );
-  }
-}
+const TimePeriodSelector = ({ className, defaultValue, onChange }) => (
+  <Select
+    className={className}
+    controlShouldRenderValue
+    defaultValue={OPTIONS.find(option => option.value === defaultValue)}
+    isClearable={false}
+    isSearchable={false}
+    onChange={option => onChange(option.value)}
+    options={OPTIONS}
+  />
+);
 
 TimePeriodSelector.propTypes = {
   className: PropTypes.string,
