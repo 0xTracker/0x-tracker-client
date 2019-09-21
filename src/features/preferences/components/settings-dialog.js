@@ -4,43 +4,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
-import AsyncCurrencySelector from '../../currencies/components/async-currency-selector';
+import CurrencySelector from '../../currencies/components/currency-selector';
 import Dialog from '../../../components/dialog';
 import usePreferences from '../hooks/use-preferences';
 import useDisplayCurrency from '../hooks/use-display-currency';
-
-const StyledCurrencySelector = styled(AsyncCurrencySelector)`
-  color: ${colors.violet};
-
-  && &__control {
-    border-color: ${colors.mischka};
-  }
-
-  && &__control--is-focused {
-    border-color: ${colors.stormGray};
-    box-shadow: none;
-  }
-
-  && &__dropdown-indicator {
-    color: ${colors.stormGray};
-  }
-
-  && &__indicator-separator {
-    background-color: ${colors.mischka};
-  }
-
-  && &__option:hover,
-  && &__option:active,
-  && &__option--is-focused {
-    background: ${colors.mischka};
-    cursor: pointer;
-  }
-
-  && &__option--is-selected {
-    background: ${colors.selago};
-    color: ${colors.violet};
-  }
-`;
 
 const FormButton = styled.button`
   background-color: ${colors.indigo};
@@ -72,7 +39,8 @@ const SettingsDialog = ({ onClose, onSubmit }) => {
       <form>
         <FormGroup>
           <label htmlFor="displayCurrency">Display Currency</label>
-          <StyledCurrencySelector
+          <CurrencySelector
+            defaultValue={displayCurrency}
             name="displayCurrency"
             onChange={setSelectedCurrency}
           />

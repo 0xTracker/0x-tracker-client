@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import AsyncTimePeriodSelector from '../../../components/async-time-period-selector';
 import Card from '../../../components/card';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
+import TimePeriodSelector from '../../../components/time-period-selector';
 import TraderList from './trader-list';
 import useTraders from '../hooks/use-traders';
 
@@ -32,13 +32,11 @@ const TradersPage = ({ history, location }) => {
       </Helmet>
       <PageLayout
         filter={
-          <AsyncTimePeriodSelector
+          <TimePeriodSelector
             css="width: 100%;"
             defaultValue={statsPeriod}
             onChange={newPeriod => {
-              history.push(
-                `${URL.TRADERS}?page=${page}&statsPeriod=${newPeriod}`,
-              );
+              history.push(`${URL.TRADERS}?statsPeriod=${newPeriod}`);
             }}
           />
         }

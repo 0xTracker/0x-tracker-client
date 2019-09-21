@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../constants';
-import Select from './select';
+import AsyncSelect from './async-select';
 
 const OPTIONS = [
   { label: 'Last 24 hours', value: TIME_PERIOD.DAY },
@@ -13,7 +13,7 @@ const OPTIONS = [
 ];
 
 const TimePeriodSelector = ({ className, defaultValue, onChange }) => (
-  <Select
+  <AsyncSelect
     className={className}
     controlShouldRenderValue
     defaultValue={OPTIONS.find(option => option.value === defaultValue)}
