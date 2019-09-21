@@ -9,7 +9,10 @@ import TradersFilterDialog from './traders-filter-dialog';
 
 const TradersFilter = ({ onChange, selectedFilters }) => {
   const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
-  const additionalFilters = _.omit(selectedFilters, 'statsPeriod');
+  const additionalFilters = _.omitBy(
+    _.omit(selectedFilters, 'statsPeriod'),
+    _.isNil,
+  );
 
   return (
     <div css="display: flex; width: 100%;">

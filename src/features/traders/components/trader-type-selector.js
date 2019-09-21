@@ -5,7 +5,7 @@ import { TRADER_TYPE } from '../constants';
 import Select from '../../../components/select';
 
 const OPTIONS = [
-  { label: 'All', value: null },
+  { label: 'All', value: undefined },
   { label: 'Makers', value: TRADER_TYPE.MAKER },
   { label: 'Takers', value: TRADER_TYPE.TAKER },
 ];

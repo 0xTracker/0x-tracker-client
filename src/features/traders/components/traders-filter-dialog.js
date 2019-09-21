@@ -39,8 +39,8 @@ const TradersFilterDialog = ({ onClose, onSubmit, selectedFilters }) => {
         <FormGroup>
           <label htmlFor="displayCurrency">Trader Type</label>
           <TraderTypeSelector
-            defaultValue={selectedFilters.traderType}
-            name="traderType"
+            defaultValue={selectedFilters.type}
+            name="type"
             onChange={handleChange}
           />
         </FormGroup>
@@ -58,7 +58,7 @@ TradersFilterDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   selectedFilters: PropTypes.shape({
-    traderType: tradersPropTypes.traderType.isRequired,
+    type: tradersPropTypes.traderType.isRequired,
   }),
 };
 
