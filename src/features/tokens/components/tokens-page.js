@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import AsyncTimePeriodSelector from '../../../components/async-time-period-selector';
 import Card from '../../../components/card';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
+import TimePeriodSelector from '../../../components/time-period-selector';
 import TokenList from './token-list';
 import useTokens from '../hooks/use-tokens';
 import withPagination from '../../../components/with-pagination';
@@ -31,7 +31,8 @@ const TokensPage = ({ history, location, page, setPage }) => {
       </Helmet>
       <PageLayout
         filter={
-          <AsyncTimePeriodSelector
+          <TimePeriodSelector
+            css="width: 100%;"
             defaultValue={statsPeriod}
             onChange={newPeriod => {
               history.push(

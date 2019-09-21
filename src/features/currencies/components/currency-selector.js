@@ -1,38 +1,32 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Select from 'react-select';
 
 import { CURRENCIES } from '../constants';
-import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
+import AsyncSelect from '../../../components/async-select';
 
 const OPTIONS = CURRENCIES.map(currency => ({
   label: `${currency.name} (${currency.symbol})`,
   value: currency.symbol,
 }));
 
-const CurrencySelector = ({ className, name, onChange }) => {
-  const displayCurrency = useDisplayCurrency();
-
-  const handleChange = option => onChange(option.value);
-
-  return (
-    <Select
-      className={className}
-      classNamePrefix={className}
-      controlShouldRenderValue
-      defaultValue={OPTIONS.find(option => option.value === displayCurrency)}
-      inputId={name}
-      isClearable={false}
-      isSearchable={false}
-      name={name}
-      onChange={handleChange}
-      options={OPTIONS}
-    />
-  );
-};
+const CurrencySelector = ({ className, defaultValue, name, onChange }) => (
+  <AsyncSelect
+    className={className}
+    classNamePrefix={className}
+    controlShouldRenderValue
+    defaultValue={OPTIONS.find(option => option.value === defaultValue)}
+    inputId={name}
+    isClearable={false}
+    isSearchable={false}
+    name={name}
+    onChange={option => onChange(option.value)}
+    options={OPTIONS}
+  />
+);
 
 CurrencySelector.propTypes = {
   className: PropTypes.string,
+  defaultValue: PropTypes.oneOf(Object.values(CURRENCIES)).isRequired,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
