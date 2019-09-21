@@ -44,14 +44,14 @@ const HeaderActions = () => {
   const hideSearch = () => setSearchVisibility(false);
 
   useEffect(() => {
-    if (typeof Headway !== 'undefined') {
+    if (typeof Headway !== 'undefined' && !searchVisible) {
       Headway.init({
         account: 'xGOQOx',
         selector: '.headway',
         trigger: '.headway',
       });
     }
-  }, []);
+  }, [searchVisible]);
 
   return searchVisible ? (
     <HeaderSearch onBlur={hideSearch} onSearch={hideSearch} />
