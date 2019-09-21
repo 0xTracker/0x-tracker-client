@@ -63,6 +63,7 @@ const getConfig = environment => ({
           'src/components/filter-button.js',
           'src/features/traders/components/traders-filter-dialog.js',
           'src/features/traders/components/traders-filter.js',
+          'src/features/traders/components/trader-type-selector.js',
         ],
       },
       patterns: ['src/**/*.*'],

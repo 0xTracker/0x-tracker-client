@@ -4,8 +4,12 @@ import React from 'react';
 import { TIME_PERIOD } from '../../../constants';
 import TradersFilter from './traders-filter';
 import PageLayout from '../../../components/page-layout';
+import { TRADER_TYPE } from '../constants';
 
 const simpleProps = {
+  onChange: newValues => {
+    console.log('new values', newValues);
+  },
   selectedFilters: {
     statsPeriod: TIME_PERIOD.DAY,
   },
@@ -13,6 +17,15 @@ const simpleProps = {
 
 storiesOf('Traders|TradersFilter', module)
   .add('default', () => <TradersFilter {...simpleProps} />)
+  .add('with trader type selected', () => (
+    <TradersFilter
+      {...simpleProps}
+      selectedFilters={{
+        statsPeriod: TIME_PERIOD.MONTH,
+        traderType: TRADER_TYPE.MAKER,
+      }}
+    />
+  ))
   .add('in page layout', () => (
     <PageLayout filter={<TradersFilter {...simpleProps} />} title="Hello World">
       <p>
