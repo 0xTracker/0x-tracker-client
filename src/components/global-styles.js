@@ -21,6 +21,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .table {
+    color: currentColor;
     margin: 0;
   }
 

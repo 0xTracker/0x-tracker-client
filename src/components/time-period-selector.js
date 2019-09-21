@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
-import Select from 'react-select';
-import styled from 'styled-components';
+import React from 'react';
 
 import { TIME_PERIOD } from '../constants';
+import AsyncSelect from './async-select';
 
 const OPTIONS = [
   { label: 'Last 24 hours', value: TIME_PERIOD.DAY },
@@ -13,40 +12,17 @@ const OPTIONS = [
   { label: 'All time', value: TIME_PERIOD.ALL },
 ];
 
-const StyledSelect = styled(Select)`
-  width: 100%;
-`;
-
-class TimePeriodSelector extends PureComponent {
-  constructor(props) {
-    super(props);
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(option) {
-    const { onChange } = this.props;
-
-    onChange(option.value);
-  }
-
-  render() {
-    const { className, defaultValue } = this.props;
-
-    return (
-      <StyledSelect
-        className={className}
-        classNamePrefix={className}
-        controlShouldRenderValue
-        defaultValue={OPTIONS.find(option => option.value === defaultValue)}
-        isClearable={false}
-        isSearchable={false}
-        onChange={this.handleChange}
-        options={OPTIONS}
-      />
-    );
-  }
-}
+const TimePeriodSelector = ({ className, defaultValue, onChange }) => (
+  <AsyncSelect
+    className={className}
+    controlShouldRenderValue
+    defaultValue={OPTIONS.find(option => option.value === defaultValue)}
+    isClearable={false}
+    isSearchable={false}
+    onChange={option => onChange(option.value)}
+    options={OPTIONS}
+  />
+);
 
 TimePeriodSelector.propTypes = {
   className: PropTypes.string,
