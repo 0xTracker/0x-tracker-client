@@ -12,18 +12,27 @@ import TraderList from './trader-list';
 import TradersFilter from './traders-filter';
 import useTraders from '../hooks/use-traders';
 
+const defaultFilters = {
+  statsPeriod: TIME_PERIOD.DAY,
+  type: undefined,
+};
+
 const TradersPage = ({ history, location }) => {
   const params = new URLSearchParams(location.search);
-  const statsPeriod = params.get('statsPeriod') || TIME_PERIOD.DAY;
-  const type = params.get('type');
+  const statsPeriod = params.get('statsPeriod') || defaultFilters.statsPeriod;
+  const type = params.get('type') || undefined;
   const page = params.get('page') || 1;
+
+  const selectedFilters = {
+    statsPeriod,
+    type,
+  };
 
   const [traders, loading] = useTraders({
     autoReload: true,
     limit: 50,
     page,
-    statsPeriod,
-    type,
+    ...selectedFilters,
   });
 
   const { items, pageCount, pageSize, recordCount } = traders;
@@ -36,10 +45,11 @@ const TradersPage = ({ history, location }) => {
       <PageLayout
         filter={
           <TradersFilter
-            onChange={newValues => {
-              history.push(buildUrl(URL.TRADERS, newValues));
+            defaultFilters={defaultFilters}
+            onChange={newFilters => {
+              history.push(buildUrl(URL.TRADERS, newFilters));
             }}
-            selectedFilters={{ statsPeriod, type }}
+            selectedFilters={selectedFilters}
           />
         }
         title="Makers & Takers"
@@ -56,7 +66,10 @@ const TradersPage = ({ history, location }) => {
               <Paginator
                 onPageChange={newPage => {
                   history.push(
-                    buildUrl(URL.TRADERS, { page: newPage, statsPeriod, type }),
+                    buildUrl(URL.TRADERS, {
+                      page: newPage,
+                      ...selectedFilters,
+                    }),
                   );
                 }}
                 page={page}
