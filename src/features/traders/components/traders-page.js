@@ -40,7 +40,7 @@ const TradersPage = ({ history, location }) => {
   return (
     <>
       <Helmet>
-        <title>Makers & Takers</title>
+        <title>Top Traders</title>
       </Helmet>
       <PageLayout
         filter={
@@ -52,7 +52,7 @@ const TradersPage = ({ history, location }) => {
             selectedFilters={selectedFilters}
           />
         }
-        title="Makers & Takers"
+        title="Top Traders"
       >
         <Card fullHeight>
           {loading ? (
