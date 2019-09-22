@@ -6,19 +6,23 @@ import FilterButton from '../../../components/filter-button';
 import sharedPropTypes from '../../../prop-types';
 import TimePeriodSelector from '../../../components/time-period-selector';
 import TradersFilterDialog from './traders-filter-dialog';
+import tradersPropTypes from '../prop-types';
 
-const TradersFilter = ({ onChange, selectedFilters }) => {
-  const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
-  const additionalFilters = _.omitBy(
-    _.omit(selectedFilters, 'statsPeriod'),
-    _.isNil,
+const hasAdditionalFilters = (defaultValues, selectedValues) =>
+  _.isEqual(
+    _.omit(defaultValues, 'statsPeriod'),
+    _.omit(selectedValues, 'statsPeriod'),
   );
+
+const TradersFilter = ({ defaultFilters, onChange, selectedFilters }) => {
+  const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
 
   return (
     <div css="display: flex; width: 100%;">
       {filtersDialogVisible ? (
         <TradersFilterDialog
-          defaultValues={additionalFilters}
+          currentValues={selectedFilters}
+          defaultValues={defaultFilters}
           onClose={() => setFiltersDialogVisible(false)}
           onSubmit={newValues => {
             onChange({ ...selectedFilters, ...newValues });
@@ -34,7 +38,9 @@ const TradersFilter = ({ onChange, selectedFilters }) => {
         value={selectedFilters.statsPeriod}
       />
       <FilterButton
-        appliedFilterCount={Object.keys(additionalFilters).length}
+        appliedFilterCount={
+          hasAdditionalFilters(defaultFilters, selectedFilters) ? 0 : 1
+        }
         css="margin-left: 0.5rem; flex-shrink: 0; flex-basis: 38px;"
         onClick={() => setFiltersDialogVisible(true)}
         title="Show additional filters"
@@ -44,9 +50,14 @@ const TradersFilter = ({ onChange, selectedFilters }) => {
 };
 
 TradersFilter.propTypes = {
+  defaultFilters: PropTypes.shape({
+    statsPeriod: sharedPropTypes.timePeriod.isRequired,
+    type: tradersPropTypes.traderType,
+  }).isRequired,
   onChange: PropTypes.func.isRequired,
   selectedFilters: PropTypes.shape({
     statsPeriod: sharedPropTypes.timePeriod.isRequired,
+    type: tradersPropTypes.traderType,
   }).isRequired,
 };
 
