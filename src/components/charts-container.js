@@ -29,11 +29,17 @@ const ChartsContainerBody = styled(CardBody)`
 
 const ChartLink = styled(NavLink)`
   &&& {
-    color: ${props => (props.active ? 'inherit' : colors.stormGray)};
+    color: ${props => (props.active ? 'inherit' : colors.santasGray)};
+    font-weight: ${props => (props.active ? '500' : 'initial')};
     cursor: pointer;
     border: none;
     margin-right: 1rem;
     padding: 0;
+
+    &:hover,
+    &:active {
+      color: ${props => (props.active ? 'inherit' : colors.stormGray)};
+    }
   }
 `;
 
