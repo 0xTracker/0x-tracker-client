@@ -37,8 +37,9 @@ const Title = styled.h1`
 `;
 
 const FilterContainer = styled(Col).attrs({
-  md: { offset: 3, size: 3 },
-  sm: { offset: 2, size: 4 },
+  lg: { offset: 3, size: 3 },
+  md: { offset: 2, size: 4 },
+  sm: { offset: 1, size: 5 },
   xs: 12,
 })`
   display: flex;
