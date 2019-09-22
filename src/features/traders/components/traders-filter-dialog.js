@@ -6,6 +6,8 @@ import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
 import Dialog from '../../../components/dialog';
+import sharedPropTypes from '../../../prop-types';
+import TimePeriodSelector from '../../../components/time-period-selector';
 import tradersPropTypes from '../prop-types';
 import TraderTypeSelector from './trader-type-selector';
 
@@ -23,7 +25,7 @@ const FormButton = styled.button`
   }
 `;
 
-const SecondaryButton = styled(FormButton)`
+const SecondaryFormButton = styled(FormButton)`
   background-color: ${colors.athensGray};
   color: ${colors.violet};
   margin: 0 0 0 0.5rem;
@@ -34,8 +36,21 @@ const SecondaryButton = styled(FormButton)`
   }
 `;
 
-const TradersFilterDialog = ({ defaultValues, onClose, onSubmit }) => {
-  const [values, setValues] = React.useState(defaultValues);
+const FormLabel = styled.label`
+  margin: 1.5rem 0 0 0;
+
+  &:first-child {
+    margin: 0;
+  }
+`;
+
+const TradersFilterDialog = ({
+  currentValues,
+  defaultValues,
+  onClose,
+  onSubmit,
+}) => {
+  const [values, setValues] = React.useState(currentValues);
 
   const handleChange = (value, fieldName) => {
     setValues(oldValues => ({ ...oldValues, [fieldName]: value }));
@@ -46,14 +61,20 @@ const TradersFilterDialog = ({ defaultValues, onClose, onSubmit }) => {
   };
 
   const handleReset = () => {
-    setValues({ type: undefined });
+    setValues(defaultValues);
   };
 
   return (
-    <Dialog height={300} onClose={onClose} title="Filter Traders" width={450}>
+    <Dialog height={350} onClose={onClose} title="Filter Traders" width={450}>
       <form>
         <FormGroup>
-          <label htmlFor="displayCurrency">Trader Type</label>
+          <FormLabel htmlFor="displayCurrency">Time Period</FormLabel>
+          <TimePeriodSelector
+            name="statsPeriod"
+            onChange={handleChange}
+            value={values.statsPeriod}
+          />
+          <FormLabel htmlFor="displayCurrency">Trader Type</FormLabel>
           <TraderTypeSelector
             name="type"
             onChange={handleChange}
@@ -65,9 +86,9 @@ const TradersFilterDialog = ({ defaultValues, onClose, onSubmit }) => {
             Apply Filters
           </FormButton>
           {_.isEmpty(values) ? null : (
-            <SecondaryButton onClick={handleReset} type="button">
+            <SecondaryFormButton onClick={handleReset} type="button">
               Reset
-            </SecondaryButton>
+            </SecondaryFormButton>
           )}
         </div>
       </form>
@@ -76,7 +97,12 @@ const TradersFilterDialog = ({ defaultValues, onClose, onSubmit }) => {
 };
 
 TradersFilterDialog.propTypes = {
+  currentValues: PropTypes.shape({
+    statsPeriod: sharedPropTypes.timePeriod.isRequired,
+    type: tradersPropTypes.traderType,
+  }).isRequired,
   defaultValues: PropTypes.shape({
+    statsPeriod: sharedPropTypes.timePeriod.isRequired,
     type: tradersPropTypes.traderType,
   }),
   onClose: PropTypes.func.isRequired,
