@@ -10,29 +10,29 @@ const OPTIONS = [
   { label: 'Takers', value: TRADER_TYPE.TAKER },
 ];
 
-const TraderTypeSelector = ({ className, defaultValue, name, onChange }) => (
+const TraderTypeSelector = ({ className, name, onChange, value }) => (
   <Select
     className={className}
     controlShouldRenderValue
-    defaultValue={OPTIONS.find(option => option.value === defaultValue)}
     isClearable={false}
     isSearchable={false}
     name={name}
     onChange={option => onChange(option.value, name)}
     options={OPTIONS}
+    value={OPTIONS.find(option => option.value === value)}
   />
 );
 
 TraderTypeSelector.propTypes = {
   className: PropTypes.string,
-  defaultValue: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
 };
 
 TraderTypeSelector.defaultProps = {
   className: undefined,
-  defaultValue: undefined,
+  value: undefined,
 };
 
 export default TraderTypeSelector;

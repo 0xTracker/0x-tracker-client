@@ -18,20 +18,20 @@ const TradersFilter = ({ onChange, selectedFilters }) => {
     <div css="display: flex; width: 100%;">
       {filtersDialogVisible ? (
         <TradersFilterDialog
+          defaultValues={additionalFilters}
           onClose={() => setFiltersDialogVisible(false)}
           onSubmit={newValues => {
             onChange({ ...selectedFilters, ...newValues });
             setFiltersDialogVisible(false);
           }}
-          selectedFilters={additionalFilters}
         />
       ) : null}
       <TimePeriodSelector
         css="width: 100%;"
-        defaultValue={selectedFilters.statsPeriod}
         onChange={newPeriod => {
           onChange({ ...selectedFilters, statsPeriod: newPeriod });
         }}
+        value={selectedFilters.statsPeriod}
       />
       <FilterButton
         appliedFilterCount={Object.keys(additionalFilters).length}

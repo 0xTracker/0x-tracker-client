@@ -22,8 +22,8 @@ const FormButton = styled.button`
   }
 `;
 
-const TradersFilterDialog = ({ onClose, onSubmit, selectedFilters }) => {
-  const [values, setValues] = React.useState(selectedFilters);
+const TradersFilterDialog = ({ defaultValues, onClose, onSubmit }) => {
+  const [values, setValues] = React.useState(defaultValues);
 
   const handleChange = (value, fieldName) => {
     setValues(oldValues => ({ ...oldValues, [fieldName]: value }));
@@ -39,9 +39,9 @@ const TradersFilterDialog = ({ onClose, onSubmit, selectedFilters }) => {
         <FormGroup>
           <label htmlFor="displayCurrency">Trader Type</label>
           <TraderTypeSelector
-            defaultValue={selectedFilters.type}
             name="type"
             onChange={handleChange}
+            value={values.type}
           />
         </FormGroup>
         <div css="margin-top: 2rem;">
@@ -55,15 +55,15 @@ const TradersFilterDialog = ({ onClose, onSubmit, selectedFilters }) => {
 };
 
 TradersFilterDialog.propTypes = {
+  defaultValues: PropTypes.shape({
+    type: tradersPropTypes.traderType,
+  }),
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  selectedFilters: PropTypes.shape({
-    type: tradersPropTypes.traderType.isRequired,
-  }),
 };
 
 TradersFilterDialog.defaultProps = {
-  selectedFilters: {},
+  defaultValues: {},
 };
 
 export default TradersFilterDialog;

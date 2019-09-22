@@ -33,12 +33,12 @@ const TokensPage = ({ history, location, page, setPage }) => {
         filter={
           <TimePeriodSelector
             css="width: 100%;"
-            defaultValue={statsPeriod}
             onChange={newPeriod => {
               history.push(
                 `${URL.TOKENS}?page=${page}&statsPeriod=${newPeriod}`,
               );
             }}
+            value={statsPeriod}
           />
         }
         title="Traded Tokens"
