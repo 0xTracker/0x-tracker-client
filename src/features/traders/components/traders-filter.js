@@ -9,26 +9,29 @@ import TradersFilterDialog from './traders-filter-dialog';
 
 const TradersFilter = ({ onChange, selectedFilters }) => {
   const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
-  const additionalFilters = _.omit(selectedFilters, 'statsPeriod');
+  const additionalFilters = _.omitBy(
+    _.omit(selectedFilters, 'statsPeriod'),
+    _.isNil,
+  );
 
   return (
     <div css="display: flex; width: 100%;">
       {filtersDialogVisible ? (
         <TradersFilterDialog
+          defaultValues={additionalFilters}
           onClose={() => setFiltersDialogVisible(false)}
           onSubmit={newValues => {
             onChange({ ...selectedFilters, ...newValues });
             setFiltersDialogVisible(false);
           }}
-          selectedFilters={additionalFilters}
         />
       ) : null}
       <TimePeriodSelector
         css="width: 100%;"
-        defaultValue={selectedFilters.statsPeriod}
         onChange={newPeriod => {
           onChange({ ...selectedFilters, statsPeriod: newPeriod });
         }}
+        value={selectedFilters.statsPeriod}
       />
       <FilterButton
         appliedFilterCount={Object.keys(additionalFilters).length}

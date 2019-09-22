@@ -34,12 +34,12 @@ const RelayersPage = ({ history, location, page, setPage }) => {
         filter={
           <TimePeriodSelector
             css="width: 100%;"
-            defaultValue={statsPeriod}
             onChange={newPeriod => {
               history.push(
                 `${URL.RELAYERS}?page=${page}&statsPeriod=${newPeriod}`,
               );
             }}
+            value={statsPeriod}
           />
         }
         title="Active Relayers"

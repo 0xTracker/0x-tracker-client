@@ -40,9 +40,9 @@ const SettingsDialog = ({ onClose, onSubmit }) => {
         <FormGroup>
           <label htmlFor="displayCurrency">Display Currency</label>
           <CurrencySelector
-            defaultValue={displayCurrency}
             name="displayCurrency"
             onChange={setSelectedCurrency}
+            value={selectedCurrency}
           />
         </FormGroup>
         <div css="margin-top: 2rem;">
@@ -58,9 +58,6 @@ const SettingsDialog = ({ onClose, onSubmit }) => {
 SettingsDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  values: PropTypes.shape({
-    currency: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default SettingsDialog;

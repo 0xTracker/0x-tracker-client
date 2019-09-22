@@ -81,8 +81,8 @@ const SubNavigationParent = ({ children, items }) => {
     <StyledSubNavigationParent>
       <NavigationItem
         highlighted={highlighted}
-        onActive={activeHandler}
         onBlur={blurHandler}
+        onFocus={activeHandler}
         onMouseOut={blurHandler}
         onMouseOver={activeHandler}
         open={open}
@@ -92,8 +92,8 @@ const SubNavigationParent = ({ children, items }) => {
       </NavigationItem>
       {open && (
         <SubNavigation
-          onActive={activeHandler}
           onBlur={blurHandler}
+          onFocus={activeHandler}
           onMouseOut={blurHandler}
           onMouseOver={activeHandler}
         >

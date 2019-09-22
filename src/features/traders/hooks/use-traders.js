@@ -7,6 +7,7 @@ const useTraders = (options = {}) => {
       limit: options.limit,
       page: options.page,
       statsPeriod: options.statsPeriod,
+      type: options.type,
     },
   });
   const { traders, limit, page, pageCount, total } = response || {};
