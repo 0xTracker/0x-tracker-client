@@ -7,17 +7,18 @@ import {
   YAxis,
   Tooltip,
 } from 'recharts';
-import { format as formatDate } from 'date-fns';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import { colors } from '../../../styles/constants';
+import { DATE_FORMAT } from '../../../constants';
 import formatCurrency from '../../../util/format-currency';
+import formatDate from '../../../util/format-date';
 import NetworkFeesTooltip from './network-fees-tooltip';
 import padMetrics from '../util/pad-metrics';
 import sharedPropTypes from '../../../prop-types';
 
-const formatAxisDate = date => formatDate(date, 'MMM DD');
+const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
 
 const NetworkFeesChart = ({ data, localCurrency, period }) => {
   if (_.isEmpty(data)) {

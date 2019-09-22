@@ -1,14 +1,14 @@
 import _ from 'lodash';
-import { distanceInWordsToNow, format as formatDate } from 'date-fns';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { BASE_CURRENCY } from '../../currencies/constants';
-import { ZRX_TOKEN } from '../../../constants';
+import { ZRX_TOKEN, DATE_FORMAT } from '../../../constants';
 import { MoreIcon } from '../../../components/icons';
 import buildFillUrl from '../util/build-fill-url';
 import FillListAssets from './fill-list-assets';
 import FillRelayerLink from './fill-relayer-link';
+import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import TokenAmount from '../../tokens/components/token-amount';
@@ -33,8 +33,8 @@ const FillList = ({ excludeColumns, fills }) => {
       <tbody>
         {fills.map((fill, index) => (
           <tr className={index % 2 ? 'even' : 'odd'} key={fill.id}>
-            <td title={formatDate(fill.date, 'dddd, MMMM Do YYYY, h:mm:ss a')}>
-              {distanceInWordsToNow(fill.date)} ago
+            <td title={formatDate(fill.date, DATE_FORMAT.FULL)}>
+              {formatDate(fill.date, DATE_FORMAT.RELATIVE)}
             </td>
             <td className="text-right">
               <FillListAssets

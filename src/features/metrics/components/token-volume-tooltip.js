@@ -1,10 +1,11 @@
 import _ from 'lodash';
-import { format as formatDate } from 'date-fns';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { DATE_FORMAT } from '../../../constants';
 import ChartTooltip from '../../../components/chart-tooltip';
 import formatCurrency from '../../../util/format-currency';
+import formatDate from '../../../util/format-date';
 import formatTokenAmount from '../../../util/format-token-amount';
 
 const TokenVolumeTooltip = ({ localCurrency, payload, tokenSymbol }) => {
@@ -27,7 +28,7 @@ const TokenVolumeTooltip = ({ localCurrency, payload, tokenSymbol }) => {
             tokenVolume !== null ? formatTokenAmount(tokenVolume) : 'Unknown',
         },
       ]}
-      title={formatDate(date, 'MMMM Do YYYY, hh:mm A')}
+      title={formatDate(date, DATE_FORMAT.STANDARD)}
     />
   );
 };

@@ -1,10 +1,11 @@
 import _ from 'lodash';
-import { distanceInWordsToNow } from 'date-fns';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
+import { DATE_FORMAT } from '../../../constants';
+import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 
 const ArticleImage = styled.img`
@@ -91,7 +92,7 @@ const Article = ({ article, compact, showImage }) => (
           )}
         </dd>
         <dt>Date</dt>
-        <dd>{distanceInWordsToNow(article.date)} ago</dd>
+        <dd>{formatDate(article.date, DATE_FORMAT.RELATIVE)}</dd>
       </ArticleMetadata>
       <p css="flex-grow: 1; margin: 0;">
         {_.truncate(article.summary, { length: compact ? 120 : 150 })}
