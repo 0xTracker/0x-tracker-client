@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { FormGroup } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -22,6 +23,17 @@ const FormButton = styled.button`
   }
 `;
 
+const SecondaryButton = styled(FormButton)`
+  background-color: ${colors.athensGray};
+  color: ${colors.violet};
+  margin: 0 0 0 0.5rem;
+
+  &:hover,
+  &:active {
+    background-color: ${colors.mischka};
+  }
+`;
+
 const TradersFilterDialog = ({ defaultValues, onClose, onSubmit }) => {
   const [values, setValues] = React.useState(defaultValues);
 
@@ -31,6 +43,10 @@ const TradersFilterDialog = ({ defaultValues, onClose, onSubmit }) => {
 
   const handleSubmit = () => {
     onSubmit(values);
+  };
+
+  const handleReset = () => {
+    setValues({ type: undefined });
   };
 
   return (
@@ -46,8 +62,13 @@ const TradersFilterDialog = ({ defaultValues, onClose, onSubmit }) => {
         </FormGroup>
         <div css="margin-top: 2rem;">
           <FormButton onClick={handleSubmit} type="button">
-            Apply
+            Apply Filters
           </FormButton>
+          {_.isEmpty(values) ? null : (
+            <SecondaryButton onClick={handleReset} type="button">
+              Reset
+            </SecondaryButton>
+          )}
         </div>
       </form>
     </Dialog>
