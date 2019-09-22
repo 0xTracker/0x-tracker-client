@@ -51,6 +51,7 @@ const TopRelayersChart = ({ data, history, displayCurrency }) => {
         <XAxis
           axisLine={false}
           domain={[0, 100]}
+          tick={{ fill: 'currentColor', fontSize: '0.9em' }}
           tickFormatter={formatXAxis}
           tickLine={false}
           type="number"
@@ -60,6 +61,7 @@ const TopRelayersChart = ({ data, history, displayCurrency }) => {
           dataKey="relayer.name"
           onClick={handleAxisClick}
           style={{ cursor: 'pointer' }}
+          tick={{ fill: 'currentColor', fontSize: '0.9em' }}
           tickLine={false}
           type="category"
           width={100}
