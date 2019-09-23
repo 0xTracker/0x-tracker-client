@@ -58,7 +58,7 @@ const TokenListItem = ({ position, token }) => (
               color: ${colors.stormGray};
             `}
           >
-            {formatDate(token.lastTrade.date, DATE_FORMAT.RELATIVE)} ago
+            {formatDate(token.lastTrade.date, DATE_FORMAT.RELATIVE)}
           </span>
         </LastTradeLink>
       ) : (

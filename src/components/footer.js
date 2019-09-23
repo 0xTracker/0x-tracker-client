@@ -1,6 +1,6 @@
-import { getYear } from 'date-fns';
 import { Col, Row } from 'reactstrap';
 import { rgba } from 'polished';
+import getYear from 'date-fns/getYear';
 import React from 'react';
 import styled from 'styled-components';
 

@@ -1,5 +1,5 @@
 import { flow, map, sortBy, unionWith } from 'lodash/fp';
-import { isEqual as isDateEqual } from 'date-fns';
+import isDateEqual from 'date-fns/isEqual';
 
 import getDatesForTimePeriod from '../../../util/get-dates-for-time-period';
 
@@ -10,7 +10,10 @@ const padMetrics = (metrics, timePeriod, defaults) => {
       ...defaults,
       date,
     })),
-    unionWith((a, b) => isDateEqual(a.date, b.date), metrics),
+    unionWith(
+      (padding, metric) => isDateEqual(padding.date, metric.date),
+      metrics,
+    ),
     sortBy('date'),
   ])(dates);
 

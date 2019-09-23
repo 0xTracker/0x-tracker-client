@@ -7,18 +7,19 @@ import {
   YAxis,
   Tooltip,
 } from 'recharts';
-import { format as formatDate } from 'date-fns';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
 import { colors } from '../../../styles/constants';
+import { DATE_FORMAT } from '../../../constants';
+import formatDate from '../../../util/format-date';
 import getCurrencySymbol from '../../../util/get-currency-symbol';
 import NetworkVolumeTooltip from './network-volume-tooltip';
 import padMetrics from '../util/pad-metrics';
 import sharedPropTypes from '../../../prop-types';
 
-const formatAxisDate = date => formatDate(date, 'MMM DD');
+const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
 const formatFillCount = fillCount => {
   if (fillCount === 0) {
     return '';

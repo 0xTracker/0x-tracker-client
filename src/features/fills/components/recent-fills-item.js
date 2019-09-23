@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { distanceInWordsToNow } from 'date-fns';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -7,10 +6,12 @@ import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
 import { BASE_CURRENCY } from '../../currencies/constants';
+import { DATE_FORMAT } from '../../../constants';
 import buildRelayerUrl from '../../relayers/util/build-relayer-url';
 import buildSearchUrl from '../../search/util/build-search-url';
 import FillLink from './fill-link';
 import FillListAssets from './fill-list-assets';
+import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import RecentFillsItemImage from './recent-fills-item-image';
@@ -124,7 +125,7 @@ const RecentFillsItem = ({ fill, screenSize }) => {
             )}
           </dd>
           <dt>Date</dt>
-          <dd>{distanceInWordsToNow(fill.date)} ago</dd>
+          <dd>{formatDate(fill.date, DATE_FORMAT.RELATIVE)}</dd>
         </Metadata>
       </div>
       {screenSize.greaterThan.xs && _.has(fill, `value.${BASE_CURRENCY}`) ? (

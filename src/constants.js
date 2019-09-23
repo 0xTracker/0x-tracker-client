@@ -1,5 +1,3 @@
-import { parse as parseDate } from 'date-fns';
-
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 const API_CALL_TIMEOUT = process.env.REACT_APP_API_CALL_TIMEOUT || 30000;
@@ -13,11 +11,13 @@ const TIME_PERIOD = {
 };
 
 const DATE_FORMAT = {
+  COMPACT: 'compact',
   FULL: 'fill',
   RELATIVE: 'relative',
+  STANDARD: 'standard',
 };
 
-const GENESIS_DATE = parseDate('2017-08-15T00:00:00Z');
+const GENESIS_DATE = new Date('2017-08-15T00:00:00Z');
 
 const URL = {
   DASHBOARD: '/',
