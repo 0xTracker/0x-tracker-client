@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { getTime } from 'date-fns';
+import getTime from 'date-fns/getTime';
 
 import getIntervalsBetweenDates from './get-intervals-between-dates';
 

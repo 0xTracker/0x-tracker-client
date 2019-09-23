@@ -1,7 +1,7 @@
 import _ from 'lodash';
-import { subDays } from 'date-fns';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import subDays from 'date-fns/subDays';
 
 import { TIME_PERIOD } from '../../../constants';
 import NetworkFeesChart from './network-fees-chart';
