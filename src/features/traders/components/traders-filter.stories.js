@@ -7,6 +7,9 @@ import PageLayout from '../../../components/page-layout';
 import { TRADER_TYPE } from '../constants';
 
 const simpleProps = {
+  defaultFilters: {
+    statsPeriod: TIME_PERIOD.DAY,
+  },
   onChange: newValues => {
     console.log('new values', newValues);
   },
@@ -22,7 +25,7 @@ storiesOf('Traders|TradersFilter', module)
       {...simpleProps}
       selectedFilters={{
         statsPeriod: TIME_PERIOD.MONTH,
-        traderType: TRADER_TYPE.MAKER,
+        type: TRADER_TYPE.MAKER,
       }}
     />
   ))

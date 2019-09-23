@@ -85,7 +85,7 @@ const TradersFilterDialog = ({
           <FormButton onClick={handleSubmit} type="button">
             Apply Filters
           </FormButton>
-          {_.isEmpty(values) ? null : (
+          {_.isEqual(defaultValues, values) ? null : (
             <SecondaryFormButton onClick={handleReset} type="button">
               Reset
             </SecondaryFormButton>

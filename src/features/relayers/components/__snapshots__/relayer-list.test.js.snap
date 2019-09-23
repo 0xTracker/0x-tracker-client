@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders with basic props 1`] = `
-.c3 {
+.c2 {
   color: #3f4ac3;
   cursor: pointer;
 }
 
-.c3:hover {
+.c2:hover {
   color: inherit;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -29,7 +29,7 @@ exports[`renders with basic props 1`] = `
   overflow: hidden;
 }
 
-.c2 {
+.c3 {
   color: #6C6B80;
   font-size: 0.9rem;
 }

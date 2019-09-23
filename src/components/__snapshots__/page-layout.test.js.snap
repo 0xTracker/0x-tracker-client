@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`page layout component should render with children 1`] = `
-.c2 {
+.c1 {
   max-width: 1170px;
 }
 
-.c1 {
+.c2 {
   -webkit-align-items: initial;
   -webkit-box-align: initial;
   -ms-flex-align: initial;

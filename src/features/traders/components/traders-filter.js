@@ -8,11 +8,14 @@ import TimePeriodSelector from '../../../components/time-period-selector';
 import TradersFilterDialog from './traders-filter-dialog';
 import tradersPropTypes from '../prop-types';
 
-const hasAdditionalFilters = (defaultValues, selectedValues) =>
-  _.isEqual(
-    _.omit(defaultValues, 'statsPeriod'),
-    _.omit(selectedValues, 'statsPeriod'),
+const getAdditionalFilterCount = (defaultValues, selectedValues) => {
+  const intersection = _.omitBy(
+    selectedValues,
+    (value, key) => key === 'statsPeriod' || defaultValues[key] === value,
   );
+
+  return Object.keys(intersection).length;
+};
 
 const TradersFilter = ({ defaultFilters, onChange, selectedFilters }) => {
   const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
@@ -38,10 +41,11 @@ const TradersFilter = ({ defaultFilters, onChange, selectedFilters }) => {
         value={selectedFilters.statsPeriod}
       />
       <FilterButton
-        appliedFilterCount={
-          hasAdditionalFilters(defaultFilters, selectedFilters) ? 0 : 1
-        }
         css="margin-left: 0.5rem; flex-shrink: 0; flex-basis: 38px;"
+        indicatorValue={getAdditionalFilterCount(
+          defaultFilters,
+          selectedFilters,
+        )}
         onClick={() => setFiltersDialogVisible(true)}
         title="Show additional filters"
       />
