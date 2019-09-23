@@ -14,28 +14,42 @@ const StyledFilterButton = styled.button`
   display: flex;
   justify-content: center;
   padding: 0;
+  position: relative;
 
   &:hover {
     border-color: ${colors.santasGray};
   }
 `;
 
-const FilterButton = ({ appliedFilterCount, ...otherProps }) => (
+const Indicator = styled.div`
+  align-items: center;
+  background-color: ${colors.indigo};
+  border-radius: 1em;
+  color: white;
+  display: flex;
+  font-size: 0.7rem;
+  font-weight: bold;
+  justify-content: center;
+  position: absolute;
+  right: -0.5rem;
+  top: -0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+`;
+
+const FilterButton = ({ indicatorValue, ...otherProps }) => (
   <StyledFilterButton {...otherProps} type="button">
-    <FilterIcon
-      appliedFilterCount={appliedFilterCount}
-      height={20}
-      width={20}
-    />
+    {indicatorValue > 0 ? <Indicator>{indicatorValue}</Indicator> : null}
+    <FilterIcon height={20} width={20} />
   </StyledFilterButton>
 );
 
 FilterButton.propTypes = {
-  appliedFilterCount: PropTypes.number,
+  indicatorValue: PropTypes.number,
 };
 
 FilterButton.defaultProps = {
-  appliedFilterCount: undefined,
+  indicatorValue: 0,
 };
 
 export default FilterButton;
