@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render without props 1`] = `
-.c6 {
+.c5 {
   display: inline-block;
   vertical-align: -.125em;
   overflow: hidden;
@@ -11,18 +11,18 @@ exports[`should render without props 1`] = `
   max-width: 1170px;
 }
 
-.c4 {
+.c3 {
   color: #3f4ac3;
   cursor: pointer;
 }
 
-.c4:hover {
+.c3:hover {
   color: inherit;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c3 {
+.c4 {
   color: rgba(255,255,255,0.5);
   display: -webkit-box;
   display: -webkit-flex;
@@ -31,15 +31,15 @@ exports[`should render without props 1`] = `
   margin-left: 1rem;
 }
 
-.c3:first-child {
+.c4:first-child {
   margin-left: 0;
 }
 
-.c3:hover {
+.c4:hover {
   color: #fff;
 }
 
-.c5 {
+.c6 {
   height: 1.5rem;
   vertical-align: middle;
   width: 1.5rem;

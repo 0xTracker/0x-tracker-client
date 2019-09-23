@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`page not found component should render without props 1`] = `
-.c10 {
+.c9 {
   color: #3f4ac3;
   cursor: pointer;
 }
 
-.c10:hover {
+.c9:hover {
   color: inherit;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -23,7 +23,7 @@ exports[`page not found component should render without props 1`] = `
   text-decoration: none;
 }
 
-.c4 {
+.c3 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -47,7 +47,7 @@ exports[`page not found component should render without props 1`] = `
   order: 2;
 }
 
-.c9 {
+.c10 {
   margin: 0 0 2rem 0;
   -webkit-order: 1;
   -ms-flex-order: 1;
@@ -63,11 +63,11 @@ exports[`page not found component should render without props 1`] = `
   margin: 0 0 2rem 0;
 }
 
-.c2 {
+.c1 {
   max-width: 1170px;
 }
 
-.c1 {
+.c2 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -104,12 +104,12 @@ exports[`page not found component should render without props 1`] = `
   flex-grow: 1;
 }
 
-.c3 {
+.c4 {
   padding: 3rem 4rem 0;
 }
 
 @media (min-width:768px) {
-  .c4 {
+  .c3 {
     -webkit-align-items: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -136,7 +136,7 @@ exports[`page not found component should render without props 1`] = `
 }
 
 @media (min-width:768px) {
-  .c9 {
+  .c10 {
     margin: 0;
     -webkit-order: 2;
     -ms-flex-order: 2;
