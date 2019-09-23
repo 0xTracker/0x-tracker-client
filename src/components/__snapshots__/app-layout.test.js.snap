@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`app layout component should render with children 1`] = `
-.c11 {
+.c10 {
   display: inline-block;
   vertical-align: -.125em;
   overflow: hidden;
@@ -13,16 +13,16 @@ exports[`app layout component should render with children 1`] = `
   overflow: hidden;
 }
 
-.c3 {
+.c2 {
   max-width: 1170px;
 }
 
-.c21 {
+.c20 {
   color: #3f4ac3;
   cursor: pointer;
 }
 
-.c21:hover {
+.c20:hover {
   color: inherit;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -39,7 +39,7 @@ exports[`app layout component should render with children 1`] = `
   text-decoration: none;
 }
 
-.c20 {
+.c21 {
   color: rgba(255,255,255,0.5);
   display: -webkit-box;
   display: -webkit-flex;
@@ -48,11 +48,11 @@ exports[`app layout component should render with children 1`] = `
   margin-left: 1rem;
 }
 
-.c20:first-child {
+.c21:first-child {
   margin-left: 0;
 }
 
-.c20:hover {
+.c21:hover {
   color: #fff;
 }
 
@@ -228,13 +228,13 @@ exports[`app layout component should render with children 1`] = `
   text-decoration: none;
 }
 
-.c10 {
+.c11 {
   margin-left: 0.5em;
   margin-top: 0.2em;
   pointer-events: none;
 }
 
-.c7 {
+.c6 {
   height: 100%;
   margin: 0 0 0 2.5rem;
   padding: 0;
@@ -250,7 +250,7 @@ exports[`app layout component should render with children 1`] = `
   padding: 0.75rem 0;
 }
 
-.c2 {
+.c3 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -266,7 +266,7 @@ exports[`app layout component should render with children 1`] = `
   height: 100%;
 }
 
-.c6 {
+.c7 {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
@@ -376,21 +376,21 @@ exports[`app layout component should render with children 1`] = `
         </div>
         <a
           aria-current="false"
-          class="c12 c4"
+          class="c4 c12"
           href="/tokens"
         >
           Tokens
         </a>
         <a
           aria-current="false"
-          class="c12 c4"
+          class="c4 c12"
           href="/relayers"
         >
           Relayers
         </a>
         <a
           aria-current="false"
-          class="c12 c4"
+          class="c4 c12"
           href="/news-and-updates"
         >
           News & Updates
@@ -400,7 +400,7 @@ exports[`app layout component should render with children 1`] = `
         class="c13"
       >
         <button
-          class="headway c14"
+          class="c14 headway"
         >
           <svg
             aria-hidden="true"
@@ -424,7 +424,7 @@ exports[`app layout component should render with children 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c11"
+            class="c10"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -445,7 +445,7 @@ exports[`app layout component should render with children 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c11"
+            class="c10"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -472,7 +472,7 @@ exports[`app layout component should render with children 1`] = `
     class="c18"
   >
     <div
-      class="c3 container-fluid"
+      class="c2 container-fluid"
     >
       <div
         class="row"
@@ -498,7 +498,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c22 c11"
+              class="c10 c22"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 496 512"
@@ -519,7 +519,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c22 c11"
+              class="c10 c22"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 448 512"
@@ -540,7 +540,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c22 c11"
+              class="c10 c22"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 512 512"
@@ -561,7 +561,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c22 c11"
+              class="c10 c22"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 512 512"
