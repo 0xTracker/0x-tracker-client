@@ -1,58 +1,43 @@
 import _ from 'lodash';
 import { Form } from 'reactstrap';
-import { withRouter } from 'react-router';
+import { useHistory } from 'react-router';
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 import buildSearchUrl from '../util/build-search-url';
 
-class SearchForm extends PureComponent {
-  state = { searchQuery: '' };
+const SearchForm = ({ children, className, onSearch }) => {
+  const history = useHistory();
+  const [searchQuery, updateSearchQuery] = React.useState('');
 
-  handleSearchQueryChange = event => {
-    this.setState({ searchQuery: event.target.value });
-  };
-
-  handleSubmit = event => {
-    const { searchQuery } = this.state;
-    const { history, onSearch } = this.props;
-
+  const handleSubmit = event => {
     event.preventDefault();
 
     if (!_.isEmpty(_.trim(searchQuery))) {
       history.push(buildSearchUrl(searchQuery));
-      this.setState({ searchQuery: '' });
+      updateSearchQuery('');
       onSearch();
     }
   };
 
-  render() {
-    const { searchQuery } = this.state;
-    const { children, className } = this.props;
+  const handleSearchQueryChange = event => {
+    updateSearchQuery(event.target.value);
+  };
 
-    return (
-      <Form
-        className={className}
-        inline
-        onSubmit={this.handleSubmit}
-        role="search"
-      >
-        {children({
-          currentValue: searchQuery,
-          handleChange: this.handleSearchQueryChange,
-          handleSubmit: this.handleSubmit,
-        })}
-      </Form>
-    );
-  }
-}
+  return (
+    <Form className={className} inline onSubmit={handleSubmit} role="search">
+      {children({
+        currentValue: searchQuery,
+        handleChange: handleSearchQueryChange,
+        handleSubmit,
+      })}
+    </Form>
+  );
+};
 
 SearchForm.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
   onSearch: PropTypes.func.isRequired,
 };
 
@@ -60,4 +45,4 @@ SearchForm.defaultProps = {
   className: undefined,
 };
 
-export default withRouter(SearchForm);
+export default SearchForm;
