@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
-import { NotificationsIcon, SearchIcon, SettingsIcon } from './icons';
+import { colors } from '../../../styles/constants';
+import {
+  NotificationsIcon,
+  SearchIcon,
+  SettingsIcon,
+} from '../../../components/icons';
 import HeaderSearch from './header-search';
-import useSettingsDialog from '../features/preferences/hooks/use-settings-dialog';
+import useSettingsDialog from '../../preferences/hooks/use-settings-dialog';
 
 const ActionButton = styled.button`
   align-items: center;

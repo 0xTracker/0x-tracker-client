@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
-import { URL } from '../constants';
-import CloseIcon from './icons/close-icon';
-import Link from './link';
-import logoImage from '../assets/images/logo-dark.svg';
+import { colors } from '../../../styles/constants';
+import { URL } from '../../../constants';
+import { CloseIcon } from '../../../components/icons';
+import Link from '../../../components/link';
+import logoImage from '../../../assets/images/logo-dark.svg';
 
 const CloseButton = styled.button`
   background: none;

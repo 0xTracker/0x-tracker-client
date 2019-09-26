@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
-import DisableBodyScroll from './disable-body-scroll';
+import { colors } from '../../../styles/constants';
+import DisableBodyScroll from '../../../components/disable-body-scroll';
 import MobileMenuHeader from './mobile-menu-header';
 import MobileNavigation from './mobile-navigation';
 import MobileSearchForm from './mobile-search-form';

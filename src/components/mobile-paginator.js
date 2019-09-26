@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import { LeftArrowIcon, RightArrowIcon } from './icons';
-import PagingSummary from './paging-summary';
 import LoadingIndicator from './loading-indicator';
+import PagingSummary from './paging-summary';
 
 const StyledMobilePaginator = styled.div`
   align-items: center;

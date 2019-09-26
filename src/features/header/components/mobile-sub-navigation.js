@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
-import Link from './link';
+import { colors } from '../../../styles/constants';
+import Link from '../../../components/link';
 
 const StyledNavigation = styled.nav`
   background-color: ${colors.violet};
