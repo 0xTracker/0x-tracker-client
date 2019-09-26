@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { URL } from '../constants';
+import { URL } from '../../../constants';
 import ExpandableMobileNavigationItem from './expandable-mobile-navigation-item';
 import MobileNavigationLink from './mobile-navigation-link';
-import useSettingsDialog from '../features/preferences/hooks/use-settings-dialog';
+import useSettingsDialog from '../../preferences/hooks/use-settings-dialog';
 
 const StyledNav = styled.nav`
   display: flex;

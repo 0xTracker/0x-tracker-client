@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
-import { ChevronDownIcon } from './icons';
+import { colors } from '../../../styles/constants';
+import { ChevronDownIcon } from '../../../components/icons';
 import SubNavigationItem from './sub-navigation-item';
 
 const StyledSubNavigationParent = styled.div`

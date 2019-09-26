@@ -3,8 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-use';
 
-import { colors } from '../styles/constants';
-import { ChevronDownIcon, ChevronUpIcon } from './icons';
+import { colors } from '../../../styles/constants';
+import { ChevronDownIcon, ChevronUpIcon } from '../../../components/icons';
 import MobileSubNavigation from './mobile-sub-navigation';
 
 const StyledItem = styled.button`

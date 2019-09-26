@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import Footer from './footer';
-import Header from './header';
+import Header from '../features/header/components/header';
 
 const AppContainer = styled.div`
   display: flex;

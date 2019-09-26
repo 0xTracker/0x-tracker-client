@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { URL } from '../constants';
+import { URL } from '../../../constants';
 import NavigationLink from './navigation-link';
 import SubNavigationParent from './sub-navigation-parent';
 

@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
-import { SearchIcon } from './icons';
-import SearchForm from '../features/search/components/search-form';
+import { colors } from '../../../styles/constants';
+import { SearchIcon } from '../../../components/icons';
+import SearchForm from '../../search/components/search-form';
 
 const SearchInput = styled.input`
   && {

@@ -3,8 +3,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-use';
 
-import { colors } from '../styles/constants';
-import Link from './link';
+import { colors } from '../../../styles/constants';
+import Link from '../../../components/link';
 
 const StyledLink = styled(Link)`
   color: ${props => (props.highlighted ? colors.white : colors.lavenderGray)};

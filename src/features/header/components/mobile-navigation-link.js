@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import Link from './link';
-import { colors } from '../styles/constants';
+import { colors } from '../../../styles/constants';
+import Link from '../../../components/link';
 
 const StyledMobileNavigationLink = styled(Link)`
   background: none;
