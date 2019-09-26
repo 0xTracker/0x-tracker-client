@@ -6,20 +6,29 @@ import { TIME_PERIOD, URL } from '../../../constants';
 import Card from '../../../components/card';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
-import TimePeriodSelector from '../../../components/time-period-selector';
+import TokensFilter from './tokens-filter';
 import TokenList from './token-list';
 import useTokens from '../hooks/use-tokens';
 import withPagination from '../../../components/with-pagination';
+import buildUrl from '../../../util/build-url';
+
+const defaultFilters = {
+  statsPeriod: TIME_PERIOD.DAY,
+  type: undefined,
+};
 
 const TokensPage = ({ history, location, page, setPage }) => {
   const params = new URLSearchParams(location.search);
   const statsPeriod = params.get('statsPeriod') || TIME_PERIOD.DAY;
+  const type = params.get('type') || undefined;
+  const selectedFilters = { statsPeriod, type };
 
   const [tokens, loadingTokens] = useTokens({
     autoReload: true,
     limit: 50,
     page,
     statsPeriod,
+    type,
   });
 
   const { items, pageCount, pageSize, recordCount } = tokens;
@@ -31,14 +40,12 @@ const TokensPage = ({ history, location, page, setPage }) => {
       </Helmet>
       <PageLayout
         filter={
-          <TimePeriodSelector
-            css="width: 100%;"
-            onChange={newPeriod => {
-              history.push(
-                `${URL.TOKENS}?page=${page}&statsPeriod=${newPeriod}`,
-              );
+          <TokensFilter
+            defaultFilters={defaultFilters}
+            onChange={newFilters => {
+              history.push(buildUrl(URL.TOKENS, newFilters));
             }}
-            value={statsPeriod}
+            selectedFilters={selectedFilters}
           />
         }
         title="Traded Tokens"

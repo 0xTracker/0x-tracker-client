@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import { TOKEN_TYPE } from './constants';
+
 const tokenShape = {
   address: PropTypes.string.isRequired,
   imageUrl: PropTypes.string,
@@ -21,6 +23,7 @@ const statsShape = {
 
 const propTypes = {
   token: PropTypes.shape(tokenShape),
+  tokenType: PropTypes.oneOf(Object.values(TOKEN_TYPE)),
   tokenWithStats: PropTypes.shape({
     ...tokenShape,
     stats: PropTypes.shape(statsShape),
