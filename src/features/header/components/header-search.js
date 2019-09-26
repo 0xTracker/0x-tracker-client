@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
-import { SearchIcon } from './icons';
-import SearchForm from '../features/search/components/search-form';
-import useEscapeKey from '../hooks/use-escape-key';
+import { colors } from '../../../styles/constants';
+import { SearchIcon } from '../../../components/icons';
+import SearchForm from '../../search/components/search-form';
+import useEscapeKey from '../../../hooks/use-escape-key';
 
 const SearchInput = styled.input`
   && {

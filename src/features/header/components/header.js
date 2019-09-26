@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { URL } from '../constants';
-import { colors } from '../styles/constants';
-import { media } from '../styles/util';
-import { MenuIcon, NotificationsIcon } from './icons';
-import Container from './container';
+import { URL } from '../../../constants';
+import { colors } from '../../../styles/constants';
+import { media } from '../../../styles/util';
+import { MenuIcon, NotificationsIcon } from '../../../components/icons';
+import Container from '../../../components/container';
 import HeaderActions from './header-actions';
-import Link from './link';
-import logoImage from '../assets/images/logo-dark.svg';
+import Link from '../../../components/link';
+import logoImage from '../../../assets/images/logo-dark.svg';
 import MobileMenu from './mobile-menu';
 import Navigation from './navigation';
-import SettingsDialogProvider from '../features/preferences/components/settings-dialog-provider';
+import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
 
 const LogoImage = styled.img`
   height: 2.5rem;
