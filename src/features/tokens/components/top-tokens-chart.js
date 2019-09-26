@@ -7,7 +7,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { withRouter } from 'react-router';
+import { useHistory } from 'react-router';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -19,8 +19,9 @@ import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
 const formatPercentage = value => `${numeral(value).format('0')}%`;
 
-const TopTokensChart = ({ data, history }) => {
+const TopTokensChart = ({ data }) => {
   const displayCurrency = useDisplayCurrency();
+  const history = useHistory();
 
   if (_.isEmpty(data)) {
     return 'No data available';
@@ -86,9 +87,6 @@ TopTokensChart.propTypes = {
       volume: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 };
 
-export default withRouter(TopTokensChart);
+export default TopTokensChart;

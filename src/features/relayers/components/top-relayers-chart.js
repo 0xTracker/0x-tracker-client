@@ -7,7 +7,7 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import { withRouter } from 'react-router';
+import { useHistory } from 'react-router';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -18,13 +18,15 @@ import TopRelayersTooltip from './top-relayers-tooltip';
 
 const formatXAxis = share => `${numeral(share).format('0.[00]')}%`;
 
-const TopRelayersChart = ({ data, history, displayCurrency }) => {
+const TopRelayersChart = ({ data, displayCurrency }) => {
+  const history = useHistory();
+
   if (_.isEmpty(data)) {
     return 'No data available';
   }
 
-  const redirectToRelayer = relayer => {
-    const url = buildRelayerUrl(relayer);
+  const redirectToRelayer = dataPoint => {
+    const url = buildRelayerUrl(dataPoint.relayer);
 
     history.push(url);
   };
@@ -91,9 +93,6 @@ TopRelayersChart.propTypes = {
     }),
   ).isRequired,
   displayCurrency: PropTypes.string.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
 };
 
-export default withRouter(TopRelayersChart);
+export default TopRelayersChart;
