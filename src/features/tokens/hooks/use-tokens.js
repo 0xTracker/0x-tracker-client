@@ -5,7 +5,7 @@ import useApi from '../../../hooks/use-api';
 const useTokens = (options = {}) => {
   const [response, loading] = useApi('tokens', {
     autoReload: options.autoReload,
-    params: _.pick(options, ['limit', 'page', 'statsPeriod']),
+    params: _.pick(options, ['limit', 'page', 'statsPeriod', 'type']),
   });
 
   const { limit, page, pageCount, tokens, total } = response || {};
