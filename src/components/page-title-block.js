@@ -41,7 +41,7 @@ const Title = styled.h1`
   `};
 `;
 
-const FilterContainer = styled(Col).attrs({
+const ChildrenContainer = styled(Col).attrs({
   lg: { offset: 3, size: 3 },
   md: { offset: 2, size: 4 },
   sm: { offset: 1, size: 5 },
@@ -56,26 +56,26 @@ const FilterContainer = styled(Col).attrs({
   `};
 `;
 
-const FilterHeader = ({ filter, title }) => (
+const PageTitleBlock = ({ children, title }) => (
   <StyledContentHeader>
     <Container>
       <Row>
         <TitleContainer>
           <Title>{title}</Title>
         </TitleContainer>
-        {filter ? <FilterContainer>{filter}</FilterContainer> : null}
+        {children ? <ChildrenContainer>{children}</ChildrenContainer> : null}
       </Row>
     </Container>
   </StyledContentHeader>
 );
 
-FilterHeader.propTypes = {
-  filter: PropTypes.node,
+PageTitleBlock.propTypes = {
+  children: PropTypes.node,
   title: PropTypes.string.isRequired,
 };
 
-FilterHeader.defaultProps = {
-  filter: undefined,
+PageTitleBlock.defaultProps = {
+  children: undefined,
 };
 
-export default FilterHeader;
+export default PageTitleBlock;

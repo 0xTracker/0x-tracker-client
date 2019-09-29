@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Container from './container';
-import FilterHeader from './filter-header';
+import PageTitleBlock from './page-title-block';
 
 const PageBody = styled(Container)`
   align-items: ${props => (props.centered ? 'center' : 'initial')};
@@ -22,7 +22,7 @@ const StyledPageLayout = styled.div`
 
 const PageLayout = ({ centered, children, filter, title }) => (
   <StyledPageLayout>
-    {title ? <FilterHeader filter={filter} title={title} /> : null}
+    {title ? <PageTitleBlock title={title}>{filter}</PageTitleBlock> : null}
     <PageBody centered={centered}>{children}</PageBody>
   </StyledPageLayout>
 );
