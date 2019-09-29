@@ -4,10 +4,6 @@ import React from 'react';
 import PageLayout from './page-layout';
 
 const simpleProps = {
-  breadcrumbItems: [
-    { title: 'Tokens', url: '/tokens' },
-    { title: 'DAI Stablecoin', url: '/tokens/0x982739812734' },
-  ],
   title: 'DAI Stablecoin',
 };
 

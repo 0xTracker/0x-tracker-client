@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import React, { useState } from 'react';
 import { useSearchParam } from 'react-use';
 
-import buildSearchUrl from '../util/build-search-url';
 import Card from '../../../components/card';
 import FillsProvider from '../../fills/components/fills-provider';
 import LoadingIndicator from '../../../components/loading-indicator';
@@ -24,12 +23,7 @@ const SearchPage = () => {
       <Helmet>
         <title>Search Results</title>
       </Helmet>
-      <PageLayout
-        breadcrumbItems={[
-          { title: 'Search Results', url: buildSearchUrl(searchQuery) },
-        ]}
-        title="Search Results"
-      >
+      <PageLayout title="Search Results">
         <Card fullHeight>
           <FillsProvider
             filter={{ address: _.toLower(searchQuery) }}

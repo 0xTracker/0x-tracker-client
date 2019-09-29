@@ -8,8 +8,13 @@ import { colors } from '../styles/constants';
 import Container from './container';
 
 const StyledContentHeader = styled.div`
-  padding: 1.5rem 0;
-  border-radius: 0px 2px 4px rgba(126, 142, 177, 0.12);
+  align-items: center;
+  display: flex;
+  min-height: 38px;
+
+  ${media.greaterThan('sm')`
+    margin: 0 0 1.5rem;
+  `};
 `;
 
 const TitleContainer = styled(Col).attrs({ sm: 6, xs: 12 })`
@@ -44,6 +49,11 @@ const FilterContainer = styled(Col).attrs({
 })`
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 1.5rem;
+
+  ${media.greaterThan('sm')`
+    margin-bottom: 0;
+  `};
 `;
 
 const FilterHeader = ({ filter, title }) => (
@@ -53,15 +63,19 @@ const FilterHeader = ({ filter, title }) => (
         <TitleContainer>
           <Title>{title}</Title>
         </TitleContainer>
-        <FilterContainer>{filter}</FilterContainer>
+        {filter ? <FilterContainer>{filter}</FilterContainer> : null}
       </Row>
     </Container>
   </StyledContentHeader>
 );
 
 FilterHeader.propTypes = {
-  filter: PropTypes.node.isRequired,
+  filter: PropTypes.node,
   title: PropTypes.string.isRequired,
+};
+
+FilterHeader.defaultProps = {
+  filter: undefined,
 };
 
 export default FilterHeader;
