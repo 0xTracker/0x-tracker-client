@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
 import ChartsContainer from '../../../components/charts-container';
-import ContentSection from '../../../components/content-section';
+import Container from '../../../components/container';
 import DashboardMetrics from './dashboard-metrics';
 import getPeriodOptions from '../../../util/get-period-options';
 import LatestNewsCard from '../../news/components/latest-news-card';
@@ -44,7 +44,7 @@ const StyledDashboardMetrics = styled(DashboardMetrics)`
 `;
 
 const DashboardPage = ({ screenSize }) => (
-  <ContentSection>
+  <Container>
     <StyledDashboardMetrics />
     <Row>
       <DashboardColumn lg={7}>
@@ -99,7 +99,7 @@ const DashboardPage = ({ screenSize }) => (
         />
       </DashboardColumn>
     </Row>
-  </ContentSection>
+  </Container>
 );
 
 DashboardPage.propTypes = {

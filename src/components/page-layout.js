@@ -11,7 +11,6 @@ const PageBody = styled(Container)`
   flex-direction: column;
   flex-grow: 1;
   justify-content: ${props => (props.centered ? 'center' : 'initial')};
-  padding-bottom: 1rem;
 `;
 
 const StyledPageLayout = styled.div`

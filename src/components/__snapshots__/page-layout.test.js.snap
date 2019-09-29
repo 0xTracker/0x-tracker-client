@@ -25,7 +25,6 @@ exports[`page layout component should render with children 1`] = `
   -webkit-justify-content: initial;
   -ms-flex-pack: initial;
   justify-content: initial;
-  padding-bottom: 1rem;
 }
 
 .c0 {
