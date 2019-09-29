@@ -297,6 +297,7 @@ exports[`app layout component should render with children 1`] = `
   -webkit-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  padding: 2rem 0;
 }
 
 @media (min-width:768px) {
