@@ -37,7 +37,7 @@
     "prop-types": "15.7.2",
     "react": "16.10.1",
     "react-dom": "16.10.1",
-    "react-ga": "2.6.0",
+    "react-ga": "2.7.0",
     "react-helmet": "6.0.0-beta",
     "react-hot-loader": "4.12.14",
     "react-kawaii": "0.14.4",
