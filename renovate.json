@@ -1,4 +1,4 @@
 {
   "extends": ["github>0xTracker/renovate-config-0x-tracker"],
-  "rebaseStalePrs": true
+  "rebaseStalePrs": false
 }
