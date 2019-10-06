@@ -3,7 +3,6 @@
 [![Build Status](https://img.shields.io/travis/0xTracker/0x-tracker-client.svg?style=flat-square)](https://travis-ci.org/0xTracker/0x-tracker-client)
 [![Dependencies](https://img.shields.io/david/0xtracker/0x-tracker-client.svg?style=flat-square)](https://github.com/0xTracker/0x-tracker-client)
 [![Codecov](https://img.shields.io/codecov/c/github/0xTracker/0x-tracker-client.svg?style=flat-square)](https://codecov.io/gh/0xTracker/0x-tracker-client)
-[![Chat on Spectrum](https://img.shields.io/badge/chat%20on-spectrum-752bf2.svg?style=flat-square)](https://spectrum.chat/0x-tracker)
 
 > Single page application built using React which provides an interface for exploring data from the 0x Tracker API.
 
@@ -136,6 +135,17 @@ Hosting is provided by [Netlify](https://netlify.com) which means every pull req
 ## 👨‍💻 Maintainers
 
 - Craig Bovis ([@cbovis](https://github.com/cbovis))
+
+## Supporters
+
+Infrastructure for 0x Tracker is generously supported by these companies.
+
+<table>
+  <tr>
+    <td align="center"><a href="https://cryptocompare.com"><img src="https://0xtracker.com/assets/supporters/crypto-compare.png" width="120px;" alt="CryptoCompare"/><br /><sub><b>CryptoCompare</b></sub></a></td>
+    <td align="center"><a href="https://bugsnag.com"><img src="https://0xtracker.com/assets/supporters/bugsnag.png" width="120px;" alt="Bugsnag"/><br /><sub><b>Bugsnag</b></sub></a></td>
+  </tr>
+</table>
 
 ## 👩‍⚖️ License
 
