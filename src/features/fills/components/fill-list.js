@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { BASE_CURRENCY } from '../../currencies/constants';
-import { ZRX_TOKEN, DATE_FORMAT } from '../../../constants';
+import { DATE_FORMAT } from '../../../constants';
 import { MoreIcon } from '../../../components/icons';
 import buildFillUrl from '../util/build-fill-url';
 import FillListAssets from './fill-list-assets';
@@ -11,7 +11,6 @@ import FillRelayerLink from './fill-relayer-link';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import TokenAmount from '../../tokens/components/token-amount';
 
 const FillList = ({ excludeColumns, fills }) => {
   const includeColumn = column => !excludeColumns.includes(column);
@@ -26,7 +25,6 @@ const FillList = ({ excludeColumns, fills }) => {
           <th className="text-right">Taker Amount</th>
           <th className="text-right">Value</th>
           {includeColumn('relayer') && <th>Relayer</th>}
-          <th className="text-right">Fees (ZRX)</th>
           <th title="View" />
         </tr>
       </thead>
@@ -63,9 +61,6 @@ const FillList = ({ excludeColumns, fills }) => {
                 <FillRelayerLink fill={fill} showImage />
               </td>
             )}
-            <td className="text-right">
-              <TokenAmount amount={fill.totalFees.ZRX} token={ZRX_TOKEN} />
-            </td>
             <td className="text-center">
               <Link href={buildFillUrl(fill.id)} title="View Transaction">
                 <MoreIcon height={24} width={24} />
