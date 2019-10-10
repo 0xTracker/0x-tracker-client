@@ -20,7 +20,6 @@ const DashboardMetrics = ({ className, screenSize }) => {
   const [networkStats] = useNetworkStats();
   const [relayerStats] = useRelayerStats();
 
-  const fees = _.get(networkStats, 'fees.USD');
   const fillCount = _.get(networkStats, 'fills');
   const fillVolume = _.get(networkStats, 'volume');
   const tradeVolume = _.get(relayerStats, 'tradeVolume');
@@ -43,7 +42,6 @@ const DashboardMetrics = ({ className, screenSize }) => {
   ) : (
     <AsyncDashboardMetricsCarousel
       className={className}
-      fees={fees}
       fillCount={fillCount}
       fillVolume={fillVolume}
       tradeVolume={tradeVolume}

@@ -12,7 +12,6 @@ import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getPeriodOptions from '../../../util/get-period-options';
 import LoadingPage from '../../../components/loading-page';
-import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
@@ -52,10 +51,6 @@ const RelayerPage = ({ screenSize, slug }) => {
             {
               component: <NetworkVolume relayerId={relayer.id} type="fills" />,
               title: 'Fill Count',
-            },
-            {
-              component: <NetworkFees relayerId={relayer.id} />,
-              title: 'ZRX Fees',
             },
           ]}
           defaultPeriod={TIME_PERIOD.YEAR}
