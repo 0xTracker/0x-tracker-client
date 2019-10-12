@@ -11,9 +11,9 @@ it('returns relayer link when trade has a relayer', () => {
   const fill = {
     ...simpleFill,
     relayer: {
+      imageUrl: 'https://tempuri.org/google.jpg',
       name: 'Google',
       slug: 'google',
-      url: 'https://google.com',
     },
   };
   const { container } = renderWithRouter(<FillRelayerLink fill={fill} />);
