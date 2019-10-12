@@ -1,19 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`asset label component should render for ERC-20 asset 1`] = `
-.c0 {
-  color: #3f4ac3;
-  cursor: pointer;
-}
-
-.c0:hover {
-  color: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 <a
-  class="c0"
+  class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
   href="/tokens/0x12345"
 >
   Wrapped Ether
@@ -26,19 +15,8 @@ exports[`asset label component should render for ERC-20 asset 1`] = `
 `;
 
 exports[`asset label component should render for ERC-721 asset 1`] = `
-.c0 {
-  color: #3f4ac3;
-  cursor: pointer;
-}
-
-.c0:hover {
-  color: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 <a
-  class="c0"
+  class="link__OutboundLink-sc-1m1n17q-0 dFkevI"
   href="https://opensea.io/assets/0x12345/999"
   rel="noopener noreferrer"
   target="_blank"
@@ -55,19 +33,8 @@ exports[`asset label component should render for ERC-721 asset 1`] = `
 `;
 
 exports[`asset label component should render for unknown token 1`] = `
-.c0 {
-  color: #3f4ac3;
-  cursor: pointer;
-}
-
-.c0:hover {
-  color: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 <a
-  class="c0"
+  class="link__OutboundLink-sc-1m1n17q-0 dFkevI"
   href="https://opensea.io/assets/0x12345/999"
   rel="noopener noreferrer"
   target="_blank"

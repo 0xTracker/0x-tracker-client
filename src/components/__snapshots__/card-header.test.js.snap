@@ -1,22 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`card header component should render with children 1`] = `
-.c0 {
-  background: none;
-  border-bottom: 1px solid #f1f2f7;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  padding: 1rem;
-}
-
 <div
-  class="c0 card-header"
+  class="card-header__CardHeader-sc-17r9xuv-0 bLqXRj card-header"
 >
   Hello World
 </div>

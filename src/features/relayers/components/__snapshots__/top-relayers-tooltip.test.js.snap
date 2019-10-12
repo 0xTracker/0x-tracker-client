@@ -1,82 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render with payload 1`] = `
-.c0 {
-  background-color: #f7f8fe;
-  border-radius: 0.25rem;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  padding: 1rem;
-  text-align: left;
-}
-
-.c1 {
-  font-weight: bold;
-  font-size: 1rem;
-  margin-bottom: 1.2rem;
-  text-align: center;
-}
-
-.c3 {
-  display: inline-block;
-  font-weight: normal;
-}
-
-.c4 {
-  display: inline-block;
-  margin-left: 0.25rem;
-}
-
-.c2 {
-  margin: 0;
-  padding: 0;
-}
-
 <div
-  class="c0"
+  class="chart-tooltip__ChartTooltipWrapper-sc-1bnoebf-0 bfjmva"
 >
   <h1
-    class="c1"
+    class="chart-tooltip__ChartTooltipTitle-sc-1bnoebf-1 jaVyDc"
   >
     Radar Relay
   </h1>
   <dl
-    class="c2"
+    class="sc-bdVaJa hzNPjz"
   >
     <div>
       <dt
-        class="c3"
+        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
       >
         market share
         :
       </dt>
       <dd
-        class="c4"
+        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
       >
         22.5%
       </dd>
     </div>
     <div>
       <dt
-        class="c3"
+        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
       >
         total trades
         :
       </dt>
       <dd
-        class="c4"
+        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
       >
         50
       </dd>
     </div>
     <div>
       <dt
-        class="c3"
+        class="chart-tooltip__ChartTooltipItemTitle-sc-1bnoebf-2 lgtHFO"
       >
         volume (USD)
         :
       </dt>
       <dd
-        class="c4"
+        class="chart-tooltip__ChartTooltipItemValue-sc-1bnoebf-3 iGJDpP"
       >
         <span>
           $540,600.00
