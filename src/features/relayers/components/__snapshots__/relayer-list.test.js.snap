@@ -1,39 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders with basic props 1`] = `
-.c2 {
-  color: #3f4ac3;
-  cursor: pointer;
-}
-
-.c2:hover {
-  color: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c0 {
-  color: #3f4ac3;
-  cursor: pointer;
-}
-
-.c0:hover {
-  color: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c1 {
-  display: inline-block;
-  vertical-align: -.125em;
-  overflow: hidden;
-}
-
-.c3 {
-  color: #6C6B80;
-  font-size: 0.9rem;
-}
-
 <table
   class="table table-responsive"
 >
@@ -70,12 +37,12 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="c0"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/ddex"
         >
           <svg
             aria-hidden="true"
-            class="c1"
+            class="StyledIconBase-sc-bdy9j4 cCvWXa"
             color="#dcdde4"
             fill="currentColor"
             focusable="false"
@@ -96,7 +63,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <a
-          class="c0"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/ddex"
         >
           DDEX
@@ -104,7 +71,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="c2 c3"
+          class="link__OutboundLink-sc-1m1n17q-0 dFkevI sc-bwzfXH jjoKdi"
           href="https://ddex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -135,12 +102,12 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="c0"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/paradex"
         >
           <svg
             aria-hidden="true"
-            class="c1"
+            class="StyledIconBase-sc-bdy9j4 cCvWXa"
             color="#dcdde4"
             fill="currentColor"
             focusable="false"
@@ -161,7 +128,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <a
-          class="c0"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/paradex"
         >
           Paradex
@@ -169,7 +136,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="c2 c3"
+          class="link__OutboundLink-sc-1m1n17q-0 dFkevI sc-bwzfXH jjoKdi"
           href="https://paradex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -200,12 +167,12 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="c0"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/radar-relay"
         >
           <svg
             aria-hidden="true"
-            class="c1"
+            class="StyledIconBase-sc-bdy9j4 cCvWXa"
             color="#dcdde4"
             fill="currentColor"
             focusable="false"
@@ -226,7 +193,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <a
-          class="c0"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/relayers/radar-relay"
         >
           Radar Relay
@@ -234,7 +201,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="c2 c3"
+          class="link__OutboundLink-sc-1m1n17q-0 dFkevI sc-bwzfXH jjoKdi"
           href="https://radarrelay.com"
           rel="noopener noreferrer"
           target="_blank"

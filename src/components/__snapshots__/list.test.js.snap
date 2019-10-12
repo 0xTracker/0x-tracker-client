@@ -1,13 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`list component should render without props 1`] = `
-.c0 {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
 <ul
-  class="c0"
+  class="list__List-sc-1hr42jb-0 cRmZyp"
 />
 `;

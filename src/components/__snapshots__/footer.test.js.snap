@@ -1,114 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render without props 1`] = `
-.c5 {
-  display: inline-block;
-  vertical-align: -.125em;
-  overflow: hidden;
-}
-
-.c1 {
-  max-width: 1170px;
-}
-
-.c3 {
-  color: #3f4ac3;
-  cursor: pointer;
-}
-
-.c3:hover {
-  color: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c4 {
-  color: rgba(255,255,255,0.5);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: 1rem;
-}
-
-.c4:first-child {
-  margin-left: 0;
-}
-
-.c4:hover {
-  color: #fff;
-}
-
-.c6 {
-  height: 1.5rem;
-  vertical-align: middle;
-  width: 1.5rem;
-}
-
-.c0 {
-  background: #0A0830;
-  color: #fff;
-  padding: 2rem;
-}
-
-.c2 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.c7 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-@media (min-width:768px) {
-  .c2 {
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    margin-bottom: 0;
-    -webkit-order: 2;
-    -ms-flex-order: 2;
-    order: 2;
-  }
-}
-
-@media (min-width:768px) {
-  .c7 {
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-  }
-}
-
 <div
-  class="c0"
+  class="sc-bdVaJa gJOUvW"
 >
   <div
-    class="c1 container-fluid"
+    class="container__StyledContainer-cj53s7-0 eMKfDZ container-fluid"
   >
     <div
       class="row"
@@ -123,10 +20,10 @@ exports[`should render without props 1`] = `
             ,
     }
   "
-        class="c2 col-12 col-md-6"
+        class="footer__FooterColumn-htpw4v-2 sc-bwzfXH hjUyci col-12 col-md-6"
       >
         <a
-          class="c3 c4"
+          class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__FooterIconLink-htpw4v-0 fCORGB"
           href="https://github.com/0xtracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -134,7 +31,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c5 c6"
+            class="StyledIconBase-sc-bdy9j4 cCvWXa footer__FooterIcon-htpw4v-1 dkzOKO"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 496 512"
@@ -147,7 +44,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="c3 c4"
+          class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__FooterIconLink-htpw4v-0 fCORGB"
           href="https://discord.gg/tnV8hud"
           rel="noopener noreferrer"
           target="_blank"
@@ -155,7 +52,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c5 c6"
+            class="StyledIconBase-sc-bdy9j4 cCvWXa footer__FooterIcon-htpw4v-1 dkzOKO"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 448 512"
@@ -168,7 +65,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="c3 c4"
+          class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__FooterIconLink-htpw4v-0 fCORGB"
           href="https://twitter.com/0xTracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -176,7 +73,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c5 c6"
+            class="StyledIconBase-sc-bdy9j4 cCvWXa footer__FooterIcon-htpw4v-1 dkzOKO"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 512 512"
@@ -189,7 +86,7 @@ exports[`should render without props 1`] = `
           </svg>
         </a>
         <a
-          class="c3 c4"
+          class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__FooterIconLink-htpw4v-0 fCORGB"
           href="https://medium.com/0x-tracker"
           rel="noopener noreferrer"
           target="_blank"
@@ -197,7 +94,7 @@ exports[`should render without props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="c5 c6"
+            class="StyledIconBase-sc-bdy9j4 cCvWXa footer__FooterIcon-htpw4v-1 dkzOKO"
             fill="currentColor"
             focusable="false"
             viewBox="0 0 512 512"
@@ -218,7 +115,7 @@ exports[`should render without props 1`] = `
             ,
     }
   "
-        class="c7 col-12 col-md-6"
+        class="footer__FooterColumn-htpw4v-2 sc-htpNat fTYzNZ col-12 col-md-6"
       >
         Copyright © 0x Tracker 
         2019

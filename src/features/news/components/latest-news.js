@@ -11,13 +11,11 @@ const LatestNews = ({ compact, showImages }) => (
       loadingInitial ? (
         <LoadingIndicator centered />
       ) : (
-        <>
-          <ArticleList
-            articles={articles}
-            compact={compact}
-            showImages={showImages}
-          />
-        </>
+        <ArticleList
+          articles={articles}
+          compact={compact}
+          showImages={showImages}
+        />
       )
     }
   </ArticlesProvider>

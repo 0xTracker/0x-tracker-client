@@ -11,7 +11,6 @@ import Container from '../../../components/container';
 import DashboardMetrics from './dashboard-metrics';
 import getPeriodOptions from '../../../util/get-period-options';
 import LatestNewsCard from '../../news/components/latest-news-card';
-import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
 import TopRelayers from '../../relayers/components/top-relayers';
@@ -52,7 +51,6 @@ const DashboardPage = ({ screenSize }) => (
           charts={[
             { component: NetworkVolume, title: 'Fill Volume' },
             { component: <NetworkVolume type="fills" />, title: 'Fill Count' },
-            { component: NetworkFees, title: 'ZRX Fees' },
           ]}
           defaultPeriod={TIME_PERIOD.YEAR}
           periods={
