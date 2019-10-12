@@ -160,6 +160,7 @@ module.exports = {
     'react/forbid-component-props': 'off',
     'react/forbid-dom-props': ['error', { forbid: ['style'] }],
     'react/forbid-prop-types': 'warn', // TODO: Convert to error once fixed
+    'react/jsx-child-element-spacing': 'off',
     'react/jsx-curly-newline': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     'react/jsx-indent': 'off',

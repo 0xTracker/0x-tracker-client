@@ -9,7 +9,7 @@ const sanitizeArticle = article => ({
   date: new Date(article.date),
 });
 
-class ArticlesProvider extends React.Component {
+class ArticlesProvider extends React.PureComponent {
   state = { isLoading: false, page: 1 };
 
   componentDidMount() {
