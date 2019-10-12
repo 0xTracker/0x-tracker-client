@@ -1,91 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render full size paginator 1`] = `
-.c1 {
-  margin: 0;
-}
-
-.c3 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-}
-
-.c3 .pagination {
-  margin: 0;
-  padding: 0;
-}
-
-.c3 .page-item {
-  margin: 0 3px 0 0;
-}
-
-.c3 .page-item:last-child {
-  margin: 0;
-}
-
-.c3 .page-item .page-link {
-  background-color: #f1f2f7;
-  border: none;
-  border-radius: 0;
-  color: currentColor;
-  cursor: pointer;
-  display: block;
-  outline: none;
-  padding: 0.75rem 1rem;
-}
-
-.c3 .page-item .page-link:hover {
-  background-color: #dcdde4;
-}
-
-.c3 .page-item.active .page-link {
-  background-color: #dcdde4;
-}
-
-.c3 .page-item.disabled .page-link,
-.c3 .page-item.disabled .page-link:hover {
-  cursor: default;
-  color: #9F9EB9;
-}
-
-.c0 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  margin: 1rem;
-}
-
-.c2 {
-  font-weight: bold;
-}
-
 <div
-  class="c0"
+  class="full-paginator__StyledPaginator-sc-4xhne0-1 bDSfwG"
 >
   <p
-    class="c1 c2"
+    class="sc-bdVaJa dPGdhj sc-bwzfXH hhKVau"
   >
     Displaying 
     1
@@ -96,7 +16,7 @@ exports[`should render full size paginator 1`] = `
     147
   </p>
   <div
-    class="c3"
+    class="full-paginator__Pages-sc-4xhne0-0 hBghil"
   >
     <ul
       class="pagination"

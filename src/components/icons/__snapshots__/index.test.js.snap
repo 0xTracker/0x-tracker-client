@@ -1,15 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render filter icon 1`] = `
-.c0 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
-}
-
 <svg
   aria-hidden="true"
-  class="c0"
+  class="StyledIconBase-sc-bdy9j4 jbPeIR"
   fill="currentColor"
   focusable="false"
   viewBox="0 0 24 24"
