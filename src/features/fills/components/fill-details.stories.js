@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
+import Card from '../../../components/card';
 import FillDetails from './fill-details';
 
 const fill = {
@@ -50,10 +51,16 @@ const fill = {
 const screenSize = { lessThan: { sm: false } };
 
 storiesOf('Fills|FillDetails', module)
+  .addDecorator(getStory => <Card padded>{getStory()}</Card>)
   .add('default', () => <FillDetails fill={fill} screenSize={screenSize} />)
-  .add('without basic fees', () => (
+  .add('v3 fill', () => (
     <FillDetails
-      fill={{ ...fill, makerFee: undefined, takerFee: undefined }}
+      fill={{
+        ...fill,
+        makerFee: undefined,
+        protocolFee: { ETH: '0.00109933', USD: 0.2 },
+        takerFee: undefined,
+      }}
       screenSize={screenSize}
     />
   ));

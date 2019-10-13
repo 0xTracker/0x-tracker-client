@@ -33,6 +33,11 @@ const URL = {
   TRADERS: '/traders',
 };
 
+const WETH_TOKEN = {
+  address: '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
+  symbol: 'WETH',
+};
+
 const ZRX_TOKEN = {
   address: '0xe41d2489571d322189246dafa5ebde1f4699f498',
   symbol: 'ZRX',
@@ -45,5 +50,6 @@ export {
   GENESIS_DATE,
   TIME_PERIOD,
   URL,
+  WETH_TOKEN,
   ZRX_TOKEN,
 };

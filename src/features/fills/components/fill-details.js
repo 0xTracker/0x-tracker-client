@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
-import { DATE_FORMAT, ZRX_TOKEN } from '../../../constants';
+import { DATE_FORMAT, WETH_TOKEN, ZRX_TOKEN } from '../../../constants';
 import { media } from '../../../styles/util';
 import AssetLabel from './asset-label';
 import buildSearchUrl from '../../search/util/build-search-url';
@@ -129,7 +129,7 @@ const FillDetails = ({ fill, screenSize }) => {
         </EthereumAddressLink>
       </FillDetail>
 
-      <FillDetail last title="Derived Prices">
+      <FillDetail title="Derived Prices">
         {assetsWithPrices.length === 0 ? (
           'None'
         ) : (
@@ -145,6 +145,16 @@ const FillDetails = ({ fill, screenSize }) => {
           </List>
         )}
       </FillDetail>
+      {fill.protocolFee !== undefined ? (
+        <FillDetail title="Protocol Fee">
+          <TokenAmount amount={fill.protocolFee.ETH} token={WETH_TOKEN} />
+          {fill.protocolFee.USD !== undefined ? (
+            <PriceBadge>
+              <LocalisedAmount amount={fill.protocolFee.USD} />
+            </PriceBadge>
+          ) : null}
+        </FillDetail>
+      ) : null}
     </FillDetailList>
   );
 };
