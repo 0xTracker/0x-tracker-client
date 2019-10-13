@@ -1,10 +1,10 @@
-import { storiesOf } from '@storybook/react';
+import _ from 'lodash';
 import React from 'react';
 
-import Card from '../../../components/card';
+import { renderWithRouter } from '../../../test-util/react';
 import FillDetails from './fill-details';
 
-const fill = {
+const simpleFill = {
   assets: [
     {
       amount: '0.96955',
@@ -48,19 +48,37 @@ const fill = {
   value: { USD: 184.292064 },
 };
 
-const screenSize = { lessThan: { sm: false } };
+const simpleScreenSize = { lessThan: { sm: false } };
 
-storiesOf('Fills|FillDetails', module)
-  .addDecorator(getStory => <Card padded>{getStory()}</Card>)
-  .add('default', () => <FillDetails fill={fill} screenSize={screenSize} />)
-  .add('v3 fill', () => (
-    <FillDetails
-      fill={{
-        ...fill,
-        makerFee: undefined,
-        protocolFee: { ETH: '0.00109933', USD: 0.2 },
-        takerFee: undefined,
-      }}
-      screenSize={screenSize}
-    />
-  ));
+beforeAll(() => {
+  // eslint-disable-next-line no-extend-native
+  Date.prototype.getTimezoneOffset = _.constant(180); // Mock timezone as UTC-3
+});
+
+describe('fillDetails component', () => {
+  it('should render V2 fill', () => {
+    const { asFragment } = renderWithRouter(
+      <FillDetails fill={simpleFill} screenSize={simpleScreenSize} />,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
+  it('should render V3 fill', () => {
+    const fill = {
+      ...simpleFill,
+      makerFee: undefined,
+      protocolFee: {
+        ETH: '0.0001',
+        USD: 0.2,
+      },
+      takerFee: undefined,
+    };
+
+    const { asFragment } = renderWithRouter(
+      <FillDetails fill={fill} screenSize={simpleScreenSize} />,
+    );
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+});
