@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { mapProps } from 'recompose';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
@@ -15,6 +15,7 @@ import TokenVolume from '../../metrics/components/token-volume';
 import useToken from '../hooks/use-token';
 
 const TokenPage = ({ tokenAddress }) => {
+  const [page, setPage] = useState(1);
   const [token, loadingToken] = useToken(tokenAddress);
 
   if (loadingToken) {
@@ -57,7 +58,11 @@ const TokenPage = ({ tokenAddress }) => {
           />
         ) : null}
         <Card css="flex-grow: 1;">
-          <Fills filter={{ token: tokenAddress }} />
+          <Fills
+            filter={{ token: tokenAddress }}
+            onPageChange={setPage}
+            page={page}
+          />
         </Card>
       </PageLayout>
     </>

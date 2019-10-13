@@ -2,7 +2,7 @@ import { compose, mapProps } from 'recompose';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
@@ -26,6 +26,7 @@ const StyledChartsContainer = styled(ChartsContainer)`
 `;
 
 const RelayerPage = ({ screenSize, slug }) => {
+  const [page, setPage] = useState(1);
   const [relayer, loadingRelayer] = useRelayer(slug);
 
   if (loadingRelayer) {
@@ -70,6 +71,8 @@ const RelayerPage = ({ screenSize, slug }) => {
           <Fills
             excludeColumns={['relayer']}
             filter={{ relayer: relayer.id }}
+            onPageChange={setPage}
+            page={page}
           />
         </Card>
       </PageLayout>

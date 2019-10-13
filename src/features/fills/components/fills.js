@@ -1,32 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-import FillsProvider from './fills-provider';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PagedFillList from './paged-fill-list';
+import useFills from '../hooks/use-fills';
 
-const Fills = ({ excludeColumns, filter }) => {
-  const [page, setPage] = useState(1);
+const Fills = ({ excludeColumns, filter, page, onPageChange }) => {
+  const [fills, loading] = useFills({
+    autoReload: true,
+    clearPreviousResponse: false,
+    filter,
+    page,
+  });
 
-  return (
-    <FillsProvider filter={filter} page={page}>
-      {({ changingPage, fills, loading, pageCount, pageSize, total }) =>
-        loading ? (
-          <LoadingIndicator centered />
-        ) : (
-          <PagedFillList
-            changingPage={changingPage}
-            excludeColumns={excludeColumns}
-            fills={fills}
-            onPageChange={setPage}
-            page={page}
-            pageCount={pageCount}
-            pageSize={pageSize}
-            total={total}
-          />
-        )
-      }
-    </FillsProvider>
+  const { items, pageCount, pageSize, recordCount } = fills;
+
+  return loading && items === undefined ? (
+    <LoadingIndicator centered />
+  ) : (
+    <PagedFillList
+      changingPage={loading && items !== undefined}
+      excludeColumns={excludeColumns}
+      fills={items}
+      onPageChange={onPageChange}
+      page={page}
+      pageCount={pageCount}
+      pageSize={pageSize}
+      total={recordCount}
+    />
   );
 };
 
@@ -36,11 +37,13 @@ Fills.propTypes = {
     address: PropTypes.string,
     token: PropTypes.string,
   }),
+  onPageChange: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
 };
 
 Fills.defaultProps = {
   excludeColumns: undefined,
-  filter: undefined,
+  filter: {},
 };
 
 export default Fills;
