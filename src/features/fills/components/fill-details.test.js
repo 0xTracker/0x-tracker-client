@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 
 import { renderWithRouter } from '../../../test-util/react';
@@ -48,6 +49,11 @@ const simpleFill = {
 };
 
 const simpleScreenSize = { lessThan: { sm: false } };
+
+beforeAll(() => {
+  // eslint-disable-next-line no-extend-native
+  Date.prototype.getTimezoneOffset = _.constant(180); // Mock timezone as UTC-3
+});
 
 describe('fillDetails component', () => {
   it('should render V2 fill', () => {

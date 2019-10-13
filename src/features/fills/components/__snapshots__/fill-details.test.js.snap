@@ -60,7 +60,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dd
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
-      Thursday, October 10th 2019, 10:13:48 AM
+      Thursday, October 10th 2019, 06:13:48 AM
     </dd>
     <dt
       class="fill-detail__Title-q3it9r-0 gEZdTC"
@@ -425,7 +425,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dd
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
-      Thursday, October 10th 2019, 10:13:48 AM
+      Thursday, October 10th 2019, 06:13:48 AM
     </dd>
     <dt
       class="fill-detail__Title-q3it9r-0 gEZdTC"
