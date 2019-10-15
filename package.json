@@ -57,7 +57,7 @@
     "redux": "4.0.4",
     "redux-responsive": "4.3.8",
     "styled-components": "4.4.0",
-    "styled-icons": "8.4.2",
+    "styled-icons": "8.6.0",
     "styled-media-query": "2.1.2"
   },
   "devDependencies": {
