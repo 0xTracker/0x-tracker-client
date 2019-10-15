@@ -119,7 +119,7 @@
     "terser-webpack-plugin": "2.1.3",
     "timekeeper": "2.2.0",
     "unused-files-webpack-plugin": "3.4.0",
-    "webpack": "4.41.0",
+    "webpack": "4.41.2",
     "webpack-bundle-analyzer": "3.5.2",
     "webpack-cli": "3.3.9",
     "webpack-dev-server": "3.8.2",
