@@ -1,7 +1,6 @@
-import { mapProps } from 'recompose';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useCallback } from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
@@ -10,9 +9,20 @@ import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import PageLayout from '../../../components/page-layout';
+import buildUrl from '../../../util/build-url';
 
-const TraderPage = ({ address }) => {
-  const [page, setPage] = useState(1);
+const TraderPage = ({ history, location, match }) => {
+  const { address } = match.params;
+  const params = new URLSearchParams(location.search);
+  const page = Number(params.get('page')) || 1;
+
+  const onPageChange = useCallback(newPage => {
+    history.push(
+      buildUrl(match.url, {
+        page: newPage,
+      }),
+    );
+  }, []);
 
   return (
     <>
@@ -49,8 +59,8 @@ const TraderPage = ({ address }) => {
             { label: 'ALL', value: TIME_PERIOD.ALL },
           ]}
         />
-        <Card css="flex-grow: 1;">
-          <Fills filter={{ address }} onPageChange={setPage} page={page} />
+        <Card fullHeight>
+          <Fills filter={{ address }} onPageChange={onPageChange} page={page} />
         </Card>
       </PageLayout>
     </>
@@ -58,9 +68,18 @@ const TraderPage = ({ address }) => {
 };
 
 TraderPage.propTypes = {
-  address: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    search: PropTypes.string.isRequired,
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      address: PropTypes.string.isRequired,
+    }).isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
-export default mapProps(({ match }) => ({
-  address: match.params.address,
-}))(TraderPage);
+export default TraderPage;

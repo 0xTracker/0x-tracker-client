@@ -14,7 +14,6 @@ const useApi = (method, options = {}) => {
 
   const opts = _.defaults({}, options, {
     autoReload: false,
-    clearPreviousResponse: true,
     params: {},
     version: 1,
   });
@@ -32,7 +31,7 @@ const useApi = (method, options = {}) => {
         ...state,
         cancelRequest: source.cancel,
         loading: true,
-        response: opts.clearPreviousResponse ? undefined : state.response,
+        response: undefined,
       });
 
       const fetchData = async () => {

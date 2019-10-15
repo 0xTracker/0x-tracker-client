@@ -8,18 +8,16 @@ import useFills from '../hooks/use-fills';
 const Fills = ({ excludeColumns, filter, page, onPageChange }) => {
   const [fills, loading] = useFills({
     autoReload: true,
-    clearPreviousResponse: false,
     filter,
     page,
   });
 
   const { items, pageCount, pageSize, recordCount } = fills;
 
-  return loading && items === undefined ? (
+  return loading ? (
     <LoadingIndicator centered />
   ) : (
     <PagedFillList
-      changingPage={loading && items !== undefined}
       excludeColumns={excludeColumns}
       fills={items}
       onPageChange={onPageChange}

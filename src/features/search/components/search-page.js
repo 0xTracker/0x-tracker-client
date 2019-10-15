@@ -21,7 +21,6 @@ const SearchPage = ({ history, location }) => {
 
   const [fills, loading] = useFills({
     autoReload: true,
-    clearPreviousResponse: false,
     filter: { address: _.toLower(searchQuery) },
     page,
   });
@@ -48,11 +47,11 @@ const SearchPage = ({ history, location }) => {
       </Helmet>
       <PageLayout title="Search Results">
         <Card fullHeight>
-          {loading && items === undefined ? (
+          {loading ? (
             <LoadingIndicator centered />
           ) : (
             <SearchResults
-              changingPage={loading && items !== undefined}
+              changingPage={loading}
               fills={items}
               onPageChange={onPageChange}
               page={page}

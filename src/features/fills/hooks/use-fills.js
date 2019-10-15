@@ -5,7 +5,6 @@ const useFills = (options = {}) => {
 
   const [response, loading] = useApi('fills', {
     autoReload: options.autoReload,
-    clearPreviousResponse: options.clearPreviousResponse,
     params: {
       limit: options.limit,
       page: options.page,
