@@ -1,4 +1,3 @@
-import { compose, mapProps } from 'recompose';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -11,7 +10,9 @@ import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 import useFill from '../hooks/use-fill';
 
-const FillPage = ({ fillId, screenSize }) => {
+const FillPage = ({ match, screenSize }) => {
+  const { id: fillId } = match.params;
+
   const [fill, loading] = useFill(fillId);
 
   if (loading) {
@@ -37,7 +38,12 @@ const FillPage = ({ fillId, screenSize }) => {
 };
 
 FillPage.propTypes = {
-  fillId: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
   screenSize: PropTypes.shape({
     lessThan: PropTypes.shape({
       sm: PropTypes.bool.isRequired,
@@ -45,11 +51,6 @@ FillPage.propTypes = {
   }).isRequired,
 };
 
-const enhance = compose(
-  mapProps(({ match }) => ({ fillId: match.params.id })),
-  connect(state => ({
-    screenSize: state.screen,
-  })),
-);
-
-export default enhance(FillPage);
+export default connect(state => ({
+  screenSize: state.screen,
+}))(FillPage);
