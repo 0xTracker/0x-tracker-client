@@ -187,7 +187,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
             </a>
              
             <span
-              class="fill-assets-list__AssetTypeBadge-sc-2koyyn-0 jZfTgo badge badge-dark"
+              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
             >
               ERC-20
             </span>
@@ -235,48 +235,13 @@ exports[`fillDetails component should render V2 fill 1`] = `
             </a>
              
             <span
-              class="fill-assets-list__AssetTypeBadge-sc-2koyyn-0 jZfTgo badge badge-dark"
+              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
             >
               ERC-20
             </span>
           </span>
         </li>
       </ul>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 gEZdTC"
-    >
-      Maker Fee:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
-    >
-      None
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 gEZdTC"
-    >
-      Taker Fee:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
-    >
-      None
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 gEZdTC"
-    >
-      Fee Recipient:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
-    >
-      <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
-        href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
-      >
-        0xa258b39954cef5cb142fd567a46cddb31a670124
-      </a>
     </dd>
     <dt
       class="fill-detail__Title-q3it9r-0 gEZdTC"
@@ -360,6 +325,41 @@ exports[`fillDetails component should render V2 fill 1`] = `
           </span>
         </li>
       </ul>
+    </dd>
+    <dt
+      class="fill-detail__Title-q3it9r-0 gEZdTC"
+    >
+      Maker Fee:
+    </dt>
+    <dd
+      class="fill-detail__Value-q3it9r-1 hhYdhc"
+    >
+      None
+    </dd>
+    <dt
+      class="fill-detail__Title-q3it9r-0 gEZdTC"
+    >
+      Taker Fee:
+    </dt>
+    <dd
+      class="fill-detail__Value-q3it9r-1 hhYdhc"
+    >
+      None
+    </dd>
+    <dt
+      class="fill-detail__Title-q3it9r-0 gEZdTC"
+    >
+      Fee Recipient:
+    </dt>
+    <dd
+      class="fill-detail__Value-q3it9r-1 hhYdhc"
+    >
+      <a
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
+      >
+        0xa258b39954cef5cb142fd567a46cddb31a670124
+      </a>
     </dd>
   </dl>
 </DocumentFragment>
@@ -552,7 +552,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
             </a>
              
             <span
-              class="fill-assets-list__AssetTypeBadge-sc-2koyyn-0 jZfTgo badge badge-dark"
+              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
             >
               ERC-20
             </span>
@@ -600,28 +600,13 @@ exports[`fillDetails component should render V3 fill 1`] = `
             </a>
              
             <span
-              class="fill-assets-list__AssetTypeBadge-sc-2koyyn-0 jZfTgo badge badge-dark"
+              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
             >
               ERC-20
             </span>
           </span>
         </li>
       </ul>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 gEZdTC"
-    >
-      Fee Recipient:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
-    >
-      <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
-        href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
-      >
-        0xa258b39954cef5cb142fd567a46cddb31a670124
-      </a>
     </dd>
     <dt
       class="fill-detail__Title-q3it9r-0 gEZdTC"
@@ -705,6 +690,21 @@ exports[`fillDetails component should render V3 fill 1`] = `
           </span>
         </li>
       </ul>
+    </dd>
+    <dt
+      class="fill-detail__Title-q3it9r-0 gEZdTC"
+    >
+      Fee Recipient:
+    </dt>
+    <dd
+      class="fill-detail__Value-q3it9r-1 hhYdhc"
+    >
+      <a
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
+      >
+        0xa258b39954cef5cb142fd567a46cddb31a670124
+      </a>
     </dd>
     <dt
       class="fill-detail__Title-q3it9r-0 gEZdTC"
