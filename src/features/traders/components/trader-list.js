@@ -37,13 +37,11 @@ const TraderList = ({ positionOffset, traders }) => (
         <th className="align-middle">Trader</th>
         <th className="text-center" colSpan={3}>
           Fill Count
-          {''}
           <br />
           <ColumnDescriptor>(maker / taker)</ColumnDescriptor>
         </th>
         <th className="text-center" colSpan={3}>
           Fill Volume
-          {''}
           <br />
           <ColumnDescriptor>(maker / taker)</ColumnDescriptor>
         </th>

@@ -1,19 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render a trader link 1`] = `
-.c0 {
-  color: #3f4ac3;
-  cursor: pointer;
-}
-
-.c0:hover {
-  color: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
 <a
-  class="c0"
+  class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
   href="/traders/0xb14232b0204b2f7bb6ba5aff59ef36030f7fe38b"
 >
   Hello World

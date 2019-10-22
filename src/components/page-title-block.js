@@ -17,7 +17,7 @@ const StyledContentHeader = styled.div`
   `};
 `;
 
-const TitleContainer = styled(Col).attrs({ sm: 6, xs: 12 })`
+const TitleContainer = styled(Col)`
   align-items: center;
   display: flex;
   margin: 0 0 1.25rem;
@@ -34,6 +34,7 @@ const Title = styled.h1`
   margin: 0;
   padding: 0 0 1.25rem;
   width: 100%;
+  word-break: break-all;
 
   ${media.greaterThan('sm')`
     border: none;
