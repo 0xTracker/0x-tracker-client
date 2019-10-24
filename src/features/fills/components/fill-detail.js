@@ -1,39 +1,36 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { media } from '../../../styles/util';
 import { colors } from '../../../styles/constants';
 
 const Title = styled.dt`
+  border-bottom: 1px solid ${colors.athensGray};
   font-weight: normal;
   margin: 0.6rem 0 0;
+  padding: 0 0 0.6rem;
+
+  &:last-of-type {
+    border: none;
+    padding: 0;
+  }
 
   ${media.greaterThan('md')`
-    ${props =>
-      props.last
-        ? ''
-        : css`
-            border-bottom: 1px solid ${colors.athensGray};
-            padding: 0 0 0.6rem;
-          `};
-    
-    
     width: 20%;
   `};
 `;
 
 const Value = styled.dd`
+  border-bottom: 1px solid ${colors.athensGray};
   overflow: hidden;
+  padding: 0 0 0.6rem;
   text-overflow: ellipsis;
 
-  ${props =>
-    props.last
-      ? ''
-      : css`
-          border-bottom: 1px solid ${colors.athensGray};
-          padding: 0 0 0.6rem;
-        `};
+  &:last-of-type {
+    border: none;
+    padding: 0;
+  }
 
   ${media.greaterThan('md')`
     margin: 0.6rem 0 0;
@@ -41,21 +38,16 @@ const Value = styled.dd`
   `};
 `;
 
-const FillDetail = ({ children, last, title }) => (
+const FillDetail = ({ children, title }) => (
   <>
-    <Title last={last}>{title}:</Title>
-    <Value last={last}>{children}</Value>
+    <Title>{title}:</Title>
+    <Value>{children}</Value>
   </>
 );
 
 FillDetail.propTypes = {
   children: PropTypes.node.isRequired,
-  last: PropTypes.bool,
   title: PropTypes.string.isRequired,
-};
-
-FillDetail.defaultProps = {
-  last: false,
 };
 
 export default FillDetail;

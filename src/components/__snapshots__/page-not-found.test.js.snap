@@ -1,191 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`page not found component should render without props 1`] = `
-.c9 {
-  color: #3f4ac3;
-  cursor: pointer;
-}
-
-.c9:hover {
-  color: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c8 {
-  color: #3f4ac3;
-  cursor: pointer;
-}
-
-.c8:hover {
-  color: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: 0 auto;
-  max-width: 800px;
-  min-height: 100%;
-  text-align: center;
-}
-
-.c5 {
-  -webkit-order: 2;
-  -ms-flex-order: 2;
-  order: 2;
-}
-
-.c10 {
-  margin: 0 0 2rem 0;
-  -webkit-order: 1;
-  -ms-flex-order: 1;
-  order: 1;
-}
-
-.c6 {
-  font-size: 1.6rem;
-}
-
-.c7 {
-  font-size: 1.1rem;
-  margin: 0 0 2rem 0;
-}
-
-.c1 {
-  max-width: 1170px;
-}
-
-.c2 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-}
-
-.c4 {
-  padding: 3rem 4rem 0;
-}
-
-@media (min-width:768px) {
-  .c3 {
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    text-align: left;
-  }
-}
-
-@media (min-width:768px) {
-  .c5 {
-    margin: 0;
-    -webkit-order: 1;
-    -ms-flex-order: 1;
-    order: 1;
-    padding: 0 4rem 0 0;
-  }
-}
-
-@media (min-width:768px) {
-  .c10 {
-    margin: 0;
-    -webkit-order: 2;
-    -ms-flex-order: 2;
-    order: 2;
-  }
-}
-
-@media (min-width:768px) {
-  .c6 {
-    font-size: 2rem;
-  }
-}
-
-@media (min-width:768px) {
-  .c7 {
-    font-size: 1.3rem;
-  }
-}
-
 <div
-  class="c0"
+  class="page-layout__StyledPageLayout-cls0ob-1 djvvIo"
 >
   <div
-    class="c1 c2 container-fluid"
+    class="container__StyledContainer-cj53s7-0 eMKfDZ page-layout__PageBody-cls0ob-0 jrvuaA container-fluid"
   >
     <div
-      class="c3 c4"
+      class="error-message__StyledErrorMessage-sc-1wau1ja-0 iieVxL sc-bdVaJa jrDMCH"
     >
       <div
-        class="c5"
+        class="error-message__CopyWrapper-sc-1wau1ja-1 dNhivl"
       >
         <h1
-          class="c6"
+          class="h1__H1-sc-1ha1x4u-0 VRpIX"
         >
           Page Not Found
         </h1>
         <p
-          class="c7"
+          class="lead__Lead-sc-1kvewtn-0 iBJMsa"
         >
           Oops, the page you requested doesn‘t exist.
         </p>
         <a
-          class="c8"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
           href="/"
         >
           Back to Dashboard
         </a>
       </div>
       <a
-        class="c9 c10"
+        class="link__OutboundLink-sc-1m1n17q-0 dFkevI error-message__GhostLink-sc-1wau1ja-2 ldtSSD"
         href="https://react-kawaii.now.sh/"
         rel="noopener noreferrer"
         target="_blank"

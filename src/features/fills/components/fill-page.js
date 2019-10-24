@@ -1,55 +1,18 @@
-/* eslint-disable react/jsx-max-depth */
-import _ from 'lodash';
-import { compose, mapProps } from 'recompose';
 import { Helmet } from 'react-helmet';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
-import { DATE_FORMAT, ZRX_TOKEN } from '../../../constants';
-import { media } from '../../../styles/util';
-import AssetLabel from './asset-label';
-import buildSearchUrl from '../../search/util/build-search-url';
 import Card from '../../../components/card';
-import EthereumAddressLink from '../../../components/ethereum-address-link';
-import FillAssetsList from './fill-assets-list';
-import FillDetail from './fill-detail';
-import FillRelayerLink from './fill-relayer-link';
-import FillStatusLabel from './fill-status-label';
-import formatDate from '../../../util/format-date';
-import Link from '../../../components/link';
-import List from '../../../components/list';
-import ListItem from '../../../components/list-item';
+import FillDetails from './fill-details';
 import LoadingPage from '../../../components/loading-page';
-import LocalisedAmount from '../../currencies/components/localised-amount';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
-import SearchLink from '../../search/components/search-link';
-import TokenAmount from '../../tokens/components/token-amount';
-import TraderLink from '../../traders/components/trader-link';
 import useFill from '../hooks/use-fill';
 
-const FillDetailList = styled.dl`
-  margin-bottom: 1.5rem;
+const FillPage = ({ match, screenSize }) => {
+  const { id: fillId } = match.params;
 
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-  ${media.greaterThan('md')`
-    display: flex;
-    flex-wrap: wrap;
-  `};
-`;
-
-const PriceBadge = styled.span.attrs({ className: 'badge' })`
-  background-color: ${colors.mischka};
-  margin-left: 0.5rem;
-`;
-
-const FillPage = ({ fillId, screenSize }) => {
   const [fill, loading] = useFill(fillId);
 
   if (loading) {
@@ -60,10 +23,6 @@ const FillPage = ({ fillId, screenSize }) => {
     return <PageNotFound />;
   }
 
-  const assetsWithPrices = _.filter(fill.assets, asset =>
-    _.isObject(asset.price),
-  );
-
   return (
     <>
       <Helmet>
@@ -71,109 +30,7 @@ const FillPage = ({ fillId, screenSize }) => {
       </Helmet>
       <PageLayout title="Fill Details">
         <Card css="padding: 2rem;" fullHeight>
-          <>
-            <FillDetailList>
-              <FillDetail title="Transaction Hash">
-                <Link href={`https://etherscan.io/tx/${fill.transactionHash}`}>
-                  {fill.transactionHash}
-                </Link>
-              </FillDetail>
-              <FillDetail title="Order Hash">
-                <Link href={buildSearchUrl(fill.orderHash)}>
-                  {fill.orderHash}
-                </Link>
-              </FillDetail>
-              {fill.senderAddress && (
-                <FillDetail title="Sender Address">
-                  <SearchLink searchQuery={fill.senderAddress}>
-                    {fill.senderAddress}
-                  </SearchLink>
-                </FillDetail>
-              )}
-              <FillDetail title="Date">
-                {formatDate(fill.date, DATE_FORMAT.FULL)}
-              </FillDetail>
-              <FillDetail title="Relayer">
-                <FillRelayerLink fill={fill} showImage />
-              </FillDetail>
-              <FillDetail title="Status">
-                <FillStatusLabel status={fill.status} />
-              </FillDetail>
-              <FillDetail title="0x Protocol">
-                v{fill.protocolVersion}
-              </FillDetail>
-              {_.has(fill.value, 'USD') && (
-                <FillDetail title="Value">
-                  <LocalisedAmount amount={fill.value.USD} />
-                </FillDetail>
-              )}
-              <FillDetail title="Maker Address">
-                <TraderLink address={fill.makerAddress}>
-                  {fill.makerAddress}
-                </TraderLink>
-              </FillDetail>
-              <FillDetail title="Taker Address">
-                <TraderLink address={fill.takerAddress}>
-                  {fill.takerAddress}
-                </TraderLink>
-              </FillDetail>
-              <FillDetail title="Maker Assets">
-                <FillAssetsList
-                  assets={_.filter(fill.assets, { traderType: 'maker' })}
-                  condensed={screenSize.lessThan.sm}
-                />
-              </FillDetail>
-              <FillDetail title="Taker Assets">
-                <FillAssetsList
-                  assets={_.filter(fill.assets, { traderType: 'taker' })}
-                  condensed={screenSize.lessThan.sm}
-                />
-              </FillDetail>
-              <FillDetail title="Maker Fee">
-                {fill.makerFee.ZRX !== '0' ? (
-                  <TokenAmount amount={fill.makerFee.ZRX} token={ZRX_TOKEN} />
-                ) : (
-                  'None'
-                )}
-              </FillDetail>
-              <FillDetail title="Taker Fee">
-                {fill.takerFee.ZRX !== '0' ? (
-                  <TokenAmount amount={fill.takerFee.ZRX} token={ZRX_TOKEN} />
-                ) : (
-                  'None'
-                )}
-              </FillDetail>
-
-              {fill.totalFees.ZRX !== '0' && (
-                <FillDetail title="Total Fees">
-                  <TokenAmount amount={fill.totalFees.ZRX} token={ZRX_TOKEN} />
-                </FillDetail>
-              )}
-
-              <FillDetail title="Fee Recipient">
-                <EthereumAddressLink address={fill.feeRecipient}>
-                  {fill.feeRecipient}
-                </EthereumAddressLink>
-              </FillDetail>
-
-              <FillDetail last title="Derived Prices">
-                {assetsWithPrices.length === 0 ? (
-                  'None'
-                ) : (
-                  <List>
-                    {assetsWithPrices.map(asset => (
-                      <ListItem key={`${asset.tokenAddress}-${asset.tokenId}`}>
-                        <AssetLabel asset={asset} />
-                        <PriceBadge>
-                          <LocalisedAmount amount={asset.price.USD} />
-                        </PriceBadge>
-                      </ListItem>
-                    ))}
-                  </List>
-                )}
-              </FillDetail>
-            </FillDetailList>
-          </>
+          <FillDetails fill={fill} screenSize={screenSize} />
         </Card>
       </PageLayout>
     </>
@@ -181,7 +38,12 @@ const FillPage = ({ fillId, screenSize }) => {
 };
 
 FillPage.propTypes = {
-  fillId: PropTypes.string.isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }).isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
   screenSize: PropTypes.shape({
     lessThan: PropTypes.shape({
       sm: PropTypes.bool.isRequired,
@@ -189,13 +51,6 @@ FillPage.propTypes = {
   }).isRequired,
 };
 
-const enhance = compose(
-  mapProps(({ match }) => ({ fillId: match.params.id })),
-  connect(state => ({
-    screenSize: state.screen,
-  })),
-);
-
-export default enhance(FillPage);
-
-/* eslint-enable react/jsx-max-depth */
+export default connect(state => ({
+  screenSize: state.screen,
+}))(FillPage);

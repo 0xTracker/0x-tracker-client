@@ -1,8 +1,7 @@
-import { compose, mapProps } from 'recompose';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
@@ -12,11 +11,11 @@ import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getPeriodOptions from '../../../util/get-period-options';
 import LoadingPage from '../../../components/loading-page';
-import NetworkFees from '../../metrics/components/network-fees';
 import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 import useRelayer from '../hooks/use-relayer';
+import buildUrl from '../../../util/build-url';
 
 const StyledChartsContainer = styled(ChartsContainer)`
   margin-bottom: 1.25rem;
@@ -26,8 +25,20 @@ const StyledChartsContainer = styled(ChartsContainer)`
   `}
 `;
 
-const RelayerPage = ({ screenSize, slug }) => {
+const RelayerPage = ({ history, location, match, screenSize }) => {
+  const { slug } = match.params;
+  const params = new URLSearchParams(location.search);
+  const page = Number(params.get('page')) || 1;
+
   const [relayer, loadingRelayer] = useRelayer(slug);
+
+  const onPageChange = useCallback(newPage => {
+    history.push(
+      buildUrl(match.url, {
+        page: newPage,
+      }),
+    );
+  }, []);
 
   if (loadingRelayer) {
     return <LoadingPage />;
@@ -53,10 +64,6 @@ const RelayerPage = ({ screenSize, slug }) => {
               component: <NetworkVolume relayerId={relayer.id} type="fills" />,
               title: 'Fill Count',
             },
-            {
-              component: <NetworkFees relayerId={relayer.id} />,
-              title: 'ZRX Fees',
-            },
           ]}
           defaultPeriod={TIME_PERIOD.YEAR}
           periods={
@@ -71,10 +78,12 @@ const RelayerPage = ({ screenSize, slug }) => {
               : undefined
           }
         />
-        <Card>
+        <Card fullHeight>
           <Fills
             excludeColumns={['relayer']}
             filter={{ relayer: relayer.id }}
+            onPageChange={onPageChange}
+            page={page}
           />
         </Card>
       </PageLayout>
@@ -83,17 +92,27 @@ const RelayerPage = ({ screenSize, slug }) => {
 };
 
 RelayerPage.propTypes = {
-  screenSize: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    search: PropTypes.string.isRequired,
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      slug: PropTypes.string.isRequired,
+    }).isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
+  screenSize: PropTypes.shape({
+    greaterThan: PropTypes.shape({
+      xs: PropTypes.bool.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = state => ({
   screenSize: state.screen,
 });
 
-const enhance = compose(
-  mapProps(({ match }) => ({ slug: match.params.slug })),
-  connect(mapStateToProps),
-);
-
-export default enhance(RelayerPage);
+export default connect(mapStateToProps)(RelayerPage);

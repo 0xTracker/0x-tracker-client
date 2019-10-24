@@ -1,366 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`app layout component should render with children 1`] = `
-.c10 {
-  display: inline-block;
-  vertical-align: -.125em;
-  overflow: hidden;
-}
-
-.c15 {
-  display: inline-block;
-  vertical-align: middle;
-  overflow: hidden;
-}
-
-.c2 {
-  max-width: 1170px;
-}
-
-.c20 {
-  color: #3f4ac3;
-  cursor: pointer;
-}
-
-.c20:hover {
-  color: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c4 {
-  color: #3f4ac3;
-  cursor: pointer;
-}
-
-.c4:hover {
-  color: inherit;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c21 {
-  color: rgba(255,255,255,0.5);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: 1rem;
-}
-
-.c21:first-child {
-  margin-left: 0;
-}
-
-.c21:hover {
-  color: #fff;
-}
-
-.c22 {
-  height: 1.5rem;
-  vertical-align: middle;
-  width: 1.5rem;
-}
-
-.c18 {
-  background: #0A0830;
-  color: #fff;
-  padding: 2rem;
-}
-
-.c19 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin-bottom: 1.5rem;
-}
-
-.c23 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
-.c16 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background: none;
-  border: none;
-  border-radius: 0.25rem;
-  color: #bfbedf;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: 0 0.5rem 0 0;
-  padding: 0.5rem 0.75rem;
-}
-
-.c16:hover {
-  background: #fff;
-  color: #0A0830;
-}
-
-.c16:last-child {
-  margin: 0;
-}
-
-.c14 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background: none;
-  border: none;
-  border-radius: 0.25rem;
-  color: #bfbedf;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin: 0 0.5rem 0 0;
-  padding: 0.5rem 0.75rem;
-  position: relative;
-}
-
-.c14:hover {
-  background: #fff;
-  color: #0A0830;
-}
-
-.c14:last-child {
-  margin: 0;
-}
-
-.c14 #HW_badge_cont {
-  position: absolute;
-  right: 3px;
-  top: -3px;
-}
-
-.c13 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.c12 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  color: #bfbedf;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  height: 100%;
-  margin-right: 1.75rem;
-}
-
-.c12:hover {
-  color: #fff;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c8 {
-  display: inline-block;
-  height: 100%;
-  position: relative;
-}
-
-.c9 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-  color: #bfbedf;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  height: 100%;
-  margin-right: 0.75rem;
-  padding: 0 1rem 0 0;
-  position: relative;
-}
-
-.c9:hover {
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c11 {
-  margin-left: 0.5em;
-  margin-top: 0.2em;
-  pointer-events: none;
-}
-
-.c6 {
-  height: 100%;
-  margin: 0 0 0 2.5rem;
-  padding: 0;
-}
-
-.c5 {
-  height: 2.5rem;
-}
-
-.c1 {
-  background-color: #0A0830;
-  height: 4.5rem;
-  padding: 0.75rem 0;
-}
-
-.c3 {
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.c7 {
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-}
-
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.c17 {
-  background-color: #f1f2f7;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  padding: 2rem 0;
-}
-
-@media (min-width:768px) {
-  .c19 {
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-    margin-bottom: 0;
-    -webkit-order: 2;
-    -ms-flex-order: 2;
-    order: 2;
-  }
-}
-
-@media (min-width:768px) {
-  .c23 {
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-    justify-content: flex-start;
-  }
-}
-
-@media (min-width:768px) {
-  .c1 {
-    padding: 0;
-  }
-}
-
 <div
-  class="c0"
+  class="app-layout__AppContainer-nr5sez-0 jUhpZW"
 >
   <header
-    class="c1"
+    class="header__StyledHeader-gflnft-2 jPLSFA"
   >
     <div
-      class="c2 c3 container-fluid"
+      class="container__StyledContainer-cj53s7-0 eMKfDZ sc-gzVnrw fpnrqL container-fluid"
     >
       <a
-        class="c4"
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
         href="/"
       >
         <img
           alt="0x Tracker"
-          class="c5"
+          class="header__LogoImage-gflnft-0 iAKICy"
           src="test-file-stub"
         />
       </a>
       <nav
         aria-label="Primary"
-        class="c6 c7"
+        class="navigation__StyledNavigation-sc-18grpkd-0 hSFpfo sc-htoDjs iaqIDu"
       >
         <div
-          class="c8"
+          class="sub-navigation-parent__StyledSubNavigationParent-sc-10lb7wi-0 dAlejz"
         >
           <div
-            class="c9"
+            class="sub-navigation-parent__NavigationItem-sc-10lb7wi-1 hSJlGd"
           >
             Network
             <svg
               aria-hidden="true"
-              class="c10 c11"
+              class="StyledIconBase-sc-bdy9j4 cCvWXa sub-navigation-parent__SubNavigationIndicator-sc-10lb7wi-3 fujWlp"
               fill="currentColor"
               focusable="false"
               height="10"
@@ -377,35 +50,35 @@ exports[`app layout component should render with children 1`] = `
         </div>
         <a
           aria-current="false"
-          class="c4 c12"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy navigation-link__StyledNavigationLink-do5zl-0 zWJCW"
           href="/tokens"
         >
           Tokens
         </a>
         <a
           aria-current="false"
-          class="c4 c12"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy navigation-link__StyledNavigationLink-do5zl-0 zWJCW"
           href="/relayers"
         >
           Relayers
         </a>
         <a
           aria-current="false"
-          class="c4 c12"
+          class="link__InternalLink-sc-1m1n17q-1 kIJfjy navigation-link__StyledNavigationLink-do5zl-0 zWJCW"
           href="/news-and-updates"
         >
           News & Updates
         </a>
       </nav>
       <div
-        class="c13"
+        class="sc-ifAKCX iEreoI"
       >
         <button
-          class="c14 headway"
+          class="header-actions__ActionButton-sc-10491ou-0 header-actions__NotificationsButton-sc-10491ou-1 erWovD headway"
         >
           <svg
             aria-hidden="true"
-            class="c15"
+            class="StyledIconBase-sc-bdy9j4 jbPeIR"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -420,12 +93,12 @@ exports[`app layout component should render with children 1`] = `
           </svg>
         </button>
         <button
-          class="c16"
+          class="header-actions__ActionButton-sc-10491ou-0 fSufHx"
           title="Settings"
         >
           <svg
             aria-hidden="true"
-            class="c10"
+            class="StyledIconBase-sc-bdy9j4 cCvWXa"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -441,12 +114,12 @@ exports[`app layout component should render with children 1`] = `
           </svg>
         </button>
         <button
-          class="c16"
+          class="header-actions__ActionButton-sc-10491ou-0 fSufHx"
           title="Search"
         >
           <svg
             aria-hidden="true"
-            class="c10"
+            class="StyledIconBase-sc-bdy9j4 cCvWXa"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -465,15 +138,15 @@ exports[`app layout component should render with children 1`] = `
     </div>
   </header>
   <div
-    class="c17"
+    class="app-layout__AppBody-nr5sez-1 eKtPLD"
   >
     Hello World
   </div>
   <div
-    class="c18"
+    class="sc-bdVaJa gJOUvW"
   >
     <div
-      class="c2 container-fluid"
+      class="container__StyledContainer-cj53s7-0 eMKfDZ container-fluid"
     >
       <div
         class="row"
@@ -488,10 +161,10 @@ exports[`app layout component should render with children 1`] = `
             ,
     }
   "
-          class="c19 col-12 col-md-6"
+          class="footer__FooterColumn-htpw4v-2 sc-bwzfXH hjUyci col-12 col-md-6"
         >
           <a
-            class="c20 c21"
+            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__FooterIconLink-htpw4v-0 fCORGB"
             href="https://github.com/0xtracker"
             rel="noopener noreferrer"
             target="_blank"
@@ -499,7 +172,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c10 c22"
+              class="StyledIconBase-sc-bdy9j4 cCvWXa footer__FooterIcon-htpw4v-1 dkzOKO"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 496 512"
@@ -512,7 +185,7 @@ exports[`app layout component should render with children 1`] = `
             </svg>
           </a>
           <a
-            class="c20 c21"
+            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__FooterIconLink-htpw4v-0 fCORGB"
             href="https://discord.gg/tnV8hud"
             rel="noopener noreferrer"
             target="_blank"
@@ -520,7 +193,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c10 c22"
+              class="StyledIconBase-sc-bdy9j4 cCvWXa footer__FooterIcon-htpw4v-1 dkzOKO"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 448 512"
@@ -533,7 +206,7 @@ exports[`app layout component should render with children 1`] = `
             </svg>
           </a>
           <a
-            class="c20 c21"
+            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__FooterIconLink-htpw4v-0 fCORGB"
             href="https://twitter.com/0xTracker"
             rel="noopener noreferrer"
             target="_blank"
@@ -541,7 +214,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c10 c22"
+              class="StyledIconBase-sc-bdy9j4 cCvWXa footer__FooterIcon-htpw4v-1 dkzOKO"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 512 512"
@@ -554,7 +227,7 @@ exports[`app layout component should render with children 1`] = `
             </svg>
           </a>
           <a
-            class="c20 c21"
+            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__FooterIconLink-htpw4v-0 fCORGB"
             href="https://medium.com/0x-tracker"
             rel="noopener noreferrer"
             target="_blank"
@@ -562,7 +235,7 @@ exports[`app layout component should render with children 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="c10 c22"
+              class="StyledIconBase-sc-bdy9j4 cCvWXa footer__FooterIcon-htpw4v-1 dkzOKO"
               fill="currentColor"
               focusable="false"
               viewBox="0 0 512 512"
@@ -583,7 +256,7 @@ exports[`app layout component should render with children 1`] = `
             ,
     }
   "
-          class="c23 col-12 col-md-6"
+          class="footer__FooterColumn-htpw4v-2 sc-htpNat fTYzNZ col-12 col-md-6"
         >
           Copyright © 0x Tracker 
           2019
