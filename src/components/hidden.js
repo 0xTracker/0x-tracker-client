@@ -1,13 +1,16 @@
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-const Hidden = ({ above, at, screen, children }) => {
+import useBreakpoint from '../hooks/use-breakpoint';
+
+const Hidden = ({ above, at, children }) => {
+  const breakpoint = useBreakpoint();
+
   if (at) {
-    return at.includes(screen.mediaType) ? null : children;
+    return at.includes(breakpoint.name) ? null : children;
   }
 
   if (above) {
-    return screen.greaterThan[above] ? null : children;
+    return breakpoint.greaterThan('above') ? null : children;
   }
 
   return null;
@@ -17,10 +20,6 @@ Hidden.propTypes = {
   above: PropTypes.string,
   at: PropTypes.arrayOf(PropTypes.string),
   children: PropTypes.node.isRequired,
-  screen: PropTypes.shape({ mediaType: PropTypes.string.isRequired })
-    .isRequired,
 };
 
-const mapStateToProps = state => ({ screen: state.screen });
-
-export default connect(mapStateToProps)(Hidden);
+export default Hidden;

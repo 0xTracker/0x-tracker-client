@@ -2,15 +2,12 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 import ChartsContainer from './charts-container';
-import ReduxContext from './redux-context';
 import TopRelayers from '../features/relayers/components/top-relayers';
 import TopTokens from '../features/tokens/components/top-tokens';
 
 storiesOf('Layout|ChartsContainer', module)
   .addDecorator(getStory => (
-    <ReduxContext>
-      <div css="padding: 20px; max-width: 680px;">{getStory()}</div>
-    </ReduxContext>
+    <div css="padding: 20px; max-width: 680px;">{getStory()}</div>
   ))
   .add('default', () => (
     <ChartsContainer

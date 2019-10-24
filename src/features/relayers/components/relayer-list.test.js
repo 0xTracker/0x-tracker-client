@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { renderWithAppContext } from '../../../test-util/react';
+import { renderWithRouter } from '../../../test-util/react';
 import RelayerList from './relayer-list';
 
 const basicProps = {
@@ -39,7 +39,7 @@ const basicProps = {
 };
 
 it('renders with basic props', () => {
-  const { container } = renderWithAppContext(<RelayerList {...basicProps} />);
+  const { container } = renderWithRouter(<RelayerList {...basicProps} />);
 
   expect(container.firstChild).toMatchSnapshot();
 });

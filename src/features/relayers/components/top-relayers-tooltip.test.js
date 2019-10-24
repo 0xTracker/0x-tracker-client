@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { renderWithAppContext } from '../../../test-util/react';
+import { renderWithRouter } from '../../../test-util/react';
 import TopRelayersTooltip from './top-relayers-tooltip';
 
 const simpleProps = {
@@ -8,7 +8,7 @@ const simpleProps = {
 };
 
 it('should render null without payload', () => {
-  const { container } = renderWithAppContext(
+  const { container } = renderWithRouter(
     <TopRelayersTooltip {...simpleProps} />,
   );
 
@@ -16,7 +16,7 @@ it('should render null without payload', () => {
 });
 
 it('should render null with empty payload', () => {
-  const { container } = renderWithAppContext(
+  const { container } = renderWithRouter(
     <TopRelayersTooltip {...simpleProps} payload={[]} />,
   );
 
@@ -24,7 +24,7 @@ it('should render null with empty payload', () => {
 });
 
 it('should render with payload', () => {
-  const { container } = renderWithAppContext(
+  const { container } = renderWithRouter(
     <TopRelayersTooltip
       {...simpleProps}
       payload={[
