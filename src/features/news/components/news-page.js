@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { connect } from 'react-redux';
 import { Col, Row } from 'reactstrap';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
@@ -17,6 +16,7 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
 import useArticleSources from '../hooks/use-article-sources';
+import useBreakpoint from '../../../hooks/use-breakpoint';
 
 const LoadMoreButton = styled.button`
   align-items: center;
@@ -45,8 +45,9 @@ const ArticlesColumn = styled(Col).attrs({ md: 8 })`
   `}
 `;
 
-const NewsPage = ({ match, screenSize }) => {
+const NewsPage = ({ match }) => {
   const [sources, loadingSources] = useArticleSources();
+  const breakpoint = useBreakpoint();
 
   if (loadingSources) {
     return <LoadingPage />;
@@ -78,8 +79,8 @@ const NewsPage = ({ match, screenSize }) => {
                   <>
                     <ArticleList
                       articles={articles}
-                      compact={screenSize.lessThan.sm}
-                      showImages={screenSize.greaterThan.xs}
+                      compact={breakpoint.equalTo('xs')}
+                      showImages={!breakpoint.equalTo('xs')}
                     />
                     {canLoadMore ? (
                       <LoadMoreButton onClick={loadMore} type="button">
@@ -112,11 +113,6 @@ NewsPage.propTypes = {
       source: PropTypes.string,
     }).isRequired,
   }).isRequired,
-  screenSize: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  screenSize: state.screen,
-});
-
-export default connect(mapStateToProps)(NewsPage);
+export default NewsPage;

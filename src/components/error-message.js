@@ -1,5 +1,4 @@
 import { Ghost } from 'react-kawaii';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';
@@ -7,6 +6,7 @@ import styled from 'styled-components';
 import { colors } from '../styles/constants';
 import { media } from '../styles/util';
 import Link from './link';
+import useBreakpoint from '../hooks/use-breakpoint';
 
 const StyledErrorMessage = styled.div`
   display: flex;
@@ -47,8 +47,9 @@ const GhostLink = styled(Link)`
 
 const INITIAL_MOOD = 'ko';
 
-const ErrorMessage = ({ children, className, screenSize }) => {
+const ErrorMessage = ({ children, className }) => {
   const [mood, setMood] = useState(INITIAL_MOOD);
+  const breakpoint = useBreakpoint();
 
   return (
     <StyledErrorMessage className={className}>
@@ -61,7 +62,7 @@ const ErrorMessage = ({ children, className, screenSize }) => {
         <Ghost
           color={colors.mischka}
           mood={mood}
-          size={screenSize.greaterThan.sm ? 240 : 150}
+          size={breakpoint.greaterThan('sm') ? 240 : 150}
         />
       </GhostLink>
     </StyledErrorMessage>
@@ -71,19 +72,10 @@ const ErrorMessage = ({ children, className, screenSize }) => {
 ErrorMessage.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  screenSize: PropTypes.shape({
-    greaterThan: PropTypes.shape({
-      sm: PropTypes.bool.isRequired,
-    }).isRequired,
-  }).isRequired,
 };
 
 ErrorMessage.defaultProps = {
   className: undefined,
 };
 
-const mapStateToProps = state => ({
-  screenSize: state.screen,
-});
-
-export default connect(mapStateToProps)(ErrorMessage);
+export default ErrorMessage;

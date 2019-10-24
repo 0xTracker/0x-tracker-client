@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -15,6 +14,7 @@ import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import RecentFillsItemImage from './recent-fills-item-image';
+import useBreakpoint from '../../../hooks/use-breakpoint';
 
 const StyledRecentFillsItem = styled.div`
   align-items: center;
@@ -97,7 +97,8 @@ const getSource = fill => {
   return { label: 'Unknown Relayer', url: buildSearchUrl(fill.feeRecipient) };
 };
 
-const RecentFillsItem = ({ fill, screenSize }) => {
+const RecentFillsItem = ({ fill }) => {
+  const breakpoint = useBreakpoint();
   const source = getSource(fill);
 
   return (
@@ -128,7 +129,7 @@ const RecentFillsItem = ({ fill, screenSize }) => {
           <dd>{formatDate(fill.date, DATE_FORMAT.RELATIVE)}</dd>
         </Metadata>
       </div>
-      {screenSize.greaterThan.xs && _.has(fill, `value.${BASE_CURRENCY}`) ? (
+      {breakpoint.greaterThan('xs') && _.has(fill, `value.${BASE_CURRENCY}`) ? (
         <FillAmount amount={fill.value[BASE_CURRENCY]} />
       ) : null}
     </StyledRecentFillsItem>
@@ -137,11 +138,6 @@ const RecentFillsItem = ({ fill, screenSize }) => {
 
 RecentFillsItem.propTypes = {
   fill: PropTypes.object.isRequired,
-  screenSize: PropTypes.object.isRequired,
 };
 
-const mapStateToProps = state => ({
-  screenSize: state.screen,
-});
-
-export default connect(mapStateToProps)(RecentFillsItem);
+export default RecentFillsItem;

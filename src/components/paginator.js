@@ -1,9 +1,9 @@
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import MobilePaginator from './mobile-paginator';
 import FullPaginator from './full-paginator';
+import useBreakpoint from '../hooks/use-breakpoint';
 
 const Paginator = ({
   changingPage,
@@ -12,9 +12,10 @@ const Paginator = ({
   pageCount,
   pageSize,
   recordCount,
-  screenSize,
 }) => {
-  if (screenSize.greaterThan.sm) {
+  const breakpoint = useBreakpoint();
+
+  if (breakpoint.greaterThan('sm')) {
     return (
       <FullPaginator
         changingPage={changingPage}
@@ -46,7 +47,6 @@ Paginator.propTypes = {
   pageCount: PropTypes.number.isRequired,
   pageSize: PropTypes.number.isRequired,
   recordCount: PropTypes.number.isRequired,
-  screenSize: PropTypes.object.isRequired,
 };
 
 Paginator.defaultProps = {
@@ -54,4 +54,4 @@ Paginator.defaultProps = {
   page: 1,
 };
 
-export default connect(state => ({ screenSize: state.screen }))(Paginator);
+export default Paginator;

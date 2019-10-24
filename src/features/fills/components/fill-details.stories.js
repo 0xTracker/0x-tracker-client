@@ -47,11 +47,9 @@ const simpleFill = {
   value: { USD: 184.292064 },
 };
 
-const screenSize = { lessThan: { sm: false } };
-
 storiesOf('Fills|FillDetails', module)
   .addDecorator(getStory => <Card padded>{getStory()}</Card>)
-  .add('v1', () => <FillDetails fill={simpleFill} screenSize={screenSize} />)
+  .add('v1', () => <FillDetails fill={simpleFill} />)
   .add('v2', () => (
     <FillDetails
       fill={{
@@ -59,7 +57,6 @@ storiesOf('Fills|FillDetails', module)
         protocolVersion: 2,
         senderAddress: '0x0dc411b17d337af85d83ea5a3577d09132aae866',
       }}
-      screenSize={screenSize}
     />
   ))
   .add('v3', () => (
@@ -96,7 +93,6 @@ storiesOf('Fills|FillDetails', module)
         senderAddress: '0x0dc411b17d337af85d83ea5a3577d09132aae866',
         takerFee: undefined,
       }}
-      screenSize={screenSize}
     />
   ))
   .add('with multiple maker fees', () => (
@@ -143,7 +139,6 @@ storiesOf('Fills|FillDetails', module)
         senderAddress: '0x0dc411b17d337af85d83ea5a3577d09132aae866',
         takerFee: undefined,
       }}
-      screenSize={screenSize}
     />
   ))
   .add('without fees', () => (
@@ -154,7 +149,6 @@ storiesOf('Fills|FillDetails', module)
         takerFee: { USD: 0, ZRX: '0' },
         totalFees: { USD: 0, ZRX: '0' },
       }}
-      screenSize={screenSize}
     />
   ))
   .add('with unknown relayer', () => (
@@ -163,7 +157,6 @@ storiesOf('Fills|FillDetails', module)
         ...simpleFill,
         relayer: undefined,
       }}
-      screenSize={screenSize}
     />
   ))
   .add('without relayer', () => (
@@ -173,7 +166,6 @@ storiesOf('Fills|FillDetails', module)
         feeRecipient: '0x0000000000000000000000000000000000000000',
         relayer: undefined,
       }}
-      screenSize={screenSize}
     />
   ))
   .add('without value', () => (
@@ -182,7 +174,6 @@ storiesOf('Fills|FillDetails', module)
         ...simpleFill,
         value: undefined,
       }}
-      screenSize={screenSize}
     />
   ))
   .add('without derived prices', () => (
@@ -194,7 +185,6 @@ storiesOf('Fills|FillDetails', module)
           price: undefined,
         })),
       }}
-      screenSize={screenSize}
     />
   ))
   .add('with unrecognised assets', () => (
@@ -209,6 +199,5 @@ storiesOf('Fills|FillDetails', module)
           tokenType: undefined,
         })),
       }}
-      screenSize={screenSize}
     />
   ));

@@ -1,5 +1,3 @@
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
@@ -14,6 +12,7 @@ import logoImage from '../../../assets/images/logo-grayscale.svg';
 import MobileMenu from './mobile-menu';
 import Navigation from './navigation';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
+import useBreakpoint from '../../../hooks/use-breakpoint';
 
 const LogoImage = styled.img`
   height: 2.5rem;
@@ -50,8 +49,9 @@ const NotificationsButton = styled(MenuButton)`
   }
 `;
 
-const Header = ({ screenSize }) => {
+const Header = () => {
   const [mobileMenuState, updateMobileMenuState] = useState('closed');
+  const breakpoint = useBreakpoint();
 
   const closeMobileMenu = () => {
     updateMobileMenuState('closed');
@@ -71,7 +71,7 @@ const Header = ({ screenSize }) => {
     }
   }, []);
 
-  const isDesktop = screenSize.greaterThan.md;
+  const isDesktop = breakpoint.greaterThan('md');
 
   return (
     <SettingsDialogProvider>
@@ -112,14 +112,4 @@ const Header = ({ screenSize }) => {
   );
 };
 
-Header.propTypes = {
-  screenSize: PropTypes.shape({
-    greaterThan: PropTypes.shape({
-      md: PropTypes.bool.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
-
-const mapStateToProps = state => ({ screenSize: state.screen });
-
-export default connect(mapStateToProps)(Header);
+export default Header;

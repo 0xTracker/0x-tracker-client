@@ -29,6 +29,7 @@
     "currency-formatter": "1.5.5",
     "date-fns": "2.4.1",
     "lodash": "4.17.15",
+    "mediaquery": "0.0.4",
     "moment": "2.24.0",
     "ms": "2.1.2",
     "numeral": "2.0.6",

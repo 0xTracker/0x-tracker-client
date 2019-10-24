@@ -1,4 +1,3 @@
-import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
@@ -16,6 +15,7 @@ import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 import useRelayer from '../hooks/use-relayer';
 import buildUrl from '../../../util/build-url';
+import useBreakpoint from '../../../hooks/use-breakpoint';
 
 const StyledChartsContainer = styled(ChartsContainer)`
   margin-bottom: 1.25rem;
@@ -25,12 +25,13 @@ const StyledChartsContainer = styled(ChartsContainer)`
   `}
 `;
 
-const RelayerPage = ({ history, location, match, screenSize }) => {
+const RelayerPage = ({ history, location, match }) => {
   const { slug } = match.params;
   const params = new URLSearchParams(location.search);
   const page = Number(params.get('page')) || 1;
 
   const [relayer, loadingRelayer] = useRelayer(slug);
+  const breakpoint = useBreakpoint();
 
   const onPageChange = useCallback(newPage => {
     history.push(
@@ -67,7 +68,7 @@ const RelayerPage = ({ history, location, match, screenSize }) => {
           ]}
           defaultPeriod={TIME_PERIOD.YEAR}
           periods={
-            screenSize.greaterThan.xs
+            breakpoint.greaterThan('xs')
               ? getPeriodOptions([
                   TIME_PERIOD.DAY,
                   TIME_PERIOD.WEEK,
@@ -104,15 +105,6 @@ RelayerPage.propTypes = {
     }).isRequired,
     url: PropTypes.string.isRequired,
   }).isRequired,
-  screenSize: PropTypes.shape({
-    greaterThan: PropTypes.shape({
-      xs: PropTypes.bool.isRequired,
-    }).isRequired,
-  }).isRequired,
 };
 
-const mapStateToProps = state => ({
-  screenSize: state.screen,
-});
-
-export default connect(mapStateToProps)(RelayerPage);
+export default RelayerPage;

@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -23,6 +22,7 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 import SearchLink from '../../search/components/search-link';
 import TokenAmount from '../../tokens/components/token-amount';
 import TraderLink from '../../traders/components/trader-link';
+import useBreakpoint from '../../../hooks/use-breakpoint';
 
 const FillDetailList = styled.dl`
   margin-bottom: 1.5rem;
@@ -42,7 +42,8 @@ const PriceBadge = styled.span.attrs({ className: 'badge' })`
   margin-left: 0.5rem;
 `;
 
-const FillDetails = ({ fill, screenSize }) => {
+const FillDetails = ({ fill }) => {
+  const breakpoint = useBreakpoint();
   const assetsWithPrices = _.filter(fill.assets, asset =>
     _.isObject(asset.price),
   );
@@ -98,14 +99,14 @@ const FillDetails = ({ fill, screenSize }) => {
       <FillDetail title="Maker Assets">
         <FillAssetsList
           assets={_.filter(fill.assets, { traderType: 'maker' })}
-          condensed={screenSize.lessThan.sm}
+          condensed={breakpoint.lessThan('sm')}
         />
       </FillDetail>
 
       <FillDetail title="Taker Assets">
         <FillAssetsList
           assets={_.filter(fill.assets, { traderType: 'taker' })}
-          condensed={screenSize.lessThan.sm}
+          condensed={breakpoint.lessThan('sm')}
         />
       </FillDetail>
 
@@ -156,14 +157,14 @@ const FillDetails = ({ fill, screenSize }) => {
         <>
           <FillDetail title="Maker Fees">
             <FillFeesList
-              condensed={screenSize.lessThan.sm}
+              condensed={breakpoint.lessThan('sm')}
               fees={_.filter(fill.fees, { traderType: 'maker' })}
             />
           </FillDetail>
 
           <FillDetail title="Taker Fees">
             <FillFeesList
-              condensed={screenSize.lessThan.sm}
+              condensed={breakpoint.lessThan('sm')}
               fees={_.filter(fill.fees, { traderType: 'taker' })}
             />
           </FillDetail>
@@ -192,11 +193,6 @@ const FillDetails = ({ fill, screenSize }) => {
 
 FillDetails.propTypes = {
   fill: fillsPropTypes.fill.isRequired,
-  screenSize: PropTypes.shape({
-    lessThan: PropTypes.shape({
-      sm: PropTypes.bool.isRequired,
-    }).isRequired,
-  }).isRequired,
 };
 
 export default FillDetails;
