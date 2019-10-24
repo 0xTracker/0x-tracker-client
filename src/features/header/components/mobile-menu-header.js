@@ -6,7 +6,7 @@ import { colors } from '../../../styles/constants';
 import { URL } from '../../../constants';
 import { CloseIcon } from '../../../components/icons';
 import Link from '../../../components/link';
-import logoImage from '../../../assets/images/logo-dark.svg';
+import logoImage from '../../../assets/images/logo-grayscale.svg';
 
 const CloseButton = styled.button`
   background: none;

@@ -10,7 +10,7 @@ import { MenuIcon, NotificationsIcon } from '../../../components/icons';
 import Container from '../../../components/container';
 import HeaderActions from './header-actions';
 import Link from '../../../components/link';
-import logoImage from '../../../assets/images/logo-dark.svg';
+import logoImage from '../../../assets/images/logo-grayscale.svg';
 import MobileMenu from './mobile-menu';
 import Navigation from './navigation';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
