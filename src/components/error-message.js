@@ -5,8 +5,8 @@ import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import { media } from '../styles/util';
+import { useCurrentBreakpoint } from '../responsive-utils';
 import Link from './link';
-import useBreakpoint from '../hooks/use-breakpoint';
 
 const StyledErrorMessage = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ const INITIAL_MOOD = 'ko';
 
 const ErrorMessage = ({ children, className }) => {
   const [mood, setMood] = useState(INITIAL_MOOD);
-  const breakpoint = useBreakpoint();
+  const breakpoint = useCurrentBreakpoint();
 
   return (
     <StyledErrorMessage className={className}>

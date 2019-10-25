@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { useCurrentBreakpoint } from '../responsive-utils';
 import MobilePaginator from './mobile-paginator';
 import FullPaginator from './full-paginator';
-import useBreakpoint from '../hooks/use-breakpoint';
 
 const Paginator = ({
   changingPage,
@@ -13,7 +13,7 @@ const Paginator = ({
   pageSize,
   recordCount,
 }) => {
-  const breakpoint = useBreakpoint();
+  const breakpoint = useCurrentBreakpoint();
 
   if (breakpoint.greaterThan('sm')) {
     return (

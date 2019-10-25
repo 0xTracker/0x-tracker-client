@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT, WETH_TOKEN, ZRX_TOKEN } from '../../../constants';
 import { media } from '../../../styles/util';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import AssetLabel from './asset-label';
 import buildSearchUrl from '../../search/util/build-search-url';
 import EthereumAddressLink from '../../../components/ethereum-address-link';
@@ -22,7 +23,6 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 import SearchLink from '../../search/components/search-link';
 import TokenAmount from '../../tokens/components/token-amount';
 import TraderLink from '../../traders/components/trader-link';
-import useBreakpoint from '../../../hooks/use-breakpoint';
 
 const FillDetailList = styled.dl`
   margin-bottom: 1.5rem;
@@ -43,7 +43,7 @@ const PriceBadge = styled.span.attrs({ className: 'badge' })`
 `;
 
 const FillDetails = ({ fill }) => {
-  const breakpoint = useBreakpoint();
+  const breakpoint = useCurrentBreakpoint();
   const assetsWithPrices = _.filter(fill.assets, asset =>
     _.isObject(asset.price),
   );

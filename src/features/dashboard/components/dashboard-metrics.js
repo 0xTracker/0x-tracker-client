@@ -3,10 +3,10 @@ import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import FillCountMetric from './fill-count-metric';
 import FillVolumeMetric from './fill-volume-metric';
 import TradeVolumeMetric from './trade-volume-metric';
-import useBreakpoint from '../../../hooks/use-breakpoint';
 import useNetworkStats from '../../stats/hooks/use-network-stats';
 import useRelayerStats from '../../stats/hooks/use-relayer-stats';
 import ZRXPriceMetric from './zrx-price-metric';
@@ -19,7 +19,7 @@ const AsyncDashboardMetricsCarousel = React.lazy(() =>
 const DashboardMetrics = ({ className }) => {
   const [networkStats] = useNetworkStats();
   const [relayerStats] = useRelayerStats();
-  const breakpoint = useBreakpoint();
+  const breakpoint = useCurrentBreakpoint();
 
   const fillCount = _.get(networkStats, 'fills');
   const fillVolume = _.get(networkStats, 'volume');

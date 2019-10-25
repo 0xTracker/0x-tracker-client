@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
-import useBreakpoint from '../hooks/use-breakpoint';
+import { useCurrentBreakpoint } from '../responsive-utils';
 
 const Visible = ({ above, at, children }) => {
-  const breakpoint = useBreakpoint();
+  const breakpoint = useCurrentBreakpoint();
 
   if (at) {
     return at.includes(breakpoint.name) ? children : null;

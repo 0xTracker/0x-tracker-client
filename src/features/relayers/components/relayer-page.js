@@ -5,6 +5,8 @@ import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
+import buildUrl from '../../../util/build-url';
 import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
@@ -14,8 +16,6 @@ import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 import useRelayer from '../hooks/use-relayer';
-import buildUrl from '../../../util/build-url';
-import useBreakpoint from '../../../hooks/use-breakpoint';
 
 const StyledChartsContainer = styled(ChartsContainer)`
   margin-bottom: 1.25rem;
@@ -31,7 +31,7 @@ const RelayerPage = ({ history, location, match }) => {
   const page = Number(params.get('page')) || 1;
 
   const [relayer, loadingRelayer] = useRelayer(slug);
-  const breakpoint = useBreakpoint();
+  const breakpoint = useCurrentBreakpoint();
 
   const onPageChange = useCallback(newPage => {
     history.push(

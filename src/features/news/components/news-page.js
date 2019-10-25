@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
 import { media } from '../../../styles/util';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ArticleList from './article-list';
 import ArticlesFilter from './articles-filter';
 import ArticlesProvider from './articles-provider';
@@ -16,7 +17,6 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
 import useArticleSources from '../hooks/use-article-sources';
-import useBreakpoint from '../../../hooks/use-breakpoint';
 
 const LoadMoreButton = styled.button`
   align-items: center;
@@ -47,7 +47,7 @@ const ArticlesColumn = styled(Col).attrs({ md: 8 })`
 
 const NewsPage = ({ match }) => {
   const [sources, loadingSources] = useArticleSources();
-  const breakpoint = useBreakpoint();
+  const breakpoint = useCurrentBreakpoint();
 
   if (loadingSources) {
     return <LoadingPage />;

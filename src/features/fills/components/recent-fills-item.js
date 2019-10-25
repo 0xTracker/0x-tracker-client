@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { colors } from '../../../styles/constants';
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { DATE_FORMAT } from '../../../constants';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import buildRelayerUrl from '../../relayers/util/build-relayer-url';
 import buildSearchUrl from '../../search/util/build-search-url';
 import FillLink from './fill-link';
@@ -14,7 +15,6 @@ import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import RecentFillsItemImage from './recent-fills-item-image';
-import useBreakpoint from '../../../hooks/use-breakpoint';
 
 const StyledRecentFillsItem = styled.div`
   align-items: center;
@@ -98,7 +98,7 @@ const getSource = fill => {
 };
 
 const RecentFillsItem = ({ fill }) => {
-  const breakpoint = useBreakpoint();
+  const breakpoint = useCurrentBreakpoint();
   const source = getSource(fill);
 
   return (

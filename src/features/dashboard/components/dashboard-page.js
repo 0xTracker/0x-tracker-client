@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ChartsContainer from '../../../components/charts-container';
 import Container from '../../../components/container';
 import DashboardMetrics from './dashboard-metrics';
@@ -13,7 +14,6 @@ import NetworkVolume from '../../metrics/components/network-volume';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
-import useBreakpoint from '../../../hooks/use-breakpoint';
 
 const DashboardColumn = styled(Col)`
   display: flex;
@@ -42,7 +42,7 @@ const StyledDashboardMetrics = styled(DashboardMetrics)`
 `;
 
 const DashboardPage = () => {
-  const breakpoint = useBreakpoint();
+  const breakpoint = useCurrentBreakpoint();
 
   return (
     <Container>

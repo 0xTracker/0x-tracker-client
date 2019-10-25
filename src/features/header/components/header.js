@@ -5,6 +5,7 @@ import { URL } from '../../../constants';
 import { colors } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import { MenuIcon, NotificationsIcon } from '../../../components/icons';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import Container from '../../../components/container';
 import HeaderActions from './header-actions';
 import Link from '../../../components/link';
@@ -12,7 +13,6 @@ import logoImage from '../../../assets/images/logo-grayscale.svg';
 import MobileMenu from './mobile-menu';
 import Navigation from './navigation';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
-import useBreakpoint from '../../../hooks/use-breakpoint';
 
 const LogoImage = styled.img`
   height: 2.5rem;
@@ -51,7 +51,7 @@ const NotificationsButton = styled(MenuButton)`
 
 const Header = () => {
   const [mobileMenuState, updateMobileMenuState] = useState('closed');
-  const breakpoint = useBreakpoint();
+  const breakpoint = useCurrentBreakpoint();
 
   const closeMobileMenu = () => {
     updateMobileMenuState('closed');
