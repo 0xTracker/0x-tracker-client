@@ -5,6 +5,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { BreakpointProvider } from '../responsive-utils';
+import { BREAKPOINTS } from '../constants';
 import AppLayout from './app-layout';
 import ErrorBoundary from './error-boundary';
 import GlobalStyles from './global-styles';
@@ -15,15 +16,7 @@ import Routes from './routes';
 
 const App = () => (
   <ErrorBoundary>
-    <BreakpointProvider
-      breakpoints={{
-        xs: 575,
-        sm: 767, // eslint-disable-line sort-keys
-        md: 991, // eslint-disable-line sort-keys
-        lg: 1199, // eslint-disable-line sort-keys
-        xl: Infinity,
-      }}
-    >
+    <BreakpointProvider breakpoints={BREAKPOINTS}>
       <PreferencesProvider>
         <RatesProvider>
           <Router>

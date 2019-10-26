@@ -1,5 +1,11 @@
 import React from 'react';
 
-const BreakpointContext = React.createContext();
+let context = React.createContext();
 
-export default BreakpointContext;
+const setTestValue = initialValue => {
+  context = React.createContext(initialValue);
+};
+
+const getBreakpointContext = () => context;
+
+export { getBreakpointContext, setTestValue };

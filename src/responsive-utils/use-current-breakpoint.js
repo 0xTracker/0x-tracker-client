@@ -1,9 +1,10 @@
 import { useContext } from 'react';
 
-import BreakpointContext from './breakpoint-context';
+import { getBreakpointContext } from './breakpoint-context';
 
 const useCurrentBreakpoint = () => {
-  const currentBreakpoint = useContext(BreakpointContext);
+  const context = getBreakpointContext();
+  const currentBreakpoint = useContext(context);
 
   return currentBreakpoint;
 };

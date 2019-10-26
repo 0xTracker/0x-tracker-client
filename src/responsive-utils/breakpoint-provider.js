@@ -3,8 +3,8 @@ import MediaQuery from 'mediaquery';
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
+import { getBreakpointContext } from './breakpoint-context';
 import Breakpoint from './breakpoint';
-import BreakpointContext from './breakpoint-context';
 
 const getInitialBreakpoint = (breakpoints, mediaQueryLists) => {
   const key = _.findKey(mediaQueryLists, 'matches');
@@ -21,6 +21,7 @@ const BreakpointProvider = ({ breakpoints, children }) => {
   const mediaQueryLists = _.mapValues(mediaQueries, window.matchMedia);
   const initialBreakpoint = getInitialBreakpoint(breakpoints, mediaQueryLists);
   const [currentBreakpoint, setCurrentBreakpoint] = useState(initialBreakpoint);
+  const BreakpointContext = getBreakpointContext();
 
   useEffect(() => {
     const handlers = _.mapValues(mediaQueryLists, (mq, key) => event => {
