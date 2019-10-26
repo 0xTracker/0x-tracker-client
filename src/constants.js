@@ -2,6 +2,14 @@ const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 const API_CALL_TIMEOUT = process.env.REACT_APP_API_CALL_TIMEOUT || 30000;
 
+const BREAKPOINTS = {
+  xs: 575,
+  sm: 767, // eslint-disable-line sort-keys
+  md: 991, // eslint-disable-line sort-keys
+  lg: 1199, // eslint-disable-line sort-keys
+  xl: Infinity,
+};
+
 const TIME_PERIOD = {
   ALL: 'all',
   DAY: 'day',
@@ -46,6 +54,7 @@ const ZRX_TOKEN = {
 export {
   API_CALL_TIMEOUT,
   API_ENDPOINT,
+  BREAKPOINTS,
   DATE_FORMAT,
   GENESIS_DATE,
   TIME_PERIOD,

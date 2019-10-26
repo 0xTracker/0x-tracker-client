@@ -1,5 +1,3 @@
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
@@ -7,6 +5,7 @@ import { URL } from '../../../constants';
 import { colors } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import { MenuIcon, NotificationsIcon } from '../../../components/icons';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import Container from '../../../components/container';
 import HeaderActions from './header-actions';
 import Link from '../../../components/link';
@@ -50,8 +49,9 @@ const NotificationsButton = styled(MenuButton)`
   }
 `;
 
-const Header = ({ screenSize }) => {
+const Header = () => {
   const [mobileMenuState, updateMobileMenuState] = useState('closed');
+  const breakpoint = useCurrentBreakpoint();
 
   const closeMobileMenu = () => {
     updateMobileMenuState('closed');
@@ -71,7 +71,7 @@ const Header = ({ screenSize }) => {
     }
   }, []);
 
-  const isDesktop = screenSize.greaterThan.md;
+  const isDesktop = breakpoint.greaterThan('md');
 
   return (
     <SettingsDialogProvider>
@@ -112,14 +112,4 @@ const Header = ({ screenSize }) => {
   );
 };
 
-Header.propTypes = {
-  screenSize: PropTypes.shape({
-    greaterThan: PropTypes.shape({
-      md: PropTypes.bool.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
-
-const mapStateToProps = state => ({ screenSize: state.screen });
-
-export default connect(mapStateToProps)(Header);
+export default Header;

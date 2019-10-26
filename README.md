@@ -41,21 +41,16 @@ The project has a fairly extensive set of dependencies, each with a particular p
 
 - **[React](https://reactjs.org)** - Manages UI and dom manipulation.
 - **[React Router](https://reacttraining.com/react-router/web/guides/philosophy)** - Used for managing application routes.
-- **[Redux](https://reduxjs.org)** - Handles global application state.
-- **[Rematch](https://github.com/rematch/rematch)** - An abstraction over Redux which reduces boilerplate and helps enforce conventions.
 - **[Axios](https://github.com/axios/axios)** - Lightweight HTTP client used for fetching API data.
 - **[Lodash](https://lodash.com/)** - Powerful general purpose utility belt for writing clean code.
 - **[Date-fns](https://date-fns.org/)** - Modern javascript date utility library which encourages immutable code and plays nicely with Lodash FP.
 - **[Moment.js](http://momentjs.com/)** - Begrudgingly used as a fallback when manipulating UTC dates whilst awaiting UTC support in date-fns.
-
-** Note: although Redux is listed for global state management it’s actually in the process of being removed in favour of vanilla React APIs.
 
 ### Styling & UI
 
 - **[Bootstrap](http://getbootstrap.com/)/[Reactstrap](https://reactstrap.github.io/)** - UI component library which serves as the basis for most page elements in the project.
 - **[Styled Components](https://styled-components.com)** - CSS-in-JS solution used for styling custom components.
 - **[Recharts](http://recharts.org/)** - React charting library used for rendering all charts on the site.
-- **[Redux Responsive](https://github.com/AlecAivazis/redux-responsive)** - Provides bootstrap breakpoint responsiveness to React components via Redux.
 - **[Styled Icons](https://styled-icons.js.org/)** - Extensive React icon library which plays nicely with styled-components.
 
 ### Build Process
@@ -102,7 +97,6 @@ If a convention exists for locating configuration files related to developer too
       - **get-routes.js** - Provides routes to be used by Redux Router.
       - **prop-types.js** - Common prop-types which get used across multiple React components.
   - **img** - Any images related to shared React components.
-  - **redux** - Code used for configuring the global Redux store.
   - **styles** - Helpers and constants related to styling (e.g. colors).
   - **test-util** - Helpers related to automated tests.
   - **util** - All other helper functions used to support the codebase.
