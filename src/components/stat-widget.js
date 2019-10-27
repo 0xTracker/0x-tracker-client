@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import Card from './card';
+import LoadingIndicator from './loading-indicator';
 
 const StatWidgetTitle = styled.dt`
   color: ${colors.stormGray};
@@ -21,22 +22,25 @@ const StatWidgetValue = styled.dd`
   margin: 0;
 `;
 
+const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
+
 const StatWidget = ({ className, title, children }) => (
-  <Card className={className} padded>
+  <Card className={className} css="min-height: 77px;" padded>
     <dl css="margin: 0;">
       <StatWidgetTitle>{title}</StatWidgetTitle>
-      <StatWidgetValue>{children}</StatWidgetValue>
+      <StatWidgetValue>{children || loadingIndicator}</StatWidgetValue>
     </dl>
   </Card>
 );
 
 StatWidget.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
 
 StatWidget.defaultProps = {
+  children: undefined,
   className: undefined,
 };
 

@@ -4,13 +4,10 @@ import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
 import buildUrl from '../../../util/build-url';
-import Card from '../../../components/card';
-import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
-import Paginator from '../../../components/paginator';
-import TraderList from './trader-list';
 import TradersFilter from './traders-filter';
-import useTraders from '../hooks/use-traders';
+import TopTradersCard from './top-traders-card';
+import TradersPageStatWidgets from './traders-page-stat-widgets';
 
 const defaultFilters = {
   statsPeriod: TIME_PERIOD.DAY,
@@ -27,15 +24,6 @@ const TradersPage = ({ history, location }) => {
     statsPeriod,
     type,
   };
-
-  const [traders, loading] = useTraders({
-    autoReload: true,
-    limit: 50,
-    page,
-    ...selectedFilters,
-  });
-
-  const { items, pageCount, pageSize, recordCount } = traders;
 
   return (
     <>
@@ -54,32 +42,15 @@ const TradersPage = ({ history, location }) => {
         }
         title="Top Traders"
       >
-        <Card fullHeight>
-          {loading ? (
-            <LoadingIndicator centered />
-          ) : (
-            <>
-              <TraderList
-                positionOffset={(page - 1) * pageSize}
-                traders={items}
-              />
-              <Paginator
-                onPageChange={newPage => {
-                  history.push(
-                    buildUrl(URL.TRADERS, {
-                      page: newPage,
-                      ...selectedFilters,
-                    }),
-                  );
-                }}
-                page={page}
-                pageCount={pageCount}
-                pageSize={pageSize}
-                recordCount={recordCount}
-              />
-            </>
-          )}
-        </Card>
+        <TradersPageStatWidgets
+          css="margin-bottom: 2rem;"
+          period={statsPeriod}
+        />
+        <TopTradersCard
+          navigateTo={history.push}
+          page={page}
+          selectedFilters={selectedFilters}
+        />
       </PageLayout>
     </>
   );
