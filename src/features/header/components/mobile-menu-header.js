@@ -34,7 +34,7 @@ const MobileMenuHeader = ({ onClose, onNavigate }) => (
     <CloseButton autoFocus onClick={onClose} title="Close" type="button">
       <CloseIcon width={27} />
     </CloseButton>
-    <Link href={URL.DASHBOARD} onClick={onNavigate}>
+    <Link href={URL.HOME} onClick={onNavigate}>
       <Logo src={logoImage} title="0x Tracker" />
     </Link>
   </div>

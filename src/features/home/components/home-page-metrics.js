@@ -4,19 +4,19 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { useCurrentBreakpoint } from '../../../responsive-utils';
-import ActiveTradersMetric from './active-traders-metric';
-import TradeCountMetric from './trade-count-metric';
-import TradeVolumeMetric from './trade-volume-metric';
+import ActiveTradersWidget from '../../traders/components/active-traders-widget';
+import TradeCountWidget from '../../fills/components/trade-count-widget';
+import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
 import useRelayerStats from '../../stats/hooks/use-relayer-stats';
 import useTraderStats from '../../stats/hooks/use-trader-stats';
-import ZRXPriceMetric from './zrx-price-metric';
+import ZRXPriceWidget from './zrx-price-widget';
 
 // Carousel gets loaded lazily because it relies on react-slick
-const AsyncDashboardMetricsCarousel = React.lazy(() =>
-  import('./dashboard-metrics-carousel'),
+const AsyncHomePageMetricsCarousel = React.lazy(() =>
+  import('./home-page-metrics-carousel'),
 );
 
-const DashboardMetrics = ({ className }) => {
+const HomePageMetrics = ({ className }) => {
   const [relayerStats] = useRelayerStats();
   const [traderStats] = useTraderStats();
   const breakpoint = useCurrentBreakpoint();
@@ -28,20 +28,20 @@ const DashboardMetrics = ({ className }) => {
   return breakpoint.greaterThan('md') ? (
     <Row className={className}>
       <Col lg={3} md={6}>
-        <TradeVolumeMetric volume={tradeVolume} />
+        <TradeVolumeWidget volume={tradeVolume} />
       </Col>
       <Col lg={3} md={6}>
-        <TradeCountMetric tradeCount={tradeCount} />
+        <TradeCountWidget tradeCount={tradeCount} />
       </Col>
       <Col lg={3} md={6}>
-        <ActiveTradersMetric traderCount={traderCount} />
+        <ActiveTradersWidget traderCount={traderCount} />
       </Col>
       <Col lg={3} md={6}>
-        <ZRXPriceMetric />
+        <ZRXPriceWidget />
       </Col>
     </Row>
   ) : (
-    <AsyncDashboardMetricsCarousel
+    <AsyncHomePageMetricsCarousel
       className={className}
       tradeCount={tradeCount}
       traderCount={traderCount}
@@ -50,12 +50,12 @@ const DashboardMetrics = ({ className }) => {
   );
 };
 
-DashboardMetrics.propTypes = {
+HomePageMetrics.propTypes = {
   className: PropTypes.string,
 };
 
-DashboardMetrics.defaultProps = {
+HomePageMetrics.defaultProps = {
   className: undefined,
 };
 
-export default DashboardMetrics;
+export default HomePageMetrics;

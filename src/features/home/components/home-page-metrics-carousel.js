@@ -6,16 +6,16 @@ import styled from 'styled-components';
 import '../../../styles/css/slick-carousel.css';
 
 import { breakpoints } from '../../../styles/constants';
-import ActiveTradersMetric from './active-traders-metric';
-import TradeCountMetric from './trade-count-metric';
-import TradeVolumeMetric from './trade-volume-metric';
-import ZRXPriceMetric from './zrx-price-metric';
+import ActiveTradersWidget from '../../traders/components/active-traders-widget';
+import TradeCountWidget from '../../fills/components/trade-count-widget';
+import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
+import ZRXPriceMetric from './zrx-price-widget';
 
 const CarouselMetric = styled.div`
   margin: 0 0.5rem;
 `;
 
-const DashboardMetricsCarousel = ({
+const HomePageMetricsCarousel = ({
   className,
   tradeCount,
   traderCount,
@@ -40,25 +40,25 @@ const DashboardMetricsCarousel = ({
     slidesToScroll={3}
     slidesToShow={3}
   >
-    <CarouselMetric as={TradeVolumeMetric} volume={tradeVolume} />
-    <CarouselMetric as={TradeCountMetric} tradeCount={tradeCount} />
-    <CarouselMetric as={ActiveTradersMetric} traderCount={traderCount} />
+    <CarouselMetric as={TradeVolumeWidget} volume={tradeVolume} />
+    <CarouselMetric as={TradeCountWidget} tradeCount={tradeCount} />
+    <CarouselMetric as={ActiveTradersWidget} traderCount={traderCount} />
     <CarouselMetric as={ZRXPriceMetric} />
   </Slider>
 );
 
-DashboardMetricsCarousel.propTypes = {
+HomePageMetricsCarousel.propTypes = {
   className: PropTypes.string,
   tradeCount: PropTypes.number,
   tradeVolume: PropTypes.number,
   traderCount: PropTypes.number,
 };
 
-DashboardMetricsCarousel.defaultProps = {
+HomePageMetricsCarousel.defaultProps = {
   className: undefined,
   tradeCount: undefined,
   tradeVolume: undefined,
   traderCount: undefined,
 };
 
-export default DashboardMetricsCarousel;
+export default HomePageMetricsCarousel;

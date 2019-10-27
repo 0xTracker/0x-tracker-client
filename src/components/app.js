@@ -15,8 +15,8 @@ import Router from './router';
 import Routes from './routes';
 
 const App = () => (
-  <ErrorBoundary>
-    <BreakpointProvider breakpoints={BREAKPOINTS}>
+  <BreakpointProvider breakpoints={BREAKPOINTS}>
+    <ErrorBoundary>
       <PreferencesProvider>
         <RatesProvider>
           <Router>
@@ -28,8 +28,8 @@ const App = () => (
           </Router>
         </RatesProvider>
       </PreferencesProvider>
-    </BreakpointProvider>
-  </ErrorBoundary>
+    </ErrorBoundary>
+  </BreakpointProvider>
 );
 
 export default hot(module)(App);

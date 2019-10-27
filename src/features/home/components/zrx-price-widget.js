@@ -5,17 +5,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors } from '../../../styles/constants';
-import DashboardMetric from './dashboard-metric';
 import Link from '../../../components/link';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
+import StatWidget from '../../../components/stat-widget';
 import useZrxPrice from '../hooks/use-zrx-price';
 
-const ZRXPriceMetric = ({ className }) => {
+const ZRXPriceWidget = ({ className }) => {
   const [zrxPrice, loading] = useZrxPrice({ autoReload: true });
 
   return (
-    <DashboardMetric className={className} title="ZRX Price">
+    <StatWidget className={className} title="ZRX Price">
       {loading ? (
         <LoadingIndicator size="small" type="cylon" />
       ) : (
@@ -53,16 +53,16 @@ const ZRXPriceMetric = ({ className }) => {
           </span>
         </Link>
       )}
-    </DashboardMetric>
+    </StatWidget>
   );
 };
 
-ZRXPriceMetric.propTypes = {
+ZRXPriceWidget.propTypes = {
   className: PropTypes.string,
 };
 
-ZRXPriceMetric.defaultProps = {
+ZRXPriceWidget.defaultProps = {
   className: undefined,
 };
 
-export default ZRXPriceMetric;
+export default ZRXPriceWidget;

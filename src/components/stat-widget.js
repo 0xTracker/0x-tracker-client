@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
-import Card from '../../../components/card';
+import { colors } from '../styles/constants';
+import Card from './card';
 
-const DashboardMetricTitle = styled.dt`
+const StatWidgetTitle = styled.dt`
   color: ${colors.stormGray};
   font-size: 0.8rem;
   font-weight: normal;
@@ -13,7 +13,7 @@ const DashboardMetricTitle = styled.dt`
   text-transform: uppercase;
 `;
 
-const DashboardMetricValue = styled.dd`
+const StatWidgetValue = styled.dd`
   display: flex;
   align-items: center;
   font-size: 1.2rem;
@@ -21,23 +21,23 @@ const DashboardMetricValue = styled.dd`
   margin: 0;
 `;
 
-const DashboardMetric = ({ className, title, children }) => (
+const StatWidget = ({ className, title, children }) => (
   <Card className={className} padded>
     <dl css="margin: 0;">
-      <DashboardMetricTitle>{title}</DashboardMetricTitle>
-      <DashboardMetricValue>{children}</DashboardMetricValue>
+      <StatWidgetTitle>{title}</StatWidgetTitle>
+      <StatWidgetValue>{children}</StatWidgetValue>
     </dl>
   </Card>
 );
 
-DashboardMetric.propTypes = {
+StatWidget.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
 
-DashboardMetric.defaultProps = {
+StatWidget.defaultProps = {
   className: undefined,
 };
 
-export default DashboardMetric;
+export default StatWidget;
