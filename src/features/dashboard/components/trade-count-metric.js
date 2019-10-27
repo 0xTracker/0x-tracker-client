@@ -8,22 +8,22 @@ import LoadingIndicator from '../../../components/loading-indicator';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const FillCountMetric = ({ className, fillCount }) => (
-  <DashboardMetric className={className} title="Fill Count (24H)">
-    {_.isNumber(fillCount)
-      ? numeral(fillCount).format('0,0')
+const TradeCountMetric = ({ className, tradeCount }) => (
+  <DashboardMetric className={className} title="Trade Count (24H)">
+    {_.isNumber(tradeCount)
+      ? numeral(tradeCount).format('0,0')
       : loadingIndicator}
   </DashboardMetric>
 );
 
-FillCountMetric.propTypes = {
+TradeCountMetric.propTypes = {
   className: PropTypes.string,
-  fillCount: PropTypes.number,
+  tradeCount: PropTypes.number,
 };
 
-FillCountMetric.defaultProps = {
+TradeCountMetric.defaultProps = {
   className: undefined,
-  fillCount: undefined,
+  tradeCount: undefined,
 };
 
-export default FillCountMetric;
+export default TradeCountMetric;
