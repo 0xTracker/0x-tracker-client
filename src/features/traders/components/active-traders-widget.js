@@ -3,27 +3,27 @@ import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import DashboardMetric from './dashboard-metric';
 import LoadingIndicator from '../../../components/loading-indicator';
+import StatWidget from '../../../components/stat-widget';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const ActiveTradersMetric = ({ className, traderCount }) => (
-  <DashboardMetric className={className} title="Active Traders (24H)">
+const ActiveTradersWidget = ({ className, traderCount }) => (
+  <StatWidget className={className} title="Active Traders (24H)">
     {_.isNumber(traderCount)
       ? numeral(traderCount).format('0,0')
       : loadingIndicator}
-  </DashboardMetric>
+  </StatWidget>
 );
 
-ActiveTradersMetric.propTypes = {
+ActiveTradersWidget.propTypes = {
   className: PropTypes.string,
   traderCount: PropTypes.number,
 };
 
-ActiveTradersMetric.defaultProps = {
+ActiveTradersWidget.defaultProps = {
   className: undefined,
   traderCount: undefined,
 };
 
-export default ActiveTradersMetric;
+export default ActiveTradersWidget;

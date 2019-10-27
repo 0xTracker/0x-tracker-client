@@ -84,7 +84,7 @@ const Header = () => {
       )}
       <StyledHeader>
         <Container css="align-items: center; display: flex; justify-content: space-between; height: 100%;">
-          <Link href={URL.DASHBOARD}>
+          <Link href={URL.HOME}>
             <LogoImage
               alt="0x Tracker"
               size={isDesktop ? 'large' : 'small'}

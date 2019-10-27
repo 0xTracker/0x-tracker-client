@@ -7,7 +7,7 @@ import { media } from '../../../styles/util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ChartsContainer from '../../../components/charts-container';
 import Container from '../../../components/container';
-import DashboardMetrics from './dashboard-metrics';
+import HomePageMetrics from './home-page-metrics';
 import getPeriodOptions from '../../../util/get-period-options';
 import LatestNewsCard from '../../news/components/latest-news-card';
 import NetworkVolume from '../../metrics/components/network-volume';
@@ -15,7 +15,7 @@ import RecentFillsCard from '../../fills/components/recent-fills-card';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
 
-const DashboardColumn = styled(Col)`
+const HomePageColumn = styled(Col)`
   display: flex;
   flex-direction: column;
   margin-bottom: 1.25rem;
@@ -33,7 +33,7 @@ const DashboardColumn = styled(Col)`
   `}
 `;
 
-const StyledDashboardMetrics = styled(DashboardMetrics)`
+const StyledHomePageMetrics = styled(HomePageMetrics)`
   margin-bottom: 1.25rem;
 
   ${media.greaterThan('lg')`
@@ -41,14 +41,14 @@ const StyledDashboardMetrics = styled(DashboardMetrics)`
   `}
 `;
 
-const DashboardPage = () => {
+const HomePage = () => {
   const breakpoint = useCurrentBreakpoint();
 
   return (
     <Container>
-      <StyledDashboardMetrics />
+      <StyledHomePageMetrics />
       <Row>
-        <DashboardColumn lg={7}>
+        <HomePageColumn lg={7}>
           <ChartsContainer
             charts={[
               { component: NetworkVolume, title: 'Fill Volume' },
@@ -70,8 +70,8 @@ const DashboardPage = () => {
                 : undefined
             }
           />
-        </DashboardColumn>
-        <DashboardColumn lg={5}>
+        </HomePageColumn>
+        <HomePageColumn lg={5}>
           <ChartsContainer
             charts={[
               { component: TopTokens, title: 'Top Tokens' },
@@ -88,22 +88,22 @@ const DashboardPage = () => {
                 : undefined
             }
           />
-        </DashboardColumn>
+        </HomePageColumn>
       </Row>
       <Row>
-        <DashboardColumn css="flex-grow: 1;" lastRow lg={7}>
+        <HomePageColumn css="flex-grow: 1;" lastRow lg={7}>
           <RecentFillsCard css="flex-grow: 1;" />
-        </DashboardColumn>
-        <DashboardColumn css="flex-grow: 1;" lastRow lg={5}>
+        </HomePageColumn>
+        <HomePageColumn css="flex-grow: 1;" lastRow lg={5}>
           <LatestNewsCard
             compact={breakpoint.lessThan('sm') || breakpoint.greaterThan('md')}
             css="flex-grow: 1;"
             showImages={breakpoint.greaterThan('xs')}
           />
-        </DashboardColumn>
+        </HomePageColumn>
       </Row>
     </Container>
   );
 };
 
-export default DashboardPage;
+export default HomePage;

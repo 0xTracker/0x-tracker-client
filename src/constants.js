@@ -28,9 +28,9 @@ const DATE_FORMAT = {
 const GENESIS_DATE = new Date('2017-08-15T00:00:00Z');
 
 const URL = {
-  DASHBOARD: '/',
   FILL: '/fills/:id',
   FILLS: '/fills',
+  HOME: '/',
   NEWS: '/news-and-updates',
   RELAYER: '/relayers/:slug',
   RELAYERS: '/relayers',
