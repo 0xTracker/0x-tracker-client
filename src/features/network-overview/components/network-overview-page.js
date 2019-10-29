@@ -13,6 +13,7 @@ import TabbedCard from '../../../components/tabbed-card';
 import TimePeriodSelector from '../../../components/time-period-selector';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
+import ProtocolBreakdown from './protocol-breakdown';
 
 const DashboardColumn = styled(Col)`
   display: flex;
@@ -107,7 +108,7 @@ const NetworkOverviewPage = ({ history, location }) => {
             <TabbedCard
               tabs={[
                 {
-                  component: <TopTokens period={period} />,
+                  component: <ProtocolBreakdown period={period} />,
                   title: 'Protocol Breakdown',
                 },
               ]}
