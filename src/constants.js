@@ -31,6 +31,7 @@ const URL = {
   FILL: '/fills/:id',
   FILLS: '/fills',
   HOME: '/',
+  NETWORK_OVERVIEW: '/network-overview',
   NEWS: '/news-and-updates',
   RELAYER: '/relayers/:slug',
   RELAYERS: '/relayers',
