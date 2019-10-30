@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import { TIME_PERIOD, URL } from '../../../constants';
 import { media } from '../../../styles/util';
+import ActiveTradersCard from '../../traders/components/active-traders-card';
 import NetworkOverviewStats from './network-overview-stats';
 import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
@@ -14,7 +15,7 @@ import TimePeriodSelector from '../../../components/time-period-selector';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
 import ProtocolBreakdown from './protocol-breakdown';
-import TraderBreakdown from '../../traders/components/trader-breakdown';
+import TraderTypesCard from '../../traders/components/trader-types-card';
 
 const DashboardColumn = styled(Col)`
   display: flex;
@@ -118,24 +119,10 @@ const NetworkOverviewPage = ({ history, location }) => {
         </Row>
         <Row>
           <DashboardColumn lg={7}>
-            <TabbedCard
-              tabs={[
-                {
-                  component: <NetworkVolume period={period} />,
-                  title: 'Active Traders',
-                },
-              ]}
-            />
+            <ActiveTradersCard period={period} />
           </DashboardColumn>
           <DashboardColumn lg={5}>
-            <TabbedCard
-              tabs={[
-                {
-                  component: <TraderBreakdown period={period} />,
-                  title: 'Traders Breakdown',
-                },
-              ]}
-            />
+            <TraderTypesCard period={period} />
           </DashboardColumn>
         </Row>
       </PageLayout>
