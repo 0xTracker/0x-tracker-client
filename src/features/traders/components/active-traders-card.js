@@ -6,7 +6,6 @@ import CardBody from '../../../components/card-body';
 import CardHeading from '../../../components/card-heading';
 import CardHeader from '../../../components/card-header';
 import Link from '../../../components/link';
-import NetworkVolume from '../../metrics/components/network-volume';
 import Pill from '../../../components/pill';
 import sharedPropTypes from '../../../prop-types';
 
@@ -18,9 +17,7 @@ const ActiveTradersCard = ({ period }) => (
         View Traders
       </Pill>
     </CardHeader>
-    <CardBody css="height: 265px;" padded>
-      <NetworkVolume period={period} />
-    </CardBody>
+    <CardBody css="height: 265px;" padded />
   </BasicCard>
 );
 

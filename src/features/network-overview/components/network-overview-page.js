@@ -10,6 +10,7 @@ import ActiveTradersCard from '../../traders/components/active-traders-card';
 import NetworkOverviewStats from './network-overview-stats';
 import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
+import ProtocolVolumeCard from './protocol-volume-card';
 import TabbedCard from '../../../components/tabbed-card';
 import TimePeriodSelector from '../../../components/time-period-selector';
 import TopRelayers from '../../relayers/components/top-relayers';
@@ -49,8 +50,8 @@ const NetworkOverviewPage = ({ history, location }) => {
 
   return (
     <>
-      <Helmet key="relayers">
-        <title>Active Relayers</title>
+      <Helmet key="network-overview">
+        <title>Network Overview</title>
       </Helmet>
       <PageLayout
         filter={
@@ -97,14 +98,7 @@ const NetworkOverviewPage = ({ history, location }) => {
         </Row>
         <Row>
           <DashboardColumn lg={7}>
-            <TabbedCard
-              tabs={[
-                {
-                  component: <NetworkVolume period={period} />,
-                  title: 'Protocol Usage',
-                },
-              ]}
-            />
+            <ProtocolVolumeCard period={period} />
           </DashboardColumn>
           <DashboardColumn lg={5}>
             <TopProtocolsCard period={period} />
