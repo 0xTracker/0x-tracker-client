@@ -1,29 +1,17 @@
-import { Card, CardBody, CardHeader, Nav, NavItem, NavLink } from 'reactstrap';
+import { CardHeader, Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
-
-const StyledTabbedCard = styled(Card)`
-  border-radius: none;
-  border: none;
-  box-shadow: 0px 2px 4px rgba(126, 142, 177, 0.12);
-`;
+import BasicCard from './basic-card';
+import CardBody from './card-body';
 
 const TabbedCardHeader = styled(CardHeader)`
   background: none;
   border-bottom: 1px solid ${colors.athensGray};
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-`;
-
-const TabbedCardBody = styled(CardBody)`
-  align-items: center;
-  display: flex;
-  height: 265px;
-  justify-content: center;
   padding: 1rem;
 `;
 
@@ -48,7 +36,7 @@ const TabbedCard = ({ className, tabs }) => {
   const Tab = tabs[selectedTab].component;
 
   return (
-    <StyledTabbedCard className={className}>
+    <BasicCard className={className}>
       <TabbedCardHeader>
         {tabs.length === 1 ? (
           tabs[0].title
@@ -67,10 +55,10 @@ const TabbedCard = ({ className, tabs }) => {
           </Nav>
         )}
       </TabbedCardHeader>
-      <TabbedCardBody>
+      <CardBody css="height: 265px;" padded>
         {React.isValidElement(Tab) ? Tab : <Tab />}
-      </TabbedCardBody>
-    </StyledTabbedCard>
+      </CardBody>
+    </BasicCard>
   );
 };
 
