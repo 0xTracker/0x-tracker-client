@@ -8,7 +8,7 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 import Number from '../../../components/number';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
-const ProtocolBreakdownTooltip = ({ payload }) => {
+const TopProtocolsChartTooltip = ({ payload }) => {
   const displayCurrency = useDisplayCurrency();
 
   if (_.isNil(payload) || _.isEmpty(payload)) {
@@ -49,7 +49,7 @@ const ProtocolBreakdownTooltip = ({ payload }) => {
   );
 };
 
-ProtocolBreakdownTooltip.propTypes = {
+TopProtocolsChartTooltip.propTypes = {
   payload: PropTypes.arrayOf(
     PropTypes.shape({
       payload: PropTypes.shape({
@@ -62,8 +62,8 @@ ProtocolBreakdownTooltip.propTypes = {
   ),
 };
 
-ProtocolBreakdownTooltip.defaultProps = {
+TopProtocolsChartTooltip.defaultProps = {
   payload: undefined,
 };
 
-export default ProtocolBreakdownTooltip;
+export default TopProtocolsChartTooltip;

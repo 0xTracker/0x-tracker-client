@@ -14,7 +14,7 @@ import TabbedCard from '../../../components/tabbed-card';
 import TimePeriodSelector from '../../../components/time-period-selector';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
-import ProtocolBreakdown from './protocol-breakdown';
+import TopProtocolsCard from './top-protocols-card';
 import TraderTypesCard from '../../traders/components/trader-types-card';
 
 const DashboardColumn = styled(Col)`
@@ -45,7 +45,7 @@ const StyledNetworkOverviewStats = styled(NetworkOverviewStats)`
 
 const NetworkOverviewPage = ({ history, location }) => {
   const params = new URLSearchParams(location.search);
-  const period = params.get('period') || TIME_PERIOD.MONTH;
+  const period = params.get('period') || TIME_PERIOD.YEAR;
 
   return (
     <>
@@ -107,14 +107,7 @@ const NetworkOverviewPage = ({ history, location }) => {
             />
           </DashboardColumn>
           <DashboardColumn lg={5}>
-            <TabbedCard
-              tabs={[
-                {
-                  component: <ProtocolBreakdown period={period} />,
-                  title: 'Protocol Breakdown',
-                },
-              ]}
-            />
+            <TopProtocolsCard period={period} />
           </DashboardColumn>
         </Row>
         <Row>

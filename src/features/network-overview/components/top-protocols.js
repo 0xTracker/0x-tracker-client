@@ -1,8 +1,8 @@
 import React from 'react';
 
-import AsyncProtocolBreakdownChart from './async-protocol-breakdown-chart';
+import AsyncTopProtocolsChart from './async-top-protocols-chart';
 
-const ProtocolBreakdown = () => {
+const TopProtocols = () => {
   const stats = [
     {
       protocolVersion: 2,
@@ -19,7 +19,7 @@ const ProtocolBreakdown = () => {
     { protocolVersion: 1, share: 1.6, tradeCount: 120, tradeVolume: 100000 },
   ];
 
-  return <AsyncProtocolBreakdownChart data={stats} />;
+  return <AsyncTopProtocolsChart data={stats} />;
 };
 
-export default ProtocolBreakdown;
+export default TopProtocols;

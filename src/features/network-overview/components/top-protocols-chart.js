@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors } from '../../../styles/constants';
-import ProtocolBreakdownTooltip from './protocol-breakdown-tooltip';
+import TopProtocolsChartTooltip from './top-protocols-chart-tooltip';
 
-const ProtocolBreakdownChart = ({ data }) => {
+const TopProtocolsChart = ({ data }) => {
   if (_.isEmpty(data)) {
     return 'No data available';
   }
@@ -29,13 +29,13 @@ const ProtocolBreakdownChart = ({ data }) => {
             <Cell fill={COLORS[index]} key={`cell-${entry.protocolVersion}`} />
           ))}
         </Pie>
-        <Tooltip content={<ProtocolBreakdownTooltip />} />
+        <Tooltip content={<TopProtocolsChartTooltip />} />
       </PieChart>
     </ResponsiveContainer>
   );
 };
 
-ProtocolBreakdownChart.propTypes = {
+TopProtocolsChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       protocolVersion: PropTypes.number.isRequired,
@@ -46,4 +46,4 @@ ProtocolBreakdownChart.propTypes = {
   ).isRequired,
 };
 
-export default ProtocolBreakdownChart;
+export default TopProtocolsChart;
