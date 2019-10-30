@@ -4,12 +4,13 @@ import React from 'react';
 
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
+import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const TradeVolumeWidget = ({ className, volume }) => (
-  <StatWidget className={className} title="Trade Volume (24H)">
+const TradeVolumeWidget = ({ className, period, volume }) => (
+  <StatWidget className={className} period={period} title="Trade Volume">
     {_.isNumber(volume) ? (
       <LocalisedAmount amount={volume} loadingIndicator={loadingIndicator} />
     ) : (
@@ -20,11 +21,13 @@ const TradeVolumeWidget = ({ className, volume }) => (
 
 TradeVolumeWidget.propTypes = {
   className: PropTypes.string,
+  period: sharedPropTypes.timePeriod,
   volume: PropTypes.number,
 };
 
 TradeVolumeWidget.defaultProps = {
   className: undefined,
+  period: undefined,
   volume: undefined,
 };
 

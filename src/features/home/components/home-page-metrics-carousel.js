@@ -7,6 +7,7 @@ import '../../../styles/css/slick-carousel.css';
 
 import { breakpoints } from '../../../styles/constants';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
+import sharedPropTypes from '../../../prop-types';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
 import ZRXPriceMetric from './zrx-price-widget';
@@ -17,6 +18,7 @@ const CarouselMetric = styled.div`
 
 const HomePageMetricsCarousel = ({
   className,
+  period,
   tradeCount,
   traderCount,
   tradeVolume,
@@ -40,15 +42,28 @@ const HomePageMetricsCarousel = ({
     slidesToScroll={3}
     slidesToShow={3}
   >
-    <CarouselMetric as={TradeVolumeWidget} volume={tradeVolume} />
-    <CarouselMetric as={TradeCountWidget} tradeCount={tradeCount} />
-    <CarouselMetric as={ActiveTradersWidget} traderCount={traderCount} />
+    <CarouselMetric
+      as={TradeVolumeWidget}
+      period={period}
+      volume={tradeVolume}
+    />
+    <CarouselMetric
+      as={TradeCountWidget}
+      period={period}
+      tradeCount={tradeCount}
+    />
+    <CarouselMetric
+      as={ActiveTradersWidget}
+      period={period}
+      traderCount={traderCount}
+    />
     <CarouselMetric as={ZRXPriceMetric} />
   </Slider>
 );
 
 HomePageMetricsCarousel.propTypes = {
   className: PropTypes.string,
+  period: sharedPropTypes.timePeriod.isRequired,
   tradeCount: PropTypes.number,
   tradeVolume: PropTypes.number,
   traderCount: PropTypes.number,
