@@ -7,7 +7,7 @@ import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
-import useRelayerStats from '../../stats/hooks/use-relayer-stats';
+import useNetworkStats from '../../stats/hooks/use-network-stats';
 import useTraderStats from '../../stats/hooks/use-trader-stats';
 import ZRXPriceWidget from './zrx-price-widget';
 
@@ -17,13 +17,13 @@ const AsyncHomePageMetricsCarousel = React.lazy(() =>
 );
 
 const HomePageMetrics = ({ className }) => {
-  const [relayerStats] = useRelayerStats();
+  const [networkStats] = useNetworkStats();
   const [traderStats] = useTraderStats();
   const breakpoint = useCurrentBreakpoint();
 
-  const tradeCount = _.get(relayerStats, 'trades');
+  const tradeCount = _.get(networkStats, 'tradeCount');
   const traderCount = _.get(traderStats, 'traderCount');
-  const tradeVolume = _.get(relayerStats, 'tradeVolume');
+  const tradeVolume = _.get(networkStats, 'tradeVolume');
 
   return breakpoint.greaterThan('md') ? (
     <Row className={className}>

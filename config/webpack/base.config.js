@@ -61,7 +61,6 @@ const getConfig = environment => ({
           'src/**/*.test.js.snap',
           'src/test-util/**/*.*',
           'src/components/filter-button.js',
-          'src/features/stats/hooks/use-network-stats.js',
           'src/features/traders/components/traders-filter-dialog.js',
           'src/features/traders/components/traders-filter.js',
           'src/features/traders/components/trader-type-selector.js',

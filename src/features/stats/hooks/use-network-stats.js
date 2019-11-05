@@ -6,6 +6,7 @@ const useNetworkStats = ({ period } = {}) =>
     params: {
       period,
     },
+    version: 2,
   });
 
 export default useNetworkStats;
