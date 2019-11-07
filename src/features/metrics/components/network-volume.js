@@ -19,8 +19,8 @@ const NetworkVolume = ({ period, relayerId, type }) => {
 
   const data = metrics.map(metric => ({
     date: new Date(metric.date),
-    fills: metric.fills,
-    volume: (parseFloat(metric.volume) || 0) * conversionRate,
+    fills: metric.fillCount,
+    volume: (parseFloat(metric.fillVolume) || 0) * conversionRate,
   }));
 
   return (
