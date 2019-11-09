@@ -12,9 +12,9 @@ import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getPeriodOptions from '../../../util/get-period-options';
 import LoadingPage from '../../../components/loading-page';
-import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
+import RelayerMetrics from '../../metrics/components/relayer-metrics';
 import useRelayer from '../hooks/use-relayer';
 
 const StyledChartsContainer = styled(ChartsContainer)`
@@ -58,12 +58,16 @@ const RelayerPage = ({ history, location, match }) => {
         <StyledChartsContainer
           charts={[
             {
-              component: <NetworkVolume relayerId={relayer.id} />,
-              title: 'Fill Volume',
+              component: (
+                <RelayerMetrics relayerId={relayer.id} type="tradeVolume" />
+              ),
+              title: 'Trade Volume',
             },
             {
-              component: <NetworkVolume relayerId={relayer.id} type="fills" />,
-              title: 'Fill Count',
+              component: (
+                <RelayerMetrics relayerId={relayer.id} type="tradeCount" />
+              ),
+              title: 'Trade Count',
             },
           ]}
           defaultPeriod={TIME_PERIOD.YEAR}

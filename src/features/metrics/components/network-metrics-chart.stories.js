@@ -4,9 +4,9 @@ import React from 'react';
 import subDays from 'date-fns/subDays';
 
 import { TIME_PERIOD } from '../../../constants';
-import NetworkVolumeChart from './network-volume-chart';
+import NetworkMetricsChart from './network-metrics-chart';
 
-storiesOf('Charts|NetworkVolumeChart', module)
+storiesOf('Charts|NetworkMetricsChart', module)
   .addDecorator(getStory => (
     <div css="width: 600px; height: 300px;">{getStory()}</div>
   ))
@@ -19,23 +19,15 @@ storiesOf('Charts|NetworkVolumeChart', module)
 
       return {
         date,
-        fills: _.random(1, 100),
-        volume: _.random(1000, 5000),
+        fillCount: _.random(1, 100),
+        fillVolume: _.random(1000, 5000),
+        tradeCount: _.random(100, 200),
+        tradeVolume: _.random(5000, 10000),
       };
     });
 
-    return (
-      <NetworkVolumeChart
-        data={data}
-        displayCurrency="USD"
-        period={TIME_PERIOD.MONTH}
-      />
-    );
+    return <NetworkMetricsChart data={data} period={TIME_PERIOD.MONTH} />;
   })
   .add('without any data', () => (
-    <NetworkVolumeChart
-      data={[]}
-      displayCurrency="USD"
-      period={TIME_PERIOD.MONTH}
-    />
+    <NetworkMetricsChart data={[]} period={TIME_PERIOD.MONTH} />
   ));

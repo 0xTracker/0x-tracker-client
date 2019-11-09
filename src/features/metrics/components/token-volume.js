@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import AsyncTokenVolumeChart from './async-token-volume-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
-import useTokenVolumeMetrics from '../hooks/use-token-volume-metrics';
-import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
+import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
+import useTokenMetrics from '../hooks/use-token-metrics';
 
 const TokenVolume = ({ period, token }) => {
-  const [metrics, loadingMetrics] = useTokenVolumeMetrics(token.address, {
+  const [metrics, loadingMetrics] = useTokenMetrics(token.address, {
     period,
   });
   const displayCurrency = useDisplayCurrency();
@@ -21,8 +21,8 @@ const TokenVolume = ({ period, token }) => {
 
   const data = metrics.map(metric => ({
     date: new Date(metric.date),
-    localizedVolume: metric.volume.USD * conversionRate,
-    tokenVolume: metric.volume[token.symbol],
+    localizedVolume: metric.fillVolume.USD * conversionRate,
+    tokenVolume: metric.fillVolume.token,
   }));
 
   return (
