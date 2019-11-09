@@ -12,7 +12,7 @@ import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getPeriodOptions from '../../../util/get-period-options';
 import LoadingPage from '../../../components/loading-page';
-import NetworkVolume from '../../metrics/components/network-volume';
+import NetworkMetrics from '../../metrics/components/network-metrics';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 import useRelayer from '../hooks/use-relayer';
@@ -58,11 +58,11 @@ const RelayerPage = ({ history, location, match }) => {
         <StyledChartsContainer
           charts={[
             {
-              component: <NetworkVolume relayerId={relayer.id} />,
+              component: <NetworkMetrics relayerId={relayer.id} />,
               title: 'Fill Volume',
             },
             {
-              component: <NetworkVolume relayerId={relayer.id} type="fills" />,
+              component: <NetworkMetrics relayerId={relayer.id} type="fills" />,
               title: 'Fill Count',
             },
           ]}
