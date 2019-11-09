@@ -9,7 +9,7 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 import Number from '../../../components/number';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
-const NetworkMetricsTooltip = ({ payload }) => {
+const RelayerMetricsTooltip = ({ payload }) => {
   const displayCurrency = useDisplayCurrency();
 
   if (_.isEmpty(payload)) {
@@ -49,7 +49,7 @@ const NetworkMetricsTooltip = ({ payload }) => {
   );
 };
 
-NetworkMetricsTooltip.propTypes = {
+RelayerMetricsTooltip.propTypes = {
   payload: PropTypes.arrayOf(
     PropTypes.shape({
       payload: PropTypes.shape({
@@ -63,8 +63,8 @@ NetworkMetricsTooltip.propTypes = {
   ),
 };
 
-NetworkMetricsTooltip.defaultProps = {
+RelayerMetricsTooltip.defaultProps = {
   payload: undefined,
 };
 
-export default NetworkMetricsTooltip;
+export default RelayerMetricsTooltip;
