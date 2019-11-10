@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -43,7 +44,9 @@ const TopTokensTable = ({ tokens }) => (
               {token.symbol}
             </TokenLink>
             <br />
-            <SecondaryText>{token.name}</SecondaryText>
+            <SecondaryText>
+              {_.truncate(token.name, { length: 35 })}
+            </SecondaryText>
           </TableCell>
           <TableCell css="text-align: right;">
             <LocalisedAmount
