@@ -50,6 +50,7 @@ const HomePage = () => {
       <Row>
         <HomePageColumn lg={7}>
           <ChartsContainer
+            bodyHeight="300px"
             charts={[
               {
                 component: <NetworkMetrics type="tradeVolume" />,
@@ -76,6 +77,7 @@ const HomePage = () => {
         </HomePageColumn>
         <HomePageColumn lg={5}>
           <ChartsContainer
+            bodyHeight="300px"
             charts={[
               { component: TopTokens, title: 'Top Tokens' },
               { component: TopRelayers, title: 'Top Relayers' },

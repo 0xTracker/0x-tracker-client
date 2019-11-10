@@ -5,22 +5,28 @@ import React from 'react';
 
 import { colors } from '../../../styles/constants';
 
-const TokenImage = ({ imageUrl }) =>
+const TokenImage = ({ imageUrl, size }) =>
   _.isString(imageUrl) ? (
     <img
-      css="border-radius: 0.25rem; height: 2.75rem; width: 2.75rem;"
+      css={`
+        border-radius: 0.25rem;
+        height: ${size};
+        width: ${size};
+      `}
       src={imageUrl}
     />
   ) : (
-    <CircleIcon color={colors.mischka} height={40} width={40} />
+    <CircleIcon color={colors.mischka} height="2.75rem" width="2.75rem" />
   );
 
 TokenImage.propTypes = {
   imageUrl: PropTypes.string,
+  size: PropTypes.string,
 };
 
 TokenImage.defaultProps = {
   imageUrl: undefined,
+  size: '2.75rem',
 };
 
 export default TokenImage;
