@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should format 1000 1`] = `
+<DocumentFragment>
+  1,000
+</DocumentFragment>
+`;
+
+exports[`should format 10000 1`] = `
+<DocumentFragment>
+  10,000
+</DocumentFragment>
+`;
+
+exports[`should format 100000 1`] = `
+<DocumentFragment>
+  100,000
+</DocumentFragment>
+`;
+
+exports[`should format 10000000 1`] = `
+<DocumentFragment>
+  1,000,000
+</DocumentFragment>
+`;
+
+exports[`should not format 999 1`] = `
+<DocumentFragment>
+  999
+</DocumentFragment>
+`;
+
+exports[`should summarize 4530 1`] = `
+<DocumentFragment>
+  <span
+    title="4,530"
+  >
+    4.5k
+  </span>
+</DocumentFragment>
+`;
+
+exports[`should summarize 152650 1`] = `
+<DocumentFragment>
+  <span
+    title="152,650"
+  >
+    152.7k
+  </span>
+</DocumentFragment>
+`;
+
+exports[`should summarize 7846032 1`] = `
+<DocumentFragment>
+  <span
+    title="7,846,032"
+  >
+    7.8m
+  </span>
+</DocumentFragment>
+`;
