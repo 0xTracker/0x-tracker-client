@@ -52,10 +52,12 @@ const TopTokensTable = ({ tokens }) => (
             <LocalisedAmount
               amount={token.stats.fillVolume.USD}
               css="font-weight: 500;"
+              summarize
             />
             <br />
             <SecondaryText>
-              <Number>{token.stats.fillVolume.token}</Number> {token.symbol}
+              <Number summarize>{token.stats.fillVolume.token}</Number>{' '}
+              {token.symbol}
             </SecondaryText>
           </TableCell>
         </TableRow>

@@ -12,10 +12,10 @@ import PropTypes from 'prop-types';
 
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
-import formatCurrency from '../../../util/format-currency';
 import formatDate from '../../../util/format-date';
 import padMetrics from '../util/pad-metrics';
 import sharedPropTypes from '../../../prop-types';
+import summarizeCurrency from '../../../util/summarize-currency';
 import TokenVolumeTooltip from './token-volume-tooltip';
 
 const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
@@ -34,7 +34,7 @@ class TokenVolumeChart extends PureComponent {
 
     const { localCurrency } = this.props;
 
-    return formatCurrency(value, localCurrency, true);
+    return summarizeCurrency(value, localCurrency);
   }
 
   render() {

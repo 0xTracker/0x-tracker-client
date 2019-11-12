@@ -48,7 +48,7 @@ const TokenPage = ({ history, location, match }) => {
             charts={[
               {
                 component: <TokenVolume token={token} />,
-                title: 'Network Volume',
+                title: 'Fill Volume',
               },
             ]}
             css={`

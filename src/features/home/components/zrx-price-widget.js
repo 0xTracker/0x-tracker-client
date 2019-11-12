@@ -38,16 +38,16 @@ const ZRXPriceWidget = ({ className }) => {
               <TrendingUpIcon
                 color={colors.fruitSalad}
                 css="margin: 0 0 0 0.25rem;"
-                height={24}
-                width={24}
+                height={20}
+                width={20}
               />
             ) : null}
             {zrxPrice.change < 0 ? (
               <TrendingDownIcon
                 color={colors.pomegranate}
                 css="margin: 0 0 0 0.25rem;"
-                height={24}
-                width={24}
+                height={20}
+                width={20}
               />
             ) : null}
           </span>
