@@ -6,7 +6,6 @@ import ReactGA from 'react-ga';
 
 import App from './components/app';
 import AutoReload from './util/auto-reload';
-import ReduxContext from './components/redux-context';
 
 OfflinePluginRuntime.install({
   onUpdateReady: () => {
@@ -23,11 +22,6 @@ if (process.env.REACT_APP_GA_TRACKING_ID) {
   ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
 }
 
-ReactDOM.render(
-  <ReduxContext>
-    <App />
-  </ReduxContext>,
-  document.getElementById('root'),
-);
+ReactDOM.render(<App />, document.getElementById('root'));
 
 AutoReload.start(ms(process.env.REACT_APP_AUTO_RELOAD_INTERVAL));

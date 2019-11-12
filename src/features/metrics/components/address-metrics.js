@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import AsyncAddressMetricsChart from './async-address-metrics-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
-import useAddressMetrics from '../hooks/use-address-metrics';
-import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
+import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
+import useTraderMetrics from '../hooks/use-trader-metrics';
 
 const AddressMetrics = ({ address, keyMetric, period }) => {
-  const [metrics, loading] = useAddressMetrics(address, { period });
+  const [metrics, loading] = useTraderMetrics(address, { period });
   const displayCurrency = useDisplayCurrency();
   const conversionRate = useConversionRate();
 
@@ -19,8 +19,8 @@ const AddressMetrics = ({ address, keyMetric, period }) => {
 
   const data = metrics.map(metric => ({
     date: new Date(metric.date),
-    fillCount: metric.fillCount,
-    fillVolume: metric.fillVolume.USD * conversionRate,
+    fillCount: metric.fillCount.total,
+    fillVolume: metric.fillVolume.total * conversionRate,
   }));
 
   return (

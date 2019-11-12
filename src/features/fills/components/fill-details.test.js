@@ -48,8 +48,6 @@ const simpleFill = {
   value: { USD: 184.292064 },
 };
 
-const simpleScreenSize = { lessThan: { sm: false } };
-
 beforeAll(() => {
   // eslint-disable-next-line no-extend-native
   Date.prototype.getTimezoneOffset = _.constant(180); // Mock timezone as UTC-3
@@ -57,9 +55,7 @@ beforeAll(() => {
 
 describe('fillDetails component', () => {
   it('should render V2 fill', () => {
-    const { asFragment } = renderWithRouter(
-      <FillDetails fill={simpleFill} screenSize={simpleScreenSize} />,
-    );
+    const { asFragment } = renderWithRouter(<FillDetails fill={simpleFill} />);
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -75,9 +71,7 @@ describe('fillDetails component', () => {
       takerFee: undefined,
     };
 
-    const { asFragment } = renderWithRouter(
-      <FillDetails fill={fill} screenSize={simpleScreenSize} />,
-    );
+    const { asFragment } = renderWithRouter(<FillDetails fill={fill} />);
 
     expect(asFragment()).toMatchSnapshot();
   });

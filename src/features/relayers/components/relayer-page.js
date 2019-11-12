@@ -1,20 +1,20 @@
-import { compose, mapProps } from 'recompose';
-import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
+import buildUrl from '../../../util/build-url';
 import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getPeriodOptions from '../../../util/get-period-options';
 import LoadingPage from '../../../components/loading-page';
-import NetworkVolume from '../../metrics/components/network-volume';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
+import RelayerMetrics from '../../metrics/components/relayer-metrics';
 import useRelayer from '../hooks/use-relayer';
 
 const StyledChartsContainer = styled(ChartsContainer)`
@@ -25,8 +25,21 @@ const StyledChartsContainer = styled(ChartsContainer)`
   `}
 `;
 
-const RelayerPage = ({ screenSize, slug }) => {
+const RelayerPage = ({ history, location, match }) => {
+  const { slug } = match.params;
+  const params = new URLSearchParams(location.search);
+  const page = Number(params.get('page')) || 1;
+
   const [relayer, loadingRelayer] = useRelayer(slug);
+  const breakpoint = useCurrentBreakpoint();
+
+  const onPageChange = useCallback(newPage => {
+    history.push(
+      buildUrl(match.url, {
+        page: newPage,
+      }),
+    );
+  }, []);
 
   if (loadingRelayer) {
     return <LoadingPage />;
@@ -45,17 +58,21 @@ const RelayerPage = ({ screenSize, slug }) => {
         <StyledChartsContainer
           charts={[
             {
-              component: <NetworkVolume relayerId={relayer.id} />,
-              title: 'Fill Volume',
+              component: (
+                <RelayerMetrics relayerId={relayer.id} type="tradeVolume" />
+              ),
+              title: 'Trade Volume',
             },
             {
-              component: <NetworkVolume relayerId={relayer.id} type="fills" />,
-              title: 'Fill Count',
+              component: (
+                <RelayerMetrics relayerId={relayer.id} type="tradeCount" />
+              ),
+              title: 'Trade Count',
             },
           ]}
           defaultPeriod={TIME_PERIOD.YEAR}
           periods={
-            screenSize.greaterThan.xs
+            breakpoint.greaterThan('xs')
               ? getPeriodOptions([
                   TIME_PERIOD.DAY,
                   TIME_PERIOD.WEEK,
@@ -66,10 +83,12 @@ const RelayerPage = ({ screenSize, slug }) => {
               : undefined
           }
         />
-        <Card>
+        <Card fullHeight>
           <Fills
             excludeColumns={['relayer']}
             filter={{ relayer: relayer.id }}
+            onPageChange={onPageChange}
+            page={page}
           />
         </Card>
       </PageLayout>
@@ -78,17 +97,18 @@ const RelayerPage = ({ screenSize, slug }) => {
 };
 
 RelayerPage.propTypes = {
-  screenSize: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    search: PropTypes.string.isRequired,
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      slug: PropTypes.string.isRequired,
+    }).isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
-const mapStateToProps = state => ({
-  screenSize: state.screen,
-});
-
-const enhance = compose(
-  mapProps(({ match }) => ({ slug: match.params.slug })),
-  connect(mapStateToProps),
-);
-
-export default enhance(RelayerPage);
+export default RelayerPage;

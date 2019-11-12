@@ -6,7 +6,7 @@ import { colors } from '../../../styles/constants';
 import { URL } from '../../../constants';
 import { CloseIcon } from '../../../components/icons';
 import Link from '../../../components/link';
-import logoImage from '../../../assets/images/logo-dark.svg';
+import logoImage from '../../../assets/images/logo-grayscale.svg';
 
 const CloseButton = styled.button`
   background: none;
@@ -34,7 +34,7 @@ const MobileMenuHeader = ({ onClose, onNavigate }) => (
     <CloseButton autoFocus onClick={onClose} title="Close" type="button">
       <CloseIcon width={27} />
     </CloseButton>
-    <Link href={URL.DASHBOARD} onClick={onNavigate}>
+    <Link href={URL.HOME} onClick={onNavigate}>
       <Logo src={logoImage} title="0x Tracker" />
     </Link>
   </div>

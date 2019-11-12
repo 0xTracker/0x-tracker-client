@@ -5,14 +5,12 @@ import { TOKEN_TYPE } from './constants';
 const tokenShape = {
   address: PropTypes.string.isRequired,
   imageUrl: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  price: PropTypes.shape({
-    lastPrice: PropTypes.object.isRequired,
-    lastTrade: PropTypes.shape({
-      date: PropTypes.instanceOf(Date),
-      id: PropTypes.string.isRequired,
-    }).isRequired,
+  lastTrade: PropTypes.shape({
+    date: PropTypes.instanceOf(Date),
+    id: PropTypes.string.isRequired,
   }),
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number,
   symbol: PropTypes.string.isRequired,
 };
 

@@ -1,8 +1,7 @@
 import _ from 'lodash';
-import { mapProps } from 'recompose';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
@@ -13,9 +12,22 @@ import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
 import TokenVolume from '../../metrics/components/token-volume';
 import useToken from '../hooks/use-token';
+import buildUrl from '../../../util/build-url';
 
-const TokenPage = ({ tokenAddress }) => {
+const TokenPage = ({ history, location, match }) => {
+  const { address: tokenAddress } = match.params;
+  const params = new URLSearchParams(location.search);
+  const page = Number(params.get('page')) || 1;
+
   const [token, loadingToken] = useToken(tokenAddress);
+
+  const onPageChange = useCallback(newPage => {
+    history.push(
+      buildUrl(match.url, {
+        page: newPage,
+      }),
+    );
+  }, []);
 
   if (loadingToken) {
     return <LoadingPage />;
@@ -43,8 +55,8 @@ const TokenPage = ({ tokenAddress }) => {
               margin: 0 0 1.25em 0;
 
               ${media.greaterThan('lg')`
-              margin: 0 0 2em 0;
-            `}
+                margin: 0 0 2em 0;
+              `}
             `}
             defaultPeriod={TIME_PERIOD.YEAR}
             periods={[
@@ -56,8 +68,12 @@ const TokenPage = ({ tokenAddress }) => {
             ]}
           />
         ) : null}
-        <Card css="flex-grow: 1;">
-          <Fills filter={{ token: tokenAddress }} />
+        <Card fullHeight>
+          <Fills
+            filter={{ token: tokenAddress }}
+            onPageChange={onPageChange}
+            page={page}
+          />
         </Card>
       </PageLayout>
     </>
@@ -65,9 +81,18 @@ const TokenPage = ({ tokenAddress }) => {
 };
 
 TokenPage.propTypes = {
-  tokenAddress: PropTypes.string.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  location: PropTypes.shape({
+    search: PropTypes.string.isRequired,
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      address: PropTypes.string.isRequired,
+    }).isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
-export default mapProps(({ match }) => ({
-  tokenAddress: match.params.address,
-}))(TokenPage);
+export default TokenPage;

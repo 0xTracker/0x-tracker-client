@@ -4,6 +4,8 @@ import React from 'react';
 
 import 'bootstrap/dist/css/bootstrap.css';
 
+import { BreakpointProvider } from '../responsive-utils';
+import { BREAKPOINTS } from '../constants';
 import AppLayout from './app-layout';
 import ErrorBoundary from './error-boundary';
 import GlobalStyles from './global-styles';
@@ -13,19 +15,21 @@ import Router from './router';
 import Routes from './routes';
 
 const App = () => (
-  <ErrorBoundary>
-    <PreferencesProvider>
-      <RatesProvider>
-        <Router>
-          <GlobalStyles />
-          <Helmet defaultTitle="0x Tracker" titleTemplate="%s | 0x Tracker" />
-          <AppLayout>
-            <Routes />
-          </AppLayout>
-        </Router>
-      </RatesProvider>
-    </PreferencesProvider>
-  </ErrorBoundary>
+  <BreakpointProvider breakpoints={BREAKPOINTS}>
+    <ErrorBoundary>
+      <PreferencesProvider>
+        <RatesProvider>
+          <Router>
+            <GlobalStyles />
+            <Helmet defaultTitle="0x Tracker" titleTemplate="%s | 0x Tracker" />
+            <AppLayout>
+              <Routes />
+            </AppLayout>
+          </Router>
+        </RatesProvider>
+      </PreferencesProvider>
+    </ErrorBoundary>
+  </BreakpointProvider>
 );
 
 export default hot(module)(App);

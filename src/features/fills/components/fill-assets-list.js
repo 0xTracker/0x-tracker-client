@@ -1,16 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
 import AssetAmount from './asset-amount';
 import AssetLabel from './asset-label';
+import AssetTypeBadge from './asset-type-badge';
 import List from '../../../components/list';
 import ListItem from '../../../components/list-item';
-
-const AssetTypeBadge = styled.span.attrs({ className: 'badge badge-dark' })`
-  color: white;
-  margin-left: 0.5rem;
-`;
 
 const FillAssetsList = ({ assets, condensed }) => {
   if (assets.length === 0) {

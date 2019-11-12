@@ -1,5 +1,3 @@
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
@@ -7,10 +5,11 @@ import { URL } from '../../../constants';
 import { colors } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import { MenuIcon, NotificationsIcon } from '../../../components/icons';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import Container from '../../../components/container';
 import HeaderActions from './header-actions';
 import Link from '../../../components/link';
-import logoImage from '../../../assets/images/logo-dark.svg';
+import logoImage from '../../../assets/images/logo-grayscale.svg';
 import MobileMenu from './mobile-menu';
 import Navigation from './navigation';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
@@ -50,8 +49,9 @@ const NotificationsButton = styled(MenuButton)`
   }
 `;
 
-const Header = ({ screenSize }) => {
+const Header = () => {
   const [mobileMenuState, updateMobileMenuState] = useState('closed');
+  const breakpoint = useCurrentBreakpoint();
 
   const closeMobileMenu = () => {
     updateMobileMenuState('closed');
@@ -71,7 +71,7 @@ const Header = ({ screenSize }) => {
     }
   }, []);
 
-  const isDesktop = screenSize.greaterThan.md;
+  const isDesktop = breakpoint.greaterThan('md');
 
   return (
     <SettingsDialogProvider>
@@ -84,7 +84,7 @@ const Header = ({ screenSize }) => {
       )}
       <StyledHeader>
         <Container css="align-items: center; display: flex; justify-content: space-between; height: 100%;">
-          <Link href={URL.DASHBOARD}>
+          <Link href={URL.HOME}>
             <LogoImage
               alt="0x Tracker"
               size={isDesktop ? 'large' : 'small'}
@@ -112,14 +112,4 @@ const Header = ({ screenSize }) => {
   );
 };
 
-Header.propTypes = {
-  screenSize: PropTypes.shape({
-    greaterThan: PropTypes.shape({
-      md: PropTypes.bool.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
-
-const mapStateToProps = state => ({ screenSize: state.screen });
-
-export default connect(mapStateToProps)(Header);
+export default Header;

@@ -1,13 +1,16 @@
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const Visible = ({ above, at, screen, children }) => {
+import { useCurrentBreakpoint } from '../responsive-utils';
+
+const Visible = ({ above, at, children }) => {
+  const breakpoint = useCurrentBreakpoint();
+
   if (at) {
-    return at.includes(screen.mediaType) ? children : null;
+    return at.includes(breakpoint.name) ? children : null;
   }
 
   if (above) {
-    return screen.greaterThan[above] ? children : null;
+    return breakpoint.greaterThan(above) ? children : null;
   }
 
   return null;
@@ -17,10 +20,6 @@ Visible.propTypes = {
   above: PropTypes.string,
   at: PropTypes.arrayOf(PropTypes.string),
   children: PropTypes.node.isRequired,
-  screen: PropTypes.shape({ mediaType: PropTypes.string.isRequired })
-    .isRequired,
 };
 
-const mapStateToProps = state => ({ screen: state.screen });
-
-export default connect(mapStateToProps)(Visible);
+export default Visible;
