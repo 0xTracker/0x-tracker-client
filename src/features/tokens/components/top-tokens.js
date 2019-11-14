@@ -5,8 +5,9 @@ import styled from 'styled-components';
 import { AsteriskIcon } from '../../../components/icons';
 import { colors } from '../../../styles/constants';
 import LoadingIndicator from '../../../components/loading-indicator';
-import useTokens from '../hooks/use-tokens';
 import TopTokensTable from './top-tokens-table';
+import useTokens from '../hooks/use-tokens';
+import verbosePeriod from '../../../util/verbose-period';
 
 const TopTokensContainer = styled.div`
   display: flex;
@@ -41,7 +42,7 @@ const TopTokens = ({ period }) => {
     <TopTokensContainer>
       <TopTokensTable tokens={tokens.items} />
       <TopTokensFooter>
-        Top tokens by fill volume
+        Top tokens by {verbosePeriod(period)} fill volume
         <AsteriskIcon css="margin-left: 0.5rem; opacity: 0.7;" size="12" />
       </TopTokensFooter>
     </TopTokensContainer>

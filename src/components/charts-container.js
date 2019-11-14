@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { Card, CardBody, CardHeader, Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -5,6 +6,7 @@ import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import { useCurrentBreakpoint } from '../responsive-utils';
+import verbosePeriod from '../util/verbose-period';
 
 const StyledChartsContainer = styled(Card)`
   border-radius: none;
@@ -106,6 +108,7 @@ const ChartsContainer = ({
                 <PeriodLink
                   active={selectedPeriod === period.value}
                   onClick={() => setSelectedPeriod(period.value)}
+                  title={_.startCase(verbosePeriod(period.value))}
                 >
                   {period.label}
                 </PeriodLink>

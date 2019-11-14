@@ -40,10 +40,10 @@ const TopRelayersTable = ({ relayers }) => {
       <tbody>
         {relayers.map(relayer => (
           <TableRow key={relayer.id}>
-            <TableCell>
+            <TableCell css="padding-right: 1.25rem;">
               <RelayerImage imageUrl={relayer.imageUrl} size="2.5rem" />
             </TableCell>
-            <TableCell>
+            <TableCell width="99%;">
               <RelayerLink css="font-weight: 500;" relayer={relayer}>
                 {relayer.name}
               </RelayerLink>
