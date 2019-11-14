@@ -7,6 +7,7 @@ import { colors } from '../../../styles/constants';
 import LoadingIndicator from '../../../components/loading-indicator';
 import TopRelayersTable from './top-relayers-table';
 import useRelayers from '../hooks/use-relayers';
+import verbosePeriod from '../../../util/verbose-period';
 
 const TopRelayersContainer = styled.div`
   display: flex;
@@ -41,7 +42,7 @@ const TopRelayers = ({ period }) => {
     <TopRelayersContainer>
       <TopRelayersTable relayers={relayers.items} />
       <TopRelayersFooter>
-        Top relayers by trade volume
+        Top relayers by {verbosePeriod(period)} trade volume
         <AsteriskIcon css="margin-left: 0.5rem; opacity: 0.7;" size="12" />
       </TopRelayersFooter>
     </TopRelayersContainer>
