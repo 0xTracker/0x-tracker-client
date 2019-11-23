@@ -109,7 +109,7 @@ const RecentFillsItem = ({ fill }) => {
           <FillLink fillId={fill.id}>
             <FillListAssets
               assets={_.filter(fill.assets, { traderType: 'maker' })}
-            />
+            />{' '}
             &#8651;{' '}
             <FillListAssets
               assets={_.filter(fill.assets, { traderType: 'taker' })}
