@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
-import { useCurrentBreakpoint } from '../../../responsive-utils';
 import buildUrl from '../../../util/build-url';
 import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
@@ -31,7 +30,6 @@ const RelayerPage = ({ history, location, match }) => {
   const page = Number(params.get('page')) || 1;
 
   const [relayer, loadingRelayer] = useRelayer(slug);
-  const breakpoint = useCurrentBreakpoint();
 
   const onPageChange = useCallback(newPage => {
     history.push(
@@ -71,17 +69,13 @@ const RelayerPage = ({ history, location, match }) => {
             },
           ]}
           defaultPeriod={TIME_PERIOD.YEAR}
-          periods={
-            breakpoint.greaterThan('xs')
-              ? getPeriodOptions([
-                  TIME_PERIOD.DAY,
-                  TIME_PERIOD.WEEK,
-                  TIME_PERIOD.MONTH,
-                  TIME_PERIOD.YEAR,
-                  TIME_PERIOD.ALL,
-                ])
-              : undefined
-          }
+          periods={getPeriodOptions([
+            TIME_PERIOD.DAY,
+            TIME_PERIOD.WEEK,
+            TIME_PERIOD.MONTH,
+            TIME_PERIOD.YEAR,
+            TIME_PERIOD.ALL,
+          ])}
         />
         <Card fullHeight>
           <Fills

@@ -62,17 +62,13 @@ const HomePage = () => {
               },
             ]}
             defaultPeriod={TIME_PERIOD.YEAR}
-            periods={
-              breakpoint.greaterThan('xs')
-                ? getPeriodOptions([
-                    TIME_PERIOD.DAY,
-                    TIME_PERIOD.WEEK,
-                    TIME_PERIOD.MONTH,
-                    TIME_PERIOD.YEAR,
-                    TIME_PERIOD.ALL,
-                  ])
-                : undefined
-            }
+            periods={getPeriodOptions([
+              TIME_PERIOD.DAY,
+              TIME_PERIOD.WEEK,
+              TIME_PERIOD.MONTH,
+              TIME_PERIOD.YEAR,
+              TIME_PERIOD.ALL,
+            ])}
           />
         </HomePageColumn>
         <HomePageColumn lg={5}>
@@ -83,15 +79,11 @@ const HomePage = () => {
               { component: TopRelayers, title: 'Top Relayers' },
             ]}
             defaultPeriod={TIME_PERIOD.WEEK}
-            periods={
-              breakpoint.greaterThan('xs')
-                ? getPeriodOptions([
-                    TIME_PERIOD.DAY,
-                    TIME_PERIOD.WEEK,
-                    TIME_PERIOD.MONTH,
-                  ])
-                : undefined
-            }
+            periods={getPeriodOptions([
+              TIME_PERIOD.DAY,
+              TIME_PERIOD.WEEK,
+              TIME_PERIOD.MONTH,
+            ])}
           />
         </HomePageColumn>
       </Row>

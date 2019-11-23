@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import tokensPropTypes from '../tokens/prop-types';
 import tradersPropTypes from '../traders/prop-types';
 
-const fillPropType = PropTypes.shape({
+const fillShape = PropTypes.shape({
   assets: PropTypes.arrayOf(
     PropTypes.shape({
       amount: PropTypes.string.isRequired,
@@ -45,6 +45,32 @@ const fillPropType = PropTypes.shape({
   value: PropTypes.shape({ USD: PropTypes.number.isRequired }),
 });
 
-const propTypes = { fill: fillPropType };
+const partialFillShape = PropTypes.shape({
+  assets: PropTypes.arrayOf(
+    PropTypes.shape({
+      amount: PropTypes.string,
+      price: PropTypes.shape({ USD: PropTypes.number.isRequired }),
+      tokenAddress: PropTypes.string.isRequired,
+      tokenSymbol: PropTypes.string,
+      tokenType: PropTypes.string,
+      traderType: tradersPropTypes.traderType.isRequired,
+      type: tokensPropTypes.tokenType.isRequired,
+    }),
+  ).isRequired,
+  date: PropTypes.string.isRequired,
+  feeRecipient: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  makerAddress: PropTypes.string.isRequired,
+  relayer: PropTypes.shape({
+    imageUrl: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+  }),
+  status: PropTypes.string.isRequired,
+  takerAddress: PropTypes.string.isRequired,
+  value: PropTypes.shape({ USD: PropTypes.number.isRequired }),
+});
+
+const propTypes = { fill: fillShape, partialFill: partialFillShape };
 
 export default propTypes;

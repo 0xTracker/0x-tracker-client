@@ -14,10 +14,10 @@ import React from 'react';
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
 import formatDate from '../../../util/format-date';
-import getCurrencySymbol from '../../../util/get-currency-symbol';
 import padMetrics from '../util/pad-metrics';
 import RelayerMetricsTooltip from './relayer-metrics-tooltip';
 import sharedPropTypes from '../../../prop-types';
+import summarizeCurrency from '../../../util/summarize-currency';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
 const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
@@ -38,10 +38,7 @@ const RelayerMetricsChart = ({ data, period, type }) => {
       return '';
     }
 
-    const currencySymbol = getCurrencySymbol(displayCurrency);
-    const shortAmount = numeral(amount).format('0.[0]a');
-
-    return `${currencySymbol}${shortAmount}`;
+    return summarizeCurrency(amount, displayCurrency);
   };
 
   if (_.isEmpty(data)) {

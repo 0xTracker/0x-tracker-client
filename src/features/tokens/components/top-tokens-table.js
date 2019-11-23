@@ -36,10 +36,10 @@ const TopTokensTable = ({ tokens }) => (
     <tbody>
       {tokens.map(token => (
         <TableRow key={token.address}>
-          <TableCell>
+          <TableCell css="padding-right: 1.25rem;">
             <TokenImage imageUrl={token.imageUrl} size="2.5rem" />
           </TableCell>
-          <TableCell>
+          <TableCell width="99%">
             <TokenLink address={token.address} css="font-weight: 500;">
               {token.symbol}
             </TokenLink>
@@ -48,14 +48,16 @@ const TopTokensTable = ({ tokens }) => (
               {_.truncate(token.name, { length: 35 })}
             </SecondaryText>
           </TableCell>
-          <TableCell css="text-align: right;">
+          <TableCell css="text-align: right; white-space: nowrap;">
             <LocalisedAmount
               amount={token.stats.fillVolume.USD}
               css="font-weight: 500;"
+              summarize
             />
             <br />
             <SecondaryText>
-              <Number>{token.stats.fillVolume.token}</Number> {token.symbol}
+              <Number summarize>{token.stats.fillVolume.token}</Number>{' '}
+              {token.symbol}
             </SecondaryText>
           </TableCell>
         </TableRow>

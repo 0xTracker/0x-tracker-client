@@ -13,10 +13,10 @@ import PropTypes from 'prop-types';
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
 import AddressMetricsTooltip from './address-metrics-tooltip';
-import formatCurrency from '../../../util/format-currency';
 import formatDate from '../../../util/format-date';
 import padMetrics from '../util/pad-metrics';
 import sharedPropTypes from '../../../prop-types';
+import summarizeCurrency from '../../../util/summarize-currency';
 
 const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
 
@@ -38,7 +38,7 @@ class AddressMetricsChart extends PureComponent {
       return value;
     }
 
-    return formatCurrency(value, localCurrency, true);
+    return summarizeCurrency(value, localCurrency);
   }
 
   render() {
