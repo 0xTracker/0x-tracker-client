@@ -11,7 +11,8 @@ const AssetLabel = ({ asset, condensed, linked }) => {
       : buildTokenUrl(asset.tokenAddress);
   const children = condensed ? (
     <>
-      {asset.tokenSymbol || 'Unknown'} {asset.tokenId && <>#{asset.tokenId}</>}
+      {asset.tokenSymbol || 'Unknown'}
+      {asset.tokenId && <> #{asset.tokenId}</>}
     </>
   ) : (
     <>

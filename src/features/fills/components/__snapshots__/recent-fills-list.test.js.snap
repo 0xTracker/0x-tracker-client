@@ -1,0 +1,226 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render an assortment of fills 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-EHOje looXiP"
+  >
+    <div
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+    >
+      <a
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bdVaJa jTGwSJ"
+        href="/relayers/token-trove"
+      >
+        <img
+          alt=""
+          class="sc-bwzfXH hgpraj"
+          src="https://0xtracker.com/assets/logos/token-trove.png"
+        />
+      </a>
+      <div
+        class="sc-ifAKCX fkortk"
+      >
+        <h4
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
+        >
+          <a
+            class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+            href="/fills/5dd96f9d250aa512ae416656"
+          >
+            CARD #41011762 ⇋ 0.19 WETH
+          </a>
+        </h4>
+        <dl
+          class="recent-fills-item__Metadata-sc-1yc2z6o-1 hkWbiM"
+        >
+          <dt>
+            Relayer
+          </dt>
+          <dd>
+            <a
+              class="link__InternalLink-sc-1m1n17q-1 kIJfjy recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
+              href="/relayers/token-trove"
+            >
+              TokenTrove
+            </a>
+          </dd>
+          <dt>
+            Date
+          </dt>
+          <dd>
+            18 minutes ago
+          </dd>
+        </dl>
+      </div>
+      <span
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 ksoyPo"
+      >
+        $29.24
+      </span>
+    </div>
+    <div
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+    >
+      <a
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bdVaJa jTGwSJ"
+        href="/relayers/token-trove"
+      >
+        <img
+          alt=""
+          class="sc-bwzfXH hgpraj"
+          src="https://0xtracker.com/assets/logos/token-trove.png"
+        />
+      </a>
+      <div
+        class="sc-ifAKCX fkortk"
+      >
+        <h4
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
+        >
+          <a
+            class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+            href="/fills/5dd96f6d250aa512ae40bad3"
+          >
+            Unknown #122150411 ⇋ 0.975 WETH
+          </a>
+        </h4>
+        <dl
+          class="recent-fills-item__Metadata-sc-1yc2z6o-1 hkWbiM"
+        >
+          <dt>
+            Relayer
+          </dt>
+          <dd>
+            <a
+              class="link__InternalLink-sc-1m1n17q-1 kIJfjy recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
+              href="/relayers/token-trove"
+            >
+              TokenTrove
+            </a>
+          </dd>
+          <dt>
+            Date
+          </dt>
+          <dd>
+            19 minutes ago
+          </dd>
+        </dl>
+      </div>
+      <span
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 ksoyPo"
+      >
+        $150.06
+      </span>
+    </div>
+    <div
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+    >
+      <a
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bdVaJa jTGwSJ"
+        href="/relayers/star-bit"
+      >
+        <img
+          alt=""
+          class="sc-bwzfXH hgpraj"
+          src="https://0xtracker.com/assets/logos/starbit.png"
+        />
+      </a>
+      <div
+        class="sc-ifAKCX fkortk"
+      >
+        <h4
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
+        >
+          <a
+            class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+            href="/fills/5dd96f3f250aa512ae3fb34a"
+          >
+            0.0403 WETH ⇋ 2,693 SBT
+          </a>
+        </h4>
+        <dl
+          class="recent-fills-item__Metadata-sc-1yc2z6o-1 hkWbiM"
+        >
+          <dt>
+            Relayer
+          </dt>
+          <dd>
+            <a
+              class="link__InternalLink-sc-1m1n17q-1 kIJfjy recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
+              href="/relayers/star-bit"
+            >
+              STAR BIT
+            </a>
+          </dd>
+          <dt>
+            Date
+          </dt>
+          <dd>
+            20 minutes ago
+          </dd>
+        </dl>
+      </div>
+      <span
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 ksoyPo"
+      >
+        $6.20
+      </span>
+    </div>
+    <div
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+    >
+      <a
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bdVaJa jTGwSJ"
+        href="/relayers/star-bit"
+      >
+        <img
+          alt=""
+          class="sc-bwzfXH hgpraj"
+          src="https://0xtracker.com/assets/logos/starbit.png"
+        />
+      </a>
+      <div
+        class="sc-ifAKCX fkortk"
+      >
+        <h4
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
+        >
+          <a
+            class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+            href="/fills/5dd96f3f250aa512ae3fb34d"
+          >
+            2,693 SBT ⇋ Unknown
+          </a>
+        </h4>
+        <dl
+          class="recent-fills-item__Metadata-sc-1yc2z6o-1 hkWbiM"
+        >
+          <dt>
+            Relayer
+          </dt>
+          <dd>
+            <a
+              class="link__InternalLink-sc-1m1n17q-1 kIJfjy recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
+              href="/relayers/star-bit"
+            >
+              STAR BIT
+            </a>
+          </dd>
+          <dt>
+            Date
+          </dt>
+          <dd>
+            20 minutes ago
+          </dd>
+        </dl>
+      </div>
+      <span
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 ksoyPo"
+      >
+        $6.06
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
