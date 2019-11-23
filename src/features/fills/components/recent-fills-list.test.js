@@ -1,7 +1,16 @@
 import React from 'react';
+import timekeeper from 'timekeeper';
 
 import { renderWithRouter } from '../../../test-util/react';
 import RecentFillsList from './recent-fills-list';
+
+beforeAll(() => {
+  timekeeper.freeze('2019-11-23T17:57:00Z');
+});
+
+afterAll(() => {
+  timekeeper.reset();
+});
 
 it('should render an assortment of fills', () => {
   const fills = [
