@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
-import { DATE_FORMAT, WETH_TOKEN, ZRX_TOKEN } from '../../../constants';
+import { DATE_FORMAT, ETH_TOKEN, ZRX_TOKEN } from '../../../constants';
 import { media } from '../../../styles/util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import AssetLabel from './asset-label';
@@ -147,7 +147,7 @@ const FillDetails = ({ fill }) => {
         </FillDetail>
       )}
 
-      {fill.totalFees.ZRX !== '0' && (
+      {fill.totalFees !== undefined && fill.totalFees.ZRX !== '0' && (
         <FillDetail title="Total Fees">
           <TokenAmount amount={fill.totalFees.ZRX} token={ZRX_TOKEN} />
         </FillDetail>
@@ -179,7 +179,11 @@ const FillDetails = ({ fill }) => {
 
       {fill.protocolFee !== undefined ? (
         <FillDetail title="Protocol Fee">
-          <TokenAmount amount={fill.protocolFee.ETH} token={WETH_TOKEN} />
+          <TokenAmount
+            amount={fill.protocolFee.ETH}
+            linked={false}
+            token={ETH_TOKEN}
+          />
           {fill.protocolFee.USD !== undefined ? (
             <PriceBadge>
               <LocalisedAmount amount={fill.protocolFee.USD} />

@@ -9,7 +9,7 @@ import TokenLabel from './token-label';
 
 const FillFeesList = ({ condensed, fees }) => {
   if (fees.length === 0) {
-    return null;
+    return 'None';
   }
 
   return (
