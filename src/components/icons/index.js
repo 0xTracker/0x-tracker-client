@@ -1,4 +1,5 @@
 // eslint-disable-next-line filenames/no-index
+import AsteriskIcon from './asterisk-icon';
 import CaretRightIcon from './caret-right-icon';
 import ChevronDownIcon from './chevron-down-icon';
 import ChevronUpIcon from './chevron-up-icon';
@@ -17,6 +18,7 @@ import SettingsIcon from './settings-icon';
 import TwitterIcon from './twitter-icon';
 
 export {
+  AsteriskIcon,
   CaretRightIcon,
   ChevronDownIcon,
   ChevronUpIcon,

@@ -1,9 +1,12 @@
+import _ from 'lodash';
 import { Card, CardBody, CardHeader, Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
+import { useCurrentBreakpoint } from '../responsive-utils';
+import verbosePeriod from '../util/verbose-period';
 
 const StyledChartsContainer = styled(Card)`
   border-radius: none;
@@ -22,7 +25,7 @@ const ChartsContainerHeader = styled(CardHeader)`
 const ChartsContainerBody = styled(CardBody)`
   align-items: center;
   display: flex;
-  height: 265px;
+  height: ${props => props.height};
   justify-content: center;
   padding: 1rem;
 `;
@@ -65,76 +68,68 @@ const Periods = styled(Nav).attrs({ pills: true })`
   margin-bottom: -0.2rem;
 `;
 
-class ChartsContainer extends PureComponent {
-  constructor(props) {
-    super(props);
+const ChartsContainer = ({
+  charts,
+  defaultPeriod,
+  bodyHeight,
+  className,
+  periods,
+}) => {
+  const [selectedChart, setSelectedChart] = useState(charts[0].title);
+  const [selectedPeriod, setSelectedPeriod] = useState(defaultPeriod);
+  const currentBreakpoint = useCurrentBreakpoint();
 
-    const { charts, defaultPeriod } = props;
+  const Chart = charts.find(chart => chart.title === selectedChart).component;
+  const chartProps = { period: selectedPeriod };
 
-    this.state = {
-      selectedChart: charts[0].title,
-      selectedPeriod: defaultPeriod,
-    };
-  }
-
-  render() {
-    const { charts, className, periods } = this.props;
-    const { selectedPeriod, selectedChart } = this.state;
-
-    const Chart = charts.find(chart => chart.title === selectedChart).component;
-    const chartProps = { period: selectedPeriod };
-
-    return (
-      <StyledChartsContainer className={className}>
-        <ChartsContainerHeader>
-          {charts.length === 1 ? (
-            charts[0].title
-          ) : (
-            <Nav card css="margin: 0;" tabs>
-              {charts.map(chart => (
-                <NavItem key={chart.title}>
-                  <ChartLink
-                    active={selectedChart === chart.title}
-                    onClick={() =>
-                      this.setState({ selectedChart: chart.title })
-                    }
-                  >
-                    {chart.title}
-                  </ChartLink>
-                </NavItem>
-              ))}
-            </Nav>
-          )}
-          {periods && (
-            <Periods>
-              {periods.map(period => (
-                <NavItem key={period.value}>
-                  <PeriodLink
-                    active={selectedPeriod === period.value}
-                    onClick={() =>
-                      this.setState({ selectedPeriod: period.value })
-                    }
-                  >
-                    {period.label}
-                  </PeriodLink>
-                </NavItem>
-              ))}
-            </Periods>
-          )}
-        </ChartsContainerHeader>
-        <ChartsContainerBody>
-          {React.isValidElement(Chart) ? (
-            React.cloneElement(Chart, chartProps)
-          ) : (
-            <Chart {...chartProps} />
-          )}
-        </ChartsContainerBody>
-      </StyledChartsContainer>
-    );
-  }
-}
+  return (
+    <StyledChartsContainer className={className}>
+      <ChartsContainerHeader>
+        {charts.length === 1 ? (
+          charts[0].title
+        ) : (
+          <Nav card css="margin: 0;" tabs>
+            {charts.map(chart => (
+              <NavItem key={chart.title}>
+                <ChartLink
+                  active={selectedChart === chart.title}
+                  onClick={() => setSelectedChart(chart.title)}
+                >
+                  {chart.title}
+                </ChartLink>
+              </NavItem>
+            ))}
+          </Nav>
+        )}
+        {currentBreakpoint.greaterThan('xs') && periods && (
+          <Periods>
+            {periods.map(period => (
+              <NavItem key={period.value}>
+                <PeriodLink
+                  active={selectedPeriod === period.value}
+                  onClick={() => setSelectedPeriod(period.value)}
+                  title={_.startCase(verbosePeriod(period.value))}
+                >
+                  {period.label}
+                </PeriodLink>
+              </NavItem>
+            ))}
+          </Periods>
+        )}
+      </ChartsContainerHeader>
+      <ChartsContainerBody height={bodyHeight}>
+        {React.isValidElement(Chart) ? (
+          React.cloneElement(Chart, chartProps)
+        ) : (
+          <Chart {...chartProps} />
+        )}
+      </ChartsContainerBody>
+    </StyledChartsContainer>
+  );
+};
 
 ChartsContainer.propTypes = {
+  bodyHeight: PropTypes.string,
   charts: PropTypes.arrayOf(
     PropTypes.shape({
       component: PropTypes.oneOfType([
@@ -156,6 +151,7 @@ ChartsContainer.propTypes = {
 };
 
 ChartsContainer.defaultProps = {
+  bodyHeight: '265px',
   className: undefined,
   periods: undefined,
 };

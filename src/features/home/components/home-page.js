@@ -10,7 +10,7 @@ import Container from '../../../components/container';
 import HomePageMetrics from './home-page-metrics';
 import getPeriodOptions from '../../../util/get-period-options';
 import LatestNewsCard from '../../news/components/latest-news-card';
-import NetworkVolume from '../../metrics/components/network-volume';
+import NetworkMetrics from '../../metrics/components/network-metrics';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
@@ -50,43 +50,40 @@ const HomePage = () => {
       <Row>
         <HomePageColumn lg={7}>
           <ChartsContainer
+            bodyHeight="300px"
             charts={[
-              { component: NetworkVolume, title: 'Fill Volume' },
               {
-                component: <NetworkVolume type="fills" />,
-                title: 'Fill Count',
+                component: <NetworkMetrics type="tradeVolume" />,
+                title: 'Trade Volume',
+              },
+              {
+                component: <NetworkMetrics type="tradeCount" />,
+                title: 'Trade Count',
               },
             ]}
             defaultPeriod={TIME_PERIOD.YEAR}
-            periods={
-              breakpoint.greaterThan('xs')
-                ? getPeriodOptions([
-                    TIME_PERIOD.DAY,
-                    TIME_PERIOD.WEEK,
-                    TIME_PERIOD.MONTH,
-                    TIME_PERIOD.YEAR,
-                    TIME_PERIOD.ALL,
-                  ])
-                : undefined
-            }
+            periods={getPeriodOptions([
+              TIME_PERIOD.DAY,
+              TIME_PERIOD.WEEK,
+              TIME_PERIOD.MONTH,
+              TIME_PERIOD.YEAR,
+              TIME_PERIOD.ALL,
+            ])}
           />
         </HomePageColumn>
         <HomePageColumn lg={5}>
           <ChartsContainer
+            bodyHeight="300px"
             charts={[
               { component: TopTokens, title: 'Top Tokens' },
               { component: TopRelayers, title: 'Top Relayers' },
             ]}
             defaultPeriod={TIME_PERIOD.WEEK}
-            periods={
-              breakpoint.greaterThan('xs')
-                ? getPeriodOptions([
-                    TIME_PERIOD.DAY,
-                    TIME_PERIOD.WEEK,
-                    TIME_PERIOD.MONTH,
-                  ])
-                : undefined
-            }
+            periods={getPeriodOptions([
+              TIME_PERIOD.DAY,
+              TIME_PERIOD.WEEK,
+              TIME_PERIOD.MONTH,
+            ])}
           />
         </HomePageColumn>
       </Row>

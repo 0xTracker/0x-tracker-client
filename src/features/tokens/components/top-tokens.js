@@ -1,14 +1,35 @@
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
-import AsyncTopTokensChart from './async-top-tokens-chart';
+import { AsteriskIcon } from '../../../components/icons';
+import { colors } from '../../../styles/constants';
 import LoadingIndicator from '../../../components/loading-indicator';
+import TopTokensTable from './top-tokens-table';
 import useTokens from '../hooks/use-tokens';
+import verbosePeriod from '../../../util/verbose-period';
+
+const TopTokensContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+`;
+
+const TopTokensFooter = styled.p`
+  align-items: center;
+  border-top: 1px solid ${colors.athensGray};
+  color: ${colors.stormGray};
+  display: flex;
+  font-size: 0.9rem;
+  justify-content: flex-end;
+  margin: 1rem 0 0;
+  padding-top: 0.5rem;
+`;
 
 const TopTokens = ({ period }) => {
   const [tokens, loading] = useTokens({
-    limit: 5,
+    limit: 4,
     resolved: true,
     statsPeriod: period,
   });
@@ -18,14 +39,13 @@ const TopTokens = ({ period }) => {
   }
 
   return (
-    <AsyncTopTokensChart
-      data={tokens.items.map(token => ({
-        share: _.get(token, 'stats.fillVolumeShare', 0),
-        token,
-        tokenVolume: _.get(token, 'stats.fillVolume.token', '0'),
-        volume: _.get(token, 'stats.fillVolume.USD', 0),
-      }))}
-    />
+    <TopTokensContainer>
+      <TopTokensTable tokens={tokens.items} />
+      <TopTokensFooter>
+        Top tokens by {verbosePeriod(period)} fill volume
+        <AsteriskIcon css="margin-left: 0.5rem; opacity: 0.7;" size="12" />
+      </TopTokensFooter>
+    </TopTokensContainer>
   );
 };
 

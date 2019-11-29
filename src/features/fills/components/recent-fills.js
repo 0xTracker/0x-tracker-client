@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import LoadingIndicator from '../../../components/loading-indicator';
-import RecentFillsItem from './recent-fills-item';
+import RecentFillsList from './recent-fills-list';
 import useFills from '../hooks/use-fills';
 
 const RecentFills = ({ filter }) => {
@@ -11,11 +11,7 @@ const RecentFills = ({ filter }) => {
   return loading ? (
     <LoadingIndicator centered />
   ) : (
-    <div css="overflow-x: scroll">
-      {fills.items.map(fill => (
-        <RecentFillsItem fill={fill} key={fill.id} />
-      ))}
-    </div>
+    <RecentFillsList fills={fills.items} />
   );
 };
 
