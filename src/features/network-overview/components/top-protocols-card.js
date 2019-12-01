@@ -12,7 +12,7 @@ const TopProtocolsCard = ({ period }) => (
     <CardHeader>
       <CardHeading>Top Protocols</CardHeading>
     </CardHeader>
-    <CardBody css="height: 265px;">
+    <CardBody css="height: 300px;" padded>
       <TopProtocols period={period} />
     </CardBody>
   </BasicCard>

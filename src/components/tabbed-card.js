@@ -31,7 +31,7 @@ const TabLink = styled(NavLink)`
   }
 `;
 
-const TabbedCard = ({ className, tabs }) => {
+const TabbedCard = ({ bodyHeight, className, tabs }) => {
   const [selectedTab, setSelectedTab] = React.useState(0);
   const Tab = tabs[selectedTab].component;
 
@@ -55,7 +55,7 @@ const TabbedCard = ({ className, tabs }) => {
           </Nav>
         )}
       </TabbedCardHeader>
-      <CardBody css="height: 265px;" padded>
+      <CardBody height={bodyHeight} padded>
         {React.isValidElement(Tab) ? Tab : <Tab />}
       </CardBody>
     </BasicCard>
@@ -63,6 +63,7 @@ const TabbedCard = ({ className, tabs }) => {
 };
 
 TabbedCard.propTypes = {
+  bodyHeight: PropTypes.string,
   className: PropTypes.string,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
@@ -77,6 +78,7 @@ TabbedCard.propTypes = {
 };
 
 TabbedCard.defaultProps = {
+  bodyHeight: '265px',
   className: undefined,
 };
 

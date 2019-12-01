@@ -68,6 +68,7 @@ const NetworkOverviewPage = ({ history, location }) => {
         <Row>
           <DashboardColumn lg={7}>
             <TabbedCard
+              bodyHeight="300px"
               tabs={[
                 {
                   component: (
@@ -86,6 +87,7 @@ const NetworkOverviewPage = ({ history, location }) => {
           </DashboardColumn>
           <DashboardColumn lg={5}>
             <TabbedCard
+              bodyHeight="300px"
               tabs={[
                 {
                   component: <TopTokens period={period} />,

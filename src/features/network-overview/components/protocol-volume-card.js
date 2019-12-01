@@ -12,7 +12,7 @@ const ProtocolVolumeCard = ({ period }) => (
     <CardHeader>
       <CardHeading>Protocol Volume</CardHeading>
     </CardHeader>
-    <CardBody css="height: 265px;" />
+    <CardBody css="height: 300px;" />
   </BasicCard>
 );
 

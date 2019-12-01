@@ -12,7 +12,7 @@ const TraderTypesCard = ({ period }) => (
     <CardHeader>
       <CardHeading>Trader Types</CardHeading>
     </CardHeader>
-    <CardBody css="height: 265px;">
+    <CardBody css="height: 300px;" padded>
       <TraderBreakdown period={period} />
     </CardBody>
   </BasicCard>

@@ -17,7 +17,7 @@ const ActiveTradersCard = ({ period }) => (
         View Traders
       </Pill>
     </CardHeader>
-    <CardBody css="height: 265px;" padded />
+    <CardBody css="height: 300px;" padded />
   </BasicCard>
 );
 
