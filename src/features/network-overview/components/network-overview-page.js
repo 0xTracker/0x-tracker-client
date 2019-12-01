@@ -8,11 +8,11 @@ import { TIME_PERIOD, URL } from '../../../constants';
 import { media } from '../../../styles/util';
 import ActiveTradersCard from '../../traders/components/active-traders-card';
 import NetworkOverviewStats from './network-overview-stats';
-import NetworkVolume from '../../metrics/components/network-volume';
+import NetworkMetrics from '../../metrics/components/network-metrics';
 import PageLayout from '../../../components/page-layout';
 import ProtocolVolumeCard from './protocol-volume-card';
 import TabbedCard from '../../../components/tabbed-card';
-import TimePeriodSelector from '../../../components/time-period-selector';
+import TimePeriodFilter from '../../../components/time-period-filter';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
 import TopProtocolsCard from './top-protocols-card';
@@ -55,8 +55,7 @@ const NetworkOverviewPage = ({ history, location }) => {
       </Helmet>
       <PageLayout
         filter={
-          <TimePeriodSelector
-            css="width: 100%;"
+          <TimePeriodFilter
             onChange={newPeriod => {
               history.push(`${URL.NETWORK_OVERVIEW}?period=${newPeriod}`);
             }}
@@ -71,11 +70,15 @@ const NetworkOverviewPage = ({ history, location }) => {
             <TabbedCard
               tabs={[
                 {
-                  component: <NetworkVolume period={period} />,
+                  component: (
+                    <NetworkMetrics period={period} type="tradeVolume" />
+                  ),
                   title: 'Trade Volume',
                 },
                 {
-                  component: <NetworkVolume period={period} type="fills" />,
+                  component: (
+                    <NetworkMetrics period={period} type="tradeCount" />
+                  ),
                   title: 'Trade Count',
                 },
               ]}

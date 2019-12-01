@@ -6,7 +6,7 @@ import { colors } from '../../../styles/constants';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 
 const EmptyValue = styled.span`
-  color: ${colors.mischka};
+  color: ${colors.mystic};
 `;
 
 const TraderVolumeLabel = ({ value }) => {

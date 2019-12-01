@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { colors } from '../styles/constants';
 
 const ChartTooltipWrapper = styled.div`
-  background-color: ${colors.selago};
+  background-color: ${colors.athensGray};
   border-radius: 0.25rem;
   box-shadow: 0 2px 4px 0 ${rgba(colors.black, 0.2)};
   padding: 1rem;

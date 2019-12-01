@@ -10,7 +10,7 @@ import MobileNavigation from './mobile-navigation';
 import MobileSearchForm from './mobile-search-form';
 
 const StyledMobileMenu = styled.div`
-  background-color: ${colors.haiti};
+  background-color: ${colors.violet};
   color: ${colors.white};
   height: 100vh;
   padding: 1rem 0 0 0;

@@ -29,7 +29,7 @@ const TitleContainer = styled(Col)`
 `;
 
 const Title = styled.h1`
-  border-bottom: 1px solid ${colors.mischka};
+  border-bottom: 1px solid ${colors.mystic};
   font-size: 1.2rem;
   margin: 0;
   padding: 0 0 1.25rem;

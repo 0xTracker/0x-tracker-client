@@ -22,6 +22,9 @@ const LastTradeLink = styled(FillLink)`
   }
 `;
 
+const truncateAddress = address =>
+  `${address.slice(0, 15)}...${address.slice(address.length - 15)}`;
+
 // TODO: Encapsulate this in a reusable component and use on fill page
 const AssetTypeBadge = styled.span.attrs(props => ({
   className: `badge badge-${props.children === 'ERC-721' ? 'success' : 'dark'}`,
@@ -42,7 +45,7 @@ const TokenListItem = ({ position, token }) => (
         {token.name || 'Unknown Token'}
       </TokenLink>
       <br />
-      {token.symbol || token.address}
+      {token.symbol || truncateAddress(token.address)}
     </td>
     <td className="align-middle">
       <AssetTypeBadge>{token.type.toUpperCase()}</AssetTypeBadge>

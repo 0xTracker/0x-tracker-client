@@ -8,7 +8,7 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
 import RelayerList from './relayer-list';
-import TimePeriodSelector from '../../../components/time-period-selector';
+import TimePeriodFilter from '../../../components/time-period-filter';
 import useRelayers from '../hooks/use-relayers';
 import withPagination from '../../../components/with-pagination';
 
@@ -32,8 +32,7 @@ const RelayersPage = ({ history, location, page, setPage }) => {
       </Helmet>
       <PageLayout
         filter={
-          <TimePeriodSelector
-            css="width: 100%;"
+          <TimePeriodFilter
             onChange={newPeriod => {
               history.push(
                 `${URL.RELAYERS}?page=${page}&statsPeriod=${newPeriod}`,

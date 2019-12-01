@@ -4,7 +4,7 @@ import React from 'react';
 
 import FilterButton from '../../../components/filter-button';
 import sharedPropTypes from '../../../prop-types';
-import TimePeriodSelector from '../../../components/time-period-selector';
+import TimePeriodFilter from '../../../components/time-period-filter';
 import TokensFilterDialog from './tokens-filter-dialog';
 import tokensPropTypes from '../prop-types';
 
@@ -21,7 +21,7 @@ const TokensFilter = ({ defaultFilters, onChange, selectedFilters }) => {
   const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
 
   return (
-    <div css="display: flex; width: 100%;">
+    <div css="display: flex;">
       {filtersDialogVisible ? (
         <TokensFilterDialog
           currentValues={selectedFilters}
@@ -33,8 +33,7 @@ const TokensFilter = ({ defaultFilters, onChange, selectedFilters }) => {
           }}
         />
       ) : null}
-      <TimePeriodSelector
-        css="width: 100%;"
+      <TimePeriodFilter
         onChange={newPeriod => {
           onChange({ ...selectedFilters, statsPeriod: newPeriod });
         }}

@@ -52,13 +52,13 @@ const PeriodLink = styled(NavLink)`
   padding: 0.2rem 0.5rem;
 
   &&.active {
-    background-color: ${colors.athensGray};
+    background-color: ${colors.athensGrayer};
     color: inherit;
   }
 
   &:hover,
   &&.active:hover {
-    background-color: ${colors.mischka};
+    background-color: ${colors.mystic};
   }
 `;
 

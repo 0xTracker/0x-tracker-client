@@ -20,7 +20,7 @@ import useArticleSources from '../hooks/use-article-sources';
 
 const LoadMoreButton = styled.button`
   align-items: center;
-  background-color: ${colors.athensGray};
+  background-color: ${colors.athensGrayer};
   border: none;
   border-radius: 0.25rem;
   color: currentColor;
@@ -31,7 +31,7 @@ const LoadMoreButton = styled.button`
   width: 100%;
 
   &:hover {
-    background-color: ${colors.mischka};
+    background-color: ${colors.mystic};
   }
 `;
 

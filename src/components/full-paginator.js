@@ -37,12 +37,22 @@ const Pages = styled.div`
     padding: 0.75rem 1rem;
   }
 
+  .page-item:first-child .page-link {
+    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+  }
+
+  .page-item:last-child .page-link {
+    border-bottom-right-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+
   .page-item .page-link:hover {
-    background-color: ${colors.mischka};
+    background-color: ${colors.mystic};
   }
 
   .page-item.active .page-link {
-    background-color: ${colors.mischka};
+    background-color: ${colors.mystic};
   }
 
   .page-item.disabled .page-link,
@@ -57,7 +67,7 @@ const StyledPaginator = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 1rem;
+  margin: 1.5rem 2rem;
 `;
 
 const LoadingIndicator = styled(ReactLoading).attrs({

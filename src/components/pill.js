@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { colors } from '../styles/constants';
 
 const Pill = styled.span`
-  background-color: ${colors.athensGray};
+  background-color: ${colors.athensGrayer};
   border-radius: 0.25rem;
   color: inherit;
   cursor: pointer;
@@ -12,7 +12,7 @@ const Pill = styled.span`
   text-transform: uppercase;
 
   &:hover {
-    background-color: ${colors.mischka};
+    background-color: ${colors.mystic};
     color: currentColor;
     text-decoration: none;
   }

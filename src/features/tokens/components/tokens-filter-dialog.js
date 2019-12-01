@@ -26,13 +26,13 @@ const FormButton = styled.button`
 `;
 
 const SecondaryFormButton = styled(FormButton)`
-  background-color: ${colors.athensGray};
+  background-color: ${colors.athensGrayer};
   color: ${colors.violet};
   margin: 0 0 0 0.5rem;
 
   &:hover,
   &:active {
-    background-color: ${colors.mischka};
+    background-color: ${colors.mystic};
   }
 `;
 

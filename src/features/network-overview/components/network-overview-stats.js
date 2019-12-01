@@ -9,7 +9,6 @@ import FillVolumeWidget from '../../fills/components/fill-volume-widget';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
 import useNetworkStats from '../../stats/hooks/use-network-stats';
-import useRelayerStats from '../../stats/hooks/use-relayer-stats';
 import useTraderStats from '../../stats/hooks/use-trader-stats';
 
 // Carousel gets loaded lazily because it relies on react-slick
@@ -19,15 +18,14 @@ import useTraderStats from '../../stats/hooks/use-trader-stats';
 
 const NetworkOverviewStats = ({ className }) => {
   const [networkStats] = useNetworkStats();
-  const [relayerStats] = useRelayerStats();
   const [traderStats] = useTraderStats();
   const breakpoint = useCurrentBreakpoint();
 
-  const fillCount = _.get(networkStats, 'fills');
-  const fillVolume = _.get(networkStats, 'volume');
-  const tradeCount = _.get(relayerStats, 'trades');
+  const fillCount = _.get(networkStats, 'fillCount');
+  const fillVolume = _.get(networkStats, 'fillVolume');
+  const tradeCount = _.get(networkStats, 'tradeCount');
   const traderCount = _.get(traderStats, 'traderCount');
-  const tradeVolume = _.get(relayerStats, 'tradeVolume');
+  const tradeVolume = _.get(networkStats, 'tradeVolume');
 
   return breakpoint.greaterThan('md') ? (
     <Row className={className}>
