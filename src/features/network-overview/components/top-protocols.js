@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import { colors } from '../../../styles/constants';
 import { AsteriskIcon } from '../../../components/icons';
 import AsyncTopProtocolsChart from './async-top-protocols-chart';
+import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
+import useProtocols from '../hooks/use-protocols';
 import verbosePeriod from '../../../util/verbose-period';
 
 const TopProtocolsFooter = styled.p`
@@ -19,27 +21,28 @@ const TopProtocolsFooter = styled.p`
 `;
 
 const TopProtocols = ({ period }) => {
-  const stats = [
-    {
-      protocolVersion: 2,
-      share: 79.4,
-      tradeCount: 573,
-      tradeVolume: 5000000,
-    },
-    {
-      protocolVersion: 2.1,
-      share: 19,
-      tradeCount: 333,
-      tradeVolume: 1200000,
-    },
-    { protocolVersion: 1, share: 1.6, tradeCount: 120, tradeVolume: 100000 },
-  ];
+  const [protocols, loading] = useProtocols({
+    limit: 4,
+    page: 1,
+    sortBy: 'fillCount',
+    statsPeriod: period,
+  });
+
+  if (loading) {
+    return <LoadingIndicator centered />;
+  }
+
+  const stats = protocols.items.map(protocol => ({
+    fillCount: protocol.stats.fillCount,
+    fillVolume: protocol.stats.fillVolume,
+    protocolVersion: protocol.version,
+  }));
 
   return (
     <>
       <AsyncTopProtocolsChart data={stats} />
       <TopProtocolsFooter>
-        Top protocols by {verbosePeriod(period)} trade count
+        Top protocols by {verbosePeriod(period)} fill count
         <AsteriskIcon css="margin-left: 0.5rem; opacity: 0.7;" size="12" />
       </TopProtocolsFooter>
     </>
