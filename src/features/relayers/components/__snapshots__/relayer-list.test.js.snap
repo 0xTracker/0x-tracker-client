@@ -42,7 +42,7 @@ exports[`renders with basic props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-sc-bdy9j4 cCvWXa"
+            class="sc-bdVaJa cjEDWs"
             color="#dcdde4"
             fill="currentColor"
             focusable="false"
@@ -71,7 +71,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="link__OutboundLink-sc-1m1n17q-0 dFkevI sc-bwzfXH jjoKdi"
+          class="link__OutboundLink-sc-1m1n17q-0 dFkevI sc-htpNat sQdco"
           href="https://ddex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -107,7 +107,7 @@ exports[`renders with basic props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-sc-bdy9j4 cCvWXa"
+            class="sc-bdVaJa cjEDWs"
             color="#dcdde4"
             fill="currentColor"
             focusable="false"
@@ -136,7 +136,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="link__OutboundLink-sc-1m1n17q-0 dFkevI sc-bwzfXH jjoKdi"
+          class="link__OutboundLink-sc-1m1n17q-0 dFkevI sc-htpNat sQdco"
           href="https://paradex.io"
           rel="noopener noreferrer"
           target="_blank"
@@ -172,7 +172,7 @@ exports[`renders with basic props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-sc-bdy9j4 cCvWXa"
+            class="sc-bdVaJa cjEDWs"
             color="#dcdde4"
             fill="currentColor"
             focusable="false"
@@ -201,7 +201,7 @@ exports[`renders with basic props 1`] = `
         <br />
         <a
           _css="#6C6B80"
-          class="link__OutboundLink-sc-1m1n17q-0 dFkevI sc-bwzfXH jjoKdi"
+          class="link__OutboundLink-sc-1m1n17q-0 dFkevI sc-htpNat sQdco"
           href="https://radarrelay.com"
           rel="noopener noreferrer"
           target="_blank"
