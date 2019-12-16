@@ -8,7 +8,7 @@ exports[`app layout component should render with children 1`] = `
     class="header__StyledHeader-gflnft-2 jPLSFA"
   >
     <div
-      class="container__StyledContainer-cj53s7-0 eMKfDZ sc-EHOje jVceCv container-fluid"
+      class="container__StyledContainer-cj53s7-0 eMKfDZ sc-bZQynM kVFmaG container-fluid"
     >
       <a
         class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
@@ -22,7 +22,7 @@ exports[`app layout component should render with children 1`] = `
       </a>
       <nav
         aria-label="Primary"
-        class="navigation__StyledNavigation-sc-18grpkd-0 hSFpfo sc-bZQynM pFXlE"
+        class="navigation__StyledNavigation-sc-18grpkd-0 hSFpfo sc-gzVnrw buYoFE"
       >
         <div
           class="sub-navigation-parent__StyledSubNavigationParent-sc-10lb7wi-0 dAlejz"
@@ -33,7 +33,7 @@ exports[`app layout component should render with children 1`] = `
             Network
             <svg
               aria-hidden="true"
-              class="StyledIconBase-sc-bdy9j4 cCvWXa sub-navigation-parent__SubNavigationIndicator-sc-10lb7wi-3 fujWlp"
+              class="sc-bwzfXH dsFEmQ sub-navigation-parent__SubNavigationIndicator-sc-10lb7wi-3 fujWlp"
               fill="currentColor"
               focusable="false"
               height="10"
@@ -71,14 +71,14 @@ exports[`app layout component should render with children 1`] = `
         </a>
       </nav>
       <div
-        class="sc-htpNat clnrmb"
+        class="sc-bxivhb fqvWfz"
       >
         <button
           class="header-actions__ActionButton-sc-10491ou-0 header-actions__NotificationsButton-sc-10491ou-1 erWovD headway"
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-sc-bdy9j4 jbPeIR"
+            class="sc-bwzfXH bqgLxe"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -98,7 +98,7 @@ exports[`app layout component should render with children 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-sc-bdy9j4 cCvWXa"
+            class="sc-bwzfXH dsFEmQ"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -119,7 +119,7 @@ exports[`app layout component should render with children 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="StyledIconBase-sc-bdy9j4 cCvWXa"
+            class="sc-bwzfXH dsFEmQ"
             color="currentColor"
             fill="currentColor"
             focusable="false"

@@ -13,7 +13,7 @@ exports[`returns a fee recipient link when the trade does not have a relayer but
 
 exports[`returns relayer link when trade has a relayer 1`] = `
 <a
-  class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bwzfXH kQFFlt"
+  class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-htpNat clnrmb"
   href="/relayers/google"
 >
   Google
