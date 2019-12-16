@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import tokensPropTypes from '../tokens/prop-types';
 import tradersPropTypes from '../traders/prop-types';
 
+const fillStatusPropType = PropTypes.oneOf(['failed', 'pending', 'successful']);
+
 const fillShape = PropTypes.shape({
   assets: PropTypes.arrayOf(
     PropTypes.shape({
@@ -31,7 +33,7 @@ const fillShape = PropTypes.shape({
     slug: PropTypes.string.isRequired,
   }),
   senderAddress: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
+  status: fillStatusPropType.isRequired,
   takerAddress: PropTypes.string.isRequired,
   takerFee: PropTypes.shape({
     USD: PropTypes.number,
@@ -66,11 +68,15 @@ const partialFillShape = PropTypes.shape({
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
   }),
-  status: PropTypes.string.isRequired,
+  status: fillStatusPropType.isRequired,
   takerAddress: PropTypes.string.isRequired,
   value: PropTypes.shape({ USD: PropTypes.number.isRequired }),
 });
 
-const propTypes = { fill: fillShape, partialFill: partialFillShape };
+const propTypes = {
+  fill: fillShape,
+  partialFill: partialFillShape,
+  status: fillStatusPropType,
+};
 
 export default propTypes;
