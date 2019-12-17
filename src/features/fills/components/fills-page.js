@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
@@ -11,11 +12,26 @@ import PageLayout from '../../../components/page-layout';
 const FillsPage = ({ history, location }) => {
   const params = new URLSearchParams(location.search);
   const page = Number(params.get('page')) || 1;
+  const status = params.get('status');
+  const dateFrom = params.get('dateFrom');
+  const dateTo = params.get('dateTo');
+  const protocolVersion =
+    params.get('protocolVersion') === null
+      ? null
+      : _.toNumber(params.get('protocolVersion'));
+  const token = params.get('token');
+  const relayer = params.get('relayer');
 
   const onPageChange = useCallback(newPage => {
     history.push(
       buildUrl(URL.FILLS, {
+        dateFrom,
+        dateTo,
         page: newPage,
+        protocolVersion,
+        relayer,
+        status,
+        token,
       }),
     );
   }, []);
@@ -27,7 +43,18 @@ const FillsPage = ({ history, location }) => {
       </Helmet>
       <PageLayout title="Browse Fills">
         <Card fullHeight>
-          <Fills onPageChange={onPageChange} page={page} />
+          <Fills
+            filter={{
+              dateFrom,
+              dateTo,
+              protocolVersion,
+              relayer,
+              status,
+              token,
+            }}
+            onPageChange={onPageChange}
+            page={page}
+          />
         </Card>
       </PageLayout>
     </>
