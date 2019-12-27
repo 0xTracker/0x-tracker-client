@@ -1,8 +1,17 @@
 import useApi from '../../../hooks/use-api';
 
 const useFills = (options = {}) => {
-  const { address, dateFrom, dateTo, protocolVersion, relayer, status, token } =
-    options.filter || {};
+  const {
+    address,
+    dateFrom,
+    dateTo,
+    protocolVersion,
+    relayer,
+    status,
+    token,
+    valueFrom,
+    valueTo,
+  } = options.filter || {};
 
   const [response, loading] = useApi('fills', {
     autoReload: options.autoReload,
@@ -16,6 +25,8 @@ const useFills = (options = {}) => {
       relayer,
       status,
       token,
+      valueFrom,
+      valueTo,
     },
   });
 
