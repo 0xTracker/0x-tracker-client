@@ -21,6 +21,8 @@ const FillsPage = ({ history, location }) => {
       : _.toNumber(params.get('protocolVersion'));
   const token = params.get('token');
   const relayer = params.get('relayer');
+  const valueFrom = params.get('valueFrom');
+  const valueTo = params.get('valueTo');
 
   const onPageChange = useCallback(newPage => {
     history.push(
@@ -32,6 +34,8 @@ const FillsPage = ({ history, location }) => {
         relayer,
         status,
         token,
+        valueFrom,
+        valueTo,
       }),
     );
   }, []);
@@ -51,6 +55,8 @@ const FillsPage = ({ history, location }) => {
               relayer,
               status,
               token,
+              valueFrom,
+              valueTo,
             }}
             onPageChange={onPageChange}
             page={page}
