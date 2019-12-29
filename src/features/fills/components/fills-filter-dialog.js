@@ -61,7 +61,7 @@ const FillsFilterDialog = ({
 
   return (
     <Dialog height={450} onClose={onClose} title="Filter Fills" width={450}>
-      <form>
+      <form noValidate onSubmit={handleSubmit}>
         <FormGroup>
           <FormLabel css="margin: 0;" htmlFor="protocolVersion">
             Protocol Version
@@ -99,9 +99,7 @@ const FillsFilterDialog = ({
           </Row>
         </FormGroup>
         <div css="margin-top: 2rem;">
-          <FormButton onClick={handleSubmit} type="button">
-            Apply Filters
-          </FormButton>
+          <FormButton type="submit">Apply Filters</FormButton>
           {_.isEqual(defaultValues, values) ? null : (
             <SecondaryFormButton onClick={handleReset} type="button">
               Reset
