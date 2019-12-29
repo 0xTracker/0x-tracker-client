@@ -9,7 +9,6 @@ import Dialog from '../../../components/dialog';
 import FillStatusSelector from './fill-status-selector';
 import NumberField from '../../../components/number-field';
 import ProtocolVersionSelector from '../../../components/protocol-version-selector';
-import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
 const FormButton = styled.button`
   background-color: ${colors.indigo};
@@ -60,8 +59,6 @@ const FillsFilterDialog = ({
     setValues(defaultValues);
   };
 
-  const displayCurrency = useDisplayCurrency();
-
   return (
     <Dialog height={450} onClose={onClose} title="Filter Fills" width={450}>
       <form>
@@ -82,9 +79,7 @@ const FillsFilterDialog = ({
           />
           <Row>
             <Col md={6} xs={12}>
-              <FormLabel htmlFor="valueFrom">
-                Min Value ({displayCurrency})
-              </FormLabel>
+              <FormLabel htmlFor="valueFrom">Min Value (USD)</FormLabel>
               <NumberField
                 name="valueFrom"
                 onChange={handleChange}
@@ -93,9 +88,7 @@ const FillsFilterDialog = ({
               />
             </Col>
             <Col md={6} xs={12}>
-              <FormLabel htmlFor="valueFrom">
-                Max Value ({displayCurrency})
-              </FormLabel>
+              <FormLabel htmlFor="valueFrom">Max Value (USD)</FormLabel>
               <NumberField
                 name="valueTo"
                 onChange={handleChange}
