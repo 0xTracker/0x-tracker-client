@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import { URL } from '../../../constants';
 import buildUrl from '../../../util/build-url';
@@ -32,7 +32,7 @@ const FillsPage = ({ history, location }) => {
   const valueFrom = params.get('valueFrom') || undefined;
   const valueTo = params.get('valueTo') || undefined;
 
-  const handlePageChange = useCallback(newPage => {
+  const handlePageChange = newPage => {
     history.push(
       buildUrl(URL.FILLS, {
         dateFrom,
@@ -46,7 +46,7 @@ const FillsPage = ({ history, location }) => {
         valueTo,
       }),
     );
-  }, []);
+  };
 
   const handleFiltersChange = newFilters => {
     history.push(buildUrl(URL.FILLS, newFilters));
