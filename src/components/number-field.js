@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -8,16 +9,28 @@ const Input = styled.input`
   border: 1px solid ${colors.mischka};
   border-radius: 0.25rem;
   padding: 0.5rem 0.7rem;
+  width: 100%;
 `;
 
-const NumberField = props => {
+const NumberField = ({ name, onChange, value, ...otherProps }) => {
   const handleChange = event => {
-    const { value } = event.currentTarget;
+    const newValue = event.currentTarget.value;
 
-    props.onChange(value, props.name);
+    onChange(newValue, name);
   };
 
-  return <Input {...props} onChange={handleChange} step={0.01} type="number" />;
+  const sanitizedValue = _.isEmpty(value) && value !== 0 ? '' : value;
+
+  return (
+    <Input
+      name={name}
+      onChange={handleChange}
+      step={0.01}
+      type="number"
+      value={sanitizedValue}
+      {...otherProps}
+    />
+  );
 };
 
 NumberField.propTypes = {

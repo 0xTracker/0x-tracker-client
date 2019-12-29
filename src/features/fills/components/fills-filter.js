@@ -18,7 +18,7 @@ const FillsFilter = ({ defaultFilters, onChange, selectedFilters }) => {
   const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
 
   return (
-    <div css="display: flex; width: 100%;">
+    <div css="display: flex; width: 100%; justify-content: flex-end;">
       {filtersDialogVisible ? (
         <FillsFilterDialog
           currentValues={selectedFilters}
@@ -31,7 +31,7 @@ const FillsFilter = ({ defaultFilters, onChange, selectedFilters }) => {
         />
       ) : null}
       <FilterButton
-        css="margin-left: 0.5rem; flex-shrink: 0; flex-basis: 38px;"
+        css="margin-left: 0.5rem; flex-shrink: 0; flex-basis: 36px; height: 36px;"
         indicatorValue={getAdditionalFilterCount(
           defaultFilters,
           selectedFilters,

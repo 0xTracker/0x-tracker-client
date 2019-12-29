@@ -78,7 +78,7 @@ const FillsFilterDialog = ({
             value={values.status}
           />
           <Row>
-            <Col md={6} xs={12}>
+            <Col sm={6} xs={12}>
               <FormLabel htmlFor="valueFrom">Min Value (USD)</FormLabel>
               <NumberField
                 name="valueFrom"
@@ -87,7 +87,7 @@ const FillsFilterDialog = ({
                 value={values.valueFrom}
               />
             </Col>
-            <Col md={6} xs={12}>
+            <Col sm={6} xs={12}>
               <FormLabel htmlFor="valueFrom">Max Value (USD)</FormLabel>
               <NumberField
                 name="valueTo"
