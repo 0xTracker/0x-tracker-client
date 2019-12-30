@@ -9,6 +9,7 @@ import Dialog from '../../../components/dialog';
 import FillStatusSelector from './fill-status-selector';
 import NumberField from '../../../components/number-field';
 import ProtocolVersionSelector from '../../../components/protocol-version-selector';
+import RelayerSelector from '../../relayers/components/relayer-selector';
 
 const FormButton = styled.button`
   background-color: ${colors.indigo};
@@ -60,12 +61,18 @@ const FillsFilterDialog = ({
   };
 
   return (
-    <Dialog height={450} onClose={onClose} title="Filter Fills" width={450}>
+    <Dialog height={550} onClose={onClose} title="Filter Fills" width={450}>
       <form noValidate onSubmit={handleSubmit}>
         <FormGroup>
-          <FormLabel css="margin: 0;" htmlFor="protocolVersion">
-            Protocol Version
+          <FormLabel css="margin: 0;" htmlFor="relayer">
+            Relayer
           </FormLabel>
+          <RelayerSelector
+            name="relayer"
+            onChange={handleChange}
+            value={values.relayer}
+          />
+          <FormLabel htmlFor="protocolVersion">Protocol Version</FormLabel>
           <ProtocolVersionSelector
             name="protocolVersion"
             onChange={handleChange}

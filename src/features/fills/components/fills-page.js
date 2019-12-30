@@ -12,6 +12,7 @@ import PageLayout from '../../../components/page-layout';
 
 const defaultFilters = {
   protocolVersion: undefined,
+  relayer: undefined,
   status: undefined,
   valueFrom: undefined,
   valueTo: undefined,
@@ -52,7 +53,13 @@ const FillsPage = ({ history, location }) => {
     history.push(buildUrl(URL.FILLS, newFilters));
   };
 
-  const selectedFilters = { protocolVersion, status, valueFrom, valueTo };
+  const selectedFilters = {
+    protocolVersion,
+    relayer,
+    status,
+    valueFrom,
+    valueTo,
+  };
 
   return (
     <>
