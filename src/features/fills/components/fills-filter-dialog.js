@@ -61,7 +61,7 @@ const FillsFilterDialog = ({
   };
 
   return (
-    <Dialog height={550} onClose={onClose} title="Filter Fills" width={450}>
+    <Dialog height={600} onClose={onClose} title="Filter Fills" width={450}>
       <form noValidate onSubmit={handleSubmit}>
         <FormGroup>
           <FormLabel css="margin: 0;" htmlFor="relayer">

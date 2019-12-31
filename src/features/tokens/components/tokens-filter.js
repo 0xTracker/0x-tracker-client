@@ -7,6 +7,7 @@ import sharedPropTypes from '../../../prop-types';
 import TimePeriodSelector from '../../../components/time-period-selector';
 import TokensFilterDialog from './tokens-filter-dialog';
 import tokensPropTypes from '../prop-types';
+import Visible from '../../../components/visible';
 
 const getAdditionalFilterCount = (defaultValues, selectedValues) => {
   const intersection = _.omitBy(
@@ -21,7 +22,7 @@ const TokensFilter = ({ defaultFilters, onChange, selectedFilters }) => {
   const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
 
   return (
-    <div css="display: flex; width: 100%;">
+    <div css="display: flex; justify-content: flex-end; width: 100%;">
       {filtersDialogVisible ? (
         <TokensFilterDialog
           currentValues={selectedFilters}
@@ -33,15 +34,17 @@ const TokensFilter = ({ defaultFilters, onChange, selectedFilters }) => {
           }}
         />
       ) : null}
-      <TimePeriodSelector
-        css="width: 100%;"
-        onChange={newPeriod => {
-          onChange({ ...selectedFilters, statsPeriod: newPeriod });
-        }}
-        value={selectedFilters.statsPeriod}
-      />
+      <Visible above="xs">
+        <TimePeriodSelector
+          css="width: 200px;"
+          onChange={newPeriod => {
+            onChange({ ...selectedFilters, statsPeriod: newPeriod });
+          }}
+          value={selectedFilters.statsPeriod}
+        />
+      </Visible>
       <FilterButton
-        css="margin-left: 0.5rem; flex-shrink: 0; flex-basis: 38px;"
+        css="margin-left: 0.5rem;"
         indicatorValue={getAdditionalFilterCount(
           defaultFilters,
           selectedFilters,
