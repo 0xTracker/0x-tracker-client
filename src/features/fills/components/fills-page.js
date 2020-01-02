@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { URL } from '../../../constants';
+import { colors } from '../../../styles/constants';
 import buildUrl from '../../../util/build-url';
 import Card from '../../../components/card';
 import Fills from './fills';
@@ -74,7 +75,21 @@ const FillsPage = ({ history, location }) => {
             selectedFilters={selectedFilters}
           />
         }
-        title="Browse Fills"
+        title={
+          <span>
+            Browse Fills
+            <small
+              css={`
+                color: ${colors.stormGray};
+                display: block;
+                font-size: 0.9rem;
+                text-transform: lowercase;
+              `}
+            >
+              from the last 6 months
+            </small>
+          </span>
+        }
       >
         <Card fullHeight>
           <Fills
