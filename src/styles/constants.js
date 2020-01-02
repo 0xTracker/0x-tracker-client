@@ -10,6 +10,7 @@ const colors = {
   athensGrayer: '#e6e7f0',
   black: '#000',
   fruitSalad: '#4CAF50', // positive change
+  haiti: '#171540',
   indigo: '#3f4ac3', // links
   lavenderGray: '#bfbedf',
   martinique: '#312F50',
