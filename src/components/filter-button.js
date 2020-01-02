@@ -7,7 +7,7 @@ import { colors } from '../styles/constants';
 
 const StyledFilterButton = styled.button`
   align-items: center;
-  background: ${colors.athensGrayer};
+  background: ${colors.mystic};
   border: none;
   border-radius: 0.25rem;
   color: currentColor;
@@ -21,7 +21,7 @@ const StyledFilterButton = styled.button`
   position: relative;
 
   &:hover {
-    background: ${colors.mystic};
+    background: ${colors.mischka};
   }
 `;
 

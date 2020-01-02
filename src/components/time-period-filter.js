@@ -5,16 +5,16 @@ import TimePeriodSelector from './time-period-selector';
 
 const TimePeriodFilter = styled(TimePeriodSelector)`
   && {
-    width: 180px;
+    width: 200px;
   }
 
   && .Select__control {
-    background: ${colors.athensGrayer};
+    background: ${colors.mystic};
     border: none;
-    padding: 0;
+    padding: 0.5rem 1rem;
 
     &:hover {
-      background: ${colors.mystic};
+      background: ${colors.mischka};
     }
   }
 

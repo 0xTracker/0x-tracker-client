@@ -13,6 +13,7 @@ const colors = {
   indigo: '#3f4ac3', // links
   lavenderGray: '#bfbedf',
   martinique: '#312F50',
+  mischka: '#d5d7e3',
   mystic: '#dbddea',
   periwinkleGray: '#cdcded',
   pomegranate: '#F44336', // negative change
