@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import FilterButton from '../../../components/filter-button';
+import Hidden from '../../../components/hidden';
 import sharedPropTypes from '../../../prop-types';
 import TimePeriodSelector from '../../../components/time-period-selector';
-import TradersFilterDialog from './traders-filter-dialog';
-import tradersPropTypes from '../prop-types';
+import RelayersFilterDialog from './relayers-filter-dialog';
 import Visible from '../../../components/visible';
 
 const getAdditionalFilterCount = (defaultValues, selectedValues) => {
@@ -18,13 +18,13 @@ const getAdditionalFilterCount = (defaultValues, selectedValues) => {
   return Object.keys(intersection).length;
 };
 
-const TradersFilter = ({ defaultFilters, onChange, selectedFilters }) => {
+const RelayersFilter = ({ defaultFilters, onChange, selectedFilters }) => {
   const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
 
   return (
     <div css="display: flex; justify-content: flex-end; width: 100%;">
       {filtersDialogVisible ? (
-        <TradersFilterDialog
+        <RelayersFilterDialog
           currentValues={selectedFilters}
           defaultValues={defaultFilters}
           onClose={() => setFiltersDialogVisible(false)}
@@ -43,29 +43,29 @@ const TradersFilter = ({ defaultFilters, onChange, selectedFilters }) => {
           value={selectedFilters.statsPeriod}
         />
       </Visible>
-      <FilterButton
-        css="margin-left: 0.5rem;"
-        indicatorValue={getAdditionalFilterCount(
-          defaultFilters,
-          selectedFilters,
-        )}
-        onClick={() => setFiltersDialogVisible(true)}
-        title="Show additional filters"
-      />
+      <Hidden above="xs">
+        <FilterButton
+          css="margin-left: 0.5rem;"
+          indicatorValue={getAdditionalFilterCount(
+            defaultFilters,
+            selectedFilters,
+          )}
+          onClick={() => setFiltersDialogVisible(true)}
+          title="Show filters"
+        />
+      </Hidden>
     </div>
   );
 };
 
-TradersFilter.propTypes = {
+RelayersFilter.propTypes = {
   defaultFilters: PropTypes.shape({
     statsPeriod: sharedPropTypes.timePeriod.isRequired,
-    type: tradersPropTypes.traderType,
   }).isRequired,
   onChange: PropTypes.func.isRequired,
   selectedFilters: PropTypes.shape({
     statsPeriod: sharedPropTypes.timePeriod.isRequired,
-    type: tradersPropTypes.traderType,
   }).isRequired,
 };
 
-export default TradersFilter;
+export default RelayersFilter;

@@ -10,7 +10,7 @@ const Hidden = ({ above, at, children }) => {
   }
 
   if (above) {
-    return breakpoint.greaterThan('above') ? null : children;
+    return breakpoint.greaterThan(above) ? null : children;
   }
 
   return null;

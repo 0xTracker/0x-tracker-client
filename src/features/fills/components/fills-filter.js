@@ -3,28 +3,24 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import FilterButton from '../../../components/filter-button';
-import sharedPropTypes from '../../../prop-types';
-import TimePeriodSelector from '../../../components/time-period-selector';
-import TradersFilterDialog from './traders-filter-dialog';
-import tradersPropTypes from '../prop-types';
-import Visible from '../../../components/visible';
+import FillsFilterDialog from './fills-filter-dialog';
 
 const getAdditionalFilterCount = (defaultValues, selectedValues) => {
   const intersection = _.omitBy(
     selectedValues,
-    (value, key) => key === 'statsPeriod' || defaultValues[key] === value,
+    (value, key) => defaultValues[key] === value,
   );
 
   return Object.keys(intersection).length;
 };
 
-const TradersFilter = ({ defaultFilters, onChange, selectedFilters }) => {
+const FillsFilter = ({ defaultFilters, onChange, selectedFilters }) => {
   const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
 
   return (
-    <div css="display: flex; justify-content: flex-end; width: 100%;">
+    <div css="display: flex; width: 100%; justify-content: flex-end;">
       {filtersDialogVisible ? (
-        <TradersFilterDialog
+        <FillsFilterDialog
           currentValues={selectedFilters}
           defaultValues={defaultFilters}
           onClose={() => setFiltersDialogVisible(false)}
@@ -34,38 +30,35 @@ const TradersFilter = ({ defaultFilters, onChange, selectedFilters }) => {
           }}
         />
       ) : null}
-      <Visible above="xs">
-        <TimePeriodSelector
-          css="width: 200px;"
-          onChange={newPeriod => {
-            onChange({ ...selectedFilters, statsPeriod: newPeriod });
-          }}
-          value={selectedFilters.statsPeriod}
-        />
-      </Visible>
       <FilterButton
-        css="margin-left: 0.5rem;"
+        css="margin-left: 0.5rem; flex-shrink: 0; flex-basis: 36px; height: 36px;"
         indicatorValue={getAdditionalFilterCount(
           defaultFilters,
           selectedFilters,
         )}
         onClick={() => setFiltersDialogVisible(true)}
-        title="Show additional filters"
+        title="Show filters"
       />
     </div>
   );
 };
 
-TradersFilter.propTypes = {
+FillsFilter.propTypes = {
   defaultFilters: PropTypes.shape({
-    statsPeriod: sharedPropTypes.timePeriod.isRequired,
-    type: tradersPropTypes.traderType,
+    protocolVersion: PropTypes.number,
+    relayer: PropTypes.number,
+    status: PropTypes.string,
+    valueFrom: PropTypes.number,
+    valueTo: PropTypes.number,
   }).isRequired,
   onChange: PropTypes.func.isRequired,
   selectedFilters: PropTypes.shape({
-    statsPeriod: sharedPropTypes.timePeriod.isRequired,
-    type: tradersPropTypes.traderType,
+    protocolVersion: PropTypes.number,
+    relayer: PropTypes.number,
+    status: PropTypes.string,
+    valueFrom: PropTypes.number,
+    valueTo: PropTypes.number,
   }).isRequired,
 };
 
-export default TradersFilter;
+export default FillsFilter;

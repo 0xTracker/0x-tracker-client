@@ -30,7 +30,7 @@ PageLayout.propTypes = {
   centered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   filter: PropTypes.node,
-  title: PropTypes.string,
+  title: PropTypes.node,
 };
 
 PageLayout.defaultProps = {
