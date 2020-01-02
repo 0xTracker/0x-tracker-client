@@ -121,9 +121,17 @@ const FillsFilterDialog = ({
 FillsFilterDialog.propTypes = {
   currentValues: PropTypes.shape({
     protocolVersion: PropTypes.number,
+    relayer: PropTypes.number,
+    status: PropTypes.string,
+    valueFrom: PropTypes.number,
+    valueTo: PropTypes.number,
   }).isRequired,
   defaultValues: PropTypes.shape({
     protocolVersion: PropTypes.number,
+    relayer: PropTypes.number,
+    status: PropTypes.string,
+    valueFrom: PropTypes.number,
+    valueTo: PropTypes.number,
   }),
   onClose: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,

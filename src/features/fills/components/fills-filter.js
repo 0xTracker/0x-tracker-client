@@ -46,10 +46,18 @@ const FillsFilter = ({ defaultFilters, onChange, selectedFilters }) => {
 FillsFilter.propTypes = {
   defaultFilters: PropTypes.shape({
     protocolVersion: PropTypes.number,
+    relayer: PropTypes.number,
+    status: PropTypes.string,
+    valueFrom: PropTypes.number,
+    valueTo: PropTypes.number,
   }).isRequired,
   onChange: PropTypes.func.isRequired,
   selectedFilters: PropTypes.shape({
     protocolVersion: PropTypes.number,
+    relayer: PropTypes.number,
+    status: PropTypes.string,
+    valueFrom: PropTypes.number,
+    valueTo: PropTypes.number,
   }).isRequired,
 };
 
