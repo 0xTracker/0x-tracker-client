@@ -12,6 +12,8 @@ import ArticleList from './article-list';
 import ArticlesFilter from './articles-filter';
 import ArticlesProvider from './articles-provider';
 import Card from '../../../components/card';
+import CardBody from '../../../components/card-body';
+import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LoadingPage from '../../../components/loading-page';
@@ -64,41 +66,46 @@ const NewsPage = ({ match }) => {
       </Helmet>
       <Row css="flex-grow: 1;">
         <ArticlesColumn>
-          <Card fullHeight padded>
-            <ArticlesProvider source={source ? source.slug : undefined}>
-              {({
-                articles,
-                canLoadMore,
-                loadingInitial,
-                loadingMore,
-                loadMore,
-              }) =>
-                loadingInitial ? (
-                  <LoadingIndicator centered />
-                ) : (
-                  <>
-                    <ArticleList
-                      articles={articles}
-                      compact={breakpoint.equalTo('xs')}
-                      showImages={!breakpoint.equalTo('xs')}
-                    />
-                    {canLoadMore ? (
-                      <LoadMoreButton onClick={loadMore} type="button">
-                        {loadingMore ? (
-                          <LoadingIndicator size="small" type="cylon" />
-                        ) : (
-                          'Load More Stories'
-                        )}
-                      </LoadMoreButton>
-                    ) : null}
-                  </>
-                )
-              }
-            </ArticlesProvider>
+          <Card fullHeight>
+            <CardBody padded>
+              <ArticlesProvider source={source ? source.slug : undefined}>
+                {({
+                  articles,
+                  canLoadMore,
+                  loadingInitial,
+                  loadingMore,
+                  loadMore,
+                }) =>
+                  loadingInitial ? (
+                    <LoadingIndicator centered />
+                  ) : (
+                    <>
+                      <ArticleList
+                        articles={articles}
+                        compact={breakpoint.equalTo('xs')}
+                        showImages={!breakpoint.equalTo('xs')}
+                      />
+                      {canLoadMore ? (
+                        <LoadMoreButton onClick={loadMore} type="button">
+                          {loadingMore ? (
+                            <LoadingIndicator size="small" type="cylon" />
+                          ) : (
+                            'Load More Stories'
+                          )}
+                        </LoadMoreButton>
+                      ) : null}
+                    </>
+                  )
+                }
+              </ArticlesProvider>
+            </CardBody>
           </Card>
         </ArticlesColumn>
         <Col md={4}>
-          <Card header={<CardHeading>Filter by source</CardHeading>}>
+          <Card>
+            <CardHeader>
+              <CardHeading>Filter by source</CardHeading>
+            </CardHeader>
             <ArticlesFilter sources={sources} />
           </Card>
         </Col>

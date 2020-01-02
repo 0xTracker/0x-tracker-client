@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
-import BasicCard from './basic-card';
+import Card from './card';
 import CardBody from './card-body';
 
 const TabbedCardHeader = styled(CardHeader)`
@@ -31,12 +31,12 @@ const TabLink = styled(NavLink)`
   }
 `;
 
-const TabbedCard = ({ bodyHeight, className, tabs }) => {
+const TabbedCard = ({ className, tabs }) => {
   const [selectedTab, setSelectedTab] = React.useState(0);
   const Tab = tabs[selectedTab].component;
 
   return (
-    <BasicCard className={className}>
+    <Card className={className}>
       <TabbedCardHeader>
         {tabs.length === 1 ? (
           tabs[0].title
@@ -55,15 +55,12 @@ const TabbedCard = ({ bodyHeight, className, tabs }) => {
           </Nav>
         )}
       </TabbedCardHeader>
-      <CardBody height={bodyHeight} padded>
-        {React.isValidElement(Tab) ? Tab : <Tab />}
-      </CardBody>
-    </BasicCard>
+      <CardBody padded>{React.isValidElement(Tab) ? Tab : <Tab />}</CardBody>
+    </Card>
   );
 };
 
 TabbedCard.propTypes = {
-  bodyHeight: PropTypes.string,
   className: PropTypes.string,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
@@ -78,7 +75,6 @@ TabbedCard.propTypes = {
 };
 
 TabbedCard.defaultProps = {
-  bodyHeight: '265px',
   className: undefined,
 };
 

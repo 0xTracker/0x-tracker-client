@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BasicCard from '../../../components/basic-card';
+import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import CardHeading from '../../../components/card-heading';
 import CardHeader from '../../../components/card-header';
@@ -8,12 +8,12 @@ import sharedPropTypes from '../../../prop-types';
 
 // eslint-disable-next-line no-unused-vars
 const ProtocolVolumeCard = ({ period }) => (
-  <BasicCard>
+  <Card css="height: 360px;">
     <CardHeader>
       <CardHeading>Protocol Volume</CardHeading>
     </CardHeader>
-    <CardBody css="height: 300px;" />
-  </BasicCard>
+    <CardBody />
+  </Card>
 );
 
 ProtocolVolumeCard.propTypes = {

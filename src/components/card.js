@@ -1,30 +1,16 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import styled from 'styled-components';
 
-import BasicCard from './basic-card';
-import CardBody from './card-body';
-import CardHeader from './card-header';
+import { colors } from '../styles/constants';
 
-const Card = ({ children, className, fullHeight, header, padded }) => (
-  <BasicCard className={className} fullHeight={fullHeight}>
-    {header ? <CardHeader>{header}</CardHeader> : null}
-    <CardBody padded={padded}>{children}</CardBody>
-  </BasicCard>
-);
-
-Card.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  fullHeight: PropTypes.bool,
-  header: PropTypes.node,
-  padded: PropTypes.bool,
-};
-
-Card.defaultProps = {
-  className: undefined,
-  fullHeight: false,
-  header: undefined,
-  padded: false,
-};
+const Card = styled.div`
+  background-color: ${colors.white};
+  border: none;
+  border-radius: 0.25rem;
+  box-shadow: 0px 2px 4px rgba(126, 142, 177, 0.12);
+  display: flex;
+  flex-direction: column;
+  flex-grow: ${props => (props.fullHeight ? '1' : '0')};
+  overflow: hidden;
+`;
 
 export default Card;

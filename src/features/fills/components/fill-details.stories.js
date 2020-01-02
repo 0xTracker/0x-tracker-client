@@ -2,6 +2,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 import Card from '../../../components/card';
+import CardBody from '../../../components/card-body';
 import FillDetails from './fill-details';
 
 const simpleFill = {
@@ -48,7 +49,11 @@ const simpleFill = {
 };
 
 storiesOf('Fills|FillDetails', module)
-  .addDecorator(getStory => <Card padded>{getStory()}</Card>)
+  .addDecorator(getStory => (
+    <Card>
+      <CardBody padded>{getStory()}</CardBody>
+    </Card>
+  ))
   .add('v1', () => <FillDetails fill={simpleFill} />)
   .add('v2', () => (
     <FillDetails
