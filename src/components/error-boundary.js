@@ -50,32 +50,49 @@ class ErrorBoundary extends React.PureComponent {
     const { error } = this.state;
     const { children } = this.props;
 
-    if (error) {
+    if (error === undefined) {
+      return children;
+    }
+
+    if (error.response !== undefined && error.response.status === 400) {
       return (
         <>
           <GlobalStyles />
           <Wrapper>
             <ErrorMessage css="padding: 0 4rem;">
-              <H1>Unexpected Error</H1>
+              <H1>Invalid Parameters</H1>
               <Lead>
-                Oops, an unexpected error occurred whilst trying to display this
-                page.
+                The URL parameters passed to this page were incorrect. Please
+                check and try again.
               </Lead>
-              <TryAgainButton
-                onClick={() => {
-                  window.location.reload();
-                }}
-                type="button"
-              >
-                Reload Page
-              </TryAgainButton>
             </ErrorMessage>
           </Wrapper>
         </>
       );
     }
 
-    return children;
+    return (
+      <>
+        <GlobalStyles />
+        <Wrapper>
+          <ErrorMessage css="padding: 0 4rem;">
+            <H1>Unexpected Error</H1>
+            <Lead>
+              Oops, an unexpected error occurred whilst trying to display this
+              page.
+            </Lead>
+            <TryAgainButton
+              onClick={() => {
+                window.location.reload();
+              }}
+              type="button"
+            >
+              Reload Page
+            </TryAgainButton>
+          </ErrorMessage>
+        </Wrapper>
+      </>
+    );
   }
 }
 

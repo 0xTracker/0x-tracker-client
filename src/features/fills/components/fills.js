@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import fillsPropTypes from '../prop-types';
 import LoadingIndicator from '../../../components/loading-indicator';
+import NoResultsMessage from '../../../components/no-results-message';
 import PagedFillList from './paged-fill-list';
 import useFills from '../hooks/use-fills';
 
@@ -14,9 +16,19 @@ const Fills = ({ excludeColumns, filter, page, onPageChange }) => {
 
   const { items, pageCount, pageSize, recordCount } = fills;
 
-  return loading ? (
-    <LoadingIndicator centered />
-  ) : (
+  if (loading) {
+    return <LoadingIndicator centered />;
+  }
+
+  if (items.length === 0) {
+    return (
+      <NoResultsMessage>
+        No fills were found matching the selected filters.
+      </NoResultsMessage>
+    );
+  }
+
+  return (
     <PagedFillList
       excludeColumns={excludeColumns}
       fills={items}
@@ -33,6 +45,10 @@ Fills.propTypes = {
   excludeColumns: PropTypes.arrayOf(PropTypes.oneOf(['relayer'])),
   filter: PropTypes.shape({
     address: PropTypes.string,
+    dateFrom: PropTypes.string,
+    dateTo: PropTypes.string,
+    protocolVersion: PropTypes.number,
+    status: fillsPropTypes.status,
     token: PropTypes.string,
   }),
   onPageChange: PropTypes.func.isRequired,

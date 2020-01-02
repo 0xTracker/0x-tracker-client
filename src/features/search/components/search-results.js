@@ -1,17 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
+import NoResultsMessage from '../../../components/no-results-message';
 import PagedFillList from '../../fills/components/paged-fill-list';
-
-const NoResults = styled.div`
-  align-items: center;
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-  flex-shrink: 1;
-  padding: 2rem;
-`;
 
 const SearchResults = ({
   changingPage,
@@ -25,12 +16,10 @@ const SearchResults = ({
 }) => {
   if (fills.length === 0) {
     return (
-      <NoResults>
-        <p css="font-size: 1.3rem; text-align: center; word-break: break-word;">
-          No results found for <br />
-          <span css="font-weight: bold;">&quot;{searchQuery}&quot;</span>
-        </p>
-      </NoResults>
+      <NoResultsMessage>
+        No results found for <br />
+        <span css="font-weight: bold;">&quot;{searchQuery}&quot;</span>
+      </NoResultsMessage>
     );
   }
 

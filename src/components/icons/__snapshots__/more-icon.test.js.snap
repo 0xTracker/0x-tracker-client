@@ -3,7 +3,7 @@
 exports[`more icon component should render without props 1`] = `
 <svg
   aria-hidden="true"
-  class="StyledIconBase-sc-bdy9j4 jbPeIR"
+  class="sc-bdVaJa iJCmgd"
   fill="currentColor"
   focusable="false"
   viewBox="0 0 24 24"

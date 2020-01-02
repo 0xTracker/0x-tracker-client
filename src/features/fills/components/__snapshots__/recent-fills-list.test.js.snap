@@ -3,23 +3,23 @@
 exports[`should render an assortment of fills 1`] = `
 <DocumentFragment>
   <div
-    class="sc-EHOje looXiP"
+    class="sc-bZQynM czRbgO"
   >
     <div
       class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bdVaJa jTGwSJ"
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bwzfXH tuMVV"
         href="/relayers/token-trove"
       >
         <img
           alt=""
-          class="sc-bwzfXH hgpraj"
+          class="sc-htpNat fQkuZN"
           src="https://0xtracker.com/assets/logos/token-trove.png"
         />
       </a>
       <div
-        class="sc-ifAKCX fkortk"
+        class="sc-EHOje dHfSvo"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
@@ -63,17 +63,17 @@ exports[`should render an assortment of fills 1`] = `
       class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bdVaJa jTGwSJ"
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bwzfXH tuMVV"
         href="/relayers/token-trove"
       >
         <img
           alt=""
-          class="sc-bwzfXH hgpraj"
+          class="sc-htpNat fQkuZN"
           src="https://0xtracker.com/assets/logos/token-trove.png"
         />
       </a>
       <div
-        class="sc-ifAKCX fkortk"
+        class="sc-EHOje dHfSvo"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
@@ -117,17 +117,17 @@ exports[`should render an assortment of fills 1`] = `
       class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bdVaJa jTGwSJ"
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bwzfXH tuMVV"
         href="/relayers/star-bit"
       >
         <img
           alt=""
-          class="sc-bwzfXH hgpraj"
+          class="sc-htpNat fQkuZN"
           src="https://0xtracker.com/assets/logos/starbit.png"
         />
       </a>
       <div
-        class="sc-ifAKCX fkortk"
+        class="sc-EHOje dHfSvo"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
@@ -171,17 +171,17 @@ exports[`should render an assortment of fills 1`] = `
       class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bdVaJa jTGwSJ"
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bwzfXH tuMVV"
         href="/relayers/star-bit"
       >
         <img
           alt=""
-          class="sc-bwzfXH hgpraj"
+          class="sc-htpNat fQkuZN"
           src="https://0xtracker.com/assets/logos/starbit.png"
         />
       </a>
       <div
-        class="sc-ifAKCX fkortk"
+        class="sc-EHOje dHfSvo"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"

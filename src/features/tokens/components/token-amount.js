@@ -23,7 +23,7 @@ TokenAmount.propTypes = {
   amount: PropTypes.string.isRequired,
   linked: PropTypes.bool,
   token: PropTypes.shape({
-    address: PropTypes.string.isRequired,
+    address: PropTypes.string,
     symbol: PropTypes.string.isRequired,
   }),
 };

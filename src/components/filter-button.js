@@ -12,6 +12,10 @@ const StyledFilterButton = styled.button`
   border-radius: 0.25rem;
   color: currentColor;
   display: flex;
+  height: 38px;
+  width: 38px;
+  flex-shrink: 0;
+  flex-grow: 0;
   justify-content: center;
   padding: 0;
   position: relative;
