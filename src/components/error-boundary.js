@@ -31,8 +31,8 @@ const Wrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   justify-content: center;
-  min-height: 100vh;
 `;
 
 class ErrorBoundary extends React.PureComponent {
