@@ -60,7 +60,7 @@ const HomePage = () => {
                 title: 'Trade Count',
               },
             ]}
-            css="height: 360px"
+            css="height: 352px"
             defaultPeriod={TIME_PERIOD.YEAR}
             periods={getPeriodOptions([
               TIME_PERIOD.DAY,
@@ -77,7 +77,7 @@ const HomePage = () => {
               { component: TopTokens, title: 'Top Tokens' },
               { component: TopRelayers, title: 'Top Relayers' },
             ]}
-            css="height: 360px;"
+            css="height: 352px;"
             defaultPeriod={TIME_PERIOD.WEEK}
             periods={getPeriodOptions([
               TIME_PERIOD.DAY,
