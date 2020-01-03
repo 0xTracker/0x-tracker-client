@@ -6,8 +6,18 @@ import { colors } from '../styles/constants';
 const Select = styled(ReactSelect).attrs({ classNamePrefix: 'Select' })`
   color: ${colors.violet};
 
-  .Select__control {
-    border-color: ${colors.mischka};
+  && .Select__control {
+    border-color: ${colors.mystic};
+    min-height: 0;
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .Select__value-container {
+    padding: 0;
   }
 
   .Select__control--is-focused {
@@ -19,19 +29,23 @@ const Select = styled(ReactSelect).attrs({ classNamePrefix: 'Select' })`
   }
 
   .Select__indicator-separator {
-    background-color: ${colors.mischka};
+    display: none;
+  }
+
+  .Select__indicator {
+    padding: 0;
   }
 
   .Select__option:hover,
   .Select__option:active,
   .Select__option--is-focused {
-    background: ${colors.mischka};
+    background: ${colors.mystic};
     color: ${colors.violet};
     cursor: pointer;
   }
 
   .Select__option--is-selected {
-    background: ${colors.athensGray};
+    background: ${colors.athensGrayer};
     color: ${colors.violet};
   }
 

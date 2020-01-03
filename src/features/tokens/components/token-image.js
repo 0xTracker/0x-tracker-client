@@ -16,7 +16,7 @@ const TokenImage = ({ imageUrl, size }) =>
       src={imageUrl}
     />
   ) : (
-    <CircleIcon color={colors.mischka} height="2.75rem" width="2.75rem" />
+    <CircleIcon color={colors.mystic} height="2.75rem" width="2.75rem" />
   );
 
 TokenImage.propTypes = {

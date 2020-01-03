@@ -5,10 +5,10 @@ import { TIME_PERIOD } from '../constants';
 import AsyncSelect from './async-select';
 
 const OPTIONS = [
-  { label: 'Last 24 hours', value: TIME_PERIOD.DAY },
-  { label: 'Last 7 days', value: TIME_PERIOD.WEEK },
-  { label: 'The last month', value: TIME_PERIOD.MONTH },
-  { label: 'The last year', value: TIME_PERIOD.YEAR },
+  { label: 'Past 24 hours', value: TIME_PERIOD.DAY },
+  { label: 'Past week', value: TIME_PERIOD.WEEK },
+  { label: 'Past month', value: TIME_PERIOD.MONTH },
+  { label: 'Past year', value: TIME_PERIOD.YEAR },
   { label: 'All time', value: TIME_PERIOD.ALL },
 ];
 

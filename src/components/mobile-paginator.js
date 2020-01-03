@@ -27,7 +27,7 @@ const PageButton = styled.button.attrs({ type: 'button' })`
   }
 
   &:disabled {
-    color: ${colors.mischka};
+    color: ${colors.mystic};
 
     &:hover {
       background: none;

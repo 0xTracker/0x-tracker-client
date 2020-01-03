@@ -6,7 +6,7 @@ import { colors } from '../../../styles/constants';
 import Number from '../../../components/number';
 
 const EmptyValue = styled.span`
-  color: ${colors.mischka};
+  color: ${colors.mystic};
 `;
 
 const TraderFillCountLabel = ({ children }) => {

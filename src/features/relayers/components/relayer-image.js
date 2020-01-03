@@ -19,7 +19,7 @@ const RelayerImage = ({ className, height, imageUrl, width }) =>
   ) : (
     <SquareIcon
       className={className}
-      color={colors.mischka}
+      color={colors.mystic}
       height={height}
       width={width}
     />

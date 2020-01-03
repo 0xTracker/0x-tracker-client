@@ -13,7 +13,7 @@ const ColumnDescriptor = styled.span`
 `;
 
 const SpacerColumn = styled.td`
-  color: ${colors.mischka};
+  color: ${colors.mystic};
   font-weight: bold;
   padding: 0 !important;
 `;

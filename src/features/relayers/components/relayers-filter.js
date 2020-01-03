@@ -5,7 +5,7 @@ import React from 'react';
 import FilterButton from '../../../components/filter-button';
 import Hidden from '../../../components/hidden';
 import sharedPropTypes from '../../../prop-types';
-import TimePeriodSelector from '../../../components/time-period-selector';
+import TimePeriodFilter from '../../../components/time-period-filter';
 import RelayersFilterDialog from './relayers-filter-dialog';
 import Visible from '../../../components/visible';
 
@@ -35,7 +35,7 @@ const RelayersFilter = ({ defaultFilters, onChange, selectedFilters }) => {
         />
       ) : null}
       <Visible above="xs">
-        <TimePeriodSelector
+        <TimePeriodFilter
           css="width: 200px;"
           onChange={newPeriod => {
             onChange({ ...selectedFilters, statsPeriod: newPeriod });

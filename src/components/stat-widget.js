@@ -4,6 +4,9 @@ import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import Card from './card';
+import CardBody from './card-body';
+import prettyPeriod from '../util/pretty-period';
+import sharedPropTypes from '../prop-types';
 
 const StatWidgetTitle = styled.dt`
   color: ${colors.stormGray};
@@ -21,23 +24,29 @@ const StatWidgetValue = styled.dd`
   margin: 0;
 `;
 
-const StatWidget = ({ className, title, children }) => (
-  <Card className={className} padded>
-    <dl css="margin: 0;">
-      <StatWidgetTitle>{title}</StatWidgetTitle>
-      <StatWidgetValue>{children}</StatWidgetValue>
-    </dl>
+const StatWidget = ({ className, period, title, children }) => (
+  <Card className={className}>
+    <CardBody padded>
+      <dl css="margin: 0;">
+        <StatWidgetTitle>
+          {period ? `${title} (${prettyPeriod(period)})` : title}
+        </StatWidgetTitle>
+        <StatWidgetValue>{children}</StatWidgetValue>
+      </dl>
+    </CardBody>
   </Card>
 );
 
 StatWidget.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  period: sharedPropTypes.timePeriod,
   title: PropTypes.string.isRequired,
 };
 
 StatWidget.defaultProps = {
   className: undefined,
+  period: undefined,
 };
 
 export default StatWidget;

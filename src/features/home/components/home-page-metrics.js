@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { useCurrentBreakpoint } from '../../../responsive-utils';
+import { TIME_PERIOD } from '../../../constants';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
@@ -15,6 +16,8 @@ import ZRXPriceWidget from './zrx-price-widget';
 const AsyncHomePageMetricsCarousel = React.lazy(() =>
   import('./home-page-metrics-carousel'),
 );
+
+const PERIOD = TIME_PERIOD.DAY;
 
 const HomePageMetrics = ({ className }) => {
   const [networkStats] = useNetworkStats();
@@ -28,13 +31,13 @@ const HomePageMetrics = ({ className }) => {
   return breakpoint.greaterThan('md') ? (
     <Row className={className}>
       <Col lg={3} md={6}>
-        <TradeVolumeWidget volume={tradeVolume} />
+        <TradeVolumeWidget period={PERIOD} volume={tradeVolume} />
       </Col>
       <Col lg={3} md={6}>
-        <TradeCountWidget tradeCount={tradeCount} />
+        <TradeCountWidget period={PERIOD} tradeCount={tradeCount} />
       </Col>
       <Col lg={3} md={6}>
-        <ActiveTradersWidget traderCount={traderCount} />
+        <ActiveTradersWidget period={PERIOD} traderCount={traderCount} />
       </Col>
       <Col lg={3} md={6}>
         <ZRXPriceWidget />
@@ -43,6 +46,7 @@ const HomePageMetrics = ({ className }) => {
   ) : (
     <AsyncHomePageMetricsCarousel
       className={className}
+      period={PERIOD}
       tradeCount={tradeCount}
       traderCount={traderCount}
       tradeVolume={tradeVolume}

@@ -38,7 +38,7 @@ const FillDetailList = styled.dl`
 `;
 
 const PriceBadge = styled.span.attrs({ className: 'badge' })`
-  background-color: ${colors.mischka};
+  background-color: ${colors.mystic};
   margin-left: 0.5rem;
 `;
 

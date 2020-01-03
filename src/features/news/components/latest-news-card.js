@@ -3,25 +3,24 @@ import React from 'react';
 
 import { URL } from '../../../constants';
 import Card from '../../../components/card';
+import CardBody from '../../../components/card-body';
+import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
 import LatestNews from './latest-news';
 import Link from '../../../components/link';
 import Pill from '../../../components/pill';
 
 const LatestNewsCard = ({ className, compact, showImages }) => (
-  <Card
-    className={className}
-    header={
-      <>
-        <CardHeading>Latest News</CardHeading>
-        <Pill as={Link} href={URL.NEWS}>
-          View More
-        </Pill>
-      </>
-    }
-    padded
-  >
-    <LatestNews compact={compact} showImages={showImages} />
+  <Card className={className}>
+    <CardHeader>
+      <CardHeading>Latest News</CardHeading>
+      <Pill as={Link} href={URL.NEWS}>
+        View More
+      </Pill>
+    </CardHeader>
+    <CardBody padded>
+      <LatestNews compact={compact} showImages={showImages} />
+    </CardBody>
   </Card>
 );
 

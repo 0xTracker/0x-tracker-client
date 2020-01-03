@@ -21,21 +21,23 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .table {
+    border-bottom: 2px solid ${colors.athensGray};
     color: currentColor;
     margin: 0;
   }
 
   .table td {
     border-bottom: 1px solid ${colors.athensGray};
-    padding: 0.5rem;
+    border: none;
+    padding: 0.5rem 0;
   }
   
   .table thead th {
     background-color: ${colors.indigo};
-    border-bottom: 3px solid ${colors.periwinkleGray};
+    border-bottom: 3px solid ${colors.mystic};
     border-top: none;
     color: ${colors.white};
-    padding: 0.75rem;
+    padding: 1rem;
     font-weight: normal;
   }
   
@@ -46,18 +48,18 @@ const GlobalStyles = createGlobalStyle`
     padding-right: 2rem;
   }
   
+  .table tbody tr:nth-child(2n+1) {
+    background-color: rgba(14,30,37,.02);
+  }
+  
   .table tbody td:first-child,
   .table thead th:first-child {
-    padding-left: 1rem;
+    padding-left: 2rem;
   }
   
   .table tbody td:last-child,
   .table thead th:last-child {
-    padding-right: 1rem;
-  }
-  
-  .table tbody tr:hover td {
-    background-color: ${colors.selago};
+    padding-right: 2rem;
   }
 
   .table .faded,

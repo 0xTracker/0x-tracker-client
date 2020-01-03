@@ -43,7 +43,7 @@ const NavLink = styled(Link)`
 const Footer = () => (
   <div
     css={`
-      background: #212035;
+      background: ${colors.steelGray};
       color: ${colors.santasGray};
       padding: 2rem 1rem;
 

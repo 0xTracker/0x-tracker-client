@@ -7,8 +7,8 @@ import { colors } from '../styles/constants';
 
 const StyledFilterButton = styled.button`
   align-items: center;
-  background: white;
-  border: 1px solid ${colors.mischka};
+  background: ${colors.mystic};
+  border: none;
   border-radius: 0.25rem;
   color: currentColor;
   display: flex;
@@ -21,7 +21,7 @@ const StyledFilterButton = styled.button`
   position: relative;
 
   &:hover {
-    border-color: ${colors.santasGray};
+    background: ${colors.mischka};
   }
 `;
 
@@ -44,7 +44,7 @@ const Indicator = styled.div`
 const FilterButton = ({ indicatorValue, ...otherProps }) => (
   <StyledFilterButton {...otherProps} type="button">
     {indicatorValue > 0 ? <Indicator>{indicatorValue}</Indicator> : null}
-    <FilterIcon height={20} width={20} />
+    <FilterIcon height={22} width={22} />
   </StyledFilterButton>
 );
 

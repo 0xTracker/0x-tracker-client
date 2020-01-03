@@ -60,7 +60,7 @@ const ErrorMessage = ({ children, className }) => {
         onMouseOver={() => setMood('blissful')}
       >
         <Ghost
-          color={colors.mischka}
+          color={colors.mystic}
           mood={mood}
           size={breakpoint.greaterThan('sm') ? 240 : 150}
         />

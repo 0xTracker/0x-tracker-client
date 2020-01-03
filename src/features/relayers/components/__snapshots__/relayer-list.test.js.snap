@@ -43,7 +43,7 @@ exports[`renders with basic props 1`] = `
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs"
-            color="#dcdde4"
+            color="#dbddea"
             fill="currentColor"
             focusable="false"
             height="40"
@@ -108,7 +108,7 @@ exports[`renders with basic props 1`] = `
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs"
-            color="#dcdde4"
+            color="#dbddea"
             fill="currentColor"
             focusable="false"
             height="40"
@@ -173,7 +173,7 @@ exports[`renders with basic props 1`] = `
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs"
-            color="#dcdde4"
+            color="#dbddea"
             fill="currentColor"
             focusable="false"
             height="40"

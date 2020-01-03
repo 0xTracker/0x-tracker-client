@@ -8,7 +8,7 @@ import Container from './container';
 
 const Inner = styled.div`
   align-items: center;
-  border-bottom: 1px solid ${colors.mischka};
+  border-bottom: 1px solid ${colors.mystic};
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.5rem;
@@ -21,6 +21,7 @@ const Inner = styled.div`
 `;
 
 const Title = styled.h1`
+  flex-basis: 100%;
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 1.2rem;
