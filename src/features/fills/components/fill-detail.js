@@ -6,7 +6,6 @@ import { media } from '../../../styles/util';
 import { colors } from '../../../styles/constants';
 
 const Title = styled.dt`
-  border-bottom: 1px solid ${colors.athensGray};
   font-weight: normal;
   margin: 0.6rem 0 0;
   padding: 0 0 0.6rem;
@@ -17,6 +16,7 @@ const Title = styled.dt`
   }
 
   ${media.greaterThan('md')`
+    border-bottom: 1px solid ${colors.athensGray};
     width: 20%;
   `};
 `;
