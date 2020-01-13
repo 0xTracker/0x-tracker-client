@@ -47,6 +47,10 @@ const FillDetails = ({ fill }) => {
   const assetsWithPrices = _.filter(fill.assets, asset =>
     _.isObject(asset.price),
   );
+  const bridgedAsset = _.find(
+    fill.assets,
+    asset => asset.bridgeAddress !== undefined,
+  );
 
   return (
     <FillDetailList>
@@ -109,6 +113,14 @@ const FillDetails = ({ fill }) => {
           condensed={breakpoint.lessThan('sm')}
         />
       </FillDetail>
+
+      {bridgedAsset !== undefined && (
+        <FillDetail title="Asset Bridge">
+          <EthereumAddressLink address={bridgedAsset.bridgeAddress}>
+            {bridgedAsset.bridgeName || bridgedAsset.bridgeAddress}
+          </EthereumAddressLink>
+        </FillDetail>
+      )}
 
       <FillDetail title="Derived Prices">
         {assetsWithPrices.length === 0 ? (
