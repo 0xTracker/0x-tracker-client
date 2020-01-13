@@ -27,12 +27,13 @@ ProtocolVersionSelector.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number,
 };
 
 ProtocolVersionSelector.defaultProps = {
   className: undefined,
   name: undefined,
+  value: undefined,
 };
 
 export default ProtocolVersionSelector;

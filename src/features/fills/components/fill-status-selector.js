@@ -27,12 +27,13 @@ FillStatusSelector.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
 FillStatusSelector.defaultProps = {
   className: undefined,
   name: undefined,
+  value: undefined,
 };
 
 export default FillStatusSelector;

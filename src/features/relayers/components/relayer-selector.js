@@ -44,12 +44,13 @@ RelayerSelector.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
 RelayerSelector.defaultProps = {
   className: undefined,
   name: undefined,
+  value: undefined,
 };
 
 export default RelayerSelector;
