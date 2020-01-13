@@ -2,38 +2,38 @@
 
 exports[`app layout component should render with children 1`] = `
 <div
-  class="app-layout__AppContainer-nr5sez-0 jUhpZW"
+  class="app-layout__AppContainer-nr5sez-0 fuMuXz"
 >
   <header
-    class="header__StyledHeader-gflnft-2 jPLSFA"
+    class="header__StyledHeader-gflnft-2 gCWcGJ"
   >
     <div
-      class="container__StyledContainer-cj53s7-0 eMKfDZ header___StyledContainer-gflnft-4 jZVKWY container-fluid"
+      class="container__StyledContainer-cj53s7-0 fLJuGb header___StyledContainer-gflnft-4 kmIgfl container-fluid"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz"
         href="/"
       >
         <img
           alt="0x Tracker"
-          class="header__LogoImage-gflnft-0 iAKICy"
+          class="header__LogoImage-gflnft-0 jBzasR"
           src="test-file-stub"
         />
       </a>
       <nav
         aria-label="Primary"
-        class="navigation__StyledNavigation-sc-18grpkd-0 hSFpfo header___StyledNavigation-gflnft-5 ksaovG"
+        class="navigation__StyledNavigation-sc-18grpkd-0 hZiGxx header___StyledNavigation-gflnft-5 dufaro"
       >
         <div
-          class="sub-navigation-parent__StyledSubNavigationParent-sc-10lb7wi-0 dAlejz"
+          class="sub-navigation-parent__StyledSubNavigationParent-sc-10lb7wi-0 gmYomQ"
         >
           <div
-            class="sub-navigation-parent__NavigationItem-sc-10lb7wi-1 hSJlGd"
+            class="sub-navigation-parent__NavigationItem-sc-10lb7wi-1 himNCf"
           >
             Network
             <svg
               aria-hidden="true"
-              class="sc-bdVaJa cjEDWs sub-navigation-parent__SubNavigationIndicator-sc-10lb7wi-3 fujWlp"
+              class="sc-AykKC gOjhcY sub-navigation-parent__SubNavigationIndicator-sc-10lb7wi-3 kLaVSC"
               fill="currentColor"
               focusable="false"
               height="10"
@@ -50,35 +50,35 @@ exports[`app layout component should render with children 1`] = `
         </div>
         <a
           aria-current="false"
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy navigation-link__StyledNavigationLink-do5zl-0 zWJCW"
+          class="link__InternalLink-sc-1m1n17q-1 IiDhz navigation-link__StyledNavigationLink-do5zl-0 izJuQx"
           href="/tokens"
         >
           Tokens
         </a>
         <a
           aria-current="false"
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy navigation-link__StyledNavigationLink-do5zl-0 zWJCW"
+          class="link__InternalLink-sc-1m1n17q-1 IiDhz navigation-link__StyledNavigationLink-do5zl-0 izJuQx"
           href="/relayers"
         >
           Relayers
         </a>
         <a
           aria-current="false"
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy navigation-link__StyledNavigationLink-do5zl-0 zWJCW"
+          class="link__InternalLink-sc-1m1n17q-1 IiDhz navigation-link__StyledNavigationLink-do5zl-0 izJuQx"
           href="/news-and-updates"
         >
           News & Updates
         </a>
       </nav>
       <div
-        class="header-actions___StyledDiv-sc-10491ou-2 jTvdzi"
+        class="header-actions___StyledDiv-sc-10491ou-2 kZJdyU"
       >
         <button
-          class="header-actions__ActionButton-sc-10491ou-0 header-actions__NotificationsButton-sc-10491ou-1 erWovD headway"
+          class="header-actions__ActionButton-sc-10491ou-0 header-actions__NotificationsButton-sc-10491ou-1 lnMQmr headway"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa iJCmgd"
+            class="sc-AykKC eYrmsm"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -93,12 +93,12 @@ exports[`app layout component should render with children 1`] = `
           </svg>
         </button>
         <button
-          class="header-actions__ActionButton-sc-10491ou-0 fSufHx"
+          class="header-actions__ActionButton-sc-10491ou-0 fHcrnT"
           title="Settings"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs"
+            class="sc-AykKC gOjhcY"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -114,12 +114,12 @@ exports[`app layout component should render with children 1`] = `
           </svg>
         </button>
         <button
-          class="header-actions__ActionButton-sc-10491ou-0 fSufHx"
+          class="header-actions__ActionButton-sc-10491ou-0 fHcrnT"
           title="Search"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs"
+            class="sc-AykKC gOjhcY"
             color="currentColor"
             fill="currentColor"
             focusable="false"
@@ -138,15 +138,15 @@ exports[`app layout component should render with children 1`] = `
     </div>
   </header>
   <div
-    class="app-layout__AppBody-nr5sez-1 eKtPLD"
+    class="app-layout__AppBody-nr5sez-1 ePuqVL"
   >
     Hello World
   </div>
   <div
-    class="footer___StyledDiv-htpw4v-4 hUOYyM"
+    class="footer___StyledDiv-htpw4v-4 iGjkGL"
   >
     <div
-      class="container__StyledContainer-cj53s7-0 eMKfDZ container-fluid"
+      class="container__StyledContainer-cj53s7-0 fLJuGb container-fluid"
     >
       <div
         class="row"
@@ -156,11 +156,11 @@ exports[`app layout component should render with children 1`] = `
         >
           <img
             alt="0x Tracker"
-            class="footer__Logo-htpw4v-0 iRToUm"
+            class="footer__Logo-htpw4v-0 cGztiK"
             src="test-file-stub"
           />
           <p
-            class="footer__Description-htpw4v-2 kZDUij"
+            class="footer__Description-htpw4v-2 kZpjPG"
           >
             The 0x protocol trade explorer, decentralised price index and news aggregator.
           </p>
@@ -169,13 +169,13 @@ exports[`app layout component should render with children 1`] = `
           class="col-6 col-sm-4 col-md-2 offset-md-3"
         >
           <h2
-            class="footer__NavHeading-htpw4v-1 bQVrZ"
+            class="footer__NavHeading-htpw4v-1 drzkDm"
           >
             About
           </h2>
           <nav>
             <a
-              class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+              class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
               href="https://docs.0xtracker.com/"
               rel="noopener noreferrer"
               target="_blank"
@@ -183,7 +183,7 @@ exports[`app layout component should render with children 1`] = `
               Overview
             </a>
             <a
-              class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+              class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
               href="https://docs.0xtracker.com/faqs"
               rel="noopener noreferrer"
               target="_blank"
@@ -191,7 +191,7 @@ exports[`app layout component should render with children 1`] = `
               FAQs
             </a>
             <a
-              class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+              class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
               href="https://medium.com/0x-tracker"
               rel="noopener noreferrer"
               target="_blank"
@@ -199,7 +199,7 @@ exports[`app layout component should render with children 1`] = `
               Blog
             </a>
             <a
-              class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+              class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
               href="https://docs.0xtracker.com/#need-to-get-in-touch"
               rel="noopener noreferrer"
               target="_blank"
@@ -212,13 +212,13 @@ exports[`app layout component should render with children 1`] = `
           class="col-6 col-sm-4 col-md-2"
         >
           <h2
-            class="footer__NavHeading-htpw4v-1 bQVrZ"
+            class="footer__NavHeading-htpw4v-1 drzkDm"
           >
             Developers
           </h2>
           <nav>
             <a
-              class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+              class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
               href="https://docs.0xtracker.com/api-reference/introduction"
               rel="noopener noreferrer"
               target="_blank"
@@ -226,7 +226,7 @@ exports[`app layout component should render with children 1`] = `
               API
             </a>
             <a
-              class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+              class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
               href="https://docs.0xtracker.com/contributing"
               rel="noopener noreferrer"
               target="_blank"
@@ -234,7 +234,7 @@ exports[`app layout component should render with children 1`] = `
               Contributing
             </a>
             <a
-              class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+              class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
               href="https://github.com/0xtracker"
               rel="noopener noreferrer"
               target="_blank"
@@ -247,13 +247,13 @@ exports[`app layout component should render with children 1`] = `
           class="col-6 col-sm-4 col-md-1"
         >
           <h2
-            class="footer__NavHeading-htpw4v-1 bQVrZ"
+            class="footer__NavHeading-htpw4v-1 drzkDm"
           >
             Social
           </h2>
           <nav>
             <a
-              class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+              class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
               href="https://twitter.com/0xTracker"
               rel="noopener noreferrer"
               target="_blank"
@@ -261,7 +261,7 @@ exports[`app layout component should render with children 1`] = `
               Twitter
             </a>
             <a
-              class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+              class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
               href="https://discord.gg/tnV8hud"
               rel="noopener noreferrer"
               target="_blank"

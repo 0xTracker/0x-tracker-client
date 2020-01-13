@@ -2,36 +2,36 @@
 
 exports[`page not found component should render without props 1`] = `
 <div
-  class="page-layout__StyledPageLayout-cls0ob-1 djvvIo"
+  class="page-layout__StyledPageLayout-cls0ob-1 erAgYD"
 >
   <div
-    class="container__StyledContainer-cj53s7-0 eMKfDZ page-layout__PageBody-cls0ob-0 jrvuaA container-fluid"
+    class="container__StyledContainer-cj53s7-0 fLJuGb page-layout__PageBody-cls0ob-0 kPXbwD container-fluid"
   >
     <div
-      class="error-message__StyledErrorMessage-sc-1wau1ja-0 iieVxL page-not-found___StyledErrorMessage-sc-1brm731-0 bzEQRl"
+      class="error-message__StyledErrorMessage-sc-1wau1ja-0 bWLjdq page-not-found___StyledErrorMessage-sc-1brm731-0 cleXVu"
     >
       <div
-        class="error-message__CopyWrapper-sc-1wau1ja-1 dNhivl"
+        class="error-message__CopyWrapper-sc-1wau1ja-1 bkCtZe"
       >
         <h1
-          class="h1__H1-sc-1ha1x4u-0 VRpIX"
+          class="h1__H1-sc-1ha1x4u-0 hxLvkk"
         >
           Page Not Found
         </h1>
         <p
-          class="lead__Lead-sc-1kvewtn-0 iBJMsa"
+          class="lead__Lead-sc-1kvewtn-0 gZwkVO"
         >
           Oops, the page you requested doesn‘t exist.
         </p>
         <a
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+          class="link__InternalLink-sc-1m1n17q-1 IiDhz"
           href="/"
         >
           Back to Dashboard
         </a>
       </div>
       <a
-        class="link__OutboundLink-sc-1m1n17q-0 dFkevI error-message__GhostLink-sc-1wau1ja-2 ldtSSD"
+        class="link__OutboundLink-sc-1m1n17q-0 iAzcTd error-message__GhostLink-sc-1wau1ja-2 irISBh"
         href="https://react-kawaii.now.sh/"
         rel="noopener noreferrer"
         target="_blank"

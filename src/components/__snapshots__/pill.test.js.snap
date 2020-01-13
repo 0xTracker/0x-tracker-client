@@ -2,7 +2,7 @@
 
 exports[`pill component should render with children 1`] = `
 <span
-  class="pill__Pill-vlx7yx-0 dmyIJD"
+  class="pill__Pill-vlx7yx-0 eKLBnG"
 >
   Hello World
 </span>

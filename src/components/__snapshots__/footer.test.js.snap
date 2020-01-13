@@ -2,10 +2,10 @@
 
 exports[`should render without props 1`] = `
 <div
-  class="footer___StyledDiv-htpw4v-4 hUOYyM"
+  class="footer___StyledDiv-htpw4v-4 iGjkGL"
 >
   <div
-    class="container__StyledContainer-cj53s7-0 eMKfDZ container-fluid"
+    class="container__StyledContainer-cj53s7-0 fLJuGb container-fluid"
   >
     <div
       class="row"
@@ -15,11 +15,11 @@ exports[`should render without props 1`] = `
       >
         <img
           alt="0x Tracker"
-          class="footer__Logo-htpw4v-0 iRToUm"
+          class="footer__Logo-htpw4v-0 cGztiK"
           src="test-file-stub"
         />
         <p
-          class="footer__Description-htpw4v-2 kZDUij"
+          class="footer__Description-htpw4v-2 kZpjPG"
         >
           The 0x protocol trade explorer, decentralised price index and news aggregator.
         </p>
@@ -28,13 +28,13 @@ exports[`should render without props 1`] = `
         class="col-6 col-sm-4 col-md-2 offset-md-3"
       >
         <h2
-          class="footer__NavHeading-htpw4v-1 bQVrZ"
+          class="footer__NavHeading-htpw4v-1 drzkDm"
         >
           About
         </h2>
         <nav>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
             href="https://docs.0xtracker.com/"
             rel="noopener noreferrer"
             target="_blank"
@@ -42,7 +42,7 @@ exports[`should render without props 1`] = `
             Overview
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
             href="https://docs.0xtracker.com/faqs"
             rel="noopener noreferrer"
             target="_blank"
@@ -50,7 +50,7 @@ exports[`should render without props 1`] = `
             FAQs
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
             href="https://medium.com/0x-tracker"
             rel="noopener noreferrer"
             target="_blank"
@@ -58,7 +58,7 @@ exports[`should render without props 1`] = `
             Blog
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
             href="https://docs.0xtracker.com/#need-to-get-in-touch"
             rel="noopener noreferrer"
             target="_blank"
@@ -71,13 +71,13 @@ exports[`should render without props 1`] = `
         class="col-6 col-sm-4 col-md-2"
       >
         <h2
-          class="footer__NavHeading-htpw4v-1 bQVrZ"
+          class="footer__NavHeading-htpw4v-1 drzkDm"
         >
           Developers
         </h2>
         <nav>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
             href="https://docs.0xtracker.com/api-reference/introduction"
             rel="noopener noreferrer"
             target="_blank"
@@ -85,7 +85,7 @@ exports[`should render without props 1`] = `
             API
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
             href="https://docs.0xtracker.com/contributing"
             rel="noopener noreferrer"
             target="_blank"
@@ -93,7 +93,7 @@ exports[`should render without props 1`] = `
             Contributing
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
             href="https://github.com/0xtracker"
             rel="noopener noreferrer"
             target="_blank"
@@ -106,13 +106,13 @@ exports[`should render without props 1`] = `
         class="col-6 col-sm-4 col-md-1"
       >
         <h2
-          class="footer__NavHeading-htpw4v-1 bQVrZ"
+          class="footer__NavHeading-htpw4v-1 drzkDm"
         >
           Social
         </h2>
         <nav>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
             href="https://twitter.com/0xTracker"
             rel="noopener noreferrer"
             target="_blank"
@@ -120,7 +120,7 @@ exports[`should render without props 1`] = `
             Twitter
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__OutboundLink-sc-1m1n17q-0 iAzcTd footer__NavLink-htpw4v-3 dkNCXK"
             href="https://discord.gg/tnV8hud"
             rel="noopener noreferrer"
             target="_blank"

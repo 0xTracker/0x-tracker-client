@@ -3,18 +3,18 @@
 exports[`fillDetails component should render V2 fill 1`] = `
 <DocumentFragment>
   <dl
-    class="fill-details__FillDetailList-sc-5nb7jb-0 mycsW"
+    class="fill-details__FillDetailList-sc-5nb7jb-0 bWuvBc"
   >
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Transaction Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__OutboundLink-sc-1m1n17q-0 dFkevI"
+        class="link__OutboundLink-sc-1m1n17q-0 iAzcTd"
         href="https://etherscan.io/tx/0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77"
         rel="noopener noreferrer"
         target="_blank"
@@ -23,147 +23,147 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Order Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz"
         href="/search?q=0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71"
       >
         0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Sender Address:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz"
         href="/search?q=0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Date:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       Thursday, October 10th 2019, 06:13:48 AM
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Relayer:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 hPZkFx"
         href="/relayers/radar-relay"
       >
         <img
-          class="relayer-image___StyledImg-sc-1yudeg-0 hAjqat fill-relayer-link___StyledRelayerImage-sc-10d6xh4-1 uYhgP"
+          class="relayer-image___StyledImg-sc-1yudeg-0 cWBiJl fill-relayer-link___StyledRelayerImage-sc-10d6xh4-1 fPSnQm"
           src="https://0xtracker.com/assets/logos/radar-relay.png"
         />
         Radar Relay
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Status:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <span
-        class="fill-status-label___StyledSpan-sc-1k6xas7-0 AGPjT badge badge-success"
+        class="fill-status-label___StyledSpan-sc-1k6xas7-0 iPQVDi badge badge-success"
       >
         successful
       </span>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       0x Protocol:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       v2
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Value:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <span>
         $184.29
       </span>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Maker Address:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz"
         href="/traders/0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3"
       >
         0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Taker Address:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz"
         href="/traders/0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Maker Assets:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <ul
-        class="list__List-sc-1hr42jb-0 cRmZyp"
+        class="list__List-sc-1hr42jb-0 gyRVVx"
       >
         <li
-          class="list-item__Container-sc-1m8jbnt-0 kzXFZr"
+          class="list-item__Container-sc-1m8jbnt-0 idolRM"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
+            class="sc-AykKC gOjhcY list-item___StyledCaretRightIcon-sc-1m8jbnt-1 lnnHMm"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -180,14 +180,14 @@ exports[`fillDetails component should render V2 fill 1`] = `
           <span>
             0.96955 
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__InternalLink-sc-1m1n17q-1 IiDhz"
               href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             >
               Wrapped Ether  (WETH)
             </a>
              
             <span
-              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
+              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 bspFLd badge badge-dark"
             >
               ERC-20
             </span>
@@ -196,22 +196,22 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Taker Assets:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <ul
-        class="list__List-sc-1hr42jb-0 cRmZyp"
+        class="list__List-sc-1hr42jb-0 gyRVVx"
       >
         <li
-          class="list-item__Container-sc-1m8jbnt-0 kzXFZr"
+          class="list-item__Container-sc-1m8jbnt-0 idolRM"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
+            class="sc-AykKC gOjhcY list-item___StyledCaretRightIcon-sc-1m8jbnt-1 lnnHMm"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -228,14 +228,14 @@ exports[`fillDetails component should render V2 fill 1`] = `
           <span>
             5,000 
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__InternalLink-sc-1m1n17q-1 IiDhz"
               href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
             >
               FOAM Token  (FOAM)
             </a>
              
             <span
-              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
+              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 bspFLd badge badge-dark"
             >
               ERC-20
             </span>
@@ -244,22 +244,22 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Derived Prices:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <ul
-        class="list__List-sc-1hr42jb-0 cRmZyp"
+        class="list__List-sc-1hr42jb-0 gyRVVx"
       >
         <li
-          class="list-item__Container-sc-1m8jbnt-0 kzXFZr"
+          class="list-item__Container-sc-1m8jbnt-0 idolRM"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
+            class="sc-AykKC gOjhcY list-item___StyledCaretRightIcon-sc-1m8jbnt-1 lnnHMm"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -275,13 +275,13 @@ exports[`fillDetails component should render V2 fill 1`] = `
           </svg>
           <span>
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__InternalLink-sc-1m1n17q-1 IiDhz"
               href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             >
               Wrapped Ether  (WETH)
             </a>
             <span
-              class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
+              class="fill-details__PriceBadge-sc-5nb7jb-1 iXXttR badge"
             >
               <span>
                 $190.08
@@ -290,11 +290,11 @@ exports[`fillDetails component should render V2 fill 1`] = `
           </span>
         </li>
         <li
-          class="list-item__Container-sc-1m8jbnt-0 kzXFZr"
+          class="list-item__Container-sc-1m8jbnt-0 idolRM"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
+            class="sc-AykKC gOjhcY list-item___StyledCaretRightIcon-sc-1m8jbnt-1 lnnHMm"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -310,13 +310,13 @@ exports[`fillDetails component should render V2 fill 1`] = `
           </svg>
           <span>
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__InternalLink-sc-1m1n17q-1 IiDhz"
               href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
             >
               FOAM Token  (FOAM)
             </a>
             <span
-              class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
+              class="fill-details__PriceBadge-sc-5nb7jb-1 iXXttR badge"
             >
               <span>
                 $0.0369
@@ -327,35 +327,35 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Maker Fee:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       None
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Taker Fee:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       None
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Fee Recipient:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz"
         href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
       >
         0xa258b39954cef5cb142fd567a46cddb31a670124
@@ -368,18 +368,18 @@ exports[`fillDetails component should render V2 fill 1`] = `
 exports[`fillDetails component should render V3 fill 1`] = `
 <DocumentFragment>
   <dl
-    class="fill-details__FillDetailList-sc-5nb7jb-0 mycsW"
+    class="fill-details__FillDetailList-sc-5nb7jb-0 bWuvBc"
   >
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Transaction Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__OutboundLink-sc-1m1n17q-0 dFkevI"
+        class="link__OutboundLink-sc-1m1n17q-0 iAzcTd"
         href="https://etherscan.io/tx/0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77"
         rel="noopener noreferrer"
         target="_blank"
@@ -388,147 +388,147 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Order Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz"
         href="/search?q=0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71"
       >
         0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Sender Address:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz"
         href="/search?q=0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Date:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       Thursday, October 10th 2019, 06:13:48 AM
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Relayer:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 hPZkFx"
         href="/relayers/radar-relay"
       >
         <img
-          class="relayer-image___StyledImg-sc-1yudeg-0 hAjqat fill-relayer-link___StyledRelayerImage-sc-10d6xh4-1 uYhgP"
+          class="relayer-image___StyledImg-sc-1yudeg-0 cWBiJl fill-relayer-link___StyledRelayerImage-sc-10d6xh4-1 fPSnQm"
           src="https://0xtracker.com/assets/logos/radar-relay.png"
         />
         Radar Relay
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Status:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <span
-        class="fill-status-label___StyledSpan-sc-1k6xas7-0 AGPjT badge badge-success"
+        class="fill-status-label___StyledSpan-sc-1k6xas7-0 iPQVDi badge badge-success"
       >
         successful
       </span>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       0x Protocol:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       v2
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Value:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <span>
         $184.29
       </span>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Maker Address:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz"
         href="/traders/0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3"
       >
         0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Taker Address:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz"
         href="/traders/0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Maker Assets:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <ul
-        class="list__List-sc-1hr42jb-0 cRmZyp"
+        class="list__List-sc-1hr42jb-0 gyRVVx"
       >
         <li
-          class="list-item__Container-sc-1m8jbnt-0 kzXFZr"
+          class="list-item__Container-sc-1m8jbnt-0 idolRM"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
+            class="sc-AykKC gOjhcY list-item___StyledCaretRightIcon-sc-1m8jbnt-1 lnnHMm"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -545,14 +545,14 @@ exports[`fillDetails component should render V3 fill 1`] = `
           <span>
             0.96955 
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__InternalLink-sc-1m1n17q-1 IiDhz"
               href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             >
               Wrapped Ether  (WETH)
             </a>
              
             <span
-              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
+              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 bspFLd badge badge-dark"
             >
               ERC-20
             </span>
@@ -561,22 +561,22 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Taker Assets:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <ul
-        class="list__List-sc-1hr42jb-0 cRmZyp"
+        class="list__List-sc-1hr42jb-0 gyRVVx"
       >
         <li
-          class="list-item__Container-sc-1m8jbnt-0 kzXFZr"
+          class="list-item__Container-sc-1m8jbnt-0 idolRM"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
+            class="sc-AykKC gOjhcY list-item___StyledCaretRightIcon-sc-1m8jbnt-1 lnnHMm"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -593,14 +593,14 @@ exports[`fillDetails component should render V3 fill 1`] = `
           <span>
             5,000 
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__InternalLink-sc-1m1n17q-1 IiDhz"
               href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
             >
               FOAM Token  (FOAM)
             </a>
              
             <span
-              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
+              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 bspFLd badge badge-dark"
             >
               ERC-20
             </span>
@@ -609,22 +609,22 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Derived Prices:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <ul
-        class="list__List-sc-1hr42jb-0 cRmZyp"
+        class="list__List-sc-1hr42jb-0 gyRVVx"
       >
         <li
-          class="list-item__Container-sc-1m8jbnt-0 kzXFZr"
+          class="list-item__Container-sc-1m8jbnt-0 idolRM"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
+            class="sc-AykKC gOjhcY list-item___StyledCaretRightIcon-sc-1m8jbnt-1 lnnHMm"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -640,13 +640,13 @@ exports[`fillDetails component should render V3 fill 1`] = `
           </svg>
           <span>
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__InternalLink-sc-1m1n17q-1 IiDhz"
               href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             >
               Wrapped Ether  (WETH)
             </a>
             <span
-              class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
+              class="fill-details__PriceBadge-sc-5nb7jb-1 iXXttR badge"
             >
               <span>
                 $190.08
@@ -655,11 +655,11 @@ exports[`fillDetails component should render V3 fill 1`] = `
           </span>
         </li>
         <li
-          class="list-item__Container-sc-1m8jbnt-0 kzXFZr"
+          class="list-item__Container-sc-1m8jbnt-0 idolRM"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
+            class="sc-AykKC gOjhcY list-item___StyledCaretRightIcon-sc-1m8jbnt-1 lnnHMm"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -675,13 +675,13 @@ exports[`fillDetails component should render V3 fill 1`] = `
           </svg>
           <span>
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__InternalLink-sc-1m1n17q-1 IiDhz"
               href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
             >
               FOAM Token  (FOAM)
             </a>
             <span
-              class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
+              class="fill-details__PriceBadge-sc-5nb7jb-1 iXXttR badge"
             >
               <span>
                 $0.0369
@@ -692,31 +692,31 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Fee Recipient:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__InternalLink-sc-1m1n17q-1 IiDhz"
         href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
       >
         0xa258b39954cef5cb142fd567a46cddb31a670124
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 hZHLCs"
     >
       Protocol Fee:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 hFKFtZ"
     >
       0.0001 ETH
       <span
-        class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
+        class="fill-details__PriceBadge-sc-5nb7jb-1 iXXttR badge"
       >
         <span>
           $0.2000
