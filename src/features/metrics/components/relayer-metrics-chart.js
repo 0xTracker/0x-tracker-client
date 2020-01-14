@@ -6,6 +6,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Brush,
 } from 'recharts';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
@@ -90,6 +91,12 @@ const RelayerMetricsChart = ({ data, period, type }) => {
           tickLine={false}
         />
         <Tooltip content={<RelayerMetricsTooltip />} />
+        <Brush
+          dataKey="date"
+          height={30}
+          stroke={colors.periwinkleGray}
+          tickFormatter={formatAxisDate}
+        />
       </AreaChart>
     </ResponsiveContainer>
   );

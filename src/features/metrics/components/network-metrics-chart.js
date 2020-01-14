@@ -6,6 +6,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Brush,
 } from 'recharts';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
@@ -96,6 +97,12 @@ const NetworkMetricsChart = ({ data, period, type }) => {
           tickLine={false}
         />
         <Tooltip content={<NetworkMetricsTooltip />} />
+        <Brush
+          dataKey="date"
+          height={30}
+          stroke={colors.periwinkleGray}
+          tickFormatter={formatAxisDate}
+        />
       </AreaChart>
     </ResponsiveContainer>
   );

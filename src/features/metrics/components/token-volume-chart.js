@@ -6,6 +6,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Brush,
 } from 'recharts';
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
@@ -95,6 +96,12 @@ class TokenVolumeChart extends PureComponent {
                 tokenSymbol={tokenSymbol}
               />
             }
+          />
+          <Brush
+            dataKey="date"
+            height={30}
+            stroke={colors.periwinkleGray}
+            tickFormatter={formatAxisDate}
           />
         </AreaChart>
       </ResponsiveContainer>
