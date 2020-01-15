@@ -5,31 +5,39 @@ import { TIME_PERIOD } from '../../../constants';
 import AsyncNetworkMetricsChart from './async-network-metrics-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
+import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useNetworkMetrics from '../hooks/use-network-metrics';
 
 const NetworkMetrics = ({ period, type }) => {
   const [autoReload, setAutoReload] = React.useState(true);
   const [metrics, loading] = useNetworkMetrics({ period }, { autoReload });
   const conversionRate = useConversionRate();
+  const displayCurrency = useDisplayCurrency();
+  const handleBrushChange = React.useCallback(() => {
+    setAutoReload(false);
+  }, []);
+
+  const data = React.useMemo(
+    () =>
+      (metrics || []).map(metric => ({
+        date: new Date(metric.date),
+        fillCount: metric.fillCount,
+        fillVolume: (parseFloat(metric.fillVolume) || 0) * conversionRate,
+        tradeCount: metric.tradeCount,
+        tradeVolume: (parseFloat(metric.tradeVolume) || 0) * conversionRate,
+      })),
+    [metrics, conversionRate],
+  );
 
   if (loading || conversionRate === undefined) {
     return <LoadingIndicator centered />;
   }
 
-  const data = metrics.map(metric => ({
-    date: new Date(metric.date),
-    fillCount: metric.fillCount,
-    fillVolume: (parseFloat(metric.fillVolume) || 0) * conversionRate,
-    tradeCount: metric.tradeCount,
-    tradeVolume: (parseFloat(metric.tradeVolume) || 0) * conversionRate,
-  }));
-
   return (
     <AsyncNetworkMetricsChart
+      currency={displayCurrency}
       data={data}
-      onBrushChange={() => {
-        setAutoReload(false);
-      }}
+      onBrushChange={handleBrushChange}
       period={period}
       type={type}
     />
