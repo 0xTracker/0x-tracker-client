@@ -1,8 +1,11 @@
 import useApi from '../../../hooks/use-api';
 
-const useNetworkMetrics = ({ period, relayerId } = {}) =>
+const useNetworkMetrics = (
+  { period, relayerId } = {},
+  { autoReload } = { autoReload: true },
+) =>
   useApi('metrics/network', {
-    autoReload: true,
+    autoReload,
     params: {
       period,
       relayer: relayerId,
