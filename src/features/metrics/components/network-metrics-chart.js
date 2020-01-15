@@ -31,7 +31,7 @@ const formatCount = count => {
   return numeral(count).format('0,0');
 };
 
-const NetworkMetricsChart = ({ data, period, type }) => {
+const NetworkMetricsChart = ({ data, onBrushChange, period, type }) => {
   const displayCurrency = useDisplayCurrency();
 
   const formatCurrency = amount => {
@@ -100,6 +100,7 @@ const NetworkMetricsChart = ({ data, period, type }) => {
         <Brush
           dataKey="date"
           height={30}
+          onChange={onBrushChange}
           stroke={colors.periwinkleGray}
           tickFormatter={formatAxisDate}
         />
@@ -118,11 +119,13 @@ NetworkMetricsChart.propTypes = {
       tradeVolume: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  onBrushChange: PropTypes.func,
   period: sharedPropTypes.timePeriod.isRequired,
   type: PropTypes.string,
 };
 
 NetworkMetricsChart.defaultProps = {
+  onBrushChange: undefined,
   type: 'fillVolume',
 };
 
