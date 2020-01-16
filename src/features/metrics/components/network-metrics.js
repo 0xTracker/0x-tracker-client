@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { TIME_PERIOD } from '../../../constants';
 import AsyncNetworkMetricsChart from './async-network-metrics-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
+import ResetChartButton from '../../../components/reset-chart-button';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useNetworkMetrics from '../hooks/use-network-metrics';
@@ -13,12 +14,6 @@ const Container = styled.div`
   height: 100%;
   position: relative;
   width: 100%;
-`;
-
-const ResetButton = styled.button`
-  position: absolute;
-  right: 0;
-  z-index: 10;
 `;
 
 const NetworkMetrics = ({ period, type }) => {
@@ -67,9 +62,10 @@ const NetworkMetrics = ({ period, type }) => {
   return (
     <Container>
       {brushActive && (
-        <ResetButton onClick={handleResetClick} type="button">
-          Reset
-        </ResetButton>
+        <ResetChartButton
+          css="position: absolute; right: 0; z-index: 10;"
+          onClick={handleResetClick}
+        />
       )}
       <AsyncNetworkMetricsChart
         currency={displayCurrency}

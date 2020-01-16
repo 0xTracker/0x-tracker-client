@@ -12,6 +12,7 @@ import MediumIcon from './medium-icon';
 import MenuIcon from './menu-icon';
 import MoreIcon from './more-icon';
 import NotificationsIcon from './notifications-icon';
+import ResetIcon from './reset-icon';
 import RightArrowIcon from './right-arrow-icon';
 import SearchIcon from './search-icon';
 import SettingsIcon from './settings-icon';
@@ -31,6 +32,7 @@ export {
   MenuIcon,
   MoreIcon,
   NotificationsIcon,
+  ResetIcon,
   RightArrowIcon,
   SearchIcon,
   SettingsIcon,
