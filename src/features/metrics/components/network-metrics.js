@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import AsyncNetworkMetricsChart from './async-network-metrics-chart';
@@ -8,13 +9,43 @@ import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useNetworkMetrics from '../hooks/use-network-metrics';
 
+const Container = styled.div`
+  height: 100%;
+  position: relative;
+  width: 100%;
+`;
+
+const ResetButton = styled.button`
+  position: absolute;
+  right: 0;
+  z-index: 10;
+`;
+
 const NetworkMetrics = ({ period, type }) => {
-  const [autoReload, setAutoReload] = React.useState(true);
-  const [metrics, loading] = useNetworkMetrics({ period }, { autoReload });
+  const [brushActive, setBrushActive] = React.useState(false);
+  const [metrics, loading] = useNetworkMetrics(
+    { period },
+    { autoReload: !brushActive },
+  );
   const conversionRate = useConversionRate();
   const displayCurrency = useDisplayCurrency();
+
+  // This is a quick and dirty hack to implement brush resetting because Recharts
+  // doesn't allow us to control the brush indexes after mount. It works by modifying
+  // a chartKey value which is used as the key prop on AsyncNetworkMetricsChart below.
+  // When this key changes it will force a rerender of the chart.
+  const [chartKey, setChartKey] = React.useState(Date.now());
+  const handleResetClick = () => {
+    setBrushActive(false);
+    setChartKey(Date.now());
+  };
+
+  // The NetworkMetricsChart is designed to only rerender when one of its props changes. This
+  // is to prevent the brush position resetting when chart data hasn't changed. Because of this
+  // we must memoize the `handleBrushChange` and `data` props to ensure their references don't
+  // change each time this component rerenders (e.g. after the brushActive state changes).
   const handleBrushChange = React.useCallback(() => {
-    setAutoReload(false);
+    setBrushActive(true);
   }, []);
 
   const data = React.useMemo(
@@ -34,13 +65,21 @@ const NetworkMetrics = ({ period, type }) => {
   }
 
   return (
-    <AsyncNetworkMetricsChart
-      currency={displayCurrency}
-      data={data}
-      onBrushChange={handleBrushChange}
-      period={period}
-      type={type}
-    />
+    <Container>
+      {brushActive && (
+        <ResetButton onClick={handleResetClick} type="button">
+          Reset
+        </ResetButton>
+      )}
+      <AsyncNetworkMetricsChart
+        currency={displayCurrency}
+        data={data}
+        key={chartKey}
+        onBrushChange={handleBrushChange}
+        period={period}
+        type={type}
+      />
+    </Container>
   );
 };
 
