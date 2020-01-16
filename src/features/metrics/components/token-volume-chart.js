@@ -39,7 +39,13 @@ class TokenVolumeChart extends PureComponent {
   }
 
   render() {
-    const { data, localCurrency, period, tokenSymbol } = this.props;
+    const {
+      data,
+      localCurrency,
+      onBrushChange,
+      period,
+      tokenSymbol,
+    } = this.props;
 
     if (_.isEmpty(data)) {
       return 'No data available';
@@ -100,6 +106,7 @@ class TokenVolumeChart extends PureComponent {
           <Brush
             dataKey="date"
             height={30}
+            onChange={onBrushChange}
             stroke={colors.periwinkleGray}
             tickFormatter={formatAxisDate}
           />
@@ -118,8 +125,13 @@ TokenVolumeChart.propTypes = {
     }),
   ).isRequired,
   localCurrency: PropTypes.string.isRequired,
+  onBrushChange: PropTypes.func,
   period: sharedPropTypes.timePeriod.isRequired,
   tokenSymbol: PropTypes.string.isRequired,
+};
+
+TokenVolumeChart.defaultProps = {
+  onBrushChange: undefined,
 };
 
 export default TokenVolumeChart;
