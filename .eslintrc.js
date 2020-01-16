@@ -31,6 +31,12 @@ module.exports = {
       rules: { 'import/no-extraneous-dependencies': 'off' },
     },
 
+    // Storybook overrides
+    {
+      files: ['.storybook/*.js'],
+      rules: { 'react/no-multi-comp': 'off' },
+    },
+
     // NodeJS overrides
     {
       files: ['jest.config.js', 'config/webpack/*.js', '.storybook/*.js'],
