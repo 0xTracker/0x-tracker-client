@@ -1,8 +1,12 @@
 import useApi from '../../../hooks/use-api';
 
-const useTraderMetrics = (address, { period } = {}) =>
+const useTraderMetrics = (
+  address,
+  { period } = {},
+  { autoReload } = { autoReload: true },
+) =>
   useApi('metrics/trader', {
-    autoReload: true,
+    autoReload,
     params: {
       address,
       period,
