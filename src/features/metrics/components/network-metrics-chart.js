@@ -6,6 +6,7 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Brush,
 } from 'recharts';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
@@ -13,12 +14,12 @@ import React from 'react';
 
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
+import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import NetworkMetricsTooltip from './network-metrics-tooltip';
 import padMetrics from '../util/pad-metrics';
 import sharedPropTypes from '../../../prop-types';
 import summarizeCurrency from '../../../util/summarize-currency';
-import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
 const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
 
@@ -30,78 +31,86 @@ const formatCount = count => {
   return numeral(count).format('0,0');
 };
 
-const NetworkMetricsChart = ({ data, period, type }) => {
-  const displayCurrency = useDisplayCurrency();
+const NetworkMetricsChart = React.memo(
+  ({ currency, data, onBrushChange, period, type }) => {
+    const formatCurrency = amount => {
+      if (amount === 0) {
+        return '';
+      }
 
-  const formatCurrency = amount => {
-    if (amount === 0) {
-      return '';
+      return summarizeCurrency(amount, currency);
+    };
+
+    if (_.isEmpty(data)) {
+      return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
-    return summarizeCurrency(amount, displayCurrency);
-  };
+    const paddedMetrics = padMetrics(data, period, {
+      fillCount: 0,
+      fillVolume: 0,
+      tradeCount: 0,
+      tradeVolume: 0,
+    });
 
-  if (_.isEmpty(data)) {
-    return 'No data available';
-  }
+    const sanitizedData = paddedMetrics.map(dataPoint => ({
+      ...dataPoint,
+      date: dataPoint.date.toISOString(),
+    }));
 
-  const paddedMetrics = padMetrics(data, period, {
-    fillCount: 0,
-    fillVolume: 0,
-    tradeCount: 0,
-    tradeVolume: 0,
-  });
-
-  const sanitizedData = paddedMetrics.map(dataPoint => ({
-    ...dataPoint,
-    date: dataPoint.date.toISOString(),
-  }));
-
-  return (
-    <ResponsiveContainer>
-      <AreaChart
-        data={sanitizedData}
-        margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
-      >
-        <Area
-          animationDuration={0}
-          dataKey={type}
-          fill={colors.periwinkleGray}
-          fillOpacity={1}
-          stroke={colors.indigo}
-          strokeOpacity={0.6}
-          strokeWidth={2}
-          type="monotone"
-        />
-        <XAxis
-          axisLine={false}
-          dataKey="date"
-          minTickGap={60}
-          tick={{ fill: 'currentColor', fontSize: '0.9em' }}
-          tickFormatter={formatAxisDate}
-          tickLine={false}
-        />
-        <YAxis
-          axisLine={false}
-          dataKey={type}
-          minTickGap={20}
-          mirror
-          padding={{ top: 25 }}
-          tick={{ fill: 'currentColor', fontSize: '0.9em' }}
-          tickFormatter={
-            type === 'fillVolume' || type === 'tradeVolume'
-              ? formatCurrency
-              : formatCount
-          }
-          tickLine={false}
-        />
-        <Tooltip content={<NetworkMetricsTooltip />} />
-      </AreaChart>
-    </ResponsiveContainer>
-  );
-};
+    return (
+      <ResponsiveContainer>
+        <AreaChart
+          data={sanitizedData}
+          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+        >
+          <Area
+            animationDuration={0}
+            dataKey={type}
+            fill={colors.periwinkleGray}
+            fillOpacity={1}
+            stroke={colors.indigo}
+            strokeOpacity={0.6}
+            strokeWidth={2}
+            type="monotone"
+          />
+          <XAxis
+            axisLine={false}
+            dataKey="date"
+            minTickGap={60}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
+            tickFormatter={formatAxisDate}
+            tickLine={false}
+          />
+          <YAxis
+            axisLine={false}
+            dataKey={type}
+            minTickGap={20}
+            mirror
+            padding={{ top: 25 }}
+            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
+            tickFormatter={
+              type === 'fillVolume' || type === 'tradeVolume'
+                ? formatCurrency
+                : formatCount
+            }
+            tickLine={false}
+          />
+          <Tooltip content={<NetworkMetricsTooltip />} />
+          <Brush
+            dataKey="date"
+            height={30}
+            onChange={onBrushChange}
+            stroke={colors.periwinkleGray}
+            tickFormatter={formatAxisDate}
+          />
+        </AreaChart>
+      </ResponsiveContainer>
+    );
+  },
+);
 
 NetworkMetricsChart.propTypes = {
+  currency: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
@@ -111,11 +120,13 @@ NetworkMetricsChart.propTypes = {
       tradeVolume: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  onBrushChange: PropTypes.func,
   period: sharedPropTypes.timePeriod.isRequired,
   type: PropTypes.string,
 };
 
 NetworkMetricsChart.defaultProps = {
+  onBrushChange: undefined,
   type: 'fillVolume',
 };
 

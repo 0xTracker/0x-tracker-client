@@ -6,13 +6,15 @@ import {
   XAxis,
   YAxis,
   Tooltip,
+  Brush,
 } from 'recharts';
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
 import AddressMetricsTooltip from './address-metrics-tooltip';
+import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import padMetrics from '../util/pad-metrics';
 import sharedPropTypes from '../../../prop-types';
@@ -20,32 +22,22 @@ import summarizeCurrency from '../../../util/summarize-currency';
 
 const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
 
-class AddressMetricsChart extends PureComponent {
-  constructor() {
-    super();
+const AddressMetricsChart = React.memo(
+  ({ data, keyMetric, localCurrency, onBrushChange, period }) => {
+    const formatValue = value => {
+      if (value === 0) {
+        return '';
+      }
 
-    this.formatValue = this.formatValue.bind(this);
-  }
+      if (keyMetric === 'fillCount') {
+        return value;
+      }
 
-  formatValue(value) {
-    const { keyMetric, localCurrency } = this.props;
-
-    if (value === 0) {
-      return '';
-    }
-
-    if (keyMetric === 'fillCount') {
-      return value;
-    }
-
-    return summarizeCurrency(value, localCurrency);
-  }
-
-  render() {
-    const { data, keyMetric, localCurrency, period } = this.props;
+      return summarizeCurrency(value, localCurrency);
+    };
 
     if (_.isEmpty(data)) {
-      return 'No data available';
+      return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
     const paddedMetrics = padMetrics(data, period, {
@@ -89,17 +81,24 @@ class AddressMetricsChart extends PureComponent {
             mirror
             padding={{ top: 25 }}
             tick={{ fill: 'currentColor', fontSize: '0.9em' }}
-            tickFormatter={this.formatValue}
+            tickFormatter={formatValue}
             tickLine={false}
           />
           <Tooltip
             content={<AddressMetricsTooltip localCurrency={localCurrency} />}
           />
+          <Brush
+            dataKey="date"
+            height={30}
+            onChange={onBrushChange}
+            stroke={colors.periwinkleGray}
+            tickFormatter={formatAxisDate}
+          />
         </AreaChart>
       </ResponsiveContainer>
     );
-  }
-}
+  },
+);
 
 AddressMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
@@ -110,7 +109,12 @@ AddressMetricsChart.propTypes = {
   ).isRequired,
   keyMetric: PropTypes.string.isRequired,
   localCurrency: PropTypes.string.isRequired,
+  onBrushChange: PropTypes.func,
   period: sharedPropTypes.timePeriod.isRequired,
+};
+
+AddressMetricsChart.defaultProps = {
+  onBrushChange: undefined,
 };
 
 export default AddressMetricsChart;
