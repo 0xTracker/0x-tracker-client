@@ -8,7 +8,9 @@ const AlignCenter = styled.div`
   align-items: center;
   display: flex;
   flex-grow: 1;
+  height: 100%;
   justify-content: center;
+  width: 100%;
 `;
 
 const dimensions = {

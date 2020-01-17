@@ -14,6 +14,7 @@ import React from 'react';
 
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
+import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import padMetrics from '../util/pad-metrics';
 import RelayerMetricsTooltip from './relayer-metrics-tooltip';
@@ -44,7 +45,7 @@ const RelayerMetricsChart = React.memo(
     };
 
     if (_.isEmpty(data)) {
-      return 'No data available';
+      return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
     const paddedMetrics = padMetrics(data, period, {

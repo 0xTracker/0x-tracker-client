@@ -13,6 +13,7 @@ import PropTypes from 'prop-types';
 
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
+import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import padMetrics from '../util/pad-metrics';
 import sharedPropTypes from '../../../prop-types';
@@ -48,7 +49,7 @@ class TokenVolumeChart extends PureComponent {
     } = this.props;
 
     if (_.isEmpty(data)) {
-      return 'No data available';
+      return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
     const paddedMetrics = padMetrics(data, period, {
