@@ -8,7 +8,6 @@ import { BASE_CURRENCY } from '../../currencies/constants';
 import { DATE_FORMAT } from '../../../constants';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import buildRelayerUrl from '../../relayers/util/build-relayer-url';
-import buildSearchUrl from '../../search/util/build-search-url';
 import FillLink from './fill-link';
 import FillListAssets from './fill-list-assets';
 import formatDate from '../../../util/format-date';
@@ -87,14 +86,13 @@ const SourceLink = styled(Link)`
 
 const getSource = fill => {
   if (fill.relayer) {
-    return { label: fill.relayer.name, url: buildRelayerUrl(fill.relayer) };
+    return {
+      label: fill.relayer.name,
+      url: buildRelayerUrl(fill.relayer.slug),
+    };
   }
 
-  if (fill.feeRecipient === '0x0000000000000000000000000000000000000000') {
-    return { label: 'No Relayer' };
-  }
-
-  return { label: 'Unknown Relayer', url: buildSearchUrl(fill.feeRecipient) };
+  return { label: 'Unknown Relayer', url: buildRelayerUrl('unknown') };
 };
 
 const RecentFillsItem = ({ fill }) => {

@@ -44,7 +44,7 @@ const TopRelayersTable = ({ relayers }) => {
               <RelayerImage imageUrl={relayer.imageUrl} size="2.5rem" />
             </TableCell>
             <TableCell width="99%;">
-              <RelayerLink css="font-weight: 500;" relayer={relayer}>
+              <RelayerLink css="font-weight: 500;" relayer={relayer.slug}>
                 {relayer.name}
               </RelayerLink>
               {relayer.url !== undefined ? (

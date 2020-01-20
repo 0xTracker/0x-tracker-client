@@ -24,12 +24,12 @@ const RelayerList = ({ positionOffset, relayers }) => (
         <tr key={relayer.id}>
           <td className="align-middle">{`${positionOffset + index + 1}`}</td>
           <td className="align-middle">
-            <RelayerLink relayer={relayer}>
+            <RelayerLink relayer={relayer.slug}>
               <RelayerImage imageUrl={relayer.imageUrl} />
             </RelayerLink>
           </td>
           <td className="align-middle" width="99%">
-            <RelayerLink relayer={relayer}>{relayer.name}</RelayerLink>
+            <RelayerLink relayer={relayer.slug}>{relayer.name}</RelayerLink>
             {relayer.url ? (
               <>
                 <br />

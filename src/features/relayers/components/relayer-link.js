@@ -13,10 +13,7 @@ const RelayerLink = ({ children, className, relayer }) => (
 RelayerLink.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  relayer: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-  }).isRequired,
+  relayer: PropTypes.string.isRequired,
 };
 
 RelayerLink.defaultProps = {
