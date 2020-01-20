@@ -2,24 +2,22 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import buildSearchUrl from '../../search/util/build-search-url';
 import Link from '../../../components/link';
 import RelayerImage from '../../relayers/components/relayer-image';
 import RelayerLink from '../../relayers/components/relayer-link';
 
 const FillRelayerLink = ({ fill, showImage }) => {
-  const { feeRecipient, relayer } = fill;
+  const { relayer } = fill;
 
   if (_.isNil(relayer)) {
-    if (feeRecipient === '0x0000000000000000000000000000000000000000') {
-      return 'None';
-    }
-
-    return <Link href={buildSearchUrl(feeRecipient)}>Unknown</Link>;
+    return <Link href="/relayers/unknown">Unknown</Link>;
   }
 
   return (
-    <RelayerLink css="display: flex; align-items: center;" relayer={relayer}>
+    <RelayerLink
+      css="display: flex; align-items: center;"
+      relayer={relayer.slug}
+    >
       {showImage && relayer.imageUrl && (
         <RelayerImage
           css="margin-right: 0.5rem;"
@@ -35,7 +33,6 @@ const FillRelayerLink = ({ fill, showImage }) => {
 
 FillRelayerLink.propTypes = {
   fill: PropTypes.shape({
-    feeRecipient: PropTypes.string.isRequired,
     relayer: PropTypes.shape({
       imageUrl: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
