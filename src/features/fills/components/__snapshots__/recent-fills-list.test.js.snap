@@ -3,7 +3,7 @@
 exports[`should render an assortment of fills 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bZQynM czRbgO"
+    class="sc-EHOje looXiP"
   >
     <div
       class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
@@ -19,7 +19,7 @@ exports[`should render an assortment of fills 1`] = `
         />
       </a>
       <div
-        class="sc-EHOje dHfSvo"
+        class="sc-ifAKCX fkortk"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
@@ -73,7 +73,7 @@ exports[`should render an assortment of fills 1`] = `
         />
       </a>
       <div
-        class="sc-EHOje dHfSvo"
+        class="sc-ifAKCX fkortk"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
@@ -127,7 +127,7 @@ exports[`should render an assortment of fills 1`] = `
         />
       </a>
       <div
-        class="sc-EHOje dHfSvo"
+        class="sc-ifAKCX fkortk"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
@@ -181,7 +181,7 @@ exports[`should render an assortment of fills 1`] = `
         />
       </a>
       <div
-        class="sc-EHOje dHfSvo"
+        class="sc-ifAKCX fkortk"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
