@@ -47,12 +47,16 @@ const TopRelayersTable = ({ relayers }) => {
               <RelayerLink css="font-weight: 500;" relayer={relayer}>
                 {relayer.name}
               </RelayerLink>
-              <br />
-              <SecondaryText as={Link} href={relayer.url}>
-                {_.truncate(relayer.url, {
-                  length: breakpoint.greaterThan('xs') ? 35 : 25,
-                })}
-              </SecondaryText>
+              {relayer.url !== undefined ? (
+                <>
+                  <br />
+                  <SecondaryText as={Link} href={relayer.url}>
+                    {_.truncate(relayer.url, {
+                      length: breakpoint.greaterThan('xs') ? 35 : 25,
+                    })}
+                  </SecondaryText>
+                </>
+              ) : null}
             </TableCell>
             <TableCell css="text-align: right;">
               <LocalisedAmount
