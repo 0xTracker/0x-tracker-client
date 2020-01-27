@@ -10,7 +10,7 @@ import TraderBreakdown from './trader-breakdown';
 const TraderTypesCard = ({ period }) => (
   <Card css="height: 360px;">
     <CardHeader>
-      <CardHeading>Trader Types</CardHeading>
+      <CardHeading>Makers vs. Takers</CardHeading>
     </CardHeader>
     <CardBody padded>
       <TraderBreakdown period={period} />

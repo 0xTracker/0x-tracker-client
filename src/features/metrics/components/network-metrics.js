@@ -49,6 +49,9 @@ const NetworkMetrics = ({ period, type }) => {
         date: new Date(metric.date),
         fillCount: metric.fillCount,
         fillVolume: (parseFloat(metric.fillVolume) || 0) * conversionRate,
+        protocolFees:
+          (parseFloat(metric.protocolFees.USD) || 0) * conversionRate,
+        protocolFeesETH: metric.protocolFees.ETH,
         tradeCount: metric.tradeCount,
         tradeVolume: (parseFloat(metric.tradeVolume) || 0) * conversionRate,
       })),

@@ -10,7 +10,6 @@ import ActiveTradersCard from '../../traders/components/active-traders-card';
 import NetworkOverviewStats from './network-overview-stats';
 import NetworkMetrics from '../../metrics/components/network-metrics';
 import PageLayout from '../../../components/page-layout';
-import ProtocolVolumeCard from './protocol-volume-card';
 import TabbedCard from '../../../components/tabbed-card';
 import TimePeriodFilter from '../../../components/time-period-filter';
 import TopRelayers from '../../relayers/components/top-relayers';
@@ -82,6 +81,18 @@ const NetworkOverviewPage = ({ history, location }) => {
                   ),
                   title: 'Trade Count',
                 },
+                {
+                  component: (
+                    <NetworkMetrics period={period} type="fillVolume" />
+                  ),
+                  title: 'Fill Volume',
+                },
+                {
+                  component: (
+                    <NetworkMetrics period={period} type="fillCount" />
+                  ),
+                  title: 'Fill Count',
+                },
               ]}
             />
           </DashboardColumn>
@@ -102,11 +113,25 @@ const NetworkOverviewPage = ({ history, location }) => {
           </DashboardColumn>
         </Row>
         <Row>
-          <DashboardColumn lg={7}>
-            <ProtocolVolumeCard period={period} />
-          </DashboardColumn>
           <DashboardColumn lg={5}>
             <TopProtocolsCard period={period} />
+          </DashboardColumn>
+          <DashboardColumn lg={7}>
+            <TabbedCard
+              css="height: 360px;"
+              tabs={[
+                {
+                  component: (
+                    <NetworkMetrics period={period} type="protocolFees" />
+                  ),
+                  title: 'Protocol Fees',
+                },
+                {
+                  component: <div />,
+                  title: 'Protocol Adoption',
+                },
+              ]}
+            />
           </DashboardColumn>
         </Row>
         <Row>

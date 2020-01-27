@@ -10,7 +10,7 @@ import TopProtocols from './top-protocols';
 const TopProtocolsCard = ({ period }) => (
   <Card css="height: 360px;">
     <CardHeader>
-      <CardHeading>Top Protocols</CardHeading>
+      <CardHeading>Protocol Comparison</CardHeading>
     </CardHeader>
     <CardBody padded>
       <TopProtocols period={period} />
