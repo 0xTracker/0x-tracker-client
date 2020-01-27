@@ -15,19 +15,22 @@ const ChartTooltipWrapper = styled.div`
 
 const ChartTooltipTitle = styled.h1`
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-bottom: 1.2rem;
   text-align: center;
 `;
 
 const ChartTooltipItemTitle = styled.dt`
   display: inline-block;
+  font-size: 0.9rem;
+  margin: 0;
   font-weight: normal;
 `;
 
 const ChartTooltipItemValue = styled.dd`
   display: inline-block;
-  margin-left: 0.25rem;
+  font-size: 0.9rem;
+  margin: 0 0 0 0.25rem;
 `;
 
 const ChartTooltip = ({ title, items }) => (

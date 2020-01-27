@@ -48,6 +48,8 @@ const NetworkMetricsChart = React.memo(
     const paddedMetrics = padMetrics(data, period, {
       fillCount: 0,
       fillVolume: 0,
+      protocolFees: 0,
+      protocolFeesETH: '0',
       tradeCount: 0,
       tradeVolume: 0,
     });
@@ -89,13 +91,15 @@ const NetworkMetricsChart = React.memo(
             padding={{ top: 25 }}
             tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={
-              type === 'fillVolume' || type === 'tradeVolume'
+              type === 'fillVolume' ||
+              type === 'tradeVolume' ||
+              type === 'protocolFees'
                 ? formatCurrency
                 : formatCount
             }
             tickLine={false}
           />
-          <Tooltip content={<NetworkMetricsTooltip />} />
+          <Tooltip content={<NetworkMetricsTooltip currency={currency} />} />
           <Brush
             dataKey="date"
             height={30}
@@ -116,6 +120,10 @@ NetworkMetricsChart.propTypes = {
       date: PropTypes.instanceOf(Date).isRequired,
       fillCount: PropTypes.number.isRequired,
       fillVolume: PropTypes.number.isRequired,
+      protocolFees: {
+        ETH: PropTypes.string.isRequired,
+        USD: PropTypes.number.isRequired,
+      },
       tradeCount: PropTypes.number.isRequired,
       tradeVolume: PropTypes.number.isRequired,
     }),

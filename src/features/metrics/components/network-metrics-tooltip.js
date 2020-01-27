@@ -4,14 +4,11 @@ import React from 'react';
 
 import { DATE_FORMAT } from '../../../constants';
 import ChartTooltip from '../../../components/chart-tooltip';
+import formatCurrency from '../../../util/format-currency';
 import formatDate from '../../../util/format-date';
-import LocalisedAmount from '../../currencies/components/localised-amount';
 import Number from '../../../components/number';
-import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
-const NetworkMetricsTooltip = ({ payload }) => {
-  const displayCurrency = useDisplayCurrency();
-
+const NetworkMetricsTooltip = ({ currency, payload }) => {
   if (_.isEmpty(payload)) {
     return null;
   }
@@ -20,6 +17,8 @@ const NetworkMetricsTooltip = ({ payload }) => {
     date,
     fillCount,
     fillVolume,
+    protocolFees,
+    protocolFeesETH,
     tradeCount,
     tradeVolume,
   } = payload[0].payload;
@@ -32,16 +31,24 @@ const NetworkMetricsTooltip = ({ payload }) => {
           value: <Number>{fillCount}</Number>,
         },
         {
-          label: `Fill Volume (${displayCurrency})`,
-          value: <LocalisedAmount amount={fillVolume} />,
+          label: `Fill Volume (${currency})`,
+          value: formatCurrency(fillVolume, currency),
+        },
+        {
+          label: `Protocol Fees (${currency})`,
+          value: formatCurrency(protocolFees, currency),
+        },
+        {
+          label: 'Protocol Fees (ETH)',
+          value: protocolFeesETH,
         },
         {
           label: 'Trade Count',
           value: <Number>{tradeCount}</Number>,
         },
         {
-          label: `Trade Volume (${displayCurrency})`,
-          value: <LocalisedAmount amount={tradeVolume} />,
+          label: `Trade Volume (${currency})`,
+          value: formatCurrency(tradeVolume, currency),
         },
       ]}
       title={formatDate(date, DATE_FORMAT.STANDARD)}
@@ -50,12 +57,15 @@ const NetworkMetricsTooltip = ({ payload }) => {
 };
 
 NetworkMetricsTooltip.propTypes = {
+  currency: PropTypes.string.isRequired,
   payload: PropTypes.arrayOf(
     PropTypes.shape({
       payload: PropTypes.shape({
         date: PropTypes.string.isRequired,
         fillCount: PropTypes.number.isRequired,
         fillVolume: PropTypes.number.isRequired,
+        protocolFees: PropTypes.number.isRequired,
+        protocolFeesETH: PropTypes.string.isRequired,
         tradeCount: PropTypes.number.isRequired,
         tradeVolume: PropTypes.number.isRequired,
       }).isRequired,
