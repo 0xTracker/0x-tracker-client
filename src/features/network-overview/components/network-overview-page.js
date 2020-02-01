@@ -9,6 +9,7 @@ import { media } from '../../../styles/util';
 import ActiveTradersCard from '../../traders/components/active-traders-card';
 import NetworkOverviewStats from './network-overview-stats';
 import NetworkMetrics from '../../metrics/components/network-metrics';
+import ProtocolMetrics from '../../metrics/components/protocol-metrics';
 import PageLayout from '../../../components/page-layout';
 import TabbedCard from '../../../components/tabbed-card';
 import TimePeriodFilter from '../../../components/time-period-filter';
@@ -121,14 +122,14 @@ const NetworkOverviewPage = ({ history, location }) => {
               css="height: 360px;"
               tabs={[
                 {
+                  component: <ProtocolMetrics period={period} />,
+                  title: 'Protocol Adoption',
+                },
+                {
                   component: (
                     <NetworkMetrics period={period} type="protocolFees" />
                   ),
                   title: 'Protocol Fees',
-                },
-                {
-                  component: <div />,
-                  title: 'Protocol Adoption',
                 },
               ]}
             />
