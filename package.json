@@ -20,7 +20,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/jest-dom": "5.1.1",
     "axios": "0.19.2",
     "babel-polyfill": "6.26.0",
     "bootstrap": "4.4.1",
