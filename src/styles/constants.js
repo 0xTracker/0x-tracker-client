@@ -25,4 +25,10 @@ const colors = {
   white: '#fff', // light text color
 };
 
-export { breakpoints, colors };
+const protocolColors = {
+  1: colors.lavenderGray,
+  2: colors.violet,
+  3: colors.indigo,
+};
+
+export { breakpoints, colors, protocolColors };

@@ -1,25 +1,32 @@
 import _ from 'lodash';
 import {
-  Line,
-  LineChart,
+  Bar,
+  BarChart,
   ResponsiveContainer,
   XAxis,
   YAxis,
   Tooltip,
   Brush,
+  Legend,
 } from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../../../styles/constants';
+import { colors, protocolColors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
-import NetworkMetricsTooltip from './network-metrics-tooltip';
+import ProtocolMetricsTooltip from './protocol-metrics-tooltip';
 
 const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
-
 const formatPercentage = amount => `${Math.floor(amount)}%`;
+
+const getProtocols = data =>
+  _.uniq(
+    _.flatten(data.map(dataPoint => dataPoint.stats))
+      .filter(stat => stat.fillCount > 0)
+      .map(stat => stat.protocolVersion),
+  ).sort();
 
 // eslint-disable-next-line react/display-name
 const ProtocolMetricsChart = React.memo(({ currency, data, onBrushChange }) => {
@@ -32,37 +39,16 @@ const ProtocolMetricsChart = React.memo(({ currency, data, onBrushChange }) => {
     date: dataPoint.date.toISOString(),
   }));
 
-  const COLORS = [colors.martinique, colors.lavenderGray, colors.haiti];
-
   return (
     <ResponsiveContainer>
-      <LineChart
+      <BarChart
         data={sanitizedData}
         margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
       >
-        {[1, 2, 3].map((protocolVersion, index) => (
-          <Line
-            animationDuration={0}
-            dataKey={dataPoint => {
-              const total = _.sum(dataPoint.stats.map(x => x.fillVolume));
-              const stat = dataPoint.stats.find(
-                x => x.protocolVersion === protocolVersion,
-              );
-
-              if (stat === undefined) {
-                return 0;
-              }
-
-              return (stat.fillVolume / total) * 100;
-            }}
-            key={protocolVersion}
-            type="monotone"
-            connectNulls={true}
-            dot={false}
-            stroke={COLORS[index]}
-            strokeWidth={2}
-          />
-        ))}
+        <Tooltip
+          content={<ProtocolMetricsTooltip currency={currency} />}
+          cursor={false}
+        />
         <XAxis
           axisLine={false}
           dataKey="date"
@@ -74,12 +60,10 @@ const ProtocolMetricsChart = React.memo(({ currency, data, onBrushChange }) => {
         <YAxis
           axisLine={false}
           domain={[0, 100]}
-          mirror
           tick={{ fill: 'currentColor', fontSize: '0.9em' }}
           tickFormatter={formatPercentage}
           tickLine={false}
         />
-        <Tooltip content={<NetworkMetricsTooltip currency={currency} />} />
         <Brush
           dataKey="date"
           height={30}
@@ -87,7 +71,32 @@ const ProtocolMetricsChart = React.memo(({ currency, data, onBrushChange }) => {
           stroke={colors.periwinkleGray}
           tickFormatter={formatAxisDate}
         />
-      </LineChart>
+        <Legend height={36} verticalAlign="top" />
+        {getProtocols(data).map(protocolVersion => (
+          <Bar
+            animationDuration={0}
+            dataKey={dataPoint => {
+              const total = _.sum(dataPoint.stats.map(x => x.fillCount));
+              const stat = dataPoint.stats.find(
+                x => x.protocolVersion === protocolVersion,
+              );
+
+              if (stat === undefined) {
+                return 0;
+              }
+
+              return (stat.fillCount / total) * 100;
+            }}
+            fill={protocolColors[protocolVersion]}
+            fillOpacity={0.7}
+            key={protocolVersion}
+            name={`v${protocolVersion}`}
+            stackId={1}
+            strokeWidth={0}
+            type="monotone"
+          />
+        ))}
+      </BarChart>
     </ResponsiveContainer>
   );
 });
@@ -97,6 +106,13 @@ ProtocolMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
+      stats: PropTypes.arrayOf(
+        PropTypes.shape({
+          fillCount: PropTypes.number.isRequired,
+          fillVolume: PropTypes.number.isRequired,
+          protocolVersion: PropTypes.number.isRequired,
+        }),
+      ).isRequired,
     }),
   ).isRequired,
   onBrushChange: PropTypes.func,

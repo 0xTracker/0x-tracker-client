@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -22,7 +23,7 @@ const TopProtocolsFooter = styled.p`
 
 const TopProtocols = ({ period }) => {
   const [protocols, loading] = useProtocols({
-    limit: 4,
+    limit: 3,
     page: 1,
     sortBy: 'fillCount',
     statsPeriod: period,
@@ -32,17 +33,20 @@ const TopProtocols = ({ period }) => {
     return <LoadingIndicator centered />;
   }
 
-  const stats = protocols.items.map(protocol => ({
-    fillCount: protocol.stats.fillCount,
-    fillVolume: protocol.stats.fillVolume,
-    protocolVersion: protocol.version,
-  }));
+  const stats = _.sortBy(
+    protocols.items.map(protocol => ({
+      fillCount: protocol.stats.fillCount,
+      fillVolume: protocol.stats.fillVolume,
+      protocolVersion: protocol.version,
+    })),
+    'protocolVersion',
+  );
 
   return (
     <>
       <AsyncTopProtocolsChart data={stats} />
       <TopProtocolsFooter>
-        Top protocols by {verbosePeriod(period)} fill count
+        Protocol share by {verbosePeriod(period)} fill count
         <AsteriskIcon css="margin-left: 0.5rem; opacity: 0.7;" size="12" />
       </TopProtocolsFooter>
     </>

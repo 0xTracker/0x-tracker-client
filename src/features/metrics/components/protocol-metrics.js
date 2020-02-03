@@ -16,10 +16,27 @@ const Container = styled.div`
   width: 100%;
 `;
 
+const determineGranularity = period => {
+  switch (period) {
+    case TIME_PERIOD.DAY:
+      return 'hour';
+    case TIME_PERIOD.WEEK:
+      return 'day';
+    case TIME_PERIOD.MONTH:
+      return 'day';
+    case TIME_PERIOD.YEAR:
+      return 'month';
+    case TIME_PERIOD.ALL:
+      return 'month';
+    default:
+      throw new Error(`Unrecognised time period: ${period}`);
+  }
+};
+
 const ProtocolMetrics = ({ period }) => {
   const [brushActive, setBrushActive] = React.useState(false);
   const [metrics, loading] = useProtocolMetrics(
-    { period },
+    { granularity: determineGranularity(period), period },
     { autoReload: !brushActive },
   );
   const conversionRate = useConversionRate();
