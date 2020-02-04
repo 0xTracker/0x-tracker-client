@@ -5,7 +5,7 @@ exports[`should render full size paginator 1`] = `
   class="full-paginator__StyledPaginator-sc-4xhne0-1 lpnRoR"
 >
   <p
-    class="sc-bdVaJa dPGdhj sc-bwzfXH hhKVau"
+    class="paging-summary___StyledP-sc-1a329kw-0 gapIZS full-paginator___StyledPagingSummary-sc-4xhne0-3 jcixvz"
   >
     Displaying 
     1

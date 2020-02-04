@@ -71,11 +71,11 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bxivhb fqvWfz"
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
         href="/relayers/radar-relay"
       >
         <img
-          class="sc-htpNat kedOmO sc-ifAKCX dAavUI"
+          class="relayer-image___StyledImg-sc-1yudeg-0 hAjqat fill-relayer-link___StyledRelayerImage-sc-10d6xh4-1 uYhgP"
           src="https://0xtracker.com/assets/logos/radar-relay.png"
         />
         Radar Relay
@@ -90,7 +90,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <span
-        class="sc-EHOje iekhCa badge badge-success"
+        class="fill-status-label___StyledSpan-sc-1k6xas7-0 AGPjT badge badge-success"
       >
         successful
       </span>
@@ -163,7 +163,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs sc-bwzfXH hzBUAl"
+            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -211,7 +211,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs sc-bwzfXH hzBUAl"
+            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -259,7 +259,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs sc-bwzfXH hzBUAl"
+            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -294,7 +294,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs sc-bwzfXH hzBUAl"
+            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -436,11 +436,11 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy sc-bxivhb fqvWfz"
+        class="link__InternalLink-sc-1m1n17q-1 kIJfjy fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
         href="/relayers/radar-relay"
       >
         <img
-          class="sc-htpNat kedOmO sc-ifAKCX dAavUI"
+          class="relayer-image___StyledImg-sc-1yudeg-0 hAjqat fill-relayer-link___StyledRelayerImage-sc-10d6xh4-1 uYhgP"
           src="https://0xtracker.com/assets/logos/radar-relay.png"
         />
         Radar Relay
@@ -455,7 +455,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <span
-        class="sc-EHOje iekhCa badge badge-success"
+        class="fill-status-label___StyledSpan-sc-1k6xas7-0 AGPjT badge badge-success"
       >
         successful
       </span>
@@ -528,7 +528,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs sc-bwzfXH hzBUAl"
+            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -576,7 +576,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs sc-bwzfXH hzBUAl"
+            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -624,7 +624,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs sc-bwzfXH hzBUAl"
+            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
@@ -659,7 +659,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs sc-bwzfXH hzBUAl"
+            class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
             color="#9F9EB9"
             fill="currentColor"
             focusable="false"
