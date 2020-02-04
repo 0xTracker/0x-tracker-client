@@ -24,7 +24,7 @@
     "axios": "0.19.2",
     "babel-polyfill": "6.26.0",
     "bootstrap": "4.4.1",
-    "core-js": "3.5.0",
+    "core-js": "3.6.4",
     "currency-formatter": "1.5.5",
     "date-fns": "2.9.0",
     "lodash": "4.17.15",
