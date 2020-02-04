@@ -8,7 +8,7 @@ exports[`page not found component should render without props 1`] = `
     class="container__StyledContainer-cj53s7-0 eMKfDZ page-layout__PageBody-cls0ob-0 jrvuaA container-fluid"
   >
     <div
-      class="error-message__StyledErrorMessage-sc-1wau1ja-0 iieVxL sc-bdVaJa jrDMCH"
+      class="error-message__StyledErrorMessage-sc-1wau1ja-0 iieVxL page-not-found___StyledErrorMessage-sc-1brm731-0 bzEQRl"
     >
       <div
         class="error-message__CopyWrapper-sc-1wau1ja-1 dNhivl"
