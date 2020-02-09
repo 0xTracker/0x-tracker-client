@@ -46,6 +46,9 @@ const NetworkMetricsChart = React.memo(
     }
 
     const paddedMetrics = padMetrics(data, period, {
+      activeMakers: 0,
+      activeTakers: 0,
+      activeTraders: 0,
       fillCount: 0,
       fillVolume: 0,
       protocolFees: 0,

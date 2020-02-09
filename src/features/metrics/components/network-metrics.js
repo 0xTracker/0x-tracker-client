@@ -46,6 +46,9 @@ const NetworkMetrics = ({ period, type }) => {
   const data = React.useMemo(
     () =>
       (metrics || []).map(metric => ({
+        activeMakers: metric.activeMakers,
+        activeTakers: metric.activeTakers,
+        activeTraders: metric.activeTraders,
         date: new Date(metric.date),
         fillCount: metric.fillCount,
         fillVolume: (parseFloat(metric.fillVolume) || 0) * conversionRate,
