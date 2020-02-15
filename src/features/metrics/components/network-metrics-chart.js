@@ -17,8 +17,6 @@ import { DATE_FORMAT } from '../../../constants';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import NetworkMetricsTooltip from './network-metrics-tooltip';
-import padMetrics from '../util/pad-metrics';
-import sharedPropTypes from '../../../prop-types';
 import summarizeCurrency from '../../../util/summarize-currency';
 
 const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
@@ -32,7 +30,7 @@ const formatCount = count => {
 };
 
 const NetworkMetricsChart = React.memo(
-  ({ currency, data, onBrushChange, period, type }) => {
+  ({ currency, data, onBrushChange, type }) => {
     const formatCurrency = amount => {
       if (amount === 0) {
         return '';
@@ -45,16 +43,7 @@ const NetworkMetricsChart = React.memo(
       return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
-    const paddedMetrics = padMetrics(data, period, {
-      fillCount: 0,
-      fillVolume: 0,
-      protocolFees: 0,
-      protocolFeesETH: '0',
-      tradeCount: 0,
-      tradeVolume: 0,
-    });
-
-    const sanitizedData = paddedMetrics.map(dataPoint => ({
+    const sanitizedData = data.map(dataPoint => ({
       ...dataPoint,
       date: dataPoint.date.toISOString(),
     }));
@@ -129,7 +118,6 @@ NetworkMetricsChart.propTypes = {
     }),
   ).isRequired,
   onBrushChange: PropTypes.func,
-  period: sharedPropTypes.timePeriod.isRequired,
   type: PropTypes.string,
 };
 
@@ -137,5 +125,7 @@ NetworkMetricsChart.defaultProps = {
   onBrushChange: undefined,
   type: 'fillVolume',
 };
+
+NetworkMetricsChart.displayName = 'NetworkMetricsChart';
 
 export default NetworkMetricsChart;

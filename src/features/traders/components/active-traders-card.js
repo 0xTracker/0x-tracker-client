@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { URL } from '../../../constants';
+import ActiveTraderMetrics from '../../metrics/components/active-trader-metrics';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import CardHeading from '../../../components/card-heading';
@@ -17,7 +18,9 @@ const ActiveTradersCard = ({ period }) => (
         View Traders
       </Pill>
     </CardHeader>
-    <CardBody padded />
+    <CardBody padded>
+      <ActiveTraderMetrics period={period} />
+    </CardBody>
   </Card>
 );
 
