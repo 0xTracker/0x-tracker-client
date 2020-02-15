@@ -1,10 +1,10 @@
 import useApi from '../../../hooks/use-api';
 
-const useNetworkMetrics = (
+const useActiveTraderMetrics = (
   { granularity, period } = {},
   { autoReload } = { autoReload: true },
 ) =>
-  useApi('metrics/network', {
+  useApi('metrics/active-trader', {
     autoReload,
     params: {
       granularity,
@@ -12,4 +12,4 @@ const useNetworkMetrics = (
     },
   });
 
-export default useNetworkMetrics;
+export default useActiveTraderMetrics;

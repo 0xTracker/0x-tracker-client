@@ -3,12 +3,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
-import AsyncNetworkMetricsChart from './async-network-metrics-chart';
+import AsyncActiveTraderMetricsChart from './async-active-trader-metrics-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import ResetChartButton from '../../../components/reset-chart-button';
-import useConversionRate from '../../currencies/hooks/use-conversion-rate';
-import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
-import useNetworkMetrics from '../hooks/use-network-metrics';
+import useActiveTraderMetrics from '../hooks/use-active-trader-metrics';
 
 const Container = styled.div`
   height: 100%;
@@ -24,14 +22,12 @@ const determineGranularity = period => {
   return undefined;
 };
 
-const NetworkMetrics = ({ period, type }) => {
+const ActiveTraderMetrics = ({ period }) => {
   const [brushActive, setBrushActive] = React.useState(false);
-  const [metrics, loading] = useNetworkMetrics(
+  const [metrics, loading] = useActiveTraderMetrics(
     { granularity: determineGranularity(period), period },
     { autoReload: !brushActive },
   );
-  const conversionRate = useConversionRate();
-  const displayCurrency = useDisplayCurrency();
 
   // This is a quick and dirty hack to implement brush resetting because Recharts
   // doesn't allow us to control the brush indexes after mount. It works by modifying
@@ -55,18 +51,14 @@ const NetworkMetrics = ({ period, type }) => {
     () =>
       (metrics || []).map(metric => ({
         date: new Date(metric.date),
-        fillCount: metric.fillCount,
-        fillVolume: (parseFloat(metric.fillVolume) || 0) * conversionRate,
-        protocolFees:
-          (parseFloat(metric.protocolFees.USD) || 0) * conversionRate,
-        protocolFeesETH: metric.protocolFees.ETH,
-        tradeCount: metric.tradeCount,
-        tradeVolume: (parseFloat(metric.tradeVolume) || 0) * conversionRate,
+        makerCount: metric.makerCount,
+        takerCount: metric.takerCount,
+        traderCount: metric.traderCount,
       })),
-    [metrics, conversionRate],
+    [metrics],
   );
 
-  if (loading || conversionRate === undefined) {
+  if (loading) {
     return <LoadingIndicator centered />;
   }
 
@@ -78,36 +70,32 @@ const NetworkMetrics = ({ period, type }) => {
           onClick={handleResetClick}
         />
       )}
-      <AsyncNetworkMetricsChart
-        currency={displayCurrency}
+      <AsyncActiveTraderMetricsChart
         data={data}
         key={chartKey}
         onBrushChange={handleBrushChange}
-        type={type}
       />
     </Container>
   );
 };
 
-NetworkMetrics.propTypes = {
+ActiveTraderMetrics.propTypes = {
   period: PropTypes.string,
-  type: PropTypes.string,
 };
 
-NetworkMetrics.defaultProps = {
+ActiveTraderMetrics.defaultProps = {
   period: TIME_PERIOD.MONTH,
-  type: 'tradeVolume',
 };
 
 // eslint-disable-next-line react/display-name, import/no-anonymous-default-export, react/prop-types, react/no-multi-comp
-export default ({ period, type }) => (
+export default ({ period }) => (
   /*
     This is a hack to ensure autoReload is reset whenever the period or type props are changed.
     By using a key composed of period and type we can ensure the metrics component will remount
     (and therefore reset state) whenever one of these props changes.
 
-    Ideally the autoReload state would be lifted up the component treet but I'm being lazy for
+    Ideally the autoReload state would be lifted up the component tree but I'm being lazy for
     the time being because of the additional work involved.
   */
-  <NetworkMetrics key={`${period}_${type}`} period={period} type={type} />
+  <ActiveTraderMetrics key={period} period={period} />
 );

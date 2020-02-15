@@ -1,12 +1,12 @@
 import React from 'react';
 
 import { URL } from '../../../constants';
+import ActiveTraderMetrics from '../../metrics/components/active-trader-metrics';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import CardHeading from '../../../components/card-heading';
 import CardHeader from '../../../components/card-header';
 import Link from '../../../components/link';
-import NetworkMetrics from '../../metrics/components/network-metrics';
 import Pill from '../../../components/pill';
 import sharedPropTypes from '../../../prop-types';
 
@@ -19,7 +19,7 @@ const ActiveTradersCard = ({ period }) => (
       </Pill>
     </CardHeader>
     <CardBody padded>
-      <NetworkMetrics period={period} type="activeTraders" />
+      <ActiveTraderMetrics period={period} />
     </CardBody>
   </Card>
 );
