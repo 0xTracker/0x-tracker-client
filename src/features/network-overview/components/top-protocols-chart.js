@@ -1,16 +1,10 @@
 import _ from 'lodash';
-import {
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  Legend,
-} from 'recharts';
+import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { protocolColors } from '../../../styles/constants';
+import ChartContainer from '../../../components/chart-container';
 import TopProtocolsChartTooltip from './top-protocols-chart-tooltip';
 
 const TopProtocolsChart = ({ data }) => {
@@ -19,7 +13,7 @@ const TopProtocolsChart = ({ data }) => {
   }
 
   return (
-    <ResponsiveContainer>
+    <ChartContainer>
       <PieChart isAnimationActive={false}>
         <Pie
           data={data}
@@ -41,7 +35,7 @@ const TopProtocolsChart = ({ data }) => {
         <Legend height={36} verticalAlign="top" />
         <Tooltip content={<TopProtocolsChartTooltip />} />
       </PieChart>
-    </ResponsiveContainer>
+    </ChartContainer>
   );
 };
 

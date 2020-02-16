@@ -1,36 +1,28 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import AsyncProtocolMetricsChart from './async-protocol-metrics-chart';
+import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
-import ResetChartButton from '../../../components/reset-chart-button';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useProtocolMetrics from '../hooks/use-protocol-metrics';
 
-const Container = styled.div`
-  height: 100%;
-  position: relative;
-  width: 100%;
-`;
-
 const determineGranularity = period => {
-  switch (period) {
-    case TIME_PERIOD.DAY:
-      return 'hour';
-    case TIME_PERIOD.WEEK:
-      return 'day';
-    case TIME_PERIOD.MONTH:
-      return 'day';
-    case TIME_PERIOD.YEAR:
-      return 'month';
-    case TIME_PERIOD.ALL:
-      return 'month';
-    default:
-      throw new Error(`Unrecognised time period: ${period}`);
+  if (period === TIME_PERIOD.WEEK) {
+    return 'day';
   }
+
+  if (period === TIME_PERIOD.ALL) {
+    return 'month';
+  }
+
+  if (period === TIME_PERIOD.YEAR) {
+    return 'week';
+  }
+
+  return undefined;
 };
 
 const ProtocolMetrics = ({ period }) => {
@@ -47,7 +39,7 @@ const ProtocolMetrics = ({ period }) => {
   // a chartKey value which is used as the key prop on AsyncNetworkMetricsChart below.
   // When this key changes it will force a rerender of the chart.
   const [chartKey, setChartKey] = React.useState(Date.now());
-  const handleResetClick = () => {
+  const handleBrushReset = () => {
     setBrushActive(false);
     setChartKey(Date.now());
   };
@@ -77,13 +69,10 @@ const ProtocolMetrics = ({ period }) => {
   }
 
   return (
-    <Container>
-      {brushActive && (
-        <ResetChartButton
-          css="position: absolute; right: 0; z-index: 10;"
-          onClick={handleResetClick}
-        />
-      )}
+    <BrushableChartContainer
+      brushActive={brushActive}
+      onBrushReset={handleBrushReset}
+    >
       <AsyncProtocolMetricsChart
         currency={displayCurrency}
         data={data}
@@ -91,7 +80,7 @@ const ProtocolMetrics = ({ period }) => {
         onBrushChange={handleBrushChange}
         period={period}
       />
-    </Container>
+    </BrushableChartContainer>
   );
 };
 

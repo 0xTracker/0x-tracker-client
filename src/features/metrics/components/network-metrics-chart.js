@@ -1,19 +1,12 @@
 import _ from 'lodash';
-import {
-  Area,
-  AreaChart,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Brush,
-} from 'recharts';
+import { Area, AreaChart, XAxis, YAxis, Tooltip, Brush } from 'recharts';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
+import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import NetworkMetricsTooltip from './network-metrics-tooltip';
@@ -49,7 +42,7 @@ const NetworkMetricsChart = React.memo(
     }));
 
     return (
-      <ResponsiveContainer>
+      <ChartContainer>
         <AreaChart
           data={sanitizedData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
@@ -97,7 +90,7 @@ const NetworkMetricsChart = React.memo(
             tickFormatter={formatAxisDate}
           />
         </AreaChart>
-      </ResponsiveContainer>
+      </ChartContainer>
     );
   },
 );

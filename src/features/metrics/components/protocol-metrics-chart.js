@@ -1,19 +1,11 @@
 import _ from 'lodash';
-import {
-  Bar,
-  BarChart,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Brush,
-  Legend,
-} from 'recharts';
+import { Bar, BarChart, XAxis, YAxis, Tooltip, Brush, Legend } from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors, protocolColors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
+import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import ProtocolMetricsTooltip from './protocol-metrics-tooltip';
@@ -40,7 +32,7 @@ const ProtocolMetricsChart = React.memo(({ currency, data, onBrushChange }) => {
   }));
 
   return (
-    <ResponsiveContainer>
+    <ChartContainer>
       <BarChart
         data={sanitizedData}
         margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
@@ -97,7 +89,7 @@ const ProtocolMetricsChart = React.memo(({ currency, data, onBrushChange }) => {
           />
         ))}
       </BarChart>
-    </ResponsiveContainer>
+    </ChartContainer>
   );
 });
 

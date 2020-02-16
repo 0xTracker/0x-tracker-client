@@ -1,18 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import AsyncActiveTraderMetricsChart from './async-active-trader-metrics-chart';
+import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
-import ResetChartButton from '../../../components/reset-chart-button';
 import useActiveTraderMetrics from '../hooks/use-active-trader-metrics';
-
-const Container = styled.div`
-  height: 100%;
-  position: relative;
-  width: 100%;
-`;
 
 const determineGranularity = period => {
   if (period === TIME_PERIOD.ALL) {
@@ -63,19 +56,16 @@ const ActiveTraderMetrics = ({ period }) => {
   }
 
   return (
-    <Container>
-      {brushActive && (
-        <ResetChartButton
-          css="position: absolute; right: 0; z-index: 10;"
-          onClick={handleResetClick}
-        />
-      )}
+    <BrushableChartContainer
+      brushActive={brushActive}
+      onBrushReset={handleResetClick}
+    >
       <AsyncActiveTraderMetricsChart
         data={data}
         key={chartKey}
         onBrushChange={handleBrushChange}
       />
-    </Container>
+    </BrushableChartContainer>
   );
 };
 

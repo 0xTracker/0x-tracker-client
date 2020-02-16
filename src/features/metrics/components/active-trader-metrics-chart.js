@@ -1,13 +1,5 @@
 import _ from 'lodash';
-import {
-  Area,
-  AreaChart,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Brush,
-} from 'recharts';
+import { Area, AreaChart, XAxis, YAxis, Tooltip, Brush } from 'recharts';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -15,6 +7,7 @@ import React from 'react';
 import { colors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
 import ActiveTraderMetricsTooltip from './active-trader-metrics-tooltip';
+import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 
@@ -39,7 +32,7 @@ const ActiveTraderMetricsChart = React.memo(({ data, onBrushChange }) => {
   }));
 
   return (
-    <ResponsiveContainer>
+    <ChartContainer>
       <AreaChart
         data={sanitizedData}
         margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
@@ -81,7 +74,7 @@ const ActiveTraderMetricsChart = React.memo(({ data, onBrushChange }) => {
           tickFormatter={formatAxisDate}
         />
       </AreaChart>
-    </ResponsiveContainer>
+    </ChartContainer>
   );
 });
 
