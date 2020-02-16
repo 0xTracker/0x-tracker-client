@@ -1,19 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import AsyncRelayerMetricsChart from './async-relayer-metrics-chart';
+import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
-import ResetChartButton from '../../../components/reset-chart-button';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useRelayerMetrics from '../hooks/use-relayer-metrics';
-
-const Container = styled.div`
-  height: 100%;
-  position: relative;
-  width: 100%;
-`;
 
 const RelayerMetrics = ({ period, relayerId, type }) => {
   const [brushActive, setBrushActive] = React.useState(false);
@@ -59,13 +52,10 @@ const RelayerMetrics = ({ period, relayerId, type }) => {
   }
 
   return (
-    <Container>
-      {brushActive && (
-        <ResetChartButton
-          css="position: absolute; right: 0; z-index: 10;"
-          onClick={handleResetClick}
-        />
-      )}
+    <BrushableChartContainer
+      brushActive={brushActive}
+      onBrushReset={handleResetClick}
+    >
       <AsyncRelayerMetricsChart
         data={data}
         key={chartKey}
@@ -73,7 +63,7 @@ const RelayerMetrics = ({ period, relayerId, type }) => {
         period={period}
         type={type}
       />
-    </Container>
+    </BrushableChartContainer>
   );
 };
 

@@ -20,17 +20,17 @@ const TopProtocolsChartTooltip = ({ payload }) => {
     <ChartTooltip
       items={[
         {
-          label: `fill volume (${displayCurrency})`,
+          label: 'Fills',
+          value: <Number>{fillCount}</Number>,
+        },
+        {
+          label: `Fill Volume (${displayCurrency})`,
           value:
             fillVolume === 0 ? (
               'Unknown'
             ) : (
               <LocalisedAmount amount={fillVolume} />
             ),
-        },
-        {
-          label: 'fill count',
-          value: <Number>{fillCount}</Number>,
         },
       ]}
       title={`v${protocolVersion} Protocol`}

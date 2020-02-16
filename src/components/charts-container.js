@@ -1,34 +1,15 @@
 import _ from 'lodash';
-import { Card, CardBody, CardHeader, Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 import { useCurrentBreakpoint } from '../responsive-utils';
+import Card from './card';
+import CardBody from './card-body';
+import CardHeader from './card-header';
 import verbosePeriod from '../util/verbose-period';
-
-const StyledChartsContainer = styled(Card)`
-  border-radius: none;
-  border: none;
-  box-shadow: 0px 2px 4px rgba(126, 142, 177, 0.12);
-`;
-
-const ChartsContainerHeader = styled(CardHeader)`
-  background: none;
-  border-bottom: 1px solid ${colors.athensGray};
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem;
-`;
-
-const ChartsContainerBody = styled(CardBody)`
-  align-items: center;
-  display: flex;
-  height: ${props => props.height};
-  justify-content: center;
-  padding: 1rem;
-`;
 
 const ChartLink = styled(NavLink)`
   &&& {
@@ -71,8 +52,8 @@ const Periods = styled(Nav).attrs({ pills: true })`
 const ChartsContainer = ({
   charts,
   defaultPeriod,
-  bodyHeight,
   className,
+  height,
   periods,
 }) => {
   const [selectedChart, setSelectedChart] = useState(charts[0].title);
@@ -83,8 +64,13 @@ const ChartsContainer = ({
   const chartProps = { period: selectedPeriod };
 
   return (
-    <StyledChartsContainer className={className}>
-      <ChartsContainerHeader>
+    <Card
+      className={className}
+      css={`
+        height: ${height};
+      `}
+    >
+      <CardHeader>
         {charts.length === 1 ? (
           charts[0].title
         ) : (
@@ -116,20 +102,19 @@ const ChartsContainer = ({
             ))}
           </Periods>
         )}
-      </ChartsContainerHeader>
-      <ChartsContainerBody height={bodyHeight}>
+      </CardHeader>
+      <CardBody padded>
         {React.isValidElement(Chart) ? (
           React.cloneElement(Chart, chartProps)
         ) : (
           <Chart {...chartProps} />
         )}
-      </ChartsContainerBody>
-    </StyledChartsContainer>
+      </CardBody>
+    </Card>
   );
 };
 
 ChartsContainer.propTypes = {
-  bodyHeight: PropTypes.string,
   charts: PropTypes.arrayOf(
     PropTypes.shape({
       component: PropTypes.oneOfType([
@@ -142,6 +127,7 @@ ChartsContainer.propTypes = {
   ).isRequired,
   className: PropTypes.string,
   defaultPeriod: PropTypes.string.isRequired,
+  height: PropTypes.string,
   periods: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
@@ -151,8 +137,8 @@ ChartsContainer.propTypes = {
 };
 
 ChartsContainer.defaultProps = {
-  bodyHeight: '265px',
   className: undefined,
+  height: '352px',
   periods: undefined,
 };
 

@@ -1,20 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import AsyncTokenVolumeChart from './async-token-volume-chart';
+import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
-import ResetChartButton from '../../../components/reset-chart-button';
 import sharedPropTypes from '../../../prop-types';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useTokenMetrics from '../hooks/use-token-metrics';
-
-const Container = styled.div`
-  height: 100%;
-  position: relative;
-  width: 100%;
-`;
 
 const TokenVolume = ({ period, token }) => {
   const [brushActive, setBrushActive] = React.useState(false);
@@ -61,13 +54,10 @@ const TokenVolume = ({ period, token }) => {
   }
 
   return (
-    <Container>
-      {brushActive && (
-        <ResetChartButton
-          css="position: absolute; right: 0; z-index: 10;"
-          onClick={handleResetClick}
-        />
-      )}
+    <BrushableChartContainer
+      brushActive={brushActive}
+      onBrushReset={handleResetClick}
+    >
       <AsyncTokenVolumeChart
         data={data}
         key={chartKey}
@@ -76,7 +66,7 @@ const TokenVolume = ({ period, token }) => {
         period={period}
         tokenSymbol={token.symbol}
       />
-    </Container>
+    </BrushableChartContainer>
   );
 };
 

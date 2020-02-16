@@ -16,7 +16,7 @@ const TraderBreakdownTooltip = ({ payload }) => {
     <ChartTooltip
       items={[
         {
-          label: 'count',
+          label: 'Count',
           value: <Number>{count}</Number>,
         },
       ]}

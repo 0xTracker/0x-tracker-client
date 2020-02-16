@@ -1,20 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import AsyncNetworkMetricsChart from './async-network-metrics-chart';
+import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
-import ResetChartButton from '../../../components/reset-chart-button';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useNetworkMetrics from '../hooks/use-network-metrics';
-
-const Container = styled.div`
-  height: 100%;
-  position: relative;
-  width: 100%;
-`;
 
 const determineGranularity = period => {
   if (period === TIME_PERIOD.ALL) {
@@ -71,13 +64,10 @@ const NetworkMetrics = ({ period, type }) => {
   }
 
   return (
-    <Container>
-      {brushActive && (
-        <ResetChartButton
-          css="position: absolute; right: 0; z-index: 10;"
-          onClick={handleResetClick}
-        />
-      )}
+    <BrushableChartContainer
+      brushActive={brushActive}
+      onBrushReset={handleResetClick}
+    >
       <AsyncNetworkMetricsChart
         currency={displayCurrency}
         data={data}
@@ -85,7 +75,7 @@ const NetworkMetrics = ({ period, type }) => {
         onBrushChange={handleBrushChange}
         type={type}
       />
-    </Container>
+    </BrushableChartContainer>
   );
 };
 

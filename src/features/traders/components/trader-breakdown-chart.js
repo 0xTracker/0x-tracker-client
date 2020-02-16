@@ -1,9 +1,10 @@
 import _ from 'lodash';
-import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, Tooltip } from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors } from '../../../styles/constants';
+import ChartContainer from '../../../components/chart-container';
 import TraderBreakdownTooltip from './trader-breakdown-tooltip';
 
 const TraderBreakdownChart = ({ data }) => {
@@ -14,7 +15,7 @@ const TraderBreakdownChart = ({ data }) => {
   const COLORS = [colors.indigo, colors.martinique, colors.santasGray];
 
   return (
-    <ResponsiveContainer>
+    <ChartContainer>
       <PieChart isAnimationActive={false}>
         <Pie
           data={data}
@@ -31,7 +32,7 @@ const TraderBreakdownChart = ({ data }) => {
         </Pie>
         <Tooltip content={<TraderBreakdownTooltip />} />
       </PieChart>
-    </ResponsiveContainer>
+    </ChartContainer>
   );
 };
 

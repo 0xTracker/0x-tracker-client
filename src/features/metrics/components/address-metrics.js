@@ -1,20 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 
 import AsyncAddressMetricsChart from './async-address-metrics-chart';
+import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
-import ResetChartButton from '../../../components/reset-chart-button';
 import sharedPropTypes from '../../../prop-types';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useTraderMetrics from '../hooks/use-trader-metrics';
-
-const Container = styled.div`
-  height: 100%;
-  position: relative;
-  width: 100%;
-`;
 
 const AddressMetrics = ({ address, keyMetric, period }) => {
   const [brushActive, setBrushActive] = React.useState(false);
@@ -59,13 +52,10 @@ const AddressMetrics = ({ address, keyMetric, period }) => {
   }
 
   return (
-    <Container>
-      {brushActive && (
-        <ResetChartButton
-          css="position: absolute; right: 0; z-index: 10;"
-          onClick={handleResetClick}
-        />
-      )}
+    <BrushableChartContainer
+      brushActive={brushActive}
+      onBrushReset={handleResetClick}
+    >
       <AsyncAddressMetricsChart
         data={data}
         key={chartKey}
@@ -74,7 +64,7 @@ const AddressMetrics = ({ address, keyMetric, period }) => {
         onBrushChange={handleBrushChange}
         period={period}
       />
-    </Container>
+    </BrushableChartContainer>
   );
 };
 
