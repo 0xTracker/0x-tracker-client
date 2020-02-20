@@ -16,7 +16,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       <a
         class="link__OutboundLink-sc-1m1n17q-0 dFkevI"
         href="https://etherscan.io/tx/0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77"
-        rel="noopener noreferrer"
+        rel="noreferrer noopener"
         target="_blank"
       >
         0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77
@@ -381,7 +381,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       <a
         class="link__OutboundLink-sc-1m1n17q-0 dFkevI"
         href="https://etherscan.io/tx/0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77"
-        rel="noopener noreferrer"
+        rel="noreferrer noopener"
         target="_blank"
       >
         0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77

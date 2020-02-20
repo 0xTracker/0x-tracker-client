@@ -57,7 +57,7 @@ The project has a fairly extensive set of dependencies, each with a particular p
 
 - **[Webpack](https://webpack.js.org/)** - The heart of the build process, webpack coordinates the execution of various transpiling, bundling, optimisation, and development tools.
 - **[Babel](https://babeljs.io)** - Handles transpilation of modern javascript into browser friendly code as well as some code optimisations. By using the [env preset](https://babeljs.io/docs/en/babel-preset-env) and [babel polyfill](https://babeljs.io/docs/en/babel-polyfill) in conjunction with Browserslist, code is transpiled to ensure compatibility with most visitors browsers.
-- **[Browserslist](https://github.com/browserslist/browserslist)** - Defines the list of browsers that need to be supported by Babel's transpilation process. [Browserslist-GA](https://github.com/browserslist/browserslist-ga) is used to keep the list in sync with visitor analytics.
+- **[Browserslist](https://github.com/browserslist/browserslist)** - Defines the list of browsers that need to be supported by Babel's transpilation process.
 
 ### Testing & Linting
 
@@ -109,7 +109,6 @@ If a convention exists for locating configuration files related to developer too
 A number of NPM scripts are provided for automating common tasks.
 
 - **browsers:list** - List out the projects supported browsers.
-- **browsers:update** - Sync the supported browsers with a Google Analytics property, typically only used by project owner.
 - **build** - Build a production ready distribution into the `dist` folder.
 - **build:analyze** - Build for production and launch Webpack Bundle Analyzer against the resulting bundle.
 - **build:serve** - Build for production and serve locally.

@@ -1,7 +1,6 @@
 import { Link as ReactRouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactGA from 'react-ga';
 import styled, { css } from 'styled-components';
 
 import { colors } from '../styles/constants';
@@ -16,9 +15,7 @@ const linkStyles = css`
   }
 `;
 
-const OutboundLink = styled(({ active, ...otherProps }) => (
-  <ReactGA.OutboundLink {...otherProps} />
-))`
+const OutboundLink = styled.a`
   ${linkStyles}
 `;
 
@@ -35,9 +32,9 @@ const Link = ({ children, href, ...otherProps }) => {
     return (
       <OutboundLink
         eventLabel={href}
+        href={href}
         rel="noreferrer noopener"
         target="_blank"
-        to={href}
         {...otherProps}
       >
         {children}

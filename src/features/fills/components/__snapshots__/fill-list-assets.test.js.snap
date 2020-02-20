@@ -18,7 +18,7 @@ exports[`fill list assets component should link ERC-721 asset 1`] = `
   <a
     class="link__OutboundLink-sc-1m1n17q-0 dFkevI"
     href="https://opensea.io/assets/0x12345/999"
-    rel="noopener noreferrer"
+    rel="noreferrer noopener"
     target="_blank"
   >
     CK

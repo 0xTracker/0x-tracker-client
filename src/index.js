@@ -2,7 +2,6 @@ import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 import ms from 'ms';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ReactGA from 'react-ga';
 
 import App from './components/app';
 import AutoReload from './util/auto-reload';
@@ -17,10 +16,6 @@ OfflinePluginRuntime.install({
     window.location.reload();
   },
 });
-
-if (process.env.REACT_APP_GA_TRACKING_ID) {
-  ReactGA.initialize(process.env.REACT_APP_GA_TRACKING_ID);
-}
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

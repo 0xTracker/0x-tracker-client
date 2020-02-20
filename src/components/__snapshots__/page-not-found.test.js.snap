@@ -33,7 +33,7 @@ exports[`page not found component should render without props 1`] = `
       <a
         class="link__OutboundLink-sc-1m1n17q-0 dFkevI error-message__GhostLink-sc-1wau1ja-2 ldtSSD"
         href="https://react-kawaii.now.sh/"
-        rel="noopener noreferrer"
+        rel="noreferrer noopener"
         target="_blank"
       >
         <div
