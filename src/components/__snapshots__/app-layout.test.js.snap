@@ -177,7 +177,7 @@ exports[`app layout component should render with children 1`] = `
             <a
               class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
               href="https://docs.0xtracker.com/"
-              rel="noopener noreferrer"
+              rel="noreferrer noopener"
               target="_blank"
             >
               Overview
@@ -185,7 +185,7 @@ exports[`app layout component should render with children 1`] = `
             <a
               class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
               href="https://docs.0xtracker.com/faqs"
-              rel="noopener noreferrer"
+              rel="noreferrer noopener"
               target="_blank"
             >
               FAQs
@@ -193,7 +193,7 @@ exports[`app layout component should render with children 1`] = `
             <a
               class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
               href="https://medium.com/0x-tracker"
-              rel="noopener noreferrer"
+              rel="noreferrer noopener"
               target="_blank"
             >
               Blog
@@ -201,7 +201,7 @@ exports[`app layout component should render with children 1`] = `
             <a
               class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
               href="https://docs.0xtracker.com/#need-to-get-in-touch"
-              rel="noopener noreferrer"
+              rel="noreferrer noopener"
               target="_blank"
             >
               Contact
@@ -220,7 +220,7 @@ exports[`app layout component should render with children 1`] = `
             <a
               class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
               href="https://docs.0xtracker.com/api-reference/introduction"
-              rel="noopener noreferrer"
+              rel="noreferrer noopener"
               target="_blank"
             >
               API
@@ -228,7 +228,7 @@ exports[`app layout component should render with children 1`] = `
             <a
               class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
               href="https://docs.0xtracker.com/contributing"
-              rel="noopener noreferrer"
+              rel="noreferrer noopener"
               target="_blank"
             >
               Contributing
@@ -236,7 +236,7 @@ exports[`app layout component should render with children 1`] = `
             <a
               class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
               href="https://github.com/0xtracker"
-              rel="noopener noreferrer"
+              rel="noreferrer noopener"
               target="_blank"
             >
               GitHub
@@ -255,7 +255,7 @@ exports[`app layout component should render with children 1`] = `
             <a
               class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
               href="https://twitter.com/0xTracker"
-              rel="noopener noreferrer"
+              rel="noreferrer noopener"
               target="_blank"
             >
               Twitter
@@ -263,7 +263,7 @@ exports[`app layout component should render with children 1`] = `
             <a
               class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
               href="https://discord.gg/tnV8hud"
-              rel="noopener noreferrer"
+              rel="noreferrer noopener"
               target="_blank"
             >
               Discord

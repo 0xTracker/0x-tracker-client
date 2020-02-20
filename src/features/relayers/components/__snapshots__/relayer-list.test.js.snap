@@ -70,10 +70,9 @@ exports[`renders with basic props 1`] = `
         </a>
         <br />
         <a
-          _css="#6C6B80"
           class="link__OutboundLink-sc-1m1n17q-0 dFkevI relayer-list___StyledLink-sc-1herowu-0 gnBtj"
           href="https://ddex.io"
-          rel="noopener noreferrer"
+          rel="noreferrer noopener"
           target="_blank"
         >
           https://ddex.io
@@ -135,10 +134,9 @@ exports[`renders with basic props 1`] = `
         </a>
         <br />
         <a
-          _css="#6C6B80"
           class="link__OutboundLink-sc-1m1n17q-0 dFkevI relayer-list___StyledLink-sc-1herowu-0 gnBtj"
           href="https://paradex.io"
-          rel="noopener noreferrer"
+          rel="noreferrer noopener"
           target="_blank"
         >
           https://paradex.io
@@ -200,10 +198,9 @@ exports[`renders with basic props 1`] = `
         </a>
         <br />
         <a
-          _css="#6C6B80"
           class="link__OutboundLink-sc-1m1n17q-0 dFkevI relayer-list___StyledLink-sc-1herowu-0 gnBtj"
           href="https://radarrelay.com"
-          rel="noopener noreferrer"
+          rel="noreferrer noopener"
           target="_blank"
         >
           https://radarrelay.com
