@@ -6,11 +6,15 @@ import styled from 'styled-components';
 
 import { TIME_PERIOD, URL } from '../../../constants';
 import { media } from '../../../styles/util';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ActiveTradersCard from '../../traders/components/active-traders-card';
+import Hidden from '../../../components/hidden';
+import MobileTimePeriodFilter from '../../../components/mobile-time-period-filter';
 import NetworkOverviewStats from './network-overview-stats';
 import NetworkMetrics from '../../metrics/components/network-metrics';
 import ProtocolMetrics from '../../metrics/components/protocol-metrics';
 import PageLayout from '../../../components/page-layout';
+import SubTitle from '../../../components/sub-title';
 import TabbedCard from '../../../components/tabbed-card';
 import TimePeriodFilter from '../../../components/time-period-filter';
 import TopRelayers from '../../relayers/components/top-relayers';
@@ -44,25 +48,46 @@ const StyledNetworkOverviewStats = styled(NetworkOverviewStats)`
   `}
 `;
 
+const periodDescriptions = {
+  [TIME_PERIOD.DAY]: 'for the last 24 hours',
+  [TIME_PERIOD.WEEK]: 'for the past week',
+  [TIME_PERIOD.MONTH]: 'for the past month',
+  [TIME_PERIOD.YEAR]: 'for the past year',
+  [TIME_PERIOD.ALL]: 'for all time',
+};
+
 const NetworkOverviewPage = ({ history, location }) => {
   const params = new URLSearchParams(location.search);
   const period = params.get('period') || TIME_PERIOD.YEAR;
+  const breakpoint = useCurrentBreakpoint();
+  const periodFilterProps = {
+    onChange: newPeriod => {
+      history.push(`${URL.NETWORK_OVERVIEW}?period=${newPeriod}`);
+    },
+    value: period,
+  };
 
   return (
     <>
-      <Helmet key="network-overview">
-        <title>Network Overview</title>
+      <Helmet key="network-insights">
+        <title>Network Insights</title>
       </Helmet>
       <PageLayout
         filter={
-          <TimePeriodFilter
-            onChange={newPeriod => {
-              history.push(`${URL.NETWORK_OVERVIEW}?period=${newPeriod}`);
-            }}
-            value={period}
-          />
+          breakpoint.lessThan('sm') ? (
+            <MobileTimePeriodFilter {...periodFilterProps} />
+          ) : (
+            <TimePeriodFilter {...periodFilterProps} />
+          )
         }
-        title="Network Overview"
+        title={
+          <span>
+            Network Insights
+            <Hidden above="xs">
+              <SubTitle>{periodDescriptions[period]}</SubTitle>
+            </Hidden>
+          </span>
+        }
       >
         <StyledNetworkOverviewStats period={period} />
         <Row>
@@ -81,18 +106,6 @@ const NetworkOverviewPage = ({ history, location }) => {
                     <NetworkMetrics period={period} type="tradeCount" />
                   ),
                   title: 'Trade Count',
-                },
-                {
-                  component: (
-                    <NetworkMetrics period={period} type="fillVolume" />
-                  ),
-                  title: 'Fill Volume',
-                },
-                {
-                  component: (
-                    <NetworkMetrics period={period} type="fillCount" />
-                  ),
-                  title: 'Fill Count',
                 },
               ]}
             />
@@ -136,10 +149,10 @@ const NetworkOverviewPage = ({ history, location }) => {
           </DashboardColumn>
         </Row>
         <Row>
-          <DashboardColumn lg={7}>
+          <DashboardColumn lastRow lg={7}>
             <ActiveTradersCard period={period} />
           </DashboardColumn>
-          <DashboardColumn lg={5}>
+          <DashboardColumn lastRow lg={5}>
             <TraderTypesCard period={period} />
           </DashboardColumn>
         </Row>

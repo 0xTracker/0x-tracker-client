@@ -9,11 +9,11 @@ import StatWidget from '../../../components/stat-widget';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const FillVolumeWidget = ({ className, fillVolume, period }) => (
-  <StatWidget className={className} period={period} title="Fill Volume">
-    {_.isNumber(fillVolume) ? (
+const ProtocolFeesWidget = ({ accumulatedFees, className, period }) => (
+  <StatWidget className={className} period={period} title="Protocol Fees">
+    {_.isNumber(accumulatedFees) ? (
       <LocalisedAmount
-        amount={fillVolume}
+        amount={accumulatedFees}
         loadingIndicator={loadingIndicator}
       />
     ) : (
@@ -22,16 +22,16 @@ const FillVolumeWidget = ({ className, fillVolume, period }) => (
   </StatWidget>
 );
 
-FillVolumeWidget.propTypes = {
+ProtocolFeesWidget.propTypes = {
+  accumulatedFees: PropTypes.number,
   className: PropTypes.string,
-  fillVolume: PropTypes.number,
   period: sharedPropTypes.timePeriod,
 };
 
-FillVolumeWidget.defaultProps = {
+ProtocolFeesWidget.defaultProps = {
+  accumulatedFees: undefined,
   className: undefined,
-  fillVolume: undefined,
   period: undefined,
 };
 
-export default FillVolumeWidget;
+export default ProtocolFeesWidget;
