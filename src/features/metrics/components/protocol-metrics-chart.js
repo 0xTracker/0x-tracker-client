@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Bar, BarChart, XAxis, YAxis, Tooltip, Brush, Legend } from 'recharts';
+import { Bar, BarChart, XAxis, Tooltip, Brush, Legend } from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -11,7 +11,6 @@ import formatDate from '../../../util/format-date';
 import ProtocolMetricsTooltip from './protocol-metrics-tooltip';
 
 const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
-const formatPercentage = amount => `${Math.floor(amount)}%`;
 
 const getProtocols = data =>
   _.uniq(
@@ -47,13 +46,6 @@ const ProtocolMetricsChart = React.memo(({ currency, data, onBrushChange }) => {
           minTickGap={60}
           tick={{ fill: 'currentColor', fontSize: '0.9em' }}
           tickFormatter={formatAxisDate}
-          tickLine={false}
-        />
-        <YAxis
-          axisLine={false}
-          domain={[0, 100]}
-          tick={{ fill: 'currentColor', fontSize: '0.9em' }}
-          tickFormatter={formatPercentage}
           tickLine={false}
         />
         <Brush
@@ -101,8 +93,8 @@ ProtocolMetricsChart.propTypes = {
       stats: PropTypes.arrayOf(
         PropTypes.shape({
           fillCount: PropTypes.number.isRequired,
-          fillVolume: PropTypes.number.isRequired,
           protocolVersion: PropTypes.number.isRequired,
+          tradeVolume: PropTypes.number.isRequired,
         }),
       ).isRequired,
     }),

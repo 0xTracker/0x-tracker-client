@@ -73,9 +73,7 @@ const NetworkMetricsChart = React.memo(
             padding={{ top: 25 }}
             tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={
-              type === 'fillVolume' ||
-              type === 'tradeVolume' ||
-              type === 'protocolFees'
+              type === 'tradeVolume' || type === 'protocolFees'
                 ? formatCurrency
                 : formatCount
             }

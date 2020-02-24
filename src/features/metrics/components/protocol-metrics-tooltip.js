@@ -21,7 +21,7 @@ const ProtocolMetricsTooltip = ({ currency, payload }) => {
         .filter(stat => stat.fillCount > 0)
         .map(stat => ({
           label: `v${stat.protocolVersion}`,
-          value: `${formatCurrency(stat.fillVolume, currency)} / ${numeral(
+          value: `${formatCurrency(stat.tradeVolume, currency)} / ${numeral(
             stat.fillCount,
           ).format('0,0')} fills`,
         }))}
@@ -39,8 +39,8 @@ ProtocolMetricsTooltip.propTypes = {
         stats: PropTypes.arrayOf(
           PropTypes.shape({
             fillCount: PropTypes.number.isRequired,
-            fillVolume: PropTypes.number.isRequired,
             protocolVersion: PropTypes.number.isRequired,
+            tradeVolume: PropTypes.number.isRequired,
           }),
         ).isRequired,
       }).isRequired,
