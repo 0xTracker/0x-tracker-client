@@ -105,20 +105,13 @@ RelayerMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      fillCount: PropTypes.number.isRequired,
-      fillVolume: PropTypes.number.isRequired,
       tradeCount: PropTypes.number.isRequired,
       tradeVolume: PropTypes.number.isRequired,
     }),
   ).isRequired,
   onBrushChange: PropTypes.func,
   period: sharedPropTypes.timePeriod.isRequired,
-  type: PropTypes.oneOf([
-    'fillCount',
-    'fillVolume',
-    'tradeCount',
-    'tradeVolume',
-  ]),
+  type: PropTypes.oneOf(['tradeCount', 'tradeVolume']),
 };
 
 RelayerMetricsChart.defaultProps = {

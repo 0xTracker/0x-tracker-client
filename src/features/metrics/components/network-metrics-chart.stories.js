@@ -12,8 +12,6 @@ const sampleData = _.times(31, index => {
 
   return {
     date,
-    fillCount: _.random(600, 25000),
-    fillVolume: _.random(100000, 19000000),
     protocolFees: _.random(150, 4500),
     protocolFeesETH: _.random(10, 30).toString(),
     tradeCount: _.random(450, 15000),
@@ -25,34 +23,18 @@ storiesOf('Charts|NetworkMetricsChart', module)
   .addDecorator(getStory => (
     <div css="width: 600px; height: 300px;">{getStory()}</div>
   ))
-  .add('fill volume (default)', () => (
+  .add('trade volume (default)', () => (
     <NetworkMetricsChart
       currency="USD"
       data={sampleData}
       period={TIME_PERIOD.MONTH}
     />
   ))
-  .add('fill volume (GBP)', () => (
+  .add('trade volume (GBP)', () => (
     <NetworkMetricsChart
       currency="GBP"
       data={sampleData}
       period={TIME_PERIOD.MONTH}
-    />
-  ))
-  .add('fill count', () => (
-    <NetworkMetricsChart
-      currency="USD"
-      data={sampleData}
-      period={TIME_PERIOD.MONTH}
-      type="fillCount"
-    />
-  ))
-  .add('trade volume', () => (
-    <NetworkMetricsChart
-      currency="USD"
-      data={sampleData}
-      period={TIME_PERIOD.MONTH}
-      type="tradeVolume"
     />
   ))
   .add('trade count', () => (
