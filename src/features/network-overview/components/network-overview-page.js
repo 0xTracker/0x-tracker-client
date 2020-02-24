@@ -62,7 +62,7 @@ const NetworkOverviewPage = ({ history, location }) => {
   const breakpoint = useCurrentBreakpoint();
   const periodFilterProps = {
     onChange: newPeriod => {
-      history.push(`${URL.NETWORK_OVERVIEW}?period=${newPeriod}`);
+      history.push(`${URL.NETWORK_INSIGHTS}?period=${newPeriod}`);
     },
     value: period,
   };
