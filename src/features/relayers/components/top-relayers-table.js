@@ -34,7 +34,7 @@ const TopRelayersTable = ({ relayers }) => {
       <thead css="display: none;">
         <tr>
           <th colSpan="2">Token</th>
-          <th>Fill Volume</th>
+          <th>Trade Volume</th>
         </tr>
       </thead>
       <tbody>

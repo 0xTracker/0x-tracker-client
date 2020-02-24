@@ -16,25 +16,11 @@ const RelayerMetricsTooltip = ({ payload }) => {
     return null;
   }
 
-  const {
-    date,
-    fillCount,
-    fillVolume,
-    tradeCount,
-    tradeVolume,
-  } = payload[0].payload;
+  const { date, tradeCount, tradeVolume } = payload[0].payload;
 
   return (
     <ChartTooltip
       items={[
-        {
-          label: 'Fill Count',
-          value: <Number>{fillCount}</Number>,
-        },
-        {
-          label: `Fill Volume (${displayCurrency})`,
-          value: <LocalisedAmount amount={fillVolume} />,
-        },
         {
           label: 'Trade Count',
           value: <Number>{tradeCount}</Number>,
@@ -54,8 +40,6 @@ RelayerMetricsTooltip.propTypes = {
     PropTypes.shape({
       payload: PropTypes.shape({
         date: PropTypes.string.isRequired,
-        fillCount: PropTypes.number.isRequired,
-        fillVolume: PropTypes.number.isRequired,
         tradeCount: PropTypes.number.isRequired,
         tradeVolume: PropTypes.number.isRequired,
       }).isRequired,

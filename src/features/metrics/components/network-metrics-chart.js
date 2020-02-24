@@ -98,8 +98,6 @@ NetworkMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      fillCount: PropTypes.number.isRequired,
-      fillVolume: PropTypes.number.isRequired,
       protocolFees: {
         ETH: PropTypes.string.isRequired,
         USD: PropTypes.number.isRequired,
@@ -114,7 +112,7 @@ NetworkMetricsChart.propTypes = {
 
 NetworkMetricsChart.defaultProps = {
   onBrushChange: undefined,
-  type: 'fillVolume',
+  type: 'tradeVolume',
 };
 
 NetworkMetricsChart.displayName = 'NetworkMetricsChart';
