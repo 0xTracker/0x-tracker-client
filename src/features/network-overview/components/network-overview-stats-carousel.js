@@ -7,7 +7,7 @@ import '../../../styles/css/slick-carousel.css';
 
 import { breakpoints } from '../../../styles/constants';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
-import FillVolumeWidget from '../../fills/components/fill-volume-widget';
+import ProtocolFeesWidget from '../../stats/components/protocol-fees-widget';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
 
@@ -17,7 +17,7 @@ const CarouselStat = styled.div`
 
 const NetworkOverviewStatsCarousel = ({
   className,
-  fillVolume,
+  protocolFees,
   tradeCount,
   traderCount,
   tradeVolume,
@@ -41,16 +41,16 @@ const NetworkOverviewStatsCarousel = ({
     slidesToScroll={3}
     slidesToShow={3}
   >
-    <CarouselStat as={FillVolumeWidget} fillVolume={fillVolume} />
     <CarouselStat as={TradeVolumeWidget} volume={tradeVolume} />
     <CarouselStat as={TradeCountWidget} tradeCount={tradeCount} />
     <CarouselStat as={ActiveTradersWidget} traderCount={traderCount} />
+    <CarouselStat accumulatedFees={protocolFees} as={ProtocolFeesWidget} />
   </Slider>
 );
 
 NetworkOverviewStatsCarousel.propTypes = {
   className: PropTypes.string,
-  fillVolume: PropTypes.number,
+  protocolFees: PropTypes.number,
   tradeCount: PropTypes.number,
   tradeVolume: PropTypes.number,
   traderCount: PropTypes.number,
@@ -58,7 +58,7 @@ NetworkOverviewStatsCarousel.propTypes = {
 
 NetworkOverviewStatsCarousel.defaultProps = {
   className: undefined,
-  fillVolume: undefined,
+  protocolFees: undefined,
   tradeCount: undefined,
   tradeVolume: undefined,
   traderCount: undefined,

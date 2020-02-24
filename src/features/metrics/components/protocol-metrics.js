@@ -58,7 +58,7 @@ const ProtocolMetrics = ({ period }) => {
         date: new Date(metric.date),
         stats: metric.stats.map(stat => ({
           ...stat,
-          fillVolume: (parseFloat(stat.fillVolume) || 0) * conversionRate,
+          tradeVolume: (parseFloat(stat.tradeVolume) || 0) * conversionRate,
         })),
       })),
     [metrics, conversionRate],
