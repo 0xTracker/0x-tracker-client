@@ -21,6 +21,9 @@ const FillAssetsList = ({ assets, condensed }) => {
           <AssetLabel asset={asset} condensed={condensed} />{' '}
           {asset.type === 'erc-721' && <AssetTypeBadge>ERC-721</AssetTypeBadge>}
           {asset.type === 'erc-20' && <AssetTypeBadge>ERC-20</AssetTypeBadge>}
+          {asset.type === 'erc-1155' && (
+            <AssetTypeBadge>ERC-1155</AssetTypeBadge>
+          )}
         </ListItem>
       ))}
     </List>
