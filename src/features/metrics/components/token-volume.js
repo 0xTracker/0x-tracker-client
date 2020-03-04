@@ -63,7 +63,6 @@ const TokenVolume = ({ period, token }) => {
         key={chartKey}
         localCurrency={displayCurrency}
         onBrushChange={handleBrushChange}
-        period={period}
         tokenSymbol={token.symbol}
       />
     </BrushableChartContainer>
