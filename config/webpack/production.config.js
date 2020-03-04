@@ -44,7 +44,6 @@ module.exports = (env = {}) =>
     plugins: _.compact([
       new CleanWebpackPlugin(),
 
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new MiniCssExtractPlugin({
         chunkFilename: 'assets/css/[name].[contenthash].bundle.css',
         filename: 'assets/css/[name].[contenthash].bundle.css',
