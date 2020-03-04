@@ -27,7 +27,7 @@ const MiniRelayerMetricsChart = React.memo(({ data, height, type, width }) => {
         fillOpacity={1}
         stroke={colors.indigo}
         strokeOpacity={0.6}
-        strokeWidth={2}
+        strokeWidth={1.5}
         type="monotone"
       />
     </AreaChart>
