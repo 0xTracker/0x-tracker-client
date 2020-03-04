@@ -3,13 +3,15 @@ import React from 'react';
 
 import { colors } from '../../../styles/constants';
 import Link from '../../../components/link';
+import MiniRelayerMetrics from '../../metrics/components/mini-relayer-metrics';
 import Number from '../../../components/number';
 import relayersPropTypes from '../prop-types';
 import RelayerImage from './relayer-image';
 import RelayerVolumeLabel from './relayer-volume-label';
 import RelayerLink from './relayer-link';
+import sharedPropTypes from '../../../prop-types';
 
-const RelayerList = ({ positionOffset, relayers }) => (
+const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
   <table className="table table-responsive">
     <thead>
       <tr>
@@ -17,6 +19,7 @@ const RelayerList = ({ positionOffset, relayers }) => (
         <th colSpan="2">Relayer</th>
         <th className="text-right">Trades</th>
         <th className="text-right">Volume</th>
+        <th className="text-right">Volume Graph</th>
       </tr>
     </thead>
     <tbody>
@@ -51,6 +54,15 @@ const RelayerList = ({ positionOffset, relayers }) => (
           <td className="align-middle text-right">
             <RelayerVolumeLabel stats={relayer.stats} />
           </td>
+          <td>
+            <MiniRelayerMetrics
+              height={40}
+              period={statsPeriod}
+              relayerId={relayer.id}
+              type="tradeVolume"
+              width={120}
+            />
+          </td>
         </tr>
       ))}
     </tbody>
@@ -60,6 +72,7 @@ const RelayerList = ({ positionOffset, relayers }) => (
 RelayerList.propTypes = {
   positionOffset: PropTypes.number,
   relayers: PropTypes.arrayOf(relayersPropTypes.relayer).isRequired,
+  statsPeriod: sharedPropTypes.timePeriod.isRequired,
 };
 
 RelayerList.defaultProps = {

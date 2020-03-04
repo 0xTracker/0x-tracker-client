@@ -6,7 +6,11 @@ import LoadingIndicator from '../components/loading-indicator';
 const createAsyncComponent = importer => {
   const AsyncComponent = React.lazy(importer);
   const ComponentLoader = ({ fallback, ...props }) => (
-    <React.Suspense fallback={fallback || <LoadingIndicator centered />}>
+    <React.Suspense
+      fallback={
+        fallback === undefined ? <LoadingIndicator centered /> : fallback
+      }
+    >
       <AsyncComponent {...props} />
     </React.Suspense>
   );
