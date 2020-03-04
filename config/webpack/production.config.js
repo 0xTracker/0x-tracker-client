@@ -15,6 +15,9 @@ const ENVIRONMENT = 'production';
 module.exports = (env = {}) =>
   merge(getConfig(ENVIRONMENT), {
     devtool: 'source-map',
+    entry: {
+      main: ['./src/index.js'],
+    },
     mode: 'production',
     module: {
       rules: [

@@ -1,4 +1,4 @@
-import { hot } from 'react-hot-loader';
+import { hot } from 'react-hot-loader/root';
 import { Helmet } from 'react-helmet';
 import React from 'react';
 
@@ -32,4 +32,4 @@ const App = () => (
   </BreakpointProvider>
 );
 
-export default hot(module)(App);
+export default hot(App);

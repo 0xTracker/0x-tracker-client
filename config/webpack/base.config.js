@@ -10,9 +10,6 @@ const paths = {
 };
 
 const getConfig = environment => ({
-  entry: {
-    main: ['./src/index.js'],
-  },
   module: {
     rules: [
       {
