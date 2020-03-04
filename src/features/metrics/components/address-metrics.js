@@ -62,7 +62,6 @@ const AddressMetrics = ({ address, keyMetric, period }) => {
         keyMetric={keyMetric}
         localCurrency={displayCurrency}
         onBrushChange={handleBrushChange}
-        period={period}
       />
     </BrushableChartContainer>
   );
