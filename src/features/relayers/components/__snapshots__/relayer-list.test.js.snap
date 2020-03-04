@@ -24,6 +24,11 @@ exports[`renders with basic props 1`] = `
       >
         Volume
       </th>
+      <th
+        class="text-right"
+      >
+        Volume Graph
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -90,6 +95,7 @@ exports[`renders with basic props 1`] = `
           $150,456.56
         </span>
       </td>
+      <td />
     </tr>
     <tr>
       <td
@@ -154,6 +160,7 @@ exports[`renders with basic props 1`] = `
           $124,000.00
         </span>
       </td>
+      <td />
     </tr>
     <tr>
       <td
@@ -218,6 +225,7 @@ exports[`renders with basic props 1`] = `
           $100,000.00
         </span>
       </td>
+      <td />
     </tr>
   </tbody>
 </table>
