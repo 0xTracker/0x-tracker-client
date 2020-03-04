@@ -83,6 +83,7 @@ const RelayersPage = ({ history, location, page, setPage }) => {
               <RelayerList
                 positionOffset={(page - 1) * pageSize}
                 relayers={items}
+                statsPeriod={statsPeriod}
               />
               <Paginator
                 onPageChange={setPage}

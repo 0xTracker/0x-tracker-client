@@ -58,7 +58,6 @@ const RelayerMetrics = ({ period, relayerId, type }) => {
         data={data}
         key={chartKey}
         onBrushChange={handleBrushChange}
-        period={period}
         type={type}
       />
     </BrushableChartContainer>
