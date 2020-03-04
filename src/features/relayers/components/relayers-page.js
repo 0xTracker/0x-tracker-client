@@ -16,7 +16,7 @@ import useRelayers from '../hooks/use-relayers';
 import withPagination from '../../../components/with-pagination';
 
 const defaultFilters = {
-  statsPeriod: TIME_PERIOD.DAY,
+  statsPeriod: TIME_PERIOD.MONTH,
 };
 
 const periodDescriptions = {
