@@ -75,8 +75,8 @@ const Footer = () => (
         <Col md={4} xs={12}>
           <Logo alt="0x Tracker" src={logoImage} />
           <Description>
-            The 0x protocol trade explorer, decentralised price index and news
-            aggregator.
+            The leading provider of 0x protocol market data, transparent
+            Ethereum token price index and 0x protocol news aggregator.
           </Description>
           <nav css="display: flex;">
             <SocialLink href="https://twitter.com/0xTracker">
