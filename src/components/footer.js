@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { media } from '../styles/util';
 import { colors } from '../styles/constants';
+import { DiscordIcon, TwitterIcon } from './icons';
 import Container from './container';
 import Link from './link';
 import logoImage from '../assets/images/logo-grayscale.svg';
@@ -26,7 +27,7 @@ const Description = styled.p`
   margin: 1rem 0 1.5rem;
 
   ${media.greaterThan('md')`
-    margin: 1rem 0 0;
+    margin: 1rem 0 1.5rem;
   `}
 `;
 
@@ -37,6 +38,23 @@ const NavLink = styled(Link)`
 
   &:hover {
     text-decoration: underline;
+  }
+`;
+
+const SocialLink = styled(Link)`
+  align-items: center;
+  background-color: ${colors.santasGray};
+  color: ${colors.steelGray};
+  border-radius: 0.25rem;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  margin-right: 0.5rem;
+  width: 30px;
+
+  &:hover {
+    background-color: ${colors.white};
+    color: ${colors.steelGray};
   }
 `;
 
@@ -60,8 +78,16 @@ const Footer = () => (
             The 0x protocol trade explorer, decentralised price index and news
             aggregator.
           </Description>
+          <nav css="display: flex;">
+            <SocialLink href="https://twitter.com/0xTracker">
+              <TwitterIcon size="18" />
+            </SocialLink>
+            <SocialLink href="https://discord.gg/tnV8hud">
+              <DiscordIcon size="18" />
+            </SocialLink>
+          </nav>
         </Col>
-        <Col md={{ offset: 3, size: 2 }} sm={4} xs={6}>
+        <Col md={{ offset: 2, size: 2 }} sm={4} xs={6}>
           <NavHeading>About</NavHeading>
           <nav>
             <NavLink href="https://docs.0xtracker.com/">Overview</NavLink>
@@ -84,11 +110,11 @@ const Footer = () => (
             <NavLink href="https://github.com/0xtracker">GitHub</NavLink>
           </nav>
         </Col>
-        <Col md={1} sm={4} xs={6}>
-          <NavHeading>Social</NavHeading>
+        <Col md={2} sm={4} xs={6}>
+          <NavHeading>Legal</NavHeading>
           <nav>
-            <NavLink href="https://twitter.com/0xTracker">Twitter</NavLink>
-            <NavLink href="https://discord.gg/tnV8hud">Discord</NavLink>
+            <NavLink href="/privacy">Privacy Policy</NavLink>
+            <NavLink href="/terms">Terms Of Use</NavLink>
           </nav>
         </Col>
       </Row>
