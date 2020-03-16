@@ -18,6 +18,13 @@ const TIME_PERIOD = {
   YEAR: 'year',
 };
 
+const METRIC_GRANULARITY = {
+  DAY: 'day',
+  HOUR: 'hour',
+  MONTH: 'month',
+  WEEK: 'week',
+};
+
 const DATE_FORMAT = {
   COMPACT: 'compact',
   FULL: 'fill',
@@ -31,7 +38,7 @@ const URL = {
   FILL: '/fills/:id',
   FILLS: '/fills',
   HOME: '/',
-  NETWORK_OVERVIEW: '/network-overview',
+  NETWORK_INSIGHTS: '/network-insights',
   NEWS: '/news-and-updates',
   RELAYER: '/relayers/:slug',
   RELAYERS: '/relayers',
@@ -57,6 +64,7 @@ export {
   BREAKPOINTS,
   DATE_FORMAT,
   GENESIS_DATE,
+  METRIC_GRANULARITY,
   TIME_PERIOD,
   URL,
   ETH_TOKEN,

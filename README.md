@@ -44,7 +44,6 @@ The project has a fairly extensive set of dependencies, each with a particular p
 - **[Axios](https://github.com/axios/axios)** - Lightweight HTTP client used for fetching API data.
 - **[Lodash](https://lodash.com/)** - Powerful general purpose utility belt for writing clean code.
 - **[Date-fns](https://date-fns.org/)** - Modern javascript date utility library which encourages immutable code and plays nicely with Lodash FP.
-- **[Moment.js](http://momentjs.com/)** - Begrudgingly used as a fallback when manipulating UTC dates whilst awaiting UTC support in date-fns.
 
 ### Styling & UI
 

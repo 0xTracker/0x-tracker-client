@@ -8,8 +8,6 @@ import { DATE_FORMAT } from '../../../constants';
 import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
-import padMetrics from '../util/pad-metrics';
-import sharedPropTypes from '../../../prop-types';
 import summarizeCurrency from '../../../util/summarize-currency';
 import TokenVolumeTooltip from './token-volume-tooltip';
 
@@ -33,24 +31,13 @@ class TokenVolumeChart extends PureComponent {
   }
 
   render() {
-    const {
-      data,
-      localCurrency,
-      onBrushChange,
-      period,
-      tokenSymbol,
-    } = this.props;
+    const { data, localCurrency, onBrushChange, tokenSymbol } = this.props;
 
     if (_.isEmpty(data)) {
       return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
-    const paddedMetrics = padMetrics(data, period, {
-      localizedVolume: 0,
-      tokenVolume: '0',
-    });
-
-    const sanitizedData = _.map(paddedMetrics, dataPoint => ({
+    const sanitizedData = _.map(data, dataPoint => ({
       ...dataPoint,
       date: dataPoint.date.toISOString(),
     }));
@@ -120,7 +107,6 @@ TokenVolumeChart.propTypes = {
   ).isRequired,
   localCurrency: PropTypes.string.isRequired,
   onBrushChange: PropTypes.func,
-  period: sharedPropTypes.timePeriod.isRequired,
   tokenSymbol: PropTypes.string.isRequired,
 };
 

@@ -16,6 +16,7 @@ import ResetIcon from './reset-icon';
 import RightArrowIcon from './right-arrow-icon';
 import SearchIcon from './search-icon';
 import SettingsIcon from './settings-icon';
+import TimePeriodIcon from './time-period-icon';
 import TwitterIcon from './twitter-icon';
 
 export {
@@ -36,5 +37,6 @@ export {
   RightArrowIcon,
   SearchIcon,
   SettingsIcon,
+  TimePeriodIcon,
   TwitterIcon,
 };

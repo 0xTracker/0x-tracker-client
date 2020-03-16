@@ -5,7 +5,7 @@ import React from 'react';
 
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
-import FillVolumeWidget from '../../fills/components/fill-volume-widget';
+import ProtocolFeesWidget from '../../stats/components/protocol-fees-widget';
 import sharedPropTypes from '../../../prop-types';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
@@ -22,16 +22,13 @@ const NetworkOverviewStats = ({ className, period }) => {
   const [traderStats] = useTraderStats({ period });
   const breakpoint = useCurrentBreakpoint();
 
-  const fillVolume = _.get(networkStats, 'fillVolume');
   const tradeCount = _.get(networkStats, 'tradeCount');
   const traderCount = _.get(traderStats, 'traderCount');
   const tradeVolume = _.get(networkStats, 'tradeVolume');
+  const protocolFees = _.get(networkStats, 'protocolFees.USD');
 
   return breakpoint.greaterThan('md') ? (
     <Row className={className}>
-      <Col lg={3} md={6}>
-        <FillVolumeWidget fillVolume={fillVolume} />
-      </Col>
       <Col lg={3} md={6}>
         <TradeVolumeWidget volume={tradeVolume} />
       </Col>
@@ -41,11 +38,14 @@ const NetworkOverviewStats = ({ className, period }) => {
       <Col lg={3} md={6}>
         <ActiveTradersWidget traderCount={traderCount} />
       </Col>
+      <Col lg={3} md={6}>
+        <ProtocolFeesWidget accumulatedFees={protocolFees} />
+      </Col>
     </Row>
   ) : (
     <AsyncNetworkOverviewStatsCarousel
       className={className}
-      fillVolume={fillVolume}
+      protocolFees={protocolFees}
       tradeCount={tradeCount}
       traderCount={traderCount}
       tradeVolume={tradeVolume}

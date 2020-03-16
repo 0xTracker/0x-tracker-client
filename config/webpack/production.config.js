@@ -15,6 +15,9 @@ const ENVIRONMENT = 'production';
 module.exports = (env = {}) =>
   merge(getConfig(ENVIRONMENT), {
     devtool: 'source-map',
+    entry: {
+      main: ['./src/index.js'],
+    },
     mode: 'production',
     module: {
       rules: [
@@ -44,7 +47,6 @@ module.exports = (env = {}) =>
     plugins: _.compact([
       new CleanWebpackPlugin(),
 
-      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
       new MiniCssExtractPlugin({
         chunkFilename: 'assets/css/[name].[contenthash].bundle.css',
         filename: 'assets/css/[name].[contenthash].bundle.css',

@@ -14,7 +14,7 @@ const TopProtocolsChartTooltip = ({ payload }) => {
     return null;
   }
 
-  const { protocolVersion, fillCount, fillVolume } = payload[0].payload;
+  const { protocolVersion, fillCount, tradeVolume } = payload[0].payload;
 
   return (
     <ChartTooltip
@@ -24,12 +24,12 @@ const TopProtocolsChartTooltip = ({ payload }) => {
           value: <Number>{fillCount}</Number>,
         },
         {
-          label: `Fill Volume (${displayCurrency})`,
+          label: `Volume (${displayCurrency})`,
           value:
-            fillVolume === 0 ? (
+            tradeVolume === 0 ? (
               'Unknown'
             ) : (
-              <LocalisedAmount amount={fillVolume} />
+              <LocalisedAmount amount={tradeVolume} />
             ),
         },
       ]}
@@ -43,8 +43,8 @@ TopProtocolsChartTooltip.propTypes = {
     PropTypes.shape({
       payload: PropTypes.shape({
         fillCount: PropTypes.number.isRequired,
-        fillVolume: PropTypes.number.isRequired,
         protocolVersion: PropTypes.number.isRequired,
+        tradeVolume: PropTypes.number.isRequired,
       }),
     }),
   ),

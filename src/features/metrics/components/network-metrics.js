@@ -48,8 +48,6 @@ const NetworkMetrics = ({ period, type }) => {
     () =>
       (metrics || []).map(metric => ({
         date: new Date(metric.date),
-        fillCount: metric.fillCount,
-        fillVolume: (parseFloat(metric.fillVolume) || 0) * conversionRate,
         protocolFees:
           (parseFloat(metric.protocolFees.USD) || 0) * conversionRate,
         protocolFeesETH: metric.protocolFees.ETH,

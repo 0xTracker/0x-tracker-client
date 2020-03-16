@@ -43,8 +43,8 @@ TopProtocolsChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       fillCount: PropTypes.number.isRequired,
-      fillVolume: PropTypes.number.isRequired,
       protocolVersion: PropTypes.number.isRequired,
+      tradeVolume: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
 };

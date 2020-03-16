@@ -9,14 +9,12 @@ import AddressMetricsTooltip from './address-metrics-tooltip';
 import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
-import padMetrics from '../util/pad-metrics';
-import sharedPropTypes from '../../../prop-types';
 import summarizeCurrency from '../../../util/summarize-currency';
 
 const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
 
 const AddressMetricsChart = React.memo(
-  ({ data, keyMetric, localCurrency, onBrushChange, period }) => {
+  ({ data, keyMetric, localCurrency, onBrushChange }) => {
     const formatValue = value => {
       if (value === 0) {
         return '';
@@ -33,12 +31,7 @@ const AddressMetricsChart = React.memo(
       return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
-    const paddedMetrics = padMetrics(data, period, {
-      fillCount: 0,
-      fillVolume: 0,
-    });
-
-    const sanitizedData = _.map(paddedMetrics, dataPoint => ({
+    const sanitizedData = _.map(data, dataPoint => ({
       ...dataPoint,
       date: dataPoint.date.toISOString(),
     }));
@@ -93,6 +86,8 @@ const AddressMetricsChart = React.memo(
   },
 );
 
+AddressMetricsChart.displayName = 'AddressMetricsChart';
+
 AddressMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
@@ -103,7 +98,6 @@ AddressMetricsChart.propTypes = {
   keyMetric: PropTypes.string.isRequired,
   localCurrency: PropTypes.string.isRequired,
   onBrushChange: PropTypes.func,
-  period: sharedPropTypes.timePeriod.isRequired,
 };
 
 AddressMetricsChart.defaultProps = {

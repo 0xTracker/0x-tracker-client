@@ -73,9 +73,7 @@ const NetworkMetricsChart = React.memo(
             padding={{ top: 25 }}
             tick={{ fill: 'currentColor', fontSize: '0.9em' }}
             tickFormatter={
-              type === 'fillVolume' ||
-              type === 'tradeVolume' ||
-              type === 'protocolFees'
+              type === 'tradeVolume' || type === 'protocolFees'
                 ? formatCurrency
                 : formatCount
             }
@@ -100,8 +98,6 @@ NetworkMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      fillCount: PropTypes.number.isRequired,
-      fillVolume: PropTypes.number.isRequired,
       protocolFees: {
         ETH: PropTypes.string.isRequired,
         USD: PropTypes.number.isRequired,
@@ -116,7 +112,7 @@ NetworkMetricsChart.propTypes = {
 
 NetworkMetricsChart.defaultProps = {
   onBrushChange: undefined,
-  type: 'fillVolume',
+  type: 'tradeVolume',
 };
 
 NetworkMetricsChart.displayName = 'NetworkMetricsChart';

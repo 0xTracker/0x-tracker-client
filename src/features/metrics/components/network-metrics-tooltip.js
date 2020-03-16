@@ -15,8 +15,6 @@ const NetworkMetricsTooltip = ({ currency, payload }) => {
 
   const {
     date,
-    fillCount,
-    fillVolume,
     protocolFees,
     protocolFeesETH,
     tradeCount,
@@ -26,14 +24,6 @@ const NetworkMetricsTooltip = ({ currency, payload }) => {
   return (
     <ChartTooltip
       items={[
-        {
-          label: 'Fill Count',
-          value: <Number>{fillCount}</Number>,
-        },
-        {
-          label: `Fill Volume (${currency})`,
-          value: formatCurrency(fillVolume, currency),
-        },
         {
           label: `Protocol Fees (${currency})`,
           value: formatCurrency(protocolFees, currency),
@@ -62,8 +52,6 @@ NetworkMetricsTooltip.propTypes = {
     PropTypes.shape({
       payload: PropTypes.shape({
         date: PropTypes.string.isRequired,
-        fillCount: PropTypes.number.isRequired,
-        fillVolume: PropTypes.number.isRequired,
         protocolFees: PropTypes.number.isRequired,
         protocolFeesETH: PropTypes.string.isRequired,
         tradeCount: PropTypes.number.isRequired,

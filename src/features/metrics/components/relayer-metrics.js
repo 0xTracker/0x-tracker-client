@@ -39,8 +39,6 @@ const RelayerMetrics = ({ period, relayerId, type }) => {
     () =>
       (metrics || []).map(metric => ({
         date: new Date(metric.date),
-        fillCount: metric.fillCount,
-        fillVolume: (parseFloat(metric.fillVolume) || 0) * conversionRate,
         tradeCount: metric.tradeCount,
         tradeVolume: (parseFloat(metric.tradeVolume) || 0) * conversionRate,
       })),
@@ -60,7 +58,6 @@ const RelayerMetrics = ({ period, relayerId, type }) => {
         data={data}
         key={chartKey}
         onBrushChange={handleBrushChange}
-        period={period}
         type={type}
       />
     </BrushableChartContainer>

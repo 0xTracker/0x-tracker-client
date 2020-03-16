@@ -19,6 +19,9 @@ module.exports = merge(getConfig(ENVIRONMENT), {
     stats: 'errors-only',
   },
   devtool: 'cheap-module-source-map',
+  entry: {
+    main: ['react-hot-loader/patch', './src/index.js'],
+  },
   mode: 'development',
   module: {
     rules: [
@@ -43,4 +46,9 @@ module.exports = merge(getConfig(ENVIRONMENT), {
 
     new ErrorOverlayPlugin(),
   ],
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    },
+  },
 });
