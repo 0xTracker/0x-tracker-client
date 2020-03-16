@@ -1,9 +1,9 @@
 import _ from 'lodash';
-import { Square as SquareIcon } from 'styled-icons/fa-solid';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors } from '../../../styles/constants';
+import { SquareIcon } from '../../../components/icons';
 
 const RelayerImage = ({ className, height, imageUrl, width }) =>
   _.isString(imageUrl) ? (

@@ -1,12 +1,9 @@
-import {
-  TrendingDown as TrendingDownIcon,
-  TrendingUp as TrendingUpIcon,
-} from 'styled-icons/material';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors } from '../../../styles/constants';
+import { TrendingDownIcon, TrendingUpIcon } from '../../../components/icons';
 import Link from '../../../components/link';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
