@@ -1,3 +1,3 @@
-import { ChevronDown as ChevronDownIcon } from 'styled-icons/fa-solid/ChevronDown';
+import { ChevronDown as ChevronDownIcon } from 'styled-icons/fa-solid';
 
 export default ChevronDownIcon;

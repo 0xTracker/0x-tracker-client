@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Circle as CircleIcon } from 'styled-icons/fa-solid/Circle';
+import { Circle as CircleIcon } from 'styled-icons/fa-solid';
 import PropTypes from 'prop-types';
 import React from 'react';
 

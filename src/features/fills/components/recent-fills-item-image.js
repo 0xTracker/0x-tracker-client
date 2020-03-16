@@ -1,4 +1,4 @@
-import { QuestionCircle as UnknownIcon } from 'styled-icons/fa-solid/QuestionCircle';
+import { QuestionCircle as UnknownIcon } from 'styled-icons/fa-solid';
 import PropTypes from 'prop-types';
 import React from 'react';
 

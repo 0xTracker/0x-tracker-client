@@ -1,3 +1,3 @@
-import { MoreHoriz as MoreIcon } from 'styled-icons/material/MoreHoriz';
+import { MoreHoriz as MoreIcon } from 'styled-icons/material';
 
 export default MoreIcon;

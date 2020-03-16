@@ -1,5 +1,7 @@
-import { TrendingDown as TrendingDownIcon } from 'styled-icons/material/TrendingDown';
-import { TrendingUp as TrendingUpIcon } from 'styled-icons/material/TrendingUp';
+import {
+  TrendingDown as TrendingDownIcon,
+  TrendingUp as TrendingUpIcon,
+} from 'styled-icons/material';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
