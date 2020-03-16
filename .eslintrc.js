@@ -160,6 +160,13 @@ module.exports = {
     'react/forbid-component-props': 'off',
     'react/forbid-dom-props': ['error', { forbid: ['style'] }],
     'react/forbid-prop-types': 'warn', // TODO: Convert to error once fixed
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
     'react/jsx-child-element-spacing': 'off',
     'react/jsx-curly-newline': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
@@ -178,6 +185,7 @@ module.exports = {
     'sort-keys': ['error', 'asc', { natural: true }],
   },
   settings: {
+    polyfills: ['URLSearchParams'],
     react: {
       version: 'detect',
     },

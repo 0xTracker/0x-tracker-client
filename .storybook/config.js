@@ -19,15 +19,13 @@ const StorybookStyles = createGlobalStyle`
   }
 `;
 
-function withGlobalStyles(storyFn) {
-  return (
-    <>
-      <GlobalStyles />
-      <StorybookStyles />
-      {storyFn()}
-    </>
-  );
-}
+const withGlobalStyles = storyFn => (
+  <>
+    <GlobalStyles />
+    <StorybookStyles />
+    {storyFn()}
+  </>
+);
 
 addDecorator(withGlobalStyles);
 addDecorator(new StoryRouter());
