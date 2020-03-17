@@ -1,3 +1,3 @@
-import { ChevronLeft as LeftArrowIcon } from 'styled-icons/fa-solid/ChevronLeft';
+import { ChevronLeft as LeftArrowIcon } from 'styled-icons/fa-solid';
 
 export default LeftArrowIcon;

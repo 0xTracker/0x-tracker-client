@@ -1,3 +1,3 @@
-import { Time as TimePeriodIcon } from 'styled-icons/boxicons-regular/Time';
+import { Time as TimePeriodIcon } from 'styled-icons/boxicons-regular';
 
 export default TimePeriodIcon;

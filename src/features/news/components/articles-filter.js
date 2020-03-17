@@ -1,4 +1,3 @@
-import { Collection as AllIcon } from 'styled-icons/boxicons-regular/Collection';
 import { useLocation } from 'react-use';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -6,6 +5,7 @@ import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
 import { URL } from '../../../constants';
+import { AllIcon } from '../../../components/icons';
 import Link from '../../../components/link';
 
 const FilterItem = styled(Link)`

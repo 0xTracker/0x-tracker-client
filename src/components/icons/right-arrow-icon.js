@@ -1,3 +1,3 @@
-import { ChevronRight as RightArrowIcon } from 'styled-icons/fa-solid/ChevronRight';
+import { ChevronRight as RightArrowIcon } from 'styled-icons/fa-solid';
 
 export default RightArrowIcon;

@@ -1,8 +1,10 @@
-import { FilterList } from 'styled-icons/material/FilterList';
-import { Filter1 } from 'styled-icons/material/Filter1';
-import { Filter2 } from 'styled-icons/material/Filter2';
-import { Filter3 } from 'styled-icons/material/Filter3';
-import { Filter4 } from 'styled-icons/material/Filter4';
+import {
+  FilterList,
+  Filter1,
+  Filter2,
+  Filter3,
+  Filter4,
+} from 'styled-icons/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 

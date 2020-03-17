@@ -1,9 +1,9 @@
 import _ from 'lodash';
-import { Circle as CircleIcon } from 'styled-icons/fa-solid/Circle';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors } from '../../../styles/constants';
+import { CircleIcon } from '../../../components/icons';
 
 const TokenImage = ({ imageUrl, size }) =>
   _.isString(imageUrl) ? (

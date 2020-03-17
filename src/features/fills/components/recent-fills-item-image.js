@@ -1,8 +1,8 @@
-import { QuestionCircle as UnknownIcon } from 'styled-icons/fa-solid/QuestionCircle';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors } from '../../../styles/constants';
+import { UnknownIcon } from '../../../components/icons';
 import RelayerLink from '../../relayers/components/relayer-link';
 
 const RecentFillsItemImage = ({ fill }) => {
