@@ -1,11 +1,10 @@
-import { Link as ReactRouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 
-const linkStyles = css`
+const StyledLink = styled.a`
   color: ${colors.indigo};
   cursor: pointer;
 
@@ -15,37 +14,26 @@ const linkStyles = css`
   }
 `;
 
-const OutboundLink = styled.a`
-  ${linkStyles}
-`;
-
-const InternalLink = styled(({ active, ...otherProps }) => (
-  <ReactRouterLink {...otherProps} />
-))`
-  ${linkStyles}
-`;
-
 const Link = ({ children, href, ...otherProps }) => {
   const isExternal = href.startsWith('http://') || href.startsWith('https://');
 
   if (isExternal) {
     return (
-      <OutboundLink
-        eventLabel={href}
+      <StyledLink
         href={href}
         rel="noreferrer noopener"
         target="_blank"
         {...otherProps}
       >
         {children}
-      </OutboundLink>
+      </StyledLink>
     );
   }
 
   return (
-    <InternalLink to={href} {...otherProps}>
+    <StyledLink href={href} {...otherProps}>
       {children}
-    </InternalLink>
+    </StyledLink>
   );
 };
 
