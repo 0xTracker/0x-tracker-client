@@ -2,7 +2,7 @@
 
 exports[`returns "None" when the trade does not have a fee recipient 1`] = `
 <a
-  class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+  class="link__StyledLink-sc-1m1n17q-0 gaobOX"
   href="/relayers/unknown"
 >
   Unknown
@@ -11,7 +11,7 @@ exports[`returns "None" when the trade does not have a fee recipient 1`] = `
 
 exports[`returns a fee recipient link when the trade does not have a relayer but does have a fee recipient 1`] = `
 <a
-  class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+  class="link__StyledLink-sc-1m1n17q-0 gaobOX"
   href="/relayers/unknown"
 >
   Unknown
@@ -20,7 +20,7 @@ exports[`returns a fee recipient link when the trade does not have a relayer but
 
 exports[`returns relayer link when trade has a relayer 1`] = `
 <a
-  class="link__InternalLink-sc-1m1n17q-1 kIJfjy fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
+  class="link__StyledLink-sc-1m1n17q-0 gaobOX fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
   href="/relayers/google"
 >
   Google
