@@ -14,7 +14,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__OutboundLink-sc-1m1n17q-0 dFkevI"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="https://etherscan.io/tx/0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77"
         rel="noreferrer noopener"
         target="_blank"
@@ -31,7 +31,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="/search?q=0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71"
       >
         0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71
@@ -46,7 +46,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="/search?q=0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
@@ -71,7 +71,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
         href="/relayers/radar-relay"
       >
         <img
@@ -126,7 +126,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="/traders/0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3"
       >
         0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3
@@ -141,7 +141,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="/traders/0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
@@ -180,7 +180,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
           <span>
             0.96955 
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__StyledLink-sc-1m1n17q-0 gaobOX"
               href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             >
               Wrapped Ether  (WETH)
@@ -228,7 +228,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
           <span>
             5,000 
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__StyledLink-sc-1m1n17q-0 gaobOX"
               href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
             >
               FOAM Token  (FOAM)
@@ -275,7 +275,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
           </svg>
           <span>
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__StyledLink-sc-1m1n17q-0 gaobOX"
               href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             >
               Wrapped Ether  (WETH)
@@ -310,7 +310,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
           </svg>
           <span>
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__StyledLink-sc-1m1n17q-0 gaobOX"
               href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
             >
               FOAM Token  (FOAM)
@@ -355,7 +355,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
       >
         0xa258b39954cef5cb142fd567a46cddb31a670124
@@ -379,7 +379,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__OutboundLink-sc-1m1n17q-0 dFkevI"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="https://etherscan.io/tx/0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77"
         rel="noreferrer noopener"
         target="_blank"
@@ -396,7 +396,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="/search?q=0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71"
       >
         0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71
@@ -411,7 +411,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="/search?q=0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
@@ -436,7 +436,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
         href="/relayers/radar-relay"
       >
         <img
@@ -491,7 +491,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="/traders/0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3"
       >
         0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3
@@ -506,7 +506,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="/traders/0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
@@ -545,7 +545,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
           <span>
             0.96955 
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__StyledLink-sc-1m1n17q-0 gaobOX"
               href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             >
               Wrapped Ether  (WETH)
@@ -593,7 +593,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
           <span>
             5,000 
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__StyledLink-sc-1m1n17q-0 gaobOX"
               href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
             >
               FOAM Token  (FOAM)
@@ -640,7 +640,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
           </svg>
           <span>
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__StyledLink-sc-1m1n17q-0 gaobOX"
               href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             >
               Wrapped Ether  (WETH)
@@ -675,7 +675,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
           </svg>
           <span>
             <a
-              class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+              class="link__StyledLink-sc-1m1n17q-0 gaobOX"
               href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
             >
               FOAM Token  (FOAM)
@@ -700,7 +700,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 hhYdhc"
     >
       <a
-        class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX"
         href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
       >
         0xa258b39954cef5cb142fd567a46cddb31a670124

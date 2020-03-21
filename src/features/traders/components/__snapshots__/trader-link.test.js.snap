@@ -2,7 +2,7 @@
 
 exports[`should render a trader link 1`] = `
 <a
-  class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+  class="link__StyledLink-sc-1m1n17q-0 gaobOX"
   href="/traders/0xb14232b0204b2f7bb6ba5aff59ef36030f7fe38b"
 >
   Hello World

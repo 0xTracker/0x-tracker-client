@@ -24,14 +24,14 @@ exports[`page not found component should render without props 1`] = `
           Oops, the page you requested doesn‘t exist.
         </p>
         <a
-          class="link__InternalLink-sc-1m1n17q-1 kIJfjy"
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
           href="/"
         >
           Back to Dashboard
         </a>
       </div>
       <a
-        class="link__OutboundLink-sc-1m1n17q-0 dFkevI error-message__GhostLink-sc-1wau1ja-2 ldtSSD"
+        class="link__StyledLink-sc-1m1n17q-0 gaobOX error-message__GhostLink-sc-1wau1ja-2 ldtSSD"
         href="https://react-kawaii.now.sh/"
         rel="noreferrer noopener"
         target="_blank"

@@ -56,7 +56,7 @@ const useApi = (method, options = {}) => {
       }));
 
       fetchData().catch(error => {
-        if (axios.isCancel(error)) {
+        if (axios.isCancel(error) || error.message === 'Request aborted') {
           // Ignore cancellation errors because they're deliberate
         } else {
           // Stash the error so that it can be rethrown in render scope

@@ -27,7 +27,7 @@ exports[`should render without props 1`] = `
           class="footer___StyledNav-htpw4v-6 dxYThI"
         >
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__SocialLink-htpw4v-4 keHGOo"
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX footer__SocialLink-htpw4v-4 keHGOo"
             href="https://twitter.com/0xTracker"
             rel="noreferrer noopener"
             target="_blank"
@@ -49,7 +49,7 @@ exports[`should render without props 1`] = `
             </svg>
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__SocialLink-htpw4v-4 keHGOo"
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX footer__SocialLink-htpw4v-4 keHGOo"
             href="https://discord.gg/tnV8hud"
             rel="noreferrer noopener"
             target="_blank"
@@ -82,7 +82,7 @@ exports[`should render without props 1`] = `
         </h2>
         <nav>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX footer__NavLink-htpw4v-3 eijGhq"
             href="https://docs.0xtracker.com/"
             rel="noreferrer noopener"
             target="_blank"
@@ -90,7 +90,7 @@ exports[`should render without props 1`] = `
             Overview
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX footer__NavLink-htpw4v-3 eijGhq"
             href="https://docs.0xtracker.com/faqs"
             rel="noreferrer noopener"
             target="_blank"
@@ -98,7 +98,7 @@ exports[`should render without props 1`] = `
             FAQs
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX footer__NavLink-htpw4v-3 eijGhq"
             href="https://medium.com/0x-tracker"
             rel="noreferrer noopener"
             target="_blank"
@@ -106,7 +106,7 @@ exports[`should render without props 1`] = `
             Blog
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX footer__NavLink-htpw4v-3 eijGhq"
             href="https://docs.0xtracker.com/#need-to-get-in-touch"
             rel="noreferrer noopener"
             target="_blank"
@@ -125,7 +125,7 @@ exports[`should render without props 1`] = `
         </h2>
         <nav>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX footer__NavLink-htpw4v-3 eijGhq"
             href="https://docs.0xtracker.com/api-reference/introduction"
             rel="noreferrer noopener"
             target="_blank"
@@ -133,7 +133,7 @@ exports[`should render without props 1`] = `
             API
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX footer__NavLink-htpw4v-3 eijGhq"
             href="https://docs.0xtracker.com/contributing"
             rel="noreferrer noopener"
             target="_blank"
@@ -141,7 +141,7 @@ exports[`should render without props 1`] = `
             Contributing
           </a>
           <a
-            class="link__OutboundLink-sc-1m1n17q-0 dFkevI footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX footer__NavLink-htpw4v-3 eijGhq"
             href="https://github.com/0xtracker"
             rel="noreferrer noopener"
             target="_blank"
@@ -160,13 +160,13 @@ exports[`should render without props 1`] = `
         </h2>
         <nav>
           <a
-            class="link__InternalLink-sc-1m1n17q-1 kIJfjy footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX footer__NavLink-htpw4v-3 eijGhq"
             href="/privacy"
           >
             Privacy Policy
           </a>
           <a
-            class="link__InternalLink-sc-1m1n17q-1 kIJfjy footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX footer__NavLink-htpw4v-3 eijGhq"
             href="/terms"
           >
             Terms Of Use
