@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import Tooltip from '@tippyjs/react';
 
 import { media } from '../../../styles/util';
 import { colors } from '../../../styles/constants';
+import { HelpIcon } from '../../../components/icons';
 
 const Title = styled.dt`
   font-weight: normal;
@@ -38,9 +40,23 @@ const Value = styled.dd`
   `};
 `;
 
-const FillDetail = ({ children, title }) => (
+const FillDetail = ({ children, title, tooltip }) => (
   <>
-    <Title>{title}:</Title>
+    <Title>
+      {tooltip !== undefined && (
+        <Tooltip content={tooltip}>
+          <HelpIcon
+            css={`
+              color: ${colors.stormGray};
+              margin-right: 0.5rem;
+            `}
+            height={20}
+            width={20}
+          />
+        </Tooltip>
+      )}
+      {title}:
+    </Title>
     <Value>{children}</Value>
   </>
 );
@@ -48,6 +64,7 @@ const FillDetail = ({ children, title }) => (
 FillDetail.propTypes = {
   children: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
+  tooltip: PropTypes.node.isRequired,
 };
 
 export default FillDetail;

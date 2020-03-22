@@ -8,6 +8,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Transaction Hash:
     </dt>
     <dd
@@ -25,6 +39,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Order Hash:
     </dt>
     <dd
@@ -40,6 +68,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Sender Address:
     </dt>
     <dd
@@ -55,6 +97,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Date:
     </dt>
     <dd
@@ -65,6 +121,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Relayer:
     </dt>
     <dd
@@ -84,6 +154,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Status:
     </dt>
     <dd
@@ -98,6 +182,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       0x Protocol:
     </dt>
     <dd
@@ -108,6 +206,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Value:
     </dt>
     <dd
@@ -120,7 +232,21 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
-      Maker Address:
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
+      Maker:
     </dt>
     <dd
       class="fill-detail__Value-q3it9r-1 hhYdhc"
@@ -135,7 +261,21 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
-      Taker Address:
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
+      Taker:
     </dt>
     <dd
       class="fill-detail__Value-q3it9r-1 hhYdhc"
@@ -150,6 +290,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Maker Assets:
     </dt>
     <dd
@@ -198,6 +352,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Taker Assets:
     </dt>
     <dd
@@ -246,6 +414,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Derived Prices:
     </dt>
     <dd
@@ -329,6 +511,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Maker Fee:
     </dt>
     <dd
@@ -339,6 +535,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Taker Fee:
     </dt>
     <dd
@@ -349,6 +559,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Fee Recipient:
     </dt>
     <dd
@@ -373,6 +597,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Transaction Hash:
     </dt>
     <dd
@@ -390,6 +628,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Order Hash:
     </dt>
     <dd
@@ -405,6 +657,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Sender Address:
     </dt>
     <dd
@@ -420,6 +686,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Date:
     </dt>
     <dd
@@ -430,6 +710,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Relayer:
     </dt>
     <dd
@@ -449,6 +743,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Status:
     </dt>
     <dd
@@ -463,6 +771,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       0x Protocol:
     </dt>
     <dd
@@ -473,6 +795,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Value:
     </dt>
     <dd
@@ -485,7 +821,21 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
-      Maker Address:
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
+      Maker:
     </dt>
     <dd
       class="fill-detail__Value-q3it9r-1 hhYdhc"
@@ -500,7 +850,21 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
-      Taker Address:
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
+      Taker:
     </dt>
     <dd
       class="fill-detail__Value-q3it9r-1 hhYdhc"
@@ -515,6 +879,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Maker Assets:
     </dt>
     <dd
@@ -563,6 +941,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Taker Assets:
     </dt>
     <dd
@@ -611,6 +1003,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Derived Prices:
     </dt>
     <dd
@@ -694,6 +1100,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Fee Recipient:
     </dt>
     <dd
@@ -709,6 +1129,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
     <dt
       class="fill-detail__Title-q3it9r-0 gJQtdT"
     >
+      <svg
+        aria-hidden="true"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpIcon-q3it9r-2 hAeehr"
+        fill="currentColor"
+        focusable="false"
+        height="20"
+        viewBox="0 0 24 24"
+        width="20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 16h-2v-2h2v2zm.976-4.885c-.196.158-.385.309-.535.459-.408.407-.44.777-.441.793v.133h-2v-.167c0-.118.029-1.177 1.026-2.174.195-.195.437-.393.691-.599.734-.595 1.216-1.029 1.216-1.627a1.934 1.934 0 00-3.867.001h-2C8.066 7.765 9.831 6 12 6s3.934 1.765 3.934 3.934c0 1.597-1.179 2.55-1.958 3.181z"
+        />
+      </svg>
       Protocol Fee:
     </dt>
     <dd

@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 import App from './components/app';
 import AutoReload from './util/auto-reload';
 
+import 'tippy.js/dist/tippy.css';
+
 OfflinePluginRuntime.install({
   onUpdateReady: () => {
     console.log('[SW]: Update ready');

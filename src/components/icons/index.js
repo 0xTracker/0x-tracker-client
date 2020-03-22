@@ -9,6 +9,7 @@ import CloseIcon from './close-icon';
 import DiscordIcon from './discord-icon';
 import FilterIcon from './filter-icon';
 import GitHubIcon from './git-hub-icon';
+import HelpIcon from './help-icon';
 import LeftArrowIcon from './left-arrow-icon';
 import MediumIcon from './medium-icon';
 import MenuIcon from './menu-icon';
@@ -36,6 +37,7 @@ export {
   DiscordIcon,
   FilterIcon,
   GitHubIcon,
+  HelpIcon,
   LeftArrowIcon,
   MediumIcon,
   MenuIcon,

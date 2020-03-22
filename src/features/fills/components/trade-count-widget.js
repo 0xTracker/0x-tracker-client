@@ -9,8 +9,21 @@ import StatWidget from '../../../components/stat-widget';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const TradeCountWidget = ({ className, period, tradeCount }) => (
-  <StatWidget className={className} period={period} title="Trade Count">
+const createTooltip = period => {
+  if (period === 'all') {
+    return 'Total number of trades since 0x was launched. Only includes activity from known relayers.';
+  }
+
+  return `Total number of trades in the last ${period}. Only includes activity from known relayers.`;
+};
+
+const TradeCountWidget = ({ className, period, tradeCount, ...otherProps }) => (
+  <StatWidget
+    period={period}
+    title="Trade Count"
+    tooltip={createTooltip(period)}
+    {...otherProps}
+  >
     {_.isNumber(tradeCount)
       ? numeral(tradeCount).format('0,0')
       : loadingIndicator}

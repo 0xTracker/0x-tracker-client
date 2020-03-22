@@ -30,16 +30,32 @@ const NetworkOverviewStats = ({ className, period }) => {
   return breakpoint.greaterThan('md') ? (
     <Row className={className}>
       <Col lg={3} md={6}>
-        <TradeVolumeWidget volume={tradeVolume} />
+        <TradeVolumeWidget
+          period={period}
+          showPeriod={false}
+          volume={tradeVolume}
+        />
       </Col>
       <Col lg={3} md={6}>
-        <TradeCountWidget tradeCount={tradeCount} />
+        <TradeCountWidget
+          period={period}
+          showPeriod={false}
+          tradeCount={tradeCount}
+        />
       </Col>
       <Col lg={3} md={6}>
-        <ActiveTradersWidget traderCount={traderCount} />
+        <ActiveTradersWidget
+          period={period}
+          showPeriod={false}
+          traderCount={traderCount}
+        />
       </Col>
       <Col lg={3} md={6}>
-        <ProtocolFeesWidget accumulatedFees={protocolFees} />
+        <ProtocolFeesWidget
+          accumulatedFees={protocolFees}
+          period={period}
+          showPeriod={false}
+        />
       </Col>
     </Row>
   ) : (
