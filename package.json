@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@hot-loader/react-dom": "16.13.0",
-    "@testing-library/jest-dom": "5.1.1",
+    "@testing-library/jest-dom": "5.2.0",
     "@tippyjs/react": "4.0.0-alpha.4",
     "axios": "0.19.2",
     "babel-polyfill": "6.26.0",
