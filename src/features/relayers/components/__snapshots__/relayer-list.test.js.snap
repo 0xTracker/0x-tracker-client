@@ -67,15 +67,18 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
         width="99%"
       >
-        <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
-          href="/relayers/ddex"
+        <span
+          class="relayer-list___StyledSpan-sc-1herowu-0 fEaAOh"
         >
-          DDEX
-        </a>
-        <br />
+          <a
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            href="/relayers/ddex"
+          >
+            DDEX
+          </a>
+        </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-0 gnBtj"
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-3 cXrGPv"
           href="https://ddex.io"
           rel="noreferrer noopener"
           target="_blank"
@@ -132,15 +135,18 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
         width="99%"
       >
-        <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
-          href="/relayers/paradex"
+        <span
+          class="relayer-list___StyledSpan-sc-1herowu-0 fEaAOh"
         >
-          Paradex
-        </a>
-        <br />
+          <a
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            href="/relayers/paradex"
+          >
+            Paradex
+          </a>
+        </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-0 gnBtj"
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-3 cXrGPv"
           href="https://paradex.io"
           rel="noreferrer noopener"
           target="_blank"
@@ -197,15 +203,18 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
         width="99%"
       >
-        <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
-          href="/relayers/radar-relay"
+        <span
+          class="relayer-list___StyledSpan-sc-1herowu-0 fEaAOh"
         >
-          Radar Relay
-        </a>
-        <br />
+          <a
+            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            href="/relayers/radar-relay"
+          >
+            Radar Relay
+          </a>
+        </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-0 gnBtj"
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-3 cXrGPv"
           href="https://radarrelay.com"
           rel="noreferrer noopener"
           target="_blank"
