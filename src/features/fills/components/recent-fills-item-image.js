@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../../../styles/constants';
-import { UnknownIcon } from '../../../components/icons';
 import RelayerLink from '../../relayers/components/relayer-link';
+import UnknownRelayerImage from '../../relayers/components/unknown-relayer-image';
 
 const RecentFillsItemImage = ({ fill }) => {
   if (fill.relayer) {
@@ -20,11 +19,7 @@ const RecentFillsItemImage = ({ fill }) => {
 
   return (
     <RelayerLink relayer="unknown">
-      <UnknownIcon
-        color={colors.stormGray}
-        css="margin-right: 1rem;"
-        width={50}
-      />
+      <UnknownRelayerImage css="margin-right: 1rem;" size={50} />
     </RelayerLink>
   );
 };
