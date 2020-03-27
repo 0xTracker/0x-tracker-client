@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { useEffect, useState } from 'react';
 import axios, { CancelToken } from 'axios';
 
@@ -5,13 +6,12 @@ import { API_CALL_TIMEOUT } from '../../../constants';
 import { BASE_CURRENCY, CURRENCIES } from '../constants';
 
 const useFetchRates = () => {
-  const [rates, setRates] = useState();
-  const [error, setError] = useState();
-  const [cancelRequest, setCancelRequest] = useState();
+  const [{ cancelRequest, fetchError, rates }, setState] = useState({
+    cancelRequest: _.noop,
+  });
 
   useEffect(() => {
     const source = CancelToken.source();
-
     const toSymbols = Object.values(CURRENCIES)
       .map(currency => currency.symbol)
       .join(',');
@@ -25,27 +25,34 @@ const useFetchRates = () => {
         },
       )
       .then(response => {
-        setRates(response.data[BASE_CURRENCY]);
+        setState(prevState => ({
+          ...prevState,
+          fetchError: undefined,
+          rates: response.data[BASE_CURRENCY],
+        }));
       })
-      .catch(caughtError => {
-        if (
-          axios.isCancel(caughtError) ||
-          caughtError.message === 'Request aborted'
-        ) {
+      .catch(error => {
+        if (axios.isCancel(error) || error.message === 'Request aborted') {
           // Ignore cancellation errors because they're deliberate
         } else {
           // Stash the error so that it can be rethrown in render scope
-          setError(caughtError);
+          setState(prevState => ({
+            ...prevState,
+            fetchError: error,
+          }));
         }
       });
 
-    setCancelRequest(source.cancel);
+    setState(prevState => ({
+      ...prevState,
+      cancelRequest: source.cancel,
+    }));
 
     return () => cancelRequest();
   }, []);
 
-  if (error) {
-    throw error;
+  if (fetchError) {
+    throw fetchError;
   }
 
   return rates;
