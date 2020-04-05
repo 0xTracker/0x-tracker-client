@@ -67,7 +67,7 @@ const Heading = styled.h4`
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: ${props => (props.compact ? 'wrap' : 'nowrap')};
+  white-space: ${(props) => (props.compact ? 'wrap' : 'nowrap')};
 `;
 
 const FillAmount = styled(LocalisedAmount)`
@@ -84,7 +84,7 @@ const SourceLink = styled(Link)`
   }
 `;
 
-const getSource = fill => {
+const getSource = (fill) => {
   if (fill.relayer) {
     return {
       label: fill.relayer.name,

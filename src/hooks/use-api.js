@@ -38,7 +38,7 @@ const useApi = (method, options = {}) => {
           timeout: API_CALL_TIMEOUT,
         });
 
-        setState(prevState => ({
+        setState((prevState) => ({
           ...prevState,
           data: response.data,
           error: undefined,
@@ -46,7 +46,7 @@ const useApi = (method, options = {}) => {
         }));
       };
 
-      setState(prevState => ({
+      setState((prevState) => ({
         ...prevState,
         cancelRequest: source.cancel,
         data: undefined,
@@ -55,12 +55,12 @@ const useApi = (method, options = {}) => {
         loading: true,
       }));
 
-      fetchData().catch(error => {
+      fetchData().catch((error) => {
         if (axios.isCancel(error) || error.message === 'Request aborted') {
           // Ignore cancellation errors because they're deliberate
         } else {
           // Stash the error so that it can be rethrown in render scope
-          setState(prevState => ({
+          setState((prevState) => ({
             ...prevState,
             fetchError: error,
             loading: false,

@@ -23,11 +23,11 @@ const LastTradeLink = styled(FillLink)`
   }
 `;
 
-const truncateAddress = address =>
+const truncateAddress = (address) =>
   `${address.slice(0, 15)}...${address.slice(address.length - 15)}`;
 
 // TODO: Encapsulate this in a reusable component and use on fill page
-const AssetTypeBadge = styled.span.attrs(props => ({
+const AssetTypeBadge = styled.span.attrs((props) => ({
   className: `badge badge-${props.children === 'ERC-721' ? 'success' : 'dark'}`,
 }))`
   color: white;

@@ -26,7 +26,7 @@ const routes = _.flatten([
   { key: '404', loader: () => import('./page-not-found') },
 ]);
 
-const routeComponents = routes.map(route =>
+const routeComponents = routes.map((route) =>
   createPageRoute(route.path, route.loader, route.key),
 );
 

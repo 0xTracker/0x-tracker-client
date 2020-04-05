@@ -39,7 +39,7 @@ const AddressMetrics = ({ address, keyMetric, period }) => {
 
   const data = React.useMemo(
     () =>
-      (metrics || []).map(metric => ({
+      (metrics || []).map((metric) => ({
         date: new Date(metric.date),
         fillCount: metric.fillCount.total,
         fillVolume: metric.fillVolume.total * conversionRate,

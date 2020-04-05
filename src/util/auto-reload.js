@@ -3,19 +3,19 @@ import _ from 'lodash';
 let listeners = [];
 let interval;
 
-const addListener = listener => {
+const addListener = (listener) => {
   listeners.push(listener);
 };
 
 const getListeners = () => listeners;
 
-const removeListener = listenerToRemove => {
+const removeListener = (listenerToRemove) => {
   listeners = _.without(listeners, listenerToRemove);
 };
 
-const start = ms => {
+const start = (ms) => {
   interval = setInterval(() => {
-    listeners.forEach(listener => {
+    listeners.forEach((listener) => {
       listener();
     });
   }, ms);

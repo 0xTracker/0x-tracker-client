@@ -9,7 +9,7 @@ import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useProtocolMetrics from '../hooks/use-protocol-metrics';
 
-const determineGranularity = period => {
+const determineGranularity = (period) => {
   if (period === TIME_PERIOD.WEEK) {
     return 'day';
   }
@@ -54,9 +54,9 @@ const ProtocolMetrics = ({ period }) => {
 
   const data = React.useMemo(
     () =>
-      (metrics || []).map(metric => ({
+      (metrics || []).map((metric) => ({
         date: new Date(metric.date),
-        stats: metric.stats.map(stat => ({
+        stats: metric.stats.map((stat) => ({
           ...stat,
           tradeVolume: (parseFloat(stat.tradeVolume) || 0) * conversionRate,
         })),

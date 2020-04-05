@@ -7,13 +7,13 @@ import { TIME_PERIOD } from '../../../constants';
 import TokenVolumeChart from './token-volume-chart';
 
 storiesOf('Charts|TokenVolumeChart', module)
-  .addDecorator(getStory => (
+  .addDecorator((getStory) => (
     <div css="width: 600px; height: 300px;">{getStory()}</div>
   ))
   .add('default', () => {
     const currentDate = new Date();
 
-    const data = _.times(31, index => {
+    const data = _.times(31, (index) => {
       const date = subDays(currentDate, index);
       date.setUTCHours(0, 0, 0, 0);
 

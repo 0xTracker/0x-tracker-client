@@ -21,7 +21,7 @@ const MiniRelayerMetrics = ({ height, period, relayerId, type, width }) => {
   });
   const conversionRate = useConversionRate();
 
-  const data = (metrics || []).map(metric => ({
+  const data = (metrics || []).map((metric) => ({
     date: new Date(metric.date),
     tradeCount: metric.tradeCount,
     tradeVolume: (parseFloat(metric.tradeVolume) || 0) * conversionRate,

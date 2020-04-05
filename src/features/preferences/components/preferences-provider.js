@@ -11,7 +11,7 @@ const PreferencesProvider = ({ children }) => {
     BASE_CURRENCY,
   );
 
-  const updatePreferences = React.useCallback(newPreferences => {
+  const updatePreferences = React.useCallback((newPreferences) => {
     setDisplayCurrency(newPreferences.displayCurrency);
   }, []);
 

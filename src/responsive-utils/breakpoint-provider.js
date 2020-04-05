@@ -24,7 +24,7 @@ const BreakpointProvider = ({ breakpoints, children }) => {
   const BreakpointContext = getBreakpointContext();
 
   useEffect(() => {
-    const handlers = _.mapValues(mediaQueryLists, (mq, key) => event => {
+    const handlers = _.mapValues(mediaQueryLists, (mq, key) => (event) => {
       if (event.matches) {
         setCurrentBreakpoint(new Breakpoint(breakpoints, key));
       }

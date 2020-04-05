@@ -10,13 +10,13 @@ import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import ProtocolMetricsTooltip from './protocol-metrics-tooltip';
 
-const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
+const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
 
-const getProtocols = data =>
+const getProtocols = (data) =>
   _.uniq(
-    _.flatten(data.map(dataPoint => dataPoint.stats))
-      .filter(stat => stat.fillCount > 0)
-      .map(stat => stat.protocolVersion),
+    _.flatten(data.map((dataPoint) => dataPoint.stats))
+      .filter((stat) => stat.fillCount > 0)
+      .map((stat) => stat.protocolVersion),
   ).sort();
 
 // eslint-disable-next-line react/display-name
@@ -25,7 +25,7 @@ const ProtocolMetricsChart = React.memo(({ currency, data, onBrushChange }) => {
     return <ChartPlaceholder>No data available</ChartPlaceholder>;
   }
 
-  const sanitizedData = data.map(dataPoint => ({
+  const sanitizedData = data.map((dataPoint) => ({
     ...dataPoint,
     date: dataPoint.date.toISOString(),
   }));
@@ -56,13 +56,13 @@ const ProtocolMetricsChart = React.memo(({ currency, data, onBrushChange }) => {
           tickFormatter={formatAxisDate}
         />
         <Legend height={36} verticalAlign="top" />
-        {getProtocols(data).map(protocolVersion => (
+        {getProtocols(data).map((protocolVersion) => (
           <Bar
             animationDuration={0}
-            dataKey={dataPoint => {
-              const total = _.sum(dataPoint.stats.map(x => x.fillCount));
+            dataKey={(dataPoint) => {
+              const total = _.sum(dataPoint.stats.map((x) => x.fillCount));
               const stat = dataPoint.stats.find(
-                x => x.protocolVersion === protocolVersion,
+                (x) => x.protocolVersion === protocolVersion,
               );
 
               if (stat === undefined) {

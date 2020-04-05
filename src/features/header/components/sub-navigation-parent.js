@@ -17,7 +17,7 @@ const NavigationItem = styled.div`
   align-items: center;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
-  color: ${props =>
+  color: ${(props) =>
     props.open || props.highlighted ? colors.white : colors.lavenderGray};
   display: inline-flex;
   height: 100%;
@@ -73,7 +73,7 @@ const SubNavigationParent = ({ children, items }) => {
   });
 
   const location = useLocation();
-  const highlighted = items.some(item =>
+  const highlighted = items.some((item) =>
     location.pathname.startsWith(item.href),
   );
 
@@ -97,7 +97,7 @@ const SubNavigationParent = ({ children, items }) => {
           onMouseOut={blurHandler}
           onMouseOver={activeHandler}
         >
-          {items.map(item => (
+          {items.map((item) => (
             <SubNavigationItem href={item.href} key={item.href}>
               {item.title}
             </SubNavigationItem>

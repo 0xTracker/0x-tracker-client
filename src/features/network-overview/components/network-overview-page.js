@@ -28,14 +28,14 @@ const DashboardColumn = styled(Col)`
   margin-bottom: 1.25rem;
 
   &:last-child {
-    margin-bottom: ${props => (props.lastRow ? '0' : '1.25rem')};
+    margin-bottom: ${(props) => (props.lastRow ? '0' : '1.25rem')};
   }
 
   ${media.greaterThan('lg')`
-    margin-bottom: ${props => (props.lastRow ? '0' : '2rem')};
+    margin-bottom: ${(props) => (props.lastRow ? '0' : '2rem')};
 
     &:last-child {
-      margin-bottom: ${props => (props.lastRow ? '0' : '2rem')};
+      margin-bottom: ${(props) => (props.lastRow ? '0' : '2rem')};
     }
   `}
 `;
@@ -61,7 +61,7 @@ const NetworkOverviewPage = ({ history, location }) => {
   const period = params.get('period') || TIME_PERIOD.YEAR;
   const breakpoint = useCurrentBreakpoint();
   const periodFilterProps = {
-    onChange: newPeriod => {
+    onChange: (newPeriod) => {
       history.push(`${URL.NETWORK_INSIGHTS}?period=${newPeriod}`);
     },
     value: period,

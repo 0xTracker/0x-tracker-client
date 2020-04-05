@@ -6,7 +6,7 @@ import subDays from 'date-fns/subDays';
 import { TIME_PERIOD } from '../../../constants';
 import NetworkMetricsChart from './network-metrics-chart';
 
-const sampleData = _.times(31, index => {
+const sampleData = _.times(31, (index) => {
   const date = subDays(new Date(), index);
   date.setUTCHours(0, 0, 0, 0);
 
@@ -20,7 +20,7 @@ const sampleData = _.times(31, index => {
 });
 
 storiesOf('Charts|NetworkMetricsChart', module)
-  .addDecorator(getStory => (
+  .addDecorator((getStory) => (
     <div css="width: 600px; height: 300px;">{getStory()}</div>
   ))
   .add('trade volume (default)', () => (

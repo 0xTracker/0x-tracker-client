@@ -7,7 +7,7 @@ import { colors } from '../../../styles/constants';
 import Link from '../../../components/link';
 
 const StyledLink = styled(Link)`
-  color: ${props => (props.highlighted ? colors.white : colors.lavenderGray)};
+  color: ${(props) => (props.highlighted ? colors.white : colors.lavenderGray)};
   display: block;
   padding: 0.75rem 0 0.75rem 1rem;
 

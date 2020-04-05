@@ -5,7 +5,7 @@ import { TIME_PERIOD } from '../../../constants';
 import NetworkMetrics from './network-metrics';
 
 storiesOf('Charts|NetworkMetrics', module)
-  .addDecorator(getStory => (
+  .addDecorator((getStory) => (
     <div css="width: 600px; height: 300px;">{getStory()}</div>
   ))
   .add('fill volume (default)', () => (

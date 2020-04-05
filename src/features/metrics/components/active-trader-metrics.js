@@ -7,7 +7,7 @@ import BrushableChartContainer from '../../../components/brushable-chart-contain
 import LoadingIndicator from '../../../components/loading-indicator';
 import useActiveTraderMetrics from '../hooks/use-active-trader-metrics';
 
-const determineGranularity = period => {
+const determineGranularity = (period) => {
   if (period === TIME_PERIOD.ALL) {
     return 'week';
   }
@@ -42,7 +42,7 @@ const ActiveTraderMetrics = ({ period }) => {
 
   const data = React.useMemo(
     () =>
-      (metrics || []).map(metric => ({
+      (metrics || []).map((metric) => ({
         date: new Date(metric.date),
         makerCount: metric.makerCount,
         takerCount: metric.takerCount,

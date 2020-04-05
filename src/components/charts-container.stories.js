@@ -6,7 +6,7 @@ import TopRelayers from '../features/relayers/components/top-relayers';
 import TopTokens from '../features/tokens/components/top-tokens';
 
 storiesOf('Layout|ChartsContainer', module)
-  .addDecorator(getStory => (
+  .addDecorator((getStory) => (
     <div css="padding: 20px; max-width: 680px;">{getStory()}</div>
   ))
   .add('default', () => (

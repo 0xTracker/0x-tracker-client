@@ -28,7 +28,7 @@ const TokensFilter = ({ defaultFilters, onChange, selectedFilters }) => {
           currentValues={selectedFilters}
           defaultValues={defaultFilters}
           onClose={() => setFiltersDialogVisible(false)}
-          onSubmit={newValues => {
+          onSubmit={(newValues) => {
             onChange({ ...selectedFilters, ...newValues });
             setFiltersDialogVisible(false);
           }}
@@ -37,7 +37,7 @@ const TokensFilter = ({ defaultFilters, onChange, selectedFilters }) => {
       <Visible above="xs">
         <TimePeriodFilter
           css="width: 200px;"
-          onChange={newPeriod => {
+          onChange={(newPeriod) => {
             onChange({ ...selectedFilters, statsPeriod: newPeriod });
           }}
           value={selectedFilters.statsPeriod}

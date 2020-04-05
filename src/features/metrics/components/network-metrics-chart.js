@@ -12,9 +12,9 @@ import formatDate from '../../../util/format-date';
 import NetworkMetricsTooltip from './network-metrics-tooltip';
 import summarizeCurrency from '../../../util/summarize-currency';
 
-const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
+const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
 
-const formatCount = count => {
+const formatCount = (count) => {
   if (count === 0) {
     return '';
   }
@@ -24,7 +24,7 @@ const formatCount = count => {
 
 const NetworkMetricsChart = React.memo(
   ({ currency, data, onBrushChange, type }) => {
-    const formatCurrency = amount => {
+    const formatCurrency = (amount) => {
       if (amount === 0) {
         return '';
       }
@@ -36,7 +36,7 @@ const NetworkMetricsChart = React.memo(
       return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
-    const sanitizedData = data.map(dataPoint => ({
+    const sanitizedData = data.map((dataPoint) => ({
       ...dataPoint,
       date: dataPoint.date.toISOString(),
     }));

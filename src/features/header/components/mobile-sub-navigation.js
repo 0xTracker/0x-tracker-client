@@ -12,7 +12,7 @@ const StyledNavigation = styled.nav`
 `;
 
 const MobileSubNavigationLink = styled(Link)`
-  color: ${props => (props.highlighted ? colors.white : colors.lavenderGray)};
+  color: ${(props) => (props.highlighted ? colors.white : colors.lavenderGray)};
   display: block;
   margin: 1.25rem 0 0;
 
@@ -26,7 +26,7 @@ const MobileSubNavigation = ({ items, onNavigate }) => {
 
   return (
     <StyledNavigation>
-      {items.map(item => (
+      {items.map((item) => (
         <MobileSubNavigationLink
           highlighted={location.pathname.startsWith(item.href)}
           href={item.href}

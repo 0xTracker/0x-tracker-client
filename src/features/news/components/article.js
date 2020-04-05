@@ -10,9 +10,9 @@ import Link from '../../../components/link';
 
 const ArticleImage = styled.img`
   border-radius: 0.25rem;
-  height: ${props => (props.compact ? '50px' : '70px')};
+  height: ${(props) => (props.compact ? '50px' : '70px')};
   margin-right: 1rem;
-  width: ${props => (props.compact ? '50px' : '70px')};
+  width: ${(props) => (props.compact ? '50px' : '70px')};
 `;
 
 const StyledArticle = styled.div`
@@ -66,7 +66,7 @@ const ArticleHeading = styled.h4`
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: ${props => (props.compact ? 'wrap' : 'nowrap')};
+  white-space: ${(props) => (props.compact ? 'wrap' : 'nowrap')};
 `;
 
 const Article = ({ article, compact, showImage }) => (

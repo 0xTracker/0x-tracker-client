@@ -19,7 +19,7 @@ const SpacerColumn = styled.td`
 `;
 
 const SplitValueColumn = styled.td`
-  ${props =>
+  ${(props) =>
     props.side === 'left'
       ? css`
           padding-right: 1rem !important;

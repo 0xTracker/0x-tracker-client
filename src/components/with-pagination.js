@@ -2,13 +2,13 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const withPagination = WrappedComponent => {
+const withPagination = (WrappedComponent) => {
   const WithPagination = ({ history, location, ...otherProps }) => {
     const params = new URLSearchParams(location.search);
     const pageParam = Number(params.get('page'));
     const page = _.isNaN(pageParam) || pageParam <= 0 ? 1 : pageParam;
 
-    const setPage = newPage => {
+    const setPage = (newPage) => {
       params.set('page', newPage);
       const newUrl = `${location.pathname}?${params.toString()}`;
 

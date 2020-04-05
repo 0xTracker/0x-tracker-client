@@ -51,7 +51,7 @@ const RelayersFilterDialog = ({
   const [values, setValues] = React.useState(currentValues);
 
   const handleChange = (value, fieldName) => {
-    setValues(oldValues => ({ ...oldValues, [fieldName]: value }));
+    setValues((oldValues) => ({ ...oldValues, [fieldName]: value }));
   };
 
   const handleSubmit = () => {

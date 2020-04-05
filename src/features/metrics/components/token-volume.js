@@ -41,7 +41,7 @@ const TokenVolume = ({ period, token }) => {
 
   const data = React.useMemo(
     () =>
-      (metrics || []).map(metric => ({
+      (metrics || []).map((metric) => ({
         date: new Date(metric.date),
         localizedVolume: metric.fillVolume.USD * conversionRate,
         tokenVolume: metric.fillVolume.token,

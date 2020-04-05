@@ -19,7 +19,7 @@ const StorybookStyles = createGlobalStyle`
   }
 `;
 
-const withGlobalStyles = storyFn => (
+const withGlobalStyles = (storyFn) => (
   <>
     <GlobalStyles />
     <StorybookStyles />
@@ -50,7 +50,7 @@ setOptions({
 const req = require.context('../src', true, /\.stories.js$/);
 
 function loadStories() {
-  _.forEach(req.keys(), filename => req(filename));
+  _.forEach(req.keys(), (filename) => req(filename));
 }
 
 configure(loadStories, module);

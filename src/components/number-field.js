@@ -13,7 +13,7 @@ const Input = styled.input`
 `;
 
 const NumberField = ({ name, onChange, value, ...otherProps }) => {
-  const handleChange = event => {
+  const handleChange = (event) => {
     const newValue = event.currentTarget.value;
 
     onChange(newValue, name);

@@ -1,6 +1,6 @@
 import normalizePeriod from './normalize-period';
 
-const verbosePeriod = period => {
+const verbosePeriod = (period) => {
   const normalizedPeriod = normalizePeriod(period);
 
   switch (normalizedPeriod) {

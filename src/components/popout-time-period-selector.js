@@ -35,9 +35,9 @@ const PopoutTimePeriodSelector = ({ className, name, onChange, value }) => (
     isSearchable={false}
     menuIsOpen
     name={name}
-    onChange={option => onChange(option.value, name)}
+    onChange={(option) => onChange(option.value, name)}
     options={OPTIONS}
-    value={OPTIONS.find(option => option.value === value)}
+    value={OPTIONS.find((option) => option.value === value)}
   />
 );
 

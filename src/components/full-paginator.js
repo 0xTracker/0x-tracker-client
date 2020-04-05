@@ -89,7 +89,7 @@ const FullPaginator = ({
   pageSize,
   recordCount,
 }) => {
-  const handlePageChange = meta => {
+  const handlePageChange = (meta) => {
     onPageChange(meta.selected + 1);
   };
 

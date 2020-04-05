@@ -17,8 +17,8 @@ const TabbedCardHeader = styled(CardHeader)`
 
 const TabLink = styled(NavLink)`
   &&& {
-    color: ${props => (props.active ? 'inherit' : colors.santasGray)};
-    font-weight: ${props => (props.active ? '500' : 'initial')};
+    color: ${(props) => (props.active ? 'inherit' : colors.santasGray)};
+    font-weight: ${(props) => (props.active ? '500' : 'initial')};
     cursor: pointer;
     border: none;
     margin-right: 1rem;
@@ -26,7 +26,7 @@ const TabLink = styled(NavLink)`
 
     &:hover,
     &:active {
-      color: ${props => (props.active ? 'inherit' : colors.stormGray)};
+      color: ${(props) => (props.active ? 'inherit' : colors.stormGray)};
     }
   }
 `;

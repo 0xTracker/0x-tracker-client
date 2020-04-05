@@ -9,7 +9,7 @@ import StatWidget from '../../../components/stat-widget';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const createTooltip = period => {
+const createTooltip = (period) => {
   if (period === 'all') {
     return 'Sum of protocol fees accumulated since 0x was launched. Protocol fees are collected for every fill on v3 of the 0x protocol.';
   }

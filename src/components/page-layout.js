@@ -6,11 +6,11 @@ import Container from './container';
 import PageTitleBlock from './page-title-block';
 
 const PageBody = styled(Container)`
-  align-items: ${props => (props.centered ? 'center' : 'initial')};
+  align-items: ${(props) => (props.centered ? 'center' : 'initial')};
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  justify-content: ${props => (props.centered ? 'center' : 'initial')};
+  justify-content: ${(props) => (props.centered ? 'center' : 'initial')};
 `;
 
 const StyledPageLayout = styled.div`

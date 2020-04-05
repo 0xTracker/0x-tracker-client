@@ -4,7 +4,7 @@ import React from 'react';
 
 import callApi from '../../../util/call-api';
 
-const sanitizeArticle = article => ({
+const sanitizeArticle = (article) => ({
   ...article,
   date: new Date(article.date),
 });
@@ -13,7 +13,7 @@ class ArticlesProvider extends React.PureComponent {
   state = { isLoading: false, page: 1 };
 
   componentDidMount() {
-    this.fetchInitial().catch(error => {
+    this.fetchInitial().catch((error) => {
       this.setState({ error });
     });
   }
@@ -22,13 +22,13 @@ class ArticlesProvider extends React.PureComponent {
     const { source } = this.props;
 
     if (prevProps.source !== source) {
-      this.fetchInitial().catch(error => {
+      this.fetchInitial().catch((error) => {
         this.setState({ error });
       });
     }
   }
 
-  handleLoadMore = event => {
+  handleLoadMore = (event) => {
     const { page } = this.state;
 
     event.preventDefault();
@@ -56,7 +56,7 @@ class ArticlesProvider extends React.PureComponent {
 
     const data = await callApi('articles', { page, source });
 
-    this.setState(prevState => ({
+    this.setState((prevState) => ({
       articles: prevState.articles.concat(data.articles.map(sanitizeArticle)),
       isLoading: false,
       page: data.page,

@@ -9,7 +9,7 @@ const Card = styled.div`
   box-shadow: 0px 2px 4px rgba(126, 142, 177, 0.12);
   display: flex;
   flex-direction: column;
-  flex-grow: ${props => (props.fullHeight ? '1' : '0')};
+  flex-grow: ${(props) => (props.fullHeight ? '1' : '0')};
   overflow: hidden;
 `;
 

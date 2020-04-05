@@ -12,7 +12,7 @@ const MiniRelayerMetricsChart = React.memo(({ data, height, type, width }) => {
 
   return (
     <AreaChart
-      data={data.map(dataPoint => ({
+      data={data.map((dataPoint) => ({
         ...dataPoint,
         date: dataPoint.date.toISOString(),
       }))}

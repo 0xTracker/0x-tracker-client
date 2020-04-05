@@ -21,14 +21,14 @@ const HomePageColumn = styled(Col)`
   margin-bottom: 1.25rem;
 
   &:last-child {
-    margin-bottom: ${props => (props.lastRow ? '0' : '1.25rem')};
+    margin-bottom: ${(props) => (props.lastRow ? '0' : '1.25rem')};
   }
 
   ${media.greaterThan('lg')`
-    margin-bottom: ${props => (props.lastRow ? '0' : '2rem')};
+    margin-bottom: ${(props) => (props.lastRow ? '0' : '2rem')};
 
     &:last-child {
-      margin-bottom: ${props => (props.lastRow ? '0' : '2rem')};
+      margin-bottom: ${(props) => (props.lastRow ? '0' : '2rem')};
     }
   `}
 `;

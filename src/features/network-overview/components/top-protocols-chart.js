@@ -23,7 +23,7 @@ const TopProtocolsChart = ({ data }) => {
           nameKey="protocolVersion"
           paddingAngle={0}
         >
-          {data.map(entry => (
+          {data.map((entry) => (
             <Cell
               fill={protocolColors[entry.protocolVersion]}
               fillOpacity={0.7}

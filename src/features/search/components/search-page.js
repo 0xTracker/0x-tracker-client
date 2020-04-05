@@ -25,7 +25,7 @@ const SearchPage = ({ history, location }) => {
     page,
   });
 
-  const onPageChange = useCallback(newPage => {
+  const onPageChange = useCallback((newPage) => {
     history.push(
       buildUrl(URL.SEARCH, {
         page: newPage,

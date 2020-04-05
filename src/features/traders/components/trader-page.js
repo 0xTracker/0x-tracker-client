@@ -16,7 +16,7 @@ const TraderPage = ({ history, location, match }) => {
   const params = new URLSearchParams(location.search);
   const page = Number(params.get('page')) || 1;
 
-  const onPageChange = useCallback(newPage => {
+  const onPageChange = useCallback((newPage) => {
     history.push(
       buildUrl(match.url, {
         page: newPage,

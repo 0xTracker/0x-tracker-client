@@ -43,7 +43,7 @@ const MobileTimePeriodFilter = ({ onChange, value }) => {
       </Button>
       {open && (
         <PopoutTimePeriodSelector
-          onChange={newValue => {
+          onChange={(newValue) => {
             onChange(newValue);
             setOpen(false);
           }}

@@ -2,7 +2,7 @@ import React from 'react';
 
 let context = React.createContext();
 
-const setTestValue = initialValue => {
+const setTestValue = (initialValue) => {
   context = React.createContext(initialValue);
 };
 

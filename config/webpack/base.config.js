@@ -9,7 +9,7 @@ const paths = {
   staticFiles: 'public',
 };
 
-const getConfig = environment => ({
+const getConfig = (environment) => ({
   module: {
     rules: [
       {

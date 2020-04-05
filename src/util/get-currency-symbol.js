@@ -1,6 +1,6 @@
 import currencyFormatter from 'currency-formatter';
 
-const getCurrencySymbol = code => {
+const getCurrencySymbol = (code) => {
   if (code === 'ETH') {
     return 'Ξ';
   }

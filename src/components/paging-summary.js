@@ -3,7 +3,7 @@ import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const formatNumber = value => numeral(value).format('0,0');
+const formatNumber = (value) => numeral(value).format('0,0');
 
 const PagingSummary = ({ className, compact, page, pageSize, recordCount }) => {
   const endIndex = _.clamp(page * pageSize, recordCount);

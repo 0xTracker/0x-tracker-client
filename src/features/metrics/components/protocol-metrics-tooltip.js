@@ -18,8 +18,8 @@ const ProtocolMetricsTooltip = ({ currency, payload }) => {
   return (
     <ChartTooltip
       items={_.sortBy(stats, 'protocolVersion')
-        .filter(stat => stat.fillCount > 0)
-        .map(stat => ({
+        .filter((stat) => stat.fillCount > 0)
+        .map((stat) => ({
           label: `v${stat.protocolVersion}`,
           value: `${formatCurrency(stat.tradeVolume, currency)} / ${numeral(
             stat.fillCount,

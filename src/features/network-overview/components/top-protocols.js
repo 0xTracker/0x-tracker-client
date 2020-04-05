@@ -34,7 +34,7 @@ const TopProtocols = ({ period }) => {
   }
 
   const stats = _.sortBy(
-    protocols.items.map(protocol => ({
+    protocols.items.map((protocol) => ({
       fillCount: protocol.stats.fillCount,
       protocolVersion: protocol.version,
       tradeVolume: protocol.stats.tradeVolume,

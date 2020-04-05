@@ -31,7 +31,7 @@ const RelayerPage = ({ history, location, match }) => {
 
   const [relayer, loadingRelayer] = useRelayer(slug);
 
-  const onPageChange = useCallback(newPage => {
+  const onPageChange = useCallback((newPage) => {
     history.push(
       buildUrl(match.url, {
         page: newPage,

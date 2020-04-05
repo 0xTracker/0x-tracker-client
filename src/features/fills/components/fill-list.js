@@ -13,7 +13,7 @@ import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 
 const FillList = ({ excludeColumns, fills }) => {
-  const includeColumn = column => !excludeColumns.includes(column);
+  const includeColumn = (column) => !excludeColumns.includes(column);
 
   return (
     <table className="table table-responsive">
