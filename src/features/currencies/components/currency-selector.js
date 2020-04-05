@@ -5,7 +5,7 @@ import { CURRENCIES } from '../constants';
 import AsyncSelect from '../../../components/async-select';
 import currenciesPropTypes from '../prop-types';
 
-const OPTIONS = CURRENCIES.map(currency => ({
+const OPTIONS = CURRENCIES.map((currency) => ({
   label: `${currency.name} (${currency.symbol})`,
   value: currency.symbol,
 }));
@@ -18,9 +18,9 @@ const CurrencySelector = ({ className, name, onChange, value }) => (
     isClearable={false}
     isSearchable={false}
     name={name}
-    onChange={option => onChange(option.value)}
+    onChange={(option) => onChange(option.value)}
     options={OPTIONS}
-    value={OPTIONS.find(option => option.value === value)}
+    value={OPTIONS.find((option) => option.value === value)}
   />
 );
 

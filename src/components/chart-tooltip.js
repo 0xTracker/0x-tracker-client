@@ -37,7 +37,7 @@ const ChartTooltip = ({ title, items }) => (
   <ChartTooltipWrapper>
     <ChartTooltipTitle>{title}</ChartTooltipTitle>
     <dl css="margin: 0; padding: 0;">
-      {items.map(item => (
+      {items.map((item) => (
         <div key={item.label}>
           <ChartTooltipItemTitle>{item.label}:</ChartTooltipItemTitle>
           <ChartTooltipItemValue>{item.value}</ChartTooltipItemValue>

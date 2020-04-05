@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const useEscapeKey = onEscape => {
+const useEscapeKey = (onEscape) => {
   const handleKeyDown = ({ key }) => {
     if (key === 'Escape') {
       onEscape();

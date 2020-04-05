@@ -13,11 +13,11 @@ const StyledDialog = styled.section`
   background-color: ${colors.white};
   border-radius: 0.25rem;
   box-shadow: 0 2px 4px 0 ${rgba(colors.black, 0.2)};
-  max-height: ${props => props.height}px;
-  height: ${props => props.height}px;
+  max-height: ${(props) => props.height}px;
+  height: ${(props) => props.height}px;
   position: relative;
-  max-width: ${props => props.width}px;
-  width: ${props => props.width}px;
+  max-width: ${(props) => props.width}px;
+  width: ${(props) => props.width}px;
 `;
 
 const Overlay = styled.div`

@@ -10,7 +10,7 @@ const SearchForm = ({ children, className, onSearch }) => {
   const history = useHistory();
   const [searchQuery, updateSearchQuery] = React.useState('');
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     if (!_.isEmpty(_.trim(searchQuery))) {
@@ -20,7 +20,7 @@ const SearchForm = ({ children, className, onSearch }) => {
     }
   };
 
-  const handleSearchQueryChange = event => {
+  const handleSearchQueryChange = (event) => {
     updateSearchQuery(event.target.value);
   };
 

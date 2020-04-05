@@ -34,7 +34,7 @@ const FillsPage = ({ history, location }) => {
   const valueFrom = params.get('valueFrom') || undefined;
   const valueTo = params.get('valueTo') || undefined;
 
-  const handlePageChange = newPage => {
+  const handlePageChange = (newPage) => {
     history.push(
       buildUrl(URL.FILLS, {
         dateFrom,
@@ -50,7 +50,7 @@ const FillsPage = ({ history, location }) => {
     );
   };
 
-  const handleFiltersChange = newFilters => {
+  const handleFiltersChange = (newFilters) => {
     history.push(buildUrl(URL.FILLS, newFilters));
   };
 

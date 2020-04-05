@@ -5,7 +5,7 @@ const buildUrl = (path, params) => {
   const queryParams = flow([
     omitBy(_.isNil),
     keys,
-    map(key => `${key}=${params[key]}`),
+    map((key) => `${key}=${params[key]}`),
     join('&'),
   ])(params);
   const query = queryParams.length > 0 ? `?${queryParams}` : '';

@@ -10,7 +10,7 @@ const StyledMobileNavigationLink = styled(Link)`
   background: none;
   border: none;
   border-bottom: 1px solid ${colors.martinique};
-  color: ${props => (props.highlighted ? colors.white : colors.lavenderGray)};
+  color: ${(props) => (props.highlighted ? colors.white : colors.lavenderGray)};
   cursor: pointer;
   display: block;
   flex-grow: 1;

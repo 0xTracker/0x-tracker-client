@@ -13,9 +13,9 @@ import RelayerMetricsTooltip from './relayer-metrics-tooltip';
 import summarizeCurrency from '../../../util/summarize-currency';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
-const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
+const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
 
-const formatCount = count => {
+const formatCount = (count) => {
   if (count === 0) {
     return '';
   }
@@ -26,7 +26,7 @@ const formatCount = count => {
 const RelayerMetricsChart = React.memo(({ data, onBrushChange, type }) => {
   const displayCurrency = useDisplayCurrency();
 
-  const formatCurrency = amount => {
+  const formatCurrency = (amount) => {
     if (amount === 0) {
       return '';
     }
@@ -38,7 +38,7 @@ const RelayerMetricsChart = React.memo(({ data, onBrushChange, type }) => {
     return <ChartPlaceholder>No data available</ChartPlaceholder>;
   }
 
-  const sanitizedData = data.map(dataPoint => ({
+  const sanitizedData = data.map((dataPoint) => ({
     ...dataPoint,
     date: dataPoint.date.toISOString(),
   }));

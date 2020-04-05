@@ -13,8 +13,8 @@ import verbosePeriod from '../util/verbose-period';
 
 const ChartLink = styled(NavLink)`
   &&& {
-    color: ${props => (props.active ? 'inherit' : colors.santasGray)};
-    font-weight: ${props => (props.active ? '500' : 'initial')};
+    color: ${(props) => (props.active ? 'inherit' : colors.santasGray)};
+    font-weight: ${(props) => (props.active ? '500' : 'initial')};
     cursor: pointer;
     border: none;
     margin-right: 1rem;
@@ -22,7 +22,7 @@ const ChartLink = styled(NavLink)`
 
     &:hover,
     &:active {
-      color: ${props => (props.active ? 'inherit' : colors.stormGray)};
+      color: ${(props) => (props.active ? 'inherit' : colors.stormGray)};
     }
   }
 `;
@@ -60,7 +60,7 @@ const ChartsContainer = ({
   const [selectedPeriod, setSelectedPeriod] = useState(defaultPeriod);
   const currentBreakpoint = useCurrentBreakpoint();
 
-  const Chart = charts.find(chart => chart.title === selectedChart).component;
+  const Chart = charts.find((chart) => chart.title === selectedChart).component;
   const chartProps = { period: selectedPeriod };
 
   return (
@@ -75,7 +75,7 @@ const ChartsContainer = ({
           charts[0].title
         ) : (
           <Nav card css="margin: 0;" tabs>
-            {charts.map(chart => (
+            {charts.map((chart) => (
               <NavItem key={chart.title}>
                 <ChartLink
                   active={selectedChart === chart.title}
@@ -89,7 +89,7 @@ const ChartsContainer = ({
         )}
         {currentBreakpoint.greaterThan('xs') && periods && (
           <Periods>
-            {periods.map(period => (
+            {periods.map((period) => (
               <NavItem key={period.value}>
                 <PeriodLink
                   active={selectedPeriod === period.value}

@@ -56,7 +56,7 @@ const TradersPage = ({ history, location }) => {
         filter={
           <TradersFilter
             defaultFilters={defaultFilters}
-            onChange={newFilters => {
+            onChange={(newFilters) => {
               history.push(buildUrl(URL.TRADERS, newFilters));
             }}
             selectedFilters={selectedFilters}
@@ -90,7 +90,7 @@ const TradersPage = ({ history, location }) => {
                 traders={items}
               />
               <Paginator
-                onPageChange={newPage => {
+                onPageChange={(newPage) => {
                   history.push(
                     buildUrl(URL.TRADERS, {
                       page: newPage,

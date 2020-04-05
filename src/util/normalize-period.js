@@ -8,6 +8,6 @@ const mappings = {
   [TIME_PERIOD.ALL]: 'all',
 };
 
-const normalizePeriod = period => mappings[period];
+const normalizePeriod = (period) => mappings[period];
 
 export default normalizePeriod;

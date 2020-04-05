@@ -21,7 +21,7 @@ const TokenPage = ({ history, location, match }) => {
 
   const [token, loadingToken] = useToken(tokenAddress);
 
-  const onPageChange = useCallback(newPage => {
+  const onPageChange = useCallback((newPage) => {
     history.push(
       buildUrl(match.url, {
         page: newPage,

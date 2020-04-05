@@ -20,7 +20,7 @@ const RelayerSelector = ({ className, name, onChange, value }) => {
       label: 'All',
       value: undefined,
     },
-    ...sortedRelayers.map(relayer => ({
+    ...sortedRelayers.map((relayer) => ({
       label: relayer.name,
       value: relayer.id,
     })),
@@ -33,9 +33,9 @@ const RelayerSelector = ({ className, name, onChange, value }) => {
       isClearable={false}
       isSearchable={false}
       name={name}
-      onChange={option => onChange(option.value, name)}
+      onChange={(option) => onChange(option.value, name)}
       options={options}
-      value={options.find(option => option.value === value)}
+      value={options.find((option) => option.value === value)}
     />
   );
 };

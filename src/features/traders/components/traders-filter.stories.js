@@ -10,7 +10,7 @@ const simpleProps = {
   defaultFilters: {
     statsPeriod: TIME_PERIOD.DAY,
   },
-  onChange: newValues => {
+  onChange: (newValues) => {
     console.log('new values', newValues);
   },
   selectedFilters: {

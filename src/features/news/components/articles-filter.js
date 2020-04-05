@@ -10,7 +10,7 @@ import Link from '../../../components/link';
 
 const FilterItem = styled(Link)`
   border-bottom: 1px solid ${colors.athensGray};
-  color: ${props => (props.active ? colors.violet : colors.stormGray)};
+  color: ${(props) => (props.active ? colors.violet : colors.stormGray)};
   display: flex;
   justify-content: space-between;
   padding: 0.75rem 1rem;
@@ -35,7 +35,7 @@ const ArticlesFilter = ({ sources }) => {
         All
         <AllIcon height={20} width={20} />
       </FilterItem>
-      {sources.map(source => {
+      {sources.map((source) => {
         const sourceUrl = `${URL.NEWS}/${source.slug}`;
 
         return (

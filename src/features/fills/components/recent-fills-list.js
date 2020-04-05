@@ -6,7 +6,7 @@ import RecentFillsItem from './recent-fills-item';
 
 const RecentFillsList = ({ fills }) => (
   <div css="overflow-x: scroll">
-    {fills.map(fill => (
+    {fills.map((fill) => (
       <RecentFillsItem fill={fill} key={fill.id} />
     ))}
   </div>

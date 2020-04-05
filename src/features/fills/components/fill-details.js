@@ -46,12 +46,12 @@ const PriceBadge = styled.span.attrs({ className: 'badge' })`
 const FillDetails = ({ fill }) => {
   const breakpoint = useCurrentBreakpoint();
   const displayCurrency = useDisplayCurrency();
-  const assetsWithPrices = _.filter(fill.assets, asset =>
+  const assetsWithPrices = _.filter(fill.assets, (asset) =>
     _.isObject(asset.price),
   );
   const bridgedAsset = _.find(
     fill.assets,
-    asset => asset.bridgeAddress !== undefined,
+    (asset) => asset.bridgeAddress !== undefined,
   );
 
   return (
@@ -170,7 +170,7 @@ const FillDetails = ({ fill }) => {
           'None'
         ) : (
           <List>
-            {assetsWithPrices.map(asset => (
+            {assetsWithPrices.map((asset) => (
               <ListItem key={`${asset.tokenAddress}-${asset.tokenId}`}>
                 <AssetLabel asset={asset} />
                 <PriceBadge>

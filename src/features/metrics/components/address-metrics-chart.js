@@ -11,11 +11,11 @@ import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import summarizeCurrency from '../../../util/summarize-currency';
 
-const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
+const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
 
 const AddressMetricsChart = React.memo(
   ({ data, keyMetric, localCurrency, onBrushChange }) => {
-    const formatValue = value => {
+    const formatValue = (value) => {
       if (value === 0) {
         return '';
       }
@@ -31,7 +31,7 @@ const AddressMetricsChart = React.memo(
       return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
-    const sanitizedData = _.map(data, dataPoint => ({
+    const sanitizedData = _.map(data, (dataPoint) => ({
       ...dataPoint,
       date: dataPoint.date.toISOString(),
     }));

@@ -40,7 +40,7 @@ const TokensPage = ({ history, location, page, setPage }) => {
 
   const { items, pageCount, pageSize, recordCount } = tokens;
 
-  const handleFiltersChange = newFilters => {
+  const handleFiltersChange = (newFilters) => {
     history.push(buildUrl(URL.TOKENS, newFilters));
   };
 

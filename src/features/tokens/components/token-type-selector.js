@@ -17,9 +17,9 @@ const TokenTypeSelector = ({ className, name, onChange, value }) => (
     isClearable={false}
     isSearchable={false}
     name={name}
-    onChange={option => onChange(option.value, name)}
+    onChange={(option) => onChange(option.value, name)}
     options={OPTIONS}
-    value={OPTIONS.find(option => option.value === value)}
+    value={OPTIONS.find((option) => option.value === value)}
   />
 );
 

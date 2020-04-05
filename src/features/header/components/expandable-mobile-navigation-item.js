@@ -11,7 +11,7 @@ const StyledItem = styled.button`
   align-items: center;
   background: none;
   border: none;
-  border-bottom: ${props =>
+  border-bottom: ${(props) =>
     props.expanded ? 'none' : `1px solid ${colors.martinique}`};
   color: ${colors.lavenderGray};
   cursor: pointer;
@@ -46,7 +46,7 @@ const ContractableIndicator = styled(ChevronUpIcon).attrs({
 
 const ExpandableMobileNavigationItem = ({ children, items, onNavigate }) => {
   const location = useLocation();
-  const highlighted = items.some(item =>
+  const highlighted = items.some((item) =>
     location.pathname.startsWith(item.href),
   );
   const [expanded, setExpanded] = React.useState(highlighted);

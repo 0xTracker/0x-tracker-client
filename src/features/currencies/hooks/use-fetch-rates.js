@@ -13,7 +13,7 @@ const useFetchRates = () => {
   useEffect(() => {
     const source = CancelToken.source();
     const toSymbols = Object.values(CURRENCIES)
-      .map(currency => currency.symbol)
+      .map((currency) => currency.symbol)
       .join(',');
 
     axios
@@ -24,26 +24,26 @@ const useFetchRates = () => {
           timeout: API_CALL_TIMEOUT,
         },
       )
-      .then(response => {
-        setState(prevState => ({
+      .then((response) => {
+        setState((prevState) => ({
           ...prevState,
           fetchError: undefined,
           rates: response.data[BASE_CURRENCY],
         }));
       })
-      .catch(error => {
+      .catch((error) => {
         if (axios.isCancel(error) || error.message === 'Request aborted') {
           // Ignore cancellation errors because they're deliberate
         } else {
           // Stash the error so that it can be rethrown in render scope
-          setState(prevState => ({
+          setState((prevState) => ({
             ...prevState,
             fetchError: error,
           }));
         }
       });
 
-    setState(prevState => ({
+    setState((prevState) => ({
       ...prevState,
       cancelRequest: source.cancel,
     }));

@@ -41,7 +41,7 @@ const TopRelayersTable = ({ relayers }) => {
         </tr>
       </thead>
       <tbody>
-        {relayers.map(relayer => (
+        {relayers.map((relayer) => (
           <TableRow key={relayer.id}>
             <TableCell css="padding-right: 1.25rem;">
               {relayer.id === 'unknown' ? (

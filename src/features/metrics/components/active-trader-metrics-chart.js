@@ -11,9 +11,9 @@ import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 
-const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
+const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
 
-const formatNumber = value => {
+const formatNumber = (value) => {
   if (value === 0) {
     return '';
   }
@@ -26,7 +26,7 @@ const ActiveTraderMetricsChart = React.memo(({ data, onBrushChange }) => {
     return <ChartPlaceholder>No data available</ChartPlaceholder>;
   }
 
-  const sanitizedData = data.map(dataPoint => ({
+  const sanitizedData = data.map((dataPoint) => ({
     ...dataPoint,
     date: dataPoint.date.toISOString(),
   }));

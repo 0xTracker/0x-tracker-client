@@ -11,7 +11,7 @@ import formatDate from '../../../util/format-date';
 import summarizeCurrency from '../../../util/summarize-currency';
 import TokenVolumeTooltip from './token-volume-tooltip';
 
-const formatAxisDate = date => formatDate(date, DATE_FORMAT.COMPACT);
+const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
 
 class TokenVolumeChart extends PureComponent {
   constructor() {
@@ -37,7 +37,7 @@ class TokenVolumeChart extends PureComponent {
       return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
-    const sanitizedData = _.map(data, dataPoint => ({
+    const sanitizedData = _.map(data, (dataPoint) => ({
       ...dataPoint,
       date: dataPoint.date.toISOString(),
     }));

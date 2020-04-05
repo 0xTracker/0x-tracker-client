@@ -24,7 +24,7 @@ const FillsFilter = ({ defaultFilters, onChange, selectedFilters }) => {
           currentValues={selectedFilters}
           defaultValues={defaultFilters}
           onClose={() => setFiltersDialogVisible(false)}
-          onSubmit={newValues => {
+          onSubmit={(newValues) => {
             onChange({ ...selectedFilters, ...newValues });
             setFiltersDialogVisible(false);
           }}

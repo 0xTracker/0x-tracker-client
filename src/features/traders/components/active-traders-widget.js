@@ -9,7 +9,7 @@ import StatWidget from '../../../components/stat-widget';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const createTooltip = period => {
+const createTooltip = (period) => {
   if (period === 'all') {
     return 'Number of unique trader addresses that have been active since 0x was launched.';
   }

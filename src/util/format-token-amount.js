@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const trimTrailingZeroes = amount => _.trimEnd(_.trimEnd(amount, '0'), '.');
+const trimTrailingZeroes = (amount) => _.trimEnd(_.trimEnd(amount, '0'), '.');
 
 const formatRecursively = (amount, precision) => {
   if (_.isNil(amount)) {
@@ -28,6 +28,6 @@ const formatRecursively = (amount, precision) => {
   });
 };
 
-const formatTokenAmount = amount => formatRecursively(amount, 6);
+const formatTokenAmount = (amount) => formatRecursively(amount, 6);
 
 export default formatTokenAmount;

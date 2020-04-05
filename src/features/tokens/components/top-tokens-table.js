@@ -34,7 +34,7 @@ const TopTokensTable = ({ tokens }) => (
       </tr>
     </thead>
     <tbody>
-      {tokens.map(token => (
+      {tokens.map((token) => (
         <TableRow key={token.address}>
           <TableCell css="padding-right: 1.25rem;">
             <TokenImage imageUrl={token.imageUrl} size="2.5rem" />

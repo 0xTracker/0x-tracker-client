@@ -3,9 +3,9 @@ import React from 'react';
 
 import * as Icons from '.';
 
-it.each(Object.keys(Icons).map(iconName => [iconName]))(
+it.each(Object.keys(Icons).map((iconName) => [iconName]))(
   'should render %s icon at 20x20',
-  iconName => {
+  (iconName) => {
     // eslint-disable-next-line import/namespace
     const Icon = Icons[iconName];
 
@@ -15,9 +15,9 @@ it.each(Object.keys(Icons).map(iconName => [iconName]))(
   },
 );
 
-it.each(Object.keys(Icons).map(iconName => [iconName]))(
+it.each(Object.keys(Icons).map((iconName) => [iconName]))(
   'should render %s icon at 50x50',
-  iconName => {
+  (iconName) => {
     // eslint-disable-next-line import/namespace
     const Icon = Icons[iconName];
 

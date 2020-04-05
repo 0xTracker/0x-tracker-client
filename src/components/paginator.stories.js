@@ -5,7 +5,7 @@ import Paginator from './paginator';
 
 const simpleProps = {
   // eslint-disable-next-line no-console
-  onPageChange: page => console.log(`page changed to ${page}`),
+  onPageChange: (page) => console.log(`page changed to ${page}`),
   pageCount: 19,
   pageSize: 15,
   recordCount: 276,

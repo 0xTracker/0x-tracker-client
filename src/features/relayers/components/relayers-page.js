@@ -40,7 +40,7 @@ const RelayersPage = ({ history, location, page, setPage }) => {
 
   const { items, pageCount, pageSize, recordCount } = relayers;
 
-  const handleFiltersChange = newFilters => {
+  const handleFiltersChange = (newFilters) => {
     history.push(buildUrl(URL.RELAYERS, newFilters));
   };
 

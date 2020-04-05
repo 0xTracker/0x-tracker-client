@@ -49,7 +49,7 @@ const simpleFill = {
 };
 
 storiesOf('Fills|FillDetails', module)
-  .addDecorator(getStory => (
+  .addDecorator((getStory) => (
     <Card>
       <CardBody padded>{getStory()}</CardBody>
     </Card>
@@ -185,7 +185,7 @@ storiesOf('Fills|FillDetails', module)
     <FillDetails
       fill={{
         ...simpleFill,
-        assets: simpleFill.assets.map(asset => ({
+        assets: simpleFill.assets.map((asset) => ({
           ...asset,
           price: undefined,
         })),
@@ -196,7 +196,7 @@ storiesOf('Fills|FillDetails', module)
     <FillDetails
       fill={{
         ...simpleFill,
-        assets: simpleFill.assets.map(asset => ({
+        assets: simpleFill.assets.map((asset) => ({
           ...asset,
           amount: undefined,
           price: undefined,

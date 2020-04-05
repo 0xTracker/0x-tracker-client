@@ -13,7 +13,7 @@ const createPageRoute = (path, loader, key = path) => {
       exact
       key={key}
       path={path}
-      render={props => (
+      render={(props) => (
         <ErrorBoundary>
           <Component {...props} fallback={<LoadingPage />} />
         </ErrorBoundary>

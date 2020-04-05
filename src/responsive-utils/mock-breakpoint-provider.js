@@ -17,7 +17,7 @@ const MockBreakpointProvider = ({ breakpoints, children, value }) => {
   );
 };
 
-MockBreakpointProvider.setDefaultBreakpoints = breakpoints => {
+MockBreakpointProvider.setDefaultBreakpoints = (breakpoints) => {
   defaultBreakpoints = breakpoints;
 };
 
