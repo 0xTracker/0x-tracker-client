@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import formatTokenAmount from '../../../util/format-token-amount';
+import formatTokenSymbol from '../util/format-token-symbol';
 import TokenLink from './token-link';
 
 const TokenAmount = ({ amount, linked, token }) => {
@@ -15,7 +16,7 @@ const TokenAmount = ({ amount, linked, token }) => {
       <TokenLink address={token.address}>{token.symbol}</TokenLink>
     </span>
   ) : (
-    `${formatTokenAmount(amount)} ${token.symbol}`
+    `${formatTokenAmount(amount)} ${formatTokenSymbol(token.symbol)}`
   );
 };
 

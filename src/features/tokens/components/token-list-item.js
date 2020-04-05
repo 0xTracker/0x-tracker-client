@@ -7,6 +7,7 @@ import { DATE_FORMAT } from '../../../constants';
 import { colors } from '../../../styles/constants';
 import FillLink from '../../fills/components/fill-link';
 import formatDate from '../../../util/format-date';
+import formatTokenSymbol from '../util/format-token-symbol';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import Number from '../../../components/number';
 import TokenImage from './token-image';
@@ -42,16 +43,16 @@ const TokenListItem = ({ position, token }) => (
     </td>
     <td width="99%">
       <TokenLink address={token.address}>
-        {token.name || 'Unknown Token'}
+        {_.truncate(token.name, { length: 30 }) || 'Unknown Token'}
       </TokenLink>
       <br />
-      {token.symbol || truncateAddress(token.address)}
+      {formatTokenSymbol(token.symbol) || truncateAddress(token.address)}
     </td>
     <td className="align-middle">
       <AssetTypeBadge>{token.type.toUpperCase()}</AssetTypeBadge>
     </td>
     <td className="align-middle" css="text-align: right;">
-      {_.has(token, 'price.last') && token.type === 'erc-20' ? (
+      {!_.isNil(token.price.last) && token.type === 'erc-20' ? (
         <LastTradeLink fillId={token.lastTrade.id}>
           <LocalisedAmount amount={token.price.last} />
           <br />

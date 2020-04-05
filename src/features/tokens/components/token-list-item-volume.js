@@ -4,7 +4,6 @@ import React from 'react';
 
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { colors } from '../../../styles/constants';
-import formatTokenAmount from '../../../util/format-token-amount';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import TokenAmount from './token-amount';
 
@@ -16,16 +15,12 @@ const TokenListItemVolume = ({ token }) => {
     return '-';
   }
 
-  if (volume[BASE_CURRENCY] === 0) {
+  if (volume[BASE_CURRENCY] === 0 || volume[BASE_CURRENCY] === null) {
     if (_.isNil(volume.token)) {
       return 'Unknown';
     }
 
-    return (
-      <>
-        {formatTokenAmount(volume.token)} {token.symbol}
-      </>
-    );
+    return <TokenAmount amount={volume.token} linked={false} token={token} />;
   }
 
   return (
