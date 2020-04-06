@@ -11,6 +11,7 @@ const TokenList = ({
   pageCount,
   pageSize,
   recordCount,
+  statsPeriod,
   tokens,
 }) => {
   const offset = (page - 1) * pageSize + 1;
@@ -22,18 +23,18 @@ const TokenList = ({
           <tr>
             <th>#</th>
             <th colSpan="2">Token</th>
-            <th>Type</th>
-            <th css="text-align: right;">Price</th>
-            <th css="text-align: right;">Fills</th>
-            <th css="text-align: right;">Volume</th>
+            <th className="text-right">Price</th>
+            <th className="text-right">Trades</th>
+            <th className="text-right">Volume</th>
+            <th className="text-right">Volume Graph</th>
           </tr>
         </thead>
         <tbody>
           {tokens.map((token, index) => (
             <TokenListItem
               key={token.address}
-              period
               position={index + offset}
+              statsPeriod={statsPeriod}
               token={token}
             />
           ))}
@@ -56,6 +57,7 @@ TokenList.propTypes = {
   pageCount: PropTypes.number.isRequired,
   pageSize: PropTypes.number.isRequired,
   recordCount: PropTypes.number.isRequired,
+  statsPeriod: PropTypes.string.isRequired,
   tokens: PropTypes.arrayOf(tokensPropTypes.tokenWithStats),
 };
 
