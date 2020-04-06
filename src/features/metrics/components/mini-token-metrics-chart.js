@@ -12,10 +12,7 @@ const MiniTokenMetricsChart = React.memo(({ data, height, type, width }) => {
 
   return (
     <AreaChart
-      data={data.map((dataPoint) => ({
-        ...dataPoint,
-        date: dataPoint.date.toISOString(),
-      }))}
+      data={data}
       height={height}
       margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
       width={width}

@@ -15,15 +15,15 @@ const GRANULARITY_LOOKUP = {
 };
 
 const MiniTokenMetrics = ({ height, period, tokenAddress, type, width }) => {
+  const conversionRate = useConversionRate();
+
   const [metrics, loading] = useTokenMetrics(tokenAddress, {
     granularity: GRANULARITY_LOOKUP[period],
     period,
   });
-  const conversionRate = useConversionRate();
 
   const data = (metrics || []).map((metric) => ({
-    date: new Date(metric.date),
-    tradeCount: metric.tradeCount,
+    ...metric,
     tradeVolume: {
       USD: parseFloat(metric.tradeVolume.USD) * conversionRate,
       token: metric.tradeVolume.token,

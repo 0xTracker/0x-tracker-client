@@ -10,7 +10,7 @@ import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
-import TokenVolume from '../../metrics/components/token-volume';
+import TokenMetrics from '../../metrics/components/token-metrics';
 import useToken from '../hooks/use-token';
 import buildUrl from '../../../util/build-url';
 
@@ -47,8 +47,12 @@ const TokenPage = ({ history, location, match }) => {
           <ChartsContainer
             charts={[
               {
-                component: <TokenVolume token={token} />,
-                title: 'Fill Volume',
+                component: <TokenMetrics token={token} />,
+                title: 'Trade Volume',
+              },
+              {
+                component: <TokenMetrics token={token} type="tradeCount" />,
+                title: 'Trade Count',
               },
             ]}
             css={`
