@@ -3,26 +3,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { DATE_FORMAT } from '../../../constants';
 import { colors } from '../../../styles/constants';
-import FillLink from '../../fills/components/fill-link';
-import formatDate from '../../../util/format-date';
 import formatTokenSymbol from '../util/format-token-symbol';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import MiniTokenMetrics from '../../metrics/components/mini-token-metrics';
 import Number from '../../../components/number';
+import PriceChange from '../../../components/price-change';
 import TokenImage from './token-image';
 import TokenLink from './token-link';
 import TokenListItemVolume from './token-list-item-volume';
-
-const LastTradeLink = styled(FillLink)`
-  color: inherit;
-
-  &:hover {
-    color: inherit;
-    text-decoration: none;
-  }
-`;
 
 const truncateAddress = (address) =>
   `${address.slice(0, 15)}...${address.slice(address.length - 15)}`;
@@ -66,18 +55,22 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
     </td>
     <td className="align-middle" css="text-align: right;">
       {!_.isNil(token.price.last) && token.type === 'erc-20' ? (
-        <LastTradeLink fillId={token.lastTrade.id}>
+        <>
           <LocalisedAmount amount={token.price.last} />
           <br />
-          <span
-            css={`
-              font-size: 0.8rem;
-              color: ${colors.stormGray};
-            `}
-          >
-            {formatDate(token.lastTrade.date, DATE_FORMAT.RELATIVE)}
-          </span>
-        </LastTradeLink>
+          {token.price.change === null ? (
+            <span
+              css={`
+                font-size: 0.8rem;
+                color: ${colors.stormGray};
+              `}
+            >
+              n/a
+            </span>
+          ) : (
+            <PriceChange>{token.price.change}</PriceChange>
+          )}
+        </>
       ) : (
         '-'
       )}

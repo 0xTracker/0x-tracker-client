@@ -26,7 +26,7 @@ const NoResults = styled.div`
 
 const TokensPage = ({ history, location, page, setPage }) => {
   const params = new URLSearchParams(location.search);
-  const statsPeriod = params.get('statsPeriod') || TIME_PERIOD.MONTH;
+  const statsPeriod = params.get('statsPeriod') || TIME_PERIOD.DAY;
   const type = params.get('type') || undefined;
   const selectedFilters = { statsPeriod, type };
 

@@ -30,7 +30,7 @@ const formatCurrency = (amount, currency) => {
       if (amount < 1) {
         return currencyFormatter.format(amount, {
           code: currency,
-          precision: 4,
+          precision: 6,
           thousand: currency === 'EUR' ? '.' : ',',
         });
       }
