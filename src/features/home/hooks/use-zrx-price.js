@@ -8,7 +8,7 @@ const useZrxPrice = (options) => {
   const [zrxToken, loading] = useApi(`tokens/${ZRX_TOKEN.address}`, {
     autoReload,
   });
-  console.log(zrxToken);
+
   return zrxToken === undefined
     ? [undefined, loading]
     : [zrxToken.price, loading];
