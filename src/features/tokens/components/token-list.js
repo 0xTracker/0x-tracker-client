@@ -5,6 +5,7 @@ import HelpWidget from '../../../components/help-widget';
 import Paginator from '../../../components/paginator';
 import tokensPropTypes from '../prop-types';
 import TokenListItem from './token-list-item';
+import verbosePeriod from '../../../util/verbose-period';
 
 const TokenList = ({
   onPageChange,
@@ -29,7 +30,10 @@ const TokenList = ({
               <HelpWidget css="margin-left: 0.25rem;">
                 {statsPeriod === 'all'
                   ? 'The most recent price for a token. Only displayed for fungible tokens which have been traded on known relayers.'
-                  : 'The most recent price for a token plus the 24h change in price. Only displayed for fungible tokens which have been traded on known relayers.'}
+                  : `The most recent price for a token plus the
+                    ${verbosePeriod(
+                      statsPeriod,
+                    )} change in price. Only displayed for fungible tokens which have been traded on known relayers.`}
               </HelpWidget>
             </th>
             <th className="text-right">
