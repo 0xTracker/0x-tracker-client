@@ -4,9 +4,9 @@ import React from 'react';
 import subDays from 'date-fns/subDays';
 
 import { TIME_PERIOD } from '../../../constants';
-import TokenVolumeChart from './token-volume-chart';
+import TokenMetricsChart from './token-metrics-chart';
 
-storiesOf('Charts|TokenVolumeChart', module)
+storiesOf('Charts|TokenMetricsChart', module)
   .addDecorator((getStory) => (
     <div css="width: 600px; height: 300px;">{getStory()}</div>
   ))
@@ -19,13 +19,13 @@ storiesOf('Charts|TokenVolumeChart', module)
 
       return {
         date,
-        localizedVolume: _.random(1000, 5000),
-        tokenVolume: _.random(1, 100),
+        tradeCount: _.random(7, 300),
+        tradeVolume: { USD: _.random(1000, 5000), token: _.random(1, 100) },
       };
     });
 
     return (
-      <TokenVolumeChart
+      <TokenMetricsChart
         data={data}
         localCurrency="USD"
         period={TIME_PERIOD.MONTH}
@@ -34,7 +34,7 @@ storiesOf('Charts|TokenVolumeChart', module)
     );
   })
   .add('without any data', () => (
-    <TokenVolumeChart
+    <TokenMetricsChart
       data={[]}
       localCurrency="USD"
       period={TIME_PERIOD.MONTH}

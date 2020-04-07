@@ -8,24 +8,30 @@ import formatCurrency from '../../../util/format-currency';
 import formatDate from '../../../util/format-date';
 import formatTokenAmount from '../../../util/format-token-amount';
 
-const TokenVolumeTooltip = ({ localCurrency, payload, tokenSymbol }) => {
+const TokenMetricsTooltip = ({ localCurrency, payload, tokenSymbol }) => {
   if (_.isEmpty(payload)) {
     return null;
   }
 
-  const { date, localizedVolume, tokenVolume } = payload[0].payload;
+  const { date, tradeCount, tradeVolume } = payload[0].payload;
 
   return (
     <ChartTooltip
       items={[
         {
-          label: `volume (${localCurrency})`,
-          value: formatCurrency(localizedVolume, localCurrency),
+          label: 'Trade Count',
+          value: tradeCount,
         },
         {
-          label: `volume (${tokenSymbol || 'token'})`,
+          label: `Trade Volume (${localCurrency})`,
+          value: formatCurrency(tradeVolume.USD, localCurrency),
+        },
+        {
+          label: `Trade Volume (${tokenSymbol || 'token'})`,
           value:
-            tokenVolume !== null ? formatTokenAmount(tokenVolume) : 'Unknown',
+            tradeVolume.token !== null
+              ? formatTokenAmount(tradeVolume.token)
+              : 'Unknown',
         },
       ]}
       title={formatDate(date, DATE_FORMAT.STANDARD)}
@@ -33,14 +39,14 @@ const TokenVolumeTooltip = ({ localCurrency, payload, tokenSymbol }) => {
   );
 };
 
-TokenVolumeTooltip.propTypes = {
+TokenMetricsTooltip.propTypes = {
   localCurrency: PropTypes.string.isRequired,
   payload: PropTypes.array,
   tokenSymbol: PropTypes.string.isRequired,
 };
 
-TokenVolumeTooltip.defaultProps = {
+TokenMetricsTooltip.defaultProps = {
   payload: undefined,
 };
 
-export default TokenVolumeTooltip;
+export default TokenMetricsTooltip;

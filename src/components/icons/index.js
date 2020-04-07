@@ -22,6 +22,7 @@ import SettingsIcon from './settings-icon';
 import SquareIcon from './square-icon';
 import TimePeriodIcon from './time-period-icon';
 import TrendingDownIcon from './trending-down-icon';
+import TrendingFlatIcon from './trending-flat-icon';
 import TrendingUpIcon from './trending-up-icon';
 import TwitterIcon from './twitter-icon';
 import UnknownIcon from './unknown-icon';
@@ -50,6 +51,7 @@ export {
   SquareIcon,
   TimePeriodIcon,
   TrendingDownIcon,
+  TrendingFlatIcon,
   TrendingUpIcon,
   TwitterIcon,
   UnknownIcon,

@@ -30,7 +30,7 @@ const TopTokensTable = ({ tokens }) => (
     <thead css="display: none;">
       <tr>
         <th colSpan="2">Token</th>
-        <th>Fill Volume</th>
+        <th>Volume</th>
       </tr>
     </thead>
     <tbody>
@@ -50,13 +50,13 @@ const TopTokensTable = ({ tokens }) => (
           </TableCell>
           <TableCell css="text-align: right; white-space: nowrap;">
             <LocalisedAmount
-              amount={token.stats.fillVolume.USD}
+              amount={token.stats.tradeVolume.USD}
               css="font-weight: 500;"
               summarize
             />
             <br />
             <SecondaryText>
-              <Number summarize>{token.stats.fillVolume.token}</Number>{' '}
+              <Number summarize>{token.stats.tradeVolume.token}</Number>{' '}
               {token.symbol}
             </SecondaryText>
           </TableCell>

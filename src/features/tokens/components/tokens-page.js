@@ -32,7 +32,7 @@ const TokensPage = ({ history, location, page, setPage }) => {
 
   const [tokens, loadingTokens] = useTokens({
     autoReload: true,
-    limit: 50,
+    limit: 25,
     page,
     statsPeriod,
     type,
@@ -78,6 +78,7 @@ const TokensPage = ({ history, location, page, setPage }) => {
         pageCount={pageCount}
         pageSize={pageSize}
         recordCount={recordCount}
+        statsPeriod={statsPeriod}
         tokens={items}
       />
     </TokensPageLayout>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import AsyncTokenVolumeChart from './async-token-volume-chart';
+import AsyncTokenMetricsChart from './async-token-metrics-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
@@ -9,7 +9,7 @@ import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useTokenMetrics from '../hooks/use-token-metrics';
 
-const TokenVolume = ({ period, token }) => {
+const TokenMetrics = ({ period, token, type }) => {
   const [brushActive, setBrushActive] = React.useState(false);
   const [metrics, loadingMetrics] = useTokenMetrics(
     token.address,
@@ -42,9 +42,11 @@ const TokenVolume = ({ period, token }) => {
   const data = React.useMemo(
     () =>
       (metrics || []).map((metric) => ({
-        date: new Date(metric.date),
-        localizedVolume: metric.fillVolume.USD * conversionRate,
-        tokenVolume: metric.fillVolume.token,
+        ...metric,
+        tradeVolume: {
+          USD: metric.tradeVolume.USD * conversionRate,
+          token: metric.tradeVolume.token,
+        },
       })),
     [metrics, conversionRate],
   );
@@ -58,23 +60,29 @@ const TokenVolume = ({ period, token }) => {
       brushActive={brushActive}
       onBrushReset={handleResetClick}
     >
-      <AsyncTokenVolumeChart
+      <AsyncTokenMetricsChart
         data={data}
         key={chartKey}
         localCurrency={displayCurrency}
         onBrushChange={handleBrushChange}
         tokenSymbol={token.symbol}
+        type={type}
       />
     </BrushableChartContainer>
   );
 };
 
-TokenVolume.propTypes = {
+TokenMetrics.propTypes = {
   period: sharedPropTypes.timePeriod.isRequired,
   token: PropTypes.shape({
     address: PropTypes.string.isRequired,
     symbol: PropTypes.string.isRequired,
   }).isRequired,
+  type: PropTypes.string,
 };
 
-export default TokenVolume;
+TokenMetrics.defaultProps = {
+  type: undefined,
+};
+
+export default TokenMetrics;

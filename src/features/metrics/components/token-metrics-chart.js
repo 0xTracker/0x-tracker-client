@@ -9,11 +9,11 @@ import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import summarizeCurrency from '../../../util/summarize-currency';
-import TokenVolumeTooltip from './token-volume-tooltip';
+import TokenMetricsTooltip from './token-metrics-tooltip';
 
 const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
 
-class TokenVolumeChart extends PureComponent {
+class TokenMetricsChart extends PureComponent {
   constructor() {
     super();
 
@@ -31,26 +31,27 @@ class TokenVolumeChart extends PureComponent {
   }
 
   render() {
-    const { data, localCurrency, onBrushChange, tokenSymbol } = this.props;
+    const {
+      data,
+      localCurrency,
+      onBrushChange,
+      tokenSymbol,
+      type,
+    } = this.props;
 
     if (_.isEmpty(data)) {
       return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
-    const sanitizedData = _.map(data, (dataPoint) => ({
-      ...dataPoint,
-      date: dataPoint.date.toISOString(),
-    }));
-
     return (
       <ChartContainer>
         <AreaChart
-          data={sanitizedData}
+          data={data}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
           <Area
             animationDuration={0}
-            dataKey="localizedVolume"
+            dataKey={type}
             fill={colors.periwinkleGray}
             fillOpacity={1}
             stroke={colors.indigo}
@@ -68,7 +69,7 @@ class TokenVolumeChart extends PureComponent {
           />
           <YAxis
             axisLine={false}
-            dataKey="localizedVolume"
+            dataKey={type}
             minTickGap={20}
             mirror
             padding={{ top: 25 }}
@@ -78,7 +79,7 @@ class TokenVolumeChart extends PureComponent {
           />
           <Tooltip
             content={
-              <TokenVolumeTooltip
+              <TokenMetricsTooltip
                 localCurrency={localCurrency}
                 tokenSymbol={tokenSymbol}
               />
@@ -97,21 +98,26 @@ class TokenVolumeChart extends PureComponent {
   }
 }
 
-TokenVolumeChart.propTypes = {
+TokenMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.object.isRequired,
-      localizedVolume: PropTypes.number.isRequired,
-      tokenVolume: PropTypes.string.isRequired,
+      tradeCount: PropTypes.number.isRequired,
+      tradeVolume: PropTypes.shape({
+        USD: PropTypes.number.isRequired,
+        token: PropTypes.string.isRequired,
+      }).isRequired,
     }),
   ).isRequired,
   localCurrency: PropTypes.string.isRequired,
   onBrushChange: PropTypes.func,
   tokenSymbol: PropTypes.string.isRequired,
+  type: PropTypes.string,
 };
 
-TokenVolumeChart.defaultProps = {
+TokenMetricsChart.defaultProps = {
   onBrushChange: undefined,
+  type: 'tradeVolume.USD',
 };
 
-export default TokenVolumeChart;
+export default TokenMetricsChart;

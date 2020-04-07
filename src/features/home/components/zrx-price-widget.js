@@ -1,13 +1,12 @@
-import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../../../styles/constants';
-import { TrendingDownIcon, TrendingUpIcon } from '../../../components/icons';
-import Link from '../../../components/link';
+import { ZRX_TOKEN } from '../../../constants';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
+import PriceChange from '../../../components/price-change';
 import StatWidget from '../../../components/stat-widget';
+import TokenLink from '../../tokens/components/token-link';
 import useZrxPrice from '../hooks/use-zrx-price';
 
 const ZRXPriceWidget = ({ className }) => {
@@ -18,39 +17,10 @@ const ZRXPriceWidget = ({ className }) => {
       {loading ? (
         <LoadingIndicator size="small" type="cylon" />
       ) : (
-        <Link
-          css="color: currentColor;"
-          href="https://www.cryptocompare.com/coins/zrx/overview"
-        >
-          <LocalisedAmount amount={zrxPrice.value} />
-          <span
-            css={`
-              color: ${zrxPrice.change > 0
-                ? colors.fruitSalad
-                : colors.pomegranate};
-              margin-left: 0.5rem;
-              font-size: 1rem;
-            `}
-          >
-            {numeral(zrxPrice.change).format('0.[00]')}%
-            {zrxPrice.change > 0 ? (
-              <TrendingUpIcon
-                color={colors.fruitSalad}
-                css="margin: 0 0 0 0.25rem;"
-                height={20}
-                width={20}
-              />
-            ) : null}
-            {zrxPrice.change < 0 ? (
-              <TrendingDownIcon
-                color={colors.pomegranate}
-                css="margin: 0 0 0 0.25rem;"
-                height={20}
-                width={20}
-              />
-            ) : null}
-          </span>
-        </Link>
+        <TokenLink address={ZRX_TOKEN.address} css="color: currentColor;">
+          <LocalisedAmount amount={zrxPrice.last} />
+          <PriceChange>{zrxPrice.change}</PriceChange>
+        </TokenLink>
       )}
     </StatWidget>
   );
