@@ -47,7 +47,7 @@ const TokenPage = ({ history, location, match }) => {
           <ChartsContainer
             charts={[
               {
-                component: <TokenMetrics token={token} />,
+                component: <TokenMetrics token={token} type="price.close" />,
                 title: 'Trade Volume',
               },
               {
