@@ -22,7 +22,7 @@ const ZRXPriceWidget = ({ className }) => {
           css="color: currentColor;"
           href="https://www.cryptocompare.com/coins/zrx/overview"
         >
-          <LocalisedAmount amount={zrxPrice.value} />
+          <LocalisedAmount amount={zrxPrice.last} />
           <span
             css={`
               color: ${zrxPrice.change > 0
