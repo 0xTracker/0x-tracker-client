@@ -8,6 +8,7 @@ const OPTIONS = [
   { label: 'All', value: undefined },
   { label: 'ERC-20', value: TOKEN_TYPE.ERC20 },
   { label: 'ERC-721', value: TOKEN_TYPE.ERC721 },
+  { label: 'ERC-1155', value: TOKEN_TYPE.ERC1155 },
 ];
 
 const TokenTypeSelector = ({ className, name, onChange, value }) => (
