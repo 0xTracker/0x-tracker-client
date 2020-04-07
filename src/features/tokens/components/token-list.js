@@ -27,9 +27,9 @@ const TokenList = ({
             <th className="text-right">
               Price{' '}
               <HelpWidget css="margin-left: 0.25rem;">
-                The most recent price for a token plus the 24h change in price.
-                Only displayed for fungible tokens which have been traded on
-                known relayers.
+                {statsPeriod === 'all'
+                  ? 'The most recent price for a token. Only displayed for fungible tokens which have been traded on known relayers.'
+                  : 'The most recent price for a token plus the 24h change in price. Only displayed for fungible tokens which have been traded on known relayers.'}
               </HelpWidget>
             </th>
             <th className="text-right">

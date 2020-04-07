@@ -57,18 +57,11 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
       {!_.isNil(token.price.last) && token.type === 'erc-20' ? (
         <>
           <LocalisedAmount amount={token.price.last} />
-          <br />
-          {token.price.change === null ? (
-            <span
-              css={`
-                font-size: 0.8rem;
-                color: ${colors.stormGray};
-              `}
-            >
-              n/a
-            </span>
-          ) : (
-            <PriceChange>{token.price.change}</PriceChange>
+          {token.price.change === null ? null : (
+            <>
+              <br />
+              <PriceChange>{token.price.change}</PriceChange>
+            </>
           )}
         </>
       ) : (
