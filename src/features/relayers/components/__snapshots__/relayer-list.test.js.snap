@@ -17,17 +17,91 @@ exports[`renders with basic props 1`] = `
       <th
         class="text-right"
       >
+        Traders
+         
+        <svg
+          aria-hidden="true"
+          class="sc-bdVaJa iJCmgd relayer-list___StyledHelpWidget-sc-1herowu-0 gqVhem"
+          fill="currentColor"
+          focusable="false"
+          height="18"
+          viewBox="0 0 24 24"
+          width="18"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
+          />
+          <path
+            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+          />
+        </svg>
+      </th>
+      <th
+        class="text-right"
+      >
         Trades
+        <svg
+          aria-hidden="true"
+          class="sc-bdVaJa iJCmgd relayer-list___StyledHelpWidget2-sc-1herowu-1 hkcqhi"
+          fill="currentColor"
+          focusable="false"
+          height="18"
+          viewBox="0 0 24 24"
+          width="18"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
+          />
+          <path
+            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+          />
+        </svg>
       </th>
       <th
         class="text-right"
       >
         Volume
+        <svg
+          aria-hidden="true"
+          class="sc-bdVaJa iJCmgd relayer-list___StyledHelpWidget3-sc-1herowu-2 XJHby"
+          fill="currentColor"
+          focusable="false"
+          height="18"
+          viewBox="0 0 24 24"
+          width="18"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
+          />
+          <path
+            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+          />
+        </svg>
       </th>
       <th
         class="text-right"
       >
-        Volume Graph
+        Volume Trend
+        <svg
+          aria-hidden="true"
+          class="sc-bdVaJa iJCmgd relayer-list___StyledHelpWidget4-sc-1herowu-3 fMvVGn"
+          fill="currentColor"
+          focusable="false"
+          height="18"
+          viewBox="0 0 24 24"
+          width="18"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
+          />
+          <path
+            d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+          />
+        </svg>
       </th>
     </tr>
   </thead>
@@ -68,7 +142,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-0 fEaAOh"
+          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 gaobOX"
@@ -78,13 +152,18 @@ exports[`renders with basic props 1`] = `
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-3 cXrGPv"
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
           href="https://ddex.io"
           rel="noreferrer noopener"
           target="_blank"
         >
           https://ddex.io
         </a>
+      </td>
+      <td
+        class="align-middle text-right"
+      >
+        30
       </td>
       <td
         class="align-middle text-right"
@@ -136,7 +215,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-0 fEaAOh"
+          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 gaobOX"
@@ -146,13 +225,18 @@ exports[`renders with basic props 1`] = `
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-3 cXrGPv"
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
           href="https://paradex.io"
           rel="noreferrer noopener"
           target="_blank"
         >
           https://paradex.io
         </a>
+      </td>
+      <td
+        class="align-middle text-right"
+      >
+        123
       </td>
       <td
         class="align-middle text-right"
@@ -204,7 +288,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-0 fEaAOh"
+          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 gaobOX"
@@ -214,13 +298,18 @@ exports[`renders with basic props 1`] = `
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-3 cXrGPv"
+          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
           href="https://radarrelay.com"
           rel="noreferrer noopener"
           target="_blank"
         >
           https://radarrelay.com
         </a>
+      </td>
+      <td
+        class="align-middle text-right"
+      >
+        82
       </td>
       <td
         class="align-middle text-right"

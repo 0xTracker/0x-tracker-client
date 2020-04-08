@@ -19,9 +19,34 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
       <tr>
         <th>#</th>
         <th colSpan="2">Relayer</th>
-        <th className="text-right">Trades</th>
-        <th className="text-right">Volume</th>
-        <th className="text-right">Volume Graph</th>
+        <th className="text-right">
+          Traders{' '}
+          <HelpWidget css="margin-left: 0.25rem;">
+            The number of unique maker/taker addresses for a given relayer in
+            the selected period.
+          </HelpWidget>
+        </th>
+        <th className="text-right">
+          Trades
+          <HelpWidget css="margin-left: 0.25rem;">
+            The number of unique trades for a given relayer in the selected
+            period.
+          </HelpWidget>
+        </th>
+        <th className="text-right">
+          Volume
+          <HelpWidget css="margin-left: 0.25rem;">
+            The total value of all trades for a given relayer in the selected
+            period.
+          </HelpWidget>
+        </th>
+        <th className="text-right">
+          Volume Trend
+          <HelpWidget css="margin-left: 0.25rem;">
+            The trend of trading volume for a given relayer in the selected
+            period.
+          </HelpWidget>
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -68,6 +93,9 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
                 {relayer.url}
               </Link>
             ) : null}
+          </td>
+          <td className="align-middle text-right">
+            <Number>{relayer.stats.traderCount}</Number>
           </td>
           <td className="align-middle text-right">
             <Number>{relayer.stats.tradeCount}</Number>
