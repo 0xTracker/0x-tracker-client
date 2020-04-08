@@ -52,7 +52,13 @@ const TokenList = ({
                   : `The total trade volume for a token in the last ${statsPeriod}. Only trades on known relayers are included in this metric.`}
               </HelpWidget>
             </th>
-            <th className="text-right">Volume Graph</th>
+            <th className="text-right">
+              Volume Trend{' '}
+              <HelpWidget css="margin-left: 0.25rem;">
+                The trend of trading volume for a given token in the selected
+                period.
+              </HelpWidget>
+            </th>
           </tr>
         </thead>
         <tbody>
