@@ -59,14 +59,12 @@ class TokenPricesChart extends PureComponent {
             vertical={false}
           />
           <Bar
-            animationDuration={0}
             dataKey="tradeVolume.USD"
             fill={colors.mischka}
             fillOpacity={1}
             yAxisId="volume"
           />
           <Line
-            animationDuration={0}
             dataKey="price.close"
             dot={false}
             stroke={colors.anzac}

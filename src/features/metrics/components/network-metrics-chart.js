@@ -58,12 +58,7 @@ const NetworkMetricsChart = React.memo(
             strokeOpacity={0.7}
             vertical={false}
           />
-          <Bar
-            animationDuration={0}
-            dataKey={type}
-            fill={colors.anzac}
-            fillOpacity={0.9}
-          />
+          <Bar dataKey={type} fill={colors.anzac} fillOpacity={0.9} />
           <XAxis
             axisLine={{ stroke: colors.athensGray }}
             dataKey="date"
