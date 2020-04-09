@@ -82,6 +82,10 @@ const GlobalStyles = createGlobalStyle`
   .modal-backdrop.show {
     opacity: 0.8;
   }
+
+  .recharts-brush-texts {
+    font-size: 0.8rem;
+  }
 `;
 
 export default GlobalStyles;

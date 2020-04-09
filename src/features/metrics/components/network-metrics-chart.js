@@ -1,6 +1,13 @@
 import _ from 'lodash';
-import { Area, AreaChart, XAxis, YAxis, Tooltip, Brush } from 'recharts';
-import numeral from 'numeral';
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Brush,
+} from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -11,6 +18,7 @@ import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import NetworkMetricsTooltip from './network-metrics-tooltip';
 import summarizeCurrency from '../../../util/summarize-currency';
+import summarizeNumber from '../../../util/summarize-number';
 
 const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
 
@@ -19,7 +27,7 @@ const formatCount = (count) => {
     return '';
   }
 
-  return numeral(count).format('0,0');
+  return summarizeNumber(count);
 };
 
 const NetworkMetricsChart = React.memo(
@@ -43,51 +51,50 @@ const NetworkMetricsChart = React.memo(
 
     return (
       <ChartContainer>
-        <AreaChart
-          data={sanitizedData}
-          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
-        >
-          <Area
+        <BarChart data={sanitizedData}>
+          <CartesianGrid
+            stroke={colors.athensGray}
+            strokeDasharray="8 8"
+            strokeOpacity={0.7}
+            vertical={false}
+          />
+          <Bar
             animationDuration={0}
             dataKey={type}
-            fill={colors.periwinkleGray}
-            fillOpacity={1}
-            stroke={colors.indigo}
-            strokeOpacity={0.6}
-            strokeWidth={2}
-            type="monotone"
+            fill="#E3BE47"
+            fillOpacity={0.9}
           />
           <XAxis
-            axisLine={false}
+            axisLine={{ stroke: colors.athensGray }}
             dataKey="date"
-            minTickGap={60}
-            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
+            height={30}
+            minTickGap={35}
+            tick={{ fill: 'currentColor', fontSize: '0.8em' }}
             tickFormatter={formatAxisDate}
             tickLine={false}
           />
           <YAxis
-            axisLine={false}
+            axisLine={{ stroke: colors.athensGray }}
             dataKey={type}
             minTickGap={20}
-            mirror
-            padding={{ top: 25 }}
-            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
+            tick={{ fill: 'currentColor', fontSize: '0.8em' }}
             tickFormatter={
               type === 'tradeVolume' || type === 'protocolFees'
                 ? formatCurrency
                 : formatCount
             }
             tickLine={false}
+            width={40}
           />
           <Tooltip content={<NetworkMetricsTooltip currency={currency} />} />
           <Brush
             dataKey="date"
             height={30}
             onChange={onBrushChange}
-            stroke={colors.periwinkleGray}
+            stroke={colors.mischka}
             tickFormatter={formatAxisDate}
           />
-        </AreaChart>
+        </BarChart>
       </ChartContainer>
     );
   },
