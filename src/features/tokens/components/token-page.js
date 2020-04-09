@@ -5,14 +5,15 @@ import React, { useCallback } from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
+import buildUrl from '../../../util/build-url';
 import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
 import TokenMetrics from '../../metrics/components/token-metrics';
+import TokenPageTitle from './token-page-title';
 import useToken from '../hooks/use-token';
-import buildUrl from '../../../util/build-url';
 
 const TokenPage = ({ history, location, match }) => {
   const { address: tokenAddress } = match.params;
@@ -40,19 +41,21 @@ const TokenPage = ({ history, location, match }) => {
           {_.has(token, 'name') ? token.name : `Token: ${token.address}`}
         </title>
       </Helmet>
-      <PageLayout
-        title={_.has(token, 'name') ? token.name : `Token: ${token.address}`}
-      >
+      <PageLayout title={<TokenPageTitle token={token} />}>
         {token ? (
           <ChartsContainer
             charts={[
               {
+                component: <TokenMetrics token={token} type="price.close" />,
+                title: 'Market Price',
+              },
+              {
                 component: <TokenMetrics token={token} />,
-                title: 'Trade Volume',
+                title: 'Volume',
               },
               {
                 component: <TokenMetrics token={token} type="tradeCount" />,
-                title: 'Trade Count',
+                title: 'Trades',
               },
             ]}
             css={`

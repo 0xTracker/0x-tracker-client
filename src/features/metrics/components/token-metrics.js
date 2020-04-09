@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import AsyncTokenMetricsChart from './async-token-metrics-chart';
+import AsyncTokenPricesChart from './async-token-prices-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
@@ -60,14 +61,24 @@ const TokenMetrics = ({ period, token, type }) => {
       brushActive={brushActive}
       onBrushReset={handleResetClick}
     >
-      <AsyncTokenMetricsChart
-        data={data}
-        key={chartKey}
-        localCurrency={displayCurrency}
-        onBrushChange={handleBrushChange}
-        tokenSymbol={token.symbol}
-        type={type}
-      />
+      {type === 'price.close' ? (
+        <AsyncTokenPricesChart
+          data={data}
+          key={chartKey}
+          localCurrency={displayCurrency}
+          onBrushChange={handleBrushChange}
+          tokenSymbol={token.symbol}
+        />
+      ) : (
+        <AsyncTokenMetricsChart
+          data={data}
+          key={chartKey}
+          localCurrency={displayCurrency}
+          onBrushChange={handleBrushChange}
+          tokenSymbol={token.symbol}
+          type={type}
+        />
+      )}
     </BrushableChartContainer>
   );
 };
