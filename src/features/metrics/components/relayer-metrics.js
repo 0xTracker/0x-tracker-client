@@ -38,8 +38,8 @@ const RelayerMetrics = ({ period, relayerId, type }) => {
   const data = React.useMemo(
     () =>
       (metrics || []).map((metric) => ({
+        ...metric,
         date: new Date(metric.date),
-        tradeCount: metric.tradeCount,
         tradeVolume: (parseFloat(metric.tradeVolume) || 0) * conversionRate,
       })),
     [metrics, conversionRate],

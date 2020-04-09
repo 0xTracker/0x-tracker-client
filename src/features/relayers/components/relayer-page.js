@@ -14,6 +14,7 @@ import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 import RelayerMetrics from '../../metrics/components/relayer-metrics';
+import RelayerPageTitle from './relayer-page-title';
 import useRelayer from '../hooks/use-relayer';
 
 const StyledChartsContainer = styled(ChartsContainer)`
@@ -52,23 +53,29 @@ const RelayerPage = ({ history, location, match }) => {
       <Helmet>
         <title>{relayer.name}</title>
       </Helmet>
-      <PageLayout title={relayer.name}>
+      <PageLayout title={<RelayerPageTitle relayer={relayer} />}>
         <StyledChartsContainer
           charts={[
             {
               component: (
                 <RelayerMetrics relayerId={relayer.id} type="tradeVolume" />
               ),
-              title: 'Trade Volume',
+              title: 'Volume',
             },
             {
               component: (
                 <RelayerMetrics relayerId={relayer.id} type="tradeCount" />
               ),
-              title: 'Trade Count',
+              title: 'Trades',
+            },
+            {
+              component: (
+                <RelayerMetrics relayerId={relayer.id} type="traderCount" />
+              ),
+              title: 'Active Traders',
             },
           ]}
-          defaultPeriod={TIME_PERIOD.YEAR}
+          defaultPeriod={TIME_PERIOD.MONTH}
           periods={getPeriodOptions([
             TIME_PERIOD.DAY,
             TIME_PERIOD.WEEK,

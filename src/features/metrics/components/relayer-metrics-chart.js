@@ -1,5 +1,13 @@
 import _ from 'lodash';
-import { Area, AreaChart, XAxis, YAxis, Tooltip, Brush } from 'recharts';
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Brush,
+} from 'recharts';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -45,35 +53,29 @@ const RelayerMetricsChart = React.memo(({ data, onBrushChange, type }) => {
 
   return (
     <ChartContainer>
-      <AreaChart
+      <BarChart
         data={sanitizedData}
         margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
       >
-        <Area
-          animationDuration={0}
-          dataKey={type}
-          fill={colors.periwinkleGray}
-          fillOpacity={1}
-          stroke={colors.indigo}
-          strokeOpacity={0.6}
-          strokeWidth={2}
-          type="monotone"
+        <CartesianGrid
+          stroke={colors.athensGray}
+          strokeDasharray="8 8"
+          strokeOpacity={0.7}
+          vertical={false}
         />
+        <Bar dataKey={type} fill={colors.anzac} fillOpacity={0.9} />
         <XAxis
           axisLine={false}
           dataKey="date"
-          minTickGap={60}
-          tick={{ fill: 'currentColor', fontSize: '0.9em' }}
+          tick={{ fill: 'currentColor', fontSize: '0.8em' }}
           tickFormatter={formatAxisDate}
           tickLine={false}
         />
         <YAxis
           axisLine={false}
           dataKey={type}
-          minTickGap={20}
           mirror
-          padding={{ top: 25 }}
-          tick={{ fill: 'currentColor', fontSize: '0.9em' }}
+          tick={{ fill: 'currentColor', fontSize: '0.8em', fontWeight: 'bold' }}
           tickFormatter={type === 'tradeVolume' ? formatCurrency : formatCount}
           tickLine={false}
         />
@@ -82,10 +84,10 @@ const RelayerMetricsChart = React.memo(({ data, onBrushChange, type }) => {
           dataKey="date"
           height={30}
           onChange={onBrushChange}
-          stroke={colors.periwinkleGray}
+          stroke={colors.mischka}
           tickFormatter={formatAxisDate}
         />
-      </AreaChart>
+      </BarChart>
     </ChartContainer>
   );
 });
