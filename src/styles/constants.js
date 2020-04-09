@@ -6,6 +6,7 @@ const breakpoints = {
 };
 
 const colors = {
+  anzac: '#e3be47',
   athensGray: '#f1f2f7', // regular gray
   athensGrayer: '#e6e7f0',
   black: '#000',

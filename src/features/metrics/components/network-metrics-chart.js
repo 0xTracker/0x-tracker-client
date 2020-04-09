@@ -61,7 +61,7 @@ const NetworkMetricsChart = React.memo(
           <Bar
             animationDuration={0}
             dataKey={type}
-            fill="#E3BE47"
+            fill={colors.anzac}
             fillOpacity={0.9}
           />
           <XAxis
@@ -74,17 +74,20 @@ const NetworkMetricsChart = React.memo(
             tickLine={false}
           />
           <YAxis
-            axisLine={{ stroke: colors.athensGray }}
+            axisLine={false}
             dataKey={type}
-            minTickGap={20}
-            tick={{ fill: 'currentColor', fontSize: '0.8em' }}
+            mirror
+            tick={{
+              fill: 'currentColor',
+              fontSize: '0.8em',
+              fontWeight: 'bold',
+            }}
             tickFormatter={
               type === 'tradeVolume' || type === 'protocolFees'
                 ? formatCurrency
                 : formatCount
             }
             tickLine={false}
-            width={40}
           />
           <Tooltip content={<NetworkMetricsTooltip currency={currency} />} />
           <Brush
