@@ -19,15 +19,15 @@ const TokenMetricsTooltip = ({ localCurrency, payload, tokenSymbol }) => {
     <ChartTooltip
       items={[
         {
-          label: 'Trade Count',
+          label: 'Trades',
           value: tradeCount,
         },
         {
-          label: `Trade Volume (${localCurrency})`,
+          label: `Volume (${localCurrency})`,
           value: formatCurrency(tradeVolume.USD, localCurrency),
         },
         {
-          label: `Trade Volume (${tokenSymbol || 'token'})`,
+          label: `Volume (${tokenSymbol || 'token'})`,
           value:
             tradeVolume.token !== null
               ? formatTokenAmount(tradeVolume.token)

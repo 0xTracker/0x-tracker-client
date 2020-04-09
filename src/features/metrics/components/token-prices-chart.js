@@ -78,7 +78,7 @@ class TokenPricesChart extends PureComponent {
             axisLine={false}
             dataKey="date"
             minTickGap={60}
-            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
+            tick={{ fill: 'currentColor', fontSize: '0.8em' }}
             tickFormatter={formatAxisDate}
             tickLine={false}
           />
@@ -86,6 +86,8 @@ class TokenPricesChart extends PureComponent {
             axisLine={false}
             dataKey="price.close"
             label={{
+              fill: colors.anzac,
+              fillOpacity: 0.7,
               fontSize: '0.7rem',
               fontWeight: 'bold',
               position: 'insideTopLeft',
@@ -106,6 +108,8 @@ class TokenPricesChart extends PureComponent {
             axisLine={false}
             dataKey="tradeVolume.USD"
             label={{
+              fill: colors.mischka,
+              fillOpacity: 0.8,
               fontSize: '0.7rem',
               fontWeight: 'bold',
               position: 'insideTopRight',
