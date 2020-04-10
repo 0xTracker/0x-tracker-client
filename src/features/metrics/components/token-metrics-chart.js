@@ -17,6 +17,7 @@ import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import formatDate from '../../../util/format-date';
 import summarizeCurrency from '../../../util/summarize-currency';
+import summarizeNumber from '../../../util/summarize-number';
 import TokenMetricsTooltip from './token-metrics-tooltip';
 
 const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
@@ -29,11 +30,15 @@ class TokenMetricsChart extends PureComponent {
   }
 
   formatValue(value) {
+    const { localCurrency, type } = this.props;
+
     if (value === 0) {
       return '';
     }
 
-    const { localCurrency } = this.props;
+    if (type === 'tradeCount') {
+      return summarizeNumber(value);
+    }
 
     return summarizeCurrency(value, localCurrency);
   }
