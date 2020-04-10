@@ -17,7 +17,7 @@ const createTooltip = (period) => {
   return `Total number of trades in the last ${period}. Only includes activity from known relayers.`;
 };
 
-const TradeCountWidget = ({ className, period, tradeCount, ...otherProps }) => (
+const TradeCountWidget = ({ period, tradeCount, ...otherProps }) => (
   <StatWidget
     period={period}
     title="Trade Count"
@@ -31,13 +31,11 @@ const TradeCountWidget = ({ className, period, tradeCount, ...otherProps }) => (
 );
 
 TradeCountWidget.propTypes = {
-  className: PropTypes.string,
   period: sharedPropTypes.timePeriod,
   tradeCount: PropTypes.number,
 };
 
 TradeCountWidget.defaultProps = {
-  className: undefined,
   period: undefined,
   tradeCount: undefined,
 };
