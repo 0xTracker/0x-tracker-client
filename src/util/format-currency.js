@@ -27,7 +27,7 @@ const formatCurrency = (amount, currency) => {
         symbol: 'A$',
       });
     default:
-      if (amount < 1) {
+      if (amount < 1 && amount !== 0) {
         return currencyFormatter.format(amount, {
           code: currency,
           precision: 6,
