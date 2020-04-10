@@ -11,14 +11,14 @@ const TokenPageTitle = ({ token }) => (
   <div css="align-items: center; display: flex;">
     {_.has(token, 'imageUrl') ? (
       <TokenImage
-        css="margin-right: 0.75rem; vertical-align: middle"
+        css="margin-right: 0.75rem;"
         imageUrl={token.imageUrl}
         size="2rem"
       />
     ) : null}
     {_.has(token, 'name') ? token.name : `Token: ${token.address}`}
-    {_.has(token, 'symbol') ? ` (${token.symbol})` : null}
-    {_.has(token, 'price.last') ? (
+    {_.has(token, 'symbol') ? ` (${token.symbol.toUpperCase()})` : null}
+    {token.price.last !== null ? (
       <span css="align-items: center; color: gray; display: flex; margin-left: 2rem;">
         <LocalisedAmount
           amount={token.price.last}

@@ -11,13 +11,13 @@ const AssetLabel = ({ asset, condensed, linked }) => {
       : buildTokenUrl(asset.tokenAddress);
   const children = condensed ? (
     <>
-      {asset.tokenSymbol || 'Unknown'}
+      {asset.tokenSymbol ? asset.tokenSymbol.toUpperCase() : 'Unknown'}
       {asset.tokenId && <> #{asset.tokenId}</>}
     </>
   ) : (
     <>
       {asset.tokenType || 'Unknown'} {asset.tokenId && <>#{asset.tokenId}</>}{' '}
-      {asset.tokenSymbol && <>({asset.tokenSymbol})</>}
+      {asset.tokenSymbol && <>({asset.tokenSymbol.toUpperCase()})</>}
     </>
   );
 
