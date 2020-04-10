@@ -53,7 +53,7 @@ const PriceRangeWidget = ({ price, ...otherProps }) => {
 
   return (
     <StatWidget
-      title="Low/High Price"
+      title="Price Range"
       tooltip="Low-high price range for the selected period. Indicator represents the current price."
       {...otherProps}
     >
