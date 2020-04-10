@@ -26,11 +26,20 @@ const LocalisedAmount = ({
 
   const convertedAmount = amount * conversionRate;
 
+  if (summarize) {
+    return (
+      <span
+        className={className}
+        title={formatCurrency(convertedAmount, displayCurrency)}
+      >
+        {summarizeCurrency(convertedAmount, displayCurrency)}
+      </span>
+    );
+  }
+
   return (
     <span className={className}>
-      {summarize
-        ? summarizeCurrency(convertedAmount, displayCurrency)
-        : formatCurrency(convertedAmount, displayCurrency)}
+      {formatCurrency(convertedAmount, displayCurrency)}
     </span>
   );
 };
