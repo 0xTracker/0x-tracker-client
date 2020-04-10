@@ -8,19 +8,21 @@ import '../../../styles/css/slick-carousel.css';
 import { breakpoints } from '../../../styles/constants';
 import MarketCapWidget from './market-cap-widget';
 import PriceRangeWidget from './price-range-widget';
+import TokenPriceWidget from './token-price-widget';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
 
 const CarouselStat = styled.div`
   margin: 0 0.5rem;
+  min-height: 6rem;
 `;
 
-const TokenStatsCarousel = ({ className, period, token }) => (
+const TokenStatsCarousel = ({ period, token }) => (
   <Slider
     arrows={false}
     centerMode
     centerPadding="20px"
-    className={className}
+    css="margin-bottom: 1.25rem;"
     infinite
     responsive={[
       {
@@ -35,6 +37,7 @@ const TokenStatsCarousel = ({ className, period, token }) => (
     slidesToScroll={3}
     slidesToShow={3}
   >
+    <CarouselStat as={TokenPriceWidget} price={token.price} />
     <CarouselStat
       as={TradeVolumeWidget}
       period={period}
@@ -56,7 +59,6 @@ const TokenStatsCarousel = ({ className, period, token }) => (
 );
 
 TokenStatsCarousel.propTypes = {
-  className: PropTypes.string,
   period: PropTypes.string.isRequired,
   token: PropTypes.shape({
     price: PropTypes.shape({
@@ -71,10 +73,6 @@ TokenStatsCarousel.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-};
-
-TokenStatsCarousel.defaultProps = {
-  className: undefined,
 };
 
 export default TokenStatsCarousel;

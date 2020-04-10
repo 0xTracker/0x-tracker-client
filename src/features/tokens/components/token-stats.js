@@ -1,6 +1,7 @@
 import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import MarketCapWidget from './market-cap-widget';
@@ -13,44 +14,47 @@ const AsyncTokenStatsCarousel = React.lazy(() =>
   import('./token-stats-carousel'),
 );
 
-const TokenStats = ({ className, period, token }) => {
+const TokenStatWidget = styled.div`
+  min-height: 6rem;
+`;
+
+const TokenStats = ({ period, token }) => {
   const breakpoint = useCurrentBreakpoint();
 
   return breakpoint.greaterThan('md') ? (
-    <Row className={className}>
+    <Row css="margin-bottom: 2rem;">
       <Col lg={3} md={6}>
-        <TradeVolumeWidget
-          css="min-height: 6rem;"
+        <TokenStatWidget
+          as={TradeVolumeWidget}
           period={period}
           volume={token.stats.tradeVolume.USD}
         />
       </Col>
       <Col lg={3} md={6}>
-        <TradeCountWidget
-          css="min-height: 6rem;"
+        <TokenStatWidget
+          as={TradeCountWidget}
           period={period}
           tradeCount={token.stats.tradeCount}
         />
       </Col>
       <Col lg={3} md={6}>
-        <MarketCapWidget
+        <TokenStatWidget
+          as={MarketCapWidget}
           circulatingSupply={20000000}
-          css="min-height: 6rem;"
           marketCap={48000000}
           price={token.price}
         />
       </Col>
       <Col lg={3} md={6}>
-        <PriceRangeWidget css="min-height: 6rem;" price={token.price} />
+        <TokenStatWidget as={PriceRangeWidget} price={token.price} />
       </Col>
     </Row>
   ) : (
-    <AsyncTokenStatsCarousel className={className} token={token} />
+    <AsyncTokenStatsCarousel token={token} />
   );
 };
 
 TokenStats.propTypes = {
-  className: PropTypes.string,
   period: PropTypes.string.isRequired,
   token: PropTypes.shape({
     price: PropTypes.shape({
@@ -65,10 +69,6 @@ TokenStats.propTypes = {
       }).isRequired,
     }).isRequired,
   }).isRequired,
-};
-
-TokenStats.defaultProps = {
-  className: undefined,
 };
 
 export default TokenStats;
