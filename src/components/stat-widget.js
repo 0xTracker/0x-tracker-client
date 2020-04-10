@@ -23,7 +23,7 @@ const StatWidgetTitle = styled.dt`
 
 const StatWidgetValue = styled.dd`
   display: flex;
-  align-items: center;
+  flex-grow: 1;
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0;
@@ -39,7 +39,7 @@ const StatWidget = ({
 }) => (
   <Card className={className}>
     <CardBody padded>
-      <dl css="margin: 0;">
+      <dl css="display: flex; flex-grow: 1; flex-direction: column; margin: 0;">
         <StatWidgetTitle>
           {period && showPeriod ? `${title} (${prettyPeriod(period)})` : title}
           {tooltip !== undefined && (
