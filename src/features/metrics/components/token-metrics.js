@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { TIME_PERIOD } from '../../../constants';
 import AsyncTokenMetricsChart from './async-token-metrics-chart';
 import AsyncTokenPricesChart from './async-token-prices-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
@@ -10,11 +11,24 @@ import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useTokenMetrics from '../hooks/use-token-metrics';
 
+const determineGranularity = (period) => {
+  if (period === TIME_PERIOD.ALL) {
+    return 'month';
+  }
+
+  if (period === TIME_PERIOD.YEAR) {
+    return 'week';
+  }
+
+  return undefined;
+};
+
 const TokenMetrics = ({ period, token, type }) => {
   const [brushActive, setBrushActive] = React.useState(false);
   const [metrics, loadingMetrics] = useTokenMetrics(
     token.address,
     {
+      granularity: determineGranularity(period),
       period,
     },
     { autoReload: !brushActive },
