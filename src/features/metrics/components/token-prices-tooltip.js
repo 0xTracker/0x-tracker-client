@@ -4,9 +4,9 @@ import React from 'react';
 
 import { DATE_FORMAT } from '../../../constants';
 import ChartTooltip from '../../../components/chart-tooltip';
+import formatCurrency from '../../../util/format-currency';
 import formatDate from '../../../util/format-date';
 import formatTokenAmount from '../../../util/format-token-amount';
-import LocalisedAmount from '../../currencies/components/localised-amount';
 
 const TokenPricesTooltip = ({ localCurrency, payload, tokenSymbol }) => {
   if (_.isEmpty(payload)) {
@@ -20,11 +20,14 @@ const TokenPricesTooltip = ({ localCurrency, payload, tokenSymbol }) => {
       items={[
         {
           label: 'Price',
-          value: <LocalisedAmount amount={price.close} />,
+          value:
+            price.close === null
+              ? 'Unknown'
+              : formatCurrency(price.close, localCurrency),
         },
         {
           label: `Volume (${localCurrency})`,
-          value: <LocalisedAmount amount={tradeVolume.USD} />,
+          value: formatCurrency(tradeVolume.USD, localCurrency),
         },
         {
           label: `Volume (${tokenSymbol || 'token'})`,
