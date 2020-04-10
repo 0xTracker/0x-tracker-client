@@ -51,7 +51,10 @@ const NetworkMetricsChart = React.memo(
 
     return (
       <ChartContainer>
-        <BarChart data={sanitizedData}>
+        <BarChart
+          data={sanitizedData}
+          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+        >
           <CartesianGrid
             stroke={colors.athensGray}
             strokeDasharray="8 8"
