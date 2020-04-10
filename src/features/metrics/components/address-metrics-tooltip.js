@@ -12,18 +12,18 @@ const AddressMetricsTooltip = ({ localCurrency, payload }) => {
     return null;
   }
 
-  const { date, fillCount, fillVolume } = payload[0].payload;
+  const { date, tradeCount, tradeVolume } = payload[0].payload;
 
   return (
     <ChartTooltip
       items={[
         {
-          label: 'fill count',
-          value: fillCount,
+          label: `Volume (${localCurrency})`,
+          value: formatCurrency(tradeVolume, localCurrency),
         },
         {
-          label: `fill volume (${localCurrency})`,
-          value: formatCurrency(fillVolume, localCurrency),
+          label: 'Trades',
+          value: tradeCount,
         },
       ]}
       title={formatDate(date, DATE_FORMAT.STANDARD)}

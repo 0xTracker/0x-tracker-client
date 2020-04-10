@@ -41,8 +41,8 @@ const AddressMetrics = ({ address, keyMetric, period }) => {
     () =>
       (metrics || []).map((metric) => ({
         date: new Date(metric.date),
-        fillCount: metric.fillCount.total,
-        fillVolume: metric.fillVolume.total * conversionRate,
+        tradeCount: metric.tradeCount.total,
+        tradeVolume: metric.tradeVolume.total * conversionRate,
       })),
     [metrics, conversionRate],
   );
@@ -69,12 +69,8 @@ const AddressMetrics = ({ address, keyMetric, period }) => {
 
 AddressMetrics.propTypes = {
   address: PropTypes.string.isRequired,
-  keyMetric: PropTypes.string,
+  keyMetric: PropTypes.string, // eslint-disable-line react/require-default-props
   period: sharedPropTypes.timePeriod.isRequired,
-};
-
-AddressMetrics.defaultProps = {
-  keyMetric: 'fillVolume',
 };
 
 export default AddressMetrics;
