@@ -11,6 +11,7 @@ import FilterIcon from './filter-icon';
 import GitHubIcon from './git-hub-icon';
 import HelpIcon from './help-icon';
 import LeftArrowIcon from './left-arrow-icon';
+import MarkerIcon from './marker-icon';
 import MediumIcon from './medium-icon';
 import MenuIcon from './menu-icon';
 import MoreIcon from './more-icon';
@@ -40,6 +41,7 @@ export {
   GitHubIcon,
   HelpIcon,
   LeftArrowIcon,
+  MarkerIcon,
   MediumIcon,
   MenuIcon,
   MoreIcon,
