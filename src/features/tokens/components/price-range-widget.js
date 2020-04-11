@@ -57,7 +57,7 @@ const PriceRangeWidget = ({ price, ...otherProps }) => {
       tooltip="Low-high price range for the selected period. Indicator represents the current price."
       {...otherProps}
     >
-      {price.close === null ? (
+      {price.low === null ? (
         'Not Available'
       ) : (
         <VisualWrapper>
