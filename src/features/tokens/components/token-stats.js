@@ -38,12 +38,7 @@ const TokenStats = ({ period, token }) => {
         />
       </Col>
       <Col lg={3} md={6}>
-        <TokenStatWidget
-          as={MarketCapWidget}
-          circulatingSupply={20000000}
-          marketCap={48000000}
-          price={token.price}
-        />
+        <TokenStatWidget as={MarketCapWidget} token={token} />
       </Col>
       <Col lg={3} md={6}>
         <TokenStatWidget as={PriceRangeWidget} price={token.price} />

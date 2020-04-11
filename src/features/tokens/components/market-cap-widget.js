@@ -3,51 +3,39 @@ import React from 'react';
 
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import Number from '../../../components/number';
+import MarketCapWidgetTooltip from './market-cap-widget-tooltip';
 import StatWidget from '../../../components/stat-widget';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const MarketCapWidget = ({
-  circulatingSupply,
-  marketCap,
-  price,
-  ...otherProps
-}) => (
+const MarketCapWidget = ({ token, ...otherProps }) => (
   <StatWidget
     title="Market Cap"
-    tooltip={
-      <>
-        Current market cap based on a price of{' '}
-        <strong>
-          <LocalisedAmount amount={price.last} />
-        </strong>{' '}
-        and circulating supply of{' '}
-        <strong>
-          <Number>{circulatingSupply}</Number>
-        </strong>
-        .
-      </>
-    }
+    tooltip={<MarketCapWidgetTooltip token={token} />}
     {...otherProps}
   >
-    <LocalisedAmount
-      amount={marketCap}
-      loadingIndicator={loadingIndicator}
-      summarize
-    />
+    {token.marketCap === null ? (
+      'Not Available'
+    ) : (
+      <LocalisedAmount
+        amount={token.marketCap}
+        loadingIndicator={loadingIndicator}
+        summarize
+      />
+    )}
   </StatWidget>
 );
 
 MarketCapWidget.propTypes = {
-  circulatingSupply: PropTypes.number, // eslint-disable-line react/require-default-props
-  className: PropTypes.string,
-  marketCap: PropTypes.number, // eslint-disable-line react/require-default-props
-  price: PropTypes.number, // eslint-disable-line react/require-default-props
-};
-
-MarketCapWidget.defaultProps = {
-  className: undefined,
+  token: PropTypes.shape({
+    circulatingSupply: PropTypes.number,
+    className: PropTypes.string,
+    marketCap: PropTypes.number,
+    price: PropTypes.shape({
+      close: PropTypes.number,
+    }).isRequired,
+    totalSupply: PropTypes.number,
+  }).isRequired,
 };
 
 export default MarketCapWidget;
