@@ -69,6 +69,13 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
       )}
     </td>
     <td className="align-middle" css="text-align: right;">
+      {token.marketCap === null ? (
+        '-'
+      ) : (
+        <LocalisedAmount amount={token.marketCap} summarize />
+      )}
+    </td>
+    <td className="align-middle" css="text-align: right;">
       <Number>{token.stats.tradeCount}</Number>
     </td>
     <td className="align-middle" css="text-align: right;">

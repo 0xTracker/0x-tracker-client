@@ -20,12 +20,19 @@ const TokenListItemVolume = ({ token }) => {
       return 'Unknown';
     }
 
-    return <TokenAmount amount={volume.token} linked={false} token={token} />;
+    return (
+      <TokenAmount
+        amount={volume.token}
+        linked={false}
+        summarize
+        token={token}
+      />
+    );
   }
 
   return (
     <>
-      <LocalisedAmount amount={volume[BASE_CURRENCY]} />
+      <LocalisedAmount amount={volume[BASE_CURRENCY]} summarize />
       {volume.token && (
         <>
           <br />
@@ -35,7 +42,12 @@ const TokenListItemVolume = ({ token }) => {
               font-size: 0.8rem;
             `}
           >
-            <TokenAmount amount={volume.token} linked={false} token={token} />
+            <TokenAmount
+              amount={volume.token}
+              linked={false}
+              summarize
+              token={token}
+            />
           </span>
         </>
       )}
