@@ -44,7 +44,7 @@ const TokenPageTitle = ({ statsPeriod, token }) => (
     <span>
       {_.isString(token.name) ? token.name : `Token: ${token.address}`}
       {_.isString(token.symbol) && ` (${token.symbol.toUpperCase()})`}
-      <Hidden above="sm">
+      <Hidden above="xs">
         <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
       </Hidden>
     </span>
