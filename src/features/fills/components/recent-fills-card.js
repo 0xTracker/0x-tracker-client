@@ -10,7 +10,7 @@ import Link from '../../../components/link';
 import Pill from '../../../components/pill';
 import RecentFills from './recent-fills';
 
-const RecentFillsCard = ({ className, filter }) => (
+const RecentFillsCard = ({ className, filter, limit }) => (
   <Card className={className}>
     <CardHeader>
       <CardHeading>Recent Fills</CardHeading>
@@ -18,8 +18,8 @@ const RecentFillsCard = ({ className, filter }) => (
         View More
       </Pill>
     </CardHeader>
-    <CardBody padded>
-      <RecentFills filter={filter} />
+    <CardBody>
+      <RecentFills filter={filter} limit={limit} />
     </CardBody>
   </Card>
 );
@@ -31,11 +31,13 @@ RecentFillsCard.propTypes = {
     relayer: PropTypes.string,
     token: PropTypes.string,
   }),
+  limit: PropTypes.number,
 };
 
 RecentFillsCard.defaultProps = {
   className: undefined,
   filter: undefined,
+  limit: undefined,
 };
 
 export default RecentFillsCard;
