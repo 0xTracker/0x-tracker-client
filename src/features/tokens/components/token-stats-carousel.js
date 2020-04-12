@@ -48,12 +48,7 @@ const TokenStatsCarousel = ({ period, token }) => (
       period={period}
       tradeCount={token.stats.tradeCount}
     />
-    <CarouselStat
-      as={MarketCapWidget}
-      circulatingSupply={20000000}
-      marketCap={48000000}
-      price={token.price}
-    />
+    <CarouselStat as={MarketCapWidget} token={token} />
     <CarouselStat as={PriceRangeWidget} price={token.price} />
   </Slider>
 );
