@@ -20,7 +20,7 @@ const StyledRecentFillsItem = styled.div`
   background-color: ${(props) =>
     (props.index + 1) % 2 === 0 ? colors.alabaster : 'none'};
   display: flex;
-  padding: 1rem 0.75rem;
+  padding: 1rem;
 `;
 
 const Metadata = styled.dl`
