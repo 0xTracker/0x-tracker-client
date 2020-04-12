@@ -16,6 +16,7 @@ import TokenAmount from './token-amount';
 import UnknownRelayerImage from '../../relayers/components/unknown-relayer-image';
 
 const TableCell = styled.td`
+  height: 80px;
   padding: 1rem 0;
 
   &:first-child {

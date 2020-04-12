@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { URL } from '../../../constants';
+import { colors } from '../../../styles/constants';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import CardHeader from '../../../components/card-header';
@@ -18,7 +19,11 @@ const LatestNewsCard = ({ className, compact, showImages }) => (
         View More
       </Pill>
     </CardHeader>
-    <CardBody padded>
+    <CardBody
+      css={`
+        background-color: ${colors.alabaster};
+      `}
+    >
       <LatestNews compact={compact} showImages={showImages} />
     </CardBody>
   </Card>

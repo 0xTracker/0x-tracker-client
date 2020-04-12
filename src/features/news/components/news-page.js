@@ -29,8 +29,8 @@ const LoadMoreButton = styled.button`
   cursor: pointer;
   display: flex;
   justify-content: center;
+  margin: 1rem;
   padding: 1rem 0;
-  width: 100%;
 
   &:hover {
     background-color: ${colors.mystic};
@@ -67,8 +67,11 @@ const NewsPage = ({ match }) => {
       <Row css="flex-grow: 1;">
         <ArticlesColumn>
           <Card fullHeight>
-            <CardBody padded>
-              <ArticlesProvider source={source ? source.slug : undefined}>
+            <CardBody>
+              <ArticlesProvider
+                limit={11}
+                source={source ? source.slug : undefined}
+              >
                 {({
                   articles,
                   canLoadMore,
