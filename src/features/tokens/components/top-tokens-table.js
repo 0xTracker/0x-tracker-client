@@ -25,7 +25,7 @@ const SecondaryText = styled.span`
   font-size: 0.9rem;
 `;
 
-const TopTokensTable = ({ tokens }) => (
+const TopTokensTable = ({ statsPeriod, tokens }) => (
   <table css="width: 100%;">
     <thead css="display: none;">
       <tr>
@@ -40,7 +40,11 @@ const TopTokensTable = ({ tokens }) => (
             <TokenImage imageUrl={token.imageUrl} size="2.5rem" />
           </TableCell>
           <TableCell width="99%">
-            <TokenLink address={token.address} css="font-weight: 500;">
+            <TokenLink
+              address={token.address}
+              css="font-weight: 500;"
+              params={{ statsPeriod }}
+            >
               {token.symbol}
             </TokenLink>
             <br />
@@ -67,6 +71,7 @@ const TopTokensTable = ({ tokens }) => (
 );
 
 TopTokensTable.propTypes = {
+  statsPeriod: PropTypes.string.isRequired,
   tokens: PropTypes.arrayOf(tokensPropTypes.tokenWithStats).isRequired,
 };
 

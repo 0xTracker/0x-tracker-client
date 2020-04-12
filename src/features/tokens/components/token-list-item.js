@@ -46,7 +46,7 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
       </TokenLink>
     </td>
     <td width="99%">
-      <TokenLink address={token.address}>
+      <TokenLink address={token.address} params={{ statsPeriod }}>
         {_.truncate(token.name, { length: 30 }) || 'Unknown Token'}
       </TokenLink>
       <AssetTypeBadge>{token.type.toUpperCase()}</AssetTypeBadge>

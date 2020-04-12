@@ -41,7 +41,7 @@ const TokenPageColumn = styled(Col)`
 const TokenPage = () => {
   const history = useHistory();
   const params = useParams();
-  const statsPeriod = useSearchParam('statsPeriod') || TIME_PERIOD.WEEK;
+  const statsPeriod = useSearchParam('statsPeriod') || TIME_PERIOD.MONTH;
   const [token, loadingToken] = useToken(params.address, { statsPeriod });
 
   if (loadingToken) {

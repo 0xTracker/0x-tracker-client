@@ -40,7 +40,7 @@ const TopTokens = ({ period }) => {
 
   return (
     <TopTokensContainer>
-      <TopTokensTable tokens={tokens.items} />
+      <TopTokensTable statsPeriod={period} tokens={tokens.items} />
       <TopTokensFooter>
         Top tokens by {verbosePeriod(period)} fill volume
         <AsteriskIcon css="margin-left: 0.5rem; opacity: 0.7;" size="12" />
