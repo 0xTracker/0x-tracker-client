@@ -53,11 +53,11 @@ const HomePage = () => {
             charts={[
               {
                 component: <NetworkMetrics type="tradeVolume" />,
-                title: 'Trade Volume',
+                title: 'Volume',
               },
               {
                 component: <NetworkMetrics type="tradeCount" />,
-                title: 'Trade Count',
+                title: 'Trades',
               },
             ]}
             css="height: 352px"

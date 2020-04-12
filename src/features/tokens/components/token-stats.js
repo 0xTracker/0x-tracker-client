@@ -27,6 +27,7 @@ const TokenStats = ({ period, token }) => {
         <TokenStatWidget
           as={TradeVolumeWidget}
           period={period}
+          showPeriod={false}
           volume={token.stats.tradeVolume.USD}
         />
       </Col>
@@ -34,6 +35,7 @@ const TokenStats = ({ period, token }) => {
         <TokenStatWidget
           as={TradeCountWidget}
           period={period}
+          showPeriod={false}
           tradeCount={token.stats.tradeCount}
         />
       </Col>
