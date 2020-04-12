@@ -109,7 +109,7 @@ const TokenPage = () => {
           <TokenPageColumn css="flex-grow: 1;" lastRow lg={5}>
             <TokenRelayersCard
               css="flex-grow: 1;"
-              limit={6}
+              limit={5}
               statsPeriod={statsPeriod}
               token={token}
             />
