@@ -16,6 +16,7 @@ import ResponsiveTimePeriodFilter from '../../../components/responsive-time-peri
 import TabbedCard from '../../../components/tabbed-card';
 import TokenMetrics from '../../metrics/components/token-metrics';
 import TokenPageTitle from './token-page-title';
+import TokenRelayersCard from './token-relayers-card';
 import TokenStats from './token-stats';
 import useToken from '../hooks/use-token';
 
@@ -102,9 +103,17 @@ const TokenPage = () => {
             <RecentFillsCard
               css="flex-grow: 1;"
               filter={{ token: token.address }}
+              limit={5}
             />
           </TokenPageColumn>
-          <TokenPageColumn css="flex-grow: 1;" lastRow lg={5} />
+          <TokenPageColumn css="flex-grow: 1;" lastRow lg={5}>
+            <TokenRelayersCard
+              css="flex-grow: 1;"
+              limit={6}
+              statsPeriod={statsPeriod}
+              token={token}
+            />
+          </TokenPageColumn>
         </Row>
       </PageLayout>
     </>
