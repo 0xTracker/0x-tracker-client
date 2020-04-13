@@ -3,6 +3,8 @@ import AllIcon from './all-icon';
 import AsteriskIcon from './asterisk-icon';
 import CaretRightIcon from './caret-right-icon';
 import ChevronDownIcon from './chevron-down-icon';
+import ChevronLeftIcon from './chevron-left-icon';
+import ChevronRightIcon from './chevron-right-icon';
 import ChevronUpIcon from './chevron-up-icon';
 import CircleIcon from './circle-icon';
 import CloseIcon from './close-icon';
@@ -33,6 +35,8 @@ export {
   AsteriskIcon,
   CaretRightIcon,
   ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
   ChevronUpIcon,
   CircleIcon,
   CloseIcon,

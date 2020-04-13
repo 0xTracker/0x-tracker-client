@@ -88,7 +88,7 @@ const TokenRelayersTable = ({ relayers, token }) => {
               {_.isString(relayer.url) ? (
                 <SecondaryText as={Link} href={relayer.url}>
                   {_.truncate(relayer.url, {
-                    length: breakpoint.greaterThan('xs') ? 35 : 25,
+                    length: breakpoint.greaterThan('xs') ? 35 : 20,
                   })}
                 </SecondaryText>
               ) : null}
