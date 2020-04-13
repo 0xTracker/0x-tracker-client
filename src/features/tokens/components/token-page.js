@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
 import { TOKEN_TYPE } from '../constants';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import buildTokenUrl from '../util/build-token-url';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
@@ -42,6 +43,8 @@ const TokenPageColumn = styled(Col)`
 const TokenPage = () => {
   const history = useHistory();
   const params = useParams();
+  const breakpoint = useCurrentBreakpoint();
+
   const statsPeriod = useSearchParam('statsPeriod') || TIME_PERIOD.MONTH;
   const [token, loadingToken] = useToken(params.address, { statsPeriod });
 
@@ -71,7 +74,14 @@ const TokenPage = () => {
       >
         <TokenStats period={statsPeriod} token={token} />
         <TabbedCard
-          css="height: 360px; margin-bottom: 2rem;"
+          css={`
+            height: 360px;
+            margin-bottom: 1.25rem;
+
+            ${media.greaterThan('lg')`
+              margin-bottom: 2rem;
+            `}
+          `}
           tabs={[
             token.type === TOKEN_TYPE.ERC20
               ? {
@@ -82,7 +92,9 @@ const TokenPage = () => {
                       type="price.close"
                     />
                   ),
-                  title: 'Market Price',
+                  title: breakpoint.greaterThan('xs')
+                    ? 'Market Price'
+                    : 'Price',
                 }
               : undefined,
             {
@@ -106,14 +118,14 @@ const TokenPage = () => {
             <RecentFillsCard
               css="flex-grow: 1;"
               filter={{ token: token.address }}
-              limit={7}
+              limit={breakpoint.greaterThan('xs') ? 7 : 5}
               placeholder="No recent fills are available for this token."
             />
           </TokenPageColumn>
           <TokenPageColumn css="flex-grow: 1;" lastRow lg={5}>
             <TokenRelayersCard
               css="flex-grow: 1;"
-              limit={7}
+              limit={breakpoint.greaterThan('xs') ? 7 : 5}
               statsPeriod={statsPeriod}
               token={token}
             />
