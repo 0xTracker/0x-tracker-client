@@ -42,9 +42,21 @@ class TokenPricesChart extends PureComponent {
   render() {
     const { data, localCurrency, onBrushChange, tokenSymbol } = this.props;
 
-    if (_.isEmpty(data)) {
-      return <ChartPlaceholder>No data available</ChartPlaceholder>;
+    if (
+      _.isEmpty(data) ||
+      data.every((dataPoint) => dataPoint.price.close === null)
+    ) {
+      return (
+        <ChartPlaceholder>
+          No data available for the selected period
+        </ChartPlaceholder>
+      );
     }
+
+    const prices = data.map((x) => x.price.close);
+
+    const high = _.max(prices);
+    const low = _.min(prices);
 
     return (
       <ChartContainer>
@@ -83,6 +95,7 @@ class TokenPricesChart extends PureComponent {
           <YAxis
             axisLine={false}
             dataKey="price.close"
+            domain={[low, high]}
             label={{
               fill: colors.anzac,
               fillOpacity: 0.7,

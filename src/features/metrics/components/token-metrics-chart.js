@@ -22,6 +22,22 @@ import TokenMetricsTooltip from './token-metrics-tooltip';
 
 const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
 
+const isEmpty = (data, metric) => {
+  if (_.isEmpty(data)) {
+    return true;
+  }
+
+  if (metric === 'tradeCount') {
+    return data.every((dataPoint) => dataPoint.tradeCount === 0);
+  }
+
+  if (metric === 'tradeVolume.USD') {
+    return data.every((dataPoint) => dataPoint.tradeVolume.USD === 0);
+  }
+
+  return false;
+};
+
 class TokenMetricsChart extends PureComponent {
   constructor() {
     super();
@@ -52,8 +68,12 @@ class TokenMetricsChart extends PureComponent {
       type,
     } = this.props;
 
-    if (_.isEmpty(data)) {
-      return <ChartPlaceholder>No data available</ChartPlaceholder>;
+    if (isEmpty(data, type)) {
+      return (
+        <ChartPlaceholder>
+          No data available for the selected period
+        </ChartPlaceholder>
+      );
     }
 
     return (

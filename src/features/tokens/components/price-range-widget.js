@@ -51,6 +51,22 @@ const PriceRangeWidget = ({ price, ...otherProps }) => {
   const pos = price.close - price.low;
   const posPercentage = pos === 0 ? 50 : (pos / range) * 100;
 
+  if (price.close === null && price.low !== null) {
+    return (
+      <StatWidget
+        title="Price Range"
+        tooltip="Low-high price range for the selected period. Indicator represents the current price."
+        {...otherProps}
+      >
+        <span>
+          <LocalisedAmount amount={price.low} summarize />
+          {' - '}
+          <LocalisedAmount amount={price.high} summarize />
+        </span>
+      </StatWidget>
+    );
+  }
+
   return (
     <StatWidget
       title="Price Range"

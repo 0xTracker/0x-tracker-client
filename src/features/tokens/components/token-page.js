@@ -8,6 +8,7 @@ import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
+import { TOKEN_TYPE } from '../constants';
 import buildTokenUrl from '../util/build-token-url';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
@@ -72,16 +73,18 @@ const TokenPage = () => {
         <TabbedCard
           css="height: 360px; margin-bottom: 2rem;"
           tabs={[
-            {
-              component: (
-                <TokenMetrics
-                  period={statsPeriod}
-                  token={token}
-                  type="price.close"
-                />
-              ),
-              title: 'Market Price',
-            },
+            token.type === TOKEN_TYPE.ERC20
+              ? {
+                  component: (
+                    <TokenMetrics
+                      period={statsPeriod}
+                      token={token}
+                      type="price.close"
+                    />
+                  ),
+                  title: 'Market Price',
+                }
+              : undefined,
             {
               component: <TokenMetrics period={statsPeriod} token={token} />,
               title: 'Volume',
@@ -96,20 +99,21 @@ const TokenPage = () => {
               ),
               title: 'Trades',
             },
-          ]}
+          ].filter((t) => t !== undefined)}
         />
         <Row>
           <TokenPageColumn css="flex-grow: 1;" lastRow lg={7}>
             <RecentFillsCard
               css="flex-grow: 1;"
               filter={{ token: token.address }}
-              limit={5}
+              limit={7}
+              placeholder="No recent fills are available for this token."
             />
           </TokenPageColumn>
           <TokenPageColumn css="flex-grow: 1;" lastRow lg={5}>
             <TokenRelayersCard
               css="flex-grow: 1;"
-              limit={5}
+              limit={7}
               statsPeriod={statsPeriod}
               token={token}
             />
