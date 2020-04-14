@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { summarizeNumber } from '../../../util';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
@@ -24,9 +24,7 @@ const TradeCountWidget = ({ period, tradeCount, ...otherProps }) => (
     tooltip={createTooltip(period)}
     {...otherProps}
   >
-    {_.isNumber(tradeCount)
-      ? numeral(tradeCount).format('0,0')
-      : loadingIndicator}
+    {_.isNumber(tradeCount) ? summarizeNumber(tradeCount) : loadingIndicator}
   </StatWidget>
 );
 

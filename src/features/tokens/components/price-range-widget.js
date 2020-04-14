@@ -5,8 +5,10 @@ import styled from 'styled-components';
 
 import { colors } from '../../../styles/constants';
 import { MarkerIcon } from '../../../components/icons';
+import { formatCurrency } from '../../../util';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import StatWidget from '../../../components/stat-widget';
+import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
 const VisualWrapper = styled.div`
   display: flex;
@@ -48,6 +50,7 @@ const PriceMarkerIcon = styled(MarkerIcon)`
 `;
 
 const PriceRangeWidget = ({ price, ...otherProps }) => {
+  const displayCurrency = useDisplayCurrency();
   const range = price.high - price.low;
   const pos = price.close - price.low;
   const posPercentage = _.clamp(pos === 0 ? 50 : (pos / range) * 100, 1, 100);
@@ -79,16 +82,19 @@ const PriceRangeWidget = ({ price, ...otherProps }) => {
       ) : (
         <VisualWrapper>
           <PriceMarkerWrapper>
-            <PriceMarker position={posPercentage}>
+            <PriceMarker
+              position={posPercentage}
+              title={formatCurrency(price.close, displayCurrency)}
+            >
               <PriceMarkerIcon size={12} />
             </PriceMarker>
           </PriceMarkerWrapper>
           <ValuesWrapper>
             <span>
-              <LocalisedAmount amount={price.low} />
+              <LocalisedAmount amount={price.low} summarize />
             </span>
             <span>
-              <LocalisedAmount amount={price.high} />
+              <LocalisedAmount amount={price.high} summarize />
             </span>
           </ValuesWrapper>
         </VisualWrapper>

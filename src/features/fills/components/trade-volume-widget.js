@@ -25,7 +25,11 @@ const TradeVolumeWidget = ({ period, volume, ...otherProps }) => (
     {...otherProps}
   >
     {_.isNumber(volume) ? (
-      <LocalisedAmount amount={volume} loadingIndicator={loadingIndicator} />
+      <LocalisedAmount
+        amount={volume}
+        loadingIndicator={loadingIndicator}
+        summarize
+      />
     ) : (
       loadingIndicator
     )}
