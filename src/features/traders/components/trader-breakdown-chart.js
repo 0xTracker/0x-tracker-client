@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { PieChart, Pie, Cell, Tooltip } from 'recharts';
+import { Legend, PieChart, Pie, Cell, Tooltip } from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -12,7 +12,7 @@ const TraderBreakdownChart = ({ data }) => {
     return 'No data available';
   }
 
-  const COLORS = [colors.indigo, colors.martinique, colors.santasGray];
+  const COLORS = [colors.indigo, colors.violet];
 
   return (
     <ChartContainer>
@@ -21,15 +21,19 @@ const TraderBreakdownChart = ({ data }) => {
           data={data}
           dataKey="count"
           isAnimationActive={false}
-          label={({ traderType }) => `${_.startCase(traderType)}s`}
-          labelLine
           nameKey="traderType"
           paddingAngle={0}
         >
           {data.map((entry, index) => (
-            <Cell fill={COLORS[index]} key={`cell-${entry.traderType}`} />
+            <Cell
+              fill={COLORS[index]}
+              fillOpacity={0.7}
+              key={`cell-${entry.traderType}`}
+              name={`${_.startCase(entry.traderType)}s`}
+            />
           ))}
         </Pie>
+        <Legend height={36} verticalAlign="top" />
         <Tooltip content={<TraderBreakdownTooltip />} />
       </PieChart>
     </ChartContainer>

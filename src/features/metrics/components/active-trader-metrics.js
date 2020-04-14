@@ -9,6 +9,10 @@ import useActiveTraderMetrics from '../hooks/use-active-trader-metrics';
 
 const determineGranularity = (period) => {
   if (period === TIME_PERIOD.ALL) {
+    return 'month';
+  }
+
+  if (period === TIME_PERIOD.YEAR) {
     return 'week';
   }
 

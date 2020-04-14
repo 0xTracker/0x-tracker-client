@@ -52,7 +52,7 @@ const ProtocolMetricsChart = React.memo(({ currency, data, onBrushChange }) => {
           dataKey="date"
           height={30}
           onChange={onBrushChange}
-          stroke={colors.periwinkleGray}
+          stroke={colors.mischka}
           tickFormatter={formatAxisDate}
         />
         <Legend height={36} verticalAlign="top" />
