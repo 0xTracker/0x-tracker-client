@@ -12,29 +12,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { colors } from '../../../styles/constants';
-import { DATE_FORMAT } from '../../../constants';
+import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
 import AddressMetricsTooltip from './address-metrics-tooltip';
 import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
-import formatDate from '../../../util/format-date';
-import summarizeNumber from '../../../util/summarize-number';
-import summarizeCurrency from '../../../util/summarize-currency';
-
-const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
+import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
 const AddressMetricsChart = React.memo(
-  ({ data, keyMetric, localCurrency, onBrushChange }) => {
-    const formatValue = (value) => {
-      if (value === 0) {
-        return '';
-      }
-
-      if (keyMetric === 'tradeCount') {
-        return summarizeNumber(value);
-      }
-
-      return summarizeCurrency(value, localCurrency);
-    };
+  ({ data, keyMetric, onBrushChange, period, granularity }) => {
+    const displayCurrency = useDisplayCurrency();
 
     if (_.isEmpty(data)) {
       return <ChartPlaceholder>No data available</ChartPlaceholder>;
@@ -62,7 +48,7 @@ const AddressMetricsChart = React.memo(
             axisLine={false}
             dataKey="date"
             tick={{ fill: 'currentColor', fontSize: '0.8em' }}
-            tickFormatter={formatAxisDate}
+            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
             tickLine={false}
           />
           <YAxis
@@ -74,18 +60,27 @@ const AddressMetricsChart = React.memo(
               fontSize: '0.8em',
               fontWeight: 'bold',
             }}
-            tickFormatter={formatValue}
+            tickFormatter={
+              keyMetric === 'tradeCount'
+                ? formatAxisNumber
+                : (value) => formatAxisCurrency(value, displayCurrency)
+            }
             tickLine={false}
           />
           <Tooltip
-            content={<AddressMetricsTooltip localCurrency={localCurrency} />}
+            content={
+              <AddressMetricsTooltip
+                currency={displayCurrency}
+                granularity={granularity}
+              />
+            }
           />
           <Brush
             dataKey="date"
             height={30}
             onChange={onBrushChange}
             stroke={colors.mischka}
-            tickFormatter={formatAxisDate}
+            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           />
         </BarChart>
       </ChartContainer>
@@ -102,9 +97,10 @@ AddressMetricsChart.propTypes = {
       fillVolume: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  granularity: PropTypes.string.isRequired,
   keyMetric: PropTypes.string,
-  localCurrency: PropTypes.string.isRequired,
   onBrushChange: PropTypes.func,
+  period: PropTypes.string.isRequired,
 };
 
 AddressMetricsChart.defaultProps = {

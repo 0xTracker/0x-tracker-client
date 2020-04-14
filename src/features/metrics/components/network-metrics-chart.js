@@ -12,33 +12,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors } from '../../../styles/constants';
-import { DATE_FORMAT } from '../../../constants';
+import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
 import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
-import formatDate from '../../../util/format-date';
 import NetworkMetricsTooltip from './network-metrics-tooltip';
-import summarizeCurrency from '../../../util/summarize-currency';
-import summarizeNumber from '../../../util/summarize-number';
-
-const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
-
-const formatCount = (count) => {
-  if (count === 0) {
-    return '';
-  }
-
-  return summarizeNumber(count);
-};
+import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
 const NetworkMetricsChart = React.memo(
-  ({ currency, data, onBrushChange, type }) => {
-    const formatCurrency = (amount) => {
-      if (amount === 0) {
-        return '';
-      }
-
-      return summarizeCurrency(amount, currency);
-    };
+  ({ data, granularity, onBrushChange, period, type }) => {
+    const displayCurrency = useDisplayCurrency();
 
     if (_.isEmpty(data)) {
       return <ChartPlaceholder>No data available</ChartPlaceholder>;
@@ -65,10 +47,8 @@ const NetworkMetricsChart = React.memo(
           <XAxis
             axisLine={{ stroke: colors.athensGray }}
             dataKey="date"
-            height={30}
-            minTickGap={35}
             tick={{ fill: 'currentColor', fontSize: '0.8em' }}
-            tickFormatter={formatAxisDate}
+            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
             tickLine={false}
           />
           <YAxis
@@ -82,18 +62,25 @@ const NetworkMetricsChart = React.memo(
             }}
             tickFormatter={
               type === 'tradeVolume' || type === 'protocolFees'
-                ? formatCurrency
-                : formatCount
+                ? (value) => formatAxisCurrency(value, displayCurrency)
+                : formatAxisNumber
             }
             tickLine={false}
           />
-          <Tooltip content={<NetworkMetricsTooltip currency={currency} />} />
+          <Tooltip
+            content={
+              <NetworkMetricsTooltip
+                currency={displayCurrency}
+                granularity={granularity}
+              />
+            }
+          />
           <Brush
             dataKey="date"
             height={30}
             onChange={onBrushChange}
             stroke={colors.mischka}
-            tickFormatter={formatAxisDate}
+            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           />
         </BarChart>
       </ChartContainer>
@@ -102,7 +89,6 @@ const NetworkMetricsChart = React.memo(
 );
 
 NetworkMetricsChart.propTypes = {
-  currency: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
@@ -114,7 +100,9 @@ NetworkMetricsChart.propTypes = {
       tradeVolume: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  granularity: PropTypes.string.isRequired,
   onBrushChange: PropTypes.func,
+  period: PropTypes.string.isRequired,
   type: PropTypes.string,
 };
 

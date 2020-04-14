@@ -8,89 +8,81 @@ import {
   Tooltip,
   Brush,
 } from 'recharts';
-import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors } from '../../../styles/constants';
-import { DATE_FORMAT } from '../../../constants';
+import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
 import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
-import formatDate from '../../../util/format-date';
 import RelayerMetricsTooltip from './relayer-metrics-tooltip';
-import summarizeCurrency from '../../../util/summarize-currency';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
-const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
+const RelayerMetricsChart = React.memo(
+  ({ data, granularity, onBrushChange, period, type }) => {
+    const displayCurrency = useDisplayCurrency();
 
-const formatCount = (count) => {
-  if (count === 0) {
-    return '';
-  }
-
-  return numeral(count).format('0,0');
-};
-
-const RelayerMetricsChart = React.memo(({ data, onBrushChange, type }) => {
-  const displayCurrency = useDisplayCurrency();
-
-  const formatCurrency = (amount) => {
-    if (amount === 0) {
-      return '';
+    if (_.isEmpty(data)) {
+      return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
 
-    return summarizeCurrency(amount, displayCurrency);
-  };
+    const sanitizedData = data.map((dataPoint) => ({
+      ...dataPoint,
+      date: dataPoint.date.toISOString(),
+    }));
 
-  if (_.isEmpty(data)) {
-    return <ChartPlaceholder>No data available</ChartPlaceholder>;
-  }
-
-  const sanitizedData = data.map((dataPoint) => ({
-    ...dataPoint,
-    date: dataPoint.date.toISOString(),
-  }));
-
-  return (
-    <ChartContainer>
-      <BarChart
-        data={sanitizedData}
-        margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
-      >
-        <CartesianGrid
-          stroke={colors.athensGray}
-          strokeDasharray="8 8"
-          strokeOpacity={0.7}
-          vertical={false}
-        />
-        <Bar dataKey={type} fill={colors.anzac} fillOpacity={0.9} />
-        <XAxis
-          axisLine={false}
-          dataKey="date"
-          tick={{ fill: 'currentColor', fontSize: '0.8em' }}
-          tickFormatter={formatAxisDate}
-          tickLine={false}
-        />
-        <YAxis
-          axisLine={false}
-          dataKey={type}
-          mirror
-          tick={{ fill: 'currentColor', fontSize: '0.8em', fontWeight: 'bold' }}
-          tickFormatter={type === 'tradeVolume' ? formatCurrency : formatCount}
-          tickLine={false}
-        />
-        <Tooltip content={<RelayerMetricsTooltip />} />
-        <Brush
-          dataKey="date"
-          height={30}
-          onChange={onBrushChange}
-          stroke={colors.mischka}
-          tickFormatter={formatAxisDate}
-        />
-      </BarChart>
-    </ChartContainer>
-  );
-});
+    return (
+      <ChartContainer>
+        <BarChart
+          data={sanitizedData}
+          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+        >
+          <CartesianGrid
+            stroke={colors.athensGray}
+            strokeDasharray="8 8"
+            strokeOpacity={0.7}
+            vertical={false}
+          />
+          <Bar dataKey={type} fill={colors.anzac} fillOpacity={0.9} />
+          <XAxis
+            axisLine={false}
+            dataKey="date"
+            minTickGap={25}
+            tick={{ fill: 'currentColor', fontSize: '0.8em' }}
+            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
+            tickLine={false}
+          />
+          <YAxis
+            axisLine={false}
+            dataKey={type}
+            mirror
+            tick={{
+              fill: 'currentColor',
+              fontSize: '0.8em',
+              fontWeight: 'bold',
+            }}
+            tickFormatter={
+              type === 'tradeCount' || type === 'traderCount'
+                ? formatAxisNumber
+                : (value) => formatAxisCurrency(value, displayCurrency)
+            }
+            tickLine={false}
+          />
+          <Tooltip
+            content={<RelayerMetricsTooltip granularity={granularity} />}
+          />
+          <Brush
+            dataKey="date"
+            height={30}
+            onChange={onBrushChange}
+            stroke={colors.mischka}
+            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
+          />
+        </BarChart>
+      </ChartContainer>
+    );
+  },
+);
 
 RelayerMetricsChart.displayName = 'RelayerMetricsChart';
 
@@ -100,9 +92,12 @@ RelayerMetricsChart.propTypes = {
       date: PropTypes.instanceOf(Date).isRequired,
       tradeCount: PropTypes.number.isRequired,
       tradeVolume: PropTypes.number.isRequired,
+      traderCount: PropTypes.number.isRequired,
     }),
   ).isRequired,
+  granularity: PropTypes.string.isRequired,
   onBrushChange: PropTypes.func,
+  period: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['tradeCount', 'tradeVolume']),
 };
 

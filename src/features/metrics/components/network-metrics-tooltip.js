@@ -2,13 +2,11 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { DATE_FORMAT } from '../../../constants';
-import ChartTooltip from '../../../components/chart-tooltip';
 import formatCurrency from '../../../util/format-currency';
-import formatDate from '../../../util/format-date';
+import MetricsChartTooltip from './metrics-chart-tooltip';
 import Number from '../../../components/number';
 
-const NetworkMetricsTooltip = ({ currency, payload }) => {
+const NetworkMetricsTooltip = ({ currency, granularity, payload }) => {
   if (_.isEmpty(payload)) {
     return null;
   }
@@ -22,7 +20,9 @@ const NetworkMetricsTooltip = ({ currency, payload }) => {
   } = payload[0].payload;
 
   return (
-    <ChartTooltip
+    <MetricsChartTooltip
+      date={date}
+      granularity={granularity}
       items={[
         {
           label: `Protocol Fees (${currency})`,
@@ -41,13 +41,13 @@ const NetworkMetricsTooltip = ({ currency, payload }) => {
           value: formatCurrency(tradeVolume, currency),
         },
       ]}
-      title={formatDate(date, DATE_FORMAT.STANDARD)}
     />
   );
 };
 
 NetworkMetricsTooltip.propTypes = {
   currency: PropTypes.string.isRequired,
+  granularity: PropTypes.string.isRequired,
   payload: PropTypes.arrayOf(
     PropTypes.shape({
       payload: PropTypes.shape({

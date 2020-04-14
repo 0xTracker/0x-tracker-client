@@ -20,15 +20,20 @@ const determineGranularity = (period) => {
     return 'week';
   }
 
-  return undefined;
+  if (period === TIME_PERIOD.MONTH) {
+    return 'day';
+  }
+
+  return 'hour';
 };
 
 const TokenMetrics = ({ period, token, type }) => {
+  const granularity = determineGranularity(period);
   const [brushActive, setBrushActive] = React.useState(false);
   const [metrics, loadingMetrics] = useTokenMetrics(
     token.address,
     {
-      granularity: determineGranularity(period),
+      granularity,
       period,
     },
     { autoReload: !brushActive },
@@ -78,17 +83,21 @@ const TokenMetrics = ({ period, token, type }) => {
       {type === 'price.close' ? (
         <AsyncTokenPricesChart
           data={data}
+          granularity={granularity}
           key={chartKey}
           localCurrency={displayCurrency}
           onBrushChange={handleBrushChange}
+          period={period}
           tokenSymbol={token.symbol}
         />
       ) : (
         <AsyncTokenMetricsChart
           data={data}
+          granularity={granularity}
           key={chartKey}
           localCurrency={displayCurrency}
           onBrushChange={handleBrushChange}
+          period={period}
           tokenSymbol={token.symbol}
           type={type}
         />

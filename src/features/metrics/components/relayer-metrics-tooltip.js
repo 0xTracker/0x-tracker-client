@@ -2,14 +2,12 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { DATE_FORMAT } from '../../../constants';
-import ChartTooltip from '../../../components/chart-tooltip';
-import formatDate from '../../../util/format-date';
-import LocalisedAmount from '../../currencies/components/localised-amount';
+import { formatCurrency } from '../../../util';
+import MetricsChartTooltip from './metrics-chart-tooltip';
 import Number from '../../../components/number';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
-const RelayerMetricsTooltip = ({ payload }) => {
+const RelayerMetricsTooltip = ({ granularity, payload }) => {
   const displayCurrency = useDisplayCurrency();
 
   if (_.isEmpty(payload)) {
@@ -19,11 +17,13 @@ const RelayerMetricsTooltip = ({ payload }) => {
   const { date, tradeCount, tradeVolume, traderCount } = payload[0].payload;
 
   return (
-    <ChartTooltip
+    <MetricsChartTooltip
+      date={date}
+      granularity={granularity}
       items={[
         {
           label: `Volume (${displayCurrency})`,
-          value: <LocalisedAmount amount={tradeVolume} />,
+          value: formatCurrency(tradeVolume, displayCurrency),
         },
         {
           label: 'Trades',
@@ -35,12 +35,12 @@ const RelayerMetricsTooltip = ({ payload }) => {
           value: <Number>{traderCount}</Number>,
         },
       ]}
-      title={formatDate(date, DATE_FORMAT.STANDARD)}
     />
   );
 };
 
 RelayerMetricsTooltip.propTypes = {
+  granularity: PropTypes.string.isRequired,
   payload: PropTypes.arrayOf(
     PropTypes.shape({
       payload: PropTypes.shape({

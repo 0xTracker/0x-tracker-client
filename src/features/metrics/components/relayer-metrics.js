@@ -8,11 +8,28 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useRelayerMetrics from '../hooks/use-relayer-metrics';
 
+const determineGranularity = (period) => {
+  if (period === TIME_PERIOD.ALL) {
+    return 'month';
+  }
+
+  if (period === TIME_PERIOD.YEAR) {
+    return 'week';
+  }
+
+  if (period === TIME_PERIOD.MONTH) {
+    return 'day';
+  }
+
+  return 'hour';
+};
+
 const RelayerMetrics = ({ period, relayerId, type }) => {
+  const granularity = determineGranularity(period);
   const [brushActive, setBrushActive] = React.useState(false);
   const [metrics, loading] = useRelayerMetrics(
     relayerId,
-    { period },
+    { granularity, period },
     { autoReload: !brushActive },
   );
   const conversionRate = useConversionRate();
@@ -56,8 +73,10 @@ const RelayerMetrics = ({ period, relayerId, type }) => {
     >
       <AsyncRelayerMetricsChart
         data={data}
+        granularity={granularity}
         key={chartKey}
         onBrushChange={handleBrushChange}
+        period={period}
         type={type}
       />
     </BrushableChartContainer>

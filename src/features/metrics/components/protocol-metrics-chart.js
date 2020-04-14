@@ -4,13 +4,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { colors, protocolColors } from '../../../styles/constants';
-import { DATE_FORMAT } from '../../../constants';
+import { formatAxisDate } from '../util';
 import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
-import formatDate from '../../../util/format-date';
 import ProtocolMetricsTooltip from './protocol-metrics-tooltip';
-
-const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
 
 const getProtocols = (data) =>
   _.uniq(
@@ -20,70 +17,77 @@ const getProtocols = (data) =>
   ).sort();
 
 // eslint-disable-next-line react/display-name
-const ProtocolMetricsChart = React.memo(({ currency, data, onBrushChange }) => {
-  if (_.isEmpty(data)) {
-    return <ChartPlaceholder>No data available</ChartPlaceholder>;
-  }
+const ProtocolMetricsChart = React.memo(
+  ({ currency, data, granularity, onBrushChange, period }) => {
+    if (_.isEmpty(data)) {
+      return <ChartPlaceholder>No data available</ChartPlaceholder>;
+    }
 
-  const sanitizedData = data.map((dataPoint) => ({
-    ...dataPoint,
-    date: dataPoint.date.toISOString(),
-  }));
+    const sanitizedData = data.map((dataPoint) => ({
+      ...dataPoint,
+      date: dataPoint.date.toISOString(),
+    }));
 
-  return (
-    <ChartContainer>
-      <BarChart
-        data={sanitizedData}
-        margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
-      >
-        <Tooltip
-          content={<ProtocolMetricsTooltip currency={currency} />}
-          cursor={false}
-        />
-        <XAxis
-          axisLine={false}
-          dataKey="date"
-          minTickGap={60}
-          tick={{ fill: 'currentColor', fontSize: '0.9em' }}
-          tickFormatter={formatAxisDate}
-          tickLine={false}
-        />
-        <Brush
-          dataKey="date"
-          height={30}
-          onChange={onBrushChange}
-          stroke={colors.mischka}
-          tickFormatter={formatAxisDate}
-        />
-        <Legend height={36} verticalAlign="top" />
-        {getProtocols(data).map((protocolVersion) => (
-          <Bar
-            animationDuration={0}
-            dataKey={(dataPoint) => {
-              const total = _.sum(dataPoint.stats.map((x) => x.fillCount));
-              const stat = dataPoint.stats.find(
-                (x) => x.protocolVersion === protocolVersion,
-              );
-
-              if (stat === undefined) {
-                return 0;
-              }
-
-              return (stat.fillCount / total) * 100;
-            }}
-            fill={protocolColors[protocolVersion]}
-            fillOpacity={0.7}
-            key={protocolVersion}
-            name={`v${protocolVersion}`}
-            stackId={1}
-            strokeWidth={0}
-            type="monotone"
+    return (
+      <ChartContainer>
+        <BarChart
+          data={sanitizedData}
+          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+        >
+          <Tooltip
+            content={
+              <ProtocolMetricsTooltip
+                currency={currency}
+                granularity={granularity}
+              />
+            }
+            cursor={false}
           />
-        ))}
-      </BarChart>
-    </ChartContainer>
-  );
-});
+          <XAxis
+            axisLine={false}
+            dataKey="date"
+            minTickGap={60}
+            tick={{ fill: 'currentColor', fontSize: '0.8em' }}
+            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
+            tickLine={false}
+          />
+          <Brush
+            dataKey="date"
+            height={30}
+            onChange={onBrushChange}
+            stroke={colors.mischka}
+            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
+          />
+          <Legend height={36} verticalAlign="top" />
+          {getProtocols(data).map((protocolVersion) => (
+            <Bar
+              animationDuration={0}
+              dataKey={(dataPoint) => {
+                const total = _.sum(dataPoint.stats.map((x) => x.fillCount));
+                const stat = dataPoint.stats.find(
+                  (x) => x.protocolVersion === protocolVersion,
+                );
+
+                if (stat === undefined) {
+                  return 0;
+                }
+
+                return (stat.fillCount / total) * 100;
+              }}
+              fill={protocolColors[protocolVersion]}
+              fillOpacity={0.7}
+              key={protocolVersion}
+              name={`v${protocolVersion}`}
+              stackId={1}
+              strokeWidth={0}
+              type="monotone"
+            />
+          ))}
+        </BarChart>
+      </ChartContainer>
+    );
+  },
+);
 
 ProtocolMetricsChart.propTypes = {
   currency: PropTypes.string.isRequired,
@@ -99,7 +103,9 @@ ProtocolMetricsChart.propTypes = {
       ).isRequired,
     }),
   ).isRequired,
+  granularity: PropTypes.string.isRequired,
   onBrushChange: PropTypes.func,
+  period: PropTypes.string.isRequired,
 };
 
 ProtocolMetricsChart.defaultProps = {

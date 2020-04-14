@@ -1,5 +1,6 @@
 import format from 'date-fns/format';
 import formatDistanceStrict from 'date-fns/formatDistanceStrict';
+import numeral from 'numeral';
 
 import { DATE_FORMAT } from '../constants';
 
@@ -18,18 +19,19 @@ const SHORT_MONTHS = {
   11: 'Dec',
 };
 
-const formatDate = (date, dateFormat) =>
-  ({
-    [DATE_FORMAT.FULL]: () =>
-      format(new Date(date), 'EEEE, MMMM do Y, hh:mm:ss a'),
+const formatDate = (date, dateFormat) => {
+  const parsedDate = new Date(date);
+
+  return {
+    [DATE_FORMAT.FULL]: () => format(parsedDate, 'EEEE, MMMM do Y, hh:mm:ss a'),
     [DATE_FORMAT.RELATIVE]: () =>
-      `${formatDistanceStrict(new Date(date), new Date())} ago`,
+      `${formatDistanceStrict(parsedDate, new Date())} ago`,
     [DATE_FORMAT.COMPACT]: () =>
-      `${SHORT_MONTHS[new Date(date).getUTCMonth()]} ${new Date(
-        date,
-      ).getUTCDate()}`,
-    [DATE_FORMAT.STANDARD]: () =>
-      format(new Date(date), 'MMMM do yyyy, hh:mm a'),
-  }[dateFormat](date));
+      `${SHORT_MONTHS[parsedDate.getUTCMonth()]} ${numeral(
+        parsedDate.getUTCDate(),
+      ).format('oO')} (UTC)`,
+    [DATE_FORMAT.STANDARD]: () => format(parsedDate, 'MMMM do yyyy, hh:mm a'),
+  }[dateFormat](date);
+};
 
 export default formatDate;

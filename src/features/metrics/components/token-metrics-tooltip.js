@@ -2,13 +2,16 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { DATE_FORMAT } from '../../../constants';
-import ChartTooltip from '../../../components/chart-tooltip';
 import formatCurrency from '../../../util/format-currency';
-import formatDate from '../../../util/format-date';
 import formatTokenAmount from '../../../util/format-token-amount';
+import MetricsChartTooltip from './metrics-chart-tooltip';
 
-const TokenMetricsTooltip = ({ localCurrency, payload, tokenSymbol }) => {
+const TokenMetricsTooltip = ({
+  granularity,
+  localCurrency,
+  payload,
+  tokenSymbol,
+}) => {
   if (_.isEmpty(payload)) {
     return null;
   }
@@ -16,7 +19,9 @@ const TokenMetricsTooltip = ({ localCurrency, payload, tokenSymbol }) => {
   const { date, tradeCount, tradeVolume } = payload[0].payload;
 
   return (
-    <ChartTooltip
+    <MetricsChartTooltip
+      date={date}
+      granularity={granularity}
       items={[
         {
           label: 'Trades',
@@ -34,12 +39,12 @@ const TokenMetricsTooltip = ({ localCurrency, payload, tokenSymbol }) => {
               : 'Unknown',
         },
       ]}
-      title={formatDate(date, DATE_FORMAT.STANDARD)}
     />
   );
 };
 
 TokenMetricsTooltip.propTypes = {
+  granularity: PropTypes.string.isRequired,
   localCurrency: PropTypes.string.isRequired,
   payload: PropTypes.array,
   tokenSymbol: PropTypes.string.isRequired,

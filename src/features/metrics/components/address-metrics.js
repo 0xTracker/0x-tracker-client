@@ -1,22 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { TIME_PERIOD } from '../../../constants';
 import AsyncAddressMetricsChart from './async-address-metrics-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
-import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useTraderMetrics from '../hooks/use-trader-metrics';
 
+const determineGranularity = (period) => {
+  if (period === TIME_PERIOD.ALL) {
+    return 'month';
+  }
+
+  if (period === TIME_PERIOD.YEAR) {
+    return 'week';
+  }
+
+  if (period === TIME_PERIOD.MONTH) {
+    return 'day';
+  }
+
+  return 'hour';
+};
+
 const AddressMetrics = ({ address, keyMetric, period }) => {
+  const granularity = determineGranularity(period);
   const [brushActive, setBrushActive] = React.useState(false);
   const [metrics, loading] = useTraderMetrics(
     address,
-    { period },
+    { granularity, period },
     { autoReload: !brushActive },
   );
-  const displayCurrency = useDisplayCurrency();
   const conversionRate = useConversionRate();
 
   // This is a quick and dirty hack to implement brush resetting because Recharts
@@ -58,10 +74,11 @@ const AddressMetrics = ({ address, keyMetric, period }) => {
     >
       <AsyncAddressMetricsChart
         data={data}
+        granularity={granularity}
         key={chartKey}
         keyMetric={keyMetric}
-        localCurrency={displayCurrency}
         onBrushChange={handleBrushChange}
+        period={period}
       />
     </BrushableChartContainer>
   );
