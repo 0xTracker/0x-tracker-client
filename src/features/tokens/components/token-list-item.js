@@ -56,7 +56,10 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
     <td className="align-middle" css="text-align: right;">
       {!_.isNil(token.price.last) && token.type === 'erc-20' ? (
         <>
-          <LocalisedAmount amount={token.price.last} />
+          <LocalisedAmount
+            amount={token.price.close}
+            preferredPrecision={token.price.close >= 1 ? 2 : 4}
+          />
           {token.price.change === null ? null : (
             <>
               <br />

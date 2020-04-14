@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -49,7 +50,7 @@ const PriceMarkerIcon = styled(MarkerIcon)`
 const PriceRangeWidget = ({ price, ...otherProps }) => {
   const range = price.high - price.low;
   const pos = price.close - price.low;
-  const posPercentage = pos === 0 ? 50 : (pos / range) * 100;
+  const posPercentage = _.clamp(pos === 0 ? 50 : (pos / range) * 100, 1, 100);
 
   if (price.close === null && price.low !== null) {
     return (

@@ -11,6 +11,7 @@ const LocalisedAmount = ({
   amount,
   className,
   loadingIndicator,
+  preferredPrecision,
   summarize,
 }) => {
   const displayCurrency = useDisplayCurrency();
@@ -39,7 +40,7 @@ const LocalisedAmount = ({
 
   return (
     <span className={className}>
-      {formatCurrency(convertedAmount, displayCurrency)}
+      {formatCurrency(convertedAmount, displayCurrency, preferredPrecision)}
     </span>
   );
 };
@@ -48,12 +49,14 @@ LocalisedAmount.propTypes = {
   amount: PropTypes.number.isRequired,
   className: PropTypes.string,
   loadingIndicator: PropTypes.node,
+  preferredPrecision: PropTypes.number,
   summarize: PropTypes.bool,
 };
 
 LocalisedAmount.defaultProps = {
   className: undefined,
   loadingIndicator: undefined,
+  preferredPrecision: undefined,
   summarize: false,
 };
 

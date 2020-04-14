@@ -16,20 +16,46 @@ import { colors } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
 import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
+import formatCurrency from '../../../util/format-currency';
 import formatDate from '../../../util/format-date';
 import summarizeCurrency from '../../../util/summarize-currency';
 import TokenPricesTooltip from './token-prices-tooltip';
 
 const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
 
+const getDomainForPriceAxis = (prices) => {
+  const high = _.max(prices);
+  const low = _.min(prices);
+  const range = high - low;
+
+  if (range === 0) {
+    return [low, high]; // TODO: Improve later
+  }
+
+  const buffer = range / 2;
+
+  return [low - buffer, high + buffer];
+};
+
 class TokenPricesChart extends PureComponent {
   constructor() {
     super();
 
-    this.formatValue = this.formatValue.bind(this);
+    this.formatPrice = this.formatPrice.bind(this);
+    this.formatVolume = this.formatVolume.bind(this);
   }
 
-  formatValue(value) {
+  formatPrice(value) {
+    if (value === 0) {
+      return '';
+    }
+
+    const { localCurrency } = this.props;
+
+    return formatCurrency(value, localCurrency);
+  }
+
+  formatVolume(value) {
     if (value === 0) {
       return '';
     }
@@ -55,8 +81,7 @@ class TokenPricesChart extends PureComponent {
 
     const prices = data.map((x) => x.price.close);
 
-    const high = _.max(prices);
-    const low = _.min(prices);
+    const domain = getDomainForPriceAxis(prices);
 
     return (
       <ChartContainer>
@@ -93,9 +118,10 @@ class TokenPricesChart extends PureComponent {
             tickLine={false}
           />
           <YAxis
+            allowDuplicatedCategory={false}
             axisLine={false}
             dataKey="price.close"
-            domain={[low, high]}
+            domain={domain}
             label={{
               fill: colors.anzac,
               fillOpacity: 0.7,
@@ -106,16 +132,18 @@ class TokenPricesChart extends PureComponent {
             }}
             mirror
             padding={{ top: 40 }}
+            scale="linear"
             tick={{
               fill: 'currentColor',
               fontSize: '0.8em',
               fontWeight: 'bold',
             }}
-            tickFormatter={this.formatValue}
+            tickFormatter={this.formatPrice}
             tickLine={false}
             yAxisId="price"
           />
           <YAxis
+            allowDuplicatedCategory={false}
             axisLine={false}
             dataKey="tradeVolume.USD"
             label={{
@@ -129,12 +157,13 @@ class TokenPricesChart extends PureComponent {
             mirror
             orientation="right"
             padding={{ top: 40 }}
+            scale="linear"
             tick={{
               fill: 'currentColor',
               fontSize: '0.8em',
               fontWeight: 'bold',
             }}
-            tickFormatter={this.formatValue}
+            tickFormatter={this.formatVolume}
             tickLine={false}
             yAxisId="volume"
           />
