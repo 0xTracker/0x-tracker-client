@@ -10,7 +10,7 @@ const RelayerVolumeLabel = ({ stats }) => {
     return 'Unknown';
   }
 
-  return <LocalisedAmount amount={tradeVolume} />;
+  return <LocalisedAmount amount={tradeVolume} summarize />;
 };
 
 RelayerVolumeLabel.propTypes = {

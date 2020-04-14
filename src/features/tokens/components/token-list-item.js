@@ -79,7 +79,7 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
       )}
     </td>
     <td className="align-middle" css="text-align: right;">
-      <Number>{token.stats.tradeCount}</Number>
+      <Number summarize>{token.stats.tradeCount}</Number>
     </td>
     <td className="align-middle" css="text-align: right;">
       <TokenListItemVolume token={token} />

@@ -95,10 +95,10 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
             ) : null}
           </td>
           <td className="align-middle text-right">
-            <Number>{relayer.stats.traderCount}</Number>
+            <Number summarize>{relayer.stats.traderCount}</Number>
           </td>
           <td className="align-middle text-right">
-            <Number>{relayer.stats.tradeCount}</Number>
+            <Number summarize>{relayer.stats.tradeCount}</Number>
           </td>
           <td className="align-middle text-right">
             <RelayerVolumeLabel stats={relayer.stats} />

@@ -33,7 +33,7 @@ const RelayersPage = ({ history, location, page, setPage }) => {
 
   const [relayers, loadingRelayers] = useRelayers({
     autoReload: true,
-    limit: 50,
+    limit: 25,
     page,
     statsPeriod,
   });
