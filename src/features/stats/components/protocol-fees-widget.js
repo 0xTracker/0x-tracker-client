@@ -34,6 +34,7 @@ const ProtocolFeesWidget = ({
       <LocalisedAmount
         amount={accumulatedFees}
         loadingIndicator={loadingIndicator}
+        summarize
       />
     ) : (
       loadingIndicator
