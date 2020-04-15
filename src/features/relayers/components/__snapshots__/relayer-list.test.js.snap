@@ -163,18 +163,28 @@ exports[`renders with basic props 1`] = `
       <td
         class="align-middle text-right"
       >
-        30
+        <span
+          title="30"
+        >
+          30
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        256
+        <span
+          title="256"
+        >
+          256
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        <span>
-          $150,456.56
+        <span
+          title="$150,456.56"
+        >
+          $150.46k
         </span>
       </td>
       <td />
@@ -236,18 +246,28 @@ exports[`renders with basic props 1`] = `
       <td
         class="align-middle text-right"
       >
-        123
+        <span
+          title="123"
+        >
+          123
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        345
+        <span
+          title="345"
+        >
+          345
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        <span>
-          $124,000.00
+        <span
+          title="$124,000.00"
+        >
+          $124k
         </span>
       </td>
       <td />
@@ -309,18 +329,28 @@ exports[`renders with basic props 1`] = `
       <td
         class="align-middle text-right"
       >
-        82
+        <span
+          title="82"
+        >
+          82
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        512
+        <span
+          title="512"
+        >
+          512
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        <span>
-          $100,000.00
+        <span
+          title="$100,000.00"
+        >
+          $100k
         </span>
       </td>
       <td />

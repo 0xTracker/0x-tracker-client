@@ -6,7 +6,7 @@ exports[`should render an assortment of fills 1`] = `
     class="recent-fills-list___StyledDiv-sc-11wan41-0 bBFHea"
   >
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 eijBoY"
     >
       <a
         class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"
@@ -60,7 +60,7 @@ exports[`should render an assortment of fills 1`] = `
       </span>
     </div>
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 bOQxmp"
     >
       <a
         class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"
@@ -114,7 +114,7 @@ exports[`should render an assortment of fills 1`] = `
       </span>
     </div>
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 eijBoY"
     >
       <a
         class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"
@@ -168,7 +168,7 @@ exports[`should render an assortment of fills 1`] = `
       </span>
     </div>
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 bOQxmp"
     >
       <a
         class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"

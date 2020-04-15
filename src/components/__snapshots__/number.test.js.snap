@@ -35,7 +35,7 @@ exports[`should summarize 4530 1`] = `
   <span
     title="4,530"
   >
-    4.5k
+    4.53k
   </span>
 </DocumentFragment>
 `;
@@ -45,7 +45,7 @@ exports[`should summarize 152650 1`] = `
   <span
     title="152,650"
   >
-    152.7k
+    152.65k
   </span>
 </DocumentFragment>
 `;
@@ -55,7 +55,7 @@ exports[`should summarize 7846032 1`] = `
   <span
     title="7,846,032"
   >
-    7.8m
+    7.85m
   </span>
 </DocumentFragment>
 `;
