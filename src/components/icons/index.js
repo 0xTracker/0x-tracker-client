@@ -1,8 +1,9 @@
-// eslint-disable-next-line filenames/no-index
 import AllIcon from './all-icon';
 import AsteriskIcon from './asterisk-icon';
 import CaretRightIcon from './caret-right-icon';
 import ChevronDownIcon from './chevron-down-icon';
+import ChevronLeftIcon from './chevron-left-icon';
+import ChevronRightIcon from './chevron-right-icon';
 import ChevronUpIcon from './chevron-up-icon';
 import CircleIcon from './circle-icon';
 import CloseIcon from './close-icon';
@@ -11,6 +12,7 @@ import FilterIcon from './filter-icon';
 import GitHubIcon from './git-hub-icon';
 import HelpIcon from './help-icon';
 import LeftArrowIcon from './left-arrow-icon';
+import MarkerIcon from './marker-icon';
 import MediumIcon from './medium-icon';
 import MenuIcon from './menu-icon';
 import MoreIcon from './more-icon';
@@ -32,6 +34,8 @@ export {
   AsteriskIcon,
   CaretRightIcon,
   ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
   ChevronUpIcon,
   CircleIcon,
   CloseIcon,
@@ -40,6 +44,7 @@ export {
   GitHubIcon,
   HelpIcon,
   LeftArrowIcon,
+  MarkerIcon,
   MediumIcon,
   MenuIcon,
   MoreIcon,

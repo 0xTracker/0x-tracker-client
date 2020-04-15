@@ -17,16 +17,10 @@ import RecentFillsItemImage from './recent-fills-item-image';
 
 const StyledRecentFillsItem = styled.div`
   align-items: center;
-  border-bottom: 1px solid ${colors.athensGray};
+  background-color: ${(props) =>
+    (props.index + 1) % 2 === 0 ? colors.alabaster : 'none'};
   display: flex;
-  margin: 0 0 1rem 0;
-  padding: 0 0 1rem 0;
-
-  &:last-child {
-    border: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
+  padding: 1rem;
 `;
 
 const Metadata = styled.dl`
@@ -95,12 +89,12 @@ const getSource = (fill) => {
   return { label: 'Unknown Relayer', url: buildRelayerUrl('unknown') };
 };
 
-const RecentFillsItem = ({ fill }) => {
+const RecentFillsItem = ({ fill, index }) => {
   const breakpoint = useCurrentBreakpoint();
   const source = getSource(fill);
 
   return (
-    <StyledRecentFillsItem>
+    <StyledRecentFillsItem index={index}>
       <RecentFillsItemImage fill={fill} />
       <div css="display: flex; flex-direction: column; justify-content: center; flex-grow: 1;">
         <Heading>
@@ -136,6 +130,7 @@ const RecentFillsItem = ({ fill }) => {
 
 RecentFillsItem.propTypes = {
   fill: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
 };
 
 export default RecentFillsItem;

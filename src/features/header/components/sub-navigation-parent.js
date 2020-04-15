@@ -34,7 +34,7 @@ const SubNavigation = styled.div`
   background-color: ${colors.violet};
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
-  border-top: 0.25rem solid ${colors.indigo};
+  border-top: 0.25rem solid ${colors.martinique};
   color: ${colors.lavenderGray};
   left: -1rem;
   min-width: 13.5rem;

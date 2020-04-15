@@ -1,41 +1,36 @@
-import PropTypes from 'prop-types';
 import { rgba } from 'polished';
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
 import { colors } from '../styles/constants';
 
 const ChartTooltipWrapper = styled.div`
-  background-color: ${colors.athensGray};
+  background-color: ${colors.martinique};
   border-radius: 0.25rem;
   box-shadow: 0 2px 4px 0 ${rgba(colors.black, 0.2)};
+  color: ${colors.white};
   padding: 1rem;
   text-align: left;
 `;
 
-const ChartTooltipTitle = styled.h1`
-  font-weight: bold;
-  font-size: 0.9rem;
-  margin-bottom: 1.2rem;
-  text-align: center;
-`;
-
 const ChartTooltipItemTitle = styled.dt`
+  color: ${colors.santasGray};
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
+  font-weight: bold;
   margin: 0;
-  font-weight: normal;
+  text-transform: uppercase;
 `;
 
 const ChartTooltipItemValue = styled.dd`
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin: 0 0 0 0.25rem;
 `;
 
-const ChartTooltip = ({ title, items }) => (
+const ChartTooltip = ({ items }) => (
   <ChartTooltipWrapper>
-    <ChartTooltipTitle>{title}</ChartTooltipTitle>
     <dl css="margin: 0; padding: 0;">
       {items.map((item) => (
         <div key={item.label}>
@@ -54,7 +49,6 @@ ChartTooltip.propTypes = {
       value: PropTypes.node.isRequired,
     }),
   ).isRequired,
-  title: PropTypes.string.isRequired,
 };
 
 export default ChartTooltip;

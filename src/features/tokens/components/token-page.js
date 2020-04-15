@@ -1,33 +1,52 @@
 import _ from 'lodash';
 import { Helmet } from 'react-helmet';
-import PropTypes from 'prop-types';
-import React, { useCallback } from 'react';
+import { useHistory, useParams } from 'react-router';
+import { useSearchParam } from 'react-use';
+import { Col, Row } from 'reactstrap';
+import React from 'react';
+import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
-import Card from '../../../components/card';
-import ChartsContainer from '../../../components/charts-container';
-import Fills from '../../fills/components/fills';
+import { TOKEN_TYPE } from '../constants';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
+import buildTokenUrl from '../util/build-token-url';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
+import RecentFillsCard from '../../fills/components/recent-fills-card';
+import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
+import TabbedCard from '../../../components/tabbed-card';
 import TokenMetrics from '../../metrics/components/token-metrics';
+import TokenPageTitle from './token-page-title';
+import TokenRelayersCard from './token-relayers-card';
+import TokenStats from './token-stats';
 import useToken from '../hooks/use-token';
-import buildUrl from '../../../util/build-url';
 
-const TokenPage = ({ history, location, match }) => {
-  const { address: tokenAddress } = match.params;
-  const params = new URLSearchParams(location.search);
-  const page = Number(params.get('page')) || 1;
+const TokenPageColumn = styled(Col)`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
 
-  const [token, loadingToken] = useToken(tokenAddress);
+  &:last-child {
+    margin-bottom: ${(props) => (props.lastRow ? '0' : '1.25rem')};
+  }
 
-  const onPageChange = useCallback((newPage) => {
-    history.push(
-      buildUrl(match.url, {
-        page: newPage,
-      }),
-    );
-  }, []);
+  ${media.greaterThan('lg')`
+    margin-bottom: ${(props) => (props.lastRow ? '0' : '2rem')};
+
+    &:last-child {
+      margin-bottom: ${(props) => (props.lastRow ? '0' : '2rem')};
+    }
+  `}
+`;
+
+const TokenPage = () => {
+  const history = useHistory();
+  const params = useParams();
+  const breakpoint = useCurrentBreakpoint();
+
+  const statsPeriod = useSearchParam('statsPeriod') || TIME_PERIOD.MONTH;
+  const [token, loadingToken] = useToken(params.address, { statsPeriod });
 
   if (loadingToken) {
     return <LoadingPage />;
@@ -37,66 +56,84 @@ const TokenPage = ({ history, location, match }) => {
     <>
       <Helmet>
         <title>
-          {_.has(token, 'name') ? token.name : `Token: ${token.address}`}
+          {_.isString(token.name) ? token.name : `Token: ${token.address}`}
         </title>
       </Helmet>
       <PageLayout
-        title={_.has(token, 'name') ? token.name : `Token: ${token.address}`}
+        filter={
+          <ResponsiveTimePeriodFilter
+            onChange={(newPeriod) => {
+              history.push(
+                buildTokenUrl(token.address, { statsPeriod: newPeriod }),
+              );
+            }}
+            value={statsPeriod}
+          />
+        }
+        title={<TokenPageTitle statsPeriod={statsPeriod} token={token} />}
       >
-        {token ? (
-          <ChartsContainer
-            charts={[
-              {
-                component: <TokenMetrics token={token} />,
-                title: 'Trade Volume',
-              },
-              {
-                component: <TokenMetrics token={token} type="tradeCount" />,
-                title: 'Trade Count',
-              },
-            ]}
-            css={`
-              margin: 0 0 1.25em 0;
+        <TokenStats period={statsPeriod} token={token} />
+        <TabbedCard
+          css={`
+            height: 360px;
+            margin-bottom: 1.25rem;
 
-              ${media.greaterThan('lg')`
-                margin: 0 0 2em 0;
-              `}
+            ${media.greaterThan('lg')`
+              margin-bottom: 2rem;
             `}
-            defaultPeriod={TIME_PERIOD.YEAR}
-            periods={[
-              { label: '24H', value: TIME_PERIOD.DAY },
-              { label: '7D', value: TIME_PERIOD.WEEK },
-              { label: '1M', value: TIME_PERIOD.MONTH },
-              { label: '1Y', value: TIME_PERIOD.YEAR },
-              { label: 'ALL', value: TIME_PERIOD.ALL },
-            ]}
-          />
-        ) : null}
-        <Card fullHeight>
-          <Fills
-            filter={{ token: tokenAddress }}
-            onPageChange={onPageChange}
-            page={page}
-          />
-        </Card>
+          `}
+          tabs={[
+            token.type === TOKEN_TYPE.ERC20
+              ? {
+                  component: (
+                    <TokenMetrics
+                      period={statsPeriod}
+                      token={token}
+                      type="price.close"
+                    />
+                  ),
+                  title: breakpoint.greaterThan('xs')
+                    ? 'Market Price'
+                    : 'Price',
+                }
+              : undefined,
+            {
+              component: <TokenMetrics period={statsPeriod} token={token} />,
+              title: 'Volume',
+            },
+            {
+              component: (
+                <TokenMetrics
+                  period={statsPeriod}
+                  token={token}
+                  type="tradeCount"
+                />
+              ),
+              title: 'Trades',
+            },
+          ].filter((t) => t !== undefined)}
+        />
+        <Row>
+          <TokenPageColumn css="flex-grow: 1;" lastRow lg={7}>
+            <RecentFillsCard
+              css="flex-grow: 1;"
+              filter={{ token: token.address }}
+              limit={breakpoint.greaterThan('xs') ? 7 : 5}
+              placeholder="No recent fills are available for this token."
+            />
+          </TokenPageColumn>
+          <TokenPageColumn css="flex-grow: 1;" lastRow lg={5}>
+            <TokenRelayersCard
+              css="flex-grow: 1;"
+              limit={breakpoint.greaterThan('xs') ? 7 : 5}
+              statsPeriod={statsPeriod}
+              token={token}
+            />
+          </TokenPageColumn>
+        </Row>
       </PageLayout>
     </>
   );
-};
-
-TokenPage.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-  location: PropTypes.shape({
-    search: PropTypes.string.isRequired,
-  }).isRequired,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      address: PropTypes.string.isRequired,
-    }).isRequired,
-    url: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default TokenPage;

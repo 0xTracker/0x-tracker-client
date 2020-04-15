@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { colors } from '../styles/constants';
 
 const StyledLink = styled.a`
-  color: ${colors.indigo};
+  color: ${colors.scampi};
   cursor: pointer;
 
   &:hover {

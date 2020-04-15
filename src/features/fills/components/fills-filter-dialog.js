@@ -2,43 +2,15 @@ import _ from 'lodash';
 import { Col, FormGroup, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
 import Dialog from '../../../components/dialog';
 import FillStatusSelector from './fill-status-selector';
+import FormLabel from '../../../components/form-label';
 import NumberField from '../../../components/number-field';
+import PrimaryFormButton from '../../../components/primary-form-button';
 import ProtocolVersionSelector from '../../../components/protocol-version-selector';
 import RelayerSelector from '../../relayers/components/relayer-selector';
-
-const FormButton = styled.button`
-  background-color: ${colors.indigo};
-  border: none;
-  border-radius: 0.25rem;
-  color: ${colors.white};
-  cursor: pointer;
-  padding: 0.5rem 1rem;
-
-  &:hover,
-  &:active {
-    background-color: ${colors.violet};
-  }
-`;
-
-const SecondaryFormButton = styled(FormButton)`
-  background-color: ${colors.athensGray};
-  color: ${colors.violet};
-  margin: 0 0 0 0.5rem;
-
-  &:hover,
-  &:active {
-    background-color: ${colors.mischka};
-  }
-`;
-
-const FormLabel = styled.label`
-  margin: 1.5rem 0 0 0;
-`;
+import SecondaryFormButton from '../../../components/secondary-form-button';
 
 const FillsFilterDialog = ({
   currentValues,
@@ -106,7 +78,7 @@ const FillsFilterDialog = ({
           </Row>
         </FormGroup>
         <div css="margin-top: 2rem;">
-          <FormButton type="submit">Apply Filters</FormButton>
+          <PrimaryFormButton type="submit">Apply Filters</PrimaryFormButton>
           {_.isEqual(defaultValues, values) ? null : (
             <SecondaryFormButton onClick={handleReset} type="button">
               Reset

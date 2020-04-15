@@ -2,13 +2,14 @@ import useApi from '../../../hooks/use-api';
 
 const useTraderMetrics = (
   address,
-  { period } = {},
+  { granularity, period } = {},
   { autoReload } = { autoReload: true },
 ) =>
   useApi('metrics/trader', {
     autoReload,
     params: {
       address,
+      granularity,
       period,
     },
   });

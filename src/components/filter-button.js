@@ -27,7 +27,7 @@ const StyledFilterButton = styled.button`
 
 const Indicator = styled.div`
   align-items: center;
-  background-color: ${colors.indigo};
+  background-color: ${colors.anzac};
   border-radius: 1em;
   color: white;
   display: flex;

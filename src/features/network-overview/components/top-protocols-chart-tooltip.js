@@ -19,6 +19,7 @@ const TopProtocolsChartTooltip = ({ payload }) => {
   return (
     <ChartTooltip
       items={[
+        { label: 'Protocol Version', value: protocolVersion },
         {
           label: 'Fills',
           value: <Number>{fillCount}</Number>,
@@ -33,7 +34,6 @@ const TopProtocolsChartTooltip = ({ payload }) => {
             ),
         },
       ]}
-      title={`v${protocolVersion} Protocol`}
     />
   );
 };

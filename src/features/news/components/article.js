@@ -16,16 +16,10 @@ const ArticleImage = styled.img`
 `;
 
 const StyledArticle = styled.div`
-  border-bottom: 1px solid ${colors.athensGray};
+  background-color: ${(props) =>
+    (props.index + 1) % 2 === 0 ? colors.alabaster : colors.white};
   display: flex;
-  margin: 0 0 1.5rem 0;
-  padding: 0 0 1.5rem 0;
-
-  &:last-child {
-    border: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
+  padding: 1.5rem 1rem;
 `;
 
 const ArticleMetadata = styled.dl`
@@ -69,8 +63,8 @@ const ArticleHeading = styled.h4`
   white-space: ${(props) => (props.compact ? 'wrap' : 'nowrap')};
 `;
 
-const Article = ({ article, compact, showImage }) => (
-  <StyledArticle>
+const Article = ({ article, compact, index, showImage }) => (
+  <StyledArticle index={index}>
     {showImage && article.source.imageUrl ? (
       <Link css="color: currentColor;" href={article.source.url}>
         <ArticleImage alt="" compact={compact} src={article.source.imageUrl} />
@@ -114,6 +108,7 @@ Article.propTypes = {
     url: PropTypes.string.isRequired,
   }).isRequired,
   compact: PropTypes.bool,
+  index: PropTypes.number.isRequired,
   showImage: PropTypes.bool,
 };
 

@@ -22,7 +22,7 @@ const getTypeBadgeColor = (type) => {
   }
 
   if (type === 'ERC-1155') {
-    return { bg: colors.indigo, text: colors.white };
+    return { bg: colors.martinique, text: colors.white };
   }
 
   return { bg: colors.mischka, text: colors.martinique };
@@ -46,7 +46,7 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
       </TokenLink>
     </td>
     <td width="99%">
-      <TokenLink address={token.address}>
+      <TokenLink address={token.address} params={{ statsPeriod }}>
         {_.truncate(token.name, { length: 30 }) || 'Unknown Token'}
       </TokenLink>
       <AssetTypeBadge>{token.type.toUpperCase()}</AssetTypeBadge>
@@ -56,7 +56,10 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
     <td className="align-middle" css="text-align: right;">
       {!_.isNil(token.price.last) && token.type === 'erc-20' ? (
         <>
-          <LocalisedAmount amount={token.price.last} />
+          <LocalisedAmount
+            amount={token.price.close}
+            preferredPrecision={token.price.close >= 1 ? 2 : 4}
+          />
           {token.price.change === null ? null : (
             <>
               <br />
@@ -69,7 +72,14 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
       )}
     </td>
     <td className="align-middle" css="text-align: right;">
-      <Number>{token.stats.tradeCount}</Number>
+      {token.marketCap === null ? (
+        '-'
+      ) : (
+        <LocalisedAmount amount={token.marketCap} summarize />
+      )}
+    </td>
+    <td className="align-middle" css="text-align: right;">
+      <Number summarize>{token.stats.tradeCount}</Number>
     </td>
     <td className="align-middle" css="text-align: right;">
       <TokenListItemVolume token={token} />

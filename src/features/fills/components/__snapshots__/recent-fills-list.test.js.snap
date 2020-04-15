@@ -6,10 +6,10 @@ exports[`should render an assortment of fills 1`] = `
     class="recent-fills-list___StyledDiv-sc-11wan41-0 bBFHea"
   >
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 eijBoY"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"
+        class="link__StyledLink-sc-1m1n17q-0 bQfGpq recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"
         href="/relayers/token-trove"
       >
         <img
@@ -25,7 +25,7 @@ exports[`should render an assortment of fills 1`] = `
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
             href="/fills/5dd96f9d250aa512ae416656"
           >
             CARD #41011762 ⇋ 0.19 WETH
@@ -39,7 +39,7 @@ exports[`should render an assortment of fills 1`] = `
           </dt>
           <dd>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
+              class="link__StyledLink-sc-1m1n17q-0 bQfGpq recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
               href="/relayers/token-trove"
             >
               TokenTrove
@@ -60,10 +60,10 @@ exports[`should render an assortment of fills 1`] = `
       </span>
     </div>
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 bOQxmp"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"
+        class="link__StyledLink-sc-1m1n17q-0 bQfGpq recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"
         href="/relayers/token-trove"
       >
         <img
@@ -79,7 +79,7 @@ exports[`should render an assortment of fills 1`] = `
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
             href="/fills/5dd96f6d250aa512ae40bad3"
           >
             Unknown #122150411 ⇋ 0.975 WETH
@@ -93,7 +93,7 @@ exports[`should render an assortment of fills 1`] = `
           </dt>
           <dd>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
+              class="link__StyledLink-sc-1m1n17q-0 bQfGpq recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
               href="/relayers/token-trove"
             >
               TokenTrove
@@ -114,10 +114,10 @@ exports[`should render an assortment of fills 1`] = `
       </span>
     </div>
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 eijBoY"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"
+        class="link__StyledLink-sc-1m1n17q-0 bQfGpq recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"
         href="/relayers/star-bit"
       >
         <img
@@ -133,7 +133,7 @@ exports[`should render an assortment of fills 1`] = `
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
             href="/fills/5dd96f3f250aa512ae3fb34a"
           >
             0.0403 WETH ⇋ 2,693 SBT
@@ -147,7 +147,7 @@ exports[`should render an assortment of fills 1`] = `
           </dt>
           <dd>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
+              class="link__StyledLink-sc-1m1n17q-0 bQfGpq recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
               href="/relayers/star-bit"
             >
               STAR BIT
@@ -168,10 +168,10 @@ exports[`should render an assortment of fills 1`] = `
       </span>
     </div>
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gZyfwm"
+      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 bOQxmp"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"
+        class="link__StyledLink-sc-1m1n17q-0 bQfGpq recent-fills-item-image___StyledRelayerLink-hf0nj8-0 hheJGA"
         href="/relayers/star-bit"
       >
         <img
@@ -187,7 +187,7 @@ exports[`should render an assortment of fills 1`] = `
           class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
             href="/fills/5dd96f3f250aa512ae3fb34d"
           >
             2,693 SBT ⇋ Unknown
@@ -201,7 +201,7 @@ exports[`should render an assortment of fills 1`] = `
           </dt>
           <dd>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 gaobOX recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
+              class="link__StyledLink-sc-1m1n17q-0 bQfGpq recent-fills-item__SourceLink-sc-1yc2z6o-4 exkLNx"
               href="/relayers/star-bit"
             >
               STAR BIT

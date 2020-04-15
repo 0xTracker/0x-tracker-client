@@ -1,102 +1,115 @@
 import _ from 'lodash';
-import { Area, AreaChart, XAxis, YAxis, Tooltip, Brush } from 'recharts';
-import React, { PureComponent } from 'react';
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Brush,
+} from 'recharts';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { colors } from '../../../styles/constants';
-import { DATE_FORMAT } from '../../../constants';
+import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
 import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
-import formatDate from '../../../util/format-date';
-import summarizeCurrency from '../../../util/summarize-currency';
 import TokenMetricsTooltip from './token-metrics-tooltip';
 
-const formatAxisDate = (date) => formatDate(date, DATE_FORMAT.COMPACT);
-
-class TokenMetricsChart extends PureComponent {
-  constructor() {
-    super();
-
-    this.formatValue = this.formatValue.bind(this);
+const isEmpty = (data, metric) => {
+  if (_.isEmpty(data)) {
+    return true;
   }
 
-  formatValue(value) {
-    if (value === 0) {
-      return '';
-    }
-
-    const { localCurrency } = this.props;
-
-    return summarizeCurrency(value, localCurrency);
+  if (metric === 'tradeCount') {
+    return data.every((dataPoint) => dataPoint.tradeCount === 0);
   }
 
-  render() {
-    const {
-      data,
-      localCurrency,
-      onBrushChange,
-      tokenSymbol,
-      type,
-    } = this.props;
+  if (metric === 'tradeVolume.USD') {
+    return data.every((dataPoint) => dataPoint.tradeVolume.USD === 0);
+  }
 
-    if (_.isEmpty(data)) {
-      return <ChartPlaceholder>No data available</ChartPlaceholder>;
-    }
+  return false;
+};
 
+const TokenMetricsChart = ({
+  data,
+  granularity,
+  localCurrency,
+  onBrushChange,
+  period,
+  tokenSymbol,
+  type,
+}) => {
+  if (isEmpty(data, type)) {
     return (
-      <ChartContainer>
-        <AreaChart
-          data={data}
-          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
-        >
-          <Area
-            animationDuration={0}
-            dataKey={type}
-            fill={colors.periwinkleGray}
-            fillOpacity={1}
-            stroke={colors.indigo}
-            strokeOpacity={0.6}
-            strokeWidth={2}
-            type="monotone"
-          />
-          <XAxis
-            axisLine={false}
-            dataKey="date"
-            minTickGap={60}
-            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
-            tickFormatter={formatAxisDate}
-            tickLine={false}
-          />
-          <YAxis
-            axisLine={false}
-            dataKey={type}
-            minTickGap={20}
-            mirror
-            padding={{ top: 25 }}
-            tick={{ fill: 'currentColor', fontSize: '0.9em' }}
-            tickFormatter={this.formatValue}
-            tickLine={false}
-          />
-          <Tooltip
-            content={
-              <TokenMetricsTooltip
-                localCurrency={localCurrency}
-                tokenSymbol={tokenSymbol}
-              />
-            }
-          />
-          <Brush
-            dataKey="date"
-            height={30}
-            onChange={onBrushChange}
-            stroke={colors.periwinkleGray}
-            tickFormatter={formatAxisDate}
-          />
-        </AreaChart>
-      </ChartContainer>
+      <ChartPlaceholder>
+        No data available for the selected period
+      </ChartPlaceholder>
     );
   }
-}
+
+  return (
+    <ChartContainer>
+      <BarChart data={data} margin={{ bottom: 0, left: 0, right: 0, top: 0 }}>
+        <CartesianGrid
+          stroke={colors.athensGray}
+          strokeDasharray="8 8"
+          strokeOpacity={0.7}
+          vertical={false}
+        />
+        <Bar
+          animationDuration={0}
+          dataKey={type}
+          fill={colors.anzac}
+          fillOpacity={0.9}
+        />
+        <XAxis
+          axisLine={false}
+          dataKey="date"
+          minTickGap={60}
+          tick={{ fill: 'currentColor', fontSize: '0.8em' }}
+          tickFormatter={(date) => formatAxisDate(date, period, granularity)}
+          tickLine={false}
+        />
+        <YAxis
+          axisLine={false}
+          dataKey={type}
+          mirror
+          scale="linear"
+          tick={{
+            fill: 'currentColor',
+            fontSize: '0.8em',
+            fontWeight: 'bold',
+          }}
+          tickFormatter={
+            type === 'tradeCount'
+              ? formatAxisNumber
+              : (value) => formatAxisCurrency(value, localCurrency)
+          }
+          tickLine={false}
+        />
+        <Tooltip
+          content={
+            <TokenMetricsTooltip
+              granularity={granularity}
+              localCurrency={localCurrency}
+              tokenSymbol={tokenSymbol}
+            />
+          }
+        />
+        <Brush
+          dataKey="date"
+          height={30}
+          onChange={onBrushChange}
+          stroke={colors.mischka}
+          tickFormatter={(date) => formatAxisDate(date, period, granularity)}
+        />
+      </BarChart>
+    </ChartContainer>
+  );
+};
 
 TokenMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
@@ -109,8 +122,10 @@ TokenMetricsChart.propTypes = {
       }).isRequired,
     }),
   ).isRequired,
+  granularity: PropTypes.string.isRequired,
   localCurrency: PropTypes.string.isRequired,
   onBrushChange: PropTypes.func,
+  period: PropTypes.string.isRequired,
   tokenSymbol: PropTypes.string.isRequired,
   type: PropTypes.string,
 };

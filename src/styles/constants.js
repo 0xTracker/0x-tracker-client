@@ -6,6 +6,8 @@ const breakpoints = {
 };
 
 const colors = {
+  alabaster: '#fafafa',
+  anzac: '#e3be47',
   athensGray: '#f1f2f7', // regular gray
   athensGrayer: '#e6e7f0',
   black: '#000',
@@ -19,6 +21,8 @@ const colors = {
   periwinkleGray: '#cdcded',
   pomegranate: '#F44336', // negative change
   santasGray: '#9F9EB9',
+  scampi: '#5F5B9F',
+  spunPearl: '#a8aab9',
   steelGray: '#212035',
   stormGray: '#6C6B80',
   violet: '#0A0830', // text color & footer bg

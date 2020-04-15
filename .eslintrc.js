@@ -65,7 +65,6 @@ module.exports = {
     'classes/space': 'error',
     'compat/compat': 'error',
     'filenames/match-exported': ['error', 'kebab'],
-    'filenames/no-index': 'error',
     'import/default': 'error',
     'import/export': 'error',
     'import/exports-last': 'error',

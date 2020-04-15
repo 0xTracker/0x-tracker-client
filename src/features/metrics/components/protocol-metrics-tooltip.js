@@ -3,12 +3,10 @@ import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { DATE_FORMAT } from '../../../constants';
-import ChartTooltip from '../../../components/chart-tooltip';
 import formatCurrency from '../../../util/format-currency';
-import formatDate from '../../../util/format-date';
+import MetricsChartTooltip from './metrics-chart-tooltip';
 
-const ProtocolMetricsTooltip = ({ currency, payload }) => {
+const ProtocolMetricsTooltip = ({ currency, granularity, payload }) => {
   if (_.isEmpty(payload)) {
     return null;
   }
@@ -16,7 +14,9 @@ const ProtocolMetricsTooltip = ({ currency, payload }) => {
   const { date, stats } = payload[0].payload;
 
   return (
-    <ChartTooltip
+    <MetricsChartTooltip
+      date={date}
+      granularity={granularity}
       items={_.sortBy(stats, 'protocolVersion')
         .filter((stat) => stat.fillCount > 0)
         .map((stat) => ({
@@ -25,13 +25,13 @@ const ProtocolMetricsTooltip = ({ currency, payload }) => {
             stat.fillCount,
           ).format('0,0')} fills`,
         }))}
-      title={formatDate(date, DATE_FORMAT.STANDARD)}
     />
   );
 };
 
 ProtocolMetricsTooltip.propTypes = {
   currency: PropTypes.string.isRequired,
+  granularity: PropTypes.string.isRequired,
   payload: PropTypes.arrayOf(
     PropTypes.shape({
       payload: PropTypes.shape({

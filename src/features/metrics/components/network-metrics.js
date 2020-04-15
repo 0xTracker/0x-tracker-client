@@ -11,16 +11,25 @@ import useNetworkMetrics from '../hooks/use-network-metrics';
 
 const determineGranularity = (period) => {
   if (period === TIME_PERIOD.ALL) {
+    return 'month';
+  }
+
+  if (period === TIME_PERIOD.YEAR) {
     return 'week';
   }
 
-  return undefined;
+  if (period === TIME_PERIOD.MONTH) {
+    return 'day';
+  }
+
+  return 'hour';
 };
 
 const NetworkMetrics = ({ period, type }) => {
+  const granularity = determineGranularity(period);
   const [brushActive, setBrushActive] = React.useState(false);
   const [metrics, loading] = useNetworkMetrics(
-    { granularity: determineGranularity(period), period },
+    { granularity, period },
     { autoReload: !brushActive },
   );
   const conversionRate = useConversionRate();
@@ -69,8 +78,10 @@ const NetworkMetrics = ({ period, type }) => {
       <AsyncNetworkMetricsChart
         currency={displayCurrency}
         data={data}
+        granularity={granularity}
         key={chartKey}
         onBrushChange={handleBrushChange}
+        period={period}
         type={type}
       />
     </BrushableChartContainer>

@@ -20,12 +20,16 @@ const createTooltip = (period) => {
 const TradeVolumeWidget = ({ period, volume, ...otherProps }) => (
   <StatWidget
     period={period}
-    title="Trade Volume"
+    title="Volume"
     tooltip={createTooltip(period)}
     {...otherProps}
   >
     {_.isNumber(volume) ? (
-      <LocalisedAmount amount={volume} loadingIndicator={loadingIndicator} />
+      <LocalisedAmount
+        amount={volume}
+        loadingIndicator={loadingIndicator}
+        summarize
+      />
     ) : (
       loadingIndicator
     )}

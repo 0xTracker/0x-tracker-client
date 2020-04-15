@@ -99,13 +99,13 @@ const NetworkOverviewPage = ({ history, location }) => {
                   component: (
                     <NetworkMetrics period={period} type="tradeVolume" />
                   ),
-                  title: 'Trade Volume',
+                  title: 'Volume',
                 },
                 {
                   component: (
                     <NetworkMetrics period={period} type="tradeCount" />
                   ),
-                  title: 'Trade Count',
+                  title: 'Trades',
                 },
               ]}
             />

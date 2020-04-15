@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { summarizeNumber } from '../../../util';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
@@ -17,27 +17,23 @@ const createTooltip = (period) => {
   return `Total number of trades in the last ${period}. Only includes activity from known relayers.`;
 };
 
-const TradeCountWidget = ({ className, period, tradeCount, ...otherProps }) => (
+const TradeCountWidget = ({ period, tradeCount, ...otherProps }) => (
   <StatWidget
     period={period}
-    title="Trade Count"
+    title="Trades"
     tooltip={createTooltip(period)}
     {...otherProps}
   >
-    {_.isNumber(tradeCount)
-      ? numeral(tradeCount).format('0,0')
-      : loadingIndicator}
+    {_.isNumber(tradeCount) ? summarizeNumber(tradeCount) : loadingIndicator}
   </StatWidget>
 );
 
 TradeCountWidget.propTypes = {
-  className: PropTypes.string,
   period: sharedPropTypes.timePeriod,
   tradeCount: PropTypes.number,
 };
 
 TradeCountWidget.defaultProps = {
-  className: undefined,
   period: undefined,
   tradeCount: undefined,
 };

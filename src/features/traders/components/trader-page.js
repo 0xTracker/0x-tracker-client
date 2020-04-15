@@ -34,13 +34,13 @@ const TraderPage = ({ history, location, match }) => {
           charts={[
             {
               component: <AddressMetrics address={address} />,
-              title: 'Fill Volume',
+              title: 'Volume',
             },
             {
               component: (
-                <AddressMetrics address={address} keyMetric="fillCount" />
+                <AddressMetrics address={address} keyMetric="tradeCount" />
               ),
-              title: 'Fill Count',
+              title: 'Trades',
             },
           ]}
           css={`
@@ -50,7 +50,7 @@ const TraderPage = ({ history, location, match }) => {
               margin: 0 0 2em 0;
             `}
           `}
-          defaultPeriod={TIME_PERIOD.YEAR}
+          defaultPeriod={TIME_PERIOD.MONTH}
           periods={[
             { label: '24H', value: TIME_PERIOD.DAY },
             { label: '7D', value: TIME_PERIOD.WEEK },

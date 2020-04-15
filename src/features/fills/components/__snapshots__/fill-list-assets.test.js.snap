@@ -5,7 +5,7 @@ exports[`fill list assets component should link ERC-20 asset 1`] = `
   150
    
   <a
-    class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+    class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
     href="/tokens/0x12345"
   >
     WETH
@@ -16,7 +16,7 @@ exports[`fill list assets component should link ERC-20 asset 1`] = `
 exports[`fill list assets component should link ERC-721 asset 1`] = `
 <div>
   <a
-    class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+    class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
     href="https://opensea.io/assets/0x12345/999"
     rel="noreferrer noopener"
     target="_blank"

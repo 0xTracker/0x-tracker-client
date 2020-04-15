@@ -17,8 +17,9 @@ const getColor = (value) => {
   return colors.stormGray;
 };
 
-const PriceChange = ({ children }) => (
+const PriceChange = ({ children, className }) => (
   <span
+    className={className}
     css={`
       color: ${getColor(children)};
       margin-left: 0.5rem;
@@ -55,6 +56,7 @@ const PriceChange = ({ children }) => (
 
 PriceChange.propTypes = {
   children: PropTypes.number.isRequired,
+  className: PropTypes.string, // eslint-disable-line react/require-default-props
 };
 
 export default PriceChange;

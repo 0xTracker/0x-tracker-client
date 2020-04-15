@@ -2,37 +2,38 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { DATE_FORMAT } from '../../../constants';
-import ChartTooltip from '../../../components/chart-tooltip';
 import formatCurrency from '../../../util/format-currency';
-import formatDate from '../../../util/format-date';
+import MetricsChartTooltip from './metrics-chart-tooltip';
+import Number from '../../../components/number';
 
-const AddressMetricsTooltip = ({ localCurrency, payload }) => {
+const AddressMetricsTooltip = ({ currency, granularity, payload }) => {
   if (_.isEmpty(payload)) {
     return null;
   }
 
-  const { date, fillCount, fillVolume } = payload[0].payload;
+  const { date, tradeCount, tradeVolume } = payload[0].payload;
 
   return (
-    <ChartTooltip
+    <MetricsChartTooltip
+      date={date}
+      granularity={granularity}
       items={[
         {
-          label: 'fill count',
-          value: fillCount,
+          label: `Volume (${currency})`,
+          value: formatCurrency(tradeVolume, currency),
         },
         {
-          label: `fill volume (${localCurrency})`,
-          value: formatCurrency(fillVolume, localCurrency),
+          label: 'Trades',
+          value: <Number>{tradeCount}</Number>,
         },
       ]}
-      title={formatDate(date, DATE_FORMAT.STANDARD)}
     />
   );
 };
 
 AddressMetricsTooltip.propTypes = {
-  localCurrency: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired,
+  granularity: PropTypes.string.isRequired,
   payload: PropTypes.array,
 };
 

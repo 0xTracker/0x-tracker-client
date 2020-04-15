@@ -18,7 +18,10 @@ const ZRXPriceWidget = ({ className }) => {
         <LoadingIndicator size="small" type="cylon" />
       ) : (
         <TokenLink address={ZRX_TOKEN.address} css="color: currentColor;">
-          <LocalisedAmount amount={zrxPrice.last} />
+          <LocalisedAmount
+            amount={zrxPrice.last}
+            preferredPrecision={zrxPrice.last >= 1 ? 2 : 4}
+          />
           <PriceChange>{zrxPrice.change}</PriceChange>
         </TokenLink>
       )}

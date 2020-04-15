@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { TIME_PERIOD } from '../../../constants';
 import AsyncTokenMetricsChart from './async-token-metrics-chart';
+import AsyncTokenPricesChart from './async-token-prices-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
@@ -9,11 +11,29 @@ import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useTokenMetrics from '../hooks/use-token-metrics';
 
+const determineGranularity = (period) => {
+  if (period === TIME_PERIOD.ALL) {
+    return 'month';
+  }
+
+  if (period === TIME_PERIOD.YEAR) {
+    return 'week';
+  }
+
+  if (period === TIME_PERIOD.MONTH) {
+    return 'day';
+  }
+
+  return 'hour';
+};
+
 const TokenMetrics = ({ period, token, type }) => {
+  const granularity = determineGranularity(period);
   const [brushActive, setBrushActive] = React.useState(false);
   const [metrics, loadingMetrics] = useTokenMetrics(
     token.address,
     {
+      granularity,
       period,
     },
     { autoReload: !brushActive },
@@ -60,14 +80,28 @@ const TokenMetrics = ({ period, token, type }) => {
       brushActive={brushActive}
       onBrushReset={handleResetClick}
     >
-      <AsyncTokenMetricsChart
-        data={data}
-        key={chartKey}
-        localCurrency={displayCurrency}
-        onBrushChange={handleBrushChange}
-        tokenSymbol={token.symbol}
-        type={type}
-      />
+      {type === 'price.close' ? (
+        <AsyncTokenPricesChart
+          data={data}
+          granularity={granularity}
+          key={chartKey}
+          localCurrency={displayCurrency}
+          onBrushChange={handleBrushChange}
+          period={period}
+          tokenSymbol={token.symbol}
+        />
+      ) : (
+        <AsyncTokenMetricsChart
+          data={data}
+          granularity={granularity}
+          key={chartKey}
+          localCurrency={displayCurrency}
+          onBrushChange={handleBrushChange}
+          period={period}
+          tokenSymbol={token.symbol}
+          type={type}
+        />
+      )}
     </BrushableChartContainer>
   );
 };

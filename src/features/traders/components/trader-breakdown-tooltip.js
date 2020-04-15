@@ -15,12 +15,12 @@ const TraderBreakdownTooltip = ({ payload }) => {
   return (
     <ChartTooltip
       items={[
+        { label: 'Trader Type', value: _.startCase(traderType) },
         {
           label: 'Count',
           value: <Number>{count}</Number>,
         },
       ]}
-      title={`Active ${_.startCase(traderType)}s`}
     />
   );
 };

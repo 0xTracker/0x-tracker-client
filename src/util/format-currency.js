@@ -1,43 +1,51 @@
+import _ from 'lodash';
 import currencyFormatter from 'currency-formatter';
 
-const formatCurrency = (amount, currency) => {
+function numZeroesAfterPoint(x) {
+  if (x % 1 === 0) {
+    return 0;
+  }
+
+  return -1 - Math.floor(Math.log10(x % 1));
+}
+
+const formatCurrency = (amount, currency, preferredPrecision = 2) => {
+  const minPrecision = numZeroesAfterPoint(amount) + 1;
+  const precision = _.clamp(
+    minPrecision,
+    minPrecision > preferredPrecision ? minPrecision : preferredPrecision,
+    Infinity,
+  );
+
   switch (currency) {
     case 'BTC':
       return `Ƀ ${currencyFormatter.format(amount, {
         decimal: '.',
-        precision: 8,
+        precision,
         thousand: ',',
       })}`;
     case 'ETH':
       return `Ξ ${currencyFormatter.format(amount, {
         decimal: '.',
-        precision: 6,
+        precision,
         thousand: ',',
       })}`;
     case 'EUR':
       return currencyFormatter.format(amount, {
         decimal: ',',
-        precision: 2,
+        precision,
         symbol: '€',
         thousand: '.',
       });
     case 'AUD':
       return currencyFormatter.format(amount, {
-        precision: 2,
+        precision,
         symbol: 'A$',
       });
     default:
-      if (amount < 1) {
-        return currencyFormatter.format(amount, {
-          code: currency,
-          precision: 6,
-          thousand: currency === 'EUR' ? '.' : ',',
-        });
-      }
-
       return currencyFormatter.format(amount, {
         code: currency,
-        precision: 2,
+        precision,
         thousand: currency === 'EUR' ? '.' : ',',
       });
   }

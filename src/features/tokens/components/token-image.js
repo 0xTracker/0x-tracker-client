@@ -5,9 +5,10 @@ import React from 'react';
 import { colors } from '../../../styles/constants';
 import { CircleIcon } from '../../../components/icons';
 
-const TokenImage = ({ imageUrl, size }) =>
+const TokenImage = ({ className, imageUrl, size }) =>
   _.isString(imageUrl) ? (
     <img
+      className={className}
       css={`
         border-radius: 0.25rem;
         height: ${size};
@@ -20,6 +21,7 @@ const TokenImage = ({ imageUrl, size }) =>
   );
 
 TokenImage.propTypes = {
+  className: PropTypes.string, // eslint-disable-line react/require-default-props
   imageUrl: PropTypes.string,
   size: PropTypes.string,
 };

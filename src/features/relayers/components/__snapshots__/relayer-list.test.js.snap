@@ -116,7 +116,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
           href="/relayers/ddex"
         >
           <svg
@@ -145,14 +145,14 @@ exports[`renders with basic props 1`] = `
           class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
             href="/relayers/ddex"
           >
             DDEX
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
           href="https://ddex.io"
           rel="noreferrer noopener"
           target="_blank"
@@ -163,18 +163,28 @@ exports[`renders with basic props 1`] = `
       <td
         class="align-middle text-right"
       >
-        30
+        <span
+          title="30"
+        >
+          30
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        256
+        <span
+          title="256"
+        >
+          256
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        <span>
-          $150,456.56
+        <span
+          title="$150,456.56"
+        >
+          $150.46k
         </span>
       </td>
       <td />
@@ -189,7 +199,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
           href="/relayers/paradex"
         >
           <svg
@@ -218,14 +228,14 @@ exports[`renders with basic props 1`] = `
           class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
             href="/relayers/paradex"
           >
             Paradex
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
           href="https://paradex.io"
           rel="noreferrer noopener"
           target="_blank"
@@ -236,18 +246,28 @@ exports[`renders with basic props 1`] = `
       <td
         class="align-middle text-right"
       >
-        123
+        <span
+          title="123"
+        >
+          123
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        345
+        <span
+          title="345"
+        >
+          345
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        <span>
-          $124,000.00
+        <span
+          title="$124,000.00"
+        >
+          $124k
         </span>
       </td>
       <td />
@@ -262,7 +282,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
           href="/relayers/radar-relay"
         >
           <svg
@@ -291,14 +311,14 @@ exports[`renders with basic props 1`] = `
           class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
             href="/relayers/radar-relay"
           >
             Radar Relay
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
           href="https://radarrelay.com"
           rel="noreferrer noopener"
           target="_blank"
@@ -309,18 +329,28 @@ exports[`renders with basic props 1`] = `
       <td
         class="align-middle text-right"
       >
-        82
+        <span
+          title="82"
+        >
+          82
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        512
+        <span
+          title="512"
+        >
+          512
+        </span>
       </td>
       <td
         class="align-middle text-right"
       >
-        <span>
-          $100,000.00
+        <span
+          title="$100,000.00"
+        >
+          $100k
         </span>
       </td>
       <td />

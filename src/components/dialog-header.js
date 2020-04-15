@@ -20,18 +20,19 @@ const CloseButton = styled.button`
 `;
 
 const DialogHeading = styled.h1`
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 1;
   margin: 0;
+  font-weight: 500;
 `;
 
 const StyledDialogHeader = styled.div`
   align-items: center;
-  background-color: ${colors.indigo};
+  background-color: ${colors.martinique};
   border-radius: 0.25rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  color: white;
+  color: ${colors.santasGray};
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;

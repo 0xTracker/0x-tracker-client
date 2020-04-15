@@ -2,12 +2,10 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { DATE_FORMAT } from '../../../constants';
-import ChartTooltip from '../../../components/chart-tooltip';
-import formatDate from '../../../util/format-date';
+import MetricsChartTooltip from './metrics-chart-tooltip';
 import Number from '../../../components/number';
 
-const ActiveTraderMetricsTooltip = ({ payload }) => {
+const ActiveTraderMetricsTooltip = ({ granularity, payload }) => {
   if (_.isEmpty(payload)) {
     return null;
   }
@@ -15,7 +13,9 @@ const ActiveTraderMetricsTooltip = ({ payload }) => {
   const { date, makerCount, takerCount, traderCount } = payload[0].payload;
 
   return (
-    <ChartTooltip
+    <MetricsChartTooltip
+      date={date}
+      granularity={granularity}
       items={[
         {
           label: 'Makers',
@@ -30,12 +30,12 @@ const ActiveTraderMetricsTooltip = ({ payload }) => {
           value: <Number>{traderCount}</Number>,
         },
       ]}
-      title={formatDate(date, DATE_FORMAT.STANDARD)}
     />
   );
 };
 
 ActiveTraderMetricsTooltip.propTypes = {
+  granularity: PropTypes.string.isRequired,
   payload: PropTypes.arrayOf(
     PropTypes.shape({
       payload: PropTypes.shape({

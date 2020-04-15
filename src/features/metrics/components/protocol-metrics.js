@@ -10,7 +10,7 @@ import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useProtocolMetrics from '../hooks/use-protocol-metrics';
 
 const determineGranularity = (period) => {
-  if (period === TIME_PERIOD.WEEK) {
+  if (period === TIME_PERIOD.WEEK || period === TIME_PERIOD.MONTH) {
     return 'day';
   }
 
@@ -22,13 +22,14 @@ const determineGranularity = (period) => {
     return 'week';
   }
 
-  return undefined;
+  return 'hour';
 };
 
 const ProtocolMetrics = ({ period }) => {
+  const granularity = determineGranularity(period);
   const [brushActive, setBrushActive] = React.useState(false);
   const [metrics, loading] = useProtocolMetrics(
-    { granularity: determineGranularity(period), period },
+    { granularity, period },
     { autoReload: !brushActive },
   );
   const conversionRate = useConversionRate();
@@ -76,6 +77,7 @@ const ProtocolMetrics = ({ period }) => {
       <AsyncProtocolMetricsChart
         currency={displayCurrency}
         data={data}
+        granularity={granularity}
         key={chartKey}
         onBrushChange={handleBrushChange}
         period={period}

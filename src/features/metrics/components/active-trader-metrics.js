@@ -9,16 +9,25 @@ import useActiveTraderMetrics from '../hooks/use-active-trader-metrics';
 
 const determineGranularity = (period) => {
   if (period === TIME_PERIOD.ALL) {
+    return 'month';
+  }
+
+  if (period === TIME_PERIOD.YEAR) {
     return 'week';
   }
 
-  return undefined;
+  if (period === TIME_PERIOD.MONTH) {
+    return 'day';
+  }
+
+  return 'hour';
 };
 
 const ActiveTraderMetrics = ({ period }) => {
+  const granularity = determineGranularity(period);
   const [brushActive, setBrushActive] = React.useState(false);
   const [metrics, loading] = useActiveTraderMetrics(
-    { granularity: determineGranularity(period), period },
+    { granularity, period },
     { autoReload: !brushActive },
   );
 
@@ -62,8 +71,10 @@ const ActiveTraderMetrics = ({ period }) => {
     >
       <AsyncActiveTraderMetricsChart
         data={data}
+        granularity={granularity}
         key={chartKey}
         onBrushChange={handleBrushChange}
+        period={period}
       />
     </BrushableChartContainer>
   );
