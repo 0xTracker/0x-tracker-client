@@ -1,4 +1,3 @@
-// eslint-disable-next-line filenames/no-index
 import AllIcon from './all-icon';
 import AsteriskIcon from './asterisk-icon';
 import CaretRightIcon from './caret-right-icon';

@@ -1,4 +1,3 @@
-/* eslint-disable filenames/no-index */
 import BreakpointProvider from './breakpoint-provider';
 import MockBreakpointProvider from './mock-breakpoint-provider';
 import setTestDefaults from './set-test-defaults';
@@ -10,4 +9,3 @@ export {
   setTestDefaults,
   useCurrentBreakpoint,
 };
-/* eslint-enable filenames/no-index */
