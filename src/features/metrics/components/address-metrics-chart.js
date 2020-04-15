@@ -55,6 +55,7 @@ const AddressMetricsChart = React.memo(
             axisLine={false}
             dataKey={keyMetric}
             mirror
+            scale="linear"
             tick={{
               fill: 'currentColor',
               fontSize: '0.8em',

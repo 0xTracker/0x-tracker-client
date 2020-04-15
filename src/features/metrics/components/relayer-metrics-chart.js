@@ -56,6 +56,7 @@ const RelayerMetricsChart = React.memo(
             axisLine={false}
             dataKey={type}
             mirror
+            scale="linear"
             tick={{
               fill: 'currentColor',
               fontSize: '0.8em',

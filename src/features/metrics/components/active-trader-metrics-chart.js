@@ -52,6 +52,7 @@ const ActiveTraderMetricsChart = React.memo(
             axisLine={false}
             dataKey="traderCount"
             mirror
+            scale="linear"
             tick={{
               fill: 'currentColor',
               fontSize: '0.8em',
