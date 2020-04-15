@@ -116,7 +116,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
           href="/relayers/ddex"
         >
           <svg
@@ -145,14 +145,14 @@ exports[`renders with basic props 1`] = `
           class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
             href="/relayers/ddex"
           >
             DDEX
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
           href="https://ddex.io"
           rel="noreferrer noopener"
           target="_blank"
@@ -199,7 +199,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
           href="/relayers/paradex"
         >
           <svg
@@ -228,14 +228,14 @@ exports[`renders with basic props 1`] = `
           class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
             href="/relayers/paradex"
           >
             Paradex
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
           href="https://paradex.io"
           rel="noreferrer noopener"
           target="_blank"
@@ -282,7 +282,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
           href="/relayers/radar-relay"
         >
           <svg
@@ -311,14 +311,14 @@ exports[`renders with basic props 1`] = `
           class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 gaobOX"
+            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
             href="/relayers/radar-relay"
           >
             Radar Relay
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 gaobOX relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
           href="https://radarrelay.com"
           rel="noreferrer noopener"
           target="_blank"
