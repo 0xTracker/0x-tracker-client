@@ -11,7 +11,7 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
 import RelayerList from './relayer-list';
-import RelayersFilter from './relayers-filter';
+import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
 import useRelayers from '../hooks/use-relayers';
 import withPagination from '../../../components/with-pagination';
 
@@ -40,10 +40,6 @@ const RelayersPage = ({ history, location, page, setPage }) => {
 
   const { items, pageCount, pageSize, recordCount } = relayers;
 
-  const handleFiltersChange = (newFilters) => {
-    history.push(buildUrl(URL.RELAYERS, newFilters));
-  };
-
   return (
     <>
       <Helmet key="relayers">
@@ -51,10 +47,12 @@ const RelayersPage = ({ history, location, page, setPage }) => {
       </Helmet>
       <PageLayout
         filter={
-          <RelayersFilter
-            defaultFilters={defaultFilters}
-            onChange={handleFiltersChange}
-            selectedFilters={{ statsPeriod }}
+          <ResponsiveTimePeriodFilter
+            name="statsPeriod"
+            onChange={(newPeriod) => {
+              history.push(buildUrl(URL.RELAYERS, { statsPeriod: newPeriod }));
+            }}
+            value={statsPeriod}
           />
         }
         title={

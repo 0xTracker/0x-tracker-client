@@ -33,12 +33,14 @@ const GlobalStyles = createGlobalStyle`
   }
   
   .table thead th {
-    background-color: ${colors.indigo};
-    border-bottom: 3px solid ${colors.mystic};
+    background-color: ${colors.martinique};
+    border-bottom: 3px solid ${colors.santasGray};
     border-top: none;
-    color: ${colors.white};
+    color: ${colors.periwinkleGray};
     padding: 1rem;
-    font-weight: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.8rem;
   }
   
   .table tbody td,

@@ -9,14 +9,15 @@ import H1 from './h1';
 import Lead from './lead';
 
 const TryAgainButton = styled.button`
-  background: none;
+  background: ${colors.mystic};
   border: none;
-  color: ${colors.indigo};
+  border-radius: 0.25rem;
+  color: ${colors.violet};
   cursor: pointer;
-  padding: 0;
+  padding: 0.5rem 1.5rem;
 
   &:hover {
-    color: inherit;
+    background-color: ${colors.mischka};
     text-decoration: none;
   }
 `;

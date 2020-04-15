@@ -21,6 +21,7 @@ const colors = {
   periwinkleGray: '#cdcded',
   pomegranate: '#F44336', // negative change
   santasGray: '#9F9EB9',
+  scampi: '#5F5B9F',
   spunPearl: '#a8aab9',
   steelGray: '#212035',
   stormGray: '#6C6B80',

@@ -22,7 +22,7 @@ const getTypeBadgeColor = (type) => {
   }
 
   if (type === 'ERC-1155') {
-    return { bg: colors.indigo, text: colors.white };
+    return { bg: colors.martinique, text: colors.white };
   }
 
   return { bg: colors.mischka, text: colors.martinique };
