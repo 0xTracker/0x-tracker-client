@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Tooltip from '@tippyjs/react';
 
 import { HelpIcon } from './icons';
+import Tooltip from './tooltip';
 
 const HelpWidget = ({ children, className }) => (
   <Tooltip content={children}>

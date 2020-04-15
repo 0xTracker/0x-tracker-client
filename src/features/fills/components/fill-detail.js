@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import Tooltip from '@tippyjs/react';
 
 import { media } from '../../../styles/util';
 import { colors } from '../../../styles/constants';
-import { HelpIcon } from '../../../components/icons';
+import HelpWidget from '../../../components/help-widget';
 
 const Title = styled.dt`
   font-weight: normal;
@@ -44,16 +43,14 @@ const FillDetail = ({ children, title, tooltip }) => (
   <>
     <Title>
       {tooltip !== undefined && (
-        <Tooltip content={tooltip}>
-          <HelpIcon
-            css={`
-              color: ${colors.stormGray};
-              margin-right: 0.5rem;
-            `}
-            height={20}
-            width={20}
-          />
-        </Tooltip>
+        <HelpWidget
+          css={`
+            color: ${colors.stormGray};
+            margin-right: 0.5rem;
+          `}
+        >
+          {tooltip}
+        </HelpWidget>
       )}
       {title}:
     </Title>
