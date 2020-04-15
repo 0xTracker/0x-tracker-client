@@ -15,9 +15,14 @@ const removeListener = (listenerToRemove) => {
 
 const start = (ms) => {
   interval = setInterval(() => {
-    listeners.forEach((listener) => {
-      listener();
-    });
+    if (document.hidden) {
+      console.info('skipped automatic reloading of data');
+    } else {
+      console.info('automatically reloading data');
+      listeners.forEach((listener) => {
+        listener();
+      });
+    }
   }, ms);
 };
 
