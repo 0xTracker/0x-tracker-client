@@ -22,6 +22,26 @@ const Tooltip = styled(Tippy).attrs({ placement: 'right' })`
     .tippy-arrow {
       color: ${colors.anzac};
     }
+
+    dl {
+      margin: 0;
+      padding: 0;
+    }
+
+    dt {
+      color: #4d452b;
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    dd {
+      display: inline-block;
+      font-size: 0.8rem;
+      margin: 0 0 0 0.25rem;
+    }
   }
 `;
 

@@ -3,15 +3,15 @@ import React from 'react';
 
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import MarketCapWidgetTooltip from './market-cap-widget-tooltip';
 import StatWidget from '../../../components/stat-widget';
+import TokenMarketCapTooltip from './token-market-cap-tooltip';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
 const MarketCapWidget = ({ token, ...otherProps }) => (
   <StatWidget
     title="Market Cap"
-    tooltip={<MarketCapWidgetTooltip token={token} />}
+    tooltip={<TokenMarketCapTooltip token={token} />}
     {...otherProps}
   >
     {token.marketCap === null ? (
