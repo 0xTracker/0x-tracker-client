@@ -39,6 +39,7 @@ const basicProps = {
       url: 'https://radarrelay.com',
     },
   ],
+  statsPeriod: 'month',
 };
 
 it('renders with basic props', () => {
