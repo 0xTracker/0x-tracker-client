@@ -540,7 +540,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
               class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
             >
               <span>
-                $0.04
+                $0.03686
               </span>
             </span>
           </span>
@@ -1177,7 +1177,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
               class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
             >
               <span>
-                $0.04
+                $0.03686
               </span>
             </span>
           </span>
@@ -1246,7 +1246,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
         class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
       >
         <span>
-          $0.20
+          $0.20000
         </span>
       </span>
     </dd>

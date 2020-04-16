@@ -174,7 +174,10 @@ const FillDetails = ({ fill }) => {
               <ListItem key={`${asset.tokenAddress}-${asset.tokenId}`}>
                 <AssetLabel asset={asset} />
                 <PriceBadge>
-                  <LocalisedAmount amount={asset.price.USD} />
+                  <LocalisedAmount
+                    amount={asset.price.USD}
+                    preferredPrecision={asset.price.USD < 1 ? 5 : 2}
+                  />
                 </PriceBadge>
               </ListItem>
             ))}
@@ -253,7 +256,10 @@ const FillDetails = ({ fill }) => {
           />
           {fill.protocolFee.USD !== undefined ? (
             <PriceBadge>
-              <LocalisedAmount amount={fill.protocolFee.USD} />
+              <LocalisedAmount
+                amount={fill.protocolFee.USD}
+                preferredPrecision={fill.protocolFee.USD < 1 ? 5 : 2}
+              />
             </PriceBadge>
           ) : null}
         </FillDetail>
