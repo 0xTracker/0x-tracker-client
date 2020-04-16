@@ -37,7 +37,7 @@ const TopTokensTable = ({ statsPeriod, tokens }) => (
       {tokens.map((token) => (
         <TableRow key={token.address}>
           <TableCell css="padding-right: 1.25rem;">
-            <TokenImage imageUrl={token.imageUrl} size="2.5rem" />
+            <TokenImage imageUrl={token.imageUrl} size="40px" />
           </TableCell>
           <TableCell width="99%">
             <TokenLink

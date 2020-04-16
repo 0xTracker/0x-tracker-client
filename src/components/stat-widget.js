@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import Tippy from '@tippyjs/react';
 
 import { colors } from '../styles/constants';
-import { HelpIcon } from './icons';
 import Card from './card';
 import CardBody from './card-body';
+import HelpWidget from './help-widget';
 import prettyPeriod from '../util/pretty-period';
 import sharedPropTypes from '../prop-types';
 
@@ -42,11 +41,7 @@ const StatWidget = ({
       <dl css="display: flex; flex-grow: 1; flex-direction: column; margin: 0;">
         <StatWidgetTitle>
           {period && showPeriod ? `${title} (${prettyPeriod(period)})` : title}
-          {tooltip !== undefined && (
-            <Tippy content={tooltip}>
-              <HelpIcon height={20} width={20} />
-            </Tippy>
-          )}
+          {tooltip !== undefined && <HelpWidget>{tooltip}</HelpWidget>}
         </StatWidgetTitle>
         <StatWidgetValue>{children}</StatWidgetValue>
       </dl>

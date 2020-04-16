@@ -4,7 +4,7 @@ import React from 'react';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import TokenAmount from './token-amount';
 
-const MarketCapWidgetTooltip = ({ token }) => {
+const TokenMarketCapTooltip = ({ token }) => {
   if (token.marketCap === null) {
     return 'The market cap for this token is unavailable';
   }
@@ -49,7 +49,7 @@ const MarketCapWidgetTooltip = ({ token }) => {
   );
 };
 
-MarketCapWidgetTooltip.propTypes = {
+TokenMarketCapTooltip.propTypes = {
   token: PropTypes.shape({
     circulatingSupply: PropTypes.number,
     marketCap: PropTypes.number,
@@ -60,4 +60,4 @@ MarketCapWidgetTooltip.propTypes = {
   }).isRequired,
 };
 
-export default MarketCapWidgetTooltip;
+export default TokenMarketCapTooltip;

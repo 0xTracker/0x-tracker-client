@@ -10,6 +10,8 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 import PriceChange from '../../../components/price-change';
 import SubTitle from '../../../components/sub-title';
 import TokenImage from './token-image';
+import TokenPriceTooltip from './token-price-tooltip';
+import Tooltip from '../../../components/tooltip';
 import Visible from '../../../components/visible';
 
 const PriceWrapper = styled.span`
@@ -48,19 +50,25 @@ const TokenPageTitle = ({ statsPeriod, token }) => (
         <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
       </Hidden>
     </span>
-    {_.isFinite(token.price.last) && (
+    {_.isFinite(token.price.close) && (
       <Visible above="sm">
-        <PriceWrapper>
-          <LocalisedAmount amount={token.price.last} />
-          {_.isFinite(token.price.change) && (
-            <>
-              {' '}
-              <PriceChange css="display: flex; align-items: center;">
-                {token.price.change}
-              </PriceChange>
-            </>
-          )}
-        </PriceWrapper>
+        <Tooltip
+          content={
+            <TokenPriceTooltip period={statsPeriod} price={token.price} />
+          }
+        >
+          <PriceWrapper>
+            <LocalisedAmount amount={token.price.close} />
+            {_.isFinite(token.price.change) && (
+              <>
+                {' '}
+                <PriceChange css="display: flex; align-items: center;">
+                  {token.price.change}
+                </PriceChange>
+              </>
+            )}
+          </PriceWrapper>
+        </Tooltip>
       </Visible>
     )}
   </Wrapper>
@@ -74,7 +82,7 @@ TokenPageTitle.propTypes = {
     name: PropTypes.string,
     price: PropTypes.shape({
       change: PropTypes.number,
-      last: PropTypes.number,
+      close: PropTypes.number,
     }).isRequired,
     symbol: PropTypes.string,
   }).isRequired,

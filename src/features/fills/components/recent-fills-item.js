@@ -20,6 +20,7 @@ const StyledRecentFillsItem = styled.div`
   background-color: ${(props) =>
     (props.index + 1) % 2 === 0 ? colors.alabaster : 'none'};
   display: flex;
+  height: 80px;
   padding: 1rem;
 `;
 
