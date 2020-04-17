@@ -13,7 +13,7 @@ const BridgedTradesWidget = ({ period, tradeCount, ...otherProps }) => (
   <StatWidget
     period={period}
     title="Bridged Trades"
-    tooltip="The total number of trades in the selected period which sourced liquidity from bridging contracts."
+    tooltip="The total number of trades which sourced liquidity from bridging contracts in the selected period."
     {...otherProps}
   >
     {_.isNumber(tradeCount) ? summarizeNumber(tradeCount) : loadingIndicator}

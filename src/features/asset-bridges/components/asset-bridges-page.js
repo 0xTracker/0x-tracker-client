@@ -7,12 +7,12 @@ import React from 'react';
 import { TIME_PERIOD, URL } from '../../../constants';
 import { colors } from '../../../styles/constants';
 import AssetBridgeList from './asset-bridge-list';
+import AssetBridgingMetrics from './asset-bridging-metrics';
 import AssetBridgingStats from './asset-bridging-stats';
 import buildUrl from '../../../util/build-url';
 import Card from '../../../components/card';
 import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
-import NetworkMetrics from '../../metrics/components/network-metrics';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
@@ -64,7 +64,10 @@ const AssetBridgesPage = ({ page, setPage }) => {
             <span css="display: flex; align-items: center;">
               Asset Bridges{' '}
               <HelpWidget css="margin-left: 0.5rem;">
-                Information describing what asset bridges are all about.
+                Asset bridges allow 0x to tap into on-chain liquidity sources
+                like Kyber and Uniswap by sourcing maker liquidity from
+                contracts rather than wallets. This page provides an overview of
+                briding contract activity for a given period of time.
               </HelpWidget>
             </span>
             <Hidden above="xs">
@@ -88,13 +91,13 @@ const AssetBridgesPage = ({ page, setPage }) => {
           tabs={[
             {
               component: (
-                <NetworkMetrics period={statsPeriod} type="tradeVolume" />
+                <AssetBridgingMetrics period={statsPeriod} type="tradeVolume" />
               ),
               title: 'Bridged Volume',
             },
             {
               component: (
-                <NetworkMetrics period={statsPeriod} type="tradeCount" />
+                <AssetBridgingMetrics period={statsPeriod} type="tradeCount" />
               ),
               title: 'Bridged Trades',
             },

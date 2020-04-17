@@ -11,7 +11,7 @@ const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 const VolumeShareWidget = ({ volumeShare, ...otherProps }) => (
   <StatWidget
     title="Bridging Dominance"
-    tooltip="The percentage of trading volume which was sourced from asset bridging contracts rather than regular wallets over the selected period."
+    tooltip="The percentage of trading volume sourced from asset bridging contracts rather than regular wallets in the selected period."
     {...otherProps}
   >
     {_.isNumber(volumeShare)

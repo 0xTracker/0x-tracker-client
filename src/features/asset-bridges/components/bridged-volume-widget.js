@@ -13,7 +13,7 @@ const BridgedVolumeWidget = ({ period, volume, ...otherProps }) => (
   <StatWidget
     period={period}
     title="Bridged Volume"
-    tooltip="The total volume of all trades which involved liquidity sourced from bridging contracts."
+    tooltip="The total volume of all trades which involved liquidity sourced from bridging contracts in the selected period."
     {...otherProps}
   >
     {_.isNumber(volume) ? (
