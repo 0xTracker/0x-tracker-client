@@ -35,6 +35,7 @@ const DATE_FORMAT = {
 const GENESIS_DATE = new Date('2017-08-15T00:00:00Z');
 
 const URL = {
+  ASSET_BRIDGES: '/asset-bridges',
   FILL: '/fills/:id',
   FILLS: '/fills',
   HOME: '/',

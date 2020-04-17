@@ -3,6 +3,7 @@ import { Switch } from 'react-router-dom';
 import React from 'react';
 
 import createPageRoute from '../util/create-page-route';
+import getAssetBridgesRoutes from '../features/asset-bridges/get-routes';
 import getContentRoutes from '../features/content/get-routes';
 import getFillsRoutes from '../features/fills/get-routes';
 import getHomeRoutes from '../features/home/get-home-routes';
@@ -23,6 +24,7 @@ const routes = _.flatten([
   getSearchRoutes(),
   getTokensRoutes(),
   getTradersRoutes(),
+  getAssetBridgesRoutes(),
   { key: '404', loader: () => import('./page-not-found') },
 ]);
 
