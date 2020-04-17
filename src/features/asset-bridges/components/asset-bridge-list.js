@@ -18,21 +18,21 @@ const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
         <th className="text-right">
           Trades
           <HelpWidget css="margin-left: 0.25rem;">
-            The number of unique trades for a given relayer in the selected
+            The number of trades which involved a given bridge in the selected
             period.
           </HelpWidget>
         </th>
         <th className="text-right">
           Volume
           <HelpWidget css="margin-left: 0.25rem;">
-            The total value of all trades for a given relayer in the selected
-            period.
+            The total volume of all trades which involved a given bridge in the
+            selected period.
           </HelpWidget>
         </th>
         <th className="text-right">
           Volume Trend
           <HelpWidget css="margin-left: 0.25rem;">
-            The trend of trading volume for a given relayer in the selected
+            The trend of trading volume for a given bridge in the selected
             period.
           </HelpWidget>
         </th>

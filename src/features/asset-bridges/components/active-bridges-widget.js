@@ -11,7 +11,7 @@ const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 const ActiveBridgesWidget = ({ bridgeCount, ...otherProps }) => (
   <StatWidget
     title="Active Bridges"
-    tooltip="The total number of asset bridges which were active in the selected period."
+    tooltip="The total number of asset bridges which were used in the selected period."
     {...otherProps}
   >
     {_.isNumber(bridgeCount) ? summarizeNumber(bridgeCount) : loadingIndicator}
