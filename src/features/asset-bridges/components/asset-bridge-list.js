@@ -5,7 +5,7 @@ import React from 'react';
 import AssetBridgeImage from './asset-bridge-image';
 import HelpWidget from '../../../components/help-widget';
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import MiniRelayerMetrics from '../../metrics/components/mini-relayer-metrics';
+import MiniBridgeMetrics from './mini-bridge-metrics';
 import Number from '../../../components/number';
 import SubTitle from '../../../components/sub-title';
 
@@ -61,10 +61,10 @@ const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
             <LocalisedAmount amount={bridge.stats.tradeVolume} summarize />
           </td>
           <td>
-            <MiniRelayerMetrics
+            <MiniBridgeMetrics
+              bridgeAddress={bridge.address}
               height={40}
               period={statsPeriod}
-              relayerId="radarRelay"
               width={120}
             />
           </td>
