@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -6,6 +7,7 @@ import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ActiveBridgesWidget from './active-bridges-widget';
 import BridgedTradesWidget from './bridged-trades-widget';
 import BridgedVolumeWidget from './bridged-volume-widget';
+import useAssetBridgingStats from '../hooks/use-asset-bridging-stats';
 import VolumeShareWidget from './volume-share-widget';
 
 // Carousel gets loaded lazily because it relies on react-slick
@@ -13,19 +15,20 @@ import VolumeShareWidget from './volume-share-widget';
 //   import('./token-stats-carousel'),
 // );
 
-const AssetBridgingStats = ({ bridgeCount, trades, volume, volumeShare }) => {
+const AssetBridgingStats = ({ bridgeCount, period }) => {
+  const [stats] = useAssetBridgingStats(period);
   const breakpoint = useCurrentBreakpoint();
 
   return breakpoint.greaterThan('md') ? (
     <Row css="margin-bottom: 2rem;">
       <Col lg={3} md={6}>
-        <BridgedVolumeWidget volume={volume} />
+        <BridgedVolumeWidget volume={_.get(stats, 'tradeVolume')} />
       </Col>
       <Col lg={3} md={6}>
-        <VolumeShareWidget volumeShare={volumeShare} />
+        <VolumeShareWidget volumeShare={_.get(stats, 'tradeVolumeShare')} />
       </Col>
       <Col lg={3} md={6}>
-        <BridgedTradesWidget tradeCount={trades} />
+        <BridgedTradesWidget tradeCount={_.get(stats, 'tradeCount')} />
       </Col>
       <Col lg={3} md={6}>
         <ActiveBridgesWidget bridgeCount={bridgeCount} />
@@ -37,16 +40,11 @@ const AssetBridgingStats = ({ bridgeCount, trades, volume, volumeShare }) => {
 
 AssetBridgingStats.propTypes = {
   bridgeCount: PropTypes.number,
-  trades: PropTypes.number,
-  volume: PropTypes.number,
-  volumeShare: PropTypes.number,
+  period: PropTypes.string.isRequired,
 };
 
 AssetBridgingStats.defaultProps = {
   bridgeCount: undefined,
-  trades: undefined,
-  volume: undefined,
-  volumeShare: undefined,
 };
 
 export default AssetBridgingStats;

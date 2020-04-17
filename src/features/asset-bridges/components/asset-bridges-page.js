@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { Helmet } from 'react-helmet';
 import { useSearchParam } from 'react-use';
 import { useHistory } from 'react-router';
@@ -20,7 +19,6 @@ import ResponsiveTimePeriodFilter from '../../../components/responsive-time-peri
 import TabbedCard from '../../../components/tabbed-card';
 import useAssetBridges from '../hooks/use-asset-bridges';
 import withPagination from '../../../components/with-pagination';
-import useNetworkStats from '../../stats/hooks/use-network-stats';
 import HelpWidget from '../../../components/help-widget';
 
 const periodDescriptions = {
@@ -31,27 +29,9 @@ const periodDescriptions = {
   [TIME_PERIOD.ALL]: 'from all time',
 };
 
-const getStats = (bridges, networkStats) => {
-  if (bridges === undefined) {
-    return {};
-  }
-
-  const tradeVolume = _.sumBy(bridges, 'stats.tradeVolume');
-
-  return {
-    bridgeCount: bridges.length,
-    tradeCount: _.sumBy(bridges, 'stats.tradeCount'),
-    tradeVolume,
-    volumeShare: _.isObject(networkStats)
-      ? (tradeVolume / networkStats.tradeVolume) * 100
-      : undefined,
-  };
-};
-
 const AssetBridgesPage = ({ page, setPage }) => {
   const history = useHistory();
   const statsPeriod = useSearchParam('statsPeriod') || TIME_PERIOD.MONTH;
-  const [networkStats] = useNetworkStats({ period: statsPeriod });
 
   const [assetBridges, loadingAssetBridges] = useAssetBridges({
     autoReload: true,
@@ -61,10 +41,6 @@ const AssetBridgesPage = ({ page, setPage }) => {
   });
 
   const { items, pageCount, pageSize, recordCount } = assetBridges;
-  const { bridgeCount, tradeCount, tradeVolume, volumeShare } = getStats(
-    items,
-    networkStats,
-  );
 
   return (
     <>
@@ -106,12 +82,7 @@ const AssetBridgesPage = ({ page, setPage }) => {
           </span>
         }
       >
-        <AssetBridgingStats
-          bridgeCount={bridgeCount}
-          trades={tradeCount}
-          volume={tradeVolume}
-          volumeShare={volumeShare}
-        />
+        <AssetBridgingStats bridgeCount={recordCount} period={statsPeriod} />
         <TabbedCard
           css="height: 330px; margin-bottom: 2rem;"
           tabs={[
