@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { ZRX_TOKEN } from '../../../constants';
+import Link from '../../../components/link';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import PriceChange from '../../../components/price-change';
 import StatWidget from '../../../components/stat-widget';
-import TokenLink from '../../tokens/components/token-link';
 import useZrxPrice from '../hooks/use-zrx-price';
 
 const ZRXPriceWidget = ({ className }) => {
@@ -17,13 +16,13 @@ const ZRXPriceWidget = ({ className }) => {
       {loading ? (
         <LoadingIndicator size="small" type="cylon" />
       ) : (
-        <TokenLink address={ZRX_TOKEN.address} css="color: currentColor;">
-          <LocalisedAmount
-            amount={zrxPrice.last}
-            preferredPrecision={zrxPrice.last >= 1 ? 2 : 4}
-          />
+        <Link
+          css="color: currentColor;"
+          href="https://www.cryptocompare.com/coins/zrx/overview"
+        >
+          <LocalisedAmount amount={zrxPrice.value} preferredPrecision={5} />
           <PriceChange>{zrxPrice.change}</PriceChange>
-        </TokenLink>
+        </Link>
       )}
     </StatWidget>
   );
