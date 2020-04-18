@@ -8,6 +8,7 @@ import {
   SettingsIcon,
 } from '../../../components/icons';
 import HeaderSearch from './header-search';
+import Link from '../../../components/link';
 import useSettingsDialog from '../../preferences/hooks/use-settings-dialog';
 
 const ActionButton = styled.button`
@@ -70,6 +71,16 @@ const HeaderActions = () => {
       <ActionButton onClick={() => setSearchVisibility(true)} title="Search">
         <SearchIcon color="currentColor" height={22} width={22} />
       </ActionButton>
+      <Link
+        href="https://www.buymeacoffee.com/0xTracker"
+        title="Help support 0x Tracker development with a donation"
+      >
+        <img
+          alt="Buy Me A Coffee"
+          css="height: 37px; border-radius: 0.25rem;"
+          src="https://cdn.buymeacoffee.com/buttons/arial-orange.png"
+        />
+      </Link>
     </div>
   );
 };
