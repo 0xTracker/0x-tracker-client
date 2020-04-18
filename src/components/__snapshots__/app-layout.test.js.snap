@@ -134,6 +134,19 @@ exports[`app layout component should render with children 1`] = `
             />
           </svg>
         </button>
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+          href="https://www.buymeacoffee.com/0xTracker"
+          rel="noreferrer noopener"
+          target="_blank"
+          title="Help support 0x Tracker development with a donation"
+        >
+          <img
+            alt="Buy Me A Coffee"
+            class="header-actions___StyledImg-sc-10491ou-3 hDFtsU"
+            src="https://cdn.buymeacoffee.com/buttons/arial-orange.png"
+          />
+        </a>
       </div>
     </div>
   </header>
