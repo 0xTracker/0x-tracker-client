@@ -6,6 +6,7 @@ import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
 import { colors } from '../../../styles/constants';
+import { media } from '../../../styles/util';
 import AssetBridgeList from './asset-bridge-list';
 import AssetBridgingMetrics from './asset-bridging-metrics';
 import AssetBridgingStats from './asset-bridging-stats';
@@ -22,11 +23,11 @@ import withPagination from '../../../components/with-pagination';
 import HelpWidget from '../../../components/help-widget';
 
 const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'in the last 24 hours',
-  [TIME_PERIOD.WEEK]: 'in the last week',
-  [TIME_PERIOD.MONTH]: 'in the last month',
-  [TIME_PERIOD.YEAR]: 'in the last year',
-  [TIME_PERIOD.ALL]: 'from all time',
+  [TIME_PERIOD.DAY]: 'active in the last 24h',
+  [TIME_PERIOD.WEEK]: 'active in the last 7d',
+  [TIME_PERIOD.MONTH]: 'active in the last 30d',
+  [TIME_PERIOD.YEAR]: 'active in the last 365d',
+  [TIME_PERIOD.ALL]: 'active since 0x launch',
 };
 
 const AssetBridgesPage = ({ page, setPage }) => {
@@ -87,7 +88,14 @@ const AssetBridgesPage = ({ page, setPage }) => {
       >
         <AssetBridgingStats bridgeCount={recordCount} period={statsPeriod} />
         <TabbedCard
-          css="height: 330px; margin-bottom: 2rem;"
+          css={`
+            height: 330px;
+            margin-bottom: 1.25rem;
+
+            ${media.greaterThan('lg')`
+              margin-bottom: 2rem;
+            `}
+          `}
           tabs={[
             {
               component: (
