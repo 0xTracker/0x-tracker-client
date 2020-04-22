@@ -1,15 +1,14 @@
-import { rgba } from 'polished';
 import styled from 'styled-components';
 import Tippy from '@tippyjs/react';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 
 const Tooltip = styled(Tippy).attrs({ placement: 'right' })`
   && {
-    background-color: #e5c459;
+    background-color: ${COLORS.ACCENT.ANZAC_500};
     border-radius: 0.25rem;
-    box-shadow: 0 2px 4px 0 ${rgba(colors.black, 0.2)};
-    color: ${colors.violet};
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    color: ${COLORS.PRIMARY.SCAMPI_1000};
     font-size: 0.9rem;
     font-weight: 500;
     max-width: 320px !important;
@@ -20,7 +19,7 @@ const Tooltip = styled(Tippy).attrs({ placement: 'right' })`
     }
 
     .tippy-arrow {
-      color: ${colors.anzac};
+      color: ${COLORS.ACCENT.ANZAC_500};
     }
 
     dl {
@@ -29,15 +28,17 @@ const Tooltip = styled(Tippy).attrs({ placement: 'right' })`
     }
 
     dt {
-      color: #4d452b;
+      color: ${COLORS.PRIMARY.SCAMPI_1000};
       display: inline-block;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       font-weight: bold;
+      letter-spacing: 0.05em;
       margin: 0;
       text-transform: uppercase;
     }
 
     dd {
+      color: ${COLORS.ACCENT.SCAMPI_1000};
       display: inline-block;
       font-size: 0.8rem;
       margin: 0 0 0 0.25rem;

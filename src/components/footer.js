@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../styles/util';
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import { DiscordIcon, TwitterIcon } from './icons';
 import Container from './container';
 import Link from './link';
@@ -14,7 +14,7 @@ const Logo = styled.img`
 `;
 
 const NavHeading = styled.h2`
-  color: ${colors.white};
+  color: white;
   font-size: 1.1rem;
   margin: 2rem 0 1rem 0;
 
@@ -43,8 +43,8 @@ const NavLink = styled(Link)`
 
 const SocialLink = styled(Link)`
   align-items: center;
-  background-color: ${colors.santasGray};
-  color: ${colors.steelGray};
+  background-color: ${COLORS.PRIMARY.SCAMPI_200};
+  color: ${COLORS.PRIMARY.SCAMPI_900};
   border-radius: 0.25rem;
   display: flex;
   height: 30px;
@@ -53,16 +53,16 @@ const SocialLink = styled(Link)`
   width: 30px;
 
   &:hover {
-    background-color: ${colors.white};
-    color: ${colors.steelGray};
+    background-color: white;
+    color: ${COLORS.PRIMARY.SCAMPI_900};
   }
 `;
 
 const Footer = () => (
   <div
     css={`
-      background: ${colors.steelGray};
-      color: ${colors.santasGray};
+      background-color: ${COLORS.PRIMARY.SCAMPI_900};
+      color: ${COLORS.PRIMARY.SCAMPI_100};
       padding: 2rem 1rem;
 
       ${media.greaterThan('md')`

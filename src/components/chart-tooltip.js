@@ -1,25 +1,25 @@
-import { rgba } from 'polished';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 
 const ChartTooltipWrapper = styled.div`
-  background-color: ${colors.martinique};
+  background-color: ${COLORS.PRIMARY.SCAMPI_800};
   border-radius: 0.25rem;
-  box-shadow: 0 2px 4px 0 ${rgba(colors.black, 0.2)};
-  color: ${colors.white};
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  color: white;
   padding: 1rem;
   text-align: left;
 `;
 
 const ChartTooltipItemTitle = styled.dt`
-  color: ${colors.santasGray};
+  color: ${COLORS.PRIMARY.SCAMPI_200};
   display: inline-block;
   font-size: 0.7rem;
   font-weight: bold;
   margin: 0;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
 `;
 

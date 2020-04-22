@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import Card from './card';
 import CardBody from './card-body';
 import HelpWidget from './help-widget';
@@ -11,11 +11,12 @@ import sharedPropTypes from '../prop-types';
 
 const StatWidgetTitle = styled.dt`
   align-items: center;
-  color: ${colors.stormGray};
+  color: ${COLORS.NEUTRAL.MYSTIC_600};
   display: flex;
-  font-size: 0.8rem;
-  font-weight: normal;
+  font-size: 11px;
+  font-weight: 600;
   justify-content: space-between;
+  letter-spacing: 0.05em;
   margin: 0;
   text-transform: uppercase;
 `;

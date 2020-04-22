@@ -1,21 +1,20 @@
-import { rgba } from 'polished';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import CloseIcon from './icons/close-icon';
 
 const CloseButton = styled.button`
   background: none;
   border: none;
-  color: ${rgba(colors.white, 0.7)};
+  color: currentColor;
   cursor: pointer;
   margin-right: -6px; /* Icon doesn't sit flush with bounding box */
   padding: 0;
 
   &:hover {
-    color: inherit;
+    color: white;
   }
 `;
 
@@ -28,11 +27,11 @@ const DialogHeading = styled.h1`
 
 const StyledDialogHeader = styled.div`
   align-items: center;
-  background-color: ${colors.martinique};
+  background-color: ${COLORS.PRIMARY.SCAMPI_900};
   border-radius: 0.25rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  color: ${colors.santasGray};
+  color: ${COLORS.PRIMARY.SCAMPI_100};
   display: flex;
   justify-content: space-between;
   padding: 1rem 1.5rem;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { colors, COLORS } from '../../../styles/constants';
 import formatTokenSymbol from '../util/format-token-symbol';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import MiniTokenMetrics from '../../metrics/components/mini-token-metrics';
@@ -48,13 +48,25 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
         <TokenImage imageUrl={token.imageUrl} />
       </TokenLink>
     </td>
-    <td width="99%">
-      <TokenLink address={token.address} params={{ statsPeriod }}>
-        {_.truncate(token.name, { length: 30 }) || 'Unknown Token'}
-      </TokenLink>
-      <AssetTypeBadge>{token.type.toUpperCase()}</AssetTypeBadge>
-      <br />
-      {formatTokenSymbol(token.symbol) || truncateAddress(token.address)}
+    <td className="align-middle" width="99%">
+      <span css="display: block; line-height: 1;">
+        <TokenLink
+          address={token.address}
+          css="font-weight: 500;"
+          params={{ statsPeriod }}
+        >
+          {_.truncate(token.name, { length: 30 }) || 'Unknown Token'}
+        </TokenLink>
+        <AssetTypeBadge>{token.type.toUpperCase()}</AssetTypeBadge>
+      </span>
+      <span
+        css={`
+          color: ${COLORS.NEUTRAL.MYSTIC_700};
+          font-size: 0.9rem;
+        `}
+      >
+        {formatTokenSymbol(token.symbol) || truncateAddress(token.address)}
+      </span>
     </td>
     <td className="align-middle" css="text-align: right;">
       {!_.isNil(token.price.close) ? (

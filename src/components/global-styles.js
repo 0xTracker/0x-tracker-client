@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 
 const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Monda');
@@ -16,31 +16,32 @@ const GlobalStyles = createGlobalStyle`
   }
   
   body {
-    color: ${colors.violet};
+    color: ${COLORS.PRIMARY.SCAMPI_1000};
     font-family: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
   }
 
   .table {
-    border-bottom: 2px solid ${colors.athensGray};
+    border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
     color: currentColor;
     margin: 0;
   }
 
   .table td {
-    border-bottom: 1px solid ${colors.athensGray};
     border: none;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
   }
   
   .table thead th {
-    background-color: ${colors.martinique};
-    border-bottom: 3px solid ${colors.santasGray};
+    background-color: ${COLORS.PRIMARY.SCAMPI_700};
+    border-bottom: 3px solid ${COLORS.PRIMARY.SCAMPI_200};
     border-top: none;
-    color: ${colors.periwinkleGray};
+    color: ${COLORS.PRIMARY.SCAMPI_100};
     padding: 1rem;
     font-weight: 500;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     font-size: 0.8rem;
+    vertical-align: middle;
   }
   
   .table tbody td,
@@ -50,8 +51,8 @@ const GlobalStyles = createGlobalStyle`
     padding-right: 1rem;
   }
   
-  .table tbody tr:nth-child(2n+1) {
-    background-color: rgba(14,30,37,.02);
+  .table tbody tr:nth-child(2n) {
+    background-color: ${COLORS.NEUTRAL.MYSTIC_100};
   }
   
   .table tbody td:first-child,
@@ -64,21 +65,8 @@ const GlobalStyles = createGlobalStyle`
     padding-right: 2rem;
   }
 
-  .table .faded,
-  .table .faded a {
-    color: ${colors.santasGray};
-  }
-
-  .table .faded img {
-    opacity: 0.5;
-  }
-
   .card-header .nav-tabs .nav-link:hover:not(.active) {
     border-color: transparent;
-  }
-
-  .text-muted a {
-    color: currentColor;
   }
 
   .modal-backdrop.show {

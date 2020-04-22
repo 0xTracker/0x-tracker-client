@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import {
   NotificationsIcon,
   SearchIcon,
@@ -16,7 +16,7 @@ const ActionButton = styled.button`
   background: none;
   border: none;
   border-radius: 0.25rem;
-  color: ${colors.lavenderGray};
+  color: inherit;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -24,8 +24,8 @@ const ActionButton = styled.button`
   padding: 0.5rem 0.75rem;
 
   &:hover {
-    background: ${colors.white};
-    color: ${colors.violet};
+    background: white;
+    color: ${COLORS.PRIMARY.SCAMPI_900};
   }
 
   &:last-child {

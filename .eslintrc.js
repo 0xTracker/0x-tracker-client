@@ -28,7 +28,12 @@ module.exports = {
         'config/webpack/*.js',
         '*.stories.js',
       ],
-      rules: { 'import/no-extraneous-dependencies': 'off' },
+      rules: {
+        'filenames/match-exported': 'off',
+        'import/no-extraneous-dependencies': 'off',
+        'react/no-multi-comp': 'off',
+        'react/prop-types': 'off',
+      },
     },
 
     // NodeJS overrides

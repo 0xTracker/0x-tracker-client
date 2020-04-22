@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import Number from '../../../components/number';
 import TokenImage from './token-image';
@@ -11,7 +11,7 @@ import TokenLink from './token-link';
 import tokensPropTypes from '../prop-types';
 
 const TableCell = styled.td`
-  padding-bottom: 1rem;
+  padding-bottom: 1.4rem;
 `;
 
 const TableRow = styled.tr`
@@ -21,7 +21,7 @@ const TableRow = styled.tr`
 `;
 
 const SecondaryText = styled.span`
-  color: ${colors.stormGray};
+  color: ${COLORS.NEUTRAL.MYSTIC_700};
   font-size: 0.9rem;
 `;
 
@@ -42,12 +42,11 @@ const TopTokensTable = ({ statsPeriod, tokens }) => (
           <TableCell width="99%">
             <TokenLink
               address={token.address}
-              css="font-weight: 500;"
+              css="display: block; font-weight: 500; line-height: 1;"
               params={{ statsPeriod }}
             >
               {token.symbol}
             </TokenLink>
-            <br />
             <SecondaryText>
               {_.truncate(token.name, { length: 35 })}
             </SecondaryText>
@@ -55,10 +54,9 @@ const TopTokensTable = ({ statsPeriod, tokens }) => (
           <TableCell css="text-align: right; white-space: nowrap;">
             <LocalisedAmount
               amount={token.stats.tradeVolume.USD}
-              css="font-weight: 500;"
+              css="font-weight: 500; display: block; line-height: 1;"
               summarize
             />
-            <br />
             <SecondaryText>
               <Number summarize>{token.stats.tradeVolume.token}</Number>{' '}
               {token.symbol}

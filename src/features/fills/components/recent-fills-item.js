@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { DATE_FORMAT } from '../../../constants';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
@@ -18,14 +18,14 @@ import RecentFillsItemImage from './recent-fills-item-image';
 const StyledRecentFillsItem = styled.div`
   align-items: center;
   background-color: ${(props) =>
-    (props.index + 1) % 2 === 0 ? colors.alabaster : 'none'};
+    (props.index + 1) % 2 === 0 ? COLORS.NEUTRAL.MYSTIC_100 : 'none'};
   display: flex;
   height: 80px;
   padding: 1rem;
 `;
 
 const Metadata = styled.dl`
-  color: ${colors.stormGray};
+  color: ${COLORS.NEUTRAL.MYSTIC_700};
   font-size: 0.9rem;
   margin: 0;
 
@@ -66,17 +66,9 @@ const Heading = styled.h4`
 `;
 
 const FillAmount = styled(LocalisedAmount)`
-  color: ${colors.violet};
+  color: inherit;
   font-size: 1.2rem;
   font-weight: bold;
-`;
-
-const SourceLink = styled(Link)`
-  color: currentColor;
-
-  &:hover {
-    color: ${colors.violet};
-  }
 `;
 
 const getSource = (fill) => {
@@ -113,7 +105,7 @@ const RecentFillsItem = ({ fill, index }) => {
           <dt>Relayer</dt>
           <dd>
             {source.url ? (
-              <SourceLink href={source.url}>{source.label}</SourceLink>
+              <Link href={source.url}>{source.label}</Link>
             ) : (
               source.label
             )}

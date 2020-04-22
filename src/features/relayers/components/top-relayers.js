@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { AsteriskIcon } from '../../../components/icons';
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import LoadingIndicator from '../../../components/loading-indicator';
 import TopRelayersTable from './top-relayers-table';
 import useRelayers from '../hooks/use-relayers';
@@ -19,8 +19,8 @@ const TopRelayersContainer = styled.div`
 
 const TopRelayersFooter = styled.p`
   align-items: center;
-  border-top: 1px solid ${colors.athensGray};
-  color: ${colors.stormGray};
+  border-top: 1px solid ${COLORS.NEUTRAL.MYSTIC_200};
+  color: ${COLORS.NEUTRAL.MYSTIC_700};
   display: flex;
   font-size: 0.9rem;
   justify-content: flex-end;

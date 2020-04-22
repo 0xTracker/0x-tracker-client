@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import { useCurrentBreakpoint } from '../responsive-utils';
 import Card from './card';
 import CardBody from './card-body';
@@ -13,8 +13,9 @@ import verbosePeriod from '../util/verbose-period';
 
 const ChartLink = styled(NavLink)`
   &&& {
-    color: ${(props) => (props.active ? 'inherit' : colors.santasGray)};
-    font-weight: ${(props) => (props.active ? '500' : 'initial')};
+    background: none;
+    color: ${(props) => (props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_600)};
+    font-weight: 500;
     cursor: pointer;
     border: none;
     margin-right: 1rem;
@@ -22,24 +23,31 @@ const ChartLink = styled(NavLink)`
 
     &:hover,
     &:active {
-      color: ${(props) => (props.active ? 'inherit' : colors.stormGray)};
+      color: ${(props) =>
+        props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_700};
     }
   }
 `;
 
 const PeriodLink = styled(NavLink)`
-  cursor: pointer;
-  margin: 0 0.25rem;
-  padding: 0.2rem 0.5rem;
+  && {
+    color: ${COLORS.NEUTRAL.MYSTIC_600};
+    cursor: pointer;
+    margin: 0 0.25rem;
+    padding: 0.2rem 0.5rem;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
 
-  &&.active {
-    background-color: ${colors.athensGrayer};
-    color: inherit;
-  }
+    &&.active {
+      background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+      color: inherit;
+    }
 
-  &:hover,
-  &&.active:hover {
-    background-color: ${colors.mystic};
+    &:hover,
+    &&.active:hover {
+      background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+    }
   }
 `;
 

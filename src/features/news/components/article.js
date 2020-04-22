@@ -3,27 +3,27 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { DATE_FORMAT } from '../../../constants';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 
 const ArticleImage = styled.img`
   border-radius: 0.25rem;
-  height: ${(props) => (props.compact ? '40px' : '70px')};
+  height: ${(props) => (props.compact ? '40px' : '50px')};
   margin-right: 1rem;
-  width: ${(props) => (props.compact ? '40px' : '70px')};
+  width: ${(props) => (props.compact ? '40px' : '50px')};
 `;
 
 const StyledArticle = styled.div`
   background-color: ${(props) =>
-    (props.index + 1) % 2 === 0 ? colors.alabaster : colors.white};
+    (props.index + 1) % 2 === 0 ? COLORS.NEUTRAL.MYSTIC_100 : 'none'};
   display: flex;
   padding: 1.5rem 1rem;
 `;
 
 const ArticleMetadata = styled.dl`
-  color: ${colors.stormGray};
+  color: ${COLORS.NEUTRAL.MYSTIC_700};
   font-size: 0.9rem;
   margin: 0 0 0.5rem;
 

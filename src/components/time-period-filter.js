@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import TimePeriodSelector from './time-period-selector';
 
 const TimePeriodFilter = styled(TimePeriodSelector)`
@@ -9,22 +9,22 @@ const TimePeriodFilter = styled(TimePeriodSelector)`
   }
 
   && .Select__control {
-    background: ${colors.mystic};
+    background: ${COLORS.NEUTRAL.MYSTIC_300};
     border: none;
     padding: 0.5rem 1rem;
 
     &:hover {
-      background: ${colors.mischka};
+      background: ${COLORS.NEUTRAL.MYSTIC_400};
     }
   }
 
   .Select__single-value {
-    color: ${colors.violet};
+    color: ${COLORS.NEUTRAL.MYSTIC_1000};
     font-weight: 500;
   }
 
   && .Select__indicator {
-    color: ${colors.violet};
+    color: ${COLORS.NEUTRAL.MYSTIC_1000};
   }
 `;
 export default TimePeriodFilter;

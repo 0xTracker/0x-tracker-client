@@ -3,16 +3,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-use';
 
-import { colors } from '../../../styles/constants';
 import Link from '../../../components/link';
 
 const StyledLink = styled(Link)`
-  color: ${(props) => (props.highlighted ? colors.white : colors.lavenderGray)};
+  color: ${(props) => (props.highlighted ? 'white' : 'inherit')};
   display: block;
   padding: 0.75rem 0 0.75rem 1rem;
 
   &:hover {
-    color: ${colors.white};
+    color: white;
     text-decoration: none;
   }
 `;

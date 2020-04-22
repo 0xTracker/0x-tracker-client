@@ -1,6 +1,5 @@
-import _ from 'lodash';
 import { setOptions } from '@storybook/addon-options';
-import { addDecorator, configure } from '@storybook/react';
+import { addDecorator } from '@storybook/react';
 import { withBackgrounds } from '@storybook/addon-backgrounds';
 import { createGlobalStyle } from 'styled-components';
 import { configureViewport } from '@storybook/addon-viewport';
@@ -46,11 +45,3 @@ setOptions({
   name: '0x Tracker',
   sortStoriesByKind: true,
 });
-
-const req = require.context('../src', true, /\.stories.js$/);
-
-function loadStories() {
-  _.forEach(req.keys(), (filename) => req(filename));
-}
-
-configure(loadStories, module);

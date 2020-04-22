@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { ChevronDownIcon } from '../../../components/icons';
 import SubNavigationItem from './sub-navigation-item';
 
@@ -17,8 +17,7 @@ const NavigationItem = styled.div`
   align-items: center;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
-  color: ${(props) =>
-    props.open || props.highlighted ? colors.white : colors.lavenderGray};
+  color: ${(props) => (props.open || props.highlighted ? 'white' : 'inherit')};
   display: inline-flex;
   height: 100%;
   margin-right: 0.75rem;
@@ -31,11 +30,11 @@ const NavigationItem = styled.div`
 `;
 
 const SubNavigation = styled.div`
-  background-color: ${colors.violet};
+  background-color: ${COLORS.PRIMARY.SCAMPI_900};
   border-bottom-left-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
-  border-top: 0.25rem solid ${colors.martinique};
-  color: ${colors.lavenderGray};
+  border-top: 0.25rem solid ${COLORS.PRIMARY.SCAMPI_700};
+  box-shadow: 0 4px 6px hsl(0, 0%, 0%, 0.3);
   left: -1rem;
   min-width: 13.5rem;
   padding: 0.5rem 1rem;
