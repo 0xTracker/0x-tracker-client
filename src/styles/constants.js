@@ -6,26 +6,15 @@ const breakpoints = {
 };
 
 const colors = {
-  alabaster: '#fafafa',
   anzac: '#e3be47',
   athensGray: '#f1f2f7', // regular gray
   athensGrayer: '#e6e7f0',
-  black: '#000',
-  indigo: '#3f4ac3', // links
   lavenderGray: '#bfbedf',
-  martinique: '#312F50',
   mischka: '#d5d7e3',
   mystic: '#dbddea',
   santasGray: '#9F9EB9',
-  spunPearl: '#a8aab9',
   stormGray: '#6C6B80',
   violet: '#0A0830', // text color & footer bg
-};
-
-const protocolColors = {
-  1: colors.lavenderGray,
-  2: colors.violet,
-  3: colors.indigo,
 };
 
 const COLORS = {
@@ -88,4 +77,4 @@ const COLORS = {
   },
 };
 
-export { breakpoints, colors, COLORS, protocolColors };
+export { breakpoints, colors, COLORS };
