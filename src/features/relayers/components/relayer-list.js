@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import HelpWidget from '../../../components/help-widget';
 import Link from '../../../components/link';
 import MiniRelayerMetrics from '../../metrics/components/mini-relayer-metrics';
@@ -63,7 +63,7 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
             </RelayerLink>
           </td>
           <td className="align-middle" width="99%">
-            <span css="align-items: center; display: flex;">
+            <span css="align-items: center; display: flex; font-weight: 500;">
               <RelayerLink relayer={relayer.slug}>{relayer.name}</RelayerLink>
               {relayer.id === 'zeroExApi' && (
                 <HelpWidget css="margin-left: 0.5rem; vertical-align: middle;">
@@ -85,7 +85,7 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
             {relayer.url ? (
               <Link
                 css={`
-                  color: ${colors.stormGray};
+                  color: ${COLORS.NEUTRAL.MYSTIC_600};
                   font-size: 0.9rem;
                 `}
                 href={relayer.url}

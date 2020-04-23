@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import { colors } from '../../../styles/constants';
 import buildUrl from '../../../util/build-url';
 import Card from '../../../components/card';
 import Hidden from '../../../components/hidden';
@@ -12,6 +11,7 @@ import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
 import RelayerList from './relayer-list';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
+import SubTitle from '../../../components/sub-title';
 import useRelayers from '../hooks/use-relayers';
 import withPagination from '../../../components/with-pagination';
 
@@ -59,16 +59,7 @@ const RelayersPage = ({ history, location, page, setPage }) => {
           <span>
             Active Relayers
             <Hidden above="xs">
-              <small
-                css={`
-                  color: ${colors.stormGray};
-                  display: block;
-                  font-size: 0.9rem;
-                  text-transform: lowercase;
-                `}
-              >
-                {periodDescriptions[statsPeriod]}
-              </small>
+              <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
             </Hidden>
           </span>
         }
