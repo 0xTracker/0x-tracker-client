@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 
 const EmptyValue = styled.span`
-  color: ${colors.mystic};
+  color: ${COLORS.NEUTRAL.MYSTIC_400};
 `;
 
 const TraderVolumeLabel = ({ value }) => {
