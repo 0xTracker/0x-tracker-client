@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { MarkerIcon } from '../../../components/icons';
 import { formatCurrency } from '../../../util';
 import LocalisedAmount from '../../currencies/components/localised-amount';
@@ -19,7 +19,7 @@ const VisualWrapper = styled.div`
 `;
 
 const PriceMarkerWrapper = styled.div`
-  background-color: ${colors.mischka};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
   border-radius: 2px;
   height: 5px;
   margin-bottom: 0.15rem;
@@ -29,7 +29,6 @@ const PriceMarkerWrapper = styled.div`
 const PriceMarker = styled.div`
   background-color: currentColor;
   border-radius: 2px;
-  color: ${colors.violet};
   height: 5px;
   margin-left: ${(props) => props.position}%;
   position: relative;

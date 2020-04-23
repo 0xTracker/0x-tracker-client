@@ -11,7 +11,7 @@ import {
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
 import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
@@ -54,22 +54,17 @@ const TokenMetricsChart = ({
     <ChartContainer>
       <BarChart data={data} margin={{ bottom: 0, left: 0, right: 0, top: 0 }}>
         <CartesianGrid
-          stroke={colors.athensGray}
+          stroke={COLORS.NEUTRAL.MYSTIC_200}
           strokeDasharray="8 8"
           strokeOpacity={0.7}
           vertical={false}
         />
-        <Bar
-          animationDuration={0}
-          dataKey={type}
-          fill={colors.anzac}
-          fillOpacity={0.9}
-        />
+        <Bar dataKey={type} fill={COLORS.ACCENT.ANZAC_500} fillOpacity={0.9} />
         <XAxis
           axisLine={false}
           dataKey="date"
           minTickGap={60}
-          tick={{ fill: 'currentColor', fontSize: '0.8em' }}
+          tick={{ fill: COLORS.NEUTRAL.MYSTIC_700, fontSize: '0.8em' }}
           tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           tickLine={false}
         />
@@ -79,7 +74,7 @@ const TokenMetricsChart = ({
           mirror
           scale="linear"
           tick={{
-            fill: 'currentColor',
+            fill: COLORS.PRIMARY.SCAMPI_800,
             fontSize: '0.8em',
             fontWeight: 'bold',
           }}
@@ -103,7 +98,7 @@ const TokenMetricsChart = ({
           dataKey="date"
           height={30}
           onChange={onBrushChange}
-          stroke={colors.mischka}
+          stroke={COLORS.NEUTRAL.MYSTIC_300}
           tickFormatter={(date) => formatAxisDate(date, period, granularity)}
         />
       </BarChart>

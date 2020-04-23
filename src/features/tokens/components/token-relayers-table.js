@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import HelpWidget from '../../../components/help-widget';
 import Link from '../../../components/link';
@@ -28,7 +28,7 @@ const TableCell = styled.td`
 `;
 
 const SecondaryText = styled.span`
-  color: ${colors.stormGray};
+  color: ${COLORS.NEUTRAL.MYSTIC_700};
   font-size: 0.9rem;
 `;
 
@@ -48,7 +48,7 @@ const TokenRelayersTable = ({ relayers, token }) => {
           <tr
             css={`
               background-color: ${(index + 1) % 2 === 0
-                ? colors.alabaster
+                ? COLORS.NEUTRAL.MYSTIC_100
                 : 'none'};
             `}
             key={relayer.id}
