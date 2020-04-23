@@ -11,7 +11,7 @@ import logoImage from '../../../assets/images/logo-grayscale.svg';
 const CloseButton = styled.button`
   background: none;
   border: none;
-  color: ${COLORS.PRIMARY.SCAMPI_1000};
+  color: ${COLORS.PRIMARY.SCAMPI_200};
   cursor: pointer;
   margin: 0;
   padding: 0;
