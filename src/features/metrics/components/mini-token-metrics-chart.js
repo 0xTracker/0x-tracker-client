@@ -3,7 +3,7 @@ import { Bar, BarChart } from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 
 const MiniTokenMetricsChart = React.memo(({ data, height, type, width }) => {
   if (_.isEmpty(data)) {
@@ -13,7 +13,7 @@ const MiniTokenMetricsChart = React.memo(({ data, height, type, width }) => {
   return (
     <div
       css={`
-        border-bottom: 1px solid ${colors.anzac};
+        border-bottom: 1px solid ${COLORS.ACCENT.ANZAC_200};
       `}
     >
       <BarChart
@@ -25,7 +25,7 @@ const MiniTokenMetricsChart = React.memo(({ data, height, type, width }) => {
         <Bar
           animationDuration={0}
           dataKey={type}
-          fill={colors.anzac}
+          fill={COLORS.ACCENT.ANZAC_500}
           fillOpacity={1}
         />
       </BarChart>

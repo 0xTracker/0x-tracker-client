@@ -2,11 +2,11 @@ import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../../../styles/constants';
 import { TIME_PERIOD } from '../../../constants';
 import Card from '../../../components/card';
 import Hidden from '../../../components/hidden';
 import PageLayout from '../../../components/page-layout';
+import SubTitle from '../../../components/sub-title';
 import TokensFilter from './tokens-filter';
 
 const periodDescriptions = {
@@ -39,16 +39,9 @@ const TokensPageLayout = ({
         <span>
           Traded Tokens
           <Hidden above="xs">
-            <small
-              css={`
-                color: ${colors.stormGray};
-                display: block;
-                font-size: 0.9rem;
-                text-transform: lowercase;
-              `}
-            >
+            <SubTitle>
               {periodDescriptions[selectedFilters.statsPeriod]}
-            </small>
+            </SubTitle>
           </Hidden>
         </span>
       }

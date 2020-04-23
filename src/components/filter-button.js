@@ -27,9 +27,9 @@ const StyledFilterButton = styled.button`
 
 const Indicator = styled.div`
   align-items: center;
-  background: ${COLORS.ACCENT.ANZAC_600};
+  background: ${COLORS.ACCENT.ANZAC_400};
   border-radius: 1em;
-  color: white;
+  color: ${COLORS.ACCENT.ANZAC_1000};
   display: flex;
   font-size: 0.7rem;
   font-weight: bold;
