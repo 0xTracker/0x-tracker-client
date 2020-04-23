@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Bar, BarChart, XAxis, Tooltip, Brush, Legend } from 'recharts';
+import { Area, AreaChart, XAxis, Tooltip, Brush, Legend } from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -18,10 +18,10 @@ const getProtocols = (data) =>
   ).sort();
 
 const SEGMENT_COLORS = [
-  COLORS.PRIMARY.SCAMPI_100,
-  COLORS.PRIMARY.SCAMPI_400,
-  COLORS.PRIMARY.SCAMPI_700,
-  COLORS.PRIMARY.SCAMPI_1000,
+  COLORS.ACCENT.FRUIT_SALAD_100,
+  COLORS.ACCENT.FRUIT_SALAD_400,
+  COLORS.ACCENT.FRUIT_SALAD_700,
+  COLORS.ACCENT.FRUIT_SALAD_1000,
 ];
 
 // eslint-disable-next-line react/display-name
@@ -38,7 +38,7 @@ const ProtocolMetricsChart = React.memo(
 
     return (
       <ChartContainer>
-        <BarChart
+        <AreaChart
           data={sanitizedData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
@@ -60,12 +60,12 @@ const ProtocolMetricsChart = React.memo(
           />
           <Legend
             formatter={ChartLegendText}
+            height={36}
             iconType="circle"
             verticalAlign="top"
           />
           {getProtocols(data).map((protocolVersion, index) => (
-            <Bar
-              animationDuration={0}
+            <Area
               dataKey={(dataPoint) => {
                 const total = _.sum(dataPoint.stats.map((x) => x.fillCount));
                 const stat = dataPoint.stats.find(
@@ -79,9 +79,11 @@ const ProtocolMetricsChart = React.memo(
                 return (stat.fillCount / total) * 100;
               }}
               fill={SEGMENT_COLORS[index]}
+              fillOpacity={1}
               key={protocolVersion}
               name={`v${protocolVersion}`}
               stackId={1}
+              stroke={SEGMENT_COLORS[index]}
               strokeWidth={0}
               type="monotone"
             />
@@ -93,7 +95,7 @@ const ProtocolMetricsChart = React.memo(
             stroke={COLORS.NEUTRAL.MYSTIC_300}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           />
-        </BarChart>
+        </AreaChart>
       </ChartContainer>
     );
   },
