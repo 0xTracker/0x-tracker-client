@@ -21,11 +21,11 @@ const truncateAddress = (address) =>
 
 const getTypeBadgeColor = (type) => {
   if (type === 'ERC-721') {
-    return { bg: colors.violet, text: colors.white };
+    return { bg: colors.violet, text: 'white' };
   }
 
   if (type === 'ERC-1155') {
-    return { bg: colors.martinique, text: colors.white };
+    return { bg: colors.martinique, text: 'white' };
   }
 
   return { bg: colors.mischka, text: colors.martinique };
