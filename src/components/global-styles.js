@@ -28,7 +28,7 @@ const GlobalStyles = createGlobalStyle`
 
   .table td {
     border: none;
-    font-size: 14px;
+    font-size: 1rem;
     padding: 0.75rem 0;
   }
   

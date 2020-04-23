@@ -3,11 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../../../styles/util';
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import HelpWidget from '../../../components/help-widget';
 
 const Title = styled.dt`
-  font-weight: normal;
+  font-weight: 500;
   margin: 0.6rem 0 0;
   padding: 0 0 0.6rem;
 
@@ -17,13 +17,13 @@ const Title = styled.dt`
   }
 
   ${media.greaterThan('md')`
-    border-bottom: 1px solid ${colors.athensGray};
+    border-bottom: 1px solid ${COLORS.NEUTRAL.MYSTIC_200};
     width: 20%;
   `};
 `;
 
 const Value = styled.dd`
-  border-bottom: 1px solid ${colors.athensGray};
+  border-bottom: 1px solid ${COLORS.NEUTRAL.MYSTIC_200};
   overflow: hidden;
   padding: 0 0 0.6rem;
   text-overflow: ellipsis;
@@ -45,7 +45,7 @@ const FillDetail = ({ children, title, tooltip }) => (
       {tooltip !== undefined && (
         <HelpWidget
           css={`
-            color: ${colors.stormGray};
+            color: currentColor;
             margin-right: 0.5rem;
           `}
         >

@@ -4,8 +4,10 @@ import React from 'react';
 import buildSearchUrl from '../features/search/util/build-search-url';
 import Link from './link';
 
-const EthereumAddressLink = ({ address, children }) => (
-  <Link href={buildSearchUrl(address)}>{children}</Link>
+const EthereumAddressLink = ({ address, children, ...otherProps }) => (
+  <Link href={buildSearchUrl(address)} {...otherProps}>
+    {children}
+  </Link>
 );
 
 EthereumAddressLink.propTypes = {

@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import AssetTypeBadge from './asset-type-badge';
+import { COLORS } from '../../../styles/constants';
 import FeeAmount from './fee-amount';
 import List from '../../../components/list';
 import ListItem from '../../../components/list-item';
 import TokenLabel from './token-label';
+import TokenTypeBadge from '../../tokens/components/token-type-badge';
 
 const FillFeesList = ({ condensed, fees }) => {
   if (fees.length === 0) {
@@ -18,13 +19,14 @@ const FillFeesList = ({ condensed, fees }) => {
         // eslint-disable-next-line react/no-array-index-key
         <ListItem key={index}>
           <FeeAmount fee={fee} />
-          <TokenLabel condensed={condensed} token={fee.token} />{' '}
-          {fee.token.type === 'erc-721' && (
-            <AssetTypeBadge>ERC-721</AssetTypeBadge>
-          )}
-          {fee.token.type === 'erc-20' && (
-            <AssetTypeBadge>ERC-20</AssetTypeBadge>
-          )}
+          <TokenLabel
+            condensed={condensed}
+            css={`
+              color: ${COLORS.PRIMARY.SCAMPI_500};
+            `}
+            token={fee.token}
+          />{' '}
+          <TokenTypeBadge>{fee.token.type}</TokenTypeBadge>
         </ListItem>
       ))}
     </List>

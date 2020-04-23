@@ -2,19 +2,18 @@ import _ from 'lodash';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { DATE_FORMAT, ETH_TOKEN, ZRX_TOKEN } from '../../../constants';
 import { media } from '../../../styles/util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import AssetLabel from './asset-label';
-import buildSearchUrl from '../../search/util/build-search-url';
 import EthereumAddressLink from '../../../components/ethereum-address-link';
 import fillsPropTypes from '../prop-types';
 import FillAssetsList from './fill-assets-list';
 import FillDetail from './fill-detail';
 import FillFeesList from './fill-fees-list';
 import FillRelayerLink from './fill-relayer-link';
-import FillStatusLabel from './fill-status-label';
+import FillStatusBadge from './fill-status-badge';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import List from '../../../components/list';
@@ -39,8 +38,12 @@ const FillDetailList = styled.dl`
 `;
 
 const PriceBadge = styled.span.attrs({ className: 'badge' })`
-  background-color: ${colors.mystic};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
   margin-left: 0.5rem;
+`;
+
+const FillDetailLink = styled(Link)`
+  color: ${COLORS.PRIMARY.SCAMPI_500};
 `;
 
 const FillDetails = ({ fill }) => {
@@ -60,16 +63,20 @@ const FillDetails = ({ fill }) => {
         title="Transaction Hash"
         tooltip="Hash of the Ethereum transaction which processed this fill."
       >
-        <Link href={`https://etherscan.io/tx/${fill.transactionHash}`}>
+        <FillDetailLink
+          href={`https://etherscan.io/tx/${fill.transactionHash}`}
+        >
           {fill.transactionHash}
-        </Link>
+        </FillDetailLink>
       </FillDetail>
 
       <FillDetail
         title="Order Hash"
         tooltip="Unique hash of the order which this fill relates to."
       >
-        <Link href={buildSearchUrl(fill.orderHash)}>{fill.orderHash}</Link>
+        <FillDetailLink as={SearchLink} searchQuery={fill.orderHash}>
+          {fill.orderHash}
+        </FillDetailLink>
       </FillDetail>
 
       {fill.senderAddress && (
@@ -77,9 +84,9 @@ const FillDetails = ({ fill }) => {
           title="Sender Address"
           tooltip="Ethereum address that is allowed to call Exchange contract methods that affect this order."
         >
-          <SearchLink searchQuery={fill.senderAddress}>
+          <FillDetailLink as={SearchLink} searchQuery={fill.senderAddress}>
             {fill.senderAddress}
-          </SearchLink>
+          </FillDetailLink>
         </FillDetail>
       )}
 
@@ -101,7 +108,7 @@ const FillDetails = ({ fill }) => {
         title="Status"
         tooltip="Status of the associated Ethereum transaction."
       >
-        <FillStatusLabel status={fill.status} />
+        <FillStatusBadge>{fill.status}</FillStatusBadge>
       </FillDetail>
 
       <FillDetail
@@ -113,7 +120,7 @@ const FillDetails = ({ fill }) => {
 
       {_.has(fill.value, 'USD') && (
         <FillDetail
-          title="Value"
+          title={`Value (${displayCurrency})`}
           tooltip={`Value of the trade in ${displayCurrency}`}
         >
           <LocalisedAmount amount={fill.value.USD} />
@@ -121,14 +128,18 @@ const FillDetails = ({ fill }) => {
       )}
 
       <FillDetail title="Maker" tooltip="The party that created the order.">
-        <TraderLink address={fill.makerAddress}>{fill.makerAddress}</TraderLink>
+        <FillDetailLink address={fill.makerAddress} as={TraderLink}>
+          {fill.makerAddress}
+        </FillDetailLink>
       </FillDetail>
 
       <FillDetail
         title="Taker"
         tooltip="The party that filled this portion of the order."
       >
-        <TraderLink address={fill.takerAddress}>{fill.takerAddress}</TraderLink>
+        <FillDetailLink address={fill.takerAddress} as={TraderLink}>
+          {fill.takerAddress}
+        </FillDetailLink>
       </FillDetail>
 
       <FillDetail
@@ -163,7 +174,7 @@ const FillDetails = ({ fill }) => {
       )}
 
       <FillDetail
-        title="Derived Prices"
+        title={`Derived Prices (${displayCurrency})`}
         tooltip="Prices of tokens derived from the value of this fill."
       >
         {assetsWithPrices.length === 0 ? (
@@ -172,7 +183,7 @@ const FillDetails = ({ fill }) => {
           <List>
             {assetsWithPrices.map((asset) => (
               <ListItem key={`${asset.tokenAddress}-${asset.tokenId}`}>
-                <AssetLabel asset={asset} />
+                <AssetLabel asset={asset} linked={false} />
                 <PriceBadge>
                   <LocalisedAmount
                     amount={asset.price.USD}
@@ -191,7 +202,11 @@ const FillDetails = ({ fill }) => {
           tooltip="Fee that was charged to the maker."
         >
           {fill.makerFee.ZRX !== '0' ? (
-            <TokenAmount amount={fill.makerFee.ZRX} token={ZRX_TOKEN} />
+            <TokenAmount
+              amount={fill.makerFee.ZRX}
+              linked={false}
+              token={ZRX_TOKEN}
+            />
           ) : (
             'None'
           )}
@@ -204,7 +219,11 @@ const FillDetails = ({ fill }) => {
           tooltip="Fee that was charged to the taker."
         >
           {fill.takerFee.ZRX !== '0' ? (
-            <TokenAmount amount={fill.takerFee.ZRX} token={ZRX_TOKEN} />
+            <TokenAmount
+              amount={fill.takerFee.ZRX}
+              linked={false}
+              token={ZRX_TOKEN}
+            />
           ) : (
             'None'
           )}
@@ -239,9 +258,9 @@ const FillDetails = ({ fill }) => {
         title="Fee Recipient"
         tooltip="Ethereum address which received any associated maker/taker fees."
       >
-        <EthereumAddressLink address={fill.feeRecipient}>
+        <FillDetailLink address={fill.feeRecipient} as={EthereumAddressLink}>
           {fill.feeRecipient}
-        </EthereumAddressLink>
+        </FillDetailLink>
       </FillDetail>
 
       {fill.protocolFee !== undefined ? (

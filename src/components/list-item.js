@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { CaretRightIcon } from './icons';
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 
 const Container = styled.li`
   align-items: center;
@@ -19,7 +19,7 @@ const Container = styled.li`
 const ListItem = ({ children }) => (
   <Container>
     <CaretRightIcon
-      color={colors.santasGray}
+      color={COLORS.NEUTRAL.MYSTIC_400}
       css="margin: 2px 0 0 -5px"
       height={16}
       width={16}
