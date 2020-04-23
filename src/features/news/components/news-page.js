@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ArticleList from './article-list';
@@ -22,7 +22,7 @@ import useArticleSources from '../hooks/use-article-sources';
 
 const LoadMoreButton = styled.button`
   align-items: center;
-  background-color: ${colors.athensGrayer};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
   border: none;
   border-radius: 0.25rem;
   color: currentColor;
@@ -33,7 +33,7 @@ const LoadMoreButton = styled.button`
   padding: 1rem 0;
 
   &:hover {
-    background-color: ${colors.mystic};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
   }
 `;
 

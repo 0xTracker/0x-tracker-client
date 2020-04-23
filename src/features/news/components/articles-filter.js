@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { URL } from '../../../constants';
 import { AllIcon } from '../../../components/icons';
 import Link from '../../../components/link';
 
 const FilterItem = styled(Link)`
-  border-bottom: 1px solid ${colors.athensGray};
-  color: ${(props) => (props.active ? colors.violet : colors.stormGray)};
+  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_100};
+  color: ${(props) => (props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_600)};
   display: flex;
   justify-content: space-between;
   padding: 0.75rem 1rem;
 
   &:hover {
-    background-color: ${colors.athensGray};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_200};
   }
 `;
 
