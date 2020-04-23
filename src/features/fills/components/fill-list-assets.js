@@ -1,8 +1,10 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import AssetLabel from './asset-label';
+import { COLORS } from '../../../styles/constants';
 import AssetAmount from './asset-amount';
+import TokenLink from '../../tokens/components/token-link';
 
 const FillListAssets = ({ assets, linked }) => {
   if (assets.length > 1) {
@@ -10,11 +12,29 @@ const FillListAssets = ({ assets, linked }) => {
   }
 
   const asset = assets[0];
+  const symbol = _.isString(asset.tokenSymbol) ? asset.tokenSymbol : 'Unknown';
+
+  if (linked === false) {
+    return (
+      <>
+        <AssetAmount asset={asset} /> {symbol}
+      </>
+    );
+  }
 
   return (
     <>
-      <AssetAmount asset={asset} />
-      <AssetLabel asset={asset} condensed linked={linked} />
+      <AssetAmount asset={asset} />{' '}
+      <TokenLink
+        address={asset.tokenAddress}
+        css={`
+          color: ${COLORS.NEUTRAL.MYSTIC_600};
+          font-weight: 500;
+          letter-spacing: 0.05em;
+        `}
+      >
+        {symbol}
+      </TokenLink>
     </>
   );
 };

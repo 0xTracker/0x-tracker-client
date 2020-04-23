@@ -4,6 +4,7 @@ import React from 'react';
 
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { DATE_FORMAT } from '../../../constants';
+import { COLORS } from '../../../styles/constants';
 import { MoreIcon } from '../../../components/icons';
 import buildFillUrl from '../util/build-fill-url';
 import FillListAssets from './fill-list-assets';
@@ -61,7 +62,16 @@ const FillList = ({ excludeColumns, fills }) => {
                 <FillRelayerLink fill={fill} showImage />
               </td>
             )}
-            <td className="text-center">
+            <td
+              className="text-center"
+              css={`
+                color: ${COLORS.NEUTRAL.MYSTIC_700};
+
+                &:hover {
+                  color: inherit;
+                }
+              `}
+            >
               <Link href={buildFillUrl(fill.id)} title="View Transaction">
                 <MoreIcon height={24} width={24} />
               </Link>

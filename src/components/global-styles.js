@@ -28,6 +28,7 @@ const GlobalStyles = createGlobalStyle`
 
   .table td {
     border: none;
+    font-size: 14px;
     padding: 0.75rem 0;
   }
   
@@ -40,7 +41,7 @@ const GlobalStyles = createGlobalStyle`
     font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 12px;
     vertical-align: middle;
   }
   
