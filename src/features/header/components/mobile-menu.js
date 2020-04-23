@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import DisableBodyScroll from '../../../components/disable-body-scroll';
 import MobileMenuHeader from './mobile-menu-header';
 import MobileNavigation from './mobile-navigation';
 import MobileSearchForm from './mobile-search-form';
 
 const StyledMobileMenu = styled.div`
-  background-color: ${colors.haiti};
-  color: ${colors.white};
+  background-color: ${COLORS.PRIMARY.SCAMPI_1000};
+  color: white;
   height: 100vh;
   padding: 1rem 0 0 0;
   position: absolute;

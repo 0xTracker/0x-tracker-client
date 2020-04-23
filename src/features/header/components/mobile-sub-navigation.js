@@ -3,16 +3,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import Link from '../../../components/link';
 
 const StyledNavigation = styled.nav`
-  background-color: ${colors.violet};
+  background-color: ${COLORS.PRIMARY.SCAMPI_900};
   padding: 1rem 0 1rem 1.5rem;
 `;
 
 const MobileSubNavigationLink = styled(Link)`
-  color: ${(props) => (props.highlighted ? colors.white : colors.lavenderGray)};
+  color: ${(props) =>
+    props.highlighted ? 'white' : COLORS.PRIMARY.SCAMPI_200};
   display: block;
   margin: 1.25rem 0 0;
 

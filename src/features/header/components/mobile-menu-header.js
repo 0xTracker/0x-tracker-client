@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { URL } from '../../../constants';
 import { CloseIcon } from '../../../components/icons';
 import Link from '../../../components/link';
@@ -11,7 +11,7 @@ import logoImage from '../../../assets/images/logo-grayscale.svg';
 const CloseButton = styled.button`
   background: none;
   border: none;
-  color: ${colors.lavenderGray};
+  color: ${COLORS.PRIMARY.SCAMPI_1000};
   cursor: pointer;
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ const CloseButton = styled.button`
 
   &:hover,
   &:active {
-    color: ${colors.white};
+    color: white;
   }
 `;
 
