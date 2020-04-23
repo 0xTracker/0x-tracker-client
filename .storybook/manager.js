@@ -1,47 +1,7 @@
-import { setOptions } from '@storybook/addon-options';
-import { addDecorator } from '@storybook/react';
-import { withBackgrounds } from '@storybook/addon-backgrounds';
-import { createGlobalStyle } from 'styled-components';
-import { configureViewport } from '@storybook/addon-viewport';
-import React from 'react';
-import StoryRouter from 'storybook-react-router';
+import { addons } from '@storybook/addons';
 
-// This must come before GlobalStyles due to import precedence
-import 'bootstrap/dist/css/bootstrap.css';
+import customTheme from './custom-theme';
 
-import { colors } from '../src/styles/constants';
-import GlobalStyles from '../src/components/global-styles';
-
-const StorybookStyles = createGlobalStyle`
-  body {
-    background-color: initial;
-  }
-`;
-
-const withGlobalStyles = (storyFn) => (
-  <>
-    <GlobalStyles />
-    <StorybookStyles />
-    {storyFn()}
-  </>
-);
-
-addDecorator(withGlobalStyles);
-addDecorator(new StoryRouter());
-
-addDecorator(
-  withBackgrounds([
-    { name: 'athens gray', value: colors.athensGray },
-    { name: 'violet', value: colors.violet },
-    { default: true, name: 'white', value: colors.white },
-  ]),
-);
-
-configureViewport();
-
-setOptions({
-  addonPanelInRight: false,
-  hierarchyRootSeparator: /\|/,
-  name: '0x Tracker',
-  sortStoriesByKind: true,
+addons.setConfig({
+  theme: customTheme,
 });

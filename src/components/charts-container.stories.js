@@ -12,19 +12,6 @@ storiesOf('Layout|ChartsContainer', module)
   .add('default', () => (
     <ChartsContainer
       charts={[{ component: TopRelayers, title: 'Top Relayers' }]}
-    />
-  ))
-  .add('with multiple charts', () => (
-    <ChartsContainer
-      charts={[
-        { component: TopRelayers, title: 'Top Relayers' },
-        { component: TopTokens, title: 'Top Tokens' },
-      ]}
-    />
-  ))
-  .add('with time periods', () => (
-    <ChartsContainer
-      charts={[{ component: TopRelayers, title: 'Top Relayers' }]}
       defaultPeriod="week"
       periods={[
         { label: '24H', value: 'day' },
@@ -33,7 +20,7 @@ storiesOf('Layout|ChartsContainer', module)
       ]}
     />
   ))
-  .add('with multiple charts & time periods', () => (
+  .add('with multiple charts', () => (
     <ChartsContainer
       charts={[
         { component: TopRelayers, title: 'Top Relayers' },

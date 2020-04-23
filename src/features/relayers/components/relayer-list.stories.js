@@ -8,6 +8,7 @@ storiesOf('Relayers|RelayerList', module).add('default', () => (
   <RelayerList
     relayers={[
       {
+        id: 'radarRelay',
         imageUrl: 'https://0xtracker.com/assets/logos/radar-relay.png',
         name: 'Radar Relay',
         slug: 'radar-relay',
@@ -20,6 +21,7 @@ storiesOf('Relayers|RelayerList', module).add('default', () => (
         url: 'https://radarrelay.com',
       },
       {
+        id: 'ddex',
         imageUrl: 'https://0xtracker.com/assets/logos/ddex.png',
         name: 'DDEX',
         slug: 'ddex',
@@ -32,6 +34,7 @@ storiesOf('Relayers|RelayerList', module).add('default', () => (
         url: 'https://ddex.io',
       },
       {
+        id: 'paradex',
         imageUrl: 'https://0xtracker.com/assets/logos/paradex.png',
         name: 'Paradex',
         slug: 'paradex',
@@ -42,17 +45,6 @@ storiesOf('Relayers|RelayerList', module).add('default', () => (
           },
         },
         url: 'https://paradex.io',
-      },
-      {
-        name: 'Sad Relayer',
-        slug: 'sad-relayer',
-        stats: {
-          '24h': {
-            trades: 0,
-            volume: 0,
-          },
-        },
-        url: 'https://google.com',
       },
     ]}
     timePeriod={TIME_PERIOD.DAY}

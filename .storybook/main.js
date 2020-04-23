@@ -1,9 +1,7 @@
 module.exports = {
   addons: [
-    '@storybook/addon-options',
     '@storybook/addon-backgrounds/register',
-    '@storybook/addon-viewport',
-    '@storybook/addon-storysource',
+    '@storybook/addon-viewport/register',
   ],
   stories: ['../src/**/*.stories.js'],
 };
