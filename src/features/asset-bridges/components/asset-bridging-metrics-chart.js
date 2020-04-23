@@ -11,7 +11,7 @@ import {
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import {
   formatAxisCurrency,
   formatAxisDate,
@@ -42,16 +42,16 @@ const AssetBridgingMetricsChart = React.memo(
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
           <CartesianGrid
-            stroke={colors.athensGray}
+            stroke={COLORS.NEUTRAL.MYSTIC_200}
             strokeDasharray="8 8"
             strokeOpacity={0.7}
             vertical={false}
           />
-          <Bar dataKey={type} fill={colors.anzac} fillOpacity={0.9} />
+          <Bar dataKey={type} fill={COLORS.ACCENT.ANZAC_500} />
           <XAxis
-            axisLine={{ stroke: colors.athensGray }}
+            axisLine={{ stroke: COLORS.NEUTRAL.MYSTIC_200 }}
             dataKey="date"
-            tick={{ fill: 'currentColor', fontSize: '0.8em' }}
+            tick={{ fill: COLORS.NEUTRAL.MYSTIC_700, fontSize: '0.8em' }}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
             tickLine={false}
           />
@@ -61,7 +61,7 @@ const AssetBridgingMetricsChart = React.memo(
             mirror
             scale="linear"
             tick={{
-              fill: 'currentColor',
+              fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
               fontWeight: 'bold',
             }}
@@ -84,7 +84,7 @@ const AssetBridgingMetricsChart = React.memo(
             dataKey="date"
             height={30}
             onChange={onBrushChange}
-            stroke={colors.mischka}
+            stroke={COLORS.NEUTRAL.MYSTIC_300}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           />
         </BarChart>

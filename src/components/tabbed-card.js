@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import Card from './card';
 import CardBody from './card-body';
 
 const TabbedCardHeader = styled(CardHeader)`
   background: none;
-  border-bottom: 1px solid ${colors.athensGray};
+  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -17,7 +17,7 @@ const TabbedCardHeader = styled(CardHeader)`
 
 const TabLink = styled(NavLink)`
   &&& {
-    color: ${(props) => (props.active ? 'inherit' : colors.santasGray)};
+    color: ${(props) => (props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_600)};
     font-weight: ${(props) => (props.active ? '500' : 'initial')};
     cursor: pointer;
     border: none;
@@ -26,7 +26,8 @@ const TabLink = styled(NavLink)`
 
     &:hover,
     &:active {
-      color: ${(props) => (props.active ? 'inherit' : colors.stormGray)};
+      color: ${(props) =>
+        props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_700};
     }
   }
 `;

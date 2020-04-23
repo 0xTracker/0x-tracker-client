@@ -4,7 +4,7 @@ import { UserSecret } from 'styled-icons/fa-solid';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 
 const AssetBridgeImage = ({
   className,
@@ -31,7 +31,7 @@ const AssetBridgeImage = ({
     return (
       <UserSecret
         className={className}
-        color={colors.mystic}
+        color={COLORS.NEUTRAL.MYSTIC_400}
         height={height}
         width={width}
       />
@@ -41,7 +41,7 @@ const AssetBridgeImage = ({
   return (
     <SwapBox
       className={className}
-      color={colors.mystic}
+      color={COLORS.NEUTRAL.MYSTIC_400}
       height={height}
       width={width}
     />

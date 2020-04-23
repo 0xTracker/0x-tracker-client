@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import { colors } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import AssetBridgeList from './asset-bridge-list';
 import AssetBridgingMetrics from './asset-bridging-metrics';
@@ -17,6 +16,7 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
+import SubTitle from '../../../components/sub-title';
 import TabbedCard from '../../../components/tabbed-card';
 import useAssetBridges from '../hooks/use-asset-bridges';
 import withPagination from '../../../components/with-pagination';
@@ -72,16 +72,7 @@ const AssetBridgesPage = ({ page, setPage }) => {
               </HelpWidget>
             </span>
             <Hidden above="xs">
-              <small
-                css={`
-                  color: ${colors.stormGray};
-                  display: block;
-                  font-size: 0.9rem;
-                  text-transform: lowercase;
-                `}
-              >
-                {periodDescriptions[statsPeriod]}
-              </small>
+              <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
             </Hidden>
           </span>
         }
@@ -101,13 +92,13 @@ const AssetBridgesPage = ({ page, setPage }) => {
               component: (
                 <AssetBridgingMetrics period={statsPeriod} type="tradeVolume" />
               ),
-              title: 'Bridged Volume',
+              title: 'Volume',
             },
             {
               component: (
                 <AssetBridgingMetrics period={statsPeriod} type="tradeCount" />
               ),
-              title: 'Bridged Trades',
+              title: 'Trades',
             },
           ]}
         />
