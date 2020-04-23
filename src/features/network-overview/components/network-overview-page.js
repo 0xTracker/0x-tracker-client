@@ -8,6 +8,7 @@ import { TIME_PERIOD, URL } from '../../../constants';
 import { media } from '../../../styles/util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ActiveTradersCard from '../../traders/components/active-traders-card';
+import Footnote from '../../../components/footnote';
 import Hidden from '../../../components/hidden';
 import MobileTimePeriodFilter from '../../../components/mobile-time-period-filter';
 import NetworkOverviewStats from './network-overview-stats';
@@ -116,10 +117,12 @@ const NetworkOverviewPage = ({ history, location }) => {
               tabs={[
                 {
                   component: <TopTokens period={period} />,
+                  footer: <Footnote>Top tokens by volume</Footnote>,
                   title: 'Top Tokens',
                 },
                 {
                   component: <TopRelayers period={period} />,
+                  footer: <Footnote>Top relayers by volume</Footnote>,
                   title: 'Top Relayers',
                 },
               ]}
