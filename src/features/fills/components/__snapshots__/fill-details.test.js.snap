@@ -6,11 +6,11 @@ exports[`fillDetails component should render V2 fill 1`] = `
     class="fill-details__FillDetailList-sc-5nb7jb-0 mycsW"
   >
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -28,10 +28,10 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Transaction Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="https://etherscan.io/tx/0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77"
         rel="noreferrer noopener"
         target="_blank"
@@ -40,11 +40,11 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -62,21 +62,21 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Order Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="/search?q=0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71"
       >
         0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -94,21 +94,21 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Sender Address:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="/search?q=0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -126,16 +126,16 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Date:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       Thursday, October 10th 2019, 06:13:48 AM
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -153,25 +153,25 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Relayer:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-relayer-link___StyledRelayerLink-sc-10d6xh4-1 gbcwpL"
         href="/relayers/radar-relay"
       >
         <img
-          class="relayer-image___StyledImg-sc-1yudeg-0 hAjqat fill-relayer-link___StyledRelayerImage-sc-10d6xh4-1 uYhgP"
+          class="relayer-image___StyledImg-sc-1yudeg-0 hAjqat fill-relayer-link___StyledRelayerImage-sc-10d6xh4-2 daLyKb"
           src="https://0xtracker.com/assets/logos/radar-relay.png"
         />
         Radar Relay
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -189,20 +189,20 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Status:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <span
-        class="fill-status-label___StyledSpan-sc-1k6xas7-0 AGPjT badge badge-success"
+        class="badge__Badge-sc-8ieo9x-0 fill-status-badge__FillStatusBadge-sc-6ddqr3-0 jetuWg badge"
       >
-        successful
+        SUCCESSFUL
       </span>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -220,16 +220,16 @@ exports[`fillDetails component should render V2 fill 1`] = `
       0x Protocol:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       v2
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -244,21 +244,21 @@ exports[`fillDetails component should render V2 fill 1`] = `
           d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
         />
       </svg>
-      Value:
+      Value (USD):
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <span>
         $184.29
       </span>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -276,21 +276,21 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Maker:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="/traders/0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3"
       >
         0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -308,21 +308,21 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Taker:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="/traders/0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -340,7 +340,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Maker Assets:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <ul
         class="list__List-sc-1hr42jb-0 cRmZyp"
@@ -351,7 +351,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
-            color="#9F9EB9"
+            color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
             height="16"
@@ -367,14 +367,14 @@ exports[`fillDetails component should render V2 fill 1`] = `
           <span>
             0.96955 
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-assets-list___StyledAssetLabel-sc-2koyyn-0 gXrmme"
               href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             >
               Wrapped Ether  (WETH)
             </a>
              
             <span
-              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
+              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 cLQkEq badge"
             >
               ERC-20
             </span>
@@ -383,11 +383,11 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -405,7 +405,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Taker Assets:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <ul
         class="list__List-sc-1hr42jb-0 cRmZyp"
@@ -416,7 +416,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
-            color="#9F9EB9"
+            color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
             height="16"
@@ -432,14 +432,14 @@ exports[`fillDetails component should render V2 fill 1`] = `
           <span>
             5,000 
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-assets-list___StyledAssetLabel-sc-2koyyn-0 gXrmme"
               href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
             >
               FOAM Token  (FOAM)
             </a>
              
             <span
-              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
+              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 cLQkEq badge"
             >
               ERC-20
             </span>
@@ -448,11 +448,11 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -467,10 +467,10 @@ exports[`fillDetails component should render V2 fill 1`] = `
           d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
         />
       </svg>
-      Derived Prices:
+      Derived Prices (USD):
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <ul
         class="list__List-sc-1hr42jb-0 cRmZyp"
@@ -481,7 +481,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
-            color="#9F9EB9"
+            color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
             height="16"
@@ -495,14 +495,11 @@ exports[`fillDetails component should render V2 fill 1`] = `
             />
           </svg>
           <span>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
-              href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-            >
+            <span>
               Wrapped Ether  (WETH)
-            </a>
+            </span>
             <span
-              class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 kkikSv badge"
             >
               <span>
                 $190.08
@@ -516,7 +513,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
-            color="#9F9EB9"
+            color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
             height="16"
@@ -530,14 +527,11 @@ exports[`fillDetails component should render V2 fill 1`] = `
             />
           </svg>
           <span>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
-              href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
-            >
+            <span>
               FOAM Token  (FOAM)
-            </a>
+            </span>
             <span
-              class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 kkikSv badge"
             >
               <span>
                 $0.03686
@@ -548,11 +542,11 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -570,16 +564,16 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Maker Fee:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       None
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -597,16 +591,16 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Taker Fee:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       None
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -624,10 +618,10 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Fee Recipient:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
       >
         0xa258b39954cef5cb142fd567a46cddb31a670124
@@ -643,11 +637,11 @@ exports[`fillDetails component should render V3 fill 1`] = `
     class="fill-details__FillDetailList-sc-5nb7jb-0 mycsW"
   >
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -665,10 +659,10 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Transaction Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="https://etherscan.io/tx/0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77"
         rel="noreferrer noopener"
         target="_blank"
@@ -677,11 +671,11 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -699,21 +693,21 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Order Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="/search?q=0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71"
       >
         0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -731,21 +725,21 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Sender Address:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="/search?q=0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -763,16 +757,16 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Date:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       Thursday, October 10th 2019, 06:13:48 AM
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -790,25 +784,25 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Relayer:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq fill-relayer-link___StyledRelayerLink-sc-10d6xh4-0 eWOAxu"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-relayer-link___StyledRelayerLink-sc-10d6xh4-1 gbcwpL"
         href="/relayers/radar-relay"
       >
         <img
-          class="relayer-image___StyledImg-sc-1yudeg-0 hAjqat fill-relayer-link___StyledRelayerImage-sc-10d6xh4-1 uYhgP"
+          class="relayer-image___StyledImg-sc-1yudeg-0 hAjqat fill-relayer-link___StyledRelayerImage-sc-10d6xh4-2 daLyKb"
           src="https://0xtracker.com/assets/logos/radar-relay.png"
         />
         Radar Relay
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -826,20 +820,20 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Status:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <span
-        class="fill-status-label___StyledSpan-sc-1k6xas7-0 AGPjT badge badge-success"
+        class="badge__Badge-sc-8ieo9x-0 fill-status-badge__FillStatusBadge-sc-6ddqr3-0 jetuWg badge"
       >
-        successful
+        SUCCESSFUL
       </span>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -857,16 +851,16 @@ exports[`fillDetails component should render V3 fill 1`] = `
       0x Protocol:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       v2
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -881,21 +875,21 @@ exports[`fillDetails component should render V3 fill 1`] = `
           d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
         />
       </svg>
-      Value:
+      Value (USD):
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <span>
         $184.29
       </span>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -913,21 +907,21 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Maker:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="/traders/0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3"
       >
         0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -945,21 +939,21 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Taker:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="/traders/0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -977,7 +971,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Maker Assets:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <ul
         class="list__List-sc-1hr42jb-0 cRmZyp"
@@ -988,7 +982,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
-            color="#9F9EB9"
+            color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
             height="16"
@@ -1004,14 +998,14 @@ exports[`fillDetails component should render V3 fill 1`] = `
           <span>
             0.96955 
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-assets-list___StyledAssetLabel-sc-2koyyn-0 gXrmme"
               href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
             >
               Wrapped Ether  (WETH)
             </a>
              
             <span
-              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
+              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 cLQkEq badge"
             >
               ERC-20
             </span>
@@ -1020,11 +1014,11 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -1042,7 +1036,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Taker Assets:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <ul
         class="list__List-sc-1hr42jb-0 cRmZyp"
@@ -1053,7 +1047,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
-            color="#9F9EB9"
+            color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
             height="16"
@@ -1069,14 +1063,14 @@ exports[`fillDetails component should render V3 fill 1`] = `
           <span>
             5,000 
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-assets-list___StyledAssetLabel-sc-2koyyn-0 gXrmme"
               href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
             >
               FOAM Token  (FOAM)
             </a>
              
             <span
-              class="asset-type-badge__AssetTypeBadge-sc-1ho1nac-0 ifWSro badge badge-dark"
+              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 cLQkEq badge"
             >
               ERC-20
             </span>
@@ -1085,11 +1079,11 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -1104,10 +1098,10 @@ exports[`fillDetails component should render V3 fill 1`] = `
           d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
         />
       </svg>
-      Derived Prices:
+      Derived Prices (USD):
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <ul
         class="list__List-sc-1hr42jb-0 cRmZyp"
@@ -1118,7 +1112,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
-            color="#9F9EB9"
+            color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
             height="16"
@@ -1132,14 +1126,11 @@ exports[`fillDetails component should render V3 fill 1`] = `
             />
           </svg>
           <span>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
-              href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-            >
+            <span>
               Wrapped Ether  (WETH)
-            </a>
+            </span>
             <span
-              class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 kkikSv badge"
             >
               <span>
                 $190.08
@@ -1153,7 +1144,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
-            color="#9F9EB9"
+            color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
             height="16"
@@ -1167,14 +1158,11 @@ exports[`fillDetails component should render V3 fill 1`] = `
             />
           </svg>
           <span>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
-              href="/tokens/0x4946fcea7c692606e8908002e55a582af44ac121"
-            >
+            <span>
               FOAM Token  (FOAM)
-            </a>
+            </span>
             <span
-              class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 kkikSv badge"
             >
               <span>
                 $0.03686
@@ -1185,11 +1173,11 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -1207,21 +1195,21 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Fee Recipient:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-details__FillDetailLink-sc-5nb7jb-2 GPzPq"
         href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
       >
         0xa258b39954cef5cb142fd567a46cddb31a670124
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 gJQtdT"
+      class="fill-detail__Title-q3it9r-0 cFLyjz"
     >
       <svg
         aria-hidden="true"
-        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 ddHJjZ"
+        class="sc-bdVaJa iJCmgd fill-detail___StyledHelpWidget-q3it9r-2 fjGKtR"
         fill="currentColor"
         focusable="false"
         height="18"
@@ -1239,11 +1227,11 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Protocol Fee:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 hhYdhc"
+      class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       0.0001 ETH
       <span
-        class="fill-details__PriceBadge-sc-5nb7jb-1 gmfFrK badge"
+        class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 kkikSv badge"
       >
         <span>
           $0.20000

@@ -5,7 +5,7 @@ exports[`should render full size paginator 1`] = `
   class="full-paginator__StyledPaginator-sc-4xhne0-1 lpnRoR"
 >
   <p
-    class="paging-summary___StyledP-sc-1a329kw-0 gapIZS full-paginator___StyledPagingSummary-sc-4xhne0-3 jcixvz"
+    class="paging-summary___StyledP-sc-1a329kw-0 gapIZS full-paginator___StyledPagingSummary-sc-4xhne0-2 fmKYxV"
   >
     Displaying 
     1
@@ -16,7 +16,7 @@ exports[`should render full size paginator 1`] = `
     147
   </p>
   <div
-    class="full-paginator__Pages-sc-4xhne0-0 djNCna"
+    class="full-paginator__Pages-sc-4xhne0-0 jzRikQ"
   >
     <ul
       class="pagination"

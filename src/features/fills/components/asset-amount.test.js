@@ -4,7 +4,7 @@ import React from 'react';
 import AssetAmount from './asset-amount';
 
 describe('asset amount component', () => {
-  it('should render null for ERC-721 asset', () => {
+  it('should render amount for ERC-721 asset', () => {
     const { container } = render(
       <AssetAmount
         asset={{
@@ -18,7 +18,7 @@ describe('asset amount component', () => {
       />,
     );
 
-    expect(container.firstChild).toBeNull();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should render amount for ERC-20 asset', () => {

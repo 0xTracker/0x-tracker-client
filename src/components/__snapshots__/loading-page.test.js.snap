@@ -8,7 +8,7 @@ exports[`should render loading page 1`] = `
     class="container__StyledContainer-cj53s7-0 eMKfDZ page-layout__PageBody-cls0ob-0 jrvuaA container-fluid"
   >
     <div
-      style="fill: currentColor; height: 50px; width: 50px;"
+      style="fill: hsl(235, 12%, 52%); height: 50px; width: 50px;"
     >
       <svg
         viewBox="0 0 32 32"

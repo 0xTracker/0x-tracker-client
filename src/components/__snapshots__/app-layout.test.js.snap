@@ -5,13 +5,13 @@ exports[`app layout component should render with children 1`] = `
   class="app-layout__AppContainer-nr5sez-0 jUhpZW"
 >
   <header
-    class="header__StyledHeader-gflnft-2 jPLSFA"
+    class="header__StyledHeader-gflnft-2 kGccGm"
   >
     <div
       class="container__StyledContainer-cj53s7-0 eMKfDZ header___StyledContainer-gflnft-4 jZVKWY container-fluid"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+        class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
         href="/"
       >
         <img
@@ -28,7 +28,7 @@ exports[`app layout component should render with children 1`] = `
           class="sub-navigation-parent__StyledSubNavigationParent-sc-10lb7wi-0 dAlejz"
         >
           <div
-            class="sub-navigation-parent__NavigationItem-sc-10lb7wi-1 hSJlGd"
+            class="sub-navigation-parent__NavigationItem-sc-10lb7wi-1 bWJotE"
           >
             Network
             <svg
@@ -50,21 +50,21 @@ exports[`app layout component should render with children 1`] = `
         </div>
         <a
           aria-current="false"
-          class="link__StyledLink-sc-1m1n17q-0 bQfGpq navigation-link__StyledNavigationLink-do5zl-0 zWJCW"
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp navigation-link__StyledNavigationLink-do5zl-0 cAbVgh"
           href="/tokens"
         >
           Tokens
         </a>
         <a
           aria-current="false"
-          class="link__StyledLink-sc-1m1n17q-0 bQfGpq navigation-link__StyledNavigationLink-do5zl-0 zWJCW"
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp navigation-link__StyledNavigationLink-do5zl-0 cAbVgh"
           href="/relayers"
         >
           Relayers
         </a>
         <a
           aria-current="false"
-          class="link__StyledLink-sc-1m1n17q-0 bQfGpq navigation-link__StyledNavigationLink-do5zl-0 zWJCW"
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp navigation-link__StyledNavigationLink-do5zl-0 cAbVgh"
           href="/news-and-updates"
         >
           News & Updates
@@ -74,7 +74,7 @@ exports[`app layout component should render with children 1`] = `
         class="header-actions___StyledDiv-sc-10491ou-2 jTvdzi"
       >
         <button
-          class="header-actions__ActionButton-sc-10491ou-0 header-actions__NotificationsButton-sc-10491ou-1 erWovD headway"
+          class="header-actions__ActionButton-sc-10491ou-0 header-actions__NotificationsButton-sc-10491ou-1 eHqgKz headway"
         >
           <svg
             aria-hidden="true"
@@ -93,7 +93,7 @@ exports[`app layout component should render with children 1`] = `
           </svg>
         </button>
         <button
-          class="header-actions__ActionButton-sc-10491ou-0 fSufHx"
+          class="header-actions__ActionButton-sc-10491ou-0 bQzQrK"
           title="Settings"
         >
           <svg
@@ -114,7 +114,7 @@ exports[`app layout component should render with children 1`] = `
           </svg>
         </button>
         <button
-          class="header-actions__ActionButton-sc-10491ou-0 fSufHx"
+          class="header-actions__ActionButton-sc-10491ou-0 bQzQrK"
           title="Search"
         >
           <svg
@@ -135,7 +135,7 @@ exports[`app layout component should render with children 1`] = `
           </svg>
         </button>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
           href="https://www.buymeacoffee.com/0xTracker"
           rel="noreferrer noopener"
           target="_blank"
@@ -151,12 +151,12 @@ exports[`app layout component should render with children 1`] = `
     </div>
   </header>
   <div
-    class="app-layout__AppBody-nr5sez-1 eKtPLD"
+    class="app-layout__AppBody-nr5sez-1 fTKZXb"
   >
     Hello World
   </div>
   <div
-    class="footer___StyledDiv-htpw4v-5 pSQaO"
+    class="footer___StyledDiv-htpw4v-5 patDo"
   >
     <div
       class="container__StyledContainer-cj53s7-0 eMKfDZ container-fluid"
@@ -181,7 +181,7 @@ exports[`app layout component should render with children 1`] = `
             class="footer___StyledNav-htpw4v-6 dxYThI"
           >
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq footer__SocialLink-htpw4v-4 keHGOo"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__SocialLink-htpw4v-4 hoTGfM"
               href="https://twitter.com/0xTracker"
               rel="noreferrer noopener"
               target="_blank"
@@ -203,7 +203,7 @@ exports[`app layout component should render with children 1`] = `
               </svg>
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq footer__SocialLink-htpw4v-4 keHGOo"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__SocialLink-htpw4v-4 hoTGfM"
               href="https://discord.gg/tnV8hud"
               rel="noreferrer noopener"
               target="_blank"
@@ -230,13 +230,13 @@ exports[`app layout component should render with children 1`] = `
           class="col-6 col-sm-4 col-md-2 offset-md-2"
         >
           <h2
-            class="footer__NavHeading-htpw4v-1 bQVrZ"
+            class="footer__NavHeading-htpw4v-1 eDAAFB"
           >
             About
           </h2>
           <nav>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq footer__NavLink-htpw4v-3 eijGhq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
               href="https://docs.0xtracker.com/"
               rel="noreferrer noopener"
               target="_blank"
@@ -244,7 +244,7 @@ exports[`app layout component should render with children 1`] = `
               Overview
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq footer__NavLink-htpw4v-3 eijGhq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
               href="https://docs.0xtracker.com/faqs"
               rel="noreferrer noopener"
               target="_blank"
@@ -252,7 +252,7 @@ exports[`app layout component should render with children 1`] = `
               FAQs
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq footer__NavLink-htpw4v-3 eijGhq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
               href="https://medium.com/0x-tracker"
               rel="noreferrer noopener"
               target="_blank"
@@ -260,7 +260,7 @@ exports[`app layout component should render with children 1`] = `
               Blog
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq footer__NavLink-htpw4v-3 eijGhq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
               href="https://docs.0xtracker.com/#need-to-get-in-touch"
               rel="noreferrer noopener"
               target="_blank"
@@ -273,13 +273,13 @@ exports[`app layout component should render with children 1`] = `
           class="col-6 col-sm-4 col-md-2"
         >
           <h2
-            class="footer__NavHeading-htpw4v-1 bQVrZ"
+            class="footer__NavHeading-htpw4v-1 eDAAFB"
           >
             Developers
           </h2>
           <nav>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq footer__NavLink-htpw4v-3 eijGhq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
               href="https://docs.0xtracker.com/api-reference/introduction"
               rel="noreferrer noopener"
               target="_blank"
@@ -287,7 +287,7 @@ exports[`app layout component should render with children 1`] = `
               API
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq footer__NavLink-htpw4v-3 eijGhq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
               href="https://docs.0xtracker.com/contributing"
               rel="noreferrer noopener"
               target="_blank"
@@ -295,7 +295,7 @@ exports[`app layout component should render with children 1`] = `
               Contributing
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq footer__NavLink-htpw4v-3 eijGhq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
               href="https://github.com/0xtracker"
               rel="noreferrer noopener"
               target="_blank"
@@ -308,19 +308,19 @@ exports[`app layout component should render with children 1`] = `
           class="col-6 col-sm-4 col-md-2"
         >
           <h2
-            class="footer__NavHeading-htpw4v-1 bQVrZ"
+            class="footer__NavHeading-htpw4v-1 eDAAFB"
           >
             Legal
           </h2>
           <nav>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq footer__NavLink-htpw4v-3 eijGhq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
               href="/privacy"
             >
               Privacy Policy
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 bQfGpq footer__NavLink-htpw4v-3 eijGhq"
+              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
               href="/terms"
             >
               Terms Of Use
