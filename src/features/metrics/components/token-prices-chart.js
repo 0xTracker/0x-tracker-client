@@ -12,7 +12,7 @@ import {
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { formatAxisCurrency, formatAxisDate } from '../util';
 import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
@@ -61,21 +61,21 @@ const TokenPricesChart = ({
         margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
       >
         <CartesianGrid
-          stroke={colors.athensGray}
+          stroke={COLORS.NEUTRAL.MYSTIC_200}
           strokeDasharray="8 8"
           strokeOpacity={0.7}
           vertical={false}
         />
         <Bar
           dataKey="tradeVolume.USD"
-          fill={colors.mischka}
+          fill={COLORS.NEUTRAL.MYSTIC_300}
           fillOpacity={1}
           yAxisId="volume"
         />
         <Line
           dataKey="price.close"
           dot={false}
-          stroke={colors.anzac}
+          stroke={COLORS.ACCENT.ANZAC_600}
           strokeWidth={2}
           type="monotone"
           yAxisId="price"
@@ -84,7 +84,7 @@ const TokenPricesChart = ({
           axisLine={false}
           dataKey="date"
           minTickGap={25}
-          tick={{ fill: 'currentColor', fontSize: '0.8em' }}
+          tick={{ fill: COLORS.NEUTRAL.MYSTIC_700, fontSize: '0.8em' }}
           tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           tickLine={false}
         />
@@ -94,8 +94,8 @@ const TokenPricesChart = ({
           dataKey="price.close"
           domain={domain}
           label={{
-            fill: colors.anzac,
-            fillOpacity: 0.7,
+            fill: COLORS.ACCENT.ANZAC_600,
+            fillOpacity: 0.6,
             fontSize: '0.7rem',
             fontWeight: 'bold',
             position: 'insideTopLeft',
@@ -105,7 +105,7 @@ const TokenPricesChart = ({
           padding={{ top: 40 }}
           scale="linear"
           tick={{
-            fill: 'currentColor',
+            fill: COLORS.PRIMARY.SCAMPI_800,
             fontSize: '0.8em',
             fontWeight: 'bold',
           }}
@@ -118,8 +118,7 @@ const TokenPricesChart = ({
           axisLine={false}
           dataKey="tradeVolume.USD"
           label={{
-            fill: colors.mischka,
-            fillOpacity: 0.8,
+            fill: COLORS.NEUTRAL.MYSTIC_300,
             fontSize: '0.7rem',
             fontWeight: 'bold',
             position: 'insideTopRight',
@@ -130,7 +129,7 @@ const TokenPricesChart = ({
           padding={{ top: 40 }}
           scale="linear"
           tick={{
-            fill: 'currentColor',
+            fill: COLORS.PRIMARY.SCAMPI_800,
             fontSize: '0.8em',
             fontWeight: 'bold',
           }}
@@ -151,7 +150,7 @@ const TokenPricesChart = ({
           dataKey="date"
           height={30}
           onChange={onBrushChange}
-          stroke={colors.mischka}
+          stroke={COLORS.NEUTRAL.MYSTIC_300}
           tickFormatter={(date) => formatAxisDate(date, period, granularity)}
         />
       </ComposedChart>

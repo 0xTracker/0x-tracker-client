@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 
 const SubTitle = styled.small`
-  color: ${colors.stormGray};
+  color: ${COLORS.NEUTRAL.MYSTIC_700};
   display: block;
   font-size: 0.9rem;
   text-transform: lowercase;

@@ -3,18 +3,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
 import Link from '../../../components/link';
 
 const StyledNavigationLink = styled(Link)`
   align-items: center;
-  color: ${(props) => (props.active ? colors.white : colors.lavenderGray)};
+  color: ${(props) => (props.active ? 'white' : 'inherit')};
   display: inline-flex;
   height: 100%;
   margin-right: 1.75rem;
 
   &:hover {
-    color: ${colors.white};
+    color: white;
     text-decoration: none;
   }
 `;

@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { UnknownIcon } from '../../../components/icons';
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 
 const UnknownRelayerImage = ({ size, ...otherProps }) => (
   <UnknownIcon
     css={`
-      color: ${colors.black};
+      color: ${COLORS.NEUTRAL.MYSTIC_500};
     `}
     height={size}
     width={size}

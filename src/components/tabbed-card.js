@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import Card from './card';
 import CardBody from './card-body';
+import CardFooter from './card-footer';
 
 const TabbedCardHeader = styled(CardHeader)`
   background: none;
-  border-bottom: 1px solid ${colors.athensGray};
+  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -17,8 +18,8 @@ const TabbedCardHeader = styled(CardHeader)`
 
 const TabLink = styled(NavLink)`
   &&& {
-    color: ${(props) => (props.active ? 'inherit' : colors.santasGray)};
-    font-weight: ${(props) => (props.active ? '500' : 'initial')};
+    color: ${(props) => (props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_600)};
+    font-weight: 500;
     cursor: pointer;
     border: none;
     margin-right: 1rem;
@@ -26,7 +27,8 @@ const TabLink = styled(NavLink)`
 
     &:hover,
     &:active {
-      color: ${(props) => (props.active ? 'inherit' : colors.stormGray)};
+      color: ${(props) =>
+        props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_700};
     }
   }
 `;
@@ -34,6 +36,7 @@ const TabLink = styled(NavLink)`
 const TabbedCard = ({ className, tabs }) => {
   const [selectedTab, setSelectedTab] = React.useState(0);
   const Tab = tabs[selectedTab].component;
+  const TabFooter = tabs[selectedTab].footer;
 
   return (
     <Card className={className}>
@@ -56,6 +59,11 @@ const TabbedCard = ({ className, tabs }) => {
         )}
       </TabbedCardHeader>
       <CardBody padded>{React.isValidElement(Tab) ? Tab : <Tab />}</CardBody>
+      {TabFooter && (
+        <CardFooter>
+          {React.isValidElement(TabFooter) ? TabFooter : <TabFooter />}
+        </CardFooter>
+      )}
     </Card>
   );
 };
@@ -69,6 +77,11 @@ TabbedCard.propTypes = {
         PropTypes.node,
         PropTypes.object,
       ]).isRequired,
+      footer: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.node,
+        PropTypes.object,
+      ]),
       title: PropTypes.string.isRequired,
     }),
   ).isRequired,

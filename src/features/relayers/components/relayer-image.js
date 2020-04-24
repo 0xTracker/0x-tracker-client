@@ -2,7 +2,7 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { SquareIcon } from '../../../components/icons';
 
 const RelayerImage = ({ className, height, imageUrl, width }) =>
@@ -19,7 +19,7 @@ const RelayerImage = ({ className, height, imageUrl, width }) =>
   ) : (
     <SquareIcon
       className={className}
-      color={colors.mystic}
+      color={COLORS.NEUTRAL.MYSTIC_400}
       height={height}
       width={width}
     />

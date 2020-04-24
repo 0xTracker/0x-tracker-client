@@ -1,11 +1,12 @@
 import _ from 'lodash';
-import { Bar, BarChart, XAxis, Tooltip, Brush, Legend } from 'recharts';
+import { Area, AreaChart, XAxis, Tooltip, Brush, Legend } from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors, protocolColors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { formatAxisDate } from '../util';
 import ChartContainer from '../../../components/chart-container';
+import ChartLegendText from '../../../components/chart-legend-text';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import ProtocolMetricsTooltip from './protocol-metrics-tooltip';
 
@@ -15,6 +16,13 @@ const getProtocols = (data) =>
       .filter((stat) => stat.fillCount > 0)
       .map((stat) => stat.protocolVersion),
   ).sort();
+
+const SEGMENT_COLORS = [
+  COLORS.ACCENT.FRUIT_SALAD_100,
+  COLORS.ACCENT.FRUIT_SALAD_400,
+  COLORS.ACCENT.FRUIT_SALAD_700,
+  COLORS.ACCENT.FRUIT_SALAD_1000,
+];
 
 // eslint-disable-next-line react/display-name
 const ProtocolMetricsChart = React.memo(
@@ -30,7 +38,7 @@ const ProtocolMetricsChart = React.memo(
 
     return (
       <ChartContainer>
-        <BarChart
+        <AreaChart
           data={sanitizedData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
@@ -46,22 +54,18 @@ const ProtocolMetricsChart = React.memo(
           <XAxis
             axisLine={false}
             dataKey="date"
-            minTickGap={60}
-            tick={{ fill: 'currentColor', fontSize: '0.8em' }}
+            tick={{ fill: COLORS.NEUTRAL.MYSTIC_700, fontSize: '0.8em' }}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
             tickLine={false}
           />
-          <Brush
-            dataKey="date"
-            height={30}
-            onChange={onBrushChange}
-            stroke={colors.mischka}
-            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
+          <Legend
+            formatter={ChartLegendText}
+            height={36}
+            iconType="circle"
+            verticalAlign="top"
           />
-          <Legend height={36} verticalAlign="top" />
-          {getProtocols(data).map((protocolVersion) => (
-            <Bar
-              animationDuration={0}
+          {getProtocols(data).map((protocolVersion, index) => (
+            <Area
               dataKey={(dataPoint) => {
                 const total = _.sum(dataPoint.stats.map((x) => x.fillCount));
                 const stat = dataPoint.stats.find(
@@ -74,16 +78,24 @@ const ProtocolMetricsChart = React.memo(
 
                 return (stat.fillCount / total) * 100;
               }}
-              fill={protocolColors[protocolVersion]}
-              fillOpacity={0.7}
+              fill={SEGMENT_COLORS[index]}
+              fillOpacity={1}
               key={protocolVersion}
               name={`v${protocolVersion}`}
               stackId={1}
+              stroke={SEGMENT_COLORS[index]}
               strokeWidth={0}
               type="monotone"
             />
           ))}
-        </BarChart>
+          <Brush
+            dataKey="date"
+            height={30}
+            onChange={onBrushChange}
+            stroke={COLORS.NEUTRAL.MYSTIC_300}
+            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
+          />
+        </AreaChart>
       </ChartContainer>
     );
   },

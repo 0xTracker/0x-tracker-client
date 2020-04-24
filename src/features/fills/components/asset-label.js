@@ -4,7 +4,7 @@ import React from 'react';
 import buildTokenUrl from '../../tokens/util/build-token-url';
 import Link from '../../../components/link';
 
-const AssetLabel = ({ asset, condensed, linked }) => {
+const AssetLabel = ({ asset, condensed, linked, ...otherProps }) => {
   const assetLink =
     asset.type === 'erc-721'
       ? `https://opensea.io/assets/${asset.tokenAddress}/${asset.tokenId}`
@@ -21,7 +21,13 @@ const AssetLabel = ({ asset, condensed, linked }) => {
     </>
   );
 
-  return linked ? <Link href={assetLink}>{children}</Link> : children;
+  return linked ? (
+    <Link href={assetLink} {...otherProps}>
+      {children}
+    </Link>
+  ) : (
+    <span {...otherProps}>{children}</span>
+  );
 };
 
 AssetLabel.propTypes = {

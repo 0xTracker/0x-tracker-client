@@ -11,7 +11,7 @@ import {
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
 import AddressMetricsTooltip from './address-metrics-tooltip';
 import ChartContainer from '../../../components/chart-container';
@@ -38,16 +38,16 @@ const AddressMetricsChart = React.memo(
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
           <CartesianGrid
-            stroke={colors.athensGray}
+            stroke={COLORS.NEUTRAL.MYSTIC_200}
             strokeDasharray="8 8"
             strokeOpacity={0.7}
             vertical={false}
           />
-          <Bar dataKey={keyMetric} fill={colors.anzac} fillOpacity={0.9} />
+          <Bar dataKey={keyMetric} fill={COLORS.ACCENT.ANZAC_500} />
           <XAxis
-            axisLine={false}
+            axisLine={{ stroke: COLORS.NEUTRAL.MYSTIC_200 }}
             dataKey="date"
-            tick={{ fill: 'currentColor', fontSize: '0.8em' }}
+            tick={{ fill: COLORS.NEUTRAL.MYSTIC_700, fontSize: '0.8em' }}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
             tickLine={false}
           />
@@ -57,7 +57,7 @@ const AddressMetricsChart = React.memo(
             mirror
             scale="linear"
             tick={{
-              fill: 'currentColor',
+              fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
               fontWeight: 'bold',
             }}
@@ -80,7 +80,7 @@ const AddressMetricsChart = React.memo(
             dataKey="date"
             height={30}
             onChange={onBrushChange}
-            stroke={colors.mischka}
+            stroke={COLORS.NEUTRAL.MYSTIC_300}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           />
         </BarChart>

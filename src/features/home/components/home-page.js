@@ -8,6 +8,8 @@ import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ChartsContainer from '../../../components/charts-container';
 import Container from '../../../components/container';
 import HomePageMetrics from './home-page-metrics';
+import HomePageTopRelayersFooter from './home-page-top-relayers-footer';
+import HomePageTopTokensFooter from './home-page-top-tokens-footer';
 import getPeriodOptions from '../../../util/get-period-options';
 import LatestNewsCard from '../../news/components/latest-news-card';
 import NetworkMetrics from '../../metrics/components/network-metrics';
@@ -60,7 +62,7 @@ const HomePage = () => {
                 title: 'Trades',
               },
             ]}
-            css="height: 352px"
+            css="height: 360px"
             defaultPeriod={TIME_PERIOD.YEAR}
             periods={getPeriodOptions([
               TIME_PERIOD.DAY,
@@ -74,10 +76,18 @@ const HomePage = () => {
         <HomePageColumn lg={5}>
           <ChartsContainer
             charts={[
-              { component: TopTokens, title: 'Top Tokens' },
-              { component: TopRelayers, title: 'Top Relayers' },
+              {
+                component: TopTokens,
+                footer: HomePageTopTokensFooter,
+                title: 'Top Tokens',
+              },
+              {
+                component: TopRelayers,
+                footer: HomePageTopRelayersFooter,
+                title: 'Top Relayers',
+              },
             ]}
-            css="height: 352px;"
+            css="height: 360px;"
             defaultPeriod={TIME_PERIOD.WEEK}
             periods={getPeriodOptions([
               TIME_PERIOD.DAY,

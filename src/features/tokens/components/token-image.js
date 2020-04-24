@@ -1,9 +1,9 @@
 import _ from 'lodash';
+import { CopperCoin } from 'styled-icons/remix-fill';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../../../styles/constants';
-import { CircleIcon } from '../../../components/icons';
+import { COLORS } from '../../../styles/constants';
 
 const TokenImage = ({ className, imageUrl, size }) =>
   _.isString(imageUrl) ? (
@@ -17,7 +17,7 @@ const TokenImage = ({ className, imageUrl, size }) =>
       src={imageUrl}
     />
   ) : (
-    <CircleIcon color={colors.mystic} height="2.75rem" width="2.75rem" />
+    <CopperCoin color={COLORS.ACCENT.ANZAC_600} height={size} width={size} />
   );
 
 TokenImage.propTypes = {
@@ -28,7 +28,7 @@ TokenImage.propTypes = {
 
 TokenImage.defaultProps = {
   imageUrl: undefined,
-  size: '2.75rem',
+  size: '40px',
 };
 
 export default TokenImage;

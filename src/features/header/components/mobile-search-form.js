@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { SearchIcon } from '../../../components/icons';
 import SearchForm from '../../search/components/search-form';
 
@@ -11,26 +11,31 @@ const SearchInput = styled.input`
     border: none;
     border-top-left-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
-    background-color: ${colors.martinique};
-    color: ${colors.white};
+    background-color: ${COLORS.PRIMARY.SCAMPI_800};
+    color: white;
     height: 2.5rem;
     flex-grow: 1;
     padding: 0 0.75rem;
+
+    &::placeholder {
+      color: ${COLORS.PRIMARY.SCAMPI_100};
+    }
   }
 `;
 
 const SearchButton = styled.button`
-  background-color: ${colors.stormGray};
+  background-color: ${COLORS.PRIMARY.SCAMPI_800};
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
   border: none;
-  color: ${colors.violet};
+  color: ${COLORS.PRIMARY.SCAMPI_100};
   height: 2.5rem;
   line-height: 1;
   padding: 0 0.75rem;
 
-  &:hover {
-    background-color: ${colors.white};
+  &:hover,
+  &:active {
+    color: white;
   }
 `;
 

@@ -5,6 +5,7 @@ const CardBody = styled.div`
   flex-direction: column;
   flex-grow: 1;
   padding: ${(props) => (props.padded ? '1rem' : 0)};
+  overflow: auto;
 `;
 
 export default CardBody;

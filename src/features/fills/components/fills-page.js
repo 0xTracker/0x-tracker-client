@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { URL } from '../../../constants';
-import { colors } from '../../../styles/constants';
 import buildUrl from '../../../util/build-url';
 import Card from '../../../components/card';
 import Fills from './fills';
 import FillsFilter from './fills-filter';
 import PageLayout from '../../../components/page-layout';
+import SubTitle from '../../../components/sub-title';
 
 const defaultFilters = {
   protocolVersion: undefined,
@@ -78,16 +78,7 @@ const FillsPage = ({ history, location }) => {
         title={
           <span>
             Browse Fills
-            <small
-              css={`
-                color: ${colors.stormGray};
-                display: block;
-                font-size: 0.9rem;
-                text-transform: lowercase;
-              `}
-            >
-              from the last 6 months
-            </small>
+            <SubTitle>from the last 6 months</SubTitle>
           </span>
         }
       >

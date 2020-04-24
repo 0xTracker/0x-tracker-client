@@ -5,12 +5,21 @@ import React from 'react';
 import Link from '../../../components/link';
 import RelayerImage from '../../relayers/components/relayer-image';
 import RelayerLink from '../../relayers/components/relayer-link';
+import UnknownRelayerImage from '../../relayers/components/unknown-relayer-image';
 
 const FillRelayerLink = ({ fill, showImage }) => {
   const { relayer } = fill;
 
   if (_.isNil(relayer)) {
-    return <Link href="/relayers/unknown">Unknown</Link>;
+    return (
+      <Link href="/relayers/unknown">
+        {' '}
+        {showImage && (
+          <UnknownRelayerImage css="margin-right: 0.5rem;" size={20} />
+        )}
+        Unknown
+      </Link>
+    );
   }
 
   return (
@@ -18,7 +27,7 @@ const FillRelayerLink = ({ fill, showImage }) => {
       css="display: flex; align-items: center;"
       relayer={relayer.slug}
     >
-      {showImage && relayer.imageUrl && (
+      {showImage && (
         <RelayerImage
           css="margin-right: 0.5rem;"
           height={20}

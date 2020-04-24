@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import { colors } from '../../../styles/constants';
 import buildUrl from '../../../util/build-url';
 import Card from '../../../components/card';
 import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
+import SubTitle from '../../../components/sub-title';
 import TraderList from './trader-list';
 import TradersFilter from './traders-filter';
 import useTraders from '../hooks/use-traders';
@@ -66,16 +66,7 @@ const TradersPage = ({ history, location }) => {
           <span>
             Top Traders
             <Hidden above="xs">
-              <small
-                css={`
-                  color: ${colors.stormGray};
-                  display: block;
-                  font-size: 0.9rem;
-                  text-transform: lowercase;
-                `}
-              >
-                {periodDescriptions[statsPeriod]}
-              </small>
+              <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
             </Hidden>
           </span>
         }

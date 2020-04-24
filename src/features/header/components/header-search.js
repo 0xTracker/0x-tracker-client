@@ -1,10 +1,9 @@
 import { useClickAway } from 'react-use';
-import { rgba } from 'polished';
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { SearchIcon } from '../../../components/icons';
 import SearchForm from '../../search/components/search-form';
 import useEscapeKey from '../../../hooks/use-escape-key';
@@ -13,15 +12,15 @@ const SearchInput = styled.input`
   && {
     border: none;
     border-radius: 0.25rem;
-    background-color: ${colors.athensGray};
-    color: currentColor;
+    background-color: ${COLORS.NEUTRAL.MYSTIC_200};
+    color: ${COLORS.PRIMARY.SCAMPI_1000};
     height: 100%;
     outline: none;
     padding: 0.5rem 0.75rem;
     width: 300px;
 
     ::placeholder {
-      color: ${rgba(colors.violet, 0.6)};
+      color: ${COLORS.NEUTRAL.MYSTIC_800};
     }
   }
 `;
@@ -31,7 +30,7 @@ const SearchButton = styled.button`
   background: none;
   border: none;
   border-radius: 0.25rem;
-  color: ${colors.lavenderGray};
+  color: currentColor;
   cursor: pointer;
   display: flex;
   height: 100%;
@@ -39,8 +38,8 @@ const SearchButton = styled.button`
   padding: 0 0.75rem;
 
   &:hover {
-    background: ${colors.athensGray};
-    color: ${colors.violet};
+    background: white;
+    color: ${COLORS.PRIMARY.SCAMPI_1000};
   }
 `;
 
@@ -57,7 +56,7 @@ const SearchInputWrapper = styled.div`
     height: 0;
     border-top: 0.5rem solid transparent;
     border-bottom: 0.5rem solid transparent;
-    border-left: 0.5rem solid ${colors.athensGray};
+    border-left: 0.5rem solid ${COLORS.NEUTRAL.MYSTIC_300};
     content: '';
     display: inline-block;
   }

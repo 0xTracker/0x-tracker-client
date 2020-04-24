@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import { media } from '../styles/util';
 import { useCurrentBreakpoint } from '../responsive-utils';
 import Link from './link';
@@ -60,7 +60,7 @@ const ErrorMessage = ({ children, className }) => {
         onMouseOver={() => setMood('blissful')}
       >
         <Ghost
-          color={colors.mystic}
+          color={COLORS.NEUTRAL.MYSTIC_300}
           mood={mood}
           size={breakpoint.greaterThan('sm') ? 240 : 150}
         />

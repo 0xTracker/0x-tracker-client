@@ -2,10 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
-
 const StyledLink = styled.a`
-  color: ${colors.scampi};
+  color: currentColor;
   cursor: pointer;
 
   &:hover {

@@ -1,18 +1,16 @@
 import { Portal } from 'react-portal';
-import { rgba } from 'polished';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
 import DialogHeader from './dialog-header';
 import DisableBodyScroll from './disable-body-scroll';
 import useEscapeKey from '../hooks/use-escape-key';
 
 const StyledDialog = styled.section`
-  background-color: ${colors.white};
+  background-color: white;
   border-radius: 0.25rem;
-  box-shadow: 0 2px 4px 0 ${rgba(colors.black, 0.2)};
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
   max-height: ${(props) => props.height}px;
   height: ${(props) => props.height}px;
   position: relative;
@@ -21,7 +19,7 @@ const StyledDialog = styled.section`
 `;
 
 const Overlay = styled.div`
-  background-color: ${rgba(colors.athensGray, 0.95)};
+  background-color: hsla(230, 45%, 96%, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,11 +1,11 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactLoading from 'react-loading';
 import ReactPaginate from 'react-paginate';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
+import LoadingIndicator from './loading-indicator';
 import PagingSummary from './paging-summary';
 
 const Pages = styled.div`
@@ -27,7 +27,7 @@ const Pages = styled.div`
   }
 
   .page-item .page-link {
-    background-color: ${colors.athensGray};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_200};
     border: none;
     border-radius: 0;
     color: currentColor;
@@ -47,18 +47,18 @@ const Pages = styled.div`
     border-top-right-radius: 0.25rem;
   }
 
-  .page-item .page-link:hover {
-    background-color: ${colors.mystic};
+  .page-item.active .page-link {
+    background-color: ${COLORS.NEUTRAL.MYSTIC_300};
   }
 
-  .page-item.active .page-link {
-    background-color: ${colors.mystic};
+  .page-item .page-link:hover {
+    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
   }
 
   .page-item.disabled .page-link,
   .page-item.disabled .page-link:hover {
     cursor: default;
-    color: ${colors.santasGray};
+    color: ${COLORS.NEUTRAL.MYSTIC_400};
   }
 `;
 
@@ -68,16 +68,6 @@ const StyledPaginator = styled.div`
   flex-direction: row;
   justify-content: space-between;
   margin: 1.5rem 2rem;
-`;
-
-const LoadingIndicator = styled(ReactLoading).attrs({
-  color: 'currentColor',
-  delay: 0,
-  height: 30,
-  type: 'spin',
-  width: 30,
-})`
-  margin-right: 1rem;
 `;
 
 const FullPaginator = ({
@@ -102,7 +92,9 @@ const FullPaginator = ({
         recordCount={recordCount}
       />
       <Pages>
-        {changingPage && <LoadingIndicator />}
+        {changingPage && (
+          <LoadingIndicator css="margin-right: 1em;" size={30} />
+        )}
         <ReactPaginate
           activeClassName="active"
           breakClassName="d-none"

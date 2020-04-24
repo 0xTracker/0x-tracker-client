@@ -19,7 +19,7 @@ const RecentFillsItemImage = ({ fill }) => {
 
   return (
     <RelayerLink relayer="unknown">
-      <UnknownRelayerImage css="margin-right: 1rem;" size={50} />
+      <UnknownRelayerImage css="margin-right: 1rem;" size={40} />
     </RelayerLink>
   );
 };

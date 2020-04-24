@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import { LeftArrowIcon, RightArrowIcon } from './icons';
 import LoadingIndicator from './loading-indicator';
 import PagingSummary from './paging-summary';
@@ -23,11 +23,11 @@ const PageButton = styled.button.attrs({ type: 'button' })`
   padding: 1rem 1.25rem;
 
   &:hover {
-    background-color: ${colors.athensGray};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_200};
   }
 
   &:disabled {
-    color: ${colors.mystic};
+    color: ${COLORS.NEUTRAL.MYSTIC_300};
 
     &:hover {
       background: none;

@@ -2,19 +2,19 @@ import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import { TrendingDownIcon, TrendingFlatIcon, TrendingUpIcon } from './icons';
 
 const getColor = (value) => {
   if (value > 0) {
-    return colors.fruitSalad;
+    return COLORS.ACCENT.FRUIT_SALAD_500;
   }
 
   if (value < 0) {
-    return colors.pomegranate;
+    return COLORS.ACCENT.POMEGRANATE_500;
   }
 
-  return colors.stormGray;
+  return COLORS.NEUTRAL.MYSTIC_600;
 };
 
 const PriceChange = ({ children, className }) => (
@@ -29,7 +29,7 @@ const PriceChange = ({ children, className }) => (
     {numeral(children).format('0.[00]')}%
     {children === 0 ? (
       <TrendingFlatIcon
-        color={colors.stormGray}
+        color="currentColor"
         css="margin: 0 0 0 0.25rem;"
         height={20}
         width={20}
@@ -37,7 +37,7 @@ const PriceChange = ({ children, className }) => (
     ) : null}
     {children > 0 ? (
       <TrendingUpIcon
-        color={colors.fruitSalad}
+        color="currentColor"
         css="margin: 0 0 0 0.25rem;"
         height={20}
         width={20}
@@ -45,7 +45,7 @@ const PriceChange = ({ children, className }) => (
     ) : null}
     {children < 0 ? (
       <TrendingDownIcon
-        color={colors.pomegranate}
+        color="currentColor"
         css="margin: 0 0 0 0.25rem;"
         height={20}
         width={20}

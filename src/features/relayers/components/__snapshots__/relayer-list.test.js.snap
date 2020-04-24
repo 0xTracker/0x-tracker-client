@@ -116,13 +116,13 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
           href="/relayers/ddex"
         >
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs"
-            color="#dbddea"
+            color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
             height="40"
@@ -142,17 +142,17 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
+          class="relayer-list___StyledSpan-sc-1herowu-4 eXwvpm"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
             href="/relayers/ddex"
           >
             DDEX
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 bQfGpq relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp relayer-list___StyledLink-sc-1herowu-7 cJqEkd"
           href="https://ddex.io"
           rel="noreferrer noopener"
           target="_blank"
@@ -199,13 +199,13 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
           href="/relayers/paradex"
         >
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs"
-            color="#dbddea"
+            color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
             height="40"
@@ -225,17 +225,17 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
+          class="relayer-list___StyledSpan-sc-1herowu-4 eXwvpm"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
             href="/relayers/paradex"
           >
             Paradex
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 bQfGpq relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp relayer-list___StyledLink-sc-1herowu-7 cJqEkd"
           href="https://paradex.io"
           rel="noreferrer noopener"
           target="_blank"
@@ -282,13 +282,13 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
           href="/relayers/radar-relay"
         >
           <svg
             aria-hidden="true"
             class="sc-bdVaJa cjEDWs"
-            color="#dbddea"
+            color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
             height="40"
@@ -308,17 +308,17 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
+          class="relayer-list___StyledSpan-sc-1herowu-4 eXwvpm"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 bQfGpq"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
             href="/relayers/radar-relay"
           >
             Radar Relay
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 bQfGpq relayer-list___StyledLink-sc-1herowu-7 cCJQOI"
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp relayer-list___StyledLink-sc-1herowu-7 cJqEkd"
           href="https://radarrelay.com"
           rel="noreferrer noopener"
           target="_blank"

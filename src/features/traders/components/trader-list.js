@@ -2,18 +2,18 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import tradersPropTypes from '../prop-types';
 import TraderLink from './trader-link';
 import TraderFillCountLabel from './trader-fill-count-label';
 import TraderVolumeLabel from './trader-volume-label';
 
 const ColumnDescriptor = styled.span`
-  color: ${colors.lavenderGray};
+  color: ${COLORS.PRIMARY.SCAMPI_400};
 `;
 
 const SpacerColumn = styled.td`
-  color: ${colors.mystic};
+  color: ${COLORS.NEUTRAL.MYSTIC_400};
   font-weight: bold;
   padding: 0 !important;
 `;
@@ -52,7 +52,9 @@ const TraderList = ({ positionOffset, traders }) => (
         <tr key={trader.address}>
           <td className="align-middle">{`${positionOffset + index + 1}`}</td>
           <td className="align-middle" width="99%">
-            <TraderLink address={trader.address}>{trader.address}</TraderLink>
+            <span css="font-weight: 500;">
+              <TraderLink address={trader.address}>{trader.address}</TraderLink>
+            </span>
           </td>
           <SplitValueColumn className="align-middle text-center" side="left">
             <TraderFillCountLabel>

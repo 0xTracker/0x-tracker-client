@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import { TimePeriodIcon } from './icons';
 import PopoutTimePeriodSelector from './popout-time-period-selector';
 import sharedPropTypes from '../prop-types';
 
 const Button = styled.button`
   align-items: center;
-  background: ${colors.mystic};
+  background: ${COLORS.NEUTRAL.MYSTIC_300};
   border: none;
   border-radius: 0.25rem;
   color: currentColor;
@@ -23,8 +23,9 @@ const Button = styled.button`
   padding: 0;
   position: relative;
 
-  &:hover {
-    background: ${colors.mischka};
+  &:hover,
+  &:active {
+    background: ${COLORS.NEUTRAL.MYSTIC_400};
   }
 `;
 

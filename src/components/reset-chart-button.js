@@ -3,13 +3,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { ResetIcon } from './icons';
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 
 const Button = styled.button`
   align-items: center;
   border: none;
-  background: ${colors.athensGray};
-  color: ${colors.violet};
+  background: ${COLORS.PRIMARY.SCAMPI_600};
+  border-radius: 0.25rem;
+  color: white;
   display: flex;
   padding: 0.25rem 0.5rem;
   text-transform: uppercase;

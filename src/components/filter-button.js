@@ -3,11 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { FilterIcon } from './icons';
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 
 const StyledFilterButton = styled.button`
   align-items: center;
-  background: ${colors.mystic};
+  background: ${COLORS.NEUTRAL.MYSTIC_300};
   border: none;
   border-radius: 0.25rem;
   color: currentColor;
@@ -21,15 +21,15 @@ const StyledFilterButton = styled.button`
   position: relative;
 
   &:hover {
-    background: ${colors.mischka};
+    background: ${COLORS.NEUTRAL.MYSTIC_400};
   }
 `;
 
 const Indicator = styled.div`
   align-items: center;
-  background-color: ${colors.anzac};
+  background: ${COLORS.ACCENT.ANZAC_400};
   border-radius: 1em;
-  color: white;
+  color: ${COLORS.ACCENT.ANZAC_1000};
   display: flex;
   font-size: 0.7rem;
   font-weight: bold;

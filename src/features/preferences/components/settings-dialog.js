@@ -21,7 +21,7 @@ const SettingsDialog = ({ onClose, onSubmit }) => {
 
   return (
     <Dialog height={300} onClose={onClose} title="Settings" width={450}>
-      <form>
+      <form noValidate onSubmit={handleSubmit}>
         <FormGroup>
           <label htmlFor="displayCurrency">Display Currency</label>
           <CurrencySelector

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import { URL } from '../../../constants';
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import { MenuIcon, NotificationsIcon } from '../../../components/icons';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
@@ -22,14 +22,15 @@ const MenuButton = styled.button`
   align-items: center;
   background: none;
   border: none;
-  color: ${colors.lavenderGray};
+  color: currentColor;
   cursor: pointer;
   display: flex;
   padding: 0;
 `;
 
 const StyledHeader = styled.header`
-  background-color: ${colors.violet};
+  background-color: ${COLORS.PRIMARY.SCAMPI_1000};
+  color: ${COLORS.PRIMARY.SCAMPI_100};
   height: 4.5rem;
   padding: 0.75rem 0;
 

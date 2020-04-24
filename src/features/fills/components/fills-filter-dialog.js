@@ -36,7 +36,7 @@ const FillsFilterDialog = ({
     <Dialog height={600} onClose={onClose} title="Filter Fills" width={450}>
       <form noValidate onSubmit={handleSubmit}>
         <FormGroup>
-          <FormLabel css="margin: 0;" htmlFor="relayer">
+          <FormLabel first htmlFor="relayer">
             Relayer
           </FormLabel>
           <RelayerSelector

@@ -2,11 +2,12 @@ import { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import { ChevronLeftIcon, ChevronRightIcon } from './icons';
 import Pill from './pill';
 
 const enabledCss = css`
+  display: inline-block;
   margin-right: 0.25rem;
 
   &:last-child {
@@ -15,14 +16,15 @@ const enabledCss = css`
 `;
 
 const disabledCss = css`
-  color: ${colors.spunPearl};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  color: ${COLORS.NEUTRAL.MYSTIC_500};
   cursor: not-allowed;
   display: inline-block;
   margin-right: 0.25rem;
 
   &:hover {
-    background-color: ${colors.athensGrayer};
-    color: ${colors.spunPearl};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+    color: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 
   &:last-child {

@@ -1,9 +1,8 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import formatTokenSymbol from '../util/format-token-symbol';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import MiniTokenMetrics from '../../metrics/components/mini-token-metrics';
@@ -14,31 +13,11 @@ import TokenLink from './token-link';
 import TokenListItemVolume from './token-list-item-volume';
 import TokenMarketCapTooltip from './token-market-cap-tooltip';
 import TokenPriceTooltip from './token-price-tooltip';
+import TokenTypeBadge from './token-type-badge';
 import Tooltip from '../../../components/tooltip';
 
 const truncateAddress = (address) =>
   `${address.slice(0, 15)}...${address.slice(address.length - 15)}`;
-
-const getTypeBadgeColor = (type) => {
-  if (type === 'ERC-721') {
-    return { bg: colors.violet, text: colors.white };
-  }
-
-  if (type === 'ERC-1155') {
-    return { bg: colors.martinique, text: colors.white };
-  }
-
-  return { bg: colors.mischka, text: colors.martinique };
-};
-
-// TODO: Encapsulate this in a reusable component and use on fill page
-const AssetTypeBadge = styled.span.attrs(() => ({
-  className: 'badge',
-}))`
-  background-color: ${(props) => getTypeBadgeColor(props.children).bg};
-  color: ${(props) => getTypeBadgeColor(props.children).text};
-  margin-left: 0.75rem;
-`;
 
 const TokenListItem = ({ position, statsPeriod, token }) => (
   <tr>
@@ -48,13 +27,25 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
         <TokenImage imageUrl={token.imageUrl} />
       </TokenLink>
     </td>
-    <td width="99%">
-      <TokenLink address={token.address} params={{ statsPeriod }}>
-        {_.truncate(token.name, { length: 30 }) || 'Unknown Token'}
-      </TokenLink>
-      <AssetTypeBadge>{token.type.toUpperCase()}</AssetTypeBadge>
-      <br />
-      {formatTokenSymbol(token.symbol) || truncateAddress(token.address)}
+    <td className="align-middle" width="99%">
+      <span css="display: block; line-height: 1;">
+        <TokenLink
+          address={token.address}
+          css="font-weight: 500;"
+          params={{ statsPeriod }}
+        >
+          {_.truncate(token.name, { length: 30 }) || 'Unknown Token'}
+        </TokenLink>
+        <TokenTypeBadge>{token.type}</TokenTypeBadge>
+      </span>
+      <span
+        css={`
+          color: ${COLORS.NEUTRAL.MYSTIC_700};
+          font-size: 0.9rem;
+        `}
+      >
+        {formatTokenSymbol(token.symbol) || truncateAddress(token.address)}
+      </span>
     </td>
     <td className="align-middle" css="text-align: right;">
       {!_.isNil(token.price.close) ? (

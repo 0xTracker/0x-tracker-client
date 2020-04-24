@@ -1,13 +1,16 @@
 import ReactSelect from 'react-select';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 
-const Select = styled(ReactSelect).attrs({ classNamePrefix: 'Select' })`
-  color: ${colors.violet};
+const Select = styled(ReactSelect).attrs({
+  classNamePrefix: 'Select',
+  controlShouldRenderValue: true,
+})`
+  color: inherit;
 
   && .Select__control {
-    border-color: ${colors.mystic};
+    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
     min-height: 0;
     padding: 0.5rem 1rem;
 
@@ -24,8 +27,15 @@ const Select = styled(ReactSelect).attrs({ classNamePrefix: 'Select' })`
     box-shadow: none;
   }
 
-  .Select__dropdown-indicator {
-    color: ${colors.stormGray};
+  .Select__dropdown-indicator,
+  .Select__clear-indicator {
+    color: ${COLORS.NEUTRAL.MYSTIC_400};
+  }
+
+  .Select__clear-indicator {
+    &:hover {
+      color: ${COLORS.NEUTRAL.MYSTIC_1000};
+    }
   }
 
   .Select__indicator-separator {
@@ -39,20 +49,39 @@ const Select = styled(ReactSelect).attrs({ classNamePrefix: 'Select' })`
   .Select__option:hover,
   .Select__option:active,
   .Select__option--is-focused {
-    background: ${colors.mystic};
-    color: ${colors.violet};
+    background: ${COLORS.NEUTRAL.MYSTIC_300};
+    color: inherit;
     cursor: pointer;
   }
 
   .Select__option--is-selected {
-    background: ${colors.athensGrayer};
-    color: ${colors.violet};
+    background: ${COLORS.NEUTRAL.MYSTIC_200};
+    color: inherit;
   }
 
   &:hover {
     .Select__control {
-      border-color: ${colors.santasGray};
+      border-color: ${COLORS.NEUTRAL.MYSTIC_400};
     }
+
+    .Select__dropdown-indicator {
+      color: ${COLORS.NEUTRAL.MYSTIC_500};
+    }
+  }
+
+  && .Select__menu {
+    border: none;
+    box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
+  }
+
+  && .Select__menu-list {
+    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
+    border-radius: 4px;
+    padding: 0;
+  }
+
+  && .Select__placeholder {
+    color: ${COLORS.NEUTRAL.MYSTIC_400};
   }
 `;
 

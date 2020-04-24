@@ -15,13 +15,15 @@ const TokenAmount = ({ amount, linked, summarize, token }) => {
     ? summarizeNumber(amount)
     : formatTokenAmount(amount);
 
+  const symbol =
+    token.symbol !== null ? formatTokenSymbol(token.symbol) : 'TKN';
+
   return linked ? (
     <span title={`${amount} ${token.symbol}`}>
-      {displayAmount}{' '}
-      <TokenLink address={token.address}>{token.symbol}</TokenLink>
+      {displayAmount} <TokenLink address={token.address}>{symbol}</TokenLink>
     </span>
   ) : (
-    `${displayAmount} ${formatTokenSymbol(token.symbol)}`
+    `${displayAmount} ${symbol}`
   );
 };
 

@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useLocation } from 'react-use';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { ChevronDownIcon, ChevronUpIcon } from '../../../components/icons';
 import MobileSubNavigation from './mobile-sub-navigation';
 
@@ -12,8 +12,8 @@ const StyledItem = styled.button`
   background: none;
   border: none;
   border-bottom: ${(props) =>
-    props.expanded ? 'none' : `1px solid ${colors.martinique}`};
-  color: ${colors.lavenderGray};
+    props.expanded ? 'none' : `1px solid ${COLORS.PRIMARY.SCAMPI_800}`};
+  color: ${COLORS.PRIMARY.SCAMPI_200};
   cursor: pointer;
   display: flex;
   flex-grow: 1;
@@ -22,7 +22,7 @@ const StyledItem = styled.button`
   padding: 0.75rem 0.5rem;
 
   &:hover {
-    color: ${colors.white};
+    color: white;
   }
 `;
 

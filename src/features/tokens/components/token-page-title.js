@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import { TIME_PERIOD } from '../../../constants';
 import Hidden from '../../../components/hidden';
 import LocalisedAmount from '../../currencies/components/localised-amount';
@@ -16,7 +16,7 @@ import Visible from '../../../components/visible';
 
 const PriceWrapper = styled.span`
   align-items: center;
-  color: ${colors.stormGray};
+  color: ${COLORS.NEUTRAL.MYSTIC_700};
   display: flex;
   margin-left: 2rem;
 `;

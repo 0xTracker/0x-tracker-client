@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../../../styles/constants';
+import { COLORS } from '../../../styles/constants';
 import Link from '../../../components/link';
 
 const StyledMobileNavigationLink = styled(Link)`
   background: none;
   border: none;
-  border-bottom: 1px solid ${colors.martinique};
-  color: ${(props) => (props.highlighted ? colors.white : colors.lavenderGray)};
+  border-bottom: 1px solid ${COLORS.PRIMARY.SCAMPI_800};
+  color: ${(props) =>
+    props.highlighted ? 'white' : COLORS.PRIMARY.SCAMPI_200};
   cursor: pointer;
   display: block;
   flex-grow: 1;
@@ -19,7 +20,7 @@ const StyledMobileNavigationLink = styled(Link)`
   text-align: left;
 
   &:hover {
-    color: ${colors.white};
+    color: white;
   }
 `;
 

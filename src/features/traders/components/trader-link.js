@@ -4,8 +4,10 @@ import React from 'react';
 import { URL } from '../../../constants';
 import Link from '../../../components/link';
 
-const TraderLink = ({ address, children }) => (
-  <Link href={URL.TRADER.replace(':address', address)}>{children}</Link>
+const TraderLink = ({ address, children, ...otherProps }) => (
+  <Link href={URL.TRADER.replace(':address', address)} {...otherProps}>
+    {children}
+  </Link>
 );
 
 TraderLink.propTypes = {
