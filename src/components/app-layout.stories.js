@@ -3,7 +3,10 @@ import React from 'react';
 import AppLayout from './app-layout';
 import Card from './card';
 import CardBody from './card-body';
+import InvalidParametersError from './invalid-parameters-error';
 import PageLayout from './page-layout';
+import PageNotFound from './page-not-found';
+import UnexpectedError from './unexpected-error';
 
 const storiesConfig = {
   title: 'Layout/AppLayout',
@@ -95,5 +98,29 @@ const ShortContent = () => (
   </AppLayout>
 );
 
+const PageNotFoundInLayout = () => (
+  <AppLayout>
+    <PageNotFound />
+  </AppLayout>
+);
+
+const InvalidParameters = () => (
+  <AppLayout>
+    <InvalidParametersError />
+  </AppLayout>
+);
+
+const UnexpectedErrorInLayout = () => (
+  <AppLayout>
+    <UnexpectedError />
+  </AppLayout>
+);
+
 export default storiesConfig;
-export { LongContent, ShortContent };
+export {
+  InvalidParameters,
+  LongContent,
+  PageNotFoundInLayout as PageNotFound,
+  ShortContent,
+  UnexpectedErrorInLayout as UnexpectedError,
+};

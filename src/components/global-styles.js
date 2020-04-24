@@ -6,6 +6,8 @@ const GlobalStyles = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Monda');
 
   #root {
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
   }
 
