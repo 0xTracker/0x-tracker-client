@@ -5,6 +5,7 @@ import Card from './card';
 import CardBody from './card-body';
 import CardHeader from './card-header';
 import CardHeading from './card-heading';
+import CardPlaceholder from './card-placeholder';
 
 const config = {
   component: Card,
@@ -26,6 +27,20 @@ const Simple = () => (
   </Card>
 );
 
+const WithPlaceholder = () => (
+  <Card>
+    <CardHeader>
+      <CardHeading>Content Card</CardHeading>
+    </CardHeader>
+    <CardBody padded>
+      <CardPlaceholder>
+        No trading activity has been recorded for this token on known relayers
+        in the selected period.
+      </CardPlaceholder>
+    </CardBody>
+  </Card>
+);
+
 const WithHeading = () => (
   <Card>
     <CardHeader>
@@ -35,5 +50,5 @@ const WithHeading = () => (
   </Card>
 );
 
-export { Simple, WithHeading };
+export { Simple, WithHeading, WithPlaceholder };
 export default config;

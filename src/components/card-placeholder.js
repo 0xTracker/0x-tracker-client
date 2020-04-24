@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 
 const CardPlaceholder = ({ children }) => (
   <div
     css={`
       align-items: center;
-      color: ${colors.santasGray};
+      color: ${COLORS.NEUTRAL.MYSTIC_500};
       display: flex;
       justify-content: center;
       min-height: 300px;
