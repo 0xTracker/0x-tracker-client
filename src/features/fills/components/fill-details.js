@@ -7,6 +7,7 @@ import { DATE_FORMAT, ETH_TOKEN, ZRX_TOKEN } from '../../../constants';
 import { media } from '../../../styles/util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import AssetLabel from './asset-label';
+import Badge from '../../../components/badge';
 import EthereumAddressLink from '../../../components/ethereum-address-link';
 import fillsPropTypes from '../prop-types';
 import FillAssetsList from './fill-assets-list';
@@ -37,8 +38,10 @@ const FillDetailList = styled.dl`
   `};
 `;
 
-const PriceBadge = styled.span.attrs({ className: 'badge' })`
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+const PriceBadge = styled(Badge).attrs({
+  bgColor: COLORS.PRIMARY.SCAMPI_100,
+  textColor: COLORS.PRIMARY.SCAMPI_1000,
+})`
   margin-left: 0.5rem;
 `;
 
