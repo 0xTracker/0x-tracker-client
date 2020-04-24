@@ -12,9 +12,8 @@ const OPTIONS = [
   { label: 'All time', value: TIME_PERIOD.ALL },
 ];
 
-const TimePeriodSelector = ({ className, name, onChange, value }) => (
+const TimePeriodSelector = ({ name, onChange, value, ...otherProps }) => (
   <AsyncSelect
-    className={className}
     controlShouldRenderValue
     isClearable={false}
     isSearchable={false}
@@ -22,18 +21,17 @@ const TimePeriodSelector = ({ className, name, onChange, value }) => (
     onChange={(option) => onChange(option.value, name)}
     options={OPTIONS}
     value={OPTIONS.find((option) => option.value === value)}
+    {...otherProps}
   />
 );
 
 TimePeriodSelector.propTypes = {
-  className: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
 };
 
 TimePeriodSelector.defaultProps = {
-  className: undefined,
   name: undefined,
 };
 

@@ -27,7 +27,7 @@ const DialogHeading = styled.h1`
 
 const StyledDialogHeader = styled.div`
   align-items: center;
-  background-color: ${COLORS.PRIMARY.SCAMPI_900};
+  background-color: ${COLORS.PRIMARY.SCAMPI_600};
   border-radius: 0.25rem;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;

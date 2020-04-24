@@ -33,6 +33,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'react/no-multi-comp': 'off',
         'react/prop-types': 'off',
+        'react/jsx-handler-names': 'off',
       },
     },
 

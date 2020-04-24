@@ -3,12 +3,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../styles/util';
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 import Container from './container';
 
 const Inner = styled.div`
   align-items: center;
-  border-bottom: 1px solid ${colors.mystic};
+  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
+  border-radius: 1px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.5rem;

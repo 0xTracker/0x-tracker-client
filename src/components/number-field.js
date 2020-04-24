@@ -3,13 +3,29 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-import { colors } from '../styles/constants';
+import { COLORS } from '../styles/constants';
 
 const Input = styled.input`
-  border: 1px solid ${colors.mischka};
+  border: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
   border-radius: 0.25rem;
+  color: inherit;
   padding: 0.5rem 0.7rem;
   width: 100%;
+
+  &:active,
+  &:focus {
+    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
+  }
+
+  &::placeholder {
+    color: ${COLORS.NEUTRAL.MYSTIC_400};
+    opacity: 1;
+  }
+
+  &:invalid {
+    border-color: ${COLORS.ACCENT.POMEGRANATE_400};
+    box-shadow: none;
+  }
 `;
 
 const NumberField = ({ name, onChange, value, ...otherProps }) => {

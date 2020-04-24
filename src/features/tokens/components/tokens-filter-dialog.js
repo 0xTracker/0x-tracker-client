@@ -34,7 +34,7 @@ const TokensFilterDialog = ({
 
   return (
     <Dialog height={350} onClose={onClose} title="Filter Tokens" width={450}>
-      <form>
+      <form noValidate onSubmit={handleSubmit}>
         <FormGroup>
           <FormLabel css="margin: 0;" htmlFor="displayCurrency">
             Time Period
