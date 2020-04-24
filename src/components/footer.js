@@ -43,7 +43,7 @@ const NavLink = styled(Link)`
 
 const SocialLink = styled(Link)`
   align-items: center;
-  background-color: ${COLORS.PRIMARY.SCAMPI_200};
+  background-color: ${COLORS.PRIMARY.SCAMPI_100};
   color: ${COLORS.PRIMARY.SCAMPI_900};
   border-radius: 0.25rem;
   display: flex;
