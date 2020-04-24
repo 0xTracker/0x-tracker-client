@@ -1,11 +1,11 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactLoading from 'react-loading';
 import ReactPaginate from 'react-paginate';
 import styled from 'styled-components';
 
 import { COLORS } from '../styles/constants';
+import LoadingIndicator from './loading-indicator';
 import PagingSummary from './paging-summary';
 
 const Pages = styled.div`
@@ -70,16 +70,6 @@ const StyledPaginator = styled.div`
   margin: 1.5rem 2rem;
 `;
 
-const LoadingIndicator = styled(ReactLoading).attrs({
-  color: 'currentColor',
-  delay: 0,
-  height: 30,
-  type: 'spin',
-  width: 30,
-})`
-  margin-right: 1rem;
-`;
-
 const FullPaginator = ({
   changingPage,
   className,
@@ -102,7 +92,9 @@ const FullPaginator = ({
         recordCount={recordCount}
       />
       <Pages>
-        {changingPage && <LoadingIndicator />}
+        {changingPage && (
+          <LoadingIndicator css="margin-right: 1em;" size={30} />
+        )}
         <ReactPaginate
           activeClassName="active"
           breakClassName="d-none"

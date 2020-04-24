@@ -1,8 +1,11 @@
+import _ from 'lodash';
 import { useTimeout } from 'react-use';
 import PropTypes from 'prop-types';
 import React from 'react';
 import ReactLoading from 'react-loading';
 import styled from 'styled-components';
+
+import { COLORS } from '../styles/constants';
 
 const AlignCenter = styled.div`
   align-items: center;
@@ -19,7 +22,7 @@ const dimensions = {
   small: 22,
 };
 
-const LoadingIndicator = ({ centered, size, type }) => {
+const LoadingIndicator = ({ centered, size, type, ...otherProps }) => {
   const [isReady] = useTimeout(300);
 
   if (isReady() === false) {
@@ -28,11 +31,12 @@ const LoadingIndicator = ({ centered, size, type }) => {
 
   const indicator = (
     <ReactLoading
-      color="currentColor"
+      color={COLORS.NEUTRAL.MYSTIC_700}
       delay={0}
-      height={dimensions[size]}
+      height={_.isFinite(size) ? size : dimensions[size]}
       type={type === 'cylon' ? 'cylon' : 'spin'}
-      width={dimensions[size]}
+      width={_.isFinite(size) ? size : dimensions[size]}
+      {...otherProps}
     />
   );
 
@@ -44,7 +48,10 @@ const LoadingIndicator = ({ centered, size, type }) => {
 };
 
 LoadingIndicator.propTypes = {
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOfType([
+    PropTypes.oneOf(['small', 'medium', 'large']),
+    PropTypes.number,
+  ]),
   type: PropTypes.oneOf(['cylon', 'spinner']),
 };
 
