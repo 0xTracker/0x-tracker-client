@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import '../../../styles/css/slick-carousel.css';
 
-import { breakpoints } from '../../../styles/constants';
+import { BREAKPOINTS } from '../../../styles/constants';
 import MarketCapWidget from './market-cap-widget';
 import PriceRangeWidget from './price-range-widget';
 import TokenPriceWidget from './token-price-widget';
@@ -26,11 +26,11 @@ const TokenStatsCarousel = ({ period, token }) => (
     infinite
     responsive={[
       {
-        breakpoint: breakpoints.sm,
+        breakpoint: BREAKPOINTS.sm,
         settings: { slidesToScroll: 1, slidesToShow: 1 },
       },
       {
-        breakpoint: breakpoints.md,
+        breakpoint: BREAKPOINTS.md,
         settings: { slidesToScroll: 2, slidesToShow: 2 },
       },
     ]}

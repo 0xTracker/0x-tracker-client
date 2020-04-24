@@ -1,20 +1,8 @@
-const breakpoints = {
+const BREAKPOINTS = {
   sm: 576,
   md: 768, // eslint-disable-line sort-keys
   lg: 992, // eslint-disable-line sort-keys
   xl: 1200,
-};
-
-const colors = {
-  anzac: '#e3be47',
-  athensGray: '#f1f2f7', // regular gray
-  athensGrayer: '#e6e7f0',
-  lavenderGray: '#bfbedf',
-  mischka: '#d5d7e3',
-  mystic: '#dbddea',
-  santasGray: '#9F9EB9',
-  stormGray: '#6C6B80',
-  violet: '#0A0830', // text color & footer bg
 };
 
 const COLORS = {
@@ -77,4 +65,4 @@ const COLORS = {
   },
 };
 
-export { breakpoints, colors, COLORS };
+export { BREAKPOINTS, COLORS };

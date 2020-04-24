@@ -9,6 +9,7 @@ import { useCurrentBreakpoint } from '../responsive-utils';
 import Card from './card';
 import CardBody from './card-body';
 import CardHeader from './card-header';
+import CardFooter from './card-footer';
 import verbosePeriod from '../util/verbose-period';
 
 const ChartLink = styled(NavLink)`
@@ -68,7 +69,9 @@ const ChartsContainer = ({
   const [selectedPeriod, setSelectedPeriod] = useState(defaultPeriod);
   const currentBreakpoint = useCurrentBreakpoint();
 
-  const Chart = charts.find((chart) => chart.title === selectedChart).component;
+  const chart = charts.find((c) => c.title === selectedChart);
+  const Chart = chart.component;
+  const ChartFooter = chart.footer;
   const chartProps = { period: selectedPeriod };
 
   return (
@@ -83,13 +86,13 @@ const ChartsContainer = ({
           charts[0].title
         ) : (
           <Nav card css="margin: 0;" tabs>
-            {charts.map((chart) => (
-              <NavItem key={chart.title}>
+            {charts.map((c) => (
+              <NavItem key={c.title}>
                 <ChartLink
-                  active={selectedChart === chart.title}
-                  onClick={() => setSelectedChart(chart.title)}
+                  active={selectedChart === c.title}
+                  onClick={() => setSelectedChart(c.title)}
                 >
-                  {chart.title}
+                  {c.title}
                 </ChartLink>
               </NavItem>
             ))}
@@ -118,6 +121,15 @@ const ChartsContainer = ({
           <Chart {...chartProps} />
         )}
       </CardBody>
+      {ChartFooter && (
+        <CardFooter>
+          {React.isValidElement(ChartFooter) ? (
+            React.cloneElement(ChartFooter, chartProps)
+          ) : (
+            <ChartFooter {...chartProps} />
+          )}
+        </CardFooter>
+      )}
     </Card>
   );
 };

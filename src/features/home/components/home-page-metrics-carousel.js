@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import '../../../styles/css/slick-carousel.css';
 
-import { breakpoints } from '../../../styles/constants';
+import { BREAKPOINTS } from '../../../styles/constants';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
 import sharedPropTypes from '../../../prop-types';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
@@ -31,11 +31,11 @@ const HomePageMetricsCarousel = ({
     infinite
     responsive={[
       {
-        breakpoint: breakpoints.sm,
+        breakpoint: BREAKPOINTS.sm,
         settings: { slidesToScroll: 1, slidesToShow: 1 },
       },
       {
-        breakpoint: breakpoints.md,
+        breakpoint: BREAKPOINTS.md,
         settings: { slidesToScroll: 2, slidesToShow: 2 },
       },
     ]}
