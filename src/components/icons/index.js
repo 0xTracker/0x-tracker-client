@@ -8,6 +8,7 @@ import ChevronUpIcon from './chevron-up-icon';
 import CircleIcon from './circle-icon';
 import CloseIcon from './close-icon';
 import DiscordIcon from './discord-icon';
+import ExternalLinkIcon from './external-link-icon';
 import FilterIcon from './filter-icon';
 import GitHubIcon from './git-hub-icon';
 import HelpIcon from './help-icon';
@@ -40,6 +41,7 @@ export {
   CircleIcon,
   CloseIcon,
   DiscordIcon,
+  ExternalLinkIcon,
   FilterIcon,
   GitHubIcon,
   HelpIcon,

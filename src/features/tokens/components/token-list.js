@@ -23,7 +23,7 @@ const TokenList = ({
       <table className="table table-responsive">
         <thead>
           <tr>
-            <th>#</th>
+            <th className="text-center">#</th>
             <th colSpan="2">Token</th>
             <th className="text-right">
               Price{' '}

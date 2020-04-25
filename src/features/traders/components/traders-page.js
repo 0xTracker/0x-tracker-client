@@ -40,7 +40,7 @@ const TradersPage = ({ history, location }) => {
 
   const [traders, loading] = useTraders({
     autoReload: true,
-    limit: 50,
+    limit: 25,
     page,
     ...selectedFilters,
   });
@@ -50,7 +50,7 @@ const TradersPage = ({ history, location }) => {
   return (
     <>
       <Helmet>
-        <title>Top Traders</title>
+        <title>Active Traders</title>
       </Helmet>
       <PageLayout
         filter={
@@ -64,7 +64,7 @@ const TradersPage = ({ history, location }) => {
         }
         title={
           <span>
-            Top Traders
+            Active Traders
             <Hidden above="xs">
               <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
             </Hidden>

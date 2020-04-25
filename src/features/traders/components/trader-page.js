@@ -5,6 +5,7 @@ import React, { useCallback } from 'react';
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
 import AddressMetrics from '../../metrics/components/address-metrics';
+import Blockie from '../../../components/blockie';
 import Card from '../../../components/card';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
@@ -29,7 +30,18 @@ const TraderPage = ({ history, location, match }) => {
       <Helmet>
         <title>{`Trader: ${address}`}</title>
       </Helmet>
-      <PageLayout title={`Trader: ${address}`}>
+      <PageLayout
+        title={
+          <div css="display: flex; align-items: center;">
+            <Blockie
+              css="border-radius: 0.25rem; margin-right: 0.75rem;"
+              seed={address}
+              size="30px"
+            />
+            Trader: {address}
+          </div>
+        }
+      >
         <ChartsContainer
           charts={[
             {

@@ -16,10 +16,10 @@ const Navigation = ({ className }) => (
   <StyledNavigation aria-label="Primary" className={className}>
     <SubNavigationParent
       items={[
+        { href: URL.TRADERS, title: 'Active Traders' },
         { href: URL.ASSET_BRIDGES, title: 'Asset Bridges' },
         { href: URL.FILLS, title: 'Browse Fills' },
         { href: URL.NETWORK_INSIGHTS, title: 'Insights' },
-        { href: URL.TRADERS, title: 'Top Traders' },
       ]}
     >
       Network
