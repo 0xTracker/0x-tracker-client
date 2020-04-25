@@ -13,6 +13,7 @@ const LocalisedAmount = ({
   loadingIndicator,
   preferredPrecision,
   summarize,
+  title,
 }) => {
   const displayCurrency = useDisplayCurrency();
   const conversionRate = useConversionRate();
@@ -31,7 +32,9 @@ const LocalisedAmount = ({
     return (
       <span
         className={className}
-        title={formatCurrency(convertedAmount, displayCurrency)}
+        title={
+          title ? formatCurrency(convertedAmount, displayCurrency) : undefined
+        }
       >
         {summarizeCurrency(convertedAmount, displayCurrency)}
       </span>
@@ -51,6 +54,7 @@ LocalisedAmount.propTypes = {
   loadingIndicator: PropTypes.node,
   preferredPrecision: PropTypes.number,
   summarize: PropTypes.bool,
+  title: PropTypes.bool,
 };
 
 LocalisedAmount.defaultProps = {
@@ -58,6 +62,7 @@ LocalisedAmount.defaultProps = {
   loadingIndicator: undefined,
   preferredPrecision: undefined,
   summarize: false,
+  title: true,
 };
 
 export default LocalisedAmount;

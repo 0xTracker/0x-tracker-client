@@ -8,6 +8,7 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 import MiniTokenMetrics from '../../metrics/components/mini-token-metrics';
 import Number from '../../../components/number';
 import PriceChange from '../../../components/price-change';
+import Rank from '../../../components/rank';
 import TokenImage from './token-image';
 import TokenLink from './token-link';
 import TokenListItemVolume from './token-list-item-volume';
@@ -21,7 +22,9 @@ const truncateAddress = (address) =>
 
 const TokenListItem = ({ position, statsPeriod, token }) => (
   <tr>
-    <td className="align-middle">{position}</td>
+    <td className="align-middle text-center">
+      <Rank>{position}</Rank>
+    </td>
     <td className="align-middle">
       <TokenLink address={token.address}>
         <TokenImage imageUrl={token.imageUrl} />

@@ -7,13 +7,14 @@ import HelpWidget from '../../../components/help-widget';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import MiniBridgeMetrics from './mini-bridge-metrics';
 import Number from '../../../components/number';
+import Rank from '../../../components/rank';
 import SubTitle from '../../../components/sub-title';
 
 const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
   <table className="table table-responsive">
     <thead>
       <tr>
-        <th>#</th>
+        <th className="text-center">#</th>
         <th colSpan="2">Bridge</th>
         <th className="text-right">
           Trades
@@ -41,7 +42,9 @@ const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
     <tbody>
       {assetBridges.map((bridge, index) => (
         <tr key={bridge.address}>
-          <td className="align-middle">{`${positionOffset + index + 1}`}</td>
+          <td className="align-middle text-center">
+            <Rank>{positionOffset + index + 1}</Rank>
+          </td>
           <td className="align-middle">
             <AssetBridgeImage
               imageUrl={bridge.imageUrl}

@@ -12,7 +12,7 @@ module.exports = {
     '!config/**',
   ],
   moduleNameMapper: {
-    '^.+\\.(svg)$': '<rootDir>/config/jest/file-stub.js',
+    '^.+\\.(svg|png)$': '<rootDir>/config/jest/file-stub.js',
   },
   reporters: ['default'],
   setupFilesAfterEnv: ['<rootDir>/config/jest/setup.js'],

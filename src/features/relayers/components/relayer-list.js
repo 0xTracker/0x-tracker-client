@@ -6,6 +6,7 @@ import HelpWidget from '../../../components/help-widget';
 import Link from '../../../components/link';
 import MiniRelayerMetrics from '../../metrics/components/mini-relayer-metrics';
 import Number from '../../../components/number';
+import Rank from '../../../components/rank';
 import relayersPropTypes from '../prop-types';
 import RelayerImage from './relayer-image';
 import RelayerVolumeLabel from './relayer-volume-label';
@@ -17,7 +18,7 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
   <table className="table table-responsive">
     <thead>
       <tr>
-        <th>#</th>
+        <th className="text-center">#</th>
         <th colSpan="2">Relayer</th>
         <th className="text-right">
           Traders{' '}
@@ -52,7 +53,9 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
     <tbody>
       {relayers.map((relayer, index) => (
         <tr key={relayer.id}>
-          <td className="align-middle">{`${positionOffset + index + 1}`}</td>
+          <td className="align-middle text-center">
+            <Rank>{positionOffset + index + 1}</Rank>
+          </td>
           <td className="align-middle">
             <RelayerLink relayer={relayer.slug}>
               {relayer.id === 'unknown' ? (
