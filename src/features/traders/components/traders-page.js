@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
+import { media } from '../../../styles/util';
+import ActiveTraderMetrics from '../../metrics/components/active-trader-metrics';
 import buildUrl from '../../../util/build-url';
 import Card from '../../../components/card';
+import CardBody from '../../../components/card-body';
 import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
@@ -15,7 +18,7 @@ import TradersFilter from './traders-filter';
 import useTraders from '../hooks/use-traders';
 
 const defaultFilters = {
-  statsPeriod: TIME_PERIOD.DAY,
+  statsPeriod: TIME_PERIOD.MONTH,
   type: undefined,
 };
 
@@ -71,32 +74,48 @@ const TradersPage = ({ history, location }) => {
           </span>
         }
       >
-        <Card fullHeight>
-          {loading ? (
-            <LoadingIndicator centered />
-          ) : (
-            <>
-              <TraderList
-                positionOffset={(page - 1) * pageSize}
-                traders={items}
-              />
-              <Paginator
-                onPageChange={(newPage) => {
-                  history.push(
-                    buildUrl(URL.TRADERS, {
-                      page: newPage,
-                      ...selectedFilters,
-                    }),
-                  );
-                }}
-                page={page}
-                pageCount={pageCount}
-                pageSize={pageSize}
-                recordCount={recordCount}
-              />
-            </>
-          )}
-        </Card>
+        <>
+          <Card
+            css={`
+              height: 300px;
+              margin-bottom: 1.25rem;
+
+              ${media.greaterThan('lg')`
+                margin-bottom: 2rem;
+              `}
+            `}
+          >
+            <CardBody padded>
+              <ActiveTraderMetrics period={statsPeriod} />
+            </CardBody>
+          </Card>
+          <Card fullHeight>
+            {loading ? (
+              <LoadingIndicator centered />
+            ) : (
+              <>
+                <TraderList
+                  positionOffset={(page - 1) * pageSize}
+                  traders={items}
+                />
+                <Paginator
+                  onPageChange={(newPage) => {
+                    history.push(
+                      buildUrl(URL.TRADERS, {
+                        page: newPage,
+                        ...selectedFilters,
+                      }),
+                    );
+                  }}
+                  page={page}
+                  pageCount={pageCount}
+                  pageSize={pageSize}
+                  recordCount={recordCount}
+                />
+              </>
+            )}
+          </Card>
+        </>
       </PageLayout>
     </>
   );
