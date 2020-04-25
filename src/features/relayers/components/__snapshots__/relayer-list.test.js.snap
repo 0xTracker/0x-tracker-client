@@ -6,7 +6,9 @@ exports[`renders with basic props 1`] = `
 >
   <thead>
     <tr>
-      <th>
+      <th
+        class="text-center"
+      >
         #
       </th>
       <th
@@ -108,9 +110,12 @@ exports[`renders with basic props 1`] = `
   <tbody>
     <tr>
       <td
-        class="align-middle"
+        class="align-middle text-center"
       >
-        1
+        <img
+          class="rank___StyledImg-flivtb-0 fIVyfs"
+          src="test-file-stub"
+        />
       </td>
       <td
         class="align-middle"
@@ -191,9 +196,12 @@ exports[`renders with basic props 1`] = `
     </tr>
     <tr>
       <td
-        class="align-middle"
+        class="align-middle text-center"
       >
-        2
+        <img
+          class="rank___StyledImg2-flivtb-1 cvLQXd"
+          src="test-file-stub"
+        />
       </td>
       <td
         class="align-middle"
@@ -274,9 +282,12 @@ exports[`renders with basic props 1`] = `
     </tr>
     <tr>
       <td
-        class="align-middle"
+        class="align-middle text-center"
       >
-        3
+        <img
+          class="rank___StyledImg3-flivtb-2 dAUIHr"
+          src="test-file-stub"
+        />
       </td>
       <td
         class="align-middle"
