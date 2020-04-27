@@ -1,5 +1,4 @@
 import { hot } from 'react-hot-loader/root';
-import { Helmet } from 'react-helmet';
 import React from 'react';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -21,7 +20,6 @@ const App = () => (
         <RatesProvider>
           <Router>
             <GlobalStyles />
-            <Helmet defaultTitle="0x Tracker" titleTemplate="%s | 0x Tracker" />
             <AppLayout>
               <Routes />
             </AppLayout>

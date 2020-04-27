@@ -1,19 +1,20 @@
 import _ from 'lodash';
-import { Helmet } from 'react-helmet';
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useSearchParam } from 'react-use';
 
+import { URL } from '../../../constants';
+import { buildUrl } from '../../../util';
+import { useMetadata } from '../../../hooks';
 import Card from '../../../components/card';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 import SearchResults from './search-results';
 import useFills from '../../fills/hooks/use-fills';
-import buildUrl from '../../../util/build-url';
-import { URL } from '../../../constants';
 
 const SearchPage = ({ history, location }) => {
+  useMetadata({ title: 'Search Results' });
   const params = new URLSearchParams(location.search);
   const page = Number(params.get('page')) || 1;
 
@@ -41,29 +42,24 @@ const SearchPage = ({ history, location }) => {
   const { items, pageCount, pageSize, recordCount } = fills;
 
   return (
-    <>
-      <Helmet>
-        <title>Search Results</title>
-      </Helmet>
-      <PageLayout title="Search Results">
-        <Card fullHeight>
-          {loading ? (
-            <LoadingIndicator centered />
-          ) : (
-            <SearchResults
-              changingPage={loading}
-              fills={items}
-              onPageChange={onPageChange}
-              page={page}
-              pageCount={pageCount}
-              pageSize={pageSize}
-              searchQuery={_.toLower(searchQuery)}
-              total={recordCount}
-            />
-          )}
-        </Card>
-      </PageLayout>
-    </>
+    <PageLayout title="Search Results">
+      <Card fullHeight>
+        {loading ? (
+          <LoadingIndicator centered />
+        ) : (
+          <SearchResults
+            changingPage={loading}
+            fills={items}
+            onPageChange={onPageChange}
+            page={page}
+            pageCount={pageCount}
+            pageSize={pageSize}
+            searchQuery={_.toLower(searchQuery)}
+            total={recordCount}
+          />
+        )}
+      </Card>
+    </PageLayout>
   );
 };
 

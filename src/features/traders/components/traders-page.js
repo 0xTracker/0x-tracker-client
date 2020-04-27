@@ -1,9 +1,9 @@
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import buildUrl from '../../../util/build-url';
+import { buildUrl } from '../../../util';
+import { useMetadata } from '../../../hooks';
 import Card from '../../../components/card';
 import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
@@ -28,6 +28,7 @@ const periodDescriptions = {
 };
 
 const TradersPage = ({ history, location }) => {
+  useMetadata({ title: '0x Protocol Trader Metrics & Charts' });
   const params = new URLSearchParams(location.search);
   const statsPeriod = params.get('statsPeriod') || defaultFilters.statsPeriod;
   const type = params.get('type') || undefined;
@@ -48,57 +49,52 @@ const TradersPage = ({ history, location }) => {
   const { items, pageCount, pageSize, recordCount } = traders;
 
   return (
-    <>
-      <Helmet>
-        <title>Active Traders</title>
-      </Helmet>
-      <PageLayout
-        filter={
-          <TradersFilter
-            defaultFilters={defaultFilters}
-            onChange={(newFilters) => {
-              history.push(buildUrl(URL.TRADERS, newFilters));
-            }}
-            selectedFilters={selectedFilters}
-          />
-        }
-        title={
-          <span>
-            Active Traders
-            <Hidden above="xs">
-              <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
-            </Hidden>
-          </span>
-        }
-      >
-        <Card fullHeight>
-          {loading ? (
-            <LoadingIndicator centered />
-          ) : (
-            <>
-              <TraderList
-                positionOffset={(page - 1) * pageSize}
-                traders={items}
-              />
-              <Paginator
-                onPageChange={(newPage) => {
-                  history.push(
-                    buildUrl(URL.TRADERS, {
-                      page: newPage,
-                      ...selectedFilters,
-                    }),
-                  );
-                }}
-                page={page}
-                pageCount={pageCount}
-                pageSize={pageSize}
-                recordCount={recordCount}
-              />
-            </>
-          )}
-        </Card>
-      </PageLayout>
-    </>
+    <PageLayout
+      filter={
+        <TradersFilter
+          defaultFilters={defaultFilters}
+          onChange={(newFilters) => {
+            history.push(buildUrl(URL.TRADERS, newFilters));
+          }}
+          selectedFilters={selectedFilters}
+        />
+      }
+      title={
+        <span>
+          Active Traders
+          <Hidden above="xs">
+            <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
+          </Hidden>
+        </span>
+      }
+    >
+      <Card fullHeight>
+        {loading ? (
+          <LoadingIndicator centered />
+        ) : (
+          <>
+            <TraderList
+              positionOffset={(page - 1) * pageSize}
+              traders={items}
+            />
+            <Paginator
+              onPageChange={(newPage) => {
+                history.push(
+                  buildUrl(URL.TRADERS, {
+                    page: newPage,
+                    ...selectedFilters,
+                  }),
+                );
+              }}
+              page={page}
+              pageCount={pageCount}
+              pageSize={pageSize}
+              recordCount={recordCount}
+            />
+          </>
+        )}
+      </Card>
+    </PageLayout>
   );
 };
 
