@@ -4,6 +4,9 @@ exports[`app layout component should render with children 1`] = `
 <div
   class="app-layout__AppContainer-nr5sez-0 jUhpZW"
 >
+  <div
+    class="header-215ea67e6e9422c229"
+  />
   <header
     class="header__StyledHeader-gflnft-2 kGccGm"
   >
