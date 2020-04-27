@@ -35,7 +35,11 @@ const MiniTraderMetrics = ({ address, height, period, type, width }) => {
       total: metric.fillVolume.total * conversionRate,
     },
     tradeCount: metric.tradeCount,
-    tradeVolume: (parseFloat(metric.tradeVolume) || 0) * conversionRate,
+    tradeVolume: {
+      maker: metric.tradeVolume.maker * conversionRate,
+      taker: metric.tradeVolume.taker * conversionRate,
+      total: metric.tradeVolume.total * conversionRate,
+    },
   }));
 
   if (loading || conversionRate === undefined) {
