@@ -5,6 +5,7 @@ import { COLORS } from '../../../styles/constants';
 import { ExternalLinkIcon, MoreIcon } from '../../../components/icons';
 import Badge from '../../../components/badge';
 import Blockie from '../../../components/blockie';
+import HelpWidget from '../../../components/help-widget';
 import Link from '../../../components/link';
 import Rank from '../../../components/rank';
 import Tooltip from '../../../components/tooltip';
@@ -12,17 +13,34 @@ import tradersPropTypes from '../prop-types';
 import TraderLink from './trader-link';
 import TraderFillCountLabel from './trader-fill-count-label';
 import TraderVolumeLabel from './trader-volume-label';
+import MiniTraderMetrics from './mini-trader-metrics';
 
-const TraderList = ({ positionOffset, traders }) => (
+const TraderList = ({ positionOffset, statsPeriod, traders }) => (
   <table className="table table-responsive">
     <thead>
       <tr>
-        <th className="align-middle text-center">#</th>
-        <th className="align-middle" colSpan={2}>
-          Trader
+        <th className="text-center">#</th>
+        <th colSpan={2}>Trader</th>
+        <th className="text-center">
+          Fills
+          <HelpWidget css="margin-left: 0.25rem;">
+            The number of unique fills for a given trader in the selected
+            period.
+          </HelpWidget>
         </th>
-        <th className="text-center">Fills</th>
-        <th className="text-center">Volume</th>
+        <th className="text-center">
+          Volume
+          <HelpWidget css="margin-left: 0.25rem;">
+            The total value of all fills that a given trader participated in for
+            the selected period.
+          </HelpWidget>
+        </th>
+        <th>
+          Volume Trend
+          <HelpWidget css="margin-left: 0.25rem;">
+            Volume trend for a given trader in the selected period.
+          </HelpWidget>
+        </th>
         <th title="Actions" />
       </tr>
     </thead>
@@ -71,6 +89,15 @@ const TraderList = ({ positionOffset, traders }) => (
           <td className="align-middle text-center" side="left">
             <TraderVolumeLabel volume={trader.stats.fillVolume} />
           </td>
+          <td>
+            <MiniTraderMetrics
+              address={trader.address}
+              height={40}
+              period={statsPeriod}
+              type="fillVolume.total"
+              width={120}
+            />
+          </td>
           <td className="align-middle text-center">
             <Tooltip content="View Detail">
               <span>
@@ -114,6 +141,7 @@ const TraderList = ({ positionOffset, traders }) => (
 
 TraderList.propTypes = {
   positionOffset: PropTypes.number,
+  statsPeriod: PropTypes.string.isRequired,
   traders: PropTypes.arrayOf(tradersPropTypes.traderWithStats).isRequired,
 };
 
