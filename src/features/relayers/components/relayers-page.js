@@ -1,9 +1,9 @@
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import buildUrl from '../../../util/build-url';
+import { buildUrl } from '../../../util';
+import { useMetadata } from '../../../hooks';
 import Card from '../../../components/card';
 import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
@@ -28,6 +28,8 @@ const periodDescriptions = {
 };
 
 const RelayersPage = ({ history, location, page, setPage }) => {
+  useMetadata({ title: '0x Protocol Relayer Metrics & Charts' });
+
   const params = new URLSearchParams(location.search);
   const statsPeriod = params.get('statsPeriod') || defaultFilters.statsPeriod;
 
@@ -41,51 +43,46 @@ const RelayersPage = ({ history, location, page, setPage }) => {
   const { items, pageCount, pageSize, recordCount } = relayers;
 
   return (
-    <>
-      <Helmet key="relayers">
-        <title>Active Relayers</title>
-      </Helmet>
-      <PageLayout
-        filter={
-          <ResponsiveTimePeriodFilter
-            name="statsPeriod"
-            onChange={(newPeriod) => {
-              history.push(buildUrl(URL.RELAYERS, { statsPeriod: newPeriod }));
-            }}
-            value={statsPeriod}
-          />
-        }
-        title={
-          <span>
-            Active Relayers
-            <Hidden above="xs">
-              <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
-            </Hidden>
-          </span>
-        }
-      >
-        <Card fullHeight>
-          {loadingRelayers ? (
-            <LoadingIndicator centered />
-          ) : (
-            <>
-              <RelayerList
-                positionOffset={(page - 1) * pageSize}
-                relayers={items}
-                statsPeriod={statsPeriod}
-              />
-              <Paginator
-                onPageChange={setPage}
-                page={page}
-                pageCount={pageCount}
-                pageSize={pageSize}
-                recordCount={recordCount}
-              />
-            </>
-          )}
-        </Card>
-      </PageLayout>
-    </>
+    <PageLayout
+      filter={
+        <ResponsiveTimePeriodFilter
+          name="statsPeriod"
+          onChange={(newPeriod) => {
+            history.push(buildUrl(URL.RELAYERS, { statsPeriod: newPeriod }));
+          }}
+          value={statsPeriod}
+        />
+      }
+      title={
+        <span>
+          Active Relayers
+          <Hidden above="xs">
+            <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
+          </Hidden>
+        </span>
+      }
+    >
+      <Card fullHeight>
+        {loadingRelayers ? (
+          <LoadingIndicator centered />
+        ) : (
+          <>
+            <RelayerList
+              positionOffset={(page - 1) * pageSize}
+              relayers={items}
+              statsPeriod={statsPeriod}
+            />
+            <Paginator
+              onPageChange={setPage}
+              page={page}
+              pageCount={pageCount}
+              pageSize={pageSize}
+              recordCount={recordCount}
+            />
+          </>
+        )}
+      </Card>
+    </PageLayout>
   );
 };
 

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { TIME_PERIOD } from '../../../constants';
 import { media } from '../../../styles/util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
+import { useMetadata } from '../../../hooks';
 import ChartsContainer from '../../../components/charts-container';
 import Container from '../../../components/container';
 import HomePageMetrics from './home-page-metrics';
@@ -44,6 +45,10 @@ const StyledHomePageMetrics = styled(HomePageMetrics)`
 `;
 
 const HomePage = () => {
+  useMetadata({
+    title: '0x Protocol Metrics, News & Trading Activity',
+  });
+
   const breakpoint = useCurrentBreakpoint();
 
   return (

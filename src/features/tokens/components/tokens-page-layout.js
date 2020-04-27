@@ -1,8 +1,8 @@
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
+import { useMetadata } from '../../../hooks';
 import Card from '../../../components/card';
 import Hidden from '../../../components/hidden';
 import PageLayout from '../../../components/page-layout';
@@ -22,11 +22,10 @@ const TokensPageLayout = ({
   defaultFilters,
   onFiltersChange,
   selectedFilters,
-}) => (
-  <>
-    <Helmet>
-      <title>Traded Tokens</title>
-    </Helmet>
+}) => {
+  useMetadata({ title: 'Ethereum Token Prices & 0x Protocol Metrics' });
+
+  return (
     <PageLayout
       filter={
         <TokensFilter
@@ -48,8 +47,8 @@ const TokensPageLayout = ({
     >
       <Card fullHeight>{children}</Card>
     </PageLayout>
-  </>
-);
+  );
+};
 
 TokensPageLayout.propTypes = {
   children: PropTypes.node.isRequired,

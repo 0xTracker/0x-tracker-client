@@ -22,6 +22,7 @@ const AppBody = styled.div`
 
 const AppLayout = ({ children }) => (
   <AppContainer>
+    <div className="header-215ea67e6e9422c229" />
     <Header />
     <AppBody>{children}</AppBody>
     <Footer />
