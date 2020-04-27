@@ -1,10 +1,10 @@
 import _ from 'lodash';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { URL } from '../../../constants';
-import buildUrl from '../../../util/build-url';
+import { buildUrl } from '../../../util';
+import { useMetadata } from '../../../hooks';
 import Card from '../../../components/card';
 import Fills from './fills';
 import FillsFilter from './fills-filter';
@@ -20,6 +20,8 @@ const defaultFilters = {
 };
 
 const FillsPage = ({ history, location }) => {
+  useMetadata({ title: 'Browse 0x Protocol Fills' });
+
   const params = new URLSearchParams(location.search);
   const page = Number(params.get('page')) || 1;
   const status = params.get('status') || undefined;
@@ -63,43 +65,38 @@ const FillsPage = ({ history, location }) => {
   };
 
   return (
-    <>
-      <Helmet>
-        <title>Browse Fills</title>
-      </Helmet>
-      <PageLayout
-        filter={
-          <FillsFilter
-            defaultFilters={defaultFilters}
-            onChange={handleFiltersChange}
-            selectedFilters={selectedFilters}
-          />
-        }
-        title={
-          <span>
-            Browse Fills
-            <SubTitle>from the last 6 months</SubTitle>
-          </span>
-        }
-      >
-        <Card fullHeight>
-          <Fills
-            filter={{
-              dateFrom,
-              dateTo,
-              protocolVersion,
-              relayer,
-              status,
-              token,
-              valueFrom,
-              valueTo,
-            }}
-            onPageChange={handlePageChange}
-            page={page}
-          />
-        </Card>
-      </PageLayout>
-    </>
+    <PageLayout
+      filter={
+        <FillsFilter
+          defaultFilters={defaultFilters}
+          onChange={handleFiltersChange}
+          selectedFilters={selectedFilters}
+        />
+      }
+      title={
+        <span>
+          Browse Fills
+          <SubTitle>from the last 6 months</SubTitle>
+        </span>
+      }
+    >
+      <Card fullHeight>
+        <Fills
+          filter={{
+            dateFrom,
+            dateTo,
+            protocolVersion,
+            relayer,
+            status,
+            token,
+            valueFrom,
+            valueTo,
+          }}
+          onPageChange={handlePageChange}
+          page={page}
+        />
+      </Card>
+    </PageLayout>
   );
 };
 

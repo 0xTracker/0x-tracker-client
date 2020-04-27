@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import { Col, Row } from 'reactstrap';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -8,6 +7,7 @@ import styled from 'styled-components';
 import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
+import { useMetadata } from '../../../hooks';
 import ArticleList from './article-list';
 import ArticlesFilter from './articles-filter';
 import ArticlesProvider from './articles-provider';
@@ -48,6 +48,8 @@ const ArticlesColumn = styled(Col).attrs({ md: 8 })`
 `;
 
 const NewsPage = ({ match }) => {
+  useMetadata({ title: '0x Ecosystem News & Updates' });
+
   const [sources, loadingSources] = useArticleSources();
   const breakpoint = useCurrentBreakpoint();
 
@@ -61,9 +63,6 @@ const NewsPage = ({ match }) => {
     <PageLayout
       title={source ? `${source.name} News & Updates` : 'News & Updates'}
     >
-      <Helmet>
-        <title>News &amp; Updates</title>
-      </Helmet>
       <Row css="flex-grow: 1;">
         <ArticlesColumn>
           <Card fullHeight>

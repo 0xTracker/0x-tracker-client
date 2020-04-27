@@ -1,7 +1,7 @@
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { useMetadata } from '../../../hooks';
 import Card from '../../../components/card';
 import FillDetails from './fill-details';
 import LoadingPage from '../../../components/loading-page';
@@ -10,6 +10,8 @@ import PageNotFound from '../../../components/page-not-found';
 import useFill from '../hooks/use-fill';
 
 const FillPage = ({ match }) => {
+  useMetadata({ title: '0x Protocol Fill Details' });
+
   const { id: fillId } = match.params;
   const [fill, loading] = useFill(fillId);
 
@@ -22,16 +24,11 @@ const FillPage = ({ match }) => {
   }
 
   return (
-    <>
-      <Helmet>
-        <title>Fill Details</title>
-      </Helmet>
-      <PageLayout title="Fill Details">
-        <Card css="padding: 2rem;" fullHeight>
-          <FillDetails fill={fill} />
-        </Card>
-      </PageLayout>
-    </>
+    <PageLayout title="Fill Details">
+      <Card css="padding: 2rem;" fullHeight>
+        <FillDetails fill={fill} />
+      </Card>
+    </PageLayout>
   );
 };
 

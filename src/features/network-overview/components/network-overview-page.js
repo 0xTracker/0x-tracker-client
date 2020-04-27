@@ -1,5 +1,4 @@
 import { Col, Row } from 'reactstrap';
-import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -7,6 +6,7 @@ import styled from 'styled-components';
 import { TIME_PERIOD, URL } from '../../../constants';
 import { media } from '../../../styles/util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
+import { useMetadata } from '../../../hooks';
 import ActiveTradersCard from '../../traders/components/active-traders-card';
 import Footnote from '../../../components/footnote';
 import Hidden from '../../../components/hidden';
@@ -68,99 +68,94 @@ const NetworkOverviewPage = ({ history, location }) => {
     value: period,
   };
 
+  useMetadata({ title: '0x Protocol Trading Activity, Metrics & Charts' });
+
   return (
-    <>
-      <Helmet key="network-insights">
-        <title>Network Insights</title>
-      </Helmet>
-      <PageLayout
-        filter={
-          breakpoint.lessThan('sm') ? (
-            <MobileTimePeriodFilter {...periodFilterProps} />
-          ) : (
-            <TimePeriodFilter {...periodFilterProps} />
-          )
-        }
-        title={
-          <span>
-            Network Insights
-            <Hidden above="xs">
-              <SubTitle>{periodDescriptions[period]}</SubTitle>
-            </Hidden>
-          </span>
-        }
-      >
-        <StyledNetworkOverviewStats period={period} />
-        <Row>
-          <DashboardColumn lg={7}>
-            <TabbedCard
-              css="height: 360px;"
-              tabs={[
-                {
-                  component: (
-                    <NetworkMetrics period={period} type="tradeVolume" />
-                  ),
-                  title: 'Volume',
-                },
-                {
-                  component: (
-                    <NetworkMetrics period={period} type="tradeCount" />
-                  ),
-                  title: 'Trades',
-                },
-              ]}
-            />
-          </DashboardColumn>
-          <DashboardColumn lg={5}>
-            <TabbedCard
-              css="height: 360px;"
-              tabs={[
-                {
-                  component: <TopTokens period={period} />,
-                  footer: <Footnote>Top tokens by volume</Footnote>,
-                  title: 'Top Tokens',
-                },
-                {
-                  component: <TopRelayers period={period} />,
-                  footer: <Footnote>Top relayers by volume</Footnote>,
-                  title: 'Top Relayers',
-                },
-              ]}
-            />
-          </DashboardColumn>
-        </Row>
-        <Row>
-          <DashboardColumn lg={5}>
-            <TopProtocolsCard period={period} />
-          </DashboardColumn>
-          <DashboardColumn lg={7}>
-            <TabbedCard
-              css="height: 360px;"
-              tabs={[
-                {
-                  component: <ProtocolMetrics period={period} />,
-                  title: 'Protocol Adoption',
-                },
-                {
-                  component: (
-                    <NetworkMetrics period={period} type="protocolFees" />
-                  ),
-                  title: 'Protocol Fees',
-                },
-              ]}
-            />
-          </DashboardColumn>
-        </Row>
-        <Row>
-          <DashboardColumn lastRow lg={7}>
-            <ActiveTradersCard period={period} />
-          </DashboardColumn>
-          <DashboardColumn lastRow lg={5}>
-            <TraderTypesCard period={period} />
-          </DashboardColumn>
-        </Row>
-      </PageLayout>
-    </>
+    <PageLayout
+      filter={
+        breakpoint.lessThan('sm') ? (
+          <MobileTimePeriodFilter {...periodFilterProps} />
+        ) : (
+          <TimePeriodFilter {...periodFilterProps} />
+        )
+      }
+      title={
+        <span>
+          Network Insights
+          <Hidden above="xs">
+            <SubTitle>{periodDescriptions[period]}</SubTitle>
+          </Hidden>
+        </span>
+      }
+    >
+      <StyledNetworkOverviewStats period={period} />
+      <Row>
+        <DashboardColumn lg={7}>
+          <TabbedCard
+            css="height: 360px;"
+            tabs={[
+              {
+                component: (
+                  <NetworkMetrics period={period} type="tradeVolume" />
+                ),
+                title: 'Volume',
+              },
+              {
+                component: <NetworkMetrics period={period} type="tradeCount" />,
+                title: 'Trades',
+              },
+            ]}
+          />
+        </DashboardColumn>
+        <DashboardColumn lg={5}>
+          <TabbedCard
+            css="height: 360px;"
+            tabs={[
+              {
+                component: <TopTokens period={period} />,
+                footer: <Footnote>Top tokens by volume</Footnote>,
+                title: 'Top Tokens',
+              },
+              {
+                component: <TopRelayers period={period} />,
+                footer: <Footnote>Top relayers by volume</Footnote>,
+                title: 'Top Relayers',
+              },
+            ]}
+          />
+        </DashboardColumn>
+      </Row>
+      <Row>
+        <DashboardColumn lg={5}>
+          <TopProtocolsCard period={period} />
+        </DashboardColumn>
+        <DashboardColumn lg={7}>
+          <TabbedCard
+            css="height: 360px;"
+            tabs={[
+              {
+                component: <ProtocolMetrics period={period} />,
+                title: 'Protocol Adoption',
+              },
+              {
+                component: (
+                  <NetworkMetrics period={period} type="protocolFees" />
+                ),
+                title: 'Protocol Fees',
+              },
+            ]}
+          />
+        </DashboardColumn>
+      </Row>
+      <Row>
+        <DashboardColumn lastRow lg={7}>
+          <ActiveTradersCard period={period} />
+        </DashboardColumn>
+        <DashboardColumn lastRow lg={5}>
+          <TraderTypesCard period={period} />
+        </DashboardColumn>
+      </Row>
+    </PageLayout>
   );
 };
 
