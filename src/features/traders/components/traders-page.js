@@ -1,21 +1,28 @@
+import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
 import { buildUrl } from '../../../util';
+import { media } from '../../../styles/util';
 import { useMetadata } from '../../../hooks';
+import ActiveTraderMetrics from '../../metrics/components/active-trader-metrics';
 import Card from '../../../components/card';
+import CardBody from '../../../components/card-body';
+import CardHeader from '../../../components/card-header';
+import CardHeading from '../../../components/card-heading';
 import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
 import SubTitle from '../../../components/sub-title';
+import TraderBreakdown from './trader-breakdown';
 import TraderList from './trader-list';
 import TradersFilter from './traders-filter';
 import useTraders from '../hooks/use-traders';
 
 const defaultFilters = {
-  statsPeriod: TIME_PERIOD.DAY,
+  statsPeriod: TIME_PERIOD.MONTH,
   type: undefined,
 };
 
@@ -29,6 +36,7 @@ const periodDescriptions = {
 
 const TradersPage = ({ history, location }) => {
   useMetadata({ title: '0x Protocol Trader Metrics & Charts' });
+
   const params = new URLSearchParams(location.search);
   const statsPeriod = params.get('statsPeriod') || defaultFilters.statsPeriod;
   const type = params.get('type') || undefined;
@@ -68,32 +76,75 @@ const TradersPage = ({ history, location }) => {
         </span>
       }
     >
-      <Card fullHeight>
-        {loading ? (
-          <LoadingIndicator centered />
-        ) : (
-          <>
-            <TraderList
-              positionOffset={(page - 1) * pageSize}
-              traders={items}
-            />
-            <Paginator
-              onPageChange={(newPage) => {
-                history.push(
-                  buildUrl(URL.TRADERS, {
-                    page: newPage,
-                    ...selectedFilters,
-                  }),
-                );
-              }}
-              page={page}
-              pageCount={pageCount}
-              pageSize={pageSize}
-              recordCount={recordCount}
-            />
-          </>
-        )}
-      </Card>
+      <>
+        <Row>
+          <Col lg={7}>
+            <Card
+              css={`
+                height: 300px;
+                margin-bottom: 1.25rem;
+
+                ${media.greaterThan('lg')`
+                margin-bottom: 2rem;
+              `}
+              `}
+            >
+              <CardHeader>
+                <CardHeading>Trend</CardHeading>
+              </CardHeader>
+              <CardBody padded>
+                <ActiveTraderMetrics period={statsPeriod} />
+              </CardBody>
+            </Card>
+          </Col>
+          <Col lg={5}>
+            <Card
+              css={`
+                height: 300px;
+                margin-bottom: 1.25rem;
+
+                ${media.greaterThan('lg')`
+                margin-bottom: 2rem;
+              `}
+              `}
+            >
+              <CardHeader>
+                <CardHeading>Maker-Taker Split</CardHeading>
+              </CardHeader>
+              <CardBody css="padding: 3rem;">
+                <TraderBreakdown period={statsPeriod} />
+              </CardBody>
+            </Card>
+          </Col>
+        </Row>
+        <Card fullHeight>
+          {loading ? (
+            <LoadingIndicator centered />
+          ) : (
+            <>
+              <TraderList
+                positionOffset={(page - 1) * pageSize}
+                statsPeriod={statsPeriod}
+                traders={items}
+              />
+              <Paginator
+                onPageChange={(newPage) => {
+                  history.push(
+                    buildUrl(URL.TRADERS, {
+                      page: newPage,
+                      ...selectedFilters,
+                    }),
+                  );
+                }}
+                page={page}
+                pageCount={pageCount}
+                pageSize={pageSize}
+                recordCount={recordCount}
+              />
+            </>
+          )}
+        </Card>
+      </>
     </PageLayout>
   );
 };
