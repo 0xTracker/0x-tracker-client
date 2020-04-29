@@ -26,7 +26,7 @@ const CloseButton = styled.button`
 `;
 
 const Logo = styled.img`
-  height: 2.5rem;
+  height: 2.6rem;
 `;
 
 const MobileMenuHeader = ({ onClose, onNavigate }) => (
