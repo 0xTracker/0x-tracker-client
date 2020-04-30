@@ -7,7 +7,7 @@ import { COLORS } from '../styles/constants';
 import { DiscordIcon, TwitterIcon } from './icons';
 import Container from './container';
 import Link from './link';
-import logoImage from '../assets/images/logo-grayscale.svg';
+import logoImage from '../assets/images/logo-simple.svg';
 
 const Logo = styled.img`
   height: 2.25rem;

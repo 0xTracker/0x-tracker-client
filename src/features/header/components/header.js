@@ -15,7 +15,7 @@ import Navigation from './navigation';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
 
 const LogoImage = styled.img`
-  height: 2.5rem;
+  height: 2.6rem;
 `;
 
 const MenuButton = styled.button`
