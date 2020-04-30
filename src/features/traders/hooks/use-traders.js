@@ -6,6 +6,7 @@ const useTraders = (options = {}) => {
     params: {
       limit: options.limit,
       page: options.page,
+      sortBy: options.sortBy,
       statsPeriod: options.statsPeriod,
       type: options.type,
     },

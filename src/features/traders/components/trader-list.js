@@ -15,30 +15,46 @@ import TraderFillCountLabel from './trader-fill-count-label';
 import TraderVolumeLabel from './trader-volume-label';
 import MiniTraderMetrics from './mini-trader-metrics';
 
-const TraderList = ({ positionOffset, statsPeriod, traders }) => (
+const DESCRIPTOR_MAPPINGS = {
+  maker: 'Maker',
+  taker: 'Taker',
+  undefined: 'Trader',
+};
+
+const METRIC_TYPE_MAPPINGS = {
+  maker: 'fillVolume.maker',
+  taker: 'fillVolume.taker',
+  undefined: 'fillVolume.total',
+};
+
+const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
   <table className="table table-responsive">
     <thead>
       <tr>
         <th className="text-center">#</th>
-        <th colSpan={2}>Trader</th>
+        <th colSpan={2}>{DESCRIPTOR_MAPPINGS[statsType]}</th>
         <th className="text-center">
           Fills
           <HelpWidget css="margin-left: 0.25rem;">
-            The number of unique fills for a given trader in the selected
+            The number of unique fills for a given{' '}
+            {DESCRIPTOR_MAPPINGS[statsType].toLowerCase()} in the selected
             period.
           </HelpWidget>
         </th>
         <th className="text-center">
           Volume
           <HelpWidget css="margin-left: 0.25rem;">
-            The total value of all fills that a given trader participated in for
+            The total value of all fills that a given{' '}
+            {DESCRIPTOR_MAPPINGS[statsType].toLowerCase()} participated in for
             the selected period.
           </HelpWidget>
         </th>
         <th>
           Volume Trend
           <HelpWidget css="margin-left: 0.25rem;">
-            Volume trend for a given trader in the selected period.
+            Volume trend for a given{' '}
+            {DESCRIPTOR_MAPPINGS[statsType].toLowerCase()} in the selected
+            period.
           </HelpWidget>
         </th>
         <th title="Actions" />
@@ -64,37 +80,44 @@ const TraderList = ({ positionOffset, statsPeriod, traders }) => (
               <TraderLink address={trader.address}>{trader.address}</TraderLink>
             </span>
             {trader.stats.fillCount.maker > 0 && (
-              <Badge
-                bgColor={COLORS.ACCENT.ANZAC_500}
-                css="margin-right: 0.5rem;"
-                textColor={COLORS.ACCENT.ANZAC_1000}
-              >
-                maker
-              </Badge>
+              <Tooltip content="This trader has been a maker during the selected period.">
+                <Badge
+                  bgColor={COLORS.ACCENT.ANZAC_500}
+                  css="margin-right: 0.5rem;"
+                  textColor={COLORS.ACCENT.ANZAC_1000}
+                >
+                  maker
+                </Badge>
+              </Tooltip>
             )}
             {trader.stats.fillCount.taker > 0 && (
-              <Badge
-                bgColor={COLORS.ACCENT.FRUIT_SALAD_500}
-                textColor={COLORS.ACCENT.FRUIT_SALAD_1000}
-              >
-                taker
-              </Badge>
+              <Tooltip content="This trader has been a taker during the selected period.">
+                <Badge
+                  bgColor={COLORS.ACCENT.FRUIT_SALAD_500}
+                  textColor={COLORS.ACCENT.FRUIT_SALAD_1000}
+                >
+                  taker
+                </Badge>
+              </Tooltip>
             )}
           </td>
           <td className="align-middle text-center" side="left">
-            <TraderFillCountLabel>
+            <TraderFillCountLabel statsType={statsType}>
               {trader.stats.fillCount}
             </TraderFillCountLabel>
           </td>
           <td className="align-middle text-center" side="left">
-            <TraderVolumeLabel volume={trader.stats.fillVolume} />
+            <TraderVolumeLabel
+              statsType={statsType}
+              volume={trader.stats.fillVolume}
+            />
           </td>
           <td>
             <MiniTraderMetrics
               address={trader.address}
               height={40}
               period={statsPeriod}
-              type="fillVolume.total"
+              type={METRIC_TYPE_MAPPINGS[statsType]}
               width={120}
             />
           </td>
@@ -142,11 +165,13 @@ const TraderList = ({ positionOffset, statsPeriod, traders }) => (
 TraderList.propTypes = {
   positionOffset: PropTypes.number,
   statsPeriod: PropTypes.string.isRequired,
+  statsType: PropTypes.string,
   traders: PropTypes.arrayOf(tradersPropTypes.traderWithStats).isRequired,
 };
 
 TraderList.defaultProps = {
   positionOffset: 0,
+  statsType: undefined,
 };
 
 export default TraderList;
