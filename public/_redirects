@@ -3,7 +3,6 @@
 /addresses             /traders              301
 
 # Redirect all requests to index.html since it's a single page application
-/                      /index.html    200
 /asset-bridges         /index.html    200
 /fills                 /index.html    200
 /fills/:index          /index.html    200
