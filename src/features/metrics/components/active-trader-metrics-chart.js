@@ -18,7 +18,7 @@ import ChartContainer from '../../../components/chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 
 const ActiveTraderMetricsChart = React.memo(
-  ({ data, granularity, onBrushChange, period }) => {
+  ({ data, granularity, onBrushChange, period, type }) => {
     if (_.isEmpty(data)) {
       return <ChartPlaceholder>No data available</ChartPlaceholder>;
     }
@@ -40,7 +40,7 @@ const ActiveTraderMetricsChart = React.memo(
             strokeOpacity={0.7}
             vertical={false}
           />
-          <Bar dataKey="traderCount" fill={COLORS.ACCENT.ANZAC_500} />
+          <Bar dataKey={type} fill={COLORS.ACCENT.ANZAC_500} />
           <XAxis
             axisLine={{ stroke: COLORS.NEUTRAL.MYSTIC_200 }}
             dataKey="date"
@@ -50,7 +50,7 @@ const ActiveTraderMetricsChart = React.memo(
           />
           <YAxis
             axisLine={false}
-            dataKey="traderCount"
+            dataKey={type}
             mirror
             scale="linear"
             tick={{
@@ -89,6 +89,7 @@ ActiveTraderMetricsChart.propTypes = {
   granularity: PropTypes.string.isRequired,
   onBrushChange: PropTypes.func,
   period: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
 };
 
 ActiveTraderMetricsChart.defaultProps = {

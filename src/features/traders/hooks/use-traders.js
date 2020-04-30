@@ -5,6 +5,7 @@ const useTraders = (options = {}) => {
     autoReload: options.autoReload,
     params: {
       limit: options.limit,
+      orderBy: options.orderBy,
       page: options.page,
       statsPeriod: options.statsPeriod,
       type: options.type,

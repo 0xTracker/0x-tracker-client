@@ -23,7 +23,7 @@ const determineGranularity = (period) => {
   return 'hour';
 };
 
-const ActiveTraderMetrics = ({ period }) => {
+const ActiveTraderMetrics = ({ period, type }) => {
   const granularity = determineGranularity(period);
   const [brushActive, setBrushActive] = React.useState(false);
   const [metrics, loading] = useActiveTraderMetrics(
@@ -75,6 +75,7 @@ const ActiveTraderMetrics = ({ period }) => {
         key={chartKey}
         onBrushChange={handleBrushChange}
         period={period}
+        type={type}
       />
     </BrushableChartContainer>
   );
@@ -82,14 +83,16 @@ const ActiveTraderMetrics = ({ period }) => {
 
 ActiveTraderMetrics.propTypes = {
   period: PropTypes.string,
+  type: PropTypes.string,
 };
 
 ActiveTraderMetrics.defaultProps = {
   period: TIME_PERIOD.MONTH,
+  type: 'traderCount',
 };
 
 // eslint-disable-next-line react/display-name, import/no-anonymous-default-export, react/prop-types, react/no-multi-comp
-export default ({ period }) => (
+export default ({ period, type }) => (
   /*
     This is a hack to ensure autoReload is reset whenever the period or type props are changed.
     By using a key composed of period and type we can ensure the metrics component will remount
@@ -98,5 +101,5 @@ export default ({ period }) => (
     Ideally the autoReload state would be lifted up the component tree but I'm being lazy for
     the time being because of the additional work involved.
   */
-  <ActiveTraderMetrics key={period} period={period} />
+  <ActiveTraderMetrics key={period} period={period} type={type} />
 );

@@ -11,6 +11,7 @@ import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
+import HelpWidget from '../../../components/help-widget';
 import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
@@ -34,6 +35,24 @@ const periodDescriptions = {
   [TIME_PERIOD.ALL]: 'from all time',
 };
 
+const DESCRIPTOR_MAPPINGS = {
+  maker: 'Makers',
+  taker: 'Takers',
+  undefined: 'Traders',
+};
+
+const METRIC_TYPE_MAPPINGS = {
+  maker: 'makerCount',
+  taker: 'takerCount',
+  undefined: 'traderCount',
+};
+
+const ORDER_BY_MAPPINGS = {
+  maker: 'fillVolume.maker',
+  taker: 'fillVolume.taker',
+  undefined: 'fillVolume.total',
+};
+
 const TradersPage = ({ history, location }) => {
   useMetadata({ title: '0x Protocol Trader Metrics & Charts' });
 
@@ -50,6 +69,7 @@ const TradersPage = ({ history, location }) => {
   const [traders, loading] = useTraders({
     autoReload: true,
     limit: 25,
+    orderBy: ORDER_BY_MAPPINGS[type],
     page,
     ...selectedFilters,
   });
@@ -69,7 +89,7 @@ const TradersPage = ({ history, location }) => {
       }
       title={
         <span>
-          Active Traders
+          Active {DESCRIPTOR_MAPPINGS[type]}
           <Hidden above="xs">
             <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
           </Hidden>
@@ -90,10 +110,19 @@ const TradersPage = ({ history, location }) => {
               `}
             >
               <CardHeader>
-                <CardHeading>Trend</CardHeading>
+                <CardHeading css="display: flex; align-items: center;">
+                  Trend
+                  <HelpWidget css="margin-left: 0.5rem;">
+                    Number of active {DESCRIPTOR_MAPPINGS[type].toLowerCase()}{' '}
+                    over time in the selected period.
+                  </HelpWidget>
+                </CardHeading>
               </CardHeader>
               <CardBody padded>
-                <ActiveTraderMetrics period={statsPeriod} />
+                <ActiveTraderMetrics
+                  period={statsPeriod}
+                  type={METRIC_TYPE_MAPPINGS[type]}
+                />
               </CardBody>
             </Card>
           </Col>
@@ -109,7 +138,13 @@ const TradersPage = ({ history, location }) => {
               `}
             >
               <CardHeader>
-                <CardHeading>Maker-Taker Split</CardHeading>
+                <CardHeading css="display: flex; align-items: center;">
+                  Maker-Taker Split{' '}
+                  <HelpWidget css="margin-left: 0.5rem;">
+                    Comparison between the number of active makers and takers in
+                    the selected period.
+                  </HelpWidget>
+                </CardHeading>
               </CardHeader>
               <CardBody css="padding: 3rem;">
                 <TraderBreakdown period={statsPeriod} />
@@ -125,6 +160,7 @@ const TradersPage = ({ history, location }) => {
               <TraderList
                 positionOffset={(page - 1) * pageSize}
                 statsPeriod={statsPeriod}
+                statsType={type}
                 traders={items}
               />
               <Paginator

@@ -10,13 +10,27 @@ const EmptyValue = styled.span`
   color: ${COLORS.NEUTRAL.MYSTIC_400};
 `;
 
-const TraderFillCountLabel = ({ children }) => {
+const getDisplayValue = (fillCount, statsType) => {
+  if (statsType === 'maker') {
+    return fillCount.maker;
+  }
+
+  if (statsType === 'taker') {
+    return fillCount.taker;
+  }
+
+  return fillCount.total;
+};
+
+const TraderFillCountLabel = ({ children, statsType }) => {
+  const displayValue = getDisplayValue(children, statsType);
+
   if (children.total === 0) {
     return <EmptyValue>none</EmptyValue>;
   }
 
   if (children.maker === 0 || children.taker === 0) {
-    return <Number summarize>{children.total}</Number>;
+    return <Number summarize>{displayValue}</Number>;
   }
 
   return (
@@ -35,12 +49,18 @@ const TraderFillCountLabel = ({ children }) => {
               <Number summarize>{children.taker}</Number>
             </dd>
           </div>
+          <div>
+            <dt css="width: 50px;">Total:</dt>
+            <dd>
+              <Number summarize>{children.total}</Number>
+            </dd>
+          </div>
         </dl>
       }
     >
       <span>
         <Number summarize title={false}>
-          {children.total}
+          {displayValue}
         </Number>
       </span>
     </Tooltip>
@@ -53,6 +73,7 @@ TraderFillCountLabel.propTypes = {
     taker: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
   }).isRequired,
+  statsType: PropTypes.string.isRequired,
 };
 
 export default TraderFillCountLabel;
