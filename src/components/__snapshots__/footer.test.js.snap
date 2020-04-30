@@ -2,7 +2,7 @@
 
 exports[`should render without props 1`] = `
 <div
-  class="footer___StyledDiv-htpw4v-5 patDo"
+  class="footer__Wrapper-htpw4v-10 bofxay"
 >
   <div
     class="container__StyledContainer-cj53s7-0 eMKfDZ container-fluid"
@@ -11,7 +11,7 @@ exports[`should render without props 1`] = `
       class="row"
     >
       <div
-        class="col-12 col-md-4"
+        class="footer__Info-htpw4v-9 gkmrFu col-12 col-md-4"
       >
         <img
           alt="0x Tracker"
@@ -19,15 +19,15 @@ exports[`should render without props 1`] = `
           src="test-file-stub"
         />
         <p
-          class="footer__Description-htpw4v-2 iiWdTB"
+          class="footer__Description-htpw4v-2 jHpQrk"
         >
           The leading provider of 0x protocol market data, transparent Ethereum token price index and 0x protocol news aggregator.
         </p>
         <nav
-          class="footer___StyledNav-htpw4v-6 dxYThI"
+          class="footer___StyledNav-htpw4v-11 eoBzCu"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__SocialLink-htpw4v-4 hoTGfM"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__SocialLink-htpw4v-5 hOGkhu"
             href="https://twitter.com/0xTracker"
             rel="noreferrer noopener"
             target="_blank"
@@ -49,7 +49,7 @@ exports[`should render without props 1`] = `
             </svg>
           </a>
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__SocialLink-htpw4v-4 hoTGfM"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__SocialLink-htpw4v-5 hOGkhu"
             href="https://discord.gg/tnV8hud"
             rel="noreferrer noopener"
             target="_blank"
@@ -76,29 +76,13 @@ exports[`should render without props 1`] = `
         class="col-6 col-sm-4 col-md-2 offset-md-2"
       >
         <h2
-          class="footer__NavHeading-htpw4v-1 eDAAFB"
+          class="footer__NavHeading-htpw4v-1 hgMKcf"
         >
           About
         </h2>
         <nav>
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
-            href="https://docs.0xtracker.com/"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            Overview
-          </a>
-          <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
-            href="https://docs.0xtracker.com/faqs"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            FAQs
-          </a>
-          <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
             href="https://medium.com/0x-tracker"
             rel="noreferrer noopener"
             target="_blank"
@@ -106,12 +90,28 @@ exports[`should render without props 1`] = `
             Blog
           </a>
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
             href="https://docs.0xtracker.com/#need-to-get-in-touch"
             rel="noreferrer noopener"
             target="_blank"
           >
             Contact
+          </a>
+          <a
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+            href="https://docs.0xtracker.com/faqs"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            FAQs
+          </a>
+          <a
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+            href="https://docs.0xtracker.com/"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            Overview
           </a>
         </nav>
       </div>
@@ -119,13 +119,13 @@ exports[`should render without props 1`] = `
         class="col-6 col-sm-4 col-md-2"
       >
         <h2
-          class="footer__NavHeading-htpw4v-1 eDAAFB"
+          class="footer__NavHeading-htpw4v-1 hgMKcf"
         >
           Developers
         </h2>
         <nav>
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
             href="https://docs.0xtracker.com/api-reference/introduction"
             rel="noreferrer noopener"
             target="_blank"
@@ -133,7 +133,7 @@ exports[`should render without props 1`] = `
             API
           </a>
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
             href="https://docs.0xtracker.com/contributing"
             rel="noreferrer noopener"
             target="_blank"
@@ -141,7 +141,7 @@ exports[`should render without props 1`] = `
             Contributing
           </a>
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
             href="https://github.com/0xtracker"
             rel="noreferrer noopener"
             target="_blank"
@@ -154,24 +154,91 @@ exports[`should render without props 1`] = `
         class="col-6 col-sm-4 col-md-2"
       >
         <h2
-          class="footer__NavHeading-htpw4v-1 eDAAFB"
+          class="footer__NavHeading-htpw4v-1 hgMKcf"
         >
-          Legal
+          Resources
         </h2>
         <nav>
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+            href="https://headwayapp.co/0x-tracker-changelog"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            Changelog
+          </a>
+          <a
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
             href="/privacy"
           >
             Privacy Policy
           </a>
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__NavLink-htpw4v-3 eijGhq"
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+            href="https://trello.com/b/4cY2eOsQ/0x-tracker-roadmap"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            Roadmap
+          </a>
+          <a
+            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
             href="/terms"
           >
             Terms Of Use
           </a>
         </nav>
+      </div>
+    </div>
+    <div
+      class="footer__SecondaryLinks-htpw4v-8 gSgWRY"
+    >
+      <div
+        class="footer__License-htpw4v-7 XeKgF"
+      >
+        Licensed under
+         
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 euuxIS"
+          href="https://github.com/0xTracker/0x-tracker-client/blob/master/LICENSE"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          Apache-2.0
+        </a>
+      </div>
+      <div
+        class="footer__PoweredBy-htpw4v-6 RgdRz"
+      >
+        Powered by 
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 euuxIS"
+          href="https://0x.org"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          0x
+        </a>
+         and
+         
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 euuxIS"
+          href="https://ethereum.org/"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          Ethereum
+        </a>
+         with pricing data from
+         
+        <a
+          class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 euuxIS"
+          href="https://min-api.cryptocompare.com/"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          CryptoCompare
+        </a>
       </div>
     </div>
   </div>
