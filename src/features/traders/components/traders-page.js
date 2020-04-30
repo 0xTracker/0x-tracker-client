@@ -69,9 +69,10 @@ const TradersPage = ({ history, location }) => {
   const [traders, loading] = useTraders({
     autoReload: true,
     limit: 25,
-    orderBy: ORDER_BY_MAPPINGS[type],
     page,
-    ...selectedFilters,
+    sortBy: ORDER_BY_MAPPINGS[type],
+    statsPeriod,
+    type,
   });
 
   const { items, pageCount, pageSize, recordCount } = traders;
