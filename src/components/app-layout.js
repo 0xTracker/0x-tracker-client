@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { COLORS } from '../styles/constants';
 import Footer from './footer';
 import Header from '../features/header/components/header';
+import SubscribePanel from './subscribe-panel';
 
 const AppContainer = styled.div`
   display: flex;
@@ -25,6 +26,7 @@ const AppLayout = ({ children }) => (
     <div className="header-215ea67e6e9422c229" />
     <Header />
     <AppBody>{children}</AppBody>
+    <SubscribePanel />
     <Footer />
   </AppContainer>
 );
