@@ -2,6 +2,9 @@
 /addresses/:address    /traders/:address     301
 /addresses             /traders              301
 
+# Redirect trades page to fills temporarily
+/trades/:id            /fills/:id            301
+
 # Redirect all requests to index.html since it's a single page application
 /asset-bridges         /index.html    200
 /fills                 /index.html    200
