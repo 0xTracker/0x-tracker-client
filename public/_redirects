@@ -17,3 +17,4 @@
 /tokens                /index.html    200
 /traders/:addresses    /index.html    200
 /traders               /index.html    200
+/*                     /index.html    404
