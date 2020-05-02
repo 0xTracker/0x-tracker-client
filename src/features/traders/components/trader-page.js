@@ -1,8 +1,8 @@
-import { useLocation, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
-import { useMetadata, useNavigator, usePageParam } from '../../../hooks';
+import { useMetadata, usePaginator } from '../../../hooks';
 import AddressMetrics from '../../metrics/components/address-metrics';
 import Blockie from '../../../components/blockie';
 import Card from '../../../components/card';
@@ -15,10 +15,8 @@ import Fills from '../../fills/components/fills';
 import PageLayout from '../../../components/page-layout';
 
 const TraderPage = () => {
-  const { navigateTo } = useNavigator();
   const { address } = useParams();
-  const { pathname } = useLocation();
-  const page = usePageParam();
+  const { page, setPage } = usePaginator();
 
   useMetadata({ title: `0x Trading Activity for ${address}` });
 
@@ -68,11 +66,7 @@ const TraderPage = () => {
               <CardBody>
                 <Fills
                   filter={{ address }}
-                  onPageChange={(newPage) => {
-                    navigateTo(pathname, {
-                      page: newPage,
-                    });
-                  }}
+                  onPageChange={setPage}
                   page={page}
                 />
               </CardBody>
