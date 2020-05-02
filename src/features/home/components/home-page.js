@@ -30,7 +30,7 @@ const HomePage = () => {
     <>
       <PageLayout>
         <CardGrid>
-          <HomePageMetrics minHeight="80px" />
+          <HomePageMetrics />
           <CardGridRow>
             <CardGridCol lg={7}>
               <ChartsContainer

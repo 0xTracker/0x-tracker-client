@@ -39,7 +39,7 @@ const StatWidget = ({
   title,
   children,
 }) => (
-  <Card autoHeight className={className}>
+  <Card autoHeight className={className} css="min-height: 80px;">
     <CardBody padded>
       <dl css="display: flex; flex-grow: 1; flex-direction: column; margin: 0;">
         <StatWidgetTitle>

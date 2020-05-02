@@ -44,23 +44,20 @@ const HomePageMetricsCarousel = ({
   >
     <CarouselMetric
       as={TradeVolumeWidget}
-      css="min-height: 80px;"
       period={period}
       volume={tradeVolume}
     />
     <CarouselMetric
       as={TradeCountWidget}
-      css="min-height: 80px;"
       period={period}
       tradeCount={tradeCount}
     />
     <CarouselMetric
       as={ActiveTradersWidget}
-      css="min-height: 80px;"
       period={period}
       traderCount={traderCount}
     />
-    <CarouselMetric as={ZRXPriceMetric} css="min-height: 80px;" />
+    <CarouselMetric as={ZRXPriceMetric} />
   </Slider>
 );
 

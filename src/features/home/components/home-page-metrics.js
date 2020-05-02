@@ -29,7 +29,7 @@ const HomePageMetrics = () => {
   const tradeVolume = _.get(networkStats, 'tradeVolume');
 
   return breakpoint.greaterThan('md') ? (
-    <CardGridRow minHeight="80px">
+    <CardGridRow>
       <CardGridCol lg={3} md={6}>
         <TradeVolumeWidget
           loading={loadingNetworkStats}
