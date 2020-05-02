@@ -57,7 +57,6 @@ const HomePageMetrics = () => {
     </CardGridRow>
   ) : (
     <AsyncHomePageMetricsCarousel
-      css="margin-bottom: 1.25rem;"
       period={statsParams.period}
       tradeCount={tradeCount}
       traderCount={traderCount}

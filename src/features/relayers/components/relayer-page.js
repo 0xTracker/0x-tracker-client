@@ -1,12 +1,13 @@
-import PropTypes from 'prop-types';
-import React, { useCallback } from 'react';
-import styled from 'styled-components';
+import { useParams } from 'react-router';
+import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
-import { buildUrl } from '../../../util';
-import { media } from '../../../styles/util';
-import { useMetadata } from '../../../hooks';
+import { useMetadata, usePaginator } from '../../../hooks';
 import Card from '../../../components/card';
+import CardBody from '../../../components/card-body';
+import CardGrid from '../../../components/card-grid';
+import CardGridCol from '../../../components/card-grid-col';
+import CardGridRow from '../../../components/card-grid-row';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import getPeriodOptions from '../../../util/get-period-options';
@@ -17,19 +18,10 @@ import RelayerMetrics from '../../metrics/components/relayer-metrics';
 import RelayerPageTitle from './relayer-page-title';
 import useRelayer from '../hooks/use-relayer';
 
-const StyledChartsContainer = styled(ChartsContainer)`
-  margin-bottom: 1.25rem;
-
-  ${media.greaterThan('lg')`
-    margin-bottom: 2rem;
-  `}
-`;
-
-const RelayerPage = ({ history, location, match }) => {
-  const { slug } = match.params;
+const RelayerPage = () => {
+  const { slug } = useParams();
+  const { page, setPage } = usePaginator();
   const [relayer, loadingRelayer] = useRelayer(slug);
-  const params = new URLSearchParams(location.search);
-  const page = Number(params.get('page')) || 1;
 
   useMetadata({
     title:
@@ -37,14 +29,6 @@ const RelayerPage = ({ history, location, match }) => {
         ? undefined
         : `${relayer.name} Trading Activity, Metrics & Charts`,
   });
-
-  const onPageChange = useCallback((newPage) => {
-    history.push(
-      buildUrl(match.url, {
-        page: newPage,
-      }),
-    );
-  }, []);
 
   if (loadingRelayer) {
     return <LoadingPage />;
@@ -56,61 +40,58 @@ const RelayerPage = ({ history, location, match }) => {
 
   return (
     <PageLayout title={<RelayerPageTitle relayer={relayer} />}>
-      <StyledChartsContainer
-        charts={[
-          {
-            component: (
-              <RelayerMetrics relayerId={relayer.id} type="tradeVolume" />
-            ),
-            title: 'Volume',
-          },
-          {
-            component: (
-              <RelayerMetrics relayerId={relayer.id} type="tradeCount" />
-            ),
-            title: 'Trades',
-          },
-          {
-            component: (
-              <RelayerMetrics relayerId={relayer.id} type="traderCount" />
-            ),
-            title: 'Active Traders',
-          },
-        ]}
-        defaultPeriod={TIME_PERIOD.MONTH}
-        periods={getPeriodOptions([
-          TIME_PERIOD.DAY,
-          TIME_PERIOD.WEEK,
-          TIME_PERIOD.MONTH,
-          TIME_PERIOD.YEAR,
-          TIME_PERIOD.ALL,
-        ])}
-      />
-      <Card autoHeight>
-        <Fills
-          excludeColumns={['relayer']}
-          filter={{ relayer: relayer.id }}
-          onPageChange={onPageChange}
-          page={page}
-        />
-      </Card>
+      <CardGrid>
+        <CardGridRow>
+          <CardGridCol xs={12}>
+            <ChartsContainer
+              charts={[
+                {
+                  component: (
+                    <RelayerMetrics relayerId={relayer.id} type="tradeVolume" />
+                  ),
+                  title: 'Volume',
+                },
+                {
+                  component: (
+                    <RelayerMetrics relayerId={relayer.id} type="tradeCount" />
+                  ),
+                  title: 'Trades',
+                },
+                {
+                  component: (
+                    <RelayerMetrics relayerId={relayer.id} type="traderCount" />
+                  ),
+                  title: 'Active Traders',
+                },
+              ]}
+              defaultPeriod={TIME_PERIOD.MONTH}
+              periods={getPeriodOptions([
+                TIME_PERIOD.DAY,
+                TIME_PERIOD.WEEK,
+                TIME_PERIOD.MONTH,
+                TIME_PERIOD.YEAR,
+                TIME_PERIOD.ALL,
+              ])}
+            />
+          </CardGridCol>
+        </CardGridRow>
+        <CardGridRow>
+          <CardGridCol>
+            <Card>
+              <CardBody>
+                <Fills
+                  excludeColumns={['relayer']}
+                  filter={{ relayer: relayer.id }}
+                  onPageChange={setPage}
+                  page={page}
+                />
+              </CardBody>
+            </Card>
+          </CardGridCol>
+        </CardGridRow>
+      </CardGrid>
     </PageLayout>
   );
-};
-
-RelayerPage.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-  location: PropTypes.shape({
-    search: PropTypes.string.isRequired,
-  }).isRequired,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      slug: PropTypes.string.isRequired,
-    }).isRequired,
-    url: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default RelayerPage;

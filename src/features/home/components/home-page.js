@@ -34,7 +34,6 @@ const HomePage = () => {
           <CardGridRow>
             <CardGridCol lg={7}>
               <ChartsContainer
-                autoHeight
                 charts={[
                   {
                     component: <NetworkMetrics type="tradeVolume" />,
@@ -57,7 +56,6 @@ const HomePage = () => {
             </CardGridCol>
             <CardGridCol lg={5}>
               <ChartsContainer
-                autoHeight
                 charts={[
                   {
                     component: TopTokens,
@@ -81,11 +79,10 @@ const HomePage = () => {
           </CardGridRow>
           <CardGridRow>
             <CardGridCol lg={7}>
-              <RecentFillsCard autoHeight />
+              <RecentFillsCard />
             </CardGridCol>
             <CardGridCol lg={5}>
               <LatestNewsCard
-                autoHeight
                 compact={
                   breakpoint.lessThan('sm') || breakpoint.greaterThan('md')
                 }

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { useParams } from 'react-router';
 import React from 'react';
 
 import { useMetadata } from '../../../hooks';
@@ -9,11 +9,11 @@ import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 import useFill from '../hooks/use-fill';
 
-const FillPage = ({ match }) => {
+const FillPage = () => {
   useMetadata({ title: '0x Protocol Fill Details' });
 
-  const { id: fillId } = match.params;
-  const [fill, loading] = useFill(fillId);
+  const { id } = useParams();
+  const [fill, loading] = useFill(id);
 
   if (loading) {
     return <LoadingPage />;
@@ -25,20 +25,11 @@ const FillPage = ({ match }) => {
 
   return (
     <PageLayout title="Fill Details">
-      <Card autoHeight css="padding: 2rem;">
+      <Card css="padding: 2rem;">
         <FillDetails fill={fill} />
       </Card>
     </PageLayout>
   );
-};
-
-FillPage.propTypes = {
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }).isRequired,
-    url: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default FillPage;

@@ -21,12 +21,12 @@ const HomePageMetricsCarousel = ({
   tradeCount,
   traderCount,
   tradeVolume,
-  ...otherProps
 }) => (
   <Slider
     arrows={false}
     centerMode
     centerPadding="20px"
+    css="margin-bottom: 1.25rem;"
     infinite
     responsive={[
       {
@@ -40,7 +40,6 @@ const HomePageMetricsCarousel = ({
     ]}
     slidesToScroll={3}
     slidesToShow={3}
-    {...otherProps}
   >
     <CarouselMetric
       as={TradeVolumeWidget}

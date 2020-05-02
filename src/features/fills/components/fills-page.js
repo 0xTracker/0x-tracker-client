@@ -1,86 +1,68 @@
 import _ from 'lodash';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { URL } from '../../../constants';
-import { buildUrl } from '../../../util';
-import { useMetadata } from '../../../hooks';
+import {
+  useMetadata,
+  useNavigator,
+  usePaginator,
+  useSearchParam,
+} from '../../../hooks';
 import Card from '../../../components/card';
 import Fills from './fills';
 import FillsFilter from './fills-filter';
 import PageLayout from '../../../components/page-layout';
 import SubTitle from '../../../components/sub-title';
 
-const defaultFilters = {
-  protocolVersion: undefined,
-  relayer: undefined,
-  status: undefined,
-  valueFrom: undefined,
-  valueTo: undefined,
-};
-
-const FillsPage = ({ history, location }) => {
+const FillsPage = () => {
   useMetadata({ title: 'Browse 0x Protocol Fills' });
 
-  const params = new URLSearchParams(location.search);
-  const page = Number(params.get('page')) || 1;
-  const status = params.get('status') || undefined;
-  const dateFrom = params.get('dateFrom');
-  const dateTo = params.get('dateTo');
-  const protocolVersion =
-    params.get('protocolVersion') === null
-      ? undefined
-      : _.toNumber(params.get('protocolVersion'));
-  const token = params.get('token');
-  const relayer = params.get('relayer') || undefined;
-  const valueFrom = params.get('valueFrom') || undefined;
-  const valueTo = params.get('valueTo') || undefined;
+  const { navigateTo } = useNavigator();
+  const { page, setPage } = usePaginator();
 
-  const handlePageChange = (newPage) => {
-    history.push(
-      buildUrl(URL.FILLS, {
-        dateFrom,
-        dateTo,
-        page: newPage,
-        protocolVersion,
-        relayer,
-        status,
-        token,
-        valueFrom,
-        valueTo,
-      }),
-    );
-  };
-
-  const handleFiltersChange = (newFilters) => {
-    history.push(buildUrl(URL.FILLS, newFilters));
-  };
-
-  const selectedFilters = {
-    protocolVersion,
-    relayer,
-    status,
-    valueFrom,
-    valueTo,
-  };
+  const status = useSearchParam('status');
+  const dateFrom = useSearchParam('dateFrom');
+  const dateTo = useSearchParam('dateTo');
+  const protocolVersion = useSearchParam('protocolVersion');
+  const token = useSearchParam('token');
+  const relayer = useSearchParam('relayer');
+  const valueFrom = useSearchParam('valueFrom');
+  const valueTo = useSearchParam('valueTo');
 
   return (
     <PageLayout
       filter={
         <FillsFilter
-          defaultFilters={defaultFilters}
-          onChange={handleFiltersChange}
-          selectedFilters={selectedFilters}
+          defaultFilters={{
+            protocolVersion: undefined,
+            relayer: undefined,
+            status: undefined,
+            valueFrom: undefined,
+            valueTo: undefined,
+          }}
+          onChange={(newFilters) => {
+            navigateTo(URL.FILLS, newFilters);
+          }}
+          selectedFilters={{
+            protocolVersion:
+              protocolVersion === undefined
+                ? undefined
+                : _.toNumber(protocolVersion),
+            relayer,
+            status,
+            valueFrom,
+            valueTo,
+          }}
         />
       }
       title={
-        <span>
+        <>
           Browse Fills
           <SubTitle>from the last 6 months</SubTitle>
-        </span>
+        </>
       }
     >
-      <Card autoHeight>
+      <Card>
         <Fills
           filter={{
             dateFrom,
@@ -92,21 +74,12 @@ const FillsPage = ({ history, location }) => {
             valueFrom,
             valueTo,
           }}
-          onPageChange={handlePageChange}
+          onPageChange={setPage}
           page={page}
         />
       </Card>
     </PageLayout>
   );
-};
-
-FillsPage.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-  location: PropTypes.shape({
-    search: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default FillsPage;

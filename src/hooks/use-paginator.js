@@ -1,18 +1,20 @@
 import _ from 'lodash';
-import { useLocation } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 
-import useNavigator from './use-navigator';
 import useSearchParam from './use-search-param';
 
 const usePaginator = () => {
-  const { pathname } = useLocation();
-  const { navigateTo } = useNavigator();
+  const history = useHistory();
+  const { pathname, search } = useLocation();
 
   const rawPage = useSearchParam('page', 1);
   const page = _.toNumber(rawPage);
 
   const setPage = (newPage) => {
-    navigateTo(pathname, { page: newPage });
+    const params = new URLSearchParams(search);
+
+    params.set('page', newPage);
+    history.push(`${pathname}?${params.toString()}`);
   };
 
   return { page, setPage };
