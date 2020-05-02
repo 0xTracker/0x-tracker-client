@@ -1,31 +1,26 @@
-import PropTypes from 'prop-types';
-import React, { useCallback } from 'react';
+import { useLocation, useParams } from 'react-router';
+import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
-import { media } from '../../../styles/util';
-import { useMetadata } from '../../../hooks';
+import { useMetadata, useNavigator, usePageParam } from '../../../hooks';
 import AddressMetrics from '../../metrics/components/address-metrics';
 import Blockie from '../../../components/blockie';
 import Card from '../../../components/card';
+import CardBody from '../../../components/card-body';
+import CardGrid from '../../../components/card-grid';
+import CardGridCol from '../../../components/card-grid-col';
+import CardGridRow from '../../../components/card-grid-row';
 import ChartsContainer from '../../../components/charts-container';
 import Fills from '../../fills/components/fills';
 import PageLayout from '../../../components/page-layout';
-import buildUrl from '../../../util/build-url';
 
-const TraderPage = ({ history, location, match }) => {
-  const { address } = match.params;
-  const params = new URLSearchParams(location.search);
-  const page = Number(params.get('page')) || 1;
+const TraderPage = () => {
+  const { navigateTo } = useNavigator();
+  const { address } = useParams();
+  const { pathname } = useLocation();
+  const page = usePageParam();
 
   useMetadata({ title: `0x Trading Activity for ${address}` });
-
-  const onPageChange = useCallback((newPage) => {
-    history.push(
-      buildUrl(match.url, {
-        page: newPage,
-      }),
-    );
-  }, []);
 
   return (
     <PageLayout
@@ -40,55 +35,53 @@ const TraderPage = ({ history, location, match }) => {
         </div>
       }
     >
-      <ChartsContainer
-        charts={[
-          {
-            component: <AddressMetrics address={address} />,
-            title: 'Volume',
-          },
-          {
-            component: (
-              <AddressMetrics address={address} keyMetric="tradeCount" />
-            ),
-            title: 'Trades',
-          },
-        ]}
-        css={`
-          margin: 0 0 1.25em 0;
-
-          ${media.greaterThan('lg')`
-              margin: 0 0 2em 0;
-            `}
-        `}
-        defaultPeriod={TIME_PERIOD.MONTH}
-        periods={[
-          { label: '24H', value: TIME_PERIOD.DAY },
-          { label: '7D', value: TIME_PERIOD.WEEK },
-          { label: '1M', value: TIME_PERIOD.MONTH },
-          { label: '1Y', value: TIME_PERIOD.YEAR },
-          { label: 'ALL', value: TIME_PERIOD.ALL },
-        ]}
-      />
-      <Card autoHeight>
-        <Fills filter={{ address }} onPageChange={onPageChange} page={page} />
-      </Card>
+      <CardGrid>
+        <CardGridRow>
+          <CardGridCol>
+            <ChartsContainer
+              charts={[
+                {
+                  component: <AddressMetrics address={address} />,
+                  title: 'Volume',
+                },
+                {
+                  component: (
+                    <AddressMetrics address={address} keyMetric="tradeCount" />
+                  ),
+                  title: 'Trades',
+                },
+              ]}
+              defaultPeriod={TIME_PERIOD.MONTH}
+              periods={[
+                { label: '24H', value: TIME_PERIOD.DAY },
+                { label: '7D', value: TIME_PERIOD.WEEK },
+                { label: '1M', value: TIME_PERIOD.MONTH },
+                { label: '1Y', value: TIME_PERIOD.YEAR },
+                { label: 'ALL', value: TIME_PERIOD.ALL },
+              ]}
+            />
+          </CardGridCol>
+        </CardGridRow>
+        <CardGridRow>
+          <CardGridCol>
+            <Card>
+              <CardBody>
+                <Fills
+                  filter={{ address }}
+                  onPageChange={(newPage) => {
+                    navigateTo(pathname, {
+                      page: newPage,
+                    });
+                  }}
+                  page={page}
+                />
+              </CardBody>
+            </Card>
+          </CardGridCol>
+        </CardGridRow>
+      </CardGrid>
     </PageLayout>
   );
-};
-
-TraderPage.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-  location: PropTypes.shape({
-    search: PropTypes.string.isRequired,
-  }).isRequired,
-  match: PropTypes.shape({
-    params: PropTypes.shape({
-      address: PropTypes.string.isRequired,
-    }).isRequired,
-    url: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default TraderPage;
