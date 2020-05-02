@@ -1,10 +1,10 @@
 import _ from 'lodash';
-import { Col, Row } from 'reactstrap';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
+import CardGridCol from '../../../components/card-grid-col';
+import CardGridRow from '../../../components/card-grid-row';
 import ProtocolFeesWidget from '../../stats/components/protocol-fees-widget';
 import sharedPropTypes from '../../../prop-types';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
@@ -17,7 +17,7 @@ const AsyncNetworkOverviewStatsCarousel = React.lazy(() =>
   import('./network-overview-stats-carousel'),
 );
 
-const NetworkOverviewStats = ({ className, period }) => {
+const NetworkOverviewStats = ({ period }) => {
   const [networkStats] = useNetworkStats({ period });
   const [traderStats] = useTraderStats({ period });
   const breakpoint = useCurrentBreakpoint();
@@ -27,40 +27,43 @@ const NetworkOverviewStats = ({ className, period }) => {
   const tradeVolume = _.get(networkStats, 'tradeVolume');
   const protocolFees = _.get(networkStats, 'protocolFees.USD');
 
-  return breakpoint.greaterThan('md') ? (
-    <Row className={className}>
-      <Col lg={3} md={6}>
-        <TradeVolumeWidget
-          period={period}
-          showPeriod={false}
-          volume={tradeVolume}
-        />
-      </Col>
-      <Col lg={3} md={6}>
-        <TradeCountWidget
-          period={period}
-          showPeriod={false}
-          tradeCount={tradeCount}
-        />
-      </Col>
-      <Col lg={3} md={6}>
-        <ActiveTradersWidget
-          period={period}
-          showPeriod={false}
-          traderCount={traderCount}
-        />
-      </Col>
-      <Col lg={3} md={6}>
-        <ProtocolFeesWidget
-          accumulatedFees={protocolFees}
-          period={period}
-          showPeriod={false}
-        />
-      </Col>
-    </Row>
-  ) : (
+  if (breakpoint.greaterThan('md')) {
+    return (
+      <CardGridRow minHeight="80px">
+        <CardGridCol lg={3} md={6}>
+          <TradeVolumeWidget
+            period={period}
+            showPeriod={false}
+            volume={tradeVolume}
+          />
+        </CardGridCol>
+        <CardGridCol lg={3} md={6}>
+          <TradeCountWidget
+            period={period}
+            showPeriod={false}
+            tradeCount={tradeCount}
+          />
+        </CardGridCol>
+        <CardGridCol lg={3} md={6}>
+          <ActiveTradersWidget
+            period={period}
+            showPeriod={false}
+            traderCount={traderCount}
+          />
+        </CardGridCol>
+        <CardGridCol lg={3} md={6}>
+          <ProtocolFeesWidget
+            accumulatedFees={protocolFees}
+            period={period}
+            showPeriod={false}
+          />
+        </CardGridCol>
+      </CardGridRow>
+    );
+  }
+
+  return (
     <AsyncNetworkOverviewStatsCarousel
-      className={className}
       protocolFees={protocolFees}
       tradeCount={tradeCount}
       traderCount={traderCount}
@@ -70,12 +73,7 @@ const NetworkOverviewStats = ({ className, period }) => {
 };
 
 NetworkOverviewStats.propTypes = {
-  className: PropTypes.string,
   period: sharedPropTypes.timePeriod.isRequired,
-};
-
-NetworkOverviewStats.defaultProps = {
-  className: undefined,
 };
 
 export default NetworkOverviewStats;
