@@ -1,9 +1,9 @@
-import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
 import { useCurrentBreakpoint } from '../../../responsive-utils';
+import CardGridCol from '../../../components/card-grid-col';
+import CardGridRow from '../../../components/card-grid-row';
 import MarketCapWidget from './market-cap-widget';
 import PriceRangeWidget from './price-range-widget';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
@@ -14,41 +14,37 @@ const AsyncTokenStatsCarousel = React.lazy(() =>
   import('./token-stats-carousel'),
 );
 
-const TokenStatWidget = styled.div`
-  min-height: 6rem;
-`;
-
 const TokenStats = ({ period, token }) => {
   const breakpoint = useCurrentBreakpoint();
 
-  return breakpoint.greaterThan('md') ? (
-    <Row css="margin-bottom: 2rem;">
-      <Col lg={3} md={6}>
-        <TokenStatWidget
-          as={TradeVolumeWidget}
-          period={period}
-          showPeriod={false}
-          volume={token.stats.tradeVolume.USD}
-        />
-      </Col>
-      <Col lg={3} md={6}>
-        <TokenStatWidget
-          as={TradeCountWidget}
-          period={period}
-          showPeriod={false}
-          tradeCount={token.stats.tradeCount}
-        />
-      </Col>
-      <Col lg={3} md={6}>
-        <TokenStatWidget as={MarketCapWidget} token={token} />
-      </Col>
-      <Col lg={3} md={6}>
-        <TokenStatWidget as={PriceRangeWidget} price={token.price} />
-      </Col>
-    </Row>
-  ) : (
-    <AsyncTokenStatsCarousel token={token} />
-  );
+  if (breakpoint.greaterThan('md')) {
+    return (
+      <CardGridRow minHeight="90px">
+        <CardGridCol lg={3} md={6}>
+          <TradeVolumeWidget
+            period={period}
+            showPeriod={false}
+            volume={token.stats.tradeVolume.USD}
+          />
+        </CardGridCol>
+        <CardGridCol lg={3} md={6}>
+          <TradeCountWidget
+            period={period}
+            showPeriod={false}
+            tradeCount={token.stats.tradeCount}
+          />
+        </CardGridCol>
+        <CardGridCol lg={3} md={6}>
+          <MarketCapWidget token={token} />
+        </CardGridCol>
+        <CardGridCol lg={3} md={6}>
+          <PriceRangeWidget price={token.price} />
+        </CardGridCol>
+      </CardGridRow>
+    );
+  }
+
+  return <AsyncTokenStatsCarousel token={token} />;
 };
 
 TokenStats.propTypes = {

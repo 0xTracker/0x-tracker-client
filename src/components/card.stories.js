@@ -6,6 +6,7 @@ import CardBody from './card-body';
 import CardHeader from './card-header';
 import CardHeading from './card-heading';
 import CardPlaceholder from './card-placeholder';
+import LoadingIndicator from './loading-indicator';
 
 const config = {
   component: Card,
@@ -50,5 +51,13 @@ const WithHeading = () => (
   </Card>
 );
 
-export { Simple, WithHeading, WithPlaceholder };
+const Loading = () => (
+  <Card css="min-height: 500px;">
+    <CardBody padded>
+      <LoadingIndicator centered />
+    </CardBody>
+  </Card>
+);
+
+export { Loading, Simple, WithHeading, WithPlaceholder };
 export default config;

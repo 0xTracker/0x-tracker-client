@@ -79,6 +79,11 @@ const GlobalStyles = createGlobalStyle`
   .recharts-brush-texts {
     font-size: 0.8rem;
   }
+
+  .slick-list {
+    margin-bottom: -3px !important;
+    padding-bottom: 3px !important;
+  }
 `;
 
 export default GlobalStyles;

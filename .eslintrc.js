@@ -178,7 +178,7 @@ module.exports = {
     'react/jsx-indent': 'off',
     'react/jsx-indent-props': 'off',
     'react/jsx-max-props-per-line': 'off',
-    'react/jsx-max-depth': ['warn', { max: 5 }],
+    'react/jsx-max-depth': 'off',
     'react/jsx-no-literals': 'off',
     'react/jsx-no-bind': 'off',
     'react/jsx-one-expression-per-line': 'off',

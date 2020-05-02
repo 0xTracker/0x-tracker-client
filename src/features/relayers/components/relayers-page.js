@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import { buildUrl } from '../../../util';
-import { useMetadata } from '../../../hooks';
+import {
+  useMetadata,
+  useNavigator,
+  usePaginator,
+  useSearchParam,
+} from '../../../hooks';
 import Card from '../../../components/card';
 import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
@@ -13,11 +16,6 @@ import RelayerList from './relayer-list';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
 import SubTitle from '../../../components/sub-title';
 import useRelayers from '../hooks/use-relayers';
-import withPagination from '../../../components/with-pagination';
-
-const defaultFilters = {
-  statsPeriod: TIME_PERIOD.MONTH,
-};
 
 const periodDescriptions = {
   [TIME_PERIOD.DAY]: 'in the last 24 hours',
@@ -27,19 +25,18 @@ const periodDescriptions = {
   [TIME_PERIOD.ALL]: 'from all time',
 };
 
-const RelayersPage = ({ history, location, page, setPage }) => {
+const RelayersPage = () => {
   useMetadata({ title: '0x Protocol Relayer Metrics & Charts' });
 
-  const params = new URLSearchParams(location.search);
-  const statsPeriod = params.get('statsPeriod') || defaultFilters.statsPeriod;
-
+  const { navigateTo } = useNavigator();
+  const { page, setPage } = usePaginator();
+  const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.MONTH);
   const [relayers, loadingRelayers] = useRelayers({
     autoReload: true,
     limit: 25,
     page,
     statsPeriod,
   });
-
   const { items, pageCount, pageSize, recordCount } = relayers;
 
   return (
@@ -48,21 +45,21 @@ const RelayersPage = ({ history, location, page, setPage }) => {
         <ResponsiveTimePeriodFilter
           name="statsPeriod"
           onChange={(newPeriod) => {
-            history.push(buildUrl(URL.RELAYERS, { statsPeriod: newPeriod }));
+            navigateTo(URL.RELAYERS, { statsPeriod: newPeriod });
           }}
           value={statsPeriod}
         />
       }
       title={
-        <span>
+        <>
           Active Relayers
           <Hidden above="xs">
             <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
           </Hidden>
-        </span>
+        </>
       }
     >
-      <Card fullHeight>
+      <Card>
         {loadingRelayers ? (
           <LoadingIndicator centered />
         ) : (
@@ -86,15 +83,4 @@ const RelayersPage = ({ history, location, page, setPage }) => {
   );
 };
 
-RelayersPage.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-  location: PropTypes.shape({
-    search: PropTypes.string.isRequired,
-  }).isRequired,
-  page: PropTypes.number.isRequired,
-  setPage: PropTypes.func.isRequired,
-};
-
-export default withPagination(RelayersPage);
+export default RelayersPage;

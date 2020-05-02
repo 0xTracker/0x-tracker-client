@@ -17,7 +17,6 @@ const CarouselMetric = styled.div`
 `;
 
 const HomePageMetricsCarousel = ({
-  className,
   period,
   tradeCount,
   traderCount,
@@ -27,7 +26,7 @@ const HomePageMetricsCarousel = ({
     arrows={false}
     centerMode
     centerPadding="20px"
-    className={className}
+    css="margin-bottom: 1.25rem;"
     infinite
     responsive={[
       {
@@ -62,7 +61,6 @@ const HomePageMetricsCarousel = ({
 );
 
 HomePageMetricsCarousel.propTypes = {
-  className: PropTypes.string,
   period: sharedPropTypes.timePeriod.isRequired,
   tradeCount: PropTypes.number,
   tradeVolume: PropTypes.number,
@@ -70,7 +68,6 @@ HomePageMetricsCarousel.propTypes = {
 };
 
 HomePageMetricsCarousel.defaultProps = {
-  className: undefined,
   tradeCount: undefined,
   tradeVolume: undefined,
   traderCount: undefined,

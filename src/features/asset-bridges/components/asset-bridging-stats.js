@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import { Col, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -7,6 +6,8 @@ import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ActiveBridgesWidget from './active-bridges-widget';
 import BridgedTradesWidget from './bridged-trades-widget';
 import BridgedVolumeWidget from './bridged-volume-widget';
+import CardGridCol from '../../../components/card-grid-col';
+import CardGridRow from '../../../components/card-grid-row';
 import useAssetBridgingStats from '../hooks/use-asset-bridging-stats';
 import VolumeShareWidget from './volume-share-widget';
 
@@ -16,26 +17,39 @@ import VolumeShareWidget from './volume-share-widget';
 // );
 
 const AssetBridgingStats = ({ bridgeCount, period }) => {
-  const [stats] = useAssetBridgingStats(period);
+  const [stats, loading] = useAssetBridgingStats(period);
   const breakpoint = useCurrentBreakpoint();
 
-  return breakpoint.greaterThan('md') ? (
-    <Row css="margin-bottom: 2rem;">
-      <Col lg={3} md={6}>
-        <BridgedVolumeWidget volume={_.get(stats, 'tradeVolume')} />
-      </Col>
-      <Col lg={3} md={6}>
-        <VolumeShareWidget volumeShare={_.get(stats, 'tradeVolumeShare')} />
-      </Col>
-      <Col lg={3} md={6}>
-        <BridgedTradesWidget tradeCount={_.get(stats, 'tradeCount')} />
-      </Col>
-      <Col lg={3} md={6}>
-        <ActiveBridgesWidget bridgeCount={bridgeCount} />
-      </Col>
-    </Row>
-  ) : null;
-  // <AsyncTokenStatsCarousel token={token} />
+  if (breakpoint.greaterThan('md')) {
+    return (
+      <CardGridRow minHeight="80px">
+        <CardGridCol lg={3} md={6}>
+          <BridgedVolumeWidget
+            loading={loading}
+            volume={_.get(stats, 'tradeVolume')}
+          />
+        </CardGridCol>
+        <CardGridCol lg={3} md={6}>
+          <VolumeShareWidget
+            loading={loading}
+            volumeShare={_.get(stats, 'tradeVolumeShare')}
+          />
+        </CardGridCol>
+        <CardGridCol lg={3} md={6}>
+          <BridgedTradesWidget
+            loading={loading}
+            tradeCount={_.get(stats, 'tradeCount')}
+          />
+        </CardGridCol>
+        <CardGridCol lg={3} md={6}>
+          <ActiveBridgesWidget bridgeCount={bridgeCount} loading={loading} />
+        </CardGridCol>
+      </CardGridRow>
+    );
+  }
+
+  return null;
+  // return <AsyncTokenStatsCarousel token={token} />;
 };
 
 AssetBridgingStats.propTypes = {

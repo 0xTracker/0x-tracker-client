@@ -16,7 +16,6 @@ const CarouselStat = styled.div`
 `;
 
 const NetworkOverviewStatsCarousel = ({
-  className,
   protocolFees,
   tradeCount,
   traderCount,
@@ -26,7 +25,7 @@ const NetworkOverviewStatsCarousel = ({
     arrows={false}
     centerMode
     centerPadding="20px"
-    className={className}
+    css="margin-bottom: 1.25rem;"
     infinite
     responsive={[
       {
@@ -49,7 +48,6 @@ const NetworkOverviewStatsCarousel = ({
 );
 
 NetworkOverviewStatsCarousel.propTypes = {
-  className: PropTypes.string,
   protocolFees: PropTypes.number,
   tradeCount: PropTypes.number,
   tradeVolume: PropTypes.number,
@@ -57,7 +55,6 @@ NetworkOverviewStatsCarousel.propTypes = {
 };
 
 NetworkOverviewStatsCarousel.defaultProps = {
-  className: undefined,
   protocolFees: undefined,
   tradeCount: undefined,
   tradeVolume: undefined,

@@ -45,7 +45,7 @@ const TokensPageLayout = ({
         </span>
       }
     >
-      <Card fullHeight>{children}</Card>
+      <Card>{children}</Card>
     </PageLayout>
   );
 };

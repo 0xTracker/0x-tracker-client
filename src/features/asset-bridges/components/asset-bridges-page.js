@@ -1,16 +1,19 @@
-import { useSearchParam } from 'react-use';
-import { useHistory } from 'react-router';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import { buildUrl } from '../../../util';
-import { media } from '../../../styles/util';
-import { useMetadata } from '../../../hooks';
+import {
+  useMetadata,
+  useNavigator,
+  usePaginator,
+  useSearchParam,
+} from '../../../hooks';
 import AssetBridgeList from './asset-bridge-list';
 import AssetBridgingMetrics from './asset-bridging-metrics';
 import AssetBridgingStats from './asset-bridging-stats';
 import Card from '../../../components/card';
+import CardGrid from '../../../components/card-grid';
+import CardGridCol from '../../../components/card-grid-col';
+import CardGridRow from '../../../components/card-grid-row';
 import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
@@ -19,7 +22,6 @@ import ResponsiveTimePeriodFilter from '../../../components/responsive-time-peri
 import SubTitle from '../../../components/sub-title';
 import TabbedCard from '../../../components/tabbed-card';
 import useAssetBridges from '../hooks/use-asset-bridges';
-import withPagination from '../../../components/with-pagination';
 import HelpWidget from '../../../components/help-widget';
 
 const periodDescriptions = {
@@ -30,10 +32,12 @@ const periodDescriptions = {
   [TIME_PERIOD.ALL]: 'active since 0x launch',
 };
 
-const AssetBridgesPage = ({ page, setPage }) => {
+const AssetBridgesPage = () => {
   useMetadata({ title: '0x Protocol Asset Bridge Metrics & Charts' });
-  const history = useHistory();
-  const statsPeriod = useSearchParam('statsPeriod') || TIME_PERIOD.MONTH;
+
+  const { navigateTo } = useNavigator();
+  const { page, setPage } = usePaginator();
+  const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.MONTH);
 
   const [assetBridges, loadingAssetBridges] = useAssetBridges({
     autoReload: true,
@@ -50,15 +54,13 @@ const AssetBridgesPage = ({ page, setPage }) => {
         <ResponsiveTimePeriodFilter
           name="statsPeriod"
           onChange={(newPeriod) => {
-            history.push(
-              buildUrl(URL.ASSET_BRIDGES, { statsPeriod: newPeriod }),
-            );
+            navigateTo(URL.ASSET_BRIDGES, { statsPeriod: newPeriod });
           }}
           value={statsPeriod}
         />
       }
       title={
-        <span>
+        <>
           <span css="display: flex; align-items: center;">
             Asset Bridges{' '}
             <HelpWidget css="margin-left: 0.5rem;">
@@ -71,61 +73,64 @@ const AssetBridgesPage = ({ page, setPage }) => {
           <Hidden above="xs">
             <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
           </Hidden>
-        </span>
+        </>
       }
     >
-      <AssetBridgingStats bridgeCount={recordCount} period={statsPeriod} />
-      <TabbedCard
-        css={`
-          height: 330px;
-          margin-bottom: 1.25rem;
-
-          ${media.greaterThan('lg')`
-              margin-bottom: 2rem;
-            `}
-        `}
-        tabs={[
-          {
-            component: (
-              <AssetBridgingMetrics period={statsPeriod} type="tradeVolume" />
-            ),
-            title: 'Volume',
-          },
-          {
-            component: (
-              <AssetBridgingMetrics period={statsPeriod} type="tradeCount" />
-            ),
-            title: 'Trades',
-          },
-        ]}
-      />
-      <Card fullHeight>
-        {loadingAssetBridges ? (
-          <LoadingIndicator centered />
-        ) : (
-          <>
-            <AssetBridgeList
-              assetBridges={items}
-              positionOffset={(page - 1) * pageSize}
-              statsPeriod={statsPeriod}
+      <CardGrid>
+        <AssetBridgingStats bridgeCount={recordCount} period={statsPeriod} />
+        <CardGridRow>
+          <CardGridCol xs={12}>
+            <TabbedCard
+              tabs={[
+                {
+                  component: (
+                    <AssetBridgingMetrics
+                      period={statsPeriod}
+                      type="tradeVolume"
+                    />
+                  ),
+                  title: 'Volume',
+                },
+                {
+                  component: (
+                    <AssetBridgingMetrics
+                      period={statsPeriod}
+                      type="tradeCount"
+                    />
+                  ),
+                  title: 'Trades',
+                },
+              ]}
             />
-            <Paginator
-              onPageChange={setPage}
-              page={page}
-              pageCount={pageCount}
-              pageSize={pageSize}
-              recordCount={recordCount}
-            />
-          </>
-        )}
-      </Card>
+          </CardGridCol>
+        </CardGridRow>
+        <CardGridRow>
+          <CardGridCol xs={12}>
+            <Card>
+              {loadingAssetBridges ? (
+                <LoadingIndicator centered />
+              ) : (
+                <>
+                  <AssetBridgeList
+                    assetBridges={items}
+                    positionOffset={(page - 1) * pageSize}
+                    statsPeriod={statsPeriod}
+                  />
+                  <Paginator
+                    onPageChange={setPage}
+                    page={page}
+                    pageCount={pageCount}
+                    pageSize={pageSize}
+                    recordCount={recordCount}
+                  />
+                </>
+              )}
+            </Card>
+          </CardGridCol>
+        </CardGridRow>
+      </CardGrid>
     </PageLayout>
   );
 };
 
-AssetBridgesPage.propTypes = {
-  page: PropTypes.number.isRequired,
-  setPage: PropTypes.func.isRequired,
-};
-
-export default withPagination(AssetBridgesPage);
+export default AssetBridgesPage;

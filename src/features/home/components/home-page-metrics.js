@@ -1,11 +1,11 @@
 import _ from 'lodash';
-import { Col, Row } from 'reactstrap';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import { TIME_PERIOD } from '../../../constants';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
+import CardGridCol from '../../../components/card-grid-col';
+import CardGridRow from '../../../components/card-grid-row';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
 import useNetworkStats from '../../stats/hooks/use-network-stats';
@@ -17,11 +17,11 @@ const AsyncHomePageMetricsCarousel = React.lazy(() =>
   import('./home-page-metrics-carousel'),
 );
 
-const PERIOD = TIME_PERIOD.DAY;
+const statsParams = { period: TIME_PERIOD.DAY };
 
-const HomePageMetrics = ({ className }) => {
-  const [networkStats] = useNetworkStats();
-  const [traderStats] = useTraderStats();
+const HomePageMetrics = () => {
+  const [networkStats, loadingNetworkStats] = useNetworkStats(statsParams);
+  const [traderStats, loadingTraderStats] = useTraderStats(statsParams);
   const breakpoint = useCurrentBreakpoint();
 
   const tradeCount = _.get(networkStats, 'tradeCount');
@@ -29,37 +29,40 @@ const HomePageMetrics = ({ className }) => {
   const tradeVolume = _.get(networkStats, 'tradeVolume');
 
   return breakpoint.greaterThan('md') ? (
-    <Row className={className}>
-      <Col lg={3} md={6}>
-        <TradeVolumeWidget period={PERIOD} volume={tradeVolume} />
-      </Col>
-      <Col lg={3} md={6}>
-        <TradeCountWidget period={PERIOD} tradeCount={tradeCount} />
-      </Col>
-      <Col lg={3} md={6}>
-        <ActiveTradersWidget period={PERIOD} traderCount={traderCount} />
-      </Col>
-      <Col lg={3} md={6}>
+    <CardGridRow minHeight="80px">
+      <CardGridCol lg={3} md={6}>
+        <TradeVolumeWidget
+          loading={loadingNetworkStats}
+          period={statsParams.period}
+          volume={tradeVolume}
+        />
+      </CardGridCol>
+      <CardGridCol lg={3} md={6}>
+        <TradeCountWidget
+          loading={loadingNetworkStats}
+          period={statsParams.period}
+          tradeCount={tradeCount}
+        />
+      </CardGridCol>
+      <CardGridCol lg={3} md={6}>
+        <ActiveTradersWidget
+          loading={loadingTraderStats}
+          period={statsParams.period}
+          traderCount={traderCount}
+        />
+      </CardGridCol>
+      <CardGridCol lg={3} md={6}>
         <ZRXPriceWidget />
-      </Col>
-    </Row>
+      </CardGridCol>
+    </CardGridRow>
   ) : (
     <AsyncHomePageMetricsCarousel
-      className={className}
-      period={PERIOD}
+      period={statsParams.period}
       tradeCount={tradeCount}
       traderCount={traderCount}
       tradeVolume={tradeVolume}
     />
   );
-};
-
-HomePageMetrics.propTypes = {
-  className: PropTypes.string,
-};
-
-HomePageMetrics.defaultProps = {
-  className: undefined,
 };
 
 export default HomePageMetrics;

@@ -7,8 +7,12 @@ const Card = styled.div`
   box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
   display: flex;
   flex-direction: column;
-  flex-grow: ${(props) => (props.fullHeight ? '1' : '0')};
+  flex-grow: ${(props) => (props.autoHeight ? '1' : '0')};
   overflow: hidden;
 `;
+
+Card.defaultProps = {
+  autoHeight: true,
+};
 
 export default Card;

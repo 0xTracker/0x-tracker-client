@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import { media } from '../styles/util';
 import Container from './container';
 import PageTitleBlock from './page-title-block';
 
@@ -17,6 +18,11 @@ const StyledPageLayout = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  padding: 1.25rem 0;
+
+  ${media.greaterThan('md')`
+    padding: 2rem 0;
+  `}
 `;
 
 const PageLayout = ({ centered, children, filter, title }) => (

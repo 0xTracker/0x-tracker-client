@@ -19,7 +19,7 @@ const AlignCenter = styled.div`
 const dimensions = {
   large: 50,
   medium: 30,
-  small: 22,
+  small: 25,
 };
 
 const LoadingIndicator = ({ centered, size, type, ...otherProps }) => {
@@ -34,7 +34,7 @@ const LoadingIndicator = ({ centered, size, type, ...otherProps }) => {
       color={COLORS.NEUTRAL.MYSTIC_700}
       delay={0}
       height={_.isFinite(size) ? size : dimensions[size]}
-      type={type === 'cylon' ? 'cylon' : 'spin'}
+      type={type === 'cylon' ? 'bubbles' : 'spin'}
       width={_.isFinite(size) ? size : dimensions[size]}
       {...otherProps}
     />

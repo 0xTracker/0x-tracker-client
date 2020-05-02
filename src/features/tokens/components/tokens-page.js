@@ -1,14 +1,12 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
 import { TIME_PERIOD, URL } from '../../../constants';
+import { useNavigator, usePaginator, useSearchParam } from '../../../hooks';
 import LoadingIndicator from '../../../components/loading-indicator';
 import TokenList from './token-list';
-import useTokens from '../hooks/use-tokens';
-import withPagination from '../../../components/with-pagination';
-import buildUrl from '../../../util/build-url';
 import TokensPageLayout from './tokens-page-layout';
+import useTokens from '../hooks/use-tokens';
 
 const defaultFilters = {
   statsPeriod: TIME_PERIOD.DAY,
@@ -24,10 +22,11 @@ const NoResults = styled.div`
   padding: 2rem;
 `;
 
-const TokensPage = ({ history, location, page, setPage }) => {
-  const params = new URLSearchParams(location.search);
-  const statsPeriod = params.get('statsPeriod') || TIME_PERIOD.DAY;
-  const type = params.get('type') || undefined;
+const TokensPage = () => {
+  const { page, setPage } = usePaginator();
+  const { navigateTo } = useNavigator();
+  const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.DAY);
+  const type = useSearchParam('type');
   const selectedFilters = { statsPeriod, type };
 
   const [tokens, loadingTokens] = useTokens({
@@ -41,7 +40,7 @@ const TokensPage = ({ history, location, page, setPage }) => {
   const { items, pageCount, pageSize, recordCount } = tokens;
 
   const handleFiltersChange = (newFilters) => {
-    history.push(buildUrl(URL.TOKENS, newFilters));
+    navigateTo(URL.TOKENS, newFilters);
   };
 
   const layoutProps = {
@@ -85,15 +84,4 @@ const TokensPage = ({ history, location, page, setPage }) => {
   );
 };
 
-TokensPage.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-  location: PropTypes.shape({
-    search: PropTypes.string.isRequired,
-  }).isRequired,
-  page: PropTypes.number.isRequired,
-  setPage: PropTypes.func.isRequired,
-};
-
-export default withPagination(TokensPage);
+export default TokensPage;
