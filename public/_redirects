@@ -1,23 +1,24 @@
-# Redirect addresses page to traders page temporarily (in case the URL needs to be reused in the future)
-/addresses/:address    /traders/:address     301
-/addresses             /traders              301
+# Temporary Redirects
+/addresses/:address            /traders/:address     301
+/addresses                     /traders              301
+/trades/:id                    /fills/:id            301
 
-# Redirect trades page to fills temporarily
-/trades/:id            /fills/:id            301
+# Valid URL Mappings
+/asset-bridges                 /index.html    200
+/fills                         /index.html    200
+/fills/:index                  /index.html    200
+/network-insights              /index.html    200
+/news-and-updates              /index.html    200
+/news-and-updates/:source      /index.html    200
+/privacy                       /index.html    200
+/relayers                      /index.html    200
+/relayers/:slug                /index.html    200
+/search                        /index.html    200
+/terms                         /index.html    200
+/tokens                        /index.html    200
+/tokens/:addresses             /index.html    200
+/traders                       /index.html    200
+/traders/:addresses            /index.html    200
 
-# Redirect all requests to index.html since it's a single page application
-/asset-bridges         /index.html    200
-/fills                 /index.html    200
-/fills/:index          /index.html    200
-/network-insights      /index.html    200
-/news-and-updates      /index.html    200
-/privacy               /index.html    200
-/relayers/:slug        /index.html    200
-/relayers              /index.html    200
-/search                /index.html    200
-/terms                 /index.html    200
-/tokens/:addresses     /index.html    200
-/tokens                /index.html    200
-/traders/:addresses    /index.html    200
-/traders               /index.html    200
-/*                     /index.html    404
+# 404 Handler
+/*                             /index.html    404
