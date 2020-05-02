@@ -43,7 +43,7 @@ const SearchPage = ({ history, location }) => {
 
   return (
     <PageLayout title="Search Results">
-      <Card fullHeight>
+      <Card autoHeight>
         {loading ? (
           <LoadingIndicator centered />
         ) : (

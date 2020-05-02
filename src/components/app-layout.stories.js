@@ -7,6 +7,7 @@ import InvalidParametersError from './invalid-parameters-error';
 import PageLayout from './page-layout';
 import PageNotFound from './page-not-found';
 import UnexpectedError from './unexpected-error';
+import LoadingPage from './loading-page';
 
 const storiesConfig = {
   title: 'Layout/AppLayout',
@@ -116,9 +117,16 @@ const UnexpectedErrorInLayout = () => (
   </AppLayout>
 );
 
+const Loading = () => (
+  <AppLayout>
+    <LoadingPage />
+  </AppLayout>
+);
+
 export default storiesConfig;
 export {
   InvalidParameters,
+  Loading,
   LongContent,
   PageNotFoundInLayout as PageNotFound,
   ShortContent,

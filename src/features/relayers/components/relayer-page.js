@@ -86,7 +86,7 @@ const RelayerPage = ({ history, location, match }) => {
           TIME_PERIOD.ALL,
         ])}
       />
-      <Card fullHeight>
+      <Card autoHeight>
         <Fills
           excludeColumns={['relayer']}
           filter={{ relayer: relayer.id }}

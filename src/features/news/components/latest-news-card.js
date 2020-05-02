@@ -10,8 +10,8 @@ import LatestNews from './latest-news';
 import Link from '../../../components/link';
 import Pill from '../../../components/pill';
 
-const LatestNewsCard = ({ className, compact, showImages }) => (
-  <Card className={className}>
+const LatestNewsCard = ({ compact, showImages, ...otherProps }) => (
+  <Card {...otherProps}>
     <CardHeader>
       <CardHeading>Latest News</CardHeading>
       <Pill as={Link} href={URL.NEWS}>
@@ -25,13 +25,11 @@ const LatestNewsCard = ({ className, compact, showImages }) => (
 );
 
 LatestNewsCard.propTypes = {
-  className: PropTypes.string,
   compact: PropTypes.bool,
   showImages: PropTypes.bool,
 };
 
 LatestNewsCard.defaultProps = {
-  className: undefined,
   compact: undefined,
   showImages: undefined,
 };

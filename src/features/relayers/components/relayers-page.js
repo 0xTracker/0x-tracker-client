@@ -62,7 +62,7 @@ const RelayersPage = ({ history, location, page, setPage }) => {
         </span>
       }
     >
-      <Card fullHeight>
+      <Card autoHeight>
         {loadingRelayers ? (
           <LoadingIndicator centered />
         ) : (

@@ -99,7 +99,7 @@ const AssetBridgesPage = ({ page, setPage }) => {
           },
         ]}
       />
-      <Card fullHeight>
+      <Card autoHeight>
         {loadingAssetBridges ? (
           <LoadingIndicator centered />
         ) : (

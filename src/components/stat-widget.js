@@ -6,6 +6,7 @@ import { COLORS } from '../styles/constants';
 import Card from './card';
 import CardBody from './card-body';
 import HelpWidget from './help-widget';
+import LoadingIndicator from './loading-indicator';
 import prettyPeriod from '../util/pretty-period';
 import sharedPropTypes from '../prop-types';
 
@@ -31,28 +32,34 @@ const StatWidgetValue = styled.dd`
 
 const StatWidget = ({
   className,
+  loading,
   period,
   showPeriod,
   tooltip,
   title,
   children,
 }) => (
-  <Card className={className}>
+  <Card autoHeight className={className}>
     <CardBody padded>
       <dl css="display: flex; flex-grow: 1; flex-direction: column; margin: 0;">
         <StatWidgetTitle>
           {period && showPeriod ? `${title} (${prettyPeriod(period)})` : title}
           {tooltip !== undefined && <HelpWidget>{tooltip}</HelpWidget>}
         </StatWidgetTitle>
-        <StatWidgetValue>{children}</StatWidgetValue>
+        {loading ? (
+          <LoadingIndicator size="small" type="cylon" />
+        ) : (
+          <StatWidgetValue>{children}</StatWidgetValue>
+        )}
       </dl>
     </CardBody>
   </Card>
 );
 
 StatWidget.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
+  loading: PropTypes.bool,
   period: sharedPropTypes.timePeriod,
   showPeriod: PropTypes.bool,
   title: PropTypes.string.isRequired,
@@ -60,7 +67,9 @@ StatWidget.propTypes = {
 };
 
 StatWidget.defaultProps = {
+  children: undefined,
   className: undefined,
+  loading: false,
   period: undefined,
   showPeriod: true,
   tooltip: undefined,

@@ -25,7 +25,7 @@ const FillPage = ({ match }) => {
 
   return (
     <PageLayout title="Fill Details">
-      <Card css="padding: 2rem;" fullHeight>
+      <Card autoHeight css="padding: 2rem;">
         <FillDetails fill={fill} />
       </Card>
     </PageLayout>

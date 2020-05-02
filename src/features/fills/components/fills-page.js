@@ -80,7 +80,7 @@ const FillsPage = ({ history, location }) => {
         </span>
       }
     >
-      <Card fullHeight>
+      <Card autoHeight>
         <Fills
           filter={{
             dateFrom,

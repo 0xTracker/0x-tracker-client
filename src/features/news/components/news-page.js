@@ -65,7 +65,7 @@ const NewsPage = ({ match }) => {
     >
       <Row css="flex-grow: 1;">
         <ArticlesColumn>
-          <Card fullHeight>
+          <Card autoHeight>
             <CardBody>
               <ArticlesProvider
                 limit={11}

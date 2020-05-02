@@ -69,7 +69,7 @@ const TraderPage = ({ history, location, match }) => {
           { label: 'ALL', value: TIME_PERIOD.ALL },
         ]}
       />
-      <Card fullHeight>
+      <Card autoHeight>
         <Fills filter={{ address }} onPageChange={onPageChange} page={page} />
       </Card>
     </PageLayout>

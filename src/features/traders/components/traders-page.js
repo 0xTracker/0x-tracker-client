@@ -153,7 +153,7 @@ const TradersPage = ({ history, location }) => {
             </Card>
           </Col>
         </Row>
-        <Card fullHeight>
+        <Card autoHeight>
           {loading ? (
             <LoadingIndicator centered />
           ) : (

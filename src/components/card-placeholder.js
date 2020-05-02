@@ -10,7 +10,6 @@ const CardPlaceholder = ({ children }) => (
       color: ${COLORS.NEUTRAL.MYSTIC_500};
       display: flex;
       justify-content: center;
-      min-height: 300px;
       padding: 3rem;
       text-align: center;
       width: 100%;

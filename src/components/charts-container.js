@@ -58,13 +58,7 @@ const Periods = styled(Nav).attrs({ pills: true })`
   margin-bottom: -0.2rem;
 `;
 
-const ChartsContainer = ({
-  charts,
-  defaultPeriod,
-  className,
-  height,
-  periods,
-}) => {
+const ChartsContainer = ({ charts, defaultPeriod, periods, ...otherProps }) => {
   const [selectedChart, setSelectedChart] = useState(charts[0].title);
   const [selectedPeriod, setSelectedPeriod] = useState(defaultPeriod);
   const currentBreakpoint = useCurrentBreakpoint();
@@ -75,12 +69,7 @@ const ChartsContainer = ({
   const chartProps = { period: selectedPeriod };
 
   return (
-    <Card
-      className={className}
-      css={`
-        height: ${height};
-      `}
-    >
+    <Card {...otherProps}>
       <CardHeader>
         {charts.length === 1 ? (
           charts[0].title
@@ -145,9 +134,7 @@ ChartsContainer.propTypes = {
       title: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  className: PropTypes.string,
   defaultPeriod: PropTypes.string.isRequired,
-  height: PropTypes.string,
   periods: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string.isRequired,
@@ -157,8 +144,6 @@ ChartsContainer.propTypes = {
 };
 
 ChartsContainer.defaultProps = {
-  className: undefined,
-  height: '352px',
   periods: undefined,
 };
 

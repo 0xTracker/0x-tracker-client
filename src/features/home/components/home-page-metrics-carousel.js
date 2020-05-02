@@ -17,17 +17,16 @@ const CarouselMetric = styled.div`
 `;
 
 const HomePageMetricsCarousel = ({
-  className,
   period,
   tradeCount,
   traderCount,
   tradeVolume,
+  ...otherProps
 }) => (
   <Slider
     arrows={false}
     centerMode
     centerPadding="20px"
-    className={className}
     infinite
     responsive={[
       {
@@ -41,28 +40,31 @@ const HomePageMetricsCarousel = ({
     ]}
     slidesToScroll={3}
     slidesToShow={3}
+    {...otherProps}
   >
     <CarouselMetric
       as={TradeVolumeWidget}
+      css="min-height: 80px;"
       period={period}
       volume={tradeVolume}
     />
     <CarouselMetric
       as={TradeCountWidget}
+      css="min-height: 80px;"
       period={period}
       tradeCount={tradeCount}
     />
     <CarouselMetric
       as={ActiveTradersWidget}
+      css="min-height: 80px;"
       period={period}
       traderCount={traderCount}
     />
-    <CarouselMetric as={ZRXPriceMetric} />
+    <CarouselMetric as={ZRXPriceMetric} css="min-height: 80px;" />
   </Slider>
 );
 
 HomePageMetricsCarousel.propTypes = {
-  className: PropTypes.string,
   period: sharedPropTypes.timePeriod.isRequired,
   tradeCount: PropTypes.number,
   tradeVolume: PropTypes.number,
@@ -70,7 +72,6 @@ HomePageMetricsCarousel.propTypes = {
 };
 
 HomePageMetricsCarousel.defaultProps = {
-  className: undefined,
   tradeCount: undefined,
   tradeVolume: undefined,
   traderCount: undefined,
