@@ -1,12 +1,12 @@
-import { useSearchParam } from 'react-use';
-import { useHistory } from 'react-router';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import { buildUrl } from '../../../util';
-import { media } from '../../../styles/util';
-import { useMetadata } from '../../../hooks';
+import {
+  useMetadata,
+  useNavigator,
+  usePaginator,
+  useSearchParam,
+} from '../../../hooks';
 import AssetBridgeList from './asset-bridge-list';
 import AssetBridgingMetrics from './asset-bridging-metrics';
 import AssetBridgingStats from './asset-bridging-stats';
@@ -19,7 +19,6 @@ import ResponsiveTimePeriodFilter from '../../../components/responsive-time-peri
 import SubTitle from '../../../components/sub-title';
 import TabbedCard from '../../../components/tabbed-card';
 import useAssetBridges from '../hooks/use-asset-bridges';
-import withPagination from '../../../components/with-pagination';
 import HelpWidget from '../../../components/help-widget';
 
 const periodDescriptions = {
@@ -30,10 +29,12 @@ const periodDescriptions = {
   [TIME_PERIOD.ALL]: 'active since 0x launch',
 };
 
-const AssetBridgesPage = ({ page, setPage }) => {
+const AssetBridgesPage = () => {
   useMetadata({ title: '0x Protocol Asset Bridge Metrics & Charts' });
-  const history = useHistory();
-  const statsPeriod = useSearchParam('statsPeriod') || TIME_PERIOD.MONTH;
+
+  const { navigateTo } = useNavigator();
+  const { page, setPage } = usePaginator();
+  const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.MONTH);
 
   const [assetBridges, loadingAssetBridges] = useAssetBridges({
     autoReload: true,
@@ -50,15 +51,13 @@ const AssetBridgesPage = ({ page, setPage }) => {
         <ResponsiveTimePeriodFilter
           name="statsPeriod"
           onChange={(newPeriod) => {
-            history.push(
-              buildUrl(URL.ASSET_BRIDGES, { statsPeriod: newPeriod }),
-            );
+            navigateTo(URL.ASSET_BRIDGES, { statsPeriod: newPeriod });
           }}
           value={statsPeriod}
         />
       }
       title={
-        <span>
+        <>
           <span css="display: flex; align-items: center;">
             Asset Bridges{' '}
             <HelpWidget css="margin-left: 0.5rem;">
@@ -71,19 +70,11 @@ const AssetBridgesPage = ({ page, setPage }) => {
           <Hidden above="xs">
             <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
           </Hidden>
-        </span>
+        </>
       }
     >
       <AssetBridgingStats bridgeCount={recordCount} period={statsPeriod} />
       <TabbedCard
-        css={`
-          height: 330px;
-          margin-bottom: 1.25rem;
-
-          ${media.greaterThan('lg')`
-              margin-bottom: 2rem;
-            `}
-        `}
         tabs={[
           {
             component: (
@@ -123,9 +114,4 @@ const AssetBridgesPage = ({ page, setPage }) => {
   );
 };
 
-AssetBridgesPage.propTypes = {
-  page: PropTypes.number.isRequired,
-  setPage: PropTypes.func.isRequired,
-};
-
-export default withPagination(AssetBridgesPage);
+export default AssetBridgesPage;
