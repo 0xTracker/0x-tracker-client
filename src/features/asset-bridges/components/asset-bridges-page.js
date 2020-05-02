@@ -11,6 +11,9 @@ import AssetBridgeList from './asset-bridge-list';
 import AssetBridgingMetrics from './asset-bridging-metrics';
 import AssetBridgingStats from './asset-bridging-stats';
 import Card from '../../../components/card';
+import CardGrid from '../../../components/card-grid';
+import CardGridCol from '../../../components/card-grid-col';
+import CardGridRow from '../../../components/card-grid-row';
 import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
@@ -73,43 +76,59 @@ const AssetBridgesPage = () => {
         </>
       }
     >
-      <AssetBridgingStats bridgeCount={recordCount} period={statsPeriod} />
-      <TabbedCard
-        tabs={[
-          {
-            component: (
-              <AssetBridgingMetrics period={statsPeriod} type="tradeVolume" />
-            ),
-            title: 'Volume',
-          },
-          {
-            component: (
-              <AssetBridgingMetrics period={statsPeriod} type="tradeCount" />
-            ),
-            title: 'Trades',
-          },
-        ]}
-      />
-      <Card autoHeight>
-        {loadingAssetBridges ? (
-          <LoadingIndicator centered />
-        ) : (
-          <>
-            <AssetBridgeList
-              assetBridges={items}
-              positionOffset={(page - 1) * pageSize}
-              statsPeriod={statsPeriod}
+      <CardGrid>
+        <AssetBridgingStats bridgeCount={recordCount} period={statsPeriod} />
+        <CardGridRow>
+          <CardGridCol xs={12}>
+            <TabbedCard
+              tabs={[
+                {
+                  component: (
+                    <AssetBridgingMetrics
+                      period={statsPeriod}
+                      type="tradeVolume"
+                    />
+                  ),
+                  title: 'Volume',
+                },
+                {
+                  component: (
+                    <AssetBridgingMetrics
+                      period={statsPeriod}
+                      type="tradeCount"
+                    />
+                  ),
+                  title: 'Trades',
+                },
+              ]}
             />
-            <Paginator
-              onPageChange={setPage}
-              page={page}
-              pageCount={pageCount}
-              pageSize={pageSize}
-              recordCount={recordCount}
-            />
-          </>
-        )}
-      </Card>
+          </CardGridCol>
+        </CardGridRow>
+        <CardGridRow>
+          <CardGridCol xs={12}>
+            <Card>
+              {loadingAssetBridges ? (
+                <LoadingIndicator centered />
+              ) : (
+                <>
+                  <AssetBridgeList
+                    assetBridges={items}
+                    positionOffset={(page - 1) * pageSize}
+                    statsPeriod={statsPeriod}
+                  />
+                  <Paginator
+                    onPageChange={setPage}
+                    page={page}
+                    pageCount={pageCount}
+                    pageSize={pageSize}
+                    recordCount={recordCount}
+                  />
+                </>
+              )}
+            </Card>
+          </CardGridCol>
+        </CardGridRow>
+      </CardGrid>
     </PageLayout>
   );
 };
