@@ -11,4 +11,8 @@ const Card = styled.div`
   overflow: hidden;
 `;
 
+Card.defaultProps = {
+  autoHeight: true,
+};
+
 export default Card;

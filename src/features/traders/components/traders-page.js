@@ -1,17 +1,15 @@
-import { Col, Row } from 'reactstrap';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
-import { buildUrl } from '../../../util';
-import { media } from '../../../styles/util';
-import { useMetadata } from '../../../hooks';
+import { useMetadata, useNavigator, useSearchParam } from '../../../hooks';
 import ActiveTraderMetrics from '../../metrics/components/active-trader-metrics';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
+import CardGrid from '../../../components/card-grid';
+import CardGridCol from '../../../components/card-grid-col';
+import CardGridRow from '../../../components/card-grid-row';
 import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
-import HelpWidget from '../../../components/help-widget';
 import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
@@ -22,10 +20,7 @@ import TraderList from './trader-list';
 import TradersFilter from './traders-filter';
 import useTraders from '../hooks/use-traders';
 
-const defaultFilters = {
-  statsPeriod: TIME_PERIOD.MONTH,
-  type: undefined,
-};
+const defaultPeriod = TIME_PERIOD.MONTH;
 
 const periodDescriptions = {
   [TIME_PERIOD.DAY]: 'in the last 24 hours',
@@ -47,19 +42,19 @@ const METRIC_TYPE_MAPPINGS = {
   undefined: 'traderCount',
 };
 
-const ORDER_BY_MAPPINGS = {
+const SORT_BY_MAPPINGS = {
   maker: 'fillVolume.maker',
   taker: 'fillVolume.taker',
   undefined: 'fillVolume.total',
 };
 
-const TradersPage = ({ history, location }) => {
+const TradersPage = () => {
   useMetadata({ title: '0x Protocol Trader Metrics & Charts' });
 
-  const params = new URLSearchParams(location.search);
-  const statsPeriod = params.get('statsPeriod') || defaultFilters.statsPeriod;
-  const type = params.get('type') || undefined;
-  const page = params.get('page') || 1;
+  const { navigateTo } = useNavigator();
+  const statsPeriod = useSearchParam('statsPeriod', defaultPeriod);
+  const type = useSearchParam('type');
+  const page = useSearchParam('page', 1);
 
   const selectedFilters = {
     statsPeriod,
@@ -70,7 +65,7 @@ const TradersPage = ({ history, location }) => {
     autoReload: true,
     limit: 25,
     page,
-    sortBy: ORDER_BY_MAPPINGS[type],
+    sortBy: SORT_BY_MAPPINGS[type],
     statsPeriod,
     type,
   });
@@ -81,42 +76,33 @@ const TradersPage = ({ history, location }) => {
     <PageLayout
       filter={
         <TradersFilter
-          defaultFilters={defaultFilters}
+          defaultFilters={{ statsPeriod: defaultPeriod, type: undefined }}
           onChange={(newFilters) => {
-            history.push(buildUrl(URL.TRADERS, newFilters));
+            navigateTo(URL.TRADERS, newFilters);
           }}
           selectedFilters={selectedFilters}
         />
       }
       title={
-        <span>
+        <>
           Active {DESCRIPTOR_MAPPINGS[type]}
           <Hidden above="xs">
             <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
           </Hidden>
-        </span>
+        </>
       }
     >
-      <>
-        <Row>
-          <Col lg={7}>
-            <Card
-              css={`
-                height: 300px;
-                margin-bottom: 1.25rem;
-
-                ${media.greaterThan('lg')`
-                margin-bottom: 2rem;
-              `}
-              `}
-            >
+      <CardGrid>
+        <CardGridRow>
+          <CardGridCol lg={7}>
+            <Card>
               <CardHeader>
-                <CardHeading css="display: flex; align-items: center;">
+                <CardHeading
+                  tooltip={`Number of active ${DESCRIPTOR_MAPPINGS[
+                    type
+                  ].toLowerCase()} over time in the selected period.`}
+                >
                   Trend
-                  <HelpWidget css="margin-left: 0.5rem;">
-                    Number of active {DESCRIPTOR_MAPPINGS[type].toLowerCase()}{' '}
-                    over time in the selected period.
-                  </HelpWidget>
                 </CardHeading>
               </CardHeader>
               <CardBody padded>
@@ -126,73 +112,55 @@ const TradersPage = ({ history, location }) => {
                 />
               </CardBody>
             </Card>
-          </Col>
-          <Col lg={5}>
-            <Card
-              css={`
-                height: 300px;
-                margin-bottom: 1.25rem;
-
-                ${media.greaterThan('lg')`
-                margin-bottom: 2rem;
-              `}
-              `}
-            >
+          </CardGridCol>
+          <CardGridCol lg={5}>
+            <Card>
               <CardHeader>
-                <CardHeading css="display: flex; align-items: center;">
-                  Maker-Taker Split{' '}
-                  <HelpWidget css="margin-left: 0.5rem;">
-                    Comparison between the number of active makers and takers in
-                    the selected period.
-                  </HelpWidget>
+                <CardHeading tooltip="Comparison between the number of active makers and takers in the selected period.">
+                  Maker-Taker Split
                 </CardHeading>
               </CardHeader>
               <CardBody css="padding: 3rem;">
                 <TraderBreakdown period={statsPeriod} />
               </CardBody>
             </Card>
-          </Col>
-        </Row>
-        <Card autoHeight>
-          {loading ? (
-            <LoadingIndicator centered />
-          ) : (
-            <>
-              <TraderList
-                positionOffset={(page - 1) * pageSize}
-                statsPeriod={statsPeriod}
-                statsType={type}
-                traders={items}
-              />
-              <Paginator
-                onPageChange={(newPage) => {
-                  history.push(
-                    buildUrl(URL.TRADERS, {
-                      page: newPage,
-                      ...selectedFilters,
-                    }),
-                  );
-                }}
-                page={page}
-                pageCount={pageCount}
-                pageSize={pageSize}
-                recordCount={recordCount}
-              />
-            </>
-          )}
-        </Card>
-      </>
+          </CardGridCol>
+        </CardGridRow>
+        <CardGridRow>
+          <CardGridCol xs={12}>
+            <Card>
+              <CardBody>
+                {loading ? (
+                  <LoadingIndicator centered />
+                ) : (
+                  <>
+                    <TraderList
+                      positionOffset={(page - 1) * pageSize}
+                      statsPeriod={statsPeriod}
+                      statsType={type}
+                      traders={items}
+                    />
+                    <Paginator
+                      onPageChange={(newPage) => {
+                        navigateTo(URL.TRADERS, {
+                          page: newPage,
+                          ...selectedFilters,
+                        });
+                      }}
+                      page={page}
+                      pageCount={pageCount}
+                      pageSize={pageSize}
+                      recordCount={recordCount}
+                    />
+                  </>
+                )}
+              </CardBody>
+            </Card>
+          </CardGridCol>
+        </CardGridRow>
+      </CardGrid>
     </PageLayout>
   );
-};
-
-TradersPage.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
-  location: PropTypes.shape({
-    search: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default TradersPage;
