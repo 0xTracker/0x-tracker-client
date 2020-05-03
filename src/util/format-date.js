@@ -19,7 +19,7 @@ const SHORT_MONTHS = {
   11: 'Dec',
 };
 
-const formatDate = (date, dateFormat) => {
+const formatDate = (date, dateFormat, { timezone } = { timezone: true }) => {
   const parsedDate = new Date(date);
 
   return {
@@ -29,7 +29,7 @@ const formatDate = (date, dateFormat) => {
     [DATE_FORMAT.COMPACT]: () =>
       `${SHORT_MONTHS[parsedDate.getUTCMonth()]} ${numeral(
         parsedDate.getUTCDate(),
-      ).format('oO')} (UTC)`,
+      ).format('oO')}${timezone ? ' (UTC)' : ''}`,
     [DATE_FORMAT.STANDARD]: () => format(parsedDate, 'MMMM do yyyy, hh:mm a'),
   }[dateFormat](date);
 };
