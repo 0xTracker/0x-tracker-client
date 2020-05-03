@@ -26,7 +26,8 @@ const Title = styled.h1`
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 18px;
-  font-weight: 500;
+  font-family: Cabin;
+  font-weight: 600;
   margin: 0;
   word-break: break-all;
 `;

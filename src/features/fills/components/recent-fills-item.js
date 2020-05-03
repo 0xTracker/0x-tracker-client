@@ -59,7 +59,6 @@ const Metadata = styled.dl`
 
 const Heading = styled.h4`
   font-size: 1rem;
-  font-weight: 400;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;

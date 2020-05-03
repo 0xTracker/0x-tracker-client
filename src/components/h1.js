@@ -5,7 +5,6 @@ import { media } from '../styles/util';
 
 const H1 = styled.h1`
   font-size: 24px;
-  font-weight: 500;
 
   ${media.greaterThan('md')`
     font-size: 30px;

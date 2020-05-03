@@ -19,7 +19,7 @@ const TabbedCardHeader = styled(CardHeader)`
 const TabLink = styled(NavLink)`
   &&& {
     color: ${(props) => (props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_600)};
-    font-weight: 500;
+    font-weight: ${(props) => (props.active ? '500' : '400')};
     cursor: pointer;
     border: none;
     margin-right: 1rem;

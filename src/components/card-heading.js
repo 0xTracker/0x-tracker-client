@@ -6,7 +6,6 @@ import HelpWidget from './help-widget';
 
 const Wrapper = styled.h2`
   font-size: 1rem;
-  font-weight: 500;
   line-height: 1.6rem;
   margin: 0;
   padding: 0;
