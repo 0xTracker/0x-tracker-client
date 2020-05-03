@@ -97,7 +97,7 @@ const NewsPage = () => {
             </Card>
           </CardGridCol>
           <CardGridCol md={4}>
-            <Card>
+            <Card autoHeight={false}>
               <CardHeader>
                 <CardHeading>Filter by source</CardHeading>
               </CardHeader>

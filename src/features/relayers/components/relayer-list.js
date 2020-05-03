@@ -66,7 +66,7 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
             </RelayerLink>
           </td>
           <td className="align-middle" width="99%">
-            <span css="align-items: center; display: flex; font-weight: 500;">
+            <span css="align-items: center; display: flex;">
               <RelayerLink relayer={relayer.slug}>{relayer.name}</RelayerLink>
               {relayer.id === 'zeroExApi' && (
                 <HelpWidget css="margin-left: 0.5rem; vertical-align: middle;">

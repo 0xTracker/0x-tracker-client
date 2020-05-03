@@ -16,7 +16,7 @@ const ChartLink = styled(NavLink)`
   &&& {
     background: none;
     color: ${(props) => (props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_600)};
-    font-weight: 500;
+    font-weight: ${(props) => (props.active ? '500' : '400')};
     cursor: pointer;
     border: none;
     margin-right: 1rem;
@@ -35,10 +35,11 @@ const PeriodLink = styled(NavLink)`
     color: ${COLORS.NEUTRAL.MYSTIC_600};
     cursor: pointer;
     margin: 0 0.25rem;
-    padding: 0.2rem 0.5rem;
+    padding: 0.4rem 0.5rem;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.05em;
+    line-height: 1;
 
     &&.active {
       background-color: ${COLORS.NEUTRAL.MYSTIC_300};
@@ -53,7 +54,7 @@ const PeriodLink = styled(NavLink)`
 `;
 
 const Periods = styled(Nav).attrs({ pills: true })`
-  align-self: flex-end;
+  align-self: center;
   font-size: 0.8rem;
   margin-bottom: -0.2rem;
 `;

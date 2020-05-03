@@ -14,7 +14,7 @@ exports[`page not found component should render without props 1`] = `
         class="error-message__CopyWrapper-sc-1wau1ja-1 dNhivl"
       >
         <h1
-          class="h1__H1-sc-1ha1x4u-0 VRpIX"
+          class="h1__H1-sc-1ha1x4u-0 hCcIIj"
         >
           Page Not Found
         </h1>

@@ -32,7 +32,7 @@ const Indicator = styled.div`
   color: ${COLORS.ACCENT.ANZAC_1000};
   display: flex;
   font-size: 0.7rem;
-  font-weight: bold;
+  font-weight: 600;
   justify-content: center;
   position: absolute;
   right: -0.5rem;

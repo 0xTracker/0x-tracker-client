@@ -16,7 +16,6 @@ const Logo = styled.img`
 const NavHeading = styled.h2`
   color: white;
   font-size: 0.9rem;
-  font-weight: 500;
   letter-spacing: 0.05em;
   margin: 2rem 0 1rem 0;
   text-transform: uppercase;

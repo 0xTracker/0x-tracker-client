@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
-import { DATE_FORMAT } from '../../../constants';
+import { DATE_FORMAT, URL } from '../../../constants';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 
@@ -20,6 +20,10 @@ const StyledArticle = styled.div`
     (props.index + 1) % 2 === 0 ? COLORS.NEUTRAL.MYSTIC_100 : 'none'};
   display: flex;
   padding: 1.5rem 1rem;
+
+  &:last-child {
+    flex-grow: 1;
+  }
 `;
 
 const ArticleMetadata = styled.dl`
@@ -56,12 +60,17 @@ const ArticleMetadata = styled.dl`
 `;
 
 const ArticleHeading = styled.h4`
-  font-size: 1.1rem;
+  font-size: 16px;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: ${(props) => (props.compact ? 'wrap' : 'nowrap')};
 `;
+
+const getArticleUrl = (article) =>
+  article.source.slug === '0x-tracker'
+    ? `${URL.NEWS}/${article.source.slug}/${article.slug}`
+    : article.url;
 
 const Article = ({ article, compact, index, showImage }) => (
   <StyledArticle index={index}>
@@ -72,7 +81,7 @@ const Article = ({ article, compact, index, showImage }) => (
     ) : null}
     <div css="display: flex; flex-direction: column; overflow: hidden;">
       <ArticleHeading compact={compact}>
-        <Link href={article.url}>{article.title}</Link>
+        <Link href={getArticleUrl(article)}>{article.title}</Link>
       </ArticleHeading>
       <ArticleMetadata>
         <dt>Source</dt>

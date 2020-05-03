@@ -40,7 +40,7 @@ const FillDetailList = styled.dl`
 
 const PriceBadge = styled(Badge).attrs({
   bgColor: COLORS.PRIMARY.SCAMPI_100,
-  textColor: COLORS.PRIMARY.SCAMPI_1000,
+  textColor: 'inherit',
 })`
   margin-left: 0.5rem;
 `;

@@ -3,7 +3,8 @@ import { createGlobalStyle } from 'styled-components';
 import { COLORS } from '../styles/constants';
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Monda');
+  @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,600&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Cabin:500,600&display=swap');
 
   #root {
     display: flex;
@@ -14,12 +15,14 @@ const GlobalStyles = createGlobalStyle`
   html,
   body {
     background-color: none;
+    color: ${COLORS.PRIMARY.SCAMPI_800};
+    font-family: Ubuntu,-apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
     font-size: 15px;
   }
-  
-  body {
-    color: ${COLORS.PRIMARY.SCAMPI_1000};
-    font-family: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
+
+  h1, h2, h3, h4 {
+    font-family: Cabin,-apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
+    font-weight: 500;
   }
 
   .table {
@@ -66,10 +69,6 @@ const GlobalStyles = createGlobalStyle`
   .table tbody td:last-child,
   .table thead th:last-child {
     padding-right: 2rem;
-  }
-
-  .card-header .nav-tabs .nav-link:hover:not(.active) {
-    border-color: transparent;
   }
 
   .modal-backdrop.show {

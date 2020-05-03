@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import HelpWidget from './help-widget';
 
 const Wrapper = styled.h2`
+  font-family: inherit;
   font-size: 1rem;
   line-height: 1.6rem;
   margin: 0;

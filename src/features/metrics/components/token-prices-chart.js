@@ -97,7 +97,7 @@ const TokenPricesChart = ({
             fill: COLORS.ACCENT.ANZAC_600,
             fillOpacity: 0.6,
             fontSize: '0.7rem',
-            fontWeight: 'bold',
+            fontWeight: '500',
             position: 'insideTopLeft',
             value: 'PRICE',
           }}
@@ -107,7 +107,7 @@ const TokenPricesChart = ({
           tick={{
             fill: COLORS.PRIMARY.SCAMPI_800,
             fontSize: '0.8em',
-            fontWeight: 'bold',
+            fontWeight: '500',
           }}
           tickFormatter={(value) => formatAxisCurrency(value, localCurrency)}
           tickLine={false}
@@ -120,7 +120,7 @@ const TokenPricesChart = ({
           label={{
             fill: COLORS.NEUTRAL.MYSTIC_300,
             fontSize: '0.7rem',
-            fontWeight: 'bold',
+            fontWeight: '500',
             position: 'insideTopRight',
             value: 'VOLUME',
           }}
@@ -131,7 +131,7 @@ const TokenPricesChart = ({
           tick={{
             fill: COLORS.PRIMARY.SCAMPI_800,
             fontSize: '0.8em',
-            fontWeight: 'bold',
+            fontWeight: '500',
           }}
           tickFormatter={(value) => formatAxisCurrency(value, localCurrency)}
           tickLine={false}

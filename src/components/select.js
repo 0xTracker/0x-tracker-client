@@ -65,7 +65,7 @@ const Select = styled(ReactSelect).attrs({
     }
 
     .Select__dropdown-indicator {
-      color: ${COLORS.NEUTRAL.MYSTIC_500};
+      color: ${COLORS.NEUTRAL.MYSTIC_900};
     }
   }
 
