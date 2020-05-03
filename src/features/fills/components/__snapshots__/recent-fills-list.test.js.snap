@@ -22,7 +22,7 @@ exports[`should render an assortment of fills 1`] = `
         class="recent-fills-item___StyledDiv-sc-1yc2z6o-4 hgmXpg"
       >
         <h4
-          class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 klHjZr"
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
@@ -32,7 +32,7 @@ exports[`should render an assortment of fills 1`] = `
           </a>
         </h4>
         <dl
-          class="recent-fills-item__Metadata-sc-1yc2z6o-1 bJGEUN"
+          class="recent-fills-item__Metadata-sc-1yc2z6o-1 imLQMq"
         >
           <dt>
             Relayer
@@ -54,7 +54,7 @@ exports[`should render an assortment of fills 1`] = `
         </dl>
       </div>
       <span
-        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 iXIDJP"
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 jGFdCM"
       >
         $29.24
       </span>
@@ -76,7 +76,7 @@ exports[`should render an assortment of fills 1`] = `
         class="recent-fills-item___StyledDiv-sc-1yc2z6o-4 hgmXpg"
       >
         <h4
-          class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 klHjZr"
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
@@ -86,7 +86,7 @@ exports[`should render an assortment of fills 1`] = `
           </a>
         </h4>
         <dl
-          class="recent-fills-item__Metadata-sc-1yc2z6o-1 bJGEUN"
+          class="recent-fills-item__Metadata-sc-1yc2z6o-1 imLQMq"
         >
           <dt>
             Relayer
@@ -108,7 +108,7 @@ exports[`should render an assortment of fills 1`] = `
         </dl>
       </div>
       <span
-        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 iXIDJP"
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 jGFdCM"
       >
         $150.06
       </span>
@@ -130,7 +130,7 @@ exports[`should render an assortment of fills 1`] = `
         class="recent-fills-item___StyledDiv-sc-1yc2z6o-4 hgmXpg"
       >
         <h4
-          class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 klHjZr"
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
@@ -140,7 +140,7 @@ exports[`should render an assortment of fills 1`] = `
           </a>
         </h4>
         <dl
-          class="recent-fills-item__Metadata-sc-1yc2z6o-1 bJGEUN"
+          class="recent-fills-item__Metadata-sc-1yc2z6o-1 imLQMq"
         >
           <dt>
             Relayer
@@ -162,7 +162,7 @@ exports[`should render an assortment of fills 1`] = `
         </dl>
       </div>
       <span
-        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 iXIDJP"
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 jGFdCM"
       >
         $6.20
       </span>
@@ -184,7 +184,7 @@ exports[`should render an assortment of fills 1`] = `
         class="recent-fills-item___StyledDiv-sc-1yc2z6o-4 hgmXpg"
       >
         <h4
-          class="recent-fills-item__Heading-sc-1yc2z6o-2 cfJjoe"
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 klHjZr"
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
@@ -194,7 +194,7 @@ exports[`should render an assortment of fills 1`] = `
           </a>
         </h4>
         <dl
-          class="recent-fills-item__Metadata-sc-1yc2z6o-1 bJGEUN"
+          class="recent-fills-item__Metadata-sc-1yc2z6o-1 imLQMq"
         >
           <dt>
             Relayer
@@ -216,7 +216,7 @@ exports[`should render an assortment of fills 1`] = `
         </dl>
       </div>
       <span
-        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 iXIDJP"
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 jGFdCM"
       >
         $6.06
       </span>

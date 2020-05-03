@@ -76,7 +76,7 @@ exports[`should render without props 1`] = `
         class="col-6 col-sm-4 col-md-2 offset-md-2"
       >
         <h2
-          class="footer__NavHeading-htpw4v-1 hgMKcf"
+          class="footer__NavHeading-htpw4v-1 hKRJdO"
         >
           About
         </h2>
@@ -119,7 +119,7 @@ exports[`should render without props 1`] = `
         class="col-6 col-sm-4 col-md-2"
       >
         <h2
-          class="footer__NavHeading-htpw4v-1 hgMKcf"
+          class="footer__NavHeading-htpw4v-1 hKRJdO"
         >
           Developers
         </h2>
@@ -154,7 +154,7 @@ exports[`should render without props 1`] = `
         class="col-6 col-sm-4 col-md-2"
       >
         <h2
-          class="footer__NavHeading-htpw4v-1 hgMKcf"
+          class="footer__NavHeading-htpw4v-1 hKRJdO"
         >
           Resources
         </h2>

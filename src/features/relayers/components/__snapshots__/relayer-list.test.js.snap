@@ -113,7 +113,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle text-center"
       >
         <img
-          class="rank___StyledImg-flivtb-0 fIVyfs"
+          class="rank___StyledImg-flivtb-0 dXYllF"
           src="test-file-stub"
         />
       </td>
@@ -147,7 +147,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-4 eXwvpm"
+          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
@@ -199,7 +199,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle text-center"
       >
         <img
-          class="rank___StyledImg2-flivtb-1 cvLQXd"
+          class="rank___StyledImg2-flivtb-1 fOfsQZ"
           src="test-file-stub"
         />
       </td>
@@ -233,7 +233,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-4 eXwvpm"
+          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
@@ -285,7 +285,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle text-center"
       >
         <img
-          class="rank___StyledImg3-flivtb-2 dAUIHr"
+          class="rank___StyledImg3-flivtb-2 coWjxP"
           src="test-file-stub"
         />
       </td>
@@ -319,7 +319,7 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-4 eXwvpm"
+          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 dmYDHp"

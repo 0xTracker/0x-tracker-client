@@ -192,7 +192,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <span
-        class="badge__Badge-sc-8ieo9x-0 fill-status-badge__FillStatusBadge-sc-6ddqr3-0 jetuWg badge"
+        class="badge__Badge-sc-8ieo9x-0 fill-status-badge__FillStatusBadge-sc-6ddqr3-0 hEoqFr"
       >
         SUCCESSFUL
       </span>
@@ -374,7 +374,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
             </a>
              
             <span
-              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 cLQkEq badge"
+              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 chzlzt badge"
             >
               ERC-20
             </span>
@@ -439,7 +439,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
             </a>
              
             <span
-              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 cLQkEq badge"
+              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 chzlzt badge"
             >
               ERC-20
             </span>
@@ -499,7 +499,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
               Wrapped Ether  (WETH)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 kkikSv badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 cUWeTr"
             >
               <span>
                 $190.08
@@ -531,7 +531,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
               FOAM Token  (FOAM)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 kkikSv badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 cUWeTr"
             >
               <span>
                 $0.03686
@@ -823,7 +823,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 fyvwzQ"
     >
       <span
-        class="badge__Badge-sc-8ieo9x-0 fill-status-badge__FillStatusBadge-sc-6ddqr3-0 jetuWg badge"
+        class="badge__Badge-sc-8ieo9x-0 fill-status-badge__FillStatusBadge-sc-6ddqr3-0 hEoqFr"
       >
         SUCCESSFUL
       </span>
@@ -1005,7 +1005,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
             </a>
              
             <span
-              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 cLQkEq badge"
+              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 chzlzt badge"
             >
               ERC-20
             </span>
@@ -1070,7 +1070,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
             </a>
              
             <span
-              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 cLQkEq badge"
+              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 chzlzt badge"
             >
               ERC-20
             </span>
@@ -1130,7 +1130,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
               Wrapped Ether  (WETH)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 kkikSv badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 cUWeTr"
             >
               <span>
                 $190.08
@@ -1162,7 +1162,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
               FOAM Token  (FOAM)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 kkikSv badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 cUWeTr"
             >
               <span>
                 $0.03686
@@ -1231,7 +1231,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
     >
       0.0001 ETH
       <span
-        class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 kkikSv badge"
+        class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 cUWeTr"
       >
         <span>
           $0.20000
