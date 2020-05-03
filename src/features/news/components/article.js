@@ -60,7 +60,7 @@ const ArticleMetadata = styled.dl`
 `;
 
 const ArticleHeading = styled.h4`
-  font-size: 1rem;
+  font-size: 16px;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;

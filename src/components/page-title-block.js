@@ -26,7 +26,8 @@ const Title = styled.h1`
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 18px;
-  font-family: Cabin;
+  font-family: Cabin, -apple-system, BlinkMacSystemFont, segoe ui, roboto,
+    oxygen, ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
   font-weight: 600;
   margin: 0;
   word-break: break-all;

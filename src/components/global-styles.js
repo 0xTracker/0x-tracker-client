@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h1, h2, h3, h4 {
-    font-family: Cabin;
+    font-family: Cabin,-apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
     font-weight: 500;
   }
 

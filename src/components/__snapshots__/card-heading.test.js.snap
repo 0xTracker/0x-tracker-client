@@ -2,7 +2,7 @@
 
 exports[`card heading component should render with children 1`] = `
 <h2
-  class="card-heading__Wrapper-sc-1332skt-0 jVHFRK"
+  class="card-heading__Wrapper-sc-1332skt-0 bCxLSb"
 >
   Hello World
 </h2>

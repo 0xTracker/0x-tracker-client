@@ -16,7 +16,6 @@ const ChartLink = styled(NavLink)`
   &&& {
     background: none;
     color: ${(props) => (props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_600)};
-    font-family: Cabin;
     font-weight: ${(props) => (props.active ? '500' : '400')};
     cursor: pointer;
     border: none;
