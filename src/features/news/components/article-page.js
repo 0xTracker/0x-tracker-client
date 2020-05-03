@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { useParams } from 'react-router';
 import React from 'react';
 import styled from 'styled-components';
@@ -6,6 +7,7 @@ import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import { DATE_FORMAT } from '../../../constants';
 import { formatDate } from '../../../util';
+import { useMetadata } from '../../../hooks';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import CardGrid from '../../../components/card-grid';
@@ -111,8 +113,17 @@ const ArticleMetadata = styled.dl`
 `;
 
 const ArticlePage = () => {
-  const { id } = useParams();
-  const [article, loading] = useArticle(id);
+  const { slug, source } = useParams();
+  const [article, loading] = useArticle(source, slug);
+
+  const title = _.get(article, 'title');
+  const description = _.get(article, 'summary');
+
+  useMetadata({
+    description,
+    openGraph: { description, title, type: 'article' },
+    title,
+  });
 
   if (loading) {
     return <LoadingPage />;
