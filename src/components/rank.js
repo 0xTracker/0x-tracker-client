@@ -10,7 +10,7 @@ import thirdImage from '../assets/images/icons/third.png';
 const Rank = ({ children, imageSize, ...otherProps }) => {
   const elementCss = css`
     color: ${COLORS.NEUTRAL.MYSTIC_600};
-    font-weight: 600;
+    font-weight: 500;
     vertical-align: middle;
   `;
 

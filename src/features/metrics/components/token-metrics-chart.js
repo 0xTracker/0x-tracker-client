@@ -76,7 +76,7 @@ const TokenMetricsChart = ({
           tick={{
             fill: COLORS.PRIMARY.SCAMPI_800,
             fontSize: '0.8em',
-            fontWeight: 'bold',
+            fontWeight: '500',
           }}
           tickFormatter={
             type === 'tradeCount'

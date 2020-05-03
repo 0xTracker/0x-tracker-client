@@ -59,7 +59,7 @@ const MobilePaginator = ({
       ) : (
         <PagingSummary
           compact
-          css="font-weight: bold;"
+          css="font-weight: 500;"
           page={page}
           pageCount={page}
           pageSize={pageSize}

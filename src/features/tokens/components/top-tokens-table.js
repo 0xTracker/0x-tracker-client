@@ -42,7 +42,7 @@ const TopTokensTable = ({ statsPeriod, tokens }) => (
           <TableCell width="99%">
             <TokenLink
               address={token.address}
-              css="display: block; font-weight: 500; line-height: 1;"
+              css="display: block; line-height: 1;"
               params={{ statsPeriod }}
             >
               {token.symbol}

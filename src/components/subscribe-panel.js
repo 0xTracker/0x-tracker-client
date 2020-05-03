@@ -39,7 +39,7 @@ const Heading = styled.h2`
 
 const Lead = styled.p`
   color: ${COLORS.NEUTRAL.MYSTIC_800};
-  font-size: 16px;
+  font-size: 18px;
   max-width: 400px;
   margin: 0;
 
@@ -54,7 +54,7 @@ const EmailInput = styled.input`
   flex-grow: 1;
   flex-shrink: 1;
   font-size: 16px;
-  margin: 0 1rem;
+  margin: 0 15px;
   min-width: 0;
 
   &::placeholder {
@@ -64,7 +64,7 @@ const EmailInput = styled.input`
 
 const FieldWrapper = styled.div`
   background: white;
-  border-radius: 0.25rem;
+  border-radius: 4px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,10 +72,10 @@ const FieldWrapper = styled.div`
 
 const SubscribeButton = styled.button`
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 8px 15px;
   margin: 4px 4px 4px 0;
-  border-radius: 0.25rem;
-  font-size: 0.9rem;
+  border-radius: 4px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 500;
@@ -97,11 +97,11 @@ const HoneyPot = styled.div`
 `;
 
 const Form = styled.form`
-  margin-top: 2rem;
+  margin-top: 30px;
 `;
 
 const Body = styled.div`
-  padding: 0 2rem;
+  padding: 0 30px;
 
   ${media.greaterThan('sm')`
     padding: 0;

@@ -4,10 +4,11 @@ import styled from 'styled-components';
 import { media } from '../styles/util';
 
 const H1 = styled.h1`
-  font-size: 1.6rem;
+  font-size: 24px;
+  font-weight: 500;
 
   ${media.greaterThan('md')`
-    font-size: 2rem;
+    font-size: 30px;
   `}
 `;
 

@@ -51,9 +51,7 @@ const TopRelayersTable = ({ relayers }) => {
             </TableCell>
             <TableCell width="99%;">
               <span css="display: flex; align-items: center">
-                <RelayerLink css="font-weight: 500;" relayer={relayer.slug}>
-                  {relayer.name}
-                </RelayerLink>
+                <RelayerLink relayer={relayer.slug}>{relayer.name}</RelayerLink>
                 {relayer.id === 'zeroExApi' && (
                   <HelpWidget css="margin-left: 0.5rem; vertical-align: middle;">
                     &lsquo;0x API&rsquo; trades include fills of orders posted

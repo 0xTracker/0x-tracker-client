@@ -32,11 +32,7 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
     </td>
     <td className="align-middle" width="99%">
       <span css="display: block; line-height: 1;">
-        <TokenLink
-          address={token.address}
-          css="font-weight: 500;"
-          params={{ statsPeriod }}
-        >
+        <TokenLink address={token.address} params={{ statsPeriod }}>
           {_.truncate(token.name, { length: 30 }) || 'Unknown Token'}
         </TokenLink>
         <TokenTypeBadge>{token.type}</TokenTypeBadge>
@@ -44,7 +40,7 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
       <span
         css={`
           color: ${COLORS.NEUTRAL.MYSTIC_700};
-          font-size: 0.9rem;
+          font-size: 14px;
         `}
       >
         {formatTokenSymbol(token.symbol) || truncateAddress(token.address)}

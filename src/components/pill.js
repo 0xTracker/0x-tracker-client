@@ -11,7 +11,7 @@ const Pill = styled.span`
   cursor: pointer;
   display: flex;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   height: 1.6rem;
   letter-spacing: 0.05em;
   line-height: 1;

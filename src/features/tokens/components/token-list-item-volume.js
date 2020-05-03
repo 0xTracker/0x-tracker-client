@@ -28,8 +28,7 @@ const TokenListItemVolume = ({ token }) => {
         css={`
           color: ${COLORS.NEUTRAL.MYSTIC_700};
           display: block;
-          font-size: 0.7rem;
-          font-weight: 500;
+          font-size: 12px;
           letter-spacing: 0.05em;
           line-height: 1;
         `}

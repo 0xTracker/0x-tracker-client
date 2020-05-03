@@ -5,7 +5,7 @@ import { COLORS } from '../styles/constants';
 const SubTitle = styled.small`
   color: ${COLORS.NEUTRAL.MYSTIC_700};
   display: block;
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-transform: lowercase;
 `;
 

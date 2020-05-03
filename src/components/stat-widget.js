@@ -15,7 +15,7 @@ const StatWidgetTitle = styled.dt`
   color: ${COLORS.NEUTRAL.MYSTIC_600};
   display: flex;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 500;
   justify-content: space-between;
   letter-spacing: 0.05em;
   margin: 0;
@@ -26,7 +26,7 @@ const StatWidgetValue = styled.dd`
   display: flex;
   flex-grow: 1;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 600;
   margin: 0;
 `;
 

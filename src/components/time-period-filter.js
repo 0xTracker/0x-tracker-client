@@ -20,7 +20,6 @@ const TimePeriodFilter = styled(TimePeriodSelector)`
 
   .Select__single-value {
     color: ${COLORS.NEUTRAL.MYSTIC_1000};
-    font-weight: 500;
   }
 
   && .Select__indicator {

@@ -13,7 +13,7 @@ const SearchInput = styled.input`
     border: none;
     border-radius: 0.25rem;
     background-color: ${COLORS.NEUTRAL.MYSTIC_200};
-    color: ${COLORS.PRIMARY.SCAMPI_1000};
+    color: ${COLORS.PRIMARY.SCAMPI_800};
     height: 100%;
     outline: none;
     padding: 0.5rem 0.75rem;
@@ -56,7 +56,7 @@ const SearchInputWrapper = styled.div`
     height: 0;
     border-top: 0.5rem solid transparent;
     border-bottom: 0.5rem solid transparent;
-    border-left: 0.5rem solid ${COLORS.NEUTRAL.MYSTIC_300};
+    border-left: 0.5rem solid ${COLORS.NEUTRAL.MYSTIC_200};
     content: '';
     display: inline-block;
   }

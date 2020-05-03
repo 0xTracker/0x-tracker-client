@@ -26,7 +26,7 @@ const StyledRecentFillsItem = styled.div`
 
 const Metadata = styled.dl`
   color: ${COLORS.NEUTRAL.MYSTIC_700};
-  font-size: 0.9rem;
+  font-size: 14px;
   margin: 0;
 
   dt {
@@ -58,7 +58,8 @@ const Metadata = styled.dl`
 `;
 
 const Heading = styled.h4`
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-weight: 400;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -67,8 +68,8 @@ const Heading = styled.h4`
 
 const FillAmount = styled(LocalisedAmount)`
   color: inherit;
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 600;
 `;
 
 const getSource = (fill) => {

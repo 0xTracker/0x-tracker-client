@@ -86,7 +86,7 @@ const FullPaginator = ({
   return (
     <StyledPaginator className={className}>
       <PagingSummary
-        css="font-weight: bold;"
+        css="font-weight: 500;"
         page={page}
         pageSize={pageSize}
         recordCount={recordCount}

@@ -29,7 +29,6 @@ const FillListAssets = ({ assets, linked }) => {
         address={asset.tokenAddress}
         css={`
           color: ${COLORS.NEUTRAL.MYSTIC_600};
-          font-weight: 500;
           letter-spacing: 0.05em;
         `}
       >

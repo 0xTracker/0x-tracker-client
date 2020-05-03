@@ -76,7 +76,7 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
             </TraderLink>
           </td>
           <td className="align-middle" width="99%">
-            <span css="display: block; font-weight: 500; line-height: 1; margin-bottom: 4px;">
+            <span css="display: block; line-height: 1; margin-bottom: 4px;">
               <TraderLink address={trader.address}>{trader.address}</TraderLink>
             </span>
             {trader.stats.fillCount.maker > 0 && (
