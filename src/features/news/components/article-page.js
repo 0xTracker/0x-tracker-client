@@ -26,6 +26,7 @@ const Content = styled.div`
   a {
     color: inherit;
     text-decoration: underline;
+    word-break: break-all;
   }
 
   > p:last-of-type,
@@ -135,7 +136,15 @@ const ArticlePage = () => {
         <CardGridRow>
           <CardGridCol lg={7}>
             <Card>
-              <CardBody css="padding: 2rem;">
+              <CardBody
+                css={`
+                  padding: 1rem;
+
+                  ${media.greaterThan('sm')`
+                    padding: 2rem;
+                  `}
+                `}
+              >
                 <h1 css="font-size: 1.75rem; margin: 0 0 1rem;">
                   {article.title}
                 </h1>
