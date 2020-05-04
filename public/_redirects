@@ -10,6 +10,7 @@
 /network-insights              /index.html    200
 /news-and-updates              /index.html    200
 /news-and-updates/:source      /index.html    200
+/news-and-updates/:source/:slug      /index.html    200
 /privacy                       /index.html    200
 /relayers                      /index.html    200
 /relayers/:slug                /index.html    200
