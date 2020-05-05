@@ -12,7 +12,6 @@ import Card from '../../../components/card';
 import Fills from './fills';
 import FillsFilter from './fills-filter';
 import PageLayout from '../../../components/page-layout';
-import SubTitle from '../../../components/sub-title';
 
 const FillsPage = () => {
   useMetadata({ title: 'Browse 0x Protocol Fills' });
@@ -55,12 +54,7 @@ const FillsPage = () => {
           }}
         />
       }
-      title={
-        <>
-          Browse Fills
-          <SubTitle>from the last 6 months</SubTitle>
-        </>
-      }
+      title="Browse Fills"
     >
       <Card>
         <Fills
