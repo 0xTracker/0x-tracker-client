@@ -16,6 +16,7 @@ import CardGridRow from '../../../components/card-grid-row';
 import LatestNewsCard from './latest-news-card';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
+import SubscribePanel from '../../../components/subscribe-panel';
 import useArticle from '../hooks/use-article';
 
 const Content = styled.div`
@@ -131,66 +132,69 @@ const ArticlePage = () => {
   }
 
   return (
-    <PageLayout>
-      <CardGrid>
-        <CardGridRow>
-          <CardGridCol lg={7}>
-            <Card>
-              <CardBody
-                css={`
-                  padding: 1rem;
+    <>
+      <PageLayout>
+        <CardGrid>
+          <CardGridRow>
+            <CardGridCol lg={7}>
+              <Card>
+                <CardBody
+                  css={`
+                    padding: 1rem;
 
-                  ${media.greaterThan('sm')`
+                    ${media.greaterThan('sm')`
                     padding: 2rem;
                   `}
-                `}
-              >
-                <h1 css="font-size: 1.75rem; margin: 0 0 1rem;">
-                  {article.title}
-                </h1>
-                <span
-                  css={`
-                    display: flex;
-                    margin-bottom: 2rem;
-                    border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
-                    padding-bottom: 1rem;
                   `}
                 >
-                  <img
-                    css="border-radius: 20px; margin-right: 0.75rem;"
-                    height={40}
-                    src="https://miro.medium.com/fit/c/96/96/1*l-_wsVPIYC8FQ0gu2_JO1w.jpeg"
-                    width={40}
+                  <h1 css="font-size: 1.75rem; margin: 0 0 1rem;">
+                    {article.title}
+                  </h1>
+                  <span
+                    css={`
+                      display: flex;
+                      margin-bottom: 2rem;
+                      border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+                      padding-bottom: 1rem;
+                    `}
+                  >
+                    <img
+                      css="border-radius: 20px; margin-right: 0.75rem;"
+                      height={40}
+                      src="https://miro.medium.com/fit/c/96/96/1*l-_wsVPIYC8FQ0gu2_JO1w.jpeg"
+                      width={40}
+                    />
+                    <ArticleMetadata>
+                      <dt>Author</dt>
+                      <dd>{article.author}</dd>
+                      <dt>Date</dt>
+                      <dd
+                        css={`
+                          color: ${COLORS.NEUTRAL.MYSTIC_700};
+                        `}
+                      >
+                        {formatDate(article.date, DATE_FORMAT.COMPACT, {
+                          timezone: false,
+                        })}
+                      </dd>
+                    </ArticleMetadata>
+                  </span>
+                  <Content
+                    dangerouslySetInnerHTML={{ __html: article.content }}
                   />
-                  <ArticleMetadata>
-                    <dt>Author</dt>
-                    <dd>{article.author}</dd>
-                    <dt>Date</dt>
-                    <dd
-                      css={`
-                        color: ${COLORS.NEUTRAL.MYSTIC_700};
-                      `}
-                    >
-                      {formatDate(article.date, DATE_FORMAT.COMPACT, {
-                        timezone: false,
-                      })}
-                    </dd>
-                  </ArticleMetadata>
-                </span>
-                <Content
-                  dangerouslySetInnerHTML={{ __html: article.content }}
-                />
-              </CardBody>
-            </Card>
-          </CardGridCol>
-          <CardGridCol lg={5}>
-            <div css="position: sticky; top: 30px;">
-              <LatestNewsCard autoHeight={false} />
-            </div>
-          </CardGridCol>
-        </CardGridRow>
-      </CardGrid>
-    </PageLayout>
+                </CardBody>
+              </Card>
+            </CardGridCol>
+            <CardGridCol lg={5}>
+              <div css="position: sticky; top: 30px;">
+                <LatestNewsCard autoHeight={false} />
+              </div>
+            </CardGridCol>
+          </CardGridRow>
+        </CardGrid>
+      </PageLayout>
+      <SubscribePanel />
+    </>
   );
 };
 

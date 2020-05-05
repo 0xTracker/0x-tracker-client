@@ -19,6 +19,7 @@ import CardHeading from '../../../components/card-heading';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
+import SubscribePanel from '../../../components/subscribe-panel';
 import useArticleSources from '../hooks/use-article-sources';
 
 const LoadMoreButton = styled.button`
@@ -52,61 +53,64 @@ const NewsPage = () => {
   const source = _.find(sources, { slug: params.source });
 
   return (
-    <PageLayout
-      title={source ? `${source.name} News & Updates` : 'News & Updates'}
-    >
-      <CardGrid>
-        <CardGridRow md={8}>
-          <CardGridCol>
-            <Card>
-              <CardBody>
-                <ArticlesProvider
-                  limit={11}
-                  source={source ? source.slug : undefined}
-                >
-                  {({
-                    articles,
-                    canLoadMore,
-                    loadingInitial,
-                    loadingMore,
-                    loadMore,
-                  }) =>
-                    loadingInitial ? (
-                      <LoadingIndicator centered />
-                    ) : (
-                      <>
-                        <ArticleList
-                          articles={articles}
-                          compact={breakpoint.equalTo('xs')}
-                          showImages={!breakpoint.equalTo('xs')}
-                        />
-                        {canLoadMore ? (
-                          <LoadMoreButton onClick={loadMore} type="button">
-                            {loadingMore ? (
-                              <LoadingIndicator size="small" type="cylon" />
-                            ) : (
-                              'Load More Stories'
-                            )}
-                          </LoadMoreButton>
-                        ) : null}
-                      </>
-                    )
-                  }
-                </ArticlesProvider>
-              </CardBody>
-            </Card>
-          </CardGridCol>
-          <CardGridCol md={4}>
-            <Card autoHeight={false}>
-              <CardHeader>
-                <CardHeading>Filter by source</CardHeading>
-              </CardHeader>
-              <ArticlesFilter sources={sources} />
-            </Card>
-          </CardGridCol>
-        </CardGridRow>
-      </CardGrid>
-    </PageLayout>
+    <>
+      <PageLayout
+        title={source ? `${source.name} News & Updates` : 'News & Updates'}
+      >
+        <CardGrid>
+          <CardGridRow md={8}>
+            <CardGridCol>
+              <Card>
+                <CardBody>
+                  <ArticlesProvider
+                    limit={11}
+                    source={source ? source.slug : undefined}
+                  >
+                    {({
+                      articles,
+                      canLoadMore,
+                      loadingInitial,
+                      loadingMore,
+                      loadMore,
+                    }) =>
+                      loadingInitial ? (
+                        <LoadingIndicator centered />
+                      ) : (
+                        <>
+                          <ArticleList
+                            articles={articles}
+                            compact={breakpoint.equalTo('xs')}
+                            showImages={!breakpoint.equalTo('xs')}
+                          />
+                          {canLoadMore ? (
+                            <LoadMoreButton onClick={loadMore} type="button">
+                              {loadingMore ? (
+                                <LoadingIndicator size="small" type="cylon" />
+                              ) : (
+                                'Load More Stories'
+                              )}
+                            </LoadMoreButton>
+                          ) : null}
+                        </>
+                      )
+                    }
+                  </ArticlesProvider>
+                </CardBody>
+              </Card>
+            </CardGridCol>
+            <CardGridCol md={4}>
+              <Card autoHeight={false}>
+                <CardHeader>
+                  <CardHeading>Filter by source</CardHeading>
+                </CardHeader>
+                <ArticlesFilter sources={sources} />
+              </Card>
+            </CardGridCol>
+          </CardGridRow>
+        </CardGrid>
+      </PageLayout>
+      <SubscribePanel />
+    </>
   );
 };
 
