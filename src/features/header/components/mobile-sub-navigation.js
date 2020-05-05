@@ -7,8 +7,7 @@ import { COLORS } from '../../../styles/constants';
 import Link from '../../../components/link';
 
 const StyledNavigation = styled.nav`
-  background-color: ${COLORS.PRIMARY.SCAMPI_900};
-  padding: 1rem 0 1rem 1.5rem;
+  padding: 1rem 0 1rem 3rem;
 `;
 
 const MobileSubNavigationLink = styled(Link)`
@@ -31,6 +30,7 @@ const MobileSubNavigation = ({ items, onNavigate }) => {
         <MobileSubNavigationLink
           highlighted={location.pathname.startsWith(item.href)}
           href={item.href}
+          indicateExternal
           key={item.href}
           onClick={onNavigate}
         >

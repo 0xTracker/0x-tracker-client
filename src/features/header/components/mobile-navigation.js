@@ -20,10 +20,11 @@ const MobileNavigation = ({ onNavigate }) => {
     <StyledNav aria-label="Primary">
       <ExpandableMobileNavigationItem
         items={[
+          { href: URL.TRADERS, title: 'Active Traders' },
           { href: URL.ASSET_BRIDGES, title: 'Asset Bridges' },
           { href: URL.FILLS, title: 'Browse Fills' },
           { href: URL.NETWORK_INSIGHTS, title: 'Insights' },
-          { href: URL.TRADERS, title: 'Top Traders' },
+          { href: 'https://0x.org/zrx/staking', title: 'ZRX Staking' },
         ]}
         onNavigate={onNavigate}
       >

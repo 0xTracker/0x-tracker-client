@@ -21,7 +21,7 @@ const SubNavigationItem = ({ children, href }) => {
   const highlighted = location.pathname.startsWith(href);
 
   return (
-    <StyledLink highlighted={highlighted} href={href}>
+    <StyledLink highlighted={highlighted} href={href} indicateExternal>
       {children}
     </StyledLink>
   );

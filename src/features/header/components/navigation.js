@@ -20,6 +20,7 @@ const Navigation = ({ className }) => (
         { href: URL.ASSET_BRIDGES, title: 'Asset Bridges' },
         { href: URL.FILLS, title: 'Browse Fills' },
         { href: URL.NETWORK_INSIGHTS, title: 'Insights' },
+        { href: 'https://0x.org/zrx/staking', title: 'ZRX Staking' },
       ]}
     >
       Network
