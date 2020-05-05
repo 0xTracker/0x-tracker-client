@@ -81,7 +81,9 @@ const Article = ({ article, compact, index, showImage }) => (
     ) : null}
     <div css="display: flex; flex-direction: column; overflow: hidden;">
       <ArticleHeading compact={compact}>
-        <Link href={getArticleUrl(article)}>{article.title}</Link>
+        <Link href={getArticleUrl(article)} indicateExternal>
+          {article.title}
+        </Link>
       </ArticleHeading>
       <ArticleMetadata>
         <dt>Source</dt>

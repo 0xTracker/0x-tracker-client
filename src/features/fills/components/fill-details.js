@@ -68,6 +68,7 @@ const FillDetails = ({ fill }) => {
       >
         <FillDetailLink
           href={`https://etherscan.io/tx/${fill.transactionHash}`}
+          indicateExternal
         >
           {fill.transactionHash}
         </FillDetailLink>
