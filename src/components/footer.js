@@ -137,7 +137,7 @@ const Footer = () => (
         <Col md={{ offset: 2, size: 2 }} sm={4} xs={6}>
           <NavHeading>About</NavHeading>
           <nav>
-            <NavLink href="https://medium.com/0x-tracker">Blog</NavLink>
+            <NavLink href="/news-and-updates/0x-tracker">Blog</NavLink>
             <NavLink href="https://docs.0xtracker.com/#need-to-get-in-touch">
               Contact
             </NavLink>

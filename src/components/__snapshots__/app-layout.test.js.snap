@@ -138,7 +138,7 @@ exports[`app layout component should render with children 1`] = `
           </svg>
         </button>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
+          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY"
           href="https://www.buymeacoffee.com/0xTracker"
           rel="noreferrer noopener"
           target="_blank"
@@ -184,7 +184,7 @@ exports[`app layout component should render with children 1`] = `
             class="footer___StyledNav-htpw4v-11 eoBzCu"
           >
             <a
-              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__SocialLink-htpw4v-5 hOGkhu"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__SocialLink-htpw4v-5 hOGkhu"
               href="https://twitter.com/0xTracker"
               rel="noreferrer noopener"
               target="_blank"
@@ -206,7 +206,7 @@ exports[`app layout component should render with children 1`] = `
               </svg>
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__SocialLink-htpw4v-5 hOGkhu"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__SocialLink-htpw4v-5 hOGkhu"
               href="https://discord.gg/tnV8hud"
               rel="noreferrer noopener"
               target="_blank"
@@ -240,14 +240,12 @@ exports[`app layout component should render with children 1`] = `
           <nav>
             <a
               class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
-              href="https://medium.com/0x-tracker"
-              rel="noreferrer noopener"
-              target="_blank"
+              href="/news-and-updates/0x-tracker"
             >
               Blog
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
               href="https://docs.0xtracker.com/#need-to-get-in-touch"
               rel="noreferrer noopener"
               target="_blank"
@@ -255,7 +253,7 @@ exports[`app layout component should render with children 1`] = `
               Contact
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
               href="https://docs.0xtracker.com/faqs"
               rel="noreferrer noopener"
               target="_blank"
@@ -263,7 +261,7 @@ exports[`app layout component should render with children 1`] = `
               FAQs
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
               href="https://docs.0xtracker.com/"
               rel="noreferrer noopener"
               target="_blank"
@@ -282,7 +280,7 @@ exports[`app layout component should render with children 1`] = `
           </h2>
           <nav>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
               href="https://docs.0xtracker.com/api-reference/introduction"
               rel="noreferrer noopener"
               target="_blank"
@@ -290,7 +288,7 @@ exports[`app layout component should render with children 1`] = `
               API
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
               href="https://docs.0xtracker.com/contributing"
               rel="noreferrer noopener"
               target="_blank"
@@ -298,7 +296,7 @@ exports[`app layout component should render with children 1`] = `
               Contributing
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
               href="https://github.com/0xtracker"
               rel="noreferrer noopener"
               target="_blank"
@@ -317,7 +315,7 @@ exports[`app layout component should render with children 1`] = `
           </h2>
           <nav>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
               href="https://headwayapp.co/0x-tracker-changelog"
               rel="noreferrer noopener"
               target="_blank"
@@ -331,7 +329,7 @@ exports[`app layout component should render with children 1`] = `
               Privacy Policy
             </a>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 ceodgq"
               href="https://trello.com/b/4cY2eOsQ/0x-tracker-roadmap"
               rel="noreferrer noopener"
               target="_blank"
@@ -356,7 +354,7 @@ exports[`app layout component should render with children 1`] = `
           Licensed under
            
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 euuxIS"
+            class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 euuxIS"
             href="https://github.com/0xTracker/0x-tracker-client/blob/master/LICENSE"
             rel="noreferrer noopener"
             target="_blank"
@@ -369,7 +367,7 @@ exports[`app layout component should render with children 1`] = `
         >
           Powered by 
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 euuxIS"
+            class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 euuxIS"
             href="https://0x.org"
             rel="noreferrer noopener"
             target="_blank"
@@ -379,7 +377,7 @@ exports[`app layout component should render with children 1`] = `
            and
            
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 euuxIS"
+            class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 euuxIS"
             href="https://ethereum.org/"
             rel="noreferrer noopener"
             target="_blank"
@@ -389,7 +387,7 @@ exports[`app layout component should render with children 1`] = `
            with pricing data from
            
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp footer__FooterLink-htpw4v-3 euuxIS"
+            class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY footer__FooterLink-htpw4v-3 euuxIS"
             href="https://min-api.cryptocompare.com/"
             rel="noreferrer noopener"
             target="_blank"
