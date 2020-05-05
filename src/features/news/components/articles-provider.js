@@ -76,7 +76,7 @@ class ArticlesProvider extends React.PureComponent {
     }
 
     return children({
-      articles: limit ? _.take(articles, limit) : articles,
+      articles: limit && page === 1 ? _.take(articles, limit) : articles,
       canLoadMore: page < pageCount,
       loadMore: this.handleLoadMore,
       loadingInitial: articles === undefined,
