@@ -33,6 +33,8 @@ const FillsPage = () => {
       filter={
         <FillsFilter
           defaultFilters={{
+            dateFrom: undefined,
+            dateTo: undefined,
             protocolVersion: undefined,
             relayer: undefined,
             status: undefined,
@@ -43,6 +45,8 @@ const FillsPage = () => {
             navigateTo(URL.FILLS, newFilters);
           }}
           selectedFilters={{
+            dateFrom,
+            dateTo,
             protocolVersion:
               protocolVersion === undefined
                 ? undefined
