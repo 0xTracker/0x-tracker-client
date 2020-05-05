@@ -58,6 +58,7 @@
         x.parentNode.insertBefore(s, x);
       })();
     </script>
+    <% if (process.env.NODE_ENV === 'production') { %>
     <script src="https://coinzillatag.com/lib/header.js"></script>
     <script>
       window.coinzilla_header = window.coinzilla_header || [];
@@ -66,16 +67,13 @@
       }
       czilla('215ea67e6e9422c229');
     </script>
-    <meta
-      property="microsponsors:signature"
-      content="0xfd1500e518f6200891f35b4fcad3dc6b532f62593c2fe6a42b245664bf48af5b7f5719caeb676cc6f2caaa4188508056a491bdbfdb93615d3b30bbde08a200941b"
-    />
+    <% } %>
   </head>
 
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <div id="root"></div>
-    <!-- Fathom - beautiful, simple website analytics -->
+    <% if (process.env.NODE_ENV === 'production') { %>
     <script src="https://cdn.usefathom.com/3.js" site="FVADTFVJ"></script>
     <script>
       window.fathom ||
@@ -83,6 +81,6 @@
           '<script src="https://giraffe.0xtracker.com/core.js"><\/script>',
         );
     </script>
-    <!-- / Fathom -->
+    <% } %>
   </body>
 </html>
