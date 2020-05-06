@@ -3,6 +3,7 @@ import { Col, FormGroup, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { createAsyncComponent } from '../../../util';
 import Dialog from '../../../components/dialog';
 import FillStatusSelector from './fill-status-selector';
 import FormLabel from '../../../components/form-label';
@@ -11,6 +12,10 @@ import PrimaryFormButton from '../../../components/primary-form-button';
 import ProtocolVersionSelector from '../../../components/protocol-version-selector';
 import RelayerSelector from '../../relayers/components/relayer-selector';
 import SecondaryFormButton from '../../../components/secondary-form-button';
+
+const AsyncDatePickerField = createAsyncComponent(() =>
+  import('../../../components/date-picker-field'),
+);
 
 const FillsFilterDialog = ({
   currentValues,
@@ -33,7 +38,7 @@ const FillsFilterDialog = ({
   };
 
   return (
-    <Dialog height={600} onClose={onClose} title="Filter Fills" width={450}>
+    <Dialog height={600} onClose={onClose} title="Filter Fills" width={600}>
       <form noValidate onSubmit={handleSubmit}>
         <FormGroup>
           <FormLabel first htmlFor="relayer">
@@ -44,18 +49,49 @@ const FillsFilterDialog = ({
             onChange={handleChange}
             value={values.relayer}
           />
-          <FormLabel htmlFor="protocolVersion">Protocol Version</FormLabel>
-          <ProtocolVersionSelector
-            name="protocolVersion"
-            onChange={handleChange}
-            value={values.protocolVersion}
-          />
-          <FormLabel htmlFor="status">Status</FormLabel>
-          <FillStatusSelector
-            name="status"
-            onChange={handleChange}
-            value={values.status}
-          />
+          <Row>
+            <Col sm={6} xs={12}>
+              <FormLabel htmlFor="dateFrom">Date From (UTC)</FormLabel>
+              <AsyncDatePickerField
+                dayPickerProps={{
+                  disabledDays: (day) => day > Date.now(),
+                }}
+                name="dateFrom"
+                onChange={handleChange}
+                value={values.dateFrom}
+              />
+            </Col>
+            <Col sm={6} xs={12}>
+              <FormLabel htmlFor="dateTo">Date To (UTC)</FormLabel>
+              <AsyncDatePickerField
+                dayPickerProps={{
+                  disabledDays: (day) => day > Date.now(),
+                }}
+                endOfDay
+                name="dateTo"
+                onChange={handleChange}
+                value={values.dateTo}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col sm={6} xs={12}>
+              <FormLabel htmlFor="protocolVersion">Protocol Version</FormLabel>
+              <ProtocolVersionSelector
+                name="protocolVersion"
+                onChange={handleChange}
+                value={values.protocolVersion}
+              />
+            </Col>
+            <Col sm={6} xs={12}>
+              <FormLabel htmlFor="status">Status</FormLabel>
+              <FillStatusSelector
+                name="status"
+                onChange={handleChange}
+                value={values.status}
+              />
+            </Col>
+          </Row>
           <Row>
             <Col sm={6} xs={12}>
               <FormLabel htmlFor="valueFrom">Min Value (USD)</FormLabel>
