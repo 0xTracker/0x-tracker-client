@@ -1,8 +1,9 @@
+import { format as formatDate, parse as parseDate } from 'date-fns';
+import { DateUtils } from 'react-day-picker';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import dateFnsFormat from 'date-fns/format';
 
 import { COLORS } from '../styles/constants';
 
@@ -37,13 +38,12 @@ const Wrapper = styled.div`
   }
 `;
 
-const getValueAsDate = (value) => {
+const getUTCValueAsLocalDate = (value) => {
   if (value === undefined) {
     return undefined;
   }
 
   const utcDate = new Date(value);
-
   const year = utcDate.getUTCFullYear();
   const month = utcDate.getUTCMonth();
   const day = utcDate.getUTCDate();
@@ -55,6 +55,7 @@ const DatePickerField = ({
   className,
   dayPickerProps,
   endOfDay,
+  format,
   name,
   onChange,
   value,
@@ -64,34 +65,50 @@ const DatePickerField = ({
     <DayPickerInput
       dayPickerProps={
         dayPickerProps !== undefined
-          ? { ...dayPickerProps, showOutsideDays: true }
+          ? {
+              ...dayPickerProps,
+              containerProps: { children: <span>test</span> },
+              showOutsideDays: true,
+            }
           : { showOutsideDays: true }
       }
-      format="MM/dd/yyyy"
-      formatDate={function formatDate(date, format, locale) {
-        return dateFnsFormat(date, format, { locale });
-      }}
+      format={format}
+      formatDate={(date, fmt, locale) => formatDate(date, fmt, { locale })}
       name={name}
       onDayChange={(newValue) => {
         if (newValue === undefined) {
           onChange(undefined, name);
+          return;
         }
 
         const year = newValue.getFullYear();
         const month = newValue.getMonth();
         const day = newValue.getDate();
-        const newDate = new Date();
+        const newDateUTC = new Date();
 
         if (endOfDay) {
-          newDate.setTime(Date.UTC(year, month, day, 23, 59, 59, 999));
+          newDateUTC.setTime(Date.UTC(year, month, day, 23, 59, 59, 999));
         } else {
-          newDate.setTime(Date.UTC(year, month, day));
+          newDateUTC.setTime(Date.UTC(year, month, day));
         }
 
-        onChange(newDate.toISOString(), name);
+        onChange(newDateUTC.toISOString(), name);
       }}
-      placeholder="DD/MM/YYYY"
-      value={getValueAsDate(value)}
+      parseDate={(str, fmt, locale) => {
+        if (str.length < 10) {
+          return undefined;
+        }
+
+        const parsed = parseDate(str, fmt, new Date(), { locale });
+
+        if (DateUtils.isDate(parsed)) {
+          return parsed;
+        }
+
+        return undefined;
+      }}
+      placeholder={format.toUpperCase()}
+      value={getUTCValueAsLocalDate(value)}
       {...otherProps}
     />
   </Wrapper>
@@ -101,6 +118,7 @@ DatePickerField.propTypes = {
   className: PropTypes.string,
   dayPickerProps: PropTypes.object,
   endOfDay: PropTypes.bool,
+  format: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string,
@@ -110,6 +128,7 @@ DatePickerField.defaultProps = {
   className: undefined,
   dayPickerProps: undefined,
   endOfDay: false,
+  format: 'dd/MM/yyyy',
   value: undefined,
 };
 
