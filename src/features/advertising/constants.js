@@ -1,4 +1,4 @@
-const CURRENT_ADVERT = {
+const FATHOM_ADVERT = {
   DESCRIPTION:
     'Privacy focused, GDPR compliant alternative to Google Analytics',
   ICON_URL:
@@ -7,4 +7,13 @@ const CURRENT_ADVERT = {
   URL: 'https://usefathom.com/ref/TFTVTT',
 };
 
-export { CURRENT_ADVERT };
+const BRAVE_ADVERT = {
+  DESCRIPTION:
+    'Secure your browser and earn crypto rewards just for browsing the web',
+  ICON_URL:
+    'https://brave.com/wp-content/uploads/2018/02/cropped-brave_appicon_release-180x180.png',
+  TITLE: 'Brave Browser',
+  URL: 'https://brave.com/xtr583',
+};
+
+export { BRAVE_ADVERT, FATHOM_ADVERT };

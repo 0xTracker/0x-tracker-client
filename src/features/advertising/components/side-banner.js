@@ -3,9 +3,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
-import { CURRENT_ADVERT } from '../constants';
 import AdvertisingTooltip from './advertising-tooltip';
 import Badge from '../../../components/badge';
+import getRandomAdvert from '../util/get-random-advert';
 import Link from '../../../components/link';
 
 const Icon = styled.img`
@@ -51,21 +51,25 @@ const Description = styled.p`
   font-size: 14px;
 `;
 
-const SideBanner = ({ className }) => (
-  <Wrapper className={className}>
-    <AdvertisingTooltip enabled={false}>
-      <SponsoredBadge>Sponsored</SponsoredBadge>
-    </AdvertisingTooltip>
-    <Icon height={20} src={CURRENT_ADVERT.ICON_URL} width={20} />
-    <Title>{CURRENT_ADVERT.TITLE}</Title>
-    <Description>
-      {CURRENT_ADVERT.DESCRIPTION} –{' '}
-      <LearnMoreLink href={CURRENT_ADVERT.URL} indicateExternal>
-        Learn more
-      </LearnMoreLink>
-    </Description>
-  </Wrapper>
-);
+const SideBanner = ({ className }) => {
+  const advert = getRandomAdvert();
+
+  return (
+    <Wrapper className={className}>
+      <AdvertisingTooltip enabled={false}>
+        <SponsoredBadge>Sponsored</SponsoredBadge>
+      </AdvertisingTooltip>
+      <Icon height={20} src={advert.ICON_URL} width={20} />
+      <Title>{advert.TITLE}</Title>
+      <Description>
+        {advert.DESCRIPTION} –{' '}
+        <LearnMoreLink href={advert.URL} indicateExternal>
+          Learn more
+        </LearnMoreLink>
+      </Description>
+    </Wrapper>
+  );
+};
 
 SideBanner.propTypes = {
   className: PropTypes.string,

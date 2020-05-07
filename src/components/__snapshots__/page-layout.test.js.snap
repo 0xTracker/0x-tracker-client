@@ -5,64 +5,6 @@ exports[`page layout component should render with children 1`] = `
   class="page-layout__StyledPageLayout-cls0ob-1 cIITEm"
 >
   <div
-    class="container__StyledContainer-cj53s7-0 eMKfDZ container-fluid"
-  >
-    <div
-      class="top-banner__Wrapper-c5w3wp-2 kwVpPj"
-    >
-      <span
-        class="badge__Badge-sc-8ieo9x-0 top-banner__SponsoredBadge-c5w3wp-3 hkKcgt"
-      >
-        SPONSORED
-      </span>
-      <img
-        class="top-banner__Icon-c5w3wp-0 kdHBdO"
-        height="20"
-        src="https://d1hxm72v4n116f.cloudfront.net/2d67c732-ead1-4725-ad09-06d4bed5972f/app/cropped-fathom-analytics-180x180.png"
-        width="20"
-      />
-      <strong
-        class="top-banner__Title-c5w3wp-4 cvSMLw"
-      >
-        Fathom Analytics
-        :
-      </strong>
-      <p
-        class="top-banner__Description-c5w3wp-5 ggtqaF"
-      >
-        Privacy focused, GDPR compliant alternative to Google Analytics
-         –
-         
-        <a
-          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jZNSCZ top-banner__LearnMoreLink-c5w3wp-1 gFBaIj"
-          href="https://usefathom.com/ref/TFTVTT"
-          rel="noreferrer noopener"
-          target="_blank"
-        >
-          Learn more
-          <svg
-            aria-hidden="true"
-            class="sc-bdVaJa iJCmgd link___StyledExternalLinkIcon-sc-1m1n17q-2 FajMR"
-            fill="none"
-            focusable="false"
-            height="18"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            width="18"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-            />
-          </svg>
-        </a>
-      </p>
-    </div>
-  </div>
-  <div
     class="container__StyledContainer-cj53s7-0 eMKfDZ page-layout__PageBody-cls0ob-0 jCjXHK container-fluid"
   >
     Hello World

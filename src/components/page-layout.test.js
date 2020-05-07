@@ -5,7 +5,9 @@ import PageLayout from './page-layout';
 
 describe('page layout component', () => {
   it('should render with children', () => {
-    const { container } = render(<PageLayout>Hello World</PageLayout>);
+    const { container } = render(
+      <PageLayout showBanner={false}>Hello World</PageLayout>,
+    );
 
     expect(container.firstChild).toMatchSnapshot();
   });
