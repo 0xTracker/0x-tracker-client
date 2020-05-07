@@ -7,6 +7,7 @@ import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import { DATE_FORMAT } from '../../../constants';
 import { formatDate } from '../../../util';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import { useMetadata } from '../../../hooks';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
@@ -16,8 +17,10 @@ import CardGridRow from '../../../components/card-grid-row';
 import LatestNewsCard from './latest-news-card';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
+import SideBanner from '../../advertising/components/side-banner';
 import SubscribePanel from '../../../components/subscribe-panel';
 import useArticle from '../hooks/use-article';
+import Visible from '../../../components/visible';
 
 const Content = styled.div`
   font-size: 16px;
@@ -118,6 +121,7 @@ const ArticlePage = () => {
   const { slug, source } = useParams();
   const [article, loading] = useArticle(source, slug);
 
+  const breakpoint = useCurrentBreakpoint();
   const title = _.get(article, 'title');
   const description = _.get(article, 'summary');
 
@@ -133,7 +137,7 @@ const ArticlePage = () => {
 
   return (
     <>
-      <PageLayout>
+      <PageLayout showBanner={breakpoint.lessThan('lg')}>
         <CardGrid>
           <CardGridRow>
             <CardGridCol lg={7}>
@@ -187,6 +191,9 @@ const ArticlePage = () => {
             </CardGridCol>
             <CardGridCol lg={5}>
               <div css="position: sticky; top: 30px;">
+                <Visible above="md">
+                  <SideBanner css="margin-bottom: 2rem;" />
+                </Visible>
                 <LatestNewsCard autoHeight={false} />
               </div>
             </CardGridCol>

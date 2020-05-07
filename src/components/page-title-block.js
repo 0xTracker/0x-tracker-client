@@ -15,7 +15,7 @@ const Inner = styled.div`
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
 
-  ${media.greaterThan('sm')`
+  ${media.greaterThan('lg')`
     border: none;
     padding: 0;
   `};

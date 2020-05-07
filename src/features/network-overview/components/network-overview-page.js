@@ -47,7 +47,7 @@ const NetworkOverviewPage = () => {
       title={
         <>
           Network Insights
-          <Hidden above="xs">
+          <Hidden above="md">
             <SubTitle>{periodDescriptions[period]}</SubTitle>
           </Hidden>
         </>
