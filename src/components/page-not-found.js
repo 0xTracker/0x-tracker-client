@@ -13,7 +13,7 @@ const StyledErrorMessage = styled(ErrorMessage)`
 `;
 
 const PageNotFound = () => (
-  <PageLayout centered>
+  <PageLayout centered showBanner={false}>
     <StyledErrorMessage>
       <H1>Page Not Found</H1>
       <Lead>Oops, the page you requested doesn&lsquo;t exist.</Lead>

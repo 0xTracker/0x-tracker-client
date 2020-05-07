@@ -19,8 +19,10 @@ import CardHeading from '../../../components/card-heading';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
+import SideBanner from '../../advertising/components/side-banner';
 import SubscribePanel from '../../../components/subscribe-panel';
 import useArticleSources from '../hooks/use-article-sources';
+import Visible from '../../../components/visible';
 
 const LoadMoreButton = styled.button`
   align-items: center;
@@ -55,6 +57,7 @@ const NewsPage = () => {
   return (
     <>
       <PageLayout
+        showBanner={breakpoint.lessThan('lg')}
         title={source ? `${source.name} News & Updates` : 'News & Updates'}
       >
         <CardGrid>
@@ -99,6 +102,9 @@ const NewsPage = () => {
               </Card>
             </CardGridCol>
             <CardGridCol md={4}>
+              <Visible above="md">
+                <SideBanner css="margin-bottom: 2rem;" />
+              </Visible>
               <Card autoHeight={false}>
                 <CardHeader>
                   <CardHeading>Filter by source</CardHeading>

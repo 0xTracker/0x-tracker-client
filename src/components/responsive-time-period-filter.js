@@ -7,7 +7,7 @@ import TimePeriodFilter from './time-period-filter';
 const ResponsiveTimePeriodFilter = (props) => {
   const breakpoint = useCurrentBreakpoint();
 
-  if (breakpoint.lessThan('sm')) {
+  if (breakpoint.lessThan('lg')) {
     return <MobileTimePeriodFilter {...props} />;
   }
 
