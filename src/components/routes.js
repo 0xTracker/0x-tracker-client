@@ -3,6 +3,7 @@ import { Switch } from 'react-router-dom';
 import React from 'react';
 
 import createPageRoute from '../util/create-page-route';
+import getAdvertisingRoutes from '../features/advertising/get-routes';
 import getAssetBridgesRoutes from '../features/asset-bridges/get-routes';
 import getContentRoutes from '../features/content/get-routes';
 import getFillsRoutes from '../features/fills/get-routes';
@@ -15,6 +16,7 @@ import getTokensRoutes from '../features/tokens/get-routes';
 import getTradersRoutes from '../features/traders/get-routes';
 
 const routes = _.flatten([
+  getAdvertisingRoutes(),
   getContentRoutes(),
   getHomeRoutes(),
   getFillsRoutes(),
