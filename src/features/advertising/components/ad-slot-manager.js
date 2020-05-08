@@ -15,6 +15,8 @@ import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
 import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
+import Link from '../../../components/link';
+import Pill from '../../../components/pill';
 
 const signMessage = async (message, provider) =>
   provider.getSigner().signMessage(message);
@@ -68,10 +70,20 @@ const AdSlotManager = ({ adSlots }) => {
                     Slot: {formatSlotDate(selectedSlot.slotStartTime)} to{' '}
                     {formatSlotDate(selectedSlot.slotEndTime)}
                   </CardHeading>
+                  <Pill
+                    as={Link}
+                    href={`https://etherscan.io/token/${selectedSlot.tokenAddress}?a=${selectedSlot.tokenId}`}
+                  >
+                    View on Etherscan
+                    <img
+                      css="margin-left: 8px; height: 12px; width: 12px;"
+                      src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+                    />
+                  </Pill>
                 </CardHeader>
               ) : null}
-              <CardBody padded>
-                <p css="max-width: 600px;">
+              <CardBody css="padding: 2rem;">
+                <p css="margin-bottom: 2rem; max-width: 600px;">
                   Fill out your preferred ad content below and submit.
                   You&rsquo;ll be asked to sign the submission to verify your
                   ownership of the slot, there is no additional cost for doing

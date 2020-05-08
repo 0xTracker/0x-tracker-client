@@ -49,6 +49,7 @@ const getTokenMetadata = async (tokenId, provider) => {
     propertyName,
     slotEndTime: new Date(endTime),
     slotStartTime: new Date(startTime),
+    tokenAddress: CONTRACT_ADDRESS,
     tokenId,
   };
 };
