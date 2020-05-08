@@ -13,6 +13,7 @@ import normalizePeriod from './normalize-period';
 import prettyPeriod from './pretty-period';
 import summarizeCurrency from './summarize-currency';
 import summarizeNumber from './summarize-number';
+import truncateAddress from './truncate-address';
 import verbosePeriod from './verbose-period';
 
 export {
@@ -31,5 +32,6 @@ export {
   prettyPeriod,
   summarizeCurrency,
   summarizeNumber,
+  truncateAddress,
   verbosePeriod,
 };

@@ -8,6 +8,7 @@ import NumberField from '../components/number-field';
 import PrimaryFormButton from '../components/primary-form-button';
 import SecondaryFormButton from '../components/secondary-form-button';
 import Select from '../components/select';
+import TokenLookupField from '../features/tokens/components/token-lookup-field';
 import TokenTypeSelector from '../features/tokens/components/token-type-selector';
 import TimePeriodSelector from '../components/time-period-selector';
 
@@ -44,6 +45,12 @@ storiesOf('Common|Forms', module)
               { label: 'Mrs', value: 'mrs' },
             ]}
             value={formValues.title}
+          />
+          <FormLabel htmlFor="token">Token</FormLabel>
+          <TokenLookupField
+            menuIsOpen
+            name="token"
+            onChange={handleFieldChange}
           />
           <FormLabel htmlFor="statsPeriod">Time Period</FormLabel>
           <TimePeriodSelector

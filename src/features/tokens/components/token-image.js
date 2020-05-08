@@ -17,7 +17,12 @@ const TokenImage = ({ className, imageUrl, size }) =>
       src={imageUrl}
     />
   ) : (
-    <CopperCoin color={COLORS.ACCENT.ANZAC_600} height={size} width={size} />
+    <CopperCoin
+      className={className}
+      color={COLORS.ACCENT.ANZAC_600}
+      height={size}
+      width={size}
+    />
   );
 
 TokenImage.propTypes = {
