@@ -81,7 +81,15 @@ const TopBanner = () => {
         <Title>{advert.TITLE}:</Title>
         <Description>
           {advert.DESCRIPTION} –{' '}
-          <LearnMoreLink href={advert.URL} indicateExternal>
+          <LearnMoreLink
+            href={advert.URL}
+            indicateExternal
+            onClick={() => {
+              if (window.fathom) {
+                window.fathom.trackGoal('0MW1MF59', 0);
+              }
+            }}
+          >
             Learn more
           </LearnMoreLink>
         </Description>
