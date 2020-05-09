@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import { COLORS } from '../../../styles/constants';
 import AdvertisingTooltip from './advertising-tooltip';
 import Badge from '../../../components/badge';
-import getRandomAdvert from '../util/get-random-advert';
 import Link from '../../../components/link';
+import useAdvertRandomizer from '../hooks/use-advert-randomizer';
 
 const Icon = styled.img`
   border-radius: 4px;
@@ -18,8 +18,11 @@ const Icon = styled.img`
 
 const LearnMoreLink = styled(Link)`
   color: ${COLORS.PRIMARY.SCAMPI_500};
+  display: flex;
+  align-items: center;
   font-size: 14px;
-  margin-left: 4px;
+  margin-left: 28px;
+  margin-top: 8px;
 `;
 
 const Wrapper = styled.div`
@@ -41,6 +44,7 @@ const SponsoredBadge = styled(Badge).attrs({
 const Title = styled.strong`
   display: block;
   font-size: 14px;
+  font-weight: 500;
   margin-right: 4px;
 `;
 
@@ -52,29 +56,33 @@ const Description = styled.p`
 `;
 
 const SideBanner = ({ className }) => {
-  const advert = getRandomAdvert();
+  const advert = useAdvertRandomizer();
+
+  const handleClick = () => {
+    if (window.fathom) {
+      window.fathom.trackGoal('SLGRB9AZ', 0);
+    }
+  };
 
   return (
     <Wrapper className={className}>
       <AdvertisingTooltip enabled={false}>
         <SponsoredBadge>Sponsored</SponsoredBadge>
       </AdvertisingTooltip>
-      <Icon height={20} src={advert.ICON_URL} width={20} />
-      <Title>{advert.TITLE}</Title>
+      <Link href={advert.URL} onClick={handleClick}>
+        <Icon height={20} src={advert.ICON_URL} width={20} />
+      </Link>
+      <Title as={Link} href={advert.URL} onClick={handleClick}>
+        {advert.TITLE}
+      </Title>
       <Description>
-        {advert.DESCRIPTION} –{' '}
-        <LearnMoreLink
-          href={advert.URL}
-          indicateExternal
-          onClick={() => {
-            if (window.fathom) {
-              window.fathom.trackGoal('SLGRB9AZ', 0);
-            }
-          }}
-        >
-          Learn more
-        </LearnMoreLink>
+        <Link href={advert.URL} onClick={handleClick}>
+          {advert.DESCRIPTION}
+        </Link>
       </Description>
+      <LearnMoreLink href={advert.URL} indicateExternal onClick={handleClick}>
+        Learn more
+      </LearnMoreLink>
     </Wrapper>
   );
 };
