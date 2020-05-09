@@ -74,13 +74,11 @@
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <div id="root"></div>
     <% if (process.env.NODE_ENV === 'production') { %>
-    <script src="https://cdn.usefathom.com/3.js" site="FVADTFVJ"></script>
-    <script>
-      window.fathom ||
-        document.write(
-          '<script src="https://giraffe.0xtracker.com/core.js"><\/script>',
-        );
-    </script>
+    <script
+      src="https://giraffe.0xtracker.com/script.js"
+      site="FVADTFVJ"
+      defer
+    ></script>
     <% } %>
   </body>
 </html>
