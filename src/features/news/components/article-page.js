@@ -9,6 +9,7 @@ import { DATE_FORMAT } from '../../../constants';
 import { formatDate } from '../../../util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import { useMetadata } from '../../../hooks';
+import ArticleShareButtons from './article-share-buttons';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import CardGrid from '../../../components/card-grid';
@@ -156,36 +157,56 @@ const ArticlePage = () => {
                   </h1>
                   <span
                     css={`
+                      align-items: center;
                       display: flex;
                       margin-bottom: 2rem;
                       border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
                       padding-bottom: 1rem;
+                      justify-content: space-between;
                     `}
                   >
-                    <img
-                      css="border-radius: 20px; margin-right: 0.75rem;"
-                      height={40}
-                      src="https://miro.medium.com/fit/c/96/96/1*l-_wsVPIYC8FQ0gu2_JO1w.jpeg"
-                      width={40}
-                    />
-                    <ArticleMetadata>
-                      <dt>Author</dt>
-                      <dd>{article.author}</dd>
-                      <dt>Date</dt>
-                      <dd
-                        css={`
-                          color: ${COLORS.NEUTRAL.MYSTIC_700};
-                        `}
-                      >
-                        {formatDate(article.date, DATE_FORMAT.COMPACT, {
-                          timezone: false,
-                        })}
-                      </dd>
-                    </ArticleMetadata>
+                    <div css="display: flex;">
+                      <img
+                        css="border-radius: 20px; margin-right: 0.75rem;"
+                        height={40}
+                        src="https://miro.medium.com/fit/c/96/96/1*l-_wsVPIYC8FQ0gu2_JO1w.jpeg"
+                        width={40}
+                      />
+                      <ArticleMetadata>
+                        <dt>Author</dt>
+                        <dd>{article.author}</dd>
+                        <dt>Date</dt>
+                        <dd
+                          css={`
+                            color: ${COLORS.NEUTRAL.MYSTIC_700};
+                          `}
+                        >
+                          {formatDate(article.date, DATE_FORMAT.COMPACT, {
+                            timezone: false,
+                          })}
+                        </dd>
+                      </ArticleMetadata>
+                    </div>
+                    <ArticleShareButtons css="flex-shrink: 0;" size={30} />
                   </span>
                   <Content
                     dangerouslySetInnerHTML={{ __html: article.content }}
                   />
+                  <div
+                    css={`
+                      align-items: center;
+                      border-top: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+                      display: flex;
+                      justify-content: flex-end;
+                      margin-top: 8px;
+                      padding-top: 24px;
+                    `}
+                  >
+                    <span css="font-size: 18px;font-weight: 500; margin-right: 16px;">
+                      Share:
+                    </span>
+                    <ArticleShareButtons title={article.title} />
+                  </div>
                 </CardBody>
               </Card>
             </CardGridCol>
