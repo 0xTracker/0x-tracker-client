@@ -73,6 +73,11 @@ const HeaderActions = () => {
       </ActionButton>
       <Link
         href="https://www.buymeacoffee.com/0xTracker"
+        onClick={() => {
+          if (window.fathom) {
+            window.fathom.trackGoal('MYB7SWUU', 0);
+          }
+        }}
         title="Help support 0x Tracker development with a donation"
       >
         <img
