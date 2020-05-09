@@ -99,19 +99,24 @@ const TopBanner = () => {
         <AdvertisingTooltip enabled={false}>
           <SponsoredBadge>Sponsored</SponsoredBadge>
         </AdvertisingTooltip>
-        <Link href={advert.URL} onClick={handleClick}>
+        <Link href={advert.URL} onClick={handleClick} sponsored>
           <Icon height={20} src={advert.ICON_URL} width={20} />
         </Link>
-        <Title as={Link} href={advert.URL} onClick={handleClick}>
+        <Title as={Link} href={advert.URL} onClick={handleClick} sponsored>
           {advert.TITLE}:
         </Title>
         <Description>
-          <Link href={advert.URL} onClick={handleClick}>
+          <Link href={advert.URL} onClick={handleClick} sponsored>
             {advert.DESCRIPTION}
           </Link>
         </Description>
         <Separator> – </Separator>
-        <LearnMoreLink href={advert.URL} indicateExternal onClick={handleClick}>
+        <LearnMoreLink
+          href={advert.URL}
+          indicateExternal
+          onClick={handleClick}
+          sponsored
+        >
           Learn more
         </LearnMoreLink>
       </Wrapper>

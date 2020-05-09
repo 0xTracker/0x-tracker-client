@@ -81,7 +81,7 @@ const Article = ({ article, compact, index, showImage }) => (
     ) : null}
     <div css="display: flex; flex-direction: column; overflow: hidden;">
       <ArticleHeading compact={compact}>
-        <Link href={getArticleUrl(article)} indicateExternal>
+        <Link href={getArticleUrl(article)} indicateExternal noFollow>
           {article.title}
         </Link>
       </ArticleHeading>
@@ -89,7 +89,7 @@ const Article = ({ article, compact, index, showImage }) => (
         <dt>Source</dt>
         <dd>
           {_.isString(article.source.url) ? (
-            <Link css="color: currentColor;" href={article.source.url}>
+            <Link css="color: currentColor;" href={article.source.url} noFollow>
               {article.source.name}
             </Link>
           ) : (

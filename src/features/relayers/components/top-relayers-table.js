@@ -70,7 +70,7 @@ const TopRelayersTable = ({ relayers }) => {
                 )}
               </span>
               {_.isString(relayer.url) ? (
-                <SecondaryText as={Link} href={relayer.url}>
+                <SecondaryText as={Link} href={relayer.url} noFollow>
                   {_.truncate(relayer.url, {
                     length: breakpoint.greaterThan('xs') ? 35 : 25,
                   })}
