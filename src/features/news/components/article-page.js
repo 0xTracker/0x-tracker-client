@@ -187,7 +187,11 @@ const ArticlePage = () => {
                         </dd>
                       </ArticleMetadata>
                     </div>
-                    <ArticleShareButtons css="flex-shrink: 0;" size={30} />
+                    <ArticleShareButtons
+                      css="flex-shrink: 0;"
+                      size={30}
+                      title={article.title}
+                    />
                   </span>
                   <Content
                     dangerouslySetInnerHTML={{ __html: article.content }}
