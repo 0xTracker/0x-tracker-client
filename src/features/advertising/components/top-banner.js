@@ -6,8 +6,8 @@ import { media } from '../../../styles/util';
 import AdvertisingTooltip from './advertising-tooltip';
 import Badge from '../../../components/badge';
 import Container from '../../../components/container';
-import getRandomAdvert from '../util/get-random-advert';
 import Link from '../../../components/link';
+import useAdvertRandomizer from '../hooks/use-advert-randomizer';
 
 const Icon = styled.img`
   border-radius: 4px;
@@ -24,7 +24,12 @@ const Icon = styled.img`
 const LearnMoreLink = styled(Link)`
   color: ${COLORS.PRIMARY.SCAMPI_500};
   font-size: 14px;
-  margin-left: 4px;
+  margin-left: 28px;
+  margin-top: 8px;
+
+  ${media.greaterThan('lg')`
+    margin: 0;
+  `}
 `;
 
 const Wrapper = styled.div`
@@ -54,6 +59,7 @@ const SponsoredBadge = styled(Badge).attrs({
 const Title = styled.strong`
   display: block;
   font-size: 14px;
+  font-weight: 500;
   margin-right: 4px;
 `;
 
@@ -63,13 +69,29 @@ const Description = styled.p`
   margin-top: 8px;
   font-size: 14px;
 
-  ${media.greaterThan('md')`
+  ${media.greaterThan('lg')`
     margin: 0;
   `}
 `;
 
+const Separator = styled.span`
+  display: none;
+  font-size: 14px;
+  margin: 0 4px;
+
+  ${media.greaterThan('lg')`
+    display: inline;
+  `}
+`;
+
 const TopBanner = () => {
-  const advert = getRandomAdvert();
+  const advert = useAdvertRandomizer();
+
+  const handleClick = () => {
+    if (window.fathom) {
+      window.fathom.trackGoal('0MW1MF59', 0);
+    }
+  };
 
   return (
     <Container>
@@ -77,14 +99,26 @@ const TopBanner = () => {
         <AdvertisingTooltip enabled={false}>
           <SponsoredBadge>Sponsored</SponsoredBadge>
         </AdvertisingTooltip>
-        <Icon height={20} src={advert.ICON_URL} width={20} />
-        <Title>{advert.TITLE}:</Title>
+        <Link href={advert.URL} onClick={handleClick} sponsored>
+          <Icon height={20} src={advert.ICON_URL} width={20} />
+        </Link>
+        <Title as={Link} href={advert.URL} onClick={handleClick} sponsored>
+          {advert.TITLE}:
+        </Title>
         <Description>
-          {advert.DESCRIPTION} –{' '}
-          <LearnMoreLink href={advert.URL} indicateExternal>
-            Learn more
-          </LearnMoreLink>
+          <Link href={advert.URL} onClick={handleClick} sponsored>
+            {advert.DESCRIPTION}
+          </Link>
         </Description>
+        <Separator> – </Separator>
+        <LearnMoreLink
+          href={advert.URL}
+          indicateExternal
+          onClick={handleClick}
+          sponsored
+        >
+          Learn more
+        </LearnMoreLink>
       </Wrapper>
     </Container>
   );

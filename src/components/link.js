@@ -14,8 +14,21 @@ const StyledLink = styled.a`
   }
 `;
 
-const Link = ({ children, href, indicateExternal, ...otherProps }) => {
+const Link = ({
+  children,
+  href,
+  indicateExternal,
+  noFollow,
+  sponsored,
+  ...otherProps
+}) => {
   const isExternal = href.startsWith('http://') || href.startsWith('https://');
+  const rel = [
+    isExternal ? 'noreferrer' : undefined,
+    isExternal ? 'noopener' : undefined,
+    sponsored ? 'sponsored' : undefined,
+    sponsored || noFollow ? 'nofollow' : undefined,
+  ].filter((i) => i !== undefined);
 
   if (isExternal) {
     return (
@@ -26,7 +39,7 @@ const Link = ({ children, href, indicateExternal, ...otherProps }) => {
             : undefined
         }
         href={href}
-        rel="noreferrer noopener"
+        rel={rel.join(' ')}
         target="_blank"
         {...otherProps}
       >
@@ -49,11 +62,15 @@ Link.propTypes = {
   children: PropTypes.node.isRequired,
   href: PropTypes.string,
   indicateExternal: PropTypes.bool,
+  noFollow: PropTypes.bool,
+  sponsored: PropTypes.bool,
 };
 
 Link.defaultProps = {
   href: undefined,
   indicateExternal: false,
+  noFollow: false,
+  sponsored: false,
 };
 
 export default Link;
