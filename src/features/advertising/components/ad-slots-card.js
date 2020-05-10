@@ -71,7 +71,14 @@ const AdSlotsCard = ({ adSlots, onSlotSelected, selectedSlot }) => (
             >
               {Date.now() >= adSlot.slotStartTime &&
                 Date.now() <= adSlot.slotEndTime && (
-                  <ActiveIcon css="margin-right: 8px;" height={20} width={20} />
+                  <ActiveIcon
+                    css={`
+                      color: ${COLORS.ACCENT.ANZAC_500};
+                      margin-right: 8px;
+                    `}
+                    height={20}
+                    width={20}
+                  />
                 )}
               {Date.now() < adSlot.slotStartTime && (
                 <ScheduledIcon

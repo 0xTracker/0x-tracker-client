@@ -2,14 +2,15 @@ import { Col, FormGroup, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
+import { COLORS } from '../../../styles/constants';
 import EmailField from '../../../components/email-field';
 import FormLabel from '../../../components/form-label';
 import PrimaryFormButton from '../../../components/primary-form-button';
 import SecondaryFormButton from '../../../components/secondary-form-button';
 import TextField from '../../../components/text-field';
 
-const AdContentForm = ({ onSubmit }) => {
-  const [values, setValues] = useState({});
+const AdContentForm = ({ defaultValues, onSubmit }) => {
+  const [values, setValues] = useState(defaultValues);
 
   const handleChange = (value, fieldName) =>
     setValues((existingValues) => ({ ...existingValues, [fieldName]: value }));
@@ -64,20 +65,20 @@ const AdContentForm = ({ onSubmit }) => {
             />
           </Col>
           <Col sm={6}>
-            <FormLabel htmlFor="url">Icon URL</FormLabel>
+            <FormLabel htmlFor="url">Image URL</FormLabel>
             <TextField
-              name="iconUrl"
+              name="imageUrl"
               onChange={handleChange}
-              placeholder="https://yourdomain.com/images/icon.png"
+              placeholder="https://yourdomain.com/images/logo.png"
               required
               type="text"
-              value={values.iconUrl}
+              value={values.imageUrl}
             />
           </Col>
         </Row>
         <Row>
           <Col sm={6}>
-            <FormLabel htmlFor="email">Your Email</FormLabel>
+            <FormLabel htmlFor="email">Notification Email</FormLabel>
             <EmailField
               name="email"
               onChange={handleChange}
@@ -87,7 +88,13 @@ const AdContentForm = ({ onSubmit }) => {
           </Col>
         </Row>
       </FormGroup>
-      <div css="margin-top: 2rem;">
+      <div
+        css={`
+          border-top: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+          margin-top: 2rem;
+          padding-top: 1rem;
+        `}
+      >
         <PrimaryFormButton type="submit">Submit</PrimaryFormButton>
         <SecondaryFormButton type="submit">Preview</SecondaryFormButton>
       </div>
@@ -96,7 +103,12 @@ const AdContentForm = ({ onSubmit }) => {
 };
 
 AdContentForm.propTypes = {
+  defaultValues: PropTypes.shape({}),
   onSubmit: PropTypes.func.isRequired,
+};
+
+AdContentForm.defaultProps = {
+  defaultValues: {},
 };
 
 export default AdContentForm;
