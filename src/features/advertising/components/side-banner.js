@@ -58,6 +58,10 @@ const Description = styled.p`
 const SideBanner = ({ className }) => {
   const advert = useAdvertRandomizer();
 
+  if (advert === undefined) {
+    return null;
+  }
+
   const handleClick = () => {
     if (window.fathom) {
       window.fathom.trackGoal('SLGRB9AZ', 0);
@@ -69,19 +73,19 @@ const SideBanner = ({ className }) => {
       <AdvertisingTooltip enabled={false}>
         <SponsoredBadge>Sponsored</SponsoredBadge>
       </AdvertisingTooltip>
-      <Link href={advert.URL} onClick={handleClick} sponsored>
-        <Icon height={20} src={advert.ICON_URL} width={20} />
+      <Link href={advert.url} onClick={handleClick} sponsored>
+        <Icon height={20} src={advert.imageUrl} width={20} />
       </Link>
-      <Title as={Link} href={advert.URL} onClick={handleClick} sponsored>
-        {advert.TITLE}
+      <Title as={Link} href={advert.url} onClick={handleClick} sponsored>
+        {advert.title}
       </Title>
       <Description>
-        <Link href={advert.URL} onClick={handleClick} sponsored>
-          {advert.DESCRIPTION}
+        <Link href={advert.url} onClick={handleClick} sponsored>
+          {advert.description}
         </Link>
       </Description>
       <LearnMoreLink
-        href={advert.URL}
+        href={advert.url}
         indicateExternal
         onClick={handleClick}
         sponsored
