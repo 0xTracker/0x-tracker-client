@@ -8,6 +8,7 @@ import { formatDate } from '../../../util';
 import { COLORS } from '../../../styles/constants';
 import AdContentForm from './ad-content-form';
 import AdManagerPageLayout from './ad-manager-page-layout';
+import AdSlotsCard from './ad-slots-card';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import CardGrid from '../../../components/card-grid';
@@ -28,16 +29,9 @@ const AdSlotManager = ({ adSlots }) => {
   const wallet = useWallet();
   const [signature, setSignature] = useState();
   const [message, setMessage] = useState();
-  const [selectedSlotId, setSelectedSlotId] = useState();
+  const [selectedSlot, setSelectedAdSlot] = useState();
 
-  const selectedSlot =
-    adSlots.length === 0
-      ? undefined
-      : adSlots.find(
-          (slot, index) =>
-            slot.tokenId === selectedSlotId ||
-            (selectedSlotId === undefined && index === 0),
-        );
+  const currentSlot = selectedSlot || adSlots[0];
 
   const provider =
     wallet.ethereum !== undefined
@@ -64,15 +58,15 @@ const AdSlotManager = ({ adSlots }) => {
         <CardGridRow>
           <CardGridCol lg={8}>
             <Card>
-              {selectedSlot !== undefined ? (
+              {currentSlot !== undefined ? (
                 <CardHeader>
                   <CardHeading>
-                    Slot: {formatSlotDate(selectedSlot.slotStartTime)} to{' '}
-                    {formatSlotDate(selectedSlot.slotEndTime)}
+                    Slot: {formatSlotDate(currentSlot.slotStartTime)} to{' '}
+                    {formatSlotDate(currentSlot.slotEndTime)}
                   </CardHeading>
                   <Pill
                     as={Link}
-                    href={`https://etherscan.io/token/${selectedSlot.tokenAddress}?a=${selectedSlot.tokenId}`}
+                    href={`https://etherscan.io/token/${currentSlot.tokenAddress}?a=${currentSlot.tokenId}`}
                   >
                     View on Etherscan
                     <img
@@ -114,32 +108,13 @@ const AdSlotManager = ({ adSlots }) => {
             </Card>
           </CardGridCol>
           <CardGridCol lg={4}>
-            <Card>
-              <CardHeader>
-                <CardHeading>Your Ad Slots</CardHeading>
-              </CardHeader>
-              <CardBody padded>
-                <p>
-                  The following ad slots belong to the connected Ethereum
-                  wallet. Select a slot to manage it.
-                </p>
-                <ul>
-                  {adSlots.map((adSlot) => (
-                    <li key={adSlot.tokenId}>
-                      <button
-                        onClick={() => {
-                          setSelectedSlotId(adSlot.tokenId);
-                        }}
-                        type="submit"
-                      >
-                        {formatSlotDate(adSlot.slotStartTime)} to{' '}
-                        {formatSlotDate(adSlot.slotEndTime)}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              </CardBody>
-            </Card>
+            <AdSlotsCard
+              adSlots={adSlots}
+              onSlotSelected={(adSlot) => {
+                setSelectedAdSlot(adSlot);
+              }}
+              selectedSlot={currentSlot}
+            />
           </CardGridCol>
         </CardGridRow>
       </CardGrid>

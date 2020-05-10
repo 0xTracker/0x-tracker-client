@@ -26,9 +26,7 @@ const UseAdvertisingSlots = (wallet) => {
         ),
       )
       .then((newTokens) => {
-        setTokens(
-          newTokens.filter((token) => token.slotStartTime >= Date.now()),
-        );
+        setTokens(newTokens.filter((token) => token.slotEndTime >= Date.now()));
         setLoading(false);
       })
       .catch(console.error);
