@@ -81,9 +81,9 @@ const HeaderActions = () => {
         title="Help support 0x Tracker development with a donation"
       >
         <img
-          alt="Buy Me A Coffee"
+          alt="Donate"
           css="height: 37px; border-radius: 0.25rem;"
-          src="https://cdn.buymeacoffee.com/buttons/arial-orange.png"
+          src="https://resources.0xtracker.com/images/donate-button.png"
         />
       </Link>
     </div>

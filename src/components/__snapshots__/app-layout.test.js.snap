@@ -145,9 +145,9 @@ exports[`app layout component should render with children 1`] = `
           title="Help support 0x Tracker development with a donation"
         >
           <img
-            alt="Buy Me A Coffee"
+            alt="Donate"
             class="header-actions___StyledImg-sc-10491ou-3 hDFtsU"
-            src="https://cdn.buymeacoffee.com/buttons/arial-orange.png"
+            src="https://resources.0xtracker.com/images/donate-button.png"
           />
         </a>
       </div>
