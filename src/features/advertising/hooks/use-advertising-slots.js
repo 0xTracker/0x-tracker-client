@@ -9,7 +9,7 @@ const UseAdvertisingSlots = (wallet) => {
   const ownerAddress = wallet.account;
 
   useEffect(() => {
-    if (ownerAddress === undefined || wallet.ethereum === undefined) {
+    if (ownerAddress === undefined || wallet.connected === false) {
       return;
     }
 
