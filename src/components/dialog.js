@@ -47,10 +47,10 @@ const Dialog = ({ children, className, onClose, width, height, title }) => {
     <>
       <DisableBodyScroll />
       <Portal>
-        <Overlay className={className}>
+        <Overlay>
           <StyledDialog height={height} width={width}>
-            <DialogHeader onClose={onClose}>{title}</DialogHeader>
-            <DialogBody>{children}</DialogBody>
+            {title && <DialogHeader onClose={onClose}>{title}</DialogHeader>}
+            <DialogBody className={className}>{children}</DialogBody>
           </StyledDialog>
         </Overlay>
       </Portal>
@@ -63,13 +63,14 @@ Dialog.propTypes = {
   className: PropTypes.string,
   height: PropTypes.number,
   onClose: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   width: PropTypes.number,
 };
 
 Dialog.defaultProps = {
   className: undefined,
   height: 600,
+  title: undefined,
   width: 800,
 };
 

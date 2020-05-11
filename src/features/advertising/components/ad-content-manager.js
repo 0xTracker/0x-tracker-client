@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { DATE_FORMAT } from '../../../constants';
 import { formatDate } from '../../../util';
 import { COLORS } from '../../../styles/constants';
 import AdContentForm from './ad-content-form';
+import AdContentSubmissionConfirmation from './ad-content-submission-confirmation';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import CardHeader from '../../../components/card-header';
@@ -14,7 +15,6 @@ import Link from '../../../components/link';
 import LoadingIndicator from '../../../components/loading-indicator';
 import Pill from '../../../components/pill';
 import useAdSlotContent from '../hooks/use-ad-slot-content';
-import useAdContentManager from '../hooks/use-ad-content-manager';
 
 const Message = styled.p`
   font-size: 16px;
@@ -23,7 +23,7 @@ const Message = styled.p`
 `;
 
 const MESSAGES = {
-  accepted: (
+  approved: (
     <Message>
       Your previous submission for this ad slot has been{' '}
       <strong
@@ -31,7 +31,7 @@ const MESSAGES = {
           color: ${COLORS.ACCENT.FRUIT_SALAD_500};
         `}
       >
-        accepted
+        approved
       </strong>
       . You can update and submit again below if you would like to make changes.
     </Message>
@@ -78,22 +78,15 @@ const formatSlotDate = (date) =>
 
 const AdContentManager = ({ adSlot }) => {
   const { tokenAddress, tokenId } = adSlot;
-  const [content, loadingContent] = useAdSlotContent(tokenAddress, tokenId);
-  const submitContent = useAdContentManager(tokenAddress, tokenId);
+  const [content, loadingContent, submitContent] = useAdSlotContent(
+    tokenAddress,
+    tokenId,
+  );
+  const [confirmationVisible, setConfirmationVisible] = useState(false);
 
-  const handleSubmit = (values) => {
-    // TODO: Disable form
-
-    submitContent(values)
-      .then(() => {
-        alert('done');
-        // Enable form
-        // Show success confirmation
-      })
-      .catch((error) => {
-        // TODO: Handle errors gracefully
-        throw error;
-      });
+  const handleSubmit = async (values) => {
+    await submitContent(values);
+    setConfirmationVisible(true);
   };
 
   if (loadingContent) {
@@ -106,29 +99,40 @@ const AdContentManager = ({ adSlot }) => {
     );
   }
 
+  console.log(content);
+
   return (
-    <Card>
-      <CardHeader>
-        <CardHeading>
-          Slot: {formatSlotDate(adSlot.slotStartTime)} to{' '}
-          {formatSlotDate(adSlot.slotEndTime)}
-        </CardHeading>
-        <Pill
-          as={Link}
-          href={`https://etherscan.io/token/${tokenAddress}?a=${tokenId}`}
-        >
-          View on Etherscan
-          <img
-            css="margin-left: 8px; height: 12px; width: 12px;"
-            src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
-          />
-        </Pill>
-      </CardHeader>
-      <CardBody css="padding: 2rem;">
-        {MESSAGES[content === undefined ? 'new' : content.submissionStatus]}
-        <AdContentForm defaultValues={content} onSubmit={handleSubmit} />
-      </CardBody>
-    </Card>
+    <>
+      {confirmationVisible && (
+        <AdContentSubmissionConfirmation
+          onClose={() => {
+            setConfirmationVisible(false);
+          }}
+        />
+      )}
+      <Card>
+        <CardHeader>
+          <CardHeading>
+            Slot: {formatSlotDate(adSlot.slotStartTime)} to{' '}
+            {formatSlotDate(adSlot.slotEndTime)}
+          </CardHeading>
+          <Pill
+            as={Link}
+            href={`https://etherscan.io/token/${tokenAddress}?a=${tokenId}`}
+          >
+            View on Etherscan
+            <img
+              css="margin-left: 8px; height: 12px; width: 12px;"
+              src="https://etherscan.io/images/brandassets/etherscan-logo-circle.png"
+            />
+          </Pill>
+        </CardHeader>
+        <CardBody css="padding: 2rem;">
+          {MESSAGES[content === undefined ? 'new' : content.submissionStatus]}
+          <AdContentForm defaultValues={content} onSubmit={handleSubmit} />
+        </CardBody>
+      </Card>
+    </>
   );
 };
 

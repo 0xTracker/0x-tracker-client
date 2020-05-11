@@ -21,6 +21,10 @@ const Input = styled.input`
     color: ${COLORS.NEUTRAL.MYSTIC_400};
     opacity: 1;
   }
+
+  &:disabled {
+    color: ${COLORS.NEUTRAL.MYSTIC_600};
+  }
 `;
 
 const EmailField = ({ name, onChange, value, ...otherProps }) => {

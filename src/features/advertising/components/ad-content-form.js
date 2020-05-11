@@ -5,12 +5,14 @@ import React, { useState } from 'react';
 import { COLORS } from '../../../styles/constants';
 import EmailField from '../../../components/email-field';
 import FormLabel from '../../../components/form-label';
+import LoadingIndicator from '../../../components/loading-indicator';
 import PrimaryFormButton from '../../../components/primary-form-button';
 import SecondaryFormButton from '../../../components/secondary-form-button';
 import TextField from '../../../components/text-field';
 
 const AdContentForm = ({ defaultValues, onSubmit }) => {
   const [values, setValues] = useState(defaultValues);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleChange = (value, fieldName) =>
     setValues((existingValues) => ({ ...existingValues, [fieldName]: value }));
@@ -18,7 +20,12 @@ const AdContentForm = ({ defaultValues, onSubmit }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    onSubmit(values);
+    setSubmitting(true);
+
+    // eslint-disable-next-line promise/catch-or-return
+    onSubmit(values).then(() => {
+      setSubmitting(false);
+    });
   };
 
   return (
@@ -30,6 +37,7 @@ const AdContentForm = ({ defaultValues, onSubmit }) => {
               Title
             </FormLabel>
             <TextField
+              disabled={submitting}
               name="title"
               onChange={handleChange}
               placeholder="Brave Browser"
@@ -43,6 +51,7 @@ const AdContentForm = ({ defaultValues, onSubmit }) => {
               Description
             </FormLabel>
             <TextField
+              disabled={submitting}
               name="description"
               onChange={handleChange}
               placeholder="Secure your browser and earn crypto rewards just for browsing the web"
@@ -56,6 +65,7 @@ const AdContentForm = ({ defaultValues, onSubmit }) => {
           <Col sm={6}>
             <FormLabel htmlFor="url">URL</FormLabel>
             <TextField
+              disabled={submitting}
               name="url"
               onChange={handleChange}
               placeholder="https://brave.com/"
@@ -67,6 +77,7 @@ const AdContentForm = ({ defaultValues, onSubmit }) => {
           <Col sm={6}>
             <FormLabel htmlFor="url">Image URL</FormLabel>
             <TextField
+              disabled={submitting}
               name="imageUrl"
               onChange={handleChange}
               placeholder="https://yourdomain.com/images/logo.png"
@@ -82,6 +93,7 @@ const AdContentForm = ({ defaultValues, onSubmit }) => {
               Notification Email
             </FormLabel>
             <EmailField
+              disabled={submitting}
               name="notificationEmail"
               onChange={handleChange}
               required
@@ -93,12 +105,21 @@ const AdContentForm = ({ defaultValues, onSubmit }) => {
       <div
         css={`
           border-top: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+          display: flex;
           margin-top: 2rem;
           padding-top: 1rem;
         `}
       >
-        <PrimaryFormButton type="submit">Submit</PrimaryFormButton>
-        <SecondaryFormButton type="submit">Preview</SecondaryFormButton>
+        <PrimaryFormButton disabled={submitting} type="submit">
+          {submitting ? (
+            <LoadingIndicator color="currentColor" size="small" type="cylon" />
+          ) : (
+            'Submit'
+          )}
+        </PrimaryFormButton>
+        <SecondaryFormButton disabled={submitting} type="submit">
+          Preview
+        </SecondaryFormButton>
       </div>
     </form>
   );
