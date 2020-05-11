@@ -1,7 +1,5 @@
-import { ethers } from 'ethers';
-import { useWallet } from 'use-wallet';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { DATE_FORMAT } from '../../../constants';
@@ -16,6 +14,7 @@ import Link from '../../../components/link';
 import LoadingIndicator from '../../../components/loading-indicator';
 import Pill from '../../../components/pill';
 import useAdSlotContent from '../hooks/use-ad-slot-content';
+import useAdContentManager from '../hooks/use-ad-content-manager';
 
 const Message = styled.p`
   font-size: 16px;
@@ -79,25 +78,22 @@ const formatSlotDate = (date) =>
 
 const AdContentManager = ({ adSlot }) => {
   const { tokenAddress, tokenId } = adSlot;
-
-  const wallet = useWallet();
-
-  const [signature, setSignature] = useState();
-  const [message, setMessage] = useState();
   const [content, loadingContent] = useAdSlotContent(tokenAddress, tokenId);
+  const submitContent = useAdContentManager(tokenAddress, tokenId);
 
   const handleSubmit = (values) => {
-    const provider = new ethers.providers.Web3Provider(wallet.ethereum);
-    const jsonMessage = JSON.stringify(values);
+    // TODO: Disable form
 
-    provider
-      .getSigner()
-      .signMessage(jsonMessage)
-      .then((sig) => {
-        setSignature(sig);
-        setMessage(jsonMessage);
+    submitContent(values)
+      .then(() => {
+        alert('done');
+        // Enable form
+        // Show success confirmation
       })
-      .catch(console.error);
+      .catch((error) => {
+        // TODO: Handle errors gracefully
+        throw error;
+      });
   };
 
   if (loadingContent) {
@@ -131,26 +127,6 @@ const AdContentManager = ({ adSlot }) => {
       <CardBody css="padding: 2rem;">
         {MESSAGES[content === undefined ? 'new' : content.submissionStatus]}
         <AdContentForm defaultValues={content} onSubmit={handleSubmit} />
-        {message !== undefined && (
-          <div
-            css={`
-              margin-top: 30px;
-              background: ${COLORS.NEUTRAL.MYSTIC_200};
-              border-radius: 4px;
-              overflow: scroll;
-              padding: 2rem;
-            `}
-          >
-            <p>Message: {message}</p>
-            <p>Signature: {signature}</p>
-            <p>
-              Signer:{' '}
-              {message &&
-                signature &&
-                ethers.utils.verifyMessage(message, signature)}
-            </p>
-          </div>
-        )}
       </CardBody>
     </Card>
   );

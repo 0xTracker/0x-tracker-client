@@ -78,12 +78,14 @@ const AdContentForm = ({ defaultValues, onSubmit }) => {
         </Row>
         <Row>
           <Col sm={6}>
-            <FormLabel htmlFor="email">Notification Email</FormLabel>
+            <FormLabel htmlFor="notificationEmail">
+              Notification Email
+            </FormLabel>
             <EmailField
-              name="email"
+              name="notificationEmail"
               onChange={handleChange}
               required
-              value={values.email}
+              value={values.notificationEmail}
             />
           </Col>
         </Row>
