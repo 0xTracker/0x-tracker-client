@@ -99,8 +99,6 @@ const AdContentManager = ({ adSlot }) => {
     );
   }
 
-  console.log(content);
-
   return (
     <>
       {confirmationVisible && (
