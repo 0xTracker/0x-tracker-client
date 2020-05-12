@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { URL } from '../../../constants';
+import { buildUrl } from '../../../util';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import CardHeader from '../../../components/card-header';
@@ -14,7 +15,7 @@ const RecentFillsCard = ({ filter, limit, placeholder, ...otherProps }) => (
   <Card {...otherProps}>
     <CardHeader>
       <CardHeading>Recent Fills</CardHeading>
-      <Pill as={Link} href={URL.FILLS}>
+      <Pill as={Link} href={buildUrl(URL.FILLS, filter)}>
         View More
       </Pill>
     </CardHeader>
