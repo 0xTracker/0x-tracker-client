@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { COLORS } from '../../../styles/constants';
+import { truncateAddress } from '../../../util';
 import formatTokenSymbol from '../util/format-token-symbol';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import MiniTokenMetrics from '../../metrics/components/mini-token-metrics';
@@ -16,9 +17,6 @@ import TokenMarketCapTooltip from './token-market-cap-tooltip';
 import TokenPriceTooltip from './token-price-tooltip';
 import TokenTypeBadge from './token-type-badge';
 import Tooltip from '../../../components/tooltip';
-
-const truncateAddress = (address) =>
-  `${address.slice(0, 15)}...${address.slice(address.length - 15)}`;
 
 const TokenListItem = ({ position, statsPeriod, token }) => (
   <tr>

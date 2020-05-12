@@ -11,6 +11,7 @@ import NumberField from '../../../components/number-field';
 import PrimaryFormButton from '../../../components/primary-form-button';
 import ProtocolVersionSelector from '../../../components/protocol-version-selector';
 import RelayerSelector from '../../relayers/components/relayer-selector';
+import TokenLookupField from '../../tokens/components/token-lookup-field';
 import SecondaryFormButton from '../../../components/secondary-form-button';
 
 const AsyncDatePickerField = createAsyncComponent(() =>
@@ -41,14 +42,28 @@ const FillsFilterDialog = ({
     <Dialog height={600} onClose={onClose} title="Filter Fills" width={600}>
       <form noValidate onSubmit={handleSubmit}>
         <FormGroup>
-          <FormLabel first htmlFor="relayer">
-            Relayer
-          </FormLabel>
-          <RelayerSelector
-            name="relayer"
-            onChange={handleChange}
-            value={values.relayer}
-          />
+          <Row>
+            <Col sm={6} xs={12}>
+              <FormLabel first htmlFor="relayer">
+                Relayer
+              </FormLabel>
+              <RelayerSelector
+                name="relayer"
+                onChange={handleChange}
+                value={values.relayer}
+              />
+            </Col>
+            <Col sm={6} xs={12}>
+              <FormLabel first htmlFor="relayer">
+                Token
+              </FormLabel>
+              <TokenLookupField
+                name="token"
+                onChange={handleChange}
+                value={values.token}
+              />
+            </Col>
+          </Row>
           <Row>
             <Col sm={6} xs={12}>
               <FormLabel htmlFor="dateFrom">Date From (UTC)</FormLabel>
