@@ -58,29 +58,17 @@
         x.parentNode.insertBefore(s, x);
       })();
     </script>
-    <% if (process.env.NODE_ENV === 'production') { %>
-    <script src="https://coinzillatag.com/lib/header.js"></script>
-    <script>
-      window.coinzilla_header = window.coinzilla_header || [];
-      function czilla() {
-        coinzilla_header.push(arguments);
-      }
-      czilla('215ea67e6e9422c229');
-    </script>
-    <% } %>
   </head>
 
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <div id="root"></div>
     <% if (process.env.NODE_ENV === 'production') { %>
-    <script src="https://cdn.usefathom.com/3.js" site="FVADTFVJ"></script>
-    <script>
-      window.fathom ||
-        document.write(
-          '<script src="https://giraffe.0xtracker.com/core.js"><\/script>',
-        );
-    </script>
+    <script
+      src="https://giraffe.0xtracker.com/script.js"
+      site="FVADTFVJ"
+      defer
+    ></script>
     <% } %>
   </body>
 </html>

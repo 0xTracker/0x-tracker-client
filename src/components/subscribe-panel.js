@@ -116,6 +116,11 @@ const SubscribePanel = () => (
       <Form
         action="https://facebook.us2.list-manage.com/subscribe/post?u=1c752e167467d75829bc12aef&amp;id=33b834d61c"
         method="post"
+        onSubmit={() => {
+          if (window.fathom) {
+            window.fathom.trackGoal('YV6F7FG6', 0);
+          }
+        }}
         target="_blank"
       >
         <HoneyPot aria-hidden="true">

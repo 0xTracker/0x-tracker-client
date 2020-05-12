@@ -92,6 +92,7 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
                   font-size: 0.9rem;
                 `}
                 href={relayer.url}
+                noFollow
               >
                 {relayer.url}
               </Link>
