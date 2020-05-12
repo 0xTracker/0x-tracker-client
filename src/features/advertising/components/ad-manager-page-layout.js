@@ -41,19 +41,20 @@ const AdManagerPageLayout = ({ children }) => {
       }
       showBanner={false}
       title={
-        <div css="align-items: center; display: flex;">
-          {wallet.connected && (
+        wallet.connected && (
+          <div css="align-items: center; display: flex;">
             <Blockie
               css="border-radius: 0.25rem; margin-right: 0.75rem;"
               seed={wallet.account}
               size="35px"
             />
-          )}
-          <div>
-            Ad Manager
-            {wallet.connected && <SubTitle>for {wallet.account}</SubTitle>}
+
+            <div>
+              Advert Manager
+              {wallet.connected && <SubTitle>for {wallet.account}</SubTitle>}
+            </div>
           </div>
-        </div>
+        )
       }
     >
       {children}

@@ -12,10 +12,6 @@ const AdManagerPage = () => {
   const wallet = useWallet();
   const [adSlots, loadingAdSlots] = UseAdvertisingSlots(wallet);
 
-  React.useEffect(() => {
-    wallet.activate();
-  }, []);
-
   if (window.ethereum === undefined) {
     return <MetamaskRequired />;
   }
