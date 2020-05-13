@@ -59,7 +59,7 @@ const AddressMetricsChart = React.memo(
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
-              fontWeight: '500',
+              fontWeight: 500,
             }}
             tickFormatter={
               keyMetric === 'tradeCount'
@@ -94,8 +94,9 @@ AddressMetricsChart.displayName = 'AddressMetricsChart';
 AddressMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      date: PropTypes.object.isRequired,
-      fillVolume: PropTypes.number.isRequired,
+      date: PropTypes.instanceOf(Date).isRequired,
+      tradeCount: PropTypes.number.isRequired,
+      tradeVolume: PropTypes.number.isRequired,
     }),
   ).isRequired,
   granularity: PropTypes.string.isRequired,

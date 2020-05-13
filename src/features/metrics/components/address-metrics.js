@@ -87,7 +87,11 @@ const AddressMetrics = ({ address, keyMetric, period }) => {
 AddressMetrics.propTypes = {
   address: PropTypes.string.isRequired,
   keyMetric: PropTypes.string, // eslint-disable-line react/require-default-props
-  period: sharedPropTypes.timePeriod.isRequired,
+  period: sharedPropTypes.timePeriod,
+};
+
+AddressMetrics.defaultProps = {
+  period: undefined,
 };
 
 export default AddressMetrics;
