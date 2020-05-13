@@ -1,5 +1,4 @@
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
-import ms from 'ms';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -20,5 +19,4 @@ OfflinePluginRuntime.install({
 });
 
 ReactDOM.render(<App />, document.getElementById('root'));
-
-AutoReload.start(ms(process.env.REACT_APP_AUTO_RELOAD_INTERVAL));
+AutoReload.start(process.env.REACT_APP_AUTO_RELOAD_INTERVAL);
