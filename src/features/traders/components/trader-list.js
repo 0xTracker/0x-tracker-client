@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { COLORS } from '../../../styles/constants';
-import { ExternalLinkIcon, MoreIcon } from '../../../components/icons';
+import { MoreIcon } from '../../../components/icons';
 import Badge from '../../../components/badge';
 import Blockie from '../../../components/blockie';
 import HelpWidget from '../../../components/help-widget';
@@ -79,6 +79,15 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
             <span css="display: block; line-height: 1; margin-bottom: 4px;">
               <TraderLink address={trader.address}>{trader.address}</TraderLink>
             </span>
+            {trader.name && (
+              <Badge
+                bgColor={COLORS.NEUTRAL.MYSTIC_400}
+                css="margin-right: 0.5rem;"
+                textColor={COLORS.NEUTRAL.MYSTIC_1000}
+              >
+                {trader.name}
+              </Badge>
+            )}
             {trader.stats.fillCount.maker > 0 && (
               <Tooltip content="This trader has been a maker during the selected period.">
                 <Badge
@@ -151,7 +160,11 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
                   `}
                   href={`https://etherscan.io/address/${trader.address}`}
                 >
-                  <ExternalLinkIcon height={24} width={24} />
+                  <img
+                    height={20}
+                    src="https://resources.0xtracker.com/logos/etherscan.png"
+                    width={20}
+                  />
                 </Link>
               </span>
             </Tooltip>
