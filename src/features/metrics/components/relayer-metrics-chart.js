@@ -60,7 +60,7 @@ const RelayerMetricsChart = React.memo(
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
-              fontWeight: '500',
+              fontWeight: 500,
             }}
             tickFormatter={
               type === 'tradeCount' || type === 'traderCount'
@@ -99,7 +99,7 @@ RelayerMetricsChart.propTypes = {
   granularity: PropTypes.string.isRequired,
   onBrushChange: PropTypes.func,
   period: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['tradeCount', 'tradeVolume']),
+  type: PropTypes.oneOf(['tradeCount', 'traderCount', 'tradeVolume']),
 };
 
 RelayerMetricsChart.defaultProps = {

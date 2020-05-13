@@ -3,7 +3,9 @@ import styled from 'styled-components';
 
 import { media } from '../styles/util';
 
-const CardGridCol = styled(Col)`
+const CardGridCol = styled(Col).withConfig({
+  shouldForwardProp: (prop) => prop !== 'minHeight',
+})`
   display: flex;
   flex-direction: column;
   margin-bottom: 1.25rem;

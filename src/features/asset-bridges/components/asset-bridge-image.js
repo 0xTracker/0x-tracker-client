@@ -51,7 +51,7 @@ const AssetBridgeImage = ({
 AssetBridgeImage.propTypes = {
   className: PropTypes.string,
   height: PropTypes.number,
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   isPrivate: PropTypes.bool,
   width: PropTypes.number,
 };
@@ -59,6 +59,7 @@ AssetBridgeImage.propTypes = {
 AssetBridgeImage.defaultProps = {
   className: undefined,
   height: 40,
+  imageUrl: undefined,
   isPrivate: false,
   width: 40,
 };

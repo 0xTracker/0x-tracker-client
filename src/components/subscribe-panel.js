@@ -128,7 +128,6 @@ const SubscribePanel = () => (
             name="b_1c752e167467d75829bc12aef_33b834d61c"
             tabIndex="-1"
             type="text"
-            value=""
           />
         </HoneyPot>
         <FieldWrapper>
