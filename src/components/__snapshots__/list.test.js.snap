@@ -2,6 +2,6 @@
 
 exports[`list component should render without props 1`] = `
 <ul
-  class="list__List-sc-1hr42jb-0 cRmZyp"
+  class="list__List-sc-1hr42jb-0 bICncC"
 />
 `;

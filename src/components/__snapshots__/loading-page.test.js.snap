@@ -2,10 +2,10 @@
 
 exports[`should render loading page 1`] = `
 <div
-  class="page-layout__StyledPageLayout-cls0ob-1 cIITEm"
+  class="page-layout__StyledPageLayout-cls0ob-1 cCoLks"
 >
   <div
-    class="container__StyledContainer-cj53s7-0 eMKfDZ page-layout__PageBody-cls0ob-0 jrvuaA container-fluid"
+    class="container__StyledContainer-cj53s7-0 cFWPEe page-layout__PageBody-cls0ob-0 gWvAqi container-fluid"
   >
     <div
       style="fill: hsl(235, 12%, 52%); height: 50px; width: 50px;"

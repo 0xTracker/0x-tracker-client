@@ -3,9 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 import { COLORS } from '../styles/constants';
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,600&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Cabin:500,600&display=swap');
-
   #root {
     display: flex;
     flex-direction: column;
