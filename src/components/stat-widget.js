@@ -47,7 +47,7 @@ const StatWidget = ({
           {tooltip !== undefined && <HelpWidget>{tooltip}</HelpWidget>}
         </StatWidgetTitle>
         {loading ? (
-          <LoadingIndicator size="small" type="cylon" />
+          <LoadingIndicator css="margin: 16px 0 0;" size="small" type="cylon" />
         ) : (
           <StatWidgetValue>{children}</StatWidgetValue>
         )}

@@ -93,7 +93,7 @@ const FullPaginator = ({
       />
       <Pages>
         {changingPage && (
-          <LoadingIndicator css="margin-right: 1em;" size={30} />
+          <LoadingIndicator css="margin-right: 16px;" size={30} />
         )}
         <ReactPaginate
           activeClassName="active"
