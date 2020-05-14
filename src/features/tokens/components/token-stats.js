@@ -6,13 +6,9 @@ import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
 import MarketCapWidget from './market-cap-widget';
 import PriceRangeWidget from './price-range-widget';
+import TokenStatsCarousel from './token-stats-carousel';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
-
-// Carousel gets loaded lazily because it relies on react-slick
-const AsyncTokenStatsCarousel = React.lazy(() =>
-  import('./token-stats-carousel'),
-);
 
 const TokenStats = ({ period, token }) => {
   const breakpoint = useCurrentBreakpoint();
@@ -44,7 +40,7 @@ const TokenStats = ({ period, token }) => {
     );
   }
 
-  return <AsyncTokenStatsCarousel token={token} />;
+  return <TokenStatsCarousel token={token} />;
 };
 
 TokenStats.propTypes = {
