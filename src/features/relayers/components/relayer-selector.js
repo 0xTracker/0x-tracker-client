@@ -2,8 +2,8 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import AsyncSelect from '../../../components/async-select';
 import LoadingIndicator from '../../../components/loading-indicator';
+import Select from '../../../components/select';
 import useRelayers from '../hooks/use-relayers';
 
 const RelayerSelector = ({ className, name, onChange, value }) => {
@@ -27,7 +27,7 @@ const RelayerSelector = ({ className, name, onChange, value }) => {
   ];
 
   return (
-    <AsyncSelect
+    <Select
       className={className}
       controlShouldRenderValue
       isClearable={false}

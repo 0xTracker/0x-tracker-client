@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { CURRENCIES } from '../constants';
-import AsyncSelect from '../../../components/async-select';
 import currenciesPropTypes from '../prop-types';
+import Select from '../../../components/select';
 
 const OPTIONS = CURRENCIES.map((currency) => ({
   label: `${currency.name} (${currency.symbol})`,
@@ -11,7 +11,7 @@ const OPTIONS = CURRENCIES.map((currency) => ({
 }));
 
 const CurrencySelector = ({ className, name, onChange, value }) => (
-  <AsyncSelect
+  <Select
     className={className}
     controlShouldRenderValue
     inputId={name}

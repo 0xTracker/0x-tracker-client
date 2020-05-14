@@ -11,11 +11,6 @@ import CardGridRow from '../../../components/card-grid-row';
 import useAssetBridgingStats from '../hooks/use-asset-bridging-stats';
 import VolumeShareWidget from './volume-share-widget';
 
-// Carousel gets loaded lazily because it relies on react-slick
-// const AsyncTokenStatsCarousel = React.lazy(() =>
-//   import('./token-stats-carousel'),
-// );
-
 const AssetBridgingStats = ({ bridgeCount, period }) => {
   const [stats, loading] = useAssetBridgingStats(period);
   const breakpoint = useCurrentBreakpoint();
@@ -49,7 +44,6 @@ const AssetBridgingStats = ({ bridgeCount, period }) => {
   }
 
   return null;
-  // return <AsyncTokenStatsCarousel token={token} />;
 };
 
 AssetBridgingStats.propTypes = {

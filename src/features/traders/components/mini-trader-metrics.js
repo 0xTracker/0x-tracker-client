@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { METRIC_GRANULARITY, TIME_PERIOD } from '../../../constants';
-import createAsyncComponent from '../../../util/create-async-component';
+import MiniTraderMetricsChart from './mini-trader-metrics-chart';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useTraderMetrics from '../hooks/use-trader-metrics';
 
@@ -13,10 +13,6 @@ const GRANULARITY_LOOKUP = {
   [TIME_PERIOD.YEAR]: METRIC_GRANULARITY.MONTH,
   [TIME_PERIOD.ALL]: METRIC_GRANULARITY.MONTH,
 };
-
-const AsyncMiniTraderMetricsChart = createAsyncComponent(() =>
-  import('./mini-trader-metrics-chart'),
-);
 
 const MiniTraderMetrics = ({ address, height, period, type, width }) => {
   const [metrics, loading] = useTraderMetrics(address, {
@@ -47,7 +43,7 @@ const MiniTraderMetrics = ({ address, height, period, type, width }) => {
   }
 
   return (
-    <AsyncMiniTraderMetricsChart
+    <MiniTraderMetricsChart
       data={data}
       fallback={null}
       height={height}

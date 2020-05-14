@@ -2,7 +2,11 @@ import { URL } from '../../constants';
 
 const getRoutes = () => [
   {
-    loader: () => import('./components/asset-bridges-page'),
+    loader: () =>
+      import(
+        /* webpackChunkName: "page-asset-bridges" */
+        './components/asset-bridges-page'
+      ),
     path: URL.ASSET_BRIDGES,
   },
 ];

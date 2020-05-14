@@ -1,8 +1,8 @@
 import React from 'react';
 
-import AsyncTraderBreakdownChart from './async-trader-breakdown-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
+import TraderBreakdownChart from './trader-breakdown-chart';
 import useTraderStats from '../../stats/hooks/use-trader-stats';
 
 const TraderBreakdown = ({ period }) => {
@@ -22,7 +22,7 @@ const TraderBreakdown = ({ period }) => {
     },
   ];
 
-  return <AsyncTraderBreakdownChart data={stats} />;
+  return <TraderBreakdownChart data={stats} />;
 };
 
 TraderBreakdown.propTypes = {

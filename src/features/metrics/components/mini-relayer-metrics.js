@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { METRIC_GRANULARITY, TIME_PERIOD } from '../../../constants';
-import AsyncMiniRelayerMetricsChart from './async-mini-relayer-metrics-chart';
+import MiniRelayerMetricsChart from './mini-relayer-metrics-chart';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useRelayerMetrics from '../hooks/use-relayer-metrics';
 
@@ -32,7 +32,7 @@ const MiniRelayerMetrics = ({ height, period, relayerId, type, width }) => {
   }
 
   return (
-    <AsyncMiniRelayerMetricsChart
+    <MiniRelayerMetricsChart
       data={data}
       fallback={null}
       height={height}
