@@ -1,5 +1,12 @@
-import { BRAVE_ADVERT } from '../constants';
+import callApi from '../../../util/call-api';
 
-const getRandomAdvert = () => BRAVE_ADVERT;
+const getRandomAdvert = () =>
+  callApi('ad-slots/current').catch((error) => {
+    if (error.response && error.response.status === 204) {
+      return undefined;
+    }
+
+    throw error;
+  });
 
 export default getRandomAdvert;
