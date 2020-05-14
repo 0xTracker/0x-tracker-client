@@ -8,7 +8,7 @@ const FATHOM_ADVERT = {
 
 const BRAVE_ADVERT = {
   DESCRIPTION:
-    'Secure your browser and earn crypto rewards just for browsing the web',
+    'Privacy first alternative to Google Chrome. Earn crypto rewards for browsing the web',
   ICON_URL:
     'https://brave.com/wp-content/uploads/2018/02/cropped-brave_appicon_release-180x180.png',
   TITLE: 'Brave Browser',
