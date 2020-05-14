@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
-import AsyncNetworkMetricsChart from './async-network-metrics-chart';
+import NetworkMetricsChart from './network-metrics-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
@@ -75,7 +75,7 @@ const NetworkMetrics = ({ period, type }) => {
       brushActive={brushActive}
       onBrushReset={handleResetClick}
     >
-      <AsyncNetworkMetricsChart
+      <NetworkMetricsChart
         currency={displayCurrency}
         data={data}
         granularity={granularity}

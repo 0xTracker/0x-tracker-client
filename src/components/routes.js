@@ -25,7 +25,14 @@ const routes = _.flatten([
   getTokensRoutes(),
   getTradersRoutes(),
   getAssetBridgesRoutes(),
-  { key: '404', loader: () => import('./page-not-found') },
+  {
+    key: '404',
+    loader: () =>
+      import(
+        /* webpackChunkName: "page-not-found" */
+        './page-not-found'
+      ),
+  },
 ]);
 
 const routeComponents = routes.map((route) =>
