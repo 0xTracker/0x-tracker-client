@@ -15,7 +15,9 @@ const useTraderMetrics = (
   });
 
   return [
-    metrics.map((metric) => ({ ...metric, date: new Date(metric.date) })),
+    metrics !== undefined
+      ? metrics.map((metric) => ({ ...metric, date: new Date(metric.date) }))
+      : undefined,
     loading,
   ];
 };
