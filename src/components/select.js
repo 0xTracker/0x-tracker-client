@@ -6,6 +6,7 @@ import { COLORS } from '../styles/constants';
 const Select = styled(ReactSelect).attrs({
   classNamePrefix: 'Select',
   controlShouldRenderValue: true,
+  // menuIsOpen: true,
 })`
   color: inherit;
 

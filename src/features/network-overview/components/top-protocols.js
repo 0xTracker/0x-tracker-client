@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import React from 'react';
 
-import AsyncTopProtocolsChart from './async-top-protocols-chart';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
+import TopProtocolsChart from './top-protocols-chart';
 import useProtocols from '../hooks/use-protocols';
 
 const TopProtocols = ({ period }) => {
@@ -27,7 +27,7 @@ const TopProtocols = ({ period }) => {
     'protocolVersion',
   );
 
-  return <AsyncTopProtocolsChart data={stats} />;
+  return <TopProtocolsChart data={stats} />;
 };
 
 TopProtocols.propTypes = {

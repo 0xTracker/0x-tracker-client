@@ -5,17 +5,13 @@ import { useCurrentBreakpoint } from '../../../responsive-utils';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
+import NetworkOverviewStatsCarousel from './network-overview-stats-carousel';
 import ProtocolFeesWidget from '../../stats/components/protocol-fees-widget';
 import sharedPropTypes from '../../../prop-types';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
 import useNetworkStats from '../../stats/hooks/use-network-stats';
 import useTraderStats from '../../stats/hooks/use-trader-stats';
-
-// Carousel gets loaded lazily because it relies on react-slick
-const AsyncNetworkOverviewStatsCarousel = React.lazy(() =>
-  import('./network-overview-stats-carousel'),
-);
 
 const NetworkOverviewStats = ({ period }) => {
   const [networkStats] = useNetworkStats({ period });
@@ -63,7 +59,7 @@ const NetworkOverviewStats = ({ period }) => {
   }
 
   return (
-    <AsyncNetworkOverviewStatsCarousel
+    <NetworkOverviewStatsCarousel
       protocolFees={protocolFees}
       tradeCount={tradeCount}
       traderCount={traderCount}

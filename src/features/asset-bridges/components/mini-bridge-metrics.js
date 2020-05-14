@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { METRIC_GRANULARITY, TIME_PERIOD } from '../../../constants';
-import createAsyncComponent from '../../../util/create-async-component';
+import MiniBridgeMetricsChart from './mini-bridge-metrics-chart';
 import useAssetBridgeMetrics from '../hooks/use-asset-bridge-metrics';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 
@@ -13,10 +13,6 @@ const GRANULARITY_LOOKUP = {
   [TIME_PERIOD.YEAR]: METRIC_GRANULARITY.MONTH,
   [TIME_PERIOD.ALL]: METRIC_GRANULARITY.MONTH,
 };
-
-const AsyncMiniBridgeMetricsChart = createAsyncComponent(() =>
-  import('./mini-bridge-metrics-chart'),
-);
 
 const MiniBridgeMetrics = ({ bridgeAddress, height, period, type, width }) => {
   const [metrics, loading] = useAssetBridgeMetrics(bridgeAddress, {
@@ -36,7 +32,7 @@ const MiniBridgeMetrics = ({ bridgeAddress, height, period, type, width }) => {
   }
 
   return (
-    <AsyncMiniBridgeMetricsChart
+    <MiniBridgeMetricsChart
       data={data}
       fallback={null}
       height={height}

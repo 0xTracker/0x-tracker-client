@@ -2,16 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
+import AssetBridgingMetricsChart from './asset-bridging-metrics-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
-import createAsyncComponent from '../../../util/create-async-component';
 import LoadingIndicator from '../../../components/loading-indicator';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useAssetBridgingMetrics from '../hooks/use-asset-bridging-metrics';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
-
-const AsyncAssetBridgingMetricsChart = createAsyncComponent(() =>
-  import('./asset-bridging-metrics-chart'),
-);
 
 const determineGranularity = (period) => {
   if (period === TIME_PERIOD.ALL) {
@@ -76,7 +72,7 @@ const AssetBridgingMetrics = ({ period, type }) => {
       brushActive={brushActive}
       onBrushReset={handleResetClick}
     >
-      <AsyncAssetBridgingMetricsChart
+      <AssetBridgingMetricsChart
         currency={displayCurrency}
         data={data}
         granularity={granularity}

@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../constants';
-import AsyncSelect from './async-select';
+import Select from './select';
 
 const OPTIONS = [
   { label: 'Past 24 hours', value: TIME_PERIOD.DAY },
@@ -13,7 +13,7 @@ const OPTIONS = [
   { label: 'All time', value: TIME_PERIOD.ALL },
 ];
 
-const StyledSelect = styled(AsyncSelect)`
+const StyledSelect = styled(Select)`
   && .Select__control {
     display: none;
   }

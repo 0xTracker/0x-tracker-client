@@ -3,7 +3,7 @@ import { Col, FormGroup, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { createAsyncComponent } from '../../../util';
+import DatePickerField from '../../../components/date-picker-field';
 import Dialog from '../../../components/dialog';
 import FillStatusSelector from './fill-status-selector';
 import FormLabel from '../../../components/form-label';
@@ -13,10 +13,6 @@ import ProtocolVersionSelector from '../../../components/protocol-version-select
 import RelayerSelector from '../../relayers/components/relayer-selector';
 import TokenLookupField from '../../tokens/components/token-lookup-field';
 import SecondaryFormButton from '../../../components/secondary-form-button';
-
-const AsyncDatePickerField = createAsyncComponent(() =>
-  import('../../../components/date-picker-field'),
-);
 
 const FillsFilterDialog = ({
   currentValues,
@@ -31,6 +27,10 @@ const FillsFilterDialog = ({
   };
 
   const handleSubmit = () => {
+    if (window.fathom) {
+      window.fathom.trackGoal('EBH59B4C', 0);
+    }
+
     onSubmit(values);
   };
 
@@ -48,6 +48,7 @@ const FillsFilterDialog = ({
                 Relayer
               </FormLabel>
               <RelayerSelector
+                maxMenuHeight={200}
                 name="relayer"
                 onChange={handleChange}
                 value={values.relayer}
@@ -58,6 +59,7 @@ const FillsFilterDialog = ({
                 Token
               </FormLabel>
               <TokenLookupField
+                maxMenuHeight={200}
                 name="token"
                 onChange={handleChange}
                 value={values.token}
@@ -67,7 +69,7 @@ const FillsFilterDialog = ({
           <Row>
             <Col sm={6} xs={12}>
               <FormLabel htmlFor="dateFrom">Date From (UTC)</FormLabel>
-              <AsyncDatePickerField
+              <DatePickerField
                 dayPickerProps={{
                   disabledDays: (day) => day > Date.now(),
                 }}
@@ -78,7 +80,7 @@ const FillsFilterDialog = ({
             </Col>
             <Col sm={6} xs={12}>
               <FormLabel htmlFor="dateTo">Date To (UTC)</FormLabel>
-              <AsyncDatePickerField
+              <DatePickerField
                 dayPickerProps={{
                   disabledDays: (day) => day > Date.now(),
                 }}

@@ -15,16 +15,21 @@ const SettingsDialog = ({ onClose, onSubmit }) => {
   const [selectedCurrency, setSelectedCurrency] = useState(displayCurrency);
 
   const handleSubmit = () => {
+    if (window.fathom) {
+      window.fathom.trackGoal('RETQQUMN', 0);
+    }
+
     preferences.update({ displayCurrency: selectedCurrency });
     onSubmit();
   };
 
   return (
-    <Dialog height={300} onClose={onClose} title="Settings" width={450}>
+    <Dialog height={400} onClose={onClose} title="Settings" width={450}>
       <form noValidate onSubmit={handleSubmit}>
         <FormGroup>
           <label htmlFor="displayCurrency">Display Currency</label>
           <CurrencySelector
+            maxMenuHeight={200}
             name="displayCurrency"
             onChange={setSelectedCurrency}
             value={selectedCurrency}

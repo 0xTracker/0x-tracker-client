@@ -14,9 +14,7 @@ const StyledDialog = styled.section`
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - 50px);
-  overflow: hidden;
   height: ${(props) => props.height}px;
-  position: relative;
   max-width: ${(props) => props.width}px;
   width: ${(props) => props.width}px;
 `;
@@ -37,7 +35,8 @@ const Overlay = styled.div`
 const DialogBody = styled.div`
   flex-grow: 1;
   overflow-y: auto;
-  padding: 2rem 1.5rem;
+  margin: 2rem 0;
+  padding: 0 1.5rem;
 `;
 
 const Dialog = ({ children, className, onClose, width, height, title }) => {

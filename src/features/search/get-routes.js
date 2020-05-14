@@ -1,7 +1,11 @@
 import { URL } from '../../constants';
 
 const getRoutes = () => [
-  { loader: () => import('./components/search-page'), path: URL.SEARCH },
+  {
+    loader: () =>
+      import(/* webpackChunkName: "page-search" */ './components/search-page'),
+    path: URL.SEARCH,
+  },
 ];
 
 export default getRoutes;

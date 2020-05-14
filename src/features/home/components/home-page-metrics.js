@@ -6,16 +6,12 @@ import { TIME_PERIOD } from '../../../constants';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
+import HomePageMetricsCarousel from './home-page-metrics-carousel';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
 import useNetworkStats from '../../stats/hooks/use-network-stats';
 import useTraderStats from '../../stats/hooks/use-trader-stats';
 import ZRXPriceWidget from './zrx-price-widget';
-
-// Carousel gets loaded lazily because it relies on react-slick
-const AsyncHomePageMetricsCarousel = React.lazy(() =>
-  import('./home-page-metrics-carousel'),
-);
 
 const statsParams = { period: TIME_PERIOD.DAY };
 
@@ -56,7 +52,7 @@ const HomePageMetrics = () => {
       </CardGridCol>
     </CardGridRow>
   ) : (
-    <AsyncHomePageMetricsCarousel
+    <HomePageMetricsCarousel
       period={statsParams.period}
       tradeCount={tradeCount}
       traderCount={traderCount}

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
-import AsyncProtocolMetricsChart from './async-protocol-metrics-chart';
+import ProtocolMetricsChart from './protocol-metrics-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
@@ -74,7 +74,7 @@ const ProtocolMetrics = ({ period }) => {
       brushActive={brushActive}
       onBrushReset={handleBrushReset}
     >
-      <AsyncProtocolMetricsChart
+      <ProtocolMetricsChart
         currency={displayCurrency}
         data={data}
         granularity={granularity}
