@@ -14,7 +14,7 @@ OfflinePluginRuntime.install({
   },
   onUpdated: () => {
     console.log('[SW]: Update applied');
-    window.location.reload();
+    // window.location.reload();
   },
 });
 
