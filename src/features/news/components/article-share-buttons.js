@@ -19,28 +19,41 @@ const ArticleShareButtons = ({ className, size, title }) => {
   const location = useLocation();
   const url = location.href;
 
+  const trackShare = () => {
+    if (window.fathom) {
+      window.fathom.trackGoal('QLHNARXD', 0);
+    }
+  };
+
   return (
     <div className={className}>
       <TwitterShareButton
         css="margin-right: 4px;"
+        onClick={trackShare}
         title={title}
         url={url}
         via="0xTracker"
       >
         <TwitterShareIcon css="color: #1EA1F2;" height={size} width={size} />
       </TwitterShareButton>
-      <RedditShareButton css="margin-right: 4px;" title={title} url={url}>
+      <RedditShareButton
+        css="margin-right: 4px;"
+        onClick={trackShare}
+        title={title}
+        url={url}
+      >
         <RedditShareIcon css="color: #FD4300;" height={size} width={size} />
       </RedditShareButton>
       <LinkedinShareButton
         css="margin-right: 4px;"
+        onClick={trackShare}
         source="0x Tracker"
         title={title}
         url={url}
       >
         <LinkedinShareIcon css="color: #0A6699;" height={size} width={size} />
       </LinkedinShareButton>
-      <FacebookShareButton quote={title} url={url}>
+      <FacebookShareButton onClick={trackShare} quote={title} url={url}>
         <FacebookShareIcon css="color: #3C5A99;" height={size} width={size} />
       </FacebookShareButton>
     </div>

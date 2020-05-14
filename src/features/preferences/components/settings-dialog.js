@@ -15,6 +15,10 @@ const SettingsDialog = ({ onClose, onSubmit }) => {
   const [selectedCurrency, setSelectedCurrency] = useState(displayCurrency);
 
   const handleSubmit = () => {
+    if (window.fathom) {
+      window.fathom.trackGoal('RETQQUMN', 0);
+    }
+
     preferences.update({ displayCurrency: selectedCurrency });
     onSubmit();
   };

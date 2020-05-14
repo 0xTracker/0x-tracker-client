@@ -25,6 +25,10 @@ const TokensFilterDialog = ({
   };
 
   const handleSubmit = () => {
+    if (window.fathom) {
+      window.fathom.trackGoal('YQQLGWQC', 0);
+    }
+
     onSubmit(values);
   };
 

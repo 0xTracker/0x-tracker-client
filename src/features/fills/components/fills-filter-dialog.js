@@ -27,6 +27,10 @@ const FillsFilterDialog = ({
   };
 
   const handleSubmit = () => {
+    if (window.fathom) {
+      window.fathom.trackGoal('EBH59B4C', 0);
+    }
+
     onSubmit(values);
   };
 
