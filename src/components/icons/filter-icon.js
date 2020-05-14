@@ -1,39 +1,12 @@
-import {
-  FilterList,
-  Filter1,
-  Filter2,
-  Filter3,
-  Filter4,
-} from 'styled-icons/material';
-import PropTypes from 'prop-types';
 import React from 'react';
 
-const iconComponents = {
-  0: FilterList,
-  1: Filter1,
-  2: Filter2,
-  3: Filter3,
-  4: Filter4,
-};
+import IconBase from './icon-base';
 
-const FilterIcon = ({ appliedFilterCount, ...otherProps }) => {
-  const IconComponent = iconComponents[appliedFilterCount];
-
-  if (IconComponent === undefined) {
-    throw new Error(
-      `appliedFilterCount of ${appliedFilterCount} is not supported`,
-    );
-  }
-
-  return <IconComponent {...otherProps} />;
-};
-
-FilterIcon.propTypes = {
-  appliedFilterCount: PropTypes.number,
-};
-
-FilterIcon.defaultProps = {
-  appliedFilterCount: 0,
-};
+const FilterIcon = (props) => (
+  <IconBase viewBox="0 0 24 24" {...props}>
+    <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z" />
+    <path d="M0 0h24v24H0z" fill="none" />
+  </IconBase>
+);
 
 export default FilterIcon;

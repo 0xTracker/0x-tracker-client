@@ -34,7 +34,7 @@ exports[`should render without props 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="sc-AxjAm dVOzqR"
+              class="icon-base__IconBase-ngmsqy-0 hvjdWy"
               fill="currentColor"
               focusable="false"
               height="18"
@@ -56,7 +56,7 @@ exports[`should render without props 1`] = `
           >
             <svg
               aria-hidden="true"
-              class="sc-AxjAm dVOzqR"
+              class="icon-base__IconBase-ngmsqy-0 hvjdWy"
               fill="currentColor"
               focusable="false"
               height="18"

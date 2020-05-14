@@ -176,6 +176,7 @@ class TokenLookupField extends React.PureComponent {
     const { value } = this.props;
 
     if (_.isString(value)) {
+      // eslint-disable-next-line compat/compat
       Promise.all([
         callApi(`tokens/${value}`),
         callApi('tokens', { limit: 20 }),
