@@ -11,19 +11,19 @@ import CircleIcon from './circle-icon';
 import CloseIcon from './close-icon';
 import DiscordIcon from './discord-icon';
 import ExternalLinkIcon from './external-link-icon';
-import FacebookIcon from './facebook-icon';
+import FacebookShareIcon from './facebook-share-icon';
 import FilterIcon from './filter-icon';
 import GitHubIcon from './git-hub-icon';
 import HelpIcon from './help-icon';
 import LeftArrowIcon from './left-arrow-icon';
-import LinkedinIcon from './linkedin-icon';
+import LinkedinShareIcon from './linkedin-share-icon';
 import MarkerIcon from './marker-icon';
 import MediumIcon from './medium-icon';
 import MenuIcon from './menu-icon';
 import MoreIcon from './more-icon';
 import NotificationsIcon from './notifications-icon';
 import PrivateIcon from './private-icon';
-import RedditIcon from './reddit-icon';
+import RedditShareIcon from './reddit-share-icon';
 import ResetIcon from './reset-icon';
 import RightArrowIcon from './right-arrow-icon';
 import SearchIcon from './search-icon';
@@ -35,6 +35,7 @@ import TrendingDownIcon from './trending-down-icon';
 import TrendingFlatIcon from './trending-flat-icon';
 import TrendingUpIcon from './trending-up-icon';
 import TwitterIcon from './twitter-icon';
+import TwitterShareIcon from './twitter-share-icon';
 import UnknownIcon from './unknown-icon';
 
 export {
@@ -51,19 +52,19 @@ export {
   CloseIcon,
   DiscordIcon,
   ExternalLinkIcon,
-  FacebookIcon,
+  FacebookShareIcon,
   FilterIcon,
   GitHubIcon,
   HelpIcon,
   LeftArrowIcon,
-  LinkedinIcon,
+  LinkedinShareIcon,
   MarkerIcon,
   MediumIcon,
   MenuIcon,
   MoreIcon,
   NotificationsIcon,
   PrivateIcon,
-  RedditIcon,
+  RedditShareIcon,
   ResetIcon,
   RightArrowIcon,
   SearchIcon,
@@ -75,5 +76,6 @@ export {
   TrendingFlatIcon,
   TrendingUpIcon,
   TwitterIcon,
+  TwitterShareIcon,
   UnknownIcon,
 };

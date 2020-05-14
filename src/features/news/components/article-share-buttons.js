@@ -9,10 +9,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import {
-  FacebookIcon,
-  LinkedinIcon,
-  RedditIcon,
-  TwitterIcon,
+  FacebookShareIcon,
+  LinkedinShareIcon,
+  RedditShareIcon,
+  TwitterShareIcon,
 } from '../../../components/icons';
 
 const ArticleShareButtons = ({ className, size, title }) => {
@@ -27,10 +27,10 @@ const ArticleShareButtons = ({ className, size, title }) => {
         url={url}
         via="0xTracker"
       >
-        <TwitterIcon css="color: #1EA1F2;" height={size} width={size} />
+        <TwitterShareIcon css="color: #1EA1F2;" height={size} width={size} />
       </TwitterShareButton>
       <RedditShareButton css="margin-right: 4px;" title={title} url={url}>
-        <RedditIcon css="color: #FD4300;" height={size} width={size} />
+        <RedditShareIcon css="color: #FD4300;" height={size} width={size} />
       </RedditShareButton>
       <LinkedinShareButton
         css="margin-right: 4px;"
@@ -38,10 +38,10 @@ const ArticleShareButtons = ({ className, size, title }) => {
         title={title}
         url={url}
       >
-        <LinkedinIcon css="color: #0A6699;" height={size} width={size} />
+        <LinkedinShareIcon css="color: #0A6699;" height={size} width={size} />
       </LinkedinShareButton>
       <FacebookShareButton quote={title} url={url}>
-        <FacebookIcon css="color: #3C5A99;" height={size} width={size} />
+        <FacebookShareIcon css="color: #3C5A99;" height={size} width={size} />
       </FacebookShareButton>
     </div>
   );
