@@ -50,7 +50,6 @@
     "reactstrap": "8.4.1",
     "recharts": "1.8.5",
     "styled-components": "5.1.0",
-    "styled-icons": "10.2.1",
     "styled-media-query": "2.1.2",
     "tippy.js": "6.1.0"
   },

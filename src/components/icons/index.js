@@ -1,5 +1,6 @@
 import AllIcon from './all-icon';
 import ArrowRightIcon from './arrow-right-icon';
+import AssetBridgeIcon from './asset-bridge-icon';
 import AsteriskIcon from './asterisk-icon';
 import CaretRightIcon from './caret-right-icon';
 import ChevronDownIcon from './chevron-down-icon';
@@ -21,6 +22,7 @@ import MediumIcon from './medium-icon';
 import MenuIcon from './menu-icon';
 import MoreIcon from './more-icon';
 import NotificationsIcon from './notifications-icon';
+import PrivateIcon from './private-icon';
 import RedditIcon from './reddit-icon';
 import ResetIcon from './reset-icon';
 import RightArrowIcon from './right-arrow-icon';
@@ -38,6 +40,7 @@ import UnknownIcon from './unknown-icon';
 export {
   AllIcon,
   ArrowRightIcon,
+  AssetBridgeIcon,
   AsteriskIcon,
   CaretRightIcon,
   ChevronDownIcon,
@@ -59,6 +62,7 @@ export {
   MenuIcon,
   MoreIcon,
   NotificationsIcon,
+  PrivateIcon,
   RedditIcon,
   ResetIcon,
   RightArrowIcon,
