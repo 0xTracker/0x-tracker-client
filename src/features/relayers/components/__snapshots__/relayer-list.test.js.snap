@@ -23,7 +23,7 @@ exports[`renders with basic props 1`] = `
          
         <svg
           aria-hidden="true"
-          class="sc-AxjAm gXIMwt relayer-list___StyledHelpWidget-sc-1herowu-0 drRKSR"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy relayer-list___StyledHelpWidget-sc-1herowu-0 drRKSR"
           fill="currentColor"
           focusable="false"
           height="18"
@@ -45,7 +45,7 @@ exports[`renders with basic props 1`] = `
         Trades
         <svg
           aria-hidden="true"
-          class="sc-AxjAm gXIMwt relayer-list___StyledHelpWidget2-sc-1herowu-1 gXsigW"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy relayer-list___StyledHelpWidget2-sc-1herowu-1 gXsigW"
           fill="currentColor"
           focusable="false"
           height="18"
@@ -67,7 +67,7 @@ exports[`renders with basic props 1`] = `
         Volume
         <svg
           aria-hidden="true"
-          class="sc-AxjAm gXIMwt relayer-list___StyledHelpWidget3-sc-1herowu-2 fuRCfg"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy relayer-list___StyledHelpWidget3-sc-1herowu-2 fuRCfg"
           fill="currentColor"
           focusable="false"
           height="18"
@@ -89,7 +89,7 @@ exports[`renders with basic props 1`] = `
         Volume Trend
         <svg
           aria-hidden="true"
-          class="sc-AxjAm gXIMwt relayer-list___StyledHelpWidget4-sc-1herowu-3 jNjMLi"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy relayer-list___StyledHelpWidget4-sc-1herowu-3 jNjMLi"
           fill="currentColor"
           focusable="false"
           height="18"
@@ -126,7 +126,7 @@ exports[`renders with basic props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="sc-AxjAm dVOzqR"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
             color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
@@ -212,7 +212,7 @@ exports[`renders with basic props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="sc-AxjAm dVOzqR"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
             color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
@@ -298,7 +298,7 @@ exports[`renders with basic props 1`] = `
         >
           <svg
             aria-hidden="true"
-            class="sc-AxjAm dVOzqR"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
             color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"

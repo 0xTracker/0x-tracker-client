@@ -4,15 +4,16 @@ import {
   RedditShareButton,
   TwitterShareButton,
 } from 'react-share';
-import {
-  FacebookSquare as FacebookIcon,
-  Linkedin as LinkedinIcon,
-  RedditSquare as RedditIcon,
-  TwitterSquare as TwitterIcon,
-} from 'styled-icons/fa-brands';
 import { useLocation } from 'react-use';
 import PropTypes from 'prop-types';
 import React from 'react';
+
+import {
+  FacebookIcon,
+  LinkedinIcon,
+  RedditIcon,
+  TwitterIcon,
+} from '../../../components/icons';
 
 const ArticleShareButtons = ({ className, size, title }) => {
   const location = useLocation();

@@ -6,7 +6,7 @@ exports[`list item component should render with children 1`] = `
 >
   <svg
     aria-hidden="true"
-    class="sc-AxjAm dVOzqR list-item___StyledCaretRightIcon-sc-1m8jbnt-1 tQwJb"
+    class="icon-base__IconBase-ngmsqy-0 hvjdWy list-item___StyledCaretRightIcon-sc-1m8jbnt-1 tQwJb"
     color="hsl(230, 30%, 84%)"
     fill="currentColor"
     focusable="false"
