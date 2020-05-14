@@ -48,6 +48,7 @@ const FillsFilterDialog = ({
                 Relayer
               </FormLabel>
               <RelayerSelector
+                maxMenuHeight={200}
                 name="relayer"
                 onChange={handleChange}
                 value={values.relayer}
@@ -58,6 +59,7 @@ const FillsFilterDialog = ({
                 Token
               </FormLabel>
               <TokenLookupField
+                maxMenuHeight={200}
                 name="token"
                 onChange={handleChange}
                 value={values.token}

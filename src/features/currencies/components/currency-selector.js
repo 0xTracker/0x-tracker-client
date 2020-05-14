@@ -10,9 +10,8 @@ const OPTIONS = CURRENCIES.map((currency) => ({
   value: currency.symbol,
 }));
 
-const CurrencySelector = ({ className, name, onChange, value }) => (
+const CurrencySelector = ({ name, onChange, value, ...otherProps }) => (
   <Select
-    className={className}
     controlShouldRenderValue
     inputId={name}
     isClearable={false}
@@ -21,18 +20,14 @@ const CurrencySelector = ({ className, name, onChange, value }) => (
     onChange={(option) => onChange(option.value)}
     options={OPTIONS}
     value={OPTIONS.find((option) => option.value === value)}
+    {...otherProps}
   />
 );
 
 CurrencySelector.propTypes = {
-  className: PropTypes.string,
   name: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: currenciesPropTypes.currency.isRequired,
-};
-
-CurrencySelector.defaultProps = {
-  className: undefined,
 };
 
 export default CurrencySelector;
