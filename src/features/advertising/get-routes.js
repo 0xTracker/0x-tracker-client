@@ -2,7 +2,10 @@ import { URL } from '../../constants';
 
 const getRoutes = () => [
   {
-    loader: () => import('./components/ad-manager-page'),
+    loader: () =>
+      import(
+        /* webpackChunkName: "page-ad-manager" */ './components/ad-manager-page'
+      ),
     path: URL.AD_MANAGER,
   },
 ];
