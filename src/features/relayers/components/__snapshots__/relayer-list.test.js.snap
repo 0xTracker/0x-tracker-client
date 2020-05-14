@@ -23,7 +23,7 @@ exports[`renders with basic props 1`] = `
          
         <svg
           aria-hidden="true"
-          class="sc-bdVaJa iJCmgd relayer-list___StyledHelpWidget-sc-1herowu-0 gqVhem"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy relayer-list___StyledHelpWidget-sc-1herowu-0 drRKSR"
           fill="currentColor"
           focusable="false"
           height="18"
@@ -45,7 +45,7 @@ exports[`renders with basic props 1`] = `
         Trades
         <svg
           aria-hidden="true"
-          class="sc-bdVaJa iJCmgd relayer-list___StyledHelpWidget2-sc-1herowu-1 hkcqhi"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy relayer-list___StyledHelpWidget2-sc-1herowu-1 gXsigW"
           fill="currentColor"
           focusable="false"
           height="18"
@@ -67,7 +67,7 @@ exports[`renders with basic props 1`] = `
         Volume
         <svg
           aria-hidden="true"
-          class="sc-bdVaJa iJCmgd relayer-list___StyledHelpWidget3-sc-1herowu-2 XJHby"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy relayer-list___StyledHelpWidget3-sc-1herowu-2 fuRCfg"
           fill="currentColor"
           focusable="false"
           height="18"
@@ -89,7 +89,7 @@ exports[`renders with basic props 1`] = `
         Volume Trend
         <svg
           aria-hidden="true"
-          class="sc-bdVaJa iJCmgd relayer-list___StyledHelpWidget4-sc-1herowu-3 fMvVGn"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy relayer-list___StyledHelpWidget4-sc-1herowu-3 jNjMLi"
           fill="currentColor"
           focusable="false"
           height="18"
@@ -113,7 +113,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle text-center"
       >
         <img
-          class="rank___StyledImg-flivtb-0 dXYllF"
+          class="rank___StyledImg-flivtb-0 Wbmny"
           src="test-file-stub"
         />
       </td>
@@ -121,12 +121,12 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
+          class="link__StyledLink-sc-1m1n17q-0 diqghp"
           href="/relayers/ddex"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
             color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
@@ -147,17 +147,17 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
+          class="relayer-list___StyledSpan-sc-1herowu-4 ausiK"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
+            class="link__StyledLink-sc-1m1n17q-0 diqghp"
             href="/relayers/ddex"
           >
             DDEX
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY relayer-list___StyledLink-sc-1herowu-7 cJqEkd"
+          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB relayer-list___StyledLink-sc-1herowu-7 dDglcc"
           href="https://ddex.io"
           rel="noreferrer noopener nofollow"
           target="_blank"
@@ -199,7 +199,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle text-center"
       >
         <img
-          class="rank___StyledImg2-flivtb-1 fOfsQZ"
+          class="rank___StyledImg2-flivtb-1 fltInR"
           src="test-file-stub"
         />
       </td>
@@ -207,12 +207,12 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
+          class="link__StyledLink-sc-1m1n17q-0 diqghp"
           href="/relayers/paradex"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
             color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
@@ -233,17 +233,17 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
+          class="relayer-list___StyledSpan-sc-1herowu-4 ausiK"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
+            class="link__StyledLink-sc-1m1n17q-0 diqghp"
             href="/relayers/paradex"
           >
             Paradex
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY relayer-list___StyledLink-sc-1herowu-7 cJqEkd"
+          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB relayer-list___StyledLink-sc-1herowu-7 dDglcc"
           href="https://paradex.io"
           rel="noreferrer noopener nofollow"
           target="_blank"
@@ -285,7 +285,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle text-center"
       >
         <img
-          class="rank___StyledImg3-flivtb-2 coWjxP"
+          class="rank___StyledImg3-flivtb-2 ehkGgv"
           src="test-file-stub"
         />
       </td>
@@ -293,12 +293,12 @@ exports[`renders with basic props 1`] = `
         class="align-middle"
       >
         <a
-          class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
+          class="link__StyledLink-sc-1m1n17q-0 diqghp"
           href="/relayers/radar-relay"
         >
           <svg
             aria-hidden="true"
-            class="sc-bdVaJa cjEDWs"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
             color="hsl(230, 30%, 84%)"
             fill="currentColor"
             focusable="false"
@@ -319,17 +319,17 @@ exports[`renders with basic props 1`] = `
         width="99%"
       >
         <span
-          class="relayer-list___StyledSpan-sc-1herowu-4 kpymaa"
+          class="relayer-list___StyledSpan-sc-1herowu-4 ausiK"
         >
           <a
-            class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
+            class="link__StyledLink-sc-1m1n17q-0 diqghp"
             href="/relayers/radar-relay"
           >
             Radar Relay
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY relayer-list___StyledLink-sc-1herowu-7 cJqEkd"
+          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB relayer-list___StyledLink-sc-1herowu-7 dDglcc"
           href="https://radarrelay.com"
           rel="noreferrer noopener nofollow"
           target="_blank"

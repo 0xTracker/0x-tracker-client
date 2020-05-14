@@ -1,28 +1,26 @@
 import PropTypes from 'prop-types';
 
-import { BASE_CURRENCY } from '../currencies/constants';
-
 const relayerShape = {
   id: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   name: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
-  stats: PropTypes.object,
   url: PropTypes.string,
 };
 
 const statsShape = {
-  share: PropTypes.number.isRequired,
-  trades: PropTypes.number.isRequired,
-  volume: PropTypes.shape({
-    [BASE_CURRENCY]: PropTypes.number.isRequired,
-  }).isRequired,
+  fillCount: PropTypes.number.isRequired,
+  fillVolume: PropTypes.number.isRequired,
+  tradeCount: PropTypes.number.isRequired,
+  tradeVolume: PropTypes.number.isRequired,
+  traderCount: PropTypes.number.isRequired,
 };
 
 const propTypes = {
   relayer: PropTypes.shape(relayerShape),
   relayerWithStats: PropTypes.shape({
     ...relayerShape,
-    stats: PropTypes.shape(statsShape),
+    stats: PropTypes.shape(statsShape).isRequired,
   }),
 };
 

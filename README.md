@@ -50,7 +50,6 @@ The project has a fairly extensive set of dependencies, each with a particular p
 - **[Bootstrap](http://getbootstrap.com/)/[Reactstrap](https://reactstrap.github.io/)** - UI component library which serves as the basis for most page elements in the project.
 - **[Styled Components](https://styled-components.com)** - CSS-in-JS solution used for styling custom components.
 - **[Recharts](http://recharts.org/)** - React charting library used for rendering all charts on the site.
-- **[Styled Icons](https://styled-icons.js.org/)** - Extensive React icon library which plays nicely with styled-components.
 
 ### Build Process
 

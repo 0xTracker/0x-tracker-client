@@ -1,9 +1,9 @@
 import _ from 'lodash';
-import { CopperCoin } from 'styled-icons/remix-fill';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { COLORS } from '../../../styles/constants';
+import { TokenIcon } from '../../../components/icons';
 
 const TokenImage = ({ className, imageUrl, size }) =>
   _.isString(imageUrl) ? (
@@ -17,7 +17,13 @@ const TokenImage = ({ className, imageUrl, size }) =>
       src={imageUrl}
     />
   ) : (
-    <CopperCoin color={COLORS.ACCENT.ANZAC_600} height={size} width={size} />
+    <TokenIcon
+      className={className}
+      css={`
+        color: ${COLORS.ACCENT.ANZAC_600};
+      `}
+      size={size}
+    />
   );
 
 TokenImage.propTypes = {

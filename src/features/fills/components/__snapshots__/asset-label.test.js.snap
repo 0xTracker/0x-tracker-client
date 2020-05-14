@@ -2,7 +2,7 @@
 
 exports[`asset label component should render for ERC-20 asset 1`] = `
 <a
-  class="link__StyledLink-sc-1m1n17q-0 dmYDHp"
+  class="link__StyledLink-sc-1m1n17q-0 diqghp"
   href="/tokens/0x12345"
 >
   Wrapped Ether
@@ -16,7 +16,7 @@ exports[`asset label component should render for ERC-20 asset 1`] = `
 
 exports[`asset label component should render for ERC-721 asset 1`] = `
 <a
-  class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY"
+  class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB"
   href="https://opensea.io/assets/0x12345/999"
   rel="noreferrer noopener"
   target="_blank"
@@ -34,7 +34,7 @@ exports[`asset label component should render for ERC-721 asset 1`] = `
 
 exports[`asset label component should render for unknown token 1`] = `
 <a
-  class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 gtiMMY"
+  class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB"
   href="https://opensea.io/assets/0x12345/999"
   rel="noreferrer noopener"
   target="_blank"

@@ -11,7 +11,24 @@ const useTokens = (options = {}) => {
   const { limit, page, pageCount, tokens, total } = response || {};
 
   return [
-    { items: tokens, page, pageCount, pageSize: limit, recordCount: total },
+    {
+      items: Array.isArray(tokens)
+        ? tokens.map((token) => ({
+            ...token,
+            lastTrade:
+              token.lastTrade !== null
+                ? {
+                    ...token.lastTrade,
+                    date: new Date(token.lastTrade.date),
+                  }
+                : null,
+          }))
+        : undefined,
+      page,
+      pageCount,
+      pageSize: limit,
+      recordCount: total,
+    },
     loading,
   ];
 };

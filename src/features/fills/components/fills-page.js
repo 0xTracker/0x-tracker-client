@@ -38,6 +38,7 @@ const FillsPage = () => {
             protocolVersion: undefined,
             relayer: undefined,
             status: undefined,
+            token: undefined,
             valueFrom: undefined,
             valueTo: undefined,
           }}
@@ -53,6 +54,7 @@ const FillsPage = () => {
                 : _.toNumber(protocolVersion),
             relayer,
             status,
+            token,
             valueFrom,
             valueTo,
           }}

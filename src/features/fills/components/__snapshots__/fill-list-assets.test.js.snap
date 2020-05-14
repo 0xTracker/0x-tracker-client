@@ -5,7 +5,7 @@ exports[`fill list assets component should link ERC-20 asset 1`] = `
   150
    
   <a
-    class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-list-assets___StyledTokenLink-sc-1v0cnrp-0 enlaoM"
+    class="link__StyledLink-sc-1m1n17q-0 diqghp fill-list-assets___StyledTokenLink-sc-1v0cnrp-0 cVrEKF"
     href="/tokens/0x12345"
   >
     WETH
@@ -18,7 +18,7 @@ exports[`fill list assets component should link ERC-721 asset 1`] = `
   1
    
   <a
-    class="link__StyledLink-sc-1m1n17q-0 dmYDHp fill-list-assets___StyledTokenLink-sc-1v0cnrp-0 enlaoM"
+    class="link__StyledLink-sc-1m1n17q-0 diqghp fill-list-assets___StyledTokenLink-sc-1v0cnrp-0 cVrEKF"
     href="/tokens/0x12345"
   >
     CK

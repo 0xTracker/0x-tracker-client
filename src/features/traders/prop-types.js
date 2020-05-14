@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { TRADER_TYPE } from './constants';
 
 const traderShape = {
-  trader: PropTypes.string.isRequired,
+  address: PropTypes.string.isRequired,
+  name: PropTypes.string,
 };
 
 const statsShape = {
@@ -25,7 +26,7 @@ const propTypes = {
   traderType: PropTypes.oneOf(Object.values(TRADER_TYPE)),
   traderWithStats: PropTypes.shape({
     ...traderShape,
-    stats: PropTypes.shape(statsShape),
+    stats: PropTypes.shape(statsShape).isRequired,
   }),
 };
 
