@@ -1,9 +1,9 @@
 import { useWallet } from 'use-wallet';
-import { LogOut as SignOutIcon } from 'styled-icons/boxicons-regular';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { COLORS } from '../../../styles/constants';
+import { SignOutIcon } from '../../../components/icons';
 import Blockie from '../../../components/blockie';
 import PageLayout from '../../../components/page-layout';
 import SubTitle from '../../../components/sub-title';

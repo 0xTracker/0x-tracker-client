@@ -1,3 +1,4 @@
+import ActiveIcon from './active-icon';
 import AllIcon from './all-icon';
 import ArrowRightIcon from './arrow-right-icon';
 import AssetBridgeIcon from './asset-bridge-icon';
@@ -26,8 +27,10 @@ import PrivateIcon from './private-icon';
 import RedditShareIcon from './reddit-share-icon';
 import ResetIcon from './reset-icon';
 import RightArrowIcon from './right-arrow-icon';
+import ScheduledIcon from './scheduled-icon';
 import SearchIcon from './search-icon';
 import SettingsIcon from './settings-icon';
+import SignOutIcon from './sign-out-icon';
 import SquareIcon from './square-icon';
 import TimePeriodIcon from './time-period-icon';
 import TokenIcon from './token-icon';
@@ -39,6 +42,7 @@ import TwitterShareIcon from './twitter-share-icon';
 import UnknownIcon from './unknown-icon';
 
 export {
+  ActiveIcon,
   AllIcon,
   ArrowRightIcon,
   AssetBridgeIcon,
@@ -67,8 +71,10 @@ export {
   RedditShareIcon,
   ResetIcon,
   RightArrowIcon,
+  ScheduledIcon,
   SearchIcon,
   SettingsIcon,
+  SignOutIcon,
   SquareIcon,
   TimePeriodIcon,
   TokenIcon,

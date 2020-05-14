@@ -1,11 +1,10 @@
-import { LightningBolt as ActiveIcon } from 'styled-icons/heroicons-solid';
-import { CalendarCheck as ScheduledIcon } from 'styled-icons/boxicons-solid';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { DATE_FORMAT } from '../../../constants';
 import { formatDate } from '../../../util';
 import { COLORS } from '../../../styles/constants';
+import { ActiveIcon, ScheduledIcon } from '../../../components/icons';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import CardHeader from '../../../components/card-header';
