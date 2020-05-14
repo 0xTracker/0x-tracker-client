@@ -23,6 +23,7 @@ const UseAdvertisingSlots = (wallet) => {
 
     Microsponsors.getTokensOfOwner(ownerAddress, provider)
       .then((tokenIds) =>
+        // eslint-disable-next-line compat/compat
         Promise.all(
           tokenIds.map((tokenId) =>
             Microsponsors.getTokenMetadata(tokenId, provider),
