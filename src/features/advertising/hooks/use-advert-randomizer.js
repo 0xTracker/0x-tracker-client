@@ -1,4 +1,3 @@
-import { useInterval } from 'react-use';
 import { useEffect, useState } from 'react';
 
 import getRandomAdvert from '../util/get-random-advert';
@@ -12,13 +11,6 @@ const useAdvertRandomizer = () => {
       setAdvert(initialAdvert);
     });
   }, []);
-
-  useInterval(() => {
-    // eslint-disable-next-line promise/catch-or-return
-    getRandomAdvert().then((nextAdvert) => {
-      setAdvert(nextAdvert);
-    });
-  }, 30000);
 
   return advert;
 };
