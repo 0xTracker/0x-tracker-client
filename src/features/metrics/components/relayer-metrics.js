@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
-import AsyncRelayerMetricsChart from './async-relayer-metrics-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
+import RelayerMetricsChart from './relayer-metrics-chart';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useRelayerMetrics from '../hooks/use-relayer-metrics';
 
@@ -71,7 +71,7 @@ const RelayerMetrics = ({ period, relayerId, type }) => {
       brushActive={brushActive}
       onBrushReset={handleResetClick}
     >
-      <AsyncRelayerMetricsChart
+      <RelayerMetricsChart
         data={data}
         granularity={granularity}
         key={chartKey}

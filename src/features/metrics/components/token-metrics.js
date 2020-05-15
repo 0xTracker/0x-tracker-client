@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { TIME_PERIOD } from '../../../constants';
-import AsyncTokenMetricsChart from './async-token-metrics-chart';
-import AsyncTokenPricesChart from './async-token-prices-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
+import TokenMetricsChart from './token-metrics-chart';
+import TokenPricesChart from './token-prices-chart';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useTokenMetrics from '../hooks/use-token-metrics';
@@ -81,7 +81,7 @@ const TokenMetrics = ({ period, token, type }) => {
       onBrushReset={handleResetClick}
     >
       {type === 'price.close' ? (
-        <AsyncTokenPricesChart
+        <TokenPricesChart
           data={data}
           granularity={granularity}
           key={chartKey}
@@ -91,7 +91,7 @@ const TokenMetrics = ({ period, token, type }) => {
           tokenSymbol={token.symbol}
         />
       ) : (
-        <AsyncTokenMetricsChart
+        <TokenMetricsChart
           data={data}
           granularity={granularity}
           key={chartKey}

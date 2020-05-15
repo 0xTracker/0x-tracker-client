@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import AsyncSelect from '../../../components/async-select';
+import Select from '../../../components/select';
 
 const OPTIONS = [
   { label: 'All', value: undefined },
@@ -11,7 +11,7 @@ const OPTIONS = [
 ];
 
 const FillStatusSelector = ({ className, name, onChange, value }) => (
-  <AsyncSelect
+  <Select
     className={className}
     controlShouldRenderValue
     isClearable={false}

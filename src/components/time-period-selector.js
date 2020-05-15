@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../constants';
-import AsyncSelect from './async-select';
+import Select from './select';
 
 const OPTIONS = [
   { label: 'Past 24 hours', value: TIME_PERIOD.DAY },
@@ -13,7 +13,7 @@ const OPTIONS = [
 ];
 
 const TimePeriodSelector = ({ name, onChange, value, ...otherProps }) => (
-  <AsyncSelect
+  <Select
     controlShouldRenderValue
     isClearable={false}
     isSearchable={false}

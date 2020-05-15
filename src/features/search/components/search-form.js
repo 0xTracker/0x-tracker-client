@@ -14,6 +14,10 @@ const SearchForm = ({ children, className, onSearch }) => {
     event.preventDefault();
 
     if (!_.isEmpty(_.trim(searchQuery))) {
+      if (window.fathom) {
+        window.fathom.trackGoal('CAKPZWRU', 0);
+      }
+
       history.push(buildSearchUrl(searchQuery));
       updateSearchQuery('');
       onSearch();

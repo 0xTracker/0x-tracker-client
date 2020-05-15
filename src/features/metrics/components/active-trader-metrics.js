@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
-import AsyncActiveTraderMetricsChart from './async-active-trader-metrics-chart';
+import ActiveTraderMetricsChart from './active-trader-metrics-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
 import useActiveTraderMetrics from '../hooks/use-active-trader-metrics';
@@ -69,7 +69,7 @@ const ActiveTraderMetrics = ({ period, type }) => {
       brushActive={brushActive}
       onBrushReset={handleResetClick}
     >
-      <AsyncActiveTraderMetricsChart
+      <ActiveTraderMetricsChart
         data={data}
         granularity={granularity}
         key={chartKey}

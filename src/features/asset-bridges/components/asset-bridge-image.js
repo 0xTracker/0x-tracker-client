@@ -1,10 +1,9 @@
 import _ from 'lodash';
-import { SwapBox } from 'styled-icons/remix-fill';
-import { UserSecret } from 'styled-icons/fa-solid';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import { COLORS } from '../../../styles/constants';
+import { AssetBridgeIcon, PrivateIcon } from '../../../components/icons';
 
 const AssetBridgeImage = ({
   className,
@@ -29,9 +28,11 @@ const AssetBridgeImage = ({
 
   if (isPrivate) {
     return (
-      <UserSecret
+      <PrivateIcon
         className={className}
-        color={COLORS.NEUTRAL.MYSTIC_400}
+        css={`
+          color: ${COLORS.NEUTRAL.MYSTIC_400};
+        `}
         height={height}
         width={width}
       />
@@ -39,9 +40,11 @@ const AssetBridgeImage = ({
   }
 
   return (
-    <SwapBox
+    <AssetBridgeIcon
       className={className}
-      color={COLORS.NEUTRAL.MYSTIC_400}
+      css={`
+        color: ${COLORS.NEUTRAL.MYSTIC_400};
+      `}
       height={height}
       width={width}
     />
@@ -51,7 +54,7 @@ const AssetBridgeImage = ({
 AssetBridgeImage.propTypes = {
   className: PropTypes.string,
   height: PropTypes.number,
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   isPrivate: PropTypes.bool,
   width: PropTypes.number,
 };
@@ -59,6 +62,7 @@ AssetBridgeImage.propTypes = {
 AssetBridgeImage.defaultProps = {
   className: undefined,
   height: 40,
+  imageUrl: undefined,
   isPrivate: false,
   width: 40,
 };

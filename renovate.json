@@ -1,10 +1,4 @@
 {
   "extends": ["github>0xTracker/renovate-config-0x-tracker"],
-  "packageRules": [
-    {
-      "packageNames": ["styled-icons"],
-      "automerge": true
-    }
-  ],
   "rebaseStalePrs": false
 }

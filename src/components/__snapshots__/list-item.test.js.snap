@@ -2,11 +2,11 @@
 
 exports[`list item component should render with children 1`] = `
 <li
-  class="list-item__Container-sc-1m8jbnt-0 kzXFZr"
+  class="list-item__Container-sc-1m8jbnt-0 hTThPt"
 >
   <svg
     aria-hidden="true"
-    class="sc-bdVaJa cjEDWs list-item___StyledCaretRightIcon-sc-1m8jbnt-1 dKkhXD"
+    class="icon-base__IconBase-ngmsqy-0 hvjdWy list-item___StyledCaretRightIcon-sc-1m8jbnt-1 tQwJb"
     color="hsl(230, 30%, 84%)"
     fill="currentColor"
     focusable="false"

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { TIME_PERIOD } from '../../../constants';
-import AsyncAddressMetricsChart from './async-address-metrics-chart';
+import AddressMetricsChart from './address-metrics-chart';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
 import LoadingIndicator from '../../../components/loading-indicator';
 import sharedPropTypes from '../../../prop-types';
@@ -72,7 +72,7 @@ const AddressMetrics = ({ address, keyMetric, period }) => {
       brushActive={brushActive}
       onBrushReset={handleResetClick}
     >
-      <AsyncAddressMetricsChart
+      <AddressMetricsChart
         data={data}
         granularity={granularity}
         key={chartKey}
@@ -87,7 +87,11 @@ const AddressMetrics = ({ address, keyMetric, period }) => {
 AddressMetrics.propTypes = {
   address: PropTypes.string.isRequired,
   keyMetric: PropTypes.string, // eslint-disable-line react/require-default-props
-  period: sharedPropTypes.timePeriod.isRequired,
+  period: sharedPropTypes.timePeriod,
+};
+
+AddressMetrics.defaultProps = {
+  period: undefined,
 };
 
 export default AddressMetrics;

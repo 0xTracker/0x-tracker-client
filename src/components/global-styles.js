@@ -3,9 +3,6 @@ import { createGlobalStyle } from 'styled-components';
 import { COLORS } from '../styles/constants';
 
 const GlobalStyles = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,600&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Cabin:500,600&display=swap');
-
   #root {
     display: flex;
     flex-direction: column;
@@ -14,10 +11,13 @@ const GlobalStyles = createGlobalStyle`
 
   html,
   body {
-    background-color: none;
     color: ${COLORS.PRIMARY.SCAMPI_800};
     font-family: Ubuntu,-apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
     font-size: 15px;
+  }
+
+  body {
+    background: none;
   }
 
   h1, h2, h3, h4 {

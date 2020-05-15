@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { METRIC_GRANULARITY, TIME_PERIOD } from '../../../constants';
-import AsyncMiniTokenMetricsChart from './async-mini-token-metrics-chart';
+import MiniTokenMetricsChart from './mini-token-metrics-chart';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useTokenMetrics from '../hooks/use-token-metrics';
 
@@ -35,7 +35,7 @@ const MiniTokenMetrics = ({ height, period, tokenAddress, type, width }) => {
   }
 
   return (
-    <AsyncMiniTokenMetricsChart
+    <MiniTokenMetricsChart
       data={data}
       fallback={null}
       height={height}

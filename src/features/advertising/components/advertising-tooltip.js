@@ -1,8 +1,8 @@
-import { ArrowRight } from 'styled-icons/fa-solid';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import { ArrowRightIcon } from '../../../components/icons';
 import Link from '../../../components/link';
 import Tooltip from '../../../components/tooltip';
 
@@ -34,7 +34,7 @@ const AdvertisingTooltip = ({ children, enabled, ...otherProps }) => {
           </p>
           <LearnMoreLink href="#">
             Learn more
-            <ArrowRight css="margin-left: 8px;" height={10} width={10} />
+            <ArrowRightIcon css="margin-left: 8px;" size={10} />
           </LearnMoreLink>
         </>
       }

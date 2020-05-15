@@ -1,27 +1,43 @@
 import PropTypes from 'prop-types';
 
-import { TOKEN_TYPE } from './constants';
-
 const tokenShape = {
   address: PropTypes.string.isRequired,
+  circulatingSupply: PropTypes.number,
   imageUrl: PropTypes.string,
   lastTrade: PropTypes.shape({
-    date: PropTypes.instanceOf(Date),
+    date: PropTypes.instanceOf(Date).isRequired,
     id: PropTypes.string.isRequired,
   }),
-  name: PropTypes.string.isRequired,
-  price: PropTypes.number,
-  symbol: PropTypes.string.isRequired,
+  marketCap: PropTypes.number,
+  name: PropTypes.string,
+  price: PropTypes.shape({
+    change: PropTypes.number,
+    close: PropTypes.number,
+    high: PropTypes.number,
+    low: PropTypes.number,
+    open: PropTypes.number,
+  }).isRequired,
+  symbol: PropTypes.string,
+  totalSupply: PropTypes.number,
+  type: PropTypes.string.isRequired,
 };
 
 const statsShape = {
-  trades: PropTypes.number.isRequired,
-  volume: PropTypes.object.isRequired,
+  fillCount: PropTypes.number.isRequired,
+  fillVolume: {
+    USD: PropTypes.number.isRequired,
+    token: PropTypes.number.isRequired,
+  },
+  tradeCount: PropTypes.number.isRequired,
+  tradeVolume: {
+    USD: PropTypes.number.isRequired,
+    token: PropTypes.number.isRequired,
+  },
 };
 
 const propTypes = {
   token: PropTypes.shape(tokenShape),
-  tokenType: PropTypes.oneOf(Object.values(TOKEN_TYPE)),
+  tokenType: PropTypes.string,
   tokenWithStats: PropTypes.shape({
     ...tokenShape,
     stats: PropTypes.shape(statsShape),

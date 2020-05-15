@@ -2,11 +2,11 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import AsyncSelect from '../../../components/async-select';
 import LoadingIndicator from '../../../components/loading-indicator';
+import Select from '../../../components/select';
 import useRelayers from '../hooks/use-relayers';
 
-const RelayerSelector = ({ className, name, onChange, value }) => {
+const RelayerSelector = ({ name, onChange, value, ...otherProps }) => {
   const [relayers, loading] = useRelayers({ statsPeriod: 'all' });
 
   if (loading) {
@@ -27,8 +27,7 @@ const RelayerSelector = ({ className, name, onChange, value }) => {
   ];
 
   return (
-    <AsyncSelect
-      className={className}
+    <Select
       controlShouldRenderValue
       isClearable={false}
       isSearchable={false}
@@ -36,19 +35,18 @@ const RelayerSelector = ({ className, name, onChange, value }) => {
       onChange={(option) => onChange(option.value, name)}
       options={options}
       value={options.find((option) => option.value === value)}
+      {...otherProps}
     />
   );
 };
 
 RelayerSelector.propTypes = {
-  className: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string,
 };
 
 RelayerSelector.defaultProps = {
-  className: undefined,
   name: undefined,
   value: undefined,
 };

@@ -15,10 +15,7 @@ const removeListener = (listenerToRemove) => {
 
 const start = (ms) => {
   interval = setInterval(() => {
-    if (document.hidden) {
-      console.info('skipped automatic reloading of data');
-    } else {
-      console.info('automatically reloading data');
+    if (!document.hidden) {
       listeners.forEach((listener) => {
         listener();
       });

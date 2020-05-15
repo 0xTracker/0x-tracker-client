@@ -63,7 +63,7 @@ const AssetBridgingMetricsChart = React.memo(
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
-              fontWeight: '500',
+              fontWeight: 500,
             }}
             tickFormatter={
               type === 'tradeVolume' || type === 'protocolFees'
