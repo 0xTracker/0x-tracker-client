@@ -440,6 +440,22 @@ exports[`should render DiscordIcon icon at 50x50 1`] = `
 </svg>
 `;
 
+exports[`should render EtherscanIcon icon at 20x20 1`] = `
+<img
+  height="20"
+  src="https://resources.0xtracker.com/logos/etherscan.png"
+  width="20"
+/>
+`;
+
+exports[`should render EtherscanIcon icon at 50x50 1`] = `
+<img
+  height="50"
+  src="https://resources.0xtracker.com/logos/etherscan.png"
+  width="50"
+/>
+`;
+
 exports[`should render ExternalLinkIcon icon at 20x20 1`] = `
 <svg
   aria-hidden="true"

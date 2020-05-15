@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { COLORS } from '../../../styles/constants';
-import { MoreIcon } from '../../../components/icons';
+import { EtherscanIcon, MoreIcon } from '../../../components/icons';
 import Badge from '../../../components/badge';
 import Blockie from '../../../components/blockie';
 import HelpWidget from '../../../components/help-widget';
@@ -160,11 +160,7 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
                   `}
                   href={`https://etherscan.io/address/${trader.address}`}
                 >
-                  <img
-                    height={20}
-                    src="https://resources.0xtracker.com/logos/etherscan.png"
-                    width={20}
-                  />
+                  <EtherscanIcon size={20} />
                 </Link>
               </span>
             </Tooltip>
