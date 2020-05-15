@@ -48,6 +48,9 @@ const simpleFill = {
   value: { USD: 184.292064 },
 };
 
+const simpleMaker = { address: '0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3' };
+const simpleTaker = { address: '0x0dc411b17d337af85d83ea5a3577d09132aae866' };
+
 beforeAll(() => {
   // eslint-disable-next-line no-extend-native
   Date.prototype.getTimezoneOffset = _.constant(180); // Mock timezone as UTC-3
@@ -55,7 +58,9 @@ beforeAll(() => {
 
 describe('fillDetails component', () => {
   it('should render V2 fill', () => {
-    const { asFragment } = renderWithRouter(<FillDetails fill={simpleFill} />);
+    const { asFragment } = renderWithRouter(
+      <FillDetails fill={simpleFill} maker={simpleMaker} taker={simpleTaker} />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });
@@ -71,7 +76,9 @@ describe('fillDetails component', () => {
       takerFee: undefined,
     };
 
-    const { asFragment } = renderWithRouter(<FillDetails fill={fill} />);
+    const { asFragment } = renderWithRouter(
+      <FillDetails fill={fill} maker={simpleMaker} taker={simpleTaker} />,
+    );
 
     expect(asFragment()).toMatchSnapshot();
   });

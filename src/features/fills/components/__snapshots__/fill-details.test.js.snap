@@ -31,7 +31,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 djTiNx fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 djTiNx fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="https://etherscan.io/tx/0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77"
         rel="noreferrer noopener"
         target="_blank"
@@ -83,7 +83,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="/search?q=0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71"
       >
         0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71
@@ -115,7 +115,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="/search?q=0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
@@ -297,7 +297,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="/traders/0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3"
       >
         0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3
@@ -329,7 +329,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="/traders/0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
@@ -517,7 +517,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
               Wrapped Ether  (WETH)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 chDwyu"
+              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge3-sc-5nb7jb-4 fjHxVY"
             >
               <span>
                 $190.08
@@ -549,7 +549,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
               FOAM Token  (FOAM)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 chDwyu"
+              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge3-sc-5nb7jb-4 fjHxVY"
             >
               <span>
                 $0.03686
@@ -639,7 +639,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
       >
         0xa258b39954cef5cb142fd567a46cddb31a670124
@@ -680,7 +680,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 djTiNx fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 djTiNx fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="https://etherscan.io/tx/0x68e018d2c97cf76af6bae65297e6f5b6bc9680b95b828bdea5eb03a0b36ebc77"
         rel="noreferrer noopener"
         target="_blank"
@@ -732,7 +732,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="/search?q=0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71"
       >
         0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71
@@ -764,7 +764,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="/search?q=0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
@@ -946,7 +946,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="/traders/0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3"
       >
         0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3
@@ -978,7 +978,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="/traders/0x0dc411b17d337af85d83ea5a3577d09132aae866"
       >
         0x0dc411b17d337af85d83ea5a3577d09132aae866
@@ -1166,7 +1166,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
               Wrapped Ether  (WETH)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 chDwyu"
+              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge3-sc-5nb7jb-4 fjHxVY"
             >
               <span>
                 $190.08
@@ -1198,7 +1198,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
               FOAM Token  (FOAM)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 chDwyu"
+              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge3-sc-5nb7jb-4 fjHxVY"
             >
               <span>
                 $0.03686
@@ -1234,7 +1234,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 dcQTUU"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-2 esoOHf"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
         href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
       >
         0xa258b39954cef5cb142fd567a46cddb31a670124
@@ -1267,7 +1267,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
     >
       0.0001 ETH
       <span
-        class="badge__Badge-sc-8ieo9x-0 fill-details__PriceBadge-sc-5nb7jb-1 chDwyu"
+        class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge4-sc-5nb7jb-5 ihNEQa"
       >
         <span>
           $0.20000
