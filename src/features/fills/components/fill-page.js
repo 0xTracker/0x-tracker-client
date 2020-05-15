@@ -1,7 +1,8 @@
 import { useParams } from 'react-router';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useMetadata } from '../../../hooks';
+import { callApi } from '../../../util';
 import Card from '../../../components/card';
 import FillDetails from './fill-details';
 import LoadingPage from '../../../components/loading-page';
@@ -14,19 +15,49 @@ const FillPage = () => {
 
   const { id } = useParams();
   const [fill, loading] = useFill(id);
+  const [maker, setMaker] = useState();
+  const [taker, setTaker] = useState();
 
-  if (loading) {
-    return <LoadingPage />;
+  useEffect(() => {
+    if (fill !== undefined) {
+      callApi(`traders/${fill.takerAddress}`)
+        .then((foundTaker) => {
+          setTaker(foundTaker);
+        })
+        .catch((error) => {
+          if (error.response && error.response === 404) {
+            return;
+          }
+
+          throw error;
+        });
+
+      callApi(`traders/${fill.makerAddress}`)
+        .then((foundMaker) => {
+          setMaker(foundMaker);
+        })
+        .catch((error) => {
+          if (error.response && error.response === 404) {
+            return;
+          }
+
+          throw error;
+        });
+    }
+  }, [fill]);
+
+  if (fill === undefined && !loading) {
+    return <PageNotFound />;
   }
 
-  if (fill === undefined) {
-    return <PageNotFound />;
+  if (loading || maker === undefined || taker === undefined) {
+    return <LoadingPage />;
   }
 
   return (
     <PageLayout title="Fill Details">
       <Card css="padding: 2rem;">
-        <FillDetails fill={fill} />
+        <FillDetails fill={fill} maker={maker} taker={taker} />
       </Card>
     </PageLayout>
   );

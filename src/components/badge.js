@@ -1,10 +1,15 @@
 import _ from 'lodash';
 import styled from 'styled-components';
 
+import { COLORS } from '../styles/constants';
+
 const Badge = styled.span.attrs((props) => ({
-  children: _.isString(props.children)
-    ? props.children.toUpperCase()
-    : props.children,
+  bgColor: props.bgColor ? props.bgColor : COLORS.NEUTRAL.MYSTIC_300,
+  children:
+    _.isString(props.children) && props.upperCase
+      ? props.children.toUpperCase()
+      : props.children,
+  textColor: props.textColor ? props.textColor : COLORS.PRIMARY.SCAMPI_1000,
 }))`
   background-color: ${(props) => props.bgColor};
   border-radius: 4px;
@@ -17,5 +22,9 @@ const Badge = styled.span.attrs((props) => ({
   text-align: center;
   white-space: nowrap;
 `;
+
+Badge.defaultProps = {
+  upperCase: true,
+};
 
 export default Badge;

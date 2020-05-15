@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -38,18 +39,11 @@ const FillDetailList = styled.dl`
   `};
 `;
 
-const PriceBadge = styled(Badge).attrs({
-  bgColor: COLORS.PRIMARY.SCAMPI_100,
-  textColor: 'inherit',
-})`
-  margin-left: 0.5rem;
-`;
-
 const FillDetailLink = styled(Link)`
   color: ${COLORS.PRIMARY.SCAMPI_500};
 `;
 
-const FillDetails = ({ fill }) => {
+const FillDetails = ({ fill, maker, taker }) => {
   const breakpoint = useCurrentBreakpoint();
   const displayCurrency = useDisplayCurrency();
   const assetsWithPrices = _.filter(fill.assets, (asset) =>
@@ -132,18 +126,46 @@ const FillDetails = ({ fill }) => {
       )}
 
       <FillDetail title="Maker" tooltip="The party that created the order.">
-        <FillDetailLink address={fill.makerAddress} as={TraderLink}>
-          {fill.makerAddress}
-        </FillDetailLink>
+        {maker && _.isString(maker.name) ? (
+          <>
+            <FillDetailLink address={maker.address} as={TraderLink}>
+              {maker.name}
+            </FillDetailLink>
+            <Badge
+              css="margin-left: 16px; text-transform: none;"
+              upperCase={false}
+            >
+              {maker.address}
+            </Badge>
+          </>
+        ) : (
+          <FillDetailLink address={maker.address} as={TraderLink}>
+            {maker.address}
+          </FillDetailLink>
+        )}
       </FillDetail>
 
       <FillDetail
         title="Taker"
         tooltip="The party that filled this portion of the order."
       >
-        <FillDetailLink address={fill.takerAddress} as={TraderLink}>
-          {fill.takerAddress}
-        </FillDetailLink>
+        {taker && _.isString(taker.name) ? (
+          <>
+            <FillDetailLink address={taker.address} as={TraderLink}>
+              {taker.name}
+            </FillDetailLink>
+            <Badge
+              css="margin-left: 16px; text-transform: none;"
+              upperCase={false}
+            >
+              {taker.address}
+            </Badge>
+          </>
+        ) : (
+          <FillDetailLink address={taker.address} as={TraderLink}>
+            {taker.address}
+          </FillDetailLink>
+        )}
       </FillDetail>
 
       <FillDetail
@@ -188,12 +210,12 @@ const FillDetails = ({ fill }) => {
             {assetsWithPrices.map((asset) => (
               <ListItem key={`${asset.tokenAddress}-${asset.tokenId}`}>
                 <AssetLabel asset={asset} linked={false} />
-                <PriceBadge>
+                <Badge css="margin-left: 8px;">
                   <LocalisedAmount
                     amount={asset.price.USD}
                     preferredPrecision={asset.price.USD < 1 ? 5 : 2}
                   />
-                </PriceBadge>
+                </Badge>
               </ListItem>
             ))}
           </List>
@@ -278,12 +300,12 @@ const FillDetails = ({ fill }) => {
             token={ETH_TOKEN}
           />
           {fill.protocolFee.USD !== undefined ? (
-            <PriceBadge>
+            <Badge css="margin-left: 8px;">
               <LocalisedAmount
                 amount={fill.protocolFee.USD}
                 preferredPrecision={fill.protocolFee.USD < 1 ? 5 : 2}
               />
-            </PriceBadge>
+            </Badge>
           ) : null}
         </FillDetail>
       ) : null}
@@ -293,6 +315,19 @@ const FillDetails = ({ fill }) => {
 
 FillDetails.propTypes = {
   fill: fillsPropTypes.fill.isRequired,
+  maker: PropTypes.shape({
+    address: PropTypes.string.isRequired,
+    name: PropTypes.string,
+  }),
+  taker: PropTypes.shape({
+    address: PropTypes.string.isRequired,
+    name: PropTypes.string,
+  }),
+};
+
+FillDetails.defaultProps = {
+  maker: undefined,
+  taker: undefined,
 };
 
 export default FillDetails;

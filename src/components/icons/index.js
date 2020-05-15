@@ -11,6 +11,7 @@ import ChevronUpIcon from './chevron-up-icon';
 import CircleIcon from './circle-icon';
 import CloseIcon from './close-icon';
 import DiscordIcon from './discord-icon';
+import EtherscanIcon from './etherscan-icon';
 import ExternalLinkIcon from './external-link-icon';
 import FacebookShareIcon from './facebook-share-icon';
 import FilterIcon from './filter-icon';
@@ -55,6 +56,7 @@ export {
   CircleIcon,
   CloseIcon,
   DiscordIcon,
+  EtherscanIcon,
   ExternalLinkIcon,
   FacebookShareIcon,
   FilterIcon,
