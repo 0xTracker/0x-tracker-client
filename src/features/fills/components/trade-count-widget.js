@@ -11,10 +11,10 @@ const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
 const createTooltip = (period) => {
   if (period === 'all') {
-    return 'Total number of trades since 0x was launched. Only includes activity from known relayers.';
+    return 'Total number of trades since 0x was launched.';
   }
 
-  return `Total number of trades in the last ${period}. Only includes activity from known relayers.`;
+  return `Total number of trades in the last ${period}.`;
 };
 
 const TradeCountWidget = ({ period, tradeCount, ...otherProps }) => (

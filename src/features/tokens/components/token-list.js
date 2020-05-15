@@ -48,16 +48,16 @@ const TokenList = ({
               Trades
               <HelpWidget css="margin-left: 0.25rem;">
                 {statsPeriod === 'all'
-                  ? 'The total number of trades a token has been involved with since it was first traded on 0x. Only trades on known relayers are included in this metric.'
-                  : `The total number of trades a token has been involved with in the last ${statsPeriod}. Only trades on known relayers are included in this metric.`}
+                  ? 'The total number of trades a token has been involved with since it was first traded on 0x.'
+                  : `The total number of trades a token has been involved with in the last ${statsPeriod}.`}
               </HelpWidget>
             </th>
             <th className="text-right">
               Volume{' '}
               <HelpWidget css="margin-left: 0.25rem;">
                 {statsPeriod === 'all'
-                  ? 'The total trading volume for a token since it was first traded on 0x. Only trades on known relayers are included in this metric.'
-                  : `The total trade volume for a token in the last ${statsPeriod}. Only trades on known relayers are included in this metric.`}
+                  ? 'The total trading volume for a token since it was first traded on 0x.'
+                  : `The total trade volume for a token in the last ${statsPeriod}.`}
               </HelpWidget>
             </th>
             <th className="text-right">
