@@ -8,6 +8,7 @@ import { useCurrentBreakpoint } from '../../../responsive-utils';
 import HelpWidget from '../../../components/help-widget';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
+import PercentageChange from '../../../components/percentage-change';
 import RelayerImage from './relayer-image';
 import RelayerLink from './relayer-link';
 import relayersPropTypes from '../prop-types';
@@ -77,12 +78,17 @@ const TopRelayersTable = ({ relayers }) => {
                 </SecondaryText>
               ) : null}
             </TableCell>
-            <TableCell css="text-align: right;">
+            <TableCell css="white-space: nowrap; text-align: right;">
               <LocalisedAmount
                 amount={relayer.stats.tradeVolume}
                 css="font-weight: 500;"
                 summarize
               />
+              {_.isNumber(relayer.stats.tradeVolumeChange) && (
+                <PercentageChange css="display: block;">
+                  {relayer.stats.tradeVolumeChange}
+                </PercentageChange>
+              )}
             </TableCell>
           </TableRow>
         ))}

@@ -31,7 +31,7 @@ const PercentageChange = ({ children, className }) => {
         font-size: 1rem;
       `}
     >
-      {numeral(children).format('0.[00]')}%
+      {numeral(children).format('0,0.[00]')}%
       {children === 0 ? (
         <TrendingFlatIcon
           color="currentColor"

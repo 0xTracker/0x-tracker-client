@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -6,6 +7,7 @@ import HelpWidget from '../../../components/help-widget';
 import Link from '../../../components/link';
 import MiniRelayerMetrics from '../../metrics/components/mini-relayer-metrics';
 import Number from '../../../components/number';
+import PercentageChange from '../../../components/percentage-change';
 import Rank from '../../../components/rank';
 import relayersPropTypes from '../prop-types';
 import RelayerImage from './relayer-image';
@@ -20,13 +22,7 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
       <tr>
         <th className="text-center">#</th>
         <th colSpan="2">Relayer</th>
-        <th className="text-right">
-          Traders{' '}
-          <HelpWidget css="margin-left: 0.25rem;">
-            The number of unique maker/taker addresses for a given relayer in
-            the selected period.
-          </HelpWidget>
-        </th>
+
         <th className="text-right">
           Trades
           <HelpWidget css="margin-left: 0.25rem;">
@@ -39,6 +35,13 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
           <HelpWidget css="margin-left: 0.25rem;">
             The total value of all trades for a given relayer in the selected
             period.
+          </HelpWidget>
+        </th>
+        <th className="text-right">
+          Traders{' '}
+          <HelpWidget css="margin-left: 0.25rem;">
+            The number of unique maker/taker addresses for a given relayer in
+            the selected period.
           </HelpWidget>
         </th>
         <th className="text-right">
@@ -98,14 +101,30 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
               </Link>
             ) : null}
           </td>
-          <td className="align-middle text-right">
-            <Number summarize>{relayer.stats.traderCount}</Number>
-          </td>
+
           <td className="align-middle text-right">
             <Number summarize>{relayer.stats.tradeCount}</Number>
+            {_.isNumber(relayer.stats.tradeCountChange) && (
+              <PercentageChange css="display: block; font-size: 14px;">
+                {relayer.stats.tradeCountChange}
+              </PercentageChange>
+            )}
           </td>
           <td className="align-middle text-right">
             <RelayerVolumeLabel stats={relayer.stats} />
+            {_.isNumber(relayer.stats.tradeVolumeChange) && (
+              <PercentageChange css="display: block; font-size: 14px;">
+                {relayer.stats.tradeVolumeChange}
+              </PercentageChange>
+            )}
+          </td>
+          <td className="align-middle text-right">
+            <Number summarize>{relayer.stats.traderCount}</Number>
+            {_.isNumber(relayer.stats.traderCountChange) && (
+              <PercentageChange css="display: block; font-size: 14px;">
+                {relayer.stats.traderCountChange}
+              </PercentageChange>
+            )}
           </td>
           <td>
             <MiniRelayerMetrics
