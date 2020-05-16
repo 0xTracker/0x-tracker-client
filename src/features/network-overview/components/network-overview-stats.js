@@ -19,15 +19,20 @@ const NetworkOverviewStats = ({ period }) => {
   const breakpoint = useCurrentBreakpoint();
 
   const tradeCount = _.get(networkStats, 'tradeCount');
+  const tradeCountChange = _.get(networkStats, 'tradeCountChange');
   const traderCount = _.get(traderStats, 'traderCount');
+  const traderCountChange = _.get(traderStats, 'traderCountChange');
   const tradeVolume = _.get(networkStats, 'tradeVolume');
+  const tradeVolumeChange = _.get(networkStats, 'tradeVolumeChange');
   const protocolFees = _.get(networkStats, 'protocolFees.USD');
+  const protocolFeesChange = _.get(networkStats, 'protocolFeesChange');
 
   if (breakpoint.greaterThan('md')) {
     return (
       <CardGridRow minHeight="80px">
         <CardGridCol lg={3} md={6}>
           <TradeVolumeWidget
+            change={tradeVolumeChange}
             period={period}
             showPeriod={false}
             volume={tradeVolume}
@@ -35,6 +40,7 @@ const NetworkOverviewStats = ({ period }) => {
         </CardGridCol>
         <CardGridCol lg={3} md={6}>
           <TradeCountWidget
+            change={tradeCountChange}
             period={period}
             showPeriod={false}
             tradeCount={tradeCount}
@@ -42,6 +48,7 @@ const NetworkOverviewStats = ({ period }) => {
         </CardGridCol>
         <CardGridCol lg={3} md={6}>
           <ActiveTradersWidget
+            change={traderCountChange}
             period={period}
             showPeriod={false}
             traderCount={traderCount}
@@ -50,6 +57,7 @@ const NetworkOverviewStats = ({ period }) => {
         <CardGridCol lg={3} md={6}>
           <ProtocolFeesWidget
             accumulatedFees={protocolFees}
+            change={protocolFeesChange}
             period={period}
             showPeriod={false}
           />
@@ -61,9 +69,13 @@ const NetworkOverviewStats = ({ period }) => {
   return (
     <NetworkOverviewStatsCarousel
       protocolFees={protocolFees}
+      protocolFeesChange={protocolFeesChange}
       tradeCount={tradeCount}
+      tradeCountChange={tradeCountChange}
       traderCount={traderCount}
+      traderCountChange={traderCountChange}
       tradeVolume={tradeVolume}
+      tradeVolumeChange={tradeVolumeChange}
     />
   );
 };

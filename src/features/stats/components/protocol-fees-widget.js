@@ -4,6 +4,7 @@ import React from 'react';
 
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
+import PercentageChange from '../../../components/percentage-change';
 import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
 
@@ -19,6 +20,7 @@ const createTooltip = (period) => {
 
 const ProtocolFeesWidget = ({
   accumulatedFees,
+  change,
   className,
   period,
   showPeriod,
@@ -31,11 +33,14 @@ const ProtocolFeesWidget = ({
     tooltip={createTooltip(period)}
   >
     {_.isNumber(accumulatedFees) ? (
-      <LocalisedAmount
-        amount={accumulatedFees}
-        loadingIndicator={loadingIndicator}
-        summarize
-      />
+      <span css="align-items: baseline; display: flex;">
+        <LocalisedAmount
+          amount={accumulatedFees}
+          loadingIndicator={loadingIndicator}
+          summarize
+        />
+        {change !== undefined && <PercentageChange>{change}</PercentageChange>}
+      </span>
     ) : (
       loadingIndicator
     )}
@@ -44,6 +49,7 @@ const ProtocolFeesWidget = ({
 
 ProtocolFeesWidget.propTypes = {
   accumulatedFees: PropTypes.number,
+  change: PropTypes.number,
   className: PropTypes.string,
   period: sharedPropTypes.timePeriod,
   showPeriod: PropTypes.bool,
@@ -51,6 +57,7 @@ ProtocolFeesWidget.propTypes = {
 
 ProtocolFeesWidget.defaultProps = {
   accumulatedFees: undefined,
+  change: undefined,
   className: undefined,
   period: undefined,
   showPeriod: undefined,

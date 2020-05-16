@@ -4,12 +4,13 @@ import React from 'react';
 
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
+import PercentageChange from '../../../components/percentage-change';
 import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const BridgedVolumeWidget = ({ period, volume, ...otherProps }) => (
+const BridgedVolumeWidget = ({ change, period, volume, ...otherProps }) => (
   <StatWidget
     period={period}
     title="Bridged Volume"
@@ -17,11 +18,14 @@ const BridgedVolumeWidget = ({ period, volume, ...otherProps }) => (
     {...otherProps}
   >
     {_.isNumber(volume) ? (
-      <LocalisedAmount
-        amount={volume}
-        loadingIndicator={loadingIndicator}
-        summarize
-      />
+      <span css="align-items: baseline; display: flex;">
+        <LocalisedAmount
+          amount={volume}
+          loadingIndicator={loadingIndicator}
+          summarize
+        />
+        {change !== undefined && <PercentageChange>{change}</PercentageChange>}
+      </span>
     ) : (
       loadingIndicator
     )}
@@ -29,12 +33,14 @@ const BridgedVolumeWidget = ({ period, volume, ...otherProps }) => (
 );
 
 BridgedVolumeWidget.propTypes = {
+  change: PropTypes.number,
   className: PropTypes.string,
   period: sharedPropTypes.timePeriod,
   volume: PropTypes.number,
 };
 
 BridgedVolumeWidget.defaultProps = {
+  change: undefined,
   className: undefined,
   period: undefined,
   volume: undefined,

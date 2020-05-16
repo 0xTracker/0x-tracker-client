@@ -7,7 +7,7 @@ import { COLORS } from '../../../styles/constants';
 import { TIME_PERIOD } from '../../../constants';
 import Hidden from '../../../components/hidden';
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import PriceChange from '../../../components/price-change';
+import PercentageChange from '../../../components/percentage-change';
 import SubTitle from '../../../components/sub-title';
 import TokenImage from './token-image';
 import TokenPriceTooltip from './token-price-tooltip';
@@ -62,9 +62,9 @@ const TokenPageTitle = ({ statsPeriod, token }) => (
             {_.isFinite(token.price.change) && (
               <>
                 {' '}
-                <PriceChange css="display: flex; align-items: center;">
+                <PercentageChange css="display: flex; align-items: center;">
                   {token.price.change}
-                </PriceChange>
+                </PercentageChange>
               </>
             )}
           </PriceWrapper>

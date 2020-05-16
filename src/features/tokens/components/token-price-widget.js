@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import PriceChange from '../../../components/price-change';
+import PercentageChange from '../../../components/percentage-change';
 import StatWidget from '../../../components/stat-widget';
 
 const TokenPriceWidget = ({ className, price }) => (
@@ -15,7 +15,9 @@ const TokenPriceWidget = ({ className, price }) => (
     {_.isFinite(price.close) ? (
       <span>
         <LocalisedAmount amount={price.close} />
-        {_.isFinite(price.change) && <PriceChange>{price.change}</PriceChange>}
+        {_.isFinite(price.change) && (
+          <PercentageChange>{price.change}</PercentageChange>
+        )}
       </span>
     ) : (
       'Not Available'
