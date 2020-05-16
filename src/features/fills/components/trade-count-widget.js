@@ -4,7 +4,7 @@ import React from 'react';
 
 import { summarizeNumber } from '../../../util';
 import LoadingIndicator from '../../../components/loading-indicator';
-import PriceChange from '../../../components/price-change';
+import PercentageChange from '../../../components/percentage-change';
 import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
 
@@ -28,7 +28,7 @@ const TradeCountWidget = ({ change, period, tradeCount, ...otherProps }) => (
     {_.isNumber(tradeCount) ? (
       <span css="align-items: baseline; display: flex;">
         {summarizeNumber(tradeCount)}
-        {change !== undefined && <PriceChange>{change}</PriceChange>}
+        {change !== undefined && <PercentageChange>{change}</PercentageChange>}
       </span>
     ) : (
       loadingIndicator

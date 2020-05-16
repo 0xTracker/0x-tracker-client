@@ -8,7 +8,7 @@ import formatTokenSymbol from '../util/format-token-symbol';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import MiniTokenMetrics from '../../metrics/components/mini-token-metrics';
 import Number from '../../../components/number';
-import PriceChange from '../../../components/price-change';
+import PercentageChange from '../../../components/percentage-change';
 import Rank from '../../../components/rank';
 import TokenImage from './token-image';
 import TokenLink from './token-link';
@@ -59,7 +59,7 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
             {token.price.change === null ? null : (
               <>
                 <br />
-                <PriceChange>{token.price.change}</PriceChange>
+                <PercentageChange>{token.price.change}</PercentageChange>
               </>
             )}
           </span>

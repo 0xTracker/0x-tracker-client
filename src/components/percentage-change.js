@@ -17,7 +17,7 @@ const getColor = (value) => {
   return COLORS.NEUTRAL.MYSTIC_600;
 };
 
-const PriceChange = ({ children, className }) => {
+const PercentageChange = ({ children, className }) => {
   if (children === null) {
     return null;
   }
@@ -60,9 +60,9 @@ const PriceChange = ({ children, className }) => {
   );
 };
 
-PriceChange.propTypes = {
+PercentageChange.propTypes = {
   children: PropTypes.number.isRequired,
   className: PropTypes.string, // eslint-disable-line react/require-default-props
 };
 
-export default PriceChange;
+export default PercentageChange;

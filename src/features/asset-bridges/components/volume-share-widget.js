@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import LoadingIndicator from '../../../components/loading-indicator';
-import PriceChange from '../../../components/price-change';
+import PercentageChange from '../../../components/percentage-change';
 import StatWidget from '../../../components/stat-widget';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
@@ -18,7 +18,7 @@ const VolumeShareWidget = ({ change, volumeShare, ...otherProps }) => (
     {_.isNumber(volumeShare) ? (
       <span css="align-items: baseline; display: flex;">
         {numeral(volumeShare).format('0.[00]')}%
-        <PriceChange>{change}</PriceChange>
+        <PercentageChange>{change}</PercentageChange>
       </span>
     ) : (
       loadingIndicator

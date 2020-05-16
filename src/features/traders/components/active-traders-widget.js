@@ -4,7 +4,7 @@ import React from 'react';
 
 import LoadingIndicator from '../../../components/loading-indicator';
 import Number from '../../../components/number';
-import PriceChange from '../../../components/price-change';
+import PercentageChange from '../../../components/percentage-change';
 import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
 
@@ -33,7 +33,7 @@ const ActiveTradersWidget = ({
     {_.isNumber(traderCount) ? (
       <span css="align-items: baseline; display: flex;">
         <Number summarize>{traderCount}</Number>
-        {change !== undefined && <PriceChange>{change}</PriceChange>}
+        {change !== undefined && <PercentageChange>{change}</PercentageChange>}
       </span>
     ) : (
       loadingIndicator
