@@ -19,8 +19,11 @@ const CarouselMetric = styled.div`
 const HomePageMetricsCarousel = ({
   period,
   tradeCount,
+  tradeCountChange,
   traderCount,
+  traderCountChange,
   tradeVolume,
+  tradeVolumeChange,
 }) => (
   <Slider
     arrows={false}
@@ -43,16 +46,19 @@ const HomePageMetricsCarousel = ({
   >
     <CarouselMetric
       as={TradeVolumeWidget}
+      change={tradeVolumeChange}
       period={period}
       volume={tradeVolume}
     />
     <CarouselMetric
       as={TradeCountWidget}
+      change={tradeCountChange}
       period={period}
       tradeCount={tradeCount}
     />
     <CarouselMetric
       as={ActiveTradersWidget}
+      change={traderCountChange}
       period={period}
       traderCount={traderCount}
     />
@@ -63,14 +69,20 @@ const HomePageMetricsCarousel = ({
 HomePageMetricsCarousel.propTypes = {
   period: sharedPropTypes.timePeriod.isRequired,
   tradeCount: PropTypes.number,
+  tradeCountChange: PropTypes.number,
   tradeVolume: PropTypes.number,
+  tradeVolumeChange: PropTypes.number,
   traderCount: PropTypes.number,
+  traderCountChange: PropTypes.number,
 };
 
 HomePageMetricsCarousel.defaultProps = {
   tradeCount: undefined,
+  tradeCountChange: undefined,
   tradeVolume: undefined,
+  tradeVolumeChange: undefined,
   traderCount: undefined,
+  traderCountChange: undefined,
 };
 
 export default HomePageMetricsCarousel;

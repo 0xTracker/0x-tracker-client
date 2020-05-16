@@ -17,9 +17,13 @@ const CarouselStat = styled.div`
 
 const NetworkOverviewStatsCarousel = ({
   protocolFees,
+  protocolFeesChange,
   tradeCount,
+  tradeCountChange,
   traderCount,
+  traderCountChange,
   tradeVolume,
+  tradeVolumeChange,
 }) => (
   <Slider
     arrows={false}
@@ -40,25 +44,49 @@ const NetworkOverviewStatsCarousel = ({
     slidesToScroll={3}
     slidesToShow={3}
   >
-    <CarouselStat as={TradeVolumeWidget} volume={tradeVolume} />
-    <CarouselStat as={TradeCountWidget} tradeCount={tradeCount} />
-    <CarouselStat as={ActiveTradersWidget} traderCount={traderCount} />
-    <CarouselStat accumulatedFees={protocolFees} as={ProtocolFeesWidget} />
+    <CarouselStat
+      as={TradeVolumeWidget}
+      change={tradeVolumeChange}
+      volume={tradeVolume}
+    />
+    <CarouselStat
+      as={TradeCountWidget}
+      change={tradeCountChange}
+      tradeCount={tradeCount}
+    />
+    <CarouselStat
+      as={ActiveTradersWidget}
+      change={traderCountChange}
+      traderCount={traderCount}
+    />
+    <CarouselStat
+      accumulatedFees={protocolFees}
+      as={ProtocolFeesWidget}
+      change={protocolFeesChange}
+    />
   </Slider>
 );
 
 NetworkOverviewStatsCarousel.propTypes = {
   protocolFees: PropTypes.number,
+  protocolFeesChange: PropTypes.number,
   tradeCount: PropTypes.number,
+  tradeCountChange: PropTypes.number,
   tradeVolume: PropTypes.number,
+  tradeVolumeChange: PropTypes.number,
   traderCount: PropTypes.number,
+  traderCountChange: PropTypes.number,
 };
 
 NetworkOverviewStatsCarousel.defaultProps = {
   protocolFees: undefined,
+  protocolFeesChange: undefined,
   tradeCount: undefined,
+  tradeCountChange: undefined,
   tradeVolume: undefined,
+  tradeVolumeChange: undefined,
   traderCount: undefined,
+  traderCountChange: undefined,
 };
 
 export default NetworkOverviewStatsCarousel;

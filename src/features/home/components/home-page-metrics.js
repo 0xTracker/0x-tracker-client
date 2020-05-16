@@ -61,8 +61,11 @@ const HomePageMetrics = () => {
     <HomePageMetricsCarousel
       period={statsParams.period}
       tradeCount={tradeCount}
+      tradeCountChange={tradeCountChange}
       traderCount={traderCount}
+      traderCountChange={traderCountChange}
       tradeVolume={tradeVolume}
+      tradeVolumeChange={tradeVolumeChange}
     />
   );
 };

@@ -69,9 +69,13 @@ const NetworkOverviewStats = ({ period }) => {
   return (
     <NetworkOverviewStatsCarousel
       protocolFees={protocolFees}
+      protocolFeesChange={protocolFeesChange}
       tradeCount={tradeCount}
+      tradeCountChange={tradeCountChange}
       traderCount={traderCount}
+      traderCountChange={traderCountChange}
       tradeVolume={tradeVolume}
+      tradeVolumeChange={tradeVolumeChange}
     />
   );
 };
