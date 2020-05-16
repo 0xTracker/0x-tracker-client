@@ -4,6 +4,7 @@ import React from 'react';
 
 import { summarizeNumber } from '../../../util';
 import LoadingIndicator from '../../../components/loading-indicator';
+import PriceChange from '../../../components/price-change';
 import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
 
@@ -17,23 +18,32 @@ const createTooltip = (period) => {
   return `Total number of trades in the last ${period}.`;
 };
 
-const TradeCountWidget = ({ period, tradeCount, ...otherProps }) => (
+const TradeCountWidget = ({ change, period, tradeCount, ...otherProps }) => (
   <StatWidget
     period={period}
     title="Trades"
     tooltip={createTooltip(period)}
     {...otherProps}
   >
-    {_.isNumber(tradeCount) ? summarizeNumber(tradeCount) : loadingIndicator}
+    {_.isNumber(tradeCount) ? (
+      <span css="align-items: baseline; display: flex;">
+        {summarizeNumber(tradeCount)}
+        {change !== undefined && <PriceChange>{change}</PriceChange>}
+      </span>
+    ) : (
+      loadingIndicator
+    )}
   </StatWidget>
 );
 
 TradeCountWidget.propTypes = {
+  change: PropTypes.number,
   period: sharedPropTypes.timePeriod,
   tradeCount: PropTypes.number,
 };
 
 TradeCountWidget.defaultProps = {
+  change: undefined,
   period: undefined,
   tradeCount: undefined,
 };

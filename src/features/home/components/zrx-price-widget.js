@@ -12,7 +12,10 @@ const ZRXPriceWidget = (props) => {
   return (
     <StatWidget {...props} loading={loading} title="ZRX Price">
       {!loading && (
-        <Link href="https://www.cryptocompare.com/coins/zrx/overview">
+        <Link
+          css="align-items: baseline; display: flex;"
+          href="https://www.cryptocompare.com/coins/zrx/overview"
+        >
           <LocalisedAmount amount={zrxPrice.value} preferredPrecision={5} />
           <PriceChange>{zrxPrice.change}</PriceChange>
         </Link>

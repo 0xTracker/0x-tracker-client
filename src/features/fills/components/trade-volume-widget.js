@@ -4,6 +4,7 @@ import React from 'react';
 
 import LoadingIndicator from '../../../components/loading-indicator';
 import LocalisedAmount from '../../currencies/components/localised-amount';
+import PriceChange from '../../../components/price-change';
 import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
 
@@ -17,7 +18,7 @@ const createTooltip = (period) => {
   return `Total value of all trades in the last ${period}.`;
 };
 
-const TradeVolumeWidget = ({ period, volume, ...otherProps }) => (
+const TradeVolumeWidget = ({ change, period, volume, ...otherProps }) => (
   <StatWidget
     period={period}
     title="Volume"
@@ -25,11 +26,14 @@ const TradeVolumeWidget = ({ period, volume, ...otherProps }) => (
     {...otherProps}
   >
     {_.isNumber(volume) ? (
-      <LocalisedAmount
-        amount={volume}
-        loadingIndicator={loadingIndicator}
-        summarize
-      />
+      <span css="align-items: baseline; display: flex;">
+        <LocalisedAmount
+          amount={volume}
+          loadingIndicator={loadingIndicator}
+          summarize
+        />
+        {change !== undefined && <PriceChange>{change}</PriceChange>}
+      </span>
     ) : (
       loadingIndicator
     )}
@@ -37,12 +41,14 @@ const TradeVolumeWidget = ({ period, volume, ...otherProps }) => (
 );
 
 TradeVolumeWidget.propTypes = {
+  change: PropTypes.number,
   className: PropTypes.string,
   period: sharedPropTypes.timePeriod,
   volume: PropTypes.number,
 };
 
 TradeVolumeWidget.defaultProps = {
+  change: undefined,
   className: undefined,
   period: undefined,
   volume: undefined,

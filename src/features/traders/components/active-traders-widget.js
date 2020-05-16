@@ -4,6 +4,7 @@ import React from 'react';
 
 import LoadingIndicator from '../../../components/loading-indicator';
 import Number from '../../../components/number';
+import PriceChange from '../../../components/price-change';
 import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
 
@@ -17,7 +18,12 @@ const createTooltip = (period) => {
   return `Number of unique trader addresses which were active in the last ${period}.`;
 };
 
-const ActiveTradersWidget = ({ period, traderCount, ...otherProps }) => (
+const ActiveTradersWidget = ({
+  change,
+  period,
+  traderCount,
+  ...otherProps
+}) => (
   <StatWidget
     period={period}
     title="Active Traders"
@@ -25,7 +31,10 @@ const ActiveTradersWidget = ({ period, traderCount, ...otherProps }) => (
     {...otherProps}
   >
     {_.isNumber(traderCount) ? (
-      <Number summarize>{traderCount}</Number>
+      <span css="align-items: baseline; display: flex;">
+        <Number summarize>{traderCount}</Number>
+        {change !== undefined && <PriceChange>{change}</PriceChange>}
+      </span>
     ) : (
       loadingIndicator
     )}
@@ -33,12 +42,14 @@ const ActiveTradersWidget = ({ period, traderCount, ...otherProps }) => (
 );
 
 ActiveTradersWidget.propTypes = {
+  change: PropTypes.number,
   className: PropTypes.string,
   period: sharedPropTypes.timePeriod,
   traderCount: PropTypes.number,
 };
 
 ActiveTradersWidget.defaultProps = {
+  change: undefined,
   className: undefined,
   period: undefined,
   traderCount: undefined,

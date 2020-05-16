@@ -21,13 +21,17 @@ const HomePageMetrics = () => {
   const breakpoint = useCurrentBreakpoint();
 
   const tradeCount = _.get(networkStats, 'tradeCount');
+  const tradeCountChange = _.get(networkStats, 'tradeCountChange');
   const traderCount = _.get(traderStats, 'traderCount');
+  const traderCountChange = _.get(traderStats, 'traderCountChange');
   const tradeVolume = _.get(networkStats, 'tradeVolume');
+  const tradeVolumeChange = _.get(networkStats, 'tradeVolumeChange');
 
   return breakpoint.greaterThan('md') ? (
     <CardGridRow minHeight="80px">
       <CardGridCol lg={3} md={6}>
         <TradeVolumeWidget
+          change={tradeVolumeChange}
           loading={loadingNetworkStats}
           period={statsParams.period}
           volume={tradeVolume}
@@ -35,6 +39,7 @@ const HomePageMetrics = () => {
       </CardGridCol>
       <CardGridCol lg={3} md={6}>
         <TradeCountWidget
+          change={tradeCountChange}
           loading={loadingNetworkStats}
           period={statsParams.period}
           tradeCount={tradeCount}
@@ -42,6 +47,7 @@ const HomePageMetrics = () => {
       </CardGridCol>
       <CardGridCol lg={3} md={6}>
         <ActiveTradersWidget
+          change={traderCountChange}
           loading={loadingTraderStats}
           period={statsParams.period}
           traderCount={traderCount}

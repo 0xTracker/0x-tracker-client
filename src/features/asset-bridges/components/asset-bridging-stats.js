@@ -20,18 +20,21 @@ const AssetBridgingStats = ({ bridgeCount, period }) => {
       <CardGridRow minHeight="80px">
         <CardGridCol lg={3} md={6}>
           <BridgedVolumeWidget
+            change={_.get(stats, 'tradeVolumeChange')}
             loading={loading}
             volume={_.get(stats, 'tradeVolume')}
           />
         </CardGridCol>
         <CardGridCol lg={3} md={6}>
           <VolumeShareWidget
+            change={_.get(stats, 'tradeVolumeShareChange')}
             loading={loading}
             volumeShare={_.get(stats, 'tradeVolumeShare')}
           />
         </CardGridCol>
         <CardGridCol lg={3} md={6}>
           <BridgedTradesWidget
+            change={_.get(stats, 'tradeCountChange')}
             loading={loading}
             tradeCount={_.get(stats, 'tradeCount')}
           />

@@ -17,42 +17,48 @@ const getColor = (value) => {
   return COLORS.NEUTRAL.MYSTIC_600;
 };
 
-const PriceChange = ({ children, className }) => (
-  <span
-    className={className}
-    css={`
-      color: ${getColor(children)};
-      margin-left: 0.5rem;
-      font-size: 1rem;
-    `}
-  >
-    {numeral(children).format('0.[00]')}%
-    {children === 0 ? (
-      <TrendingFlatIcon
-        color="currentColor"
-        css="margin: 0 0 0 0.25rem;"
-        height={20}
-        width={20}
-      />
-    ) : null}
-    {children > 0 ? (
-      <TrendingUpIcon
-        color="currentColor"
-        css="margin: 0 0 0 0.25rem;"
-        height={20}
-        width={20}
-      />
-    ) : null}
-    {children < 0 ? (
-      <TrendingDownIcon
-        color="currentColor"
-        css="margin: 0 0 0 0.25rem;"
-        height={20}
-        width={20}
-      />
-    ) : null}
-  </span>
-);
+const PriceChange = ({ children, className }) => {
+  if (children === null) {
+    return null;
+  }
+
+  return (
+    <span
+      className={className}
+      css={`
+        color: ${getColor(children)};
+        margin-left: 0.5rem;
+        font-size: 1rem;
+      `}
+    >
+      {numeral(children).format('0.[00]')}%
+      {children === 0 ? (
+        <TrendingFlatIcon
+          color="currentColor"
+          css="margin: 0 0 0 0.25rem;"
+          height={20}
+          width={20}
+        />
+      ) : null}
+      {children > 0 ? (
+        <TrendingUpIcon
+          color="currentColor"
+          css="margin: 0 0 0 0.25rem;"
+          height={20}
+          width={20}
+        />
+      ) : null}
+      {children < 0 ? (
+        <TrendingDownIcon
+          color="currentColor"
+          css="margin: 0 0 0 0.25rem;"
+          height={20}
+          width={20}
+        />
+      ) : null}
+    </span>
+  );
+};
 
 PriceChange.propTypes = {
   children: PropTypes.number.isRequired,
