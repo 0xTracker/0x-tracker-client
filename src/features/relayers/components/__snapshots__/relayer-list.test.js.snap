@@ -19,8 +19,7 @@ exports[`renders with basic props 1`] = `
       <th
         class="text-right"
       >
-        Traders
-         
+        Trades
         <svg
           aria-hidden="true"
           class="icon-base__IconBase-ngmsqy-0 hvjdWy relayer-list___StyledHelpWidget-sc-1herowu-0 drRKSR"
@@ -42,7 +41,7 @@ exports[`renders with basic props 1`] = `
       <th
         class="text-right"
       >
-        Trades
+        Volume
         <svg
           aria-hidden="true"
           class="icon-base__IconBase-ngmsqy-0 hvjdWy relayer-list___StyledHelpWidget2-sc-1herowu-1 gXsigW"
@@ -64,7 +63,8 @@ exports[`renders with basic props 1`] = `
       <th
         class="text-right"
       >
-        Volume
+        Traders
+         
         <svg
           aria-hidden="true"
           class="icon-base__IconBase-ngmsqy-0 hvjdWy relayer-list___StyledHelpWidget3-sc-1herowu-2 fuRCfg"
@@ -169,15 +169,6 @@ exports[`renders with basic props 1`] = `
         class="align-middle text-right"
       >
         <span
-          title="30"
-        >
-          30
-        </span>
-      </td>
-      <td
-        class="align-middle text-right"
-      >
-        <span
           title="256"
         >
           256
@@ -190,6 +181,40 @@ exports[`renders with basic props 1`] = `
           title="$150,456.56"
         >
           $150.46k
+        </span>
+        <span
+          class="percentage-change___StyledSpan-sc-1ocppi1-0 jgmyRa relayer-list___StyledPercentageChange2-sc-1herowu-9 fKreiS"
+        >
+          22.5
+          %
+          <svg
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy percentage-change___StyledTrendingUpIcon-sc-1ocppi1-2 dIQmKB"
+            color="currentColor"
+            fill="currentColor"
+            focusable="false"
+            height="20"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+        </span>
+      </td>
+      <td
+        class="align-middle text-right"
+      >
+        <span
+          title="30"
+        >
+          30
         </span>
       </td>
       <td />
@@ -255,15 +280,6 @@ exports[`renders with basic props 1`] = `
         class="align-middle text-right"
       >
         <span
-          title="123"
-        >
-          123
-        </span>
-      </td>
-      <td
-        class="align-middle text-right"
-      >
-        <span
           title="345"
         >
           345
@@ -276,6 +292,40 @@ exports[`renders with basic props 1`] = `
           title="$124,000.00"
         >
           $124k
+        </span>
+        <span
+          class="percentage-change___StyledSpan-sc-1ocppi1-0 cnrVcL relayer-list___StyledPercentageChange2-sc-1herowu-9 fKreiS"
+        >
+          -5.2
+          %
+          <svg
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy percentage-change___StyledTrendingDownIcon-sc-1ocppi1-3 cKIleD"
+            color="currentColor"
+            fill="currentColor"
+            focusable="false"
+            height="20"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 18l2.29-2.29-4.88-4.88-4 4L2 7.41 3.41 6l6 6 4-4 6.3 6.29L22 12v6z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+        </span>
+      </td>
+      <td
+        class="align-middle text-right"
+      >
+        <span
+          title="123"
+        >
+          123
         </span>
       </td>
       <td />
@@ -341,15 +391,6 @@ exports[`renders with basic props 1`] = `
         class="align-middle text-right"
       >
         <span
-          title="82"
-        >
-          82
-        </span>
-      </td>
-      <td
-        class="align-middle text-right"
-      >
-        <span
           title="512"
         >
           512
@@ -362,6 +403,40 @@ exports[`renders with basic props 1`] = `
           title="$100,000.00"
         >
           $100k
+        </span>
+        <span
+          class="percentage-change___StyledSpan-sc-1ocppi1-0 jgmyRa relayer-list___StyledPercentageChange2-sc-1herowu-9 fKreiS"
+        >
+          221.3
+          %
+          <svg
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy percentage-change___StyledTrendingUpIcon-sc-1ocppi1-2 dIQmKB"
+            color="currentColor"
+            fill="currentColor"
+            focusable="false"
+            height="20"
+            viewBox="0 0 24 24"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"
+            />
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+          </svg>
+        </span>
+      </td>
+      <td
+        class="align-middle text-right"
+      >
+        <span
+          title="82"
+        >
+          82
         </span>
       </td>
       <td />

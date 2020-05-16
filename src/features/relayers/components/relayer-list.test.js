@@ -12,6 +12,7 @@ const basicProps = {
       stats: {
         tradeCount: 256,
         tradeVolume: 150456.56,
+        tradeVolumeChange: 22.5,
         traderCount: 30,
       },
       url: 'https://ddex.io',
@@ -23,6 +24,7 @@ const basicProps = {
       stats: {
         tradeCount: 345,
         tradeVolume: 124000,
+        tradeVolumeChange: -5.2,
         traderCount: 123,
       },
       url: 'https://paradex.io',
@@ -34,6 +36,7 @@ const basicProps = {
       stats: {
         tradeCount: 512,
         tradeVolume: 100000,
+        tradeVolumeChange: 221.3,
         traderCount: 82,
       },
       url: 'https://radarrelay.com',
