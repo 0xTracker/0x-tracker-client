@@ -4,7 +4,6 @@ import React from 'react';
 import { TIME_PERIOD } from '../../../constants';
 import { useMetadata } from '../../../hooks';
 import Card from '../../../components/card';
-import Hidden from '../../../components/hidden';
 import PageLayout from '../../../components/page-layout';
 import SubTitle from '../../../components/sub-title';
 import TokensFilter from './tokens-filter';
@@ -37,11 +36,7 @@ const TokensPageLayout = ({
       title={
         <span>
           Traded Tokens
-          <Hidden above="xs">
-            <SubTitle>
-              {periodDescriptions[selectedFilters.statsPeriod]}
-            </SubTitle>
-          </Hidden>
+          <SubTitle>{periodDescriptions[selectedFilters.statsPeriod]}</SubTitle>
         </span>
       }
     >

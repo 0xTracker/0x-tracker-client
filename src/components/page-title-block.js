@@ -3,12 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../styles/util';
-import { COLORS } from '../styles/constants';
 import Container from './container';
 
 const Inner = styled.div`
   align-items: center;
-  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
+  border-bottom: 2px solid hsl(230, 35%, 93%);
   border-radius: 1px;
   display: flex;
   justify-content: space-between;
@@ -16,8 +15,7 @@ const Inner = styled.div`
   padding-bottom: 0.75rem;
 
   ${media.greaterThan('lg')`
-    border: none;
-    padding: 0;
+  margin-bottom: 2rem;
   `};
 `;
 

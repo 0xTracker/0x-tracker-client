@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
 import { TIME_PERIOD } from '../../../constants';
-import Hidden from '../../../components/hidden';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import PercentageChange from '../../../components/percentage-change';
 import SubTitle from '../../../components/sub-title';
@@ -40,15 +39,13 @@ const TokenPageTitle = ({ statsPeriod, token }) => (
       <TokenImage
         css="margin-right: 0.75rem;"
         imageUrl={token.imageUrl}
-        size="2rem"
+        size="35px"
       />
     )}
     <span>
       {_.isString(token.name) ? token.name : `Token: ${token.address}`}
       {_.isString(token.symbol) && ` (${token.symbol.toUpperCase()})`}
-      <Hidden above="xs">
-        <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
-      </Hidden>
+      <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
     </span>
     {_.isFinite(token.price.close) && (
       <Visible above="sm">

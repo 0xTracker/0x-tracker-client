@@ -11,8 +11,7 @@ const Wrapper = styled.div`
 
   ${media.greaterThan('lg')`
     background: none;
-    border-bottom: 2px solid hsl(230, 35%, 93%);
-    padding: 0 0 1rem;
+    margin-bottom: 2rem;
   `}
 `;
 

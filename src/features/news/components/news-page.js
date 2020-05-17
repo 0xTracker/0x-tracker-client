@@ -21,6 +21,7 @@ import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
 import SideBanner from '../../advertising/components/side-banner';
 import SubscribePanel from '../../../components/subscribe-panel';
+import SubTitle from '../../../components/sub-title';
 import useArticleSources from '../hooks/use-article-sources';
 import Visible from '../../../components/visible';
 
@@ -58,7 +59,14 @@ const NewsPage = () => {
     <>
       <PageLayout
         showBanner={breakpoint.lessThan('lg')}
-        title={source ? `${source.name} News & Updates` : 'News & Updates'}
+        title={
+          <>
+            News & Updates
+            <SubTitle>
+              from {source ? source.name : 'the 0x ecosystem'}
+            </SubTitle>
+          </>
+        }
       >
         <CardGrid>
           <CardGridRow md={8}>

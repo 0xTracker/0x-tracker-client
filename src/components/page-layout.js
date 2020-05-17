@@ -4,10 +4,8 @@ import styled from 'styled-components';
 
 import { media } from '../styles/util';
 import Container from './container';
-import Hidden from './hidden';
 import PageTitleBlock from './page-title-block';
 import TopBanner from '../features/advertising/components/top-banner';
-import Visible from './visible';
 
 const PageBody = styled(Container)`
   align-items: ${(props) => (props.centered ? 'center' : 'initial')};
@@ -30,17 +28,8 @@ const StyledPageLayout = styled.div`
 
 const PageLayout = ({ centered, children, filter, showBanner, title }) => (
   <StyledPageLayout>
-    {showBanner && (
-      <Visible above="md">
-        <TopBanner />
-      </Visible>
-    )}
     {title ? <PageTitleBlock title={title}>{filter}</PageTitleBlock> : null}
-    {showBanner && (
-      <Hidden above="md">
-        <TopBanner />
-      </Hidden>
-    )}
+    {showBanner && <TopBanner />}
     <PageBody centered={centered}>{children}</PageBody>
   </StyledPageLayout>
 );
