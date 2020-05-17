@@ -17,6 +17,7 @@ import TokenMarketCapTooltip from './token-market-cap-tooltip';
 import TokenPriceTooltip from './token-price-tooltip';
 import TokenTypeBadge from './token-type-badge';
 import Tooltip from '../../../components/tooltip';
+import tokenPropTypes from '../prop-types';
 
 const TokenListItem = ({ position, statsPeriod, token }) => (
   <tr>
@@ -56,11 +57,10 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
               amount={token.price.close}
               preferredPrecision={token.price.close >= 1 ? 2 : 4}
             />
-            {token.price.change === null ? null : (
-              <>
-                <br />
-                <PercentageChange>{token.price.change}</PercentageChange>
-              </>
+            {_.isNumber(token.price.change) && (
+              <PercentageChange css="display: block; font-size: 14px;">
+                {token.price.change}
+              </PercentageChange>
             )}
           </span>
         </Tooltip>
@@ -81,9 +81,14 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
     </td>
     <td className="align-middle" css="text-align: right;">
       <Number summarize>{token.stats.tradeCount}</Number>
+      {_.isNumber(token.stats.tradeCountChange) && (
+        <PercentageChange css="display: block; font-size: 14px;">
+          {token.stats.tradeCountChange}
+        </PercentageChange>
+      )}
     </td>
     <td className="align-middle" css="text-align: right;">
-      <TokenListItemVolume token={token} />
+      <TokenListItemVolume statsPeriod={statsPeriod} token={token} />
     </td>
     <td>
       <MiniTokenMetrics
@@ -99,7 +104,7 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
 TokenListItem.propTypes = {
   position: PropTypes.number.isRequired,
   statsPeriod: PropTypes.string.isRequired,
-  token: PropTypes.object.isRequired,
+  token: tokenPropTypes.tokenWithStats.isRequired,
 };
 
 export default TokenListItem;
