@@ -5,7 +5,7 @@ import { verbosePeriod } from '../../../util';
 import Footnote from '../../../components/footnote';
 
 const HomePageTopTokensFooter = ({ period }) => (
-  <Footnote>{verbosePeriod(period)} top tokens by volume</Footnote>
+  <Footnote>top tokens by {verbosePeriod(period)} volume</Footnote>
 );
 
 HomePageTopTokensFooter.propTypes = {

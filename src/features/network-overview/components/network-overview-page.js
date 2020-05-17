@@ -7,8 +7,10 @@ import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
 import Footnote from '../../../components/footnote';
+import Link from '../../../components/link';
 import NetworkOverviewStats from './network-overview-stats';
 import NetworkMetrics from '../../metrics/components/network-metrics';
+import Pill from '../../../components/pill';
 import ProtocolMetrics from '../../metrics/components/protocol-metrics';
 import PageLayout from '../../../components/page-layout';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
@@ -75,11 +77,21 @@ const NetworkOverviewPage = () => {
             <TabbedCard
               tabs={[
                 {
+                  actions: (
+                    <Pill as={Link} href={URL.TOKENS}>
+                      View More
+                    </Pill>
+                  ),
                   component: <TopTokens period={period} />,
                   footer: <Footnote>Top tokens by volume</Footnote>,
                   title: 'Top Tokens',
                 },
                 {
+                  actions: (
+                    <Pill as={Link} href={URL.RELAYERS}>
+                      View More
+                    </Pill>
+                  ),
                   component: <TopRelayers period={period} />,
                   footer: <Footnote>Top relayers by volume</Footnote>,
                   title: 'Top Relayers',

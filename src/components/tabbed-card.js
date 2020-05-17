@@ -37,6 +37,7 @@ const TabbedCard = ({ className, tabs }) => {
   const [selectedTab, setSelectedTab] = React.useState(0);
   const Tab = tabs[selectedTab].component;
   const TabFooter = tabs[selectedTab].footer;
+  const TabActions = tabs[selectedTab].actions;
 
   return (
     <Card className={className}>
@@ -57,6 +58,11 @@ const TabbedCard = ({ className, tabs }) => {
             ))}
           </Nav>
         )}
+        {TabActions && (
+          <div>
+            {React.isValidElement(TabActions) ? TabActions : <TabActions />}
+          </div>
+        )}
       </TabbedCardHeader>
       <CardBody padded>{React.isValidElement(Tab) ? Tab : <Tab />}</CardBody>
       {TabFooter && (
@@ -72,6 +78,11 @@ TabbedCard.propTypes = {
   className: PropTypes.string,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
+      actions: PropTypes.oneOfType([
+        PropTypes.element,
+        PropTypes.node,
+        PropTypes.object,
+      ]),
       component: PropTypes.oneOfType([
         PropTypes.element,
         PropTypes.node,

@@ -1,21 +1,22 @@
 import React from 'react';
 
-import { TIME_PERIOD } from '../../../constants';
+import { TIME_PERIOD, URL } from '../../../constants';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import { useMetadata } from '../../../hooks';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
-import ChartsContainer from '../../../components/charts-container';
 import HomePageMetrics from './home-page-metrics';
 import HomePageTopRelayersFooter from './home-page-top-relayers-footer';
 import HomePageTopTokensFooter from './home-page-top-tokens-footer';
-import getPeriodOptions from '../../../util/get-period-options';
 import LatestNewsCard from '../../news/components/latest-news-card';
+import Link from '../../../components/link';
 import NetworkMetrics from '../../metrics/components/network-metrics';
 import PageLayout from '../../../components/page-layout';
+import Pill from '../../../components/pill';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
 import SubscribePanel from '../../../components/subscribe-panel';
+import TabbedCard from '../../../components/tabbed-card';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
 
@@ -33,47 +34,67 @@ const HomePage = () => {
           <HomePageMetrics />
           <CardGridRow>
             <CardGridCol lg={7}>
-              <ChartsContainer
-                charts={[
+              <TabbedCard
+                tabs={[
                   {
-                    component: <NetworkMetrics type="tradeVolume" />,
+                    actions: (
+                      <Pill as={Link} href={URL.NETWORK_INSIGHTS}>
+                        More Insights
+                      </Pill>
+                    ),
+                    component: (
+                      <NetworkMetrics
+                        period={TIME_PERIOD.YEAR}
+                        type="tradeVolume"
+                      />
+                    ),
                     title: 'Volume',
                   },
                   {
-                    component: <NetworkMetrics type="tradeCount" />,
+                    actions: (
+                      <Pill as={Link} href={URL.NETWORK_INSIGHTS}>
+                        More Insights
+                      </Pill>
+                    ),
+                    component: (
+                      <NetworkMetrics
+                        period={TIME_PERIOD.YEAR}
+                        type="tradeCount"
+                      />
+                    ),
                     title: 'Trades',
                   },
                 ]}
-                defaultPeriod={TIME_PERIOD.YEAR}
-                periods={getPeriodOptions([
-                  TIME_PERIOD.DAY,
-                  TIME_PERIOD.WEEK,
-                  TIME_PERIOD.MONTH,
-                  TIME_PERIOD.YEAR,
-                  TIME_PERIOD.ALL,
-                ])}
               />
             </CardGridCol>
             <CardGridCol lg={5}>
-              <ChartsContainer
-                charts={[
+              <TabbedCard
+                tabs={[
                   {
-                    component: TopTokens,
-                    footer: HomePageTopTokensFooter,
+                    actions: (
+                      <Pill as={Link} href={URL.TOKENS}>
+                        View More
+                      </Pill>
+                    ),
+                    component: <TopTokens period={TIME_PERIOD.DAY} />,
+                    footer: (
+                      <HomePageTopTokensFooter period={TIME_PERIOD.DAY} />
+                    ),
                     title: 'Top Tokens',
                   },
                   {
-                    component: TopRelayers,
-                    footer: HomePageTopRelayersFooter,
+                    actions: (
+                      <Pill as={Link} href={URL.RELAYERS}>
+                        View More
+                      </Pill>
+                    ),
+                    component: <TopRelayers period={TIME_PERIOD.DAY} />,
+                    footer: (
+                      <HomePageTopRelayersFooter period={TIME_PERIOD.DAY} />
+                    ),
                     title: 'Top Relayers',
                   },
                 ]}
-                defaultPeriod={TIME_PERIOD.WEEK}
-                periods={getPeriodOptions([
-                  TIME_PERIOD.DAY,
-                  TIME_PERIOD.WEEK,
-                  TIME_PERIOD.MONTH,
-                ])}
               />
             </CardGridCol>
           </CardGridRow>
