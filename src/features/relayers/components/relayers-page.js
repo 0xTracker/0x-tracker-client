@@ -8,7 +8,6 @@ import {
   useSearchParam,
 } from '../../../hooks';
 import Card from '../../../components/card';
-import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
@@ -53,9 +52,7 @@ const RelayersPage = () => {
       title={
         <>
           Active Relayers
-          <Hidden above="xs">
-            <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
-          </Hidden>
+          <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
         </>
       }
     >

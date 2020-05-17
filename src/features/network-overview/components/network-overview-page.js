@@ -7,7 +7,6 @@ import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
 import Footnote from '../../../components/footnote';
-import Hidden from '../../../components/hidden';
 import NetworkOverviewStats from './network-overview-stats';
 import NetworkMetrics from '../../metrics/components/network-metrics';
 import ProtocolMetrics from '../../metrics/components/protocol-metrics';
@@ -47,9 +46,7 @@ const NetworkOverviewPage = () => {
       title={
         <>
           Network Insights
-          <Hidden above="md">
-            <SubTitle>{periodDescriptions[period]}</SubTitle>
-          </Hidden>
+          <SubTitle>{periodDescriptions[period]}</SubTitle>
         </>
       }
     >

@@ -14,7 +14,6 @@ import Card from '../../../components/card';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
-import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
@@ -25,11 +24,11 @@ import useAssetBridges from '../hooks/use-asset-bridges';
 import HelpWidget from '../../../components/help-widget';
 
 const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'active in the last 24h',
-  [TIME_PERIOD.WEEK]: 'active in the last 7d',
-  [TIME_PERIOD.MONTH]: 'active in the last 30d',
-  [TIME_PERIOD.YEAR]: 'active in the last 365d',
-  [TIME_PERIOD.ALL]: 'active since 0x launch',
+  [TIME_PERIOD.DAY]: 'in the last 24h',
+  [TIME_PERIOD.WEEK]: 'in the last 7d',
+  [TIME_PERIOD.MONTH]: 'in the last 30d',
+  [TIME_PERIOD.YEAR]: 'in the last 365d',
+  [TIME_PERIOD.ALL]: 'since 0x launch',
 };
 
 const AssetBridgesPage = () => {
@@ -62,7 +61,7 @@ const AssetBridgesPage = () => {
       title={
         <>
           <span css="display: flex; align-items: center;">
-            Asset Bridges{' '}
+            Active Asset Bridges{' '}
             <HelpWidget css="margin-left: 0.5rem;">
               Asset bridges allow 0x to tap into on-chain liquidity sources like
               Kyber and Uniswap by sourcing maker liquidity from contracts
@@ -70,9 +69,7 @@ const AssetBridgesPage = () => {
               contract activity for a given period of time.
             </HelpWidget>
           </span>
-          <Hidden above="xs">
-            <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
-          </Hidden>
+          <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
         </>
       }
     >

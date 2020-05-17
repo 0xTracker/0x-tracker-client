@@ -10,7 +10,6 @@ import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
 import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
-import Hidden from '../../../components/hidden';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import Paginator from '../../../components/paginator';
@@ -86,9 +85,7 @@ const TradersPage = () => {
       title={
         <>
           Active {DESCRIPTOR_MAPPINGS[type]}
-          <Hidden above="xs">
-            <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
-          </Hidden>
+          <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
         </>
       }
     >
