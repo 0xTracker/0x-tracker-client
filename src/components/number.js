@@ -1,11 +1,14 @@
+import _ from 'lodash';
 import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
 import summarizeNumber from '../util/summarize-number';
 
-const Number = ({ children, summarize, title }) => {
-  const formattedValue = numeral(children).format('0,0');
+const Number = ({ children, precision, summarize, title }) => {
+  const formattedValue = numeral(children).format(
+    precision === 0 ? '0,0' : `0,0.[${_.repeat('0', precision)}]`,
+  );
 
   if (summarize) {
     return (
