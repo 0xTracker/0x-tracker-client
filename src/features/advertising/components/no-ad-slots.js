@@ -6,6 +6,7 @@ import CardBody from '../../../components/card-body';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
+import CardPlaceholder from '../../../components/card-placeholder';
 
 const NoAdSlots = () => (
   <AdManagerPageLayout>
@@ -14,7 +15,9 @@ const NoAdSlots = () => (
         <CardGridCol>
           <Card>
             <CardBody padded>
-              No ad slots belong to the connected wallet.
+              <CardPlaceholder>
+                No ad slots were found belonging to this wallet.
+              </CardPlaceholder>
             </CardBody>
           </Card>
         </CardGridCol>
