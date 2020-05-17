@@ -1,16 +1,23 @@
 import { useWallet, UseWalletProvider } from 'use-wallet';
 import React from 'react';
 
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 import AdSlotManager from './ad-slot-manager';
 import LoadingAdSlots from './loading-ad-slots';
 import MetamaskRequired from './metamask-required';
 import NoAdSlots from './no-ad-slots';
+import UnsupportedBreakpoint from './unsupported-breakpoint';
 import UseAdvertisingSlots from '../hooks/use-advertising-slots';
 import WalletDisconnected from './wallet-disconnected';
 
 const AdManagerPage = () => {
   const wallet = useWallet();
   const [adSlots, loadingAdSlots] = UseAdvertisingSlots(wallet);
+  const breakpoint = useCurrentBreakpoint();
+
+  if (breakpoint.lessThan('lg')) {
+    return <UnsupportedBreakpoint />;
+  }
 
   if (window.ethereum === undefined) {
     return <MetamaskRequired />;
