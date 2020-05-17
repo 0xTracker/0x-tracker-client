@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import Number from '../../../components/number';
+import PercentageChange from '../../../components/percentage-change';
 import TokenImage from './token-image';
 import TokenLink from './token-link';
 import tokensPropTypes from '../prop-types';
@@ -57,10 +57,11 @@ const TopTokensTable = ({ statsPeriod, tokens }) => (
               css="font-weight: 500; display: block; line-height: 1;"
               summarize
             />
-            <SecondaryText>
-              <Number summarize>{token.stats.tradeVolume.token}</Number>{' '}
-              {token.symbol}
-            </SecondaryText>
+            {_.isNumber(token.stats.tradeVolumeChange.USD) && (
+              <PercentageChange css="display: block;">
+                {token.stats.tradeVolumeChange.USD}
+              </PercentageChange>
+            )}
           </TableCell>
         </TableRow>
       ))}
