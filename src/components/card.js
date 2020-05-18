@@ -8,7 +8,6 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: ${(props) => (props.autoHeight ? '1' : '0')};
-  overflow: hidden;
 `;
 
 Card.defaultProps = {
