@@ -1,3 +1,4 @@
+import { useLocation } from 'react-use';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
@@ -8,6 +9,7 @@ import { MenuIcon, NotificationsIcon } from '../../../components/icons';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import Container from '../../../components/container';
 import HeaderActions from './header-actions';
+import HeaderSearch from './header-search';
 import Link from '../../../components/link';
 import logoImage from '../../../assets/images/logo-grayscale.svg';
 import MobileMenu from './mobile-menu';
@@ -51,6 +53,8 @@ const NotificationsButton = styled(MenuButton)`
 `;
 
 const Header = () => {
+  const location = useLocation();
+  const [searchVisible, setSearchVisible] = useState(location.pathname === '/');
   const [mobileMenuState, updateMobileMenuState] = useState('closed');
   const breakpoint = useCurrentBreakpoint();
 
@@ -95,7 +99,12 @@ const Header = () => {
           {isDesktop ? (
             <>
               <Navigation css="flex-grow: 1;" />
-              <HeaderActions />
+              <HeaderActions
+                onSearchClick={() => {
+                  setSearchVisible(true);
+                }}
+                showSearch={location.pathname !== '/'}
+              />
             </>
           ) : (
             <div css="display: flex; align-items: center;">
@@ -109,6 +118,25 @@ const Header = () => {
           )}
         </Container>
       </StyledHeader>
+      {searchVisible && (
+        <div
+          css={`
+            background: ${COLORS.NEUTRAL.MYSTIC_300};
+            padding: 1rem 0;
+          `}
+        >
+          <Container>
+            <HeaderSearch
+              autoFocus={location.pathname !== '/'}
+              onBlur={() => {
+                if (location.pathname !== '/') {
+                  setSearchVisible(false);
+                }
+              }}
+            />
+          </Container>
+        </div>
+      )}
     </SettingsDialogProvider>
   );
 };

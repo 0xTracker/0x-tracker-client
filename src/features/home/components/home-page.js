@@ -7,7 +7,6 @@ import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
 import HomePageMetrics from './home-page-metrics';
-import HomePageSearch from './home-page-search';
 import HomePageTopRelayersFooter from './home-page-top-relayers-footer';
 import HomePageTopTokensFooter from './home-page-top-tokens-footer';
 import LatestNewsCard from '../../news/components/latest-news-card';
@@ -32,7 +31,6 @@ const HomePage = () => {
     <>
       <PageLayout>
         <CardGrid>
-          <HomePageSearch />
           <HomePageMetrics />
           <CardGridRow>
             <CardGridCol lg={7}>

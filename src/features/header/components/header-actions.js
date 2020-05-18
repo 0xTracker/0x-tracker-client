@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
@@ -7,7 +8,6 @@ import {
   SearchIcon,
   SettingsIcon,
 } from '../../../components/icons';
-import HeaderSearch from './header-search';
 import Link from '../../../components/link';
 import useSettingsDialog from '../../preferences/hooks/use-settings-dialog';
 
@@ -43,24 +43,20 @@ const NotificationsButton = styled(ActionButton)`
   }
 `;
 
-const HeaderActions = () => {
-  const [searchVisible, setSearchVisibility] = useState(false);
+const HeaderActions = ({ onSearchClick, showSearch }) => {
   const settingsDialog = useSettingsDialog();
-  const hideSearch = () => setSearchVisibility(false);
 
   useEffect(() => {
-    if (typeof Headway !== 'undefined' && !searchVisible) {
+    if (typeof Headway !== 'undefined') {
       Headway.init({
         account: 'xGOQOx',
         selector: '.headway',
         trigger: '.headway',
       });
     }
-  }, [searchVisible]);
+  });
 
-  return searchVisible ? (
-    <HeaderSearch onBlur={hideSearch} onSearch={hideSearch} />
-  ) : (
+  return (
     <div css="display: flex; align-items: center;">
       <NotificationsButton className="headway">
         <NotificationsIcon color="currentColor" height={26} width={26} />
@@ -68,9 +64,11 @@ const HeaderActions = () => {
       <ActionButton onClick={() => settingsDialog.show()} title="Settings">
         <SettingsIcon color="currentColor" height={22} width={22} />
       </ActionButton>
-      <ActionButton onClick={() => setSearchVisibility(true)} title="Search">
-        <SearchIcon color="currentColor" height={22} width={22} />
-      </ActionButton>
+      {showSearch && (
+        <ActionButton onClick={() => onSearchClick()} title="Search">
+          <SearchIcon color="currentColor" height={22} width={22} />
+        </ActionButton>
+      )}
       <Link
         href="https://www.buymeacoffee.com/0xTracker"
         onClick={() => {
@@ -88,6 +86,11 @@ const HeaderActions = () => {
       </Link>
     </div>
   );
+};
+
+HeaderActions.propTypes = {
+  onSearchClick: PropTypes.func.isRequired,
+  showSearch: PropTypes.bool.isRequired,
 };
 
 export default HeaderActions;
