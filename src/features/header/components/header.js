@@ -9,11 +9,11 @@ import { MenuIcon, NotificationsIcon } from '../../../components/icons';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import Container from '../../../components/container';
 import HeaderActions from './header-actions';
-import HeaderSearch from './header-search';
 import Link from '../../../components/link';
 import logoImage from '../../../assets/images/logo-grayscale.svg';
 import MobileMenu from './mobile-menu';
 import Navigation from './navigation';
+import SearchBox from '../../search/components/search-box';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
 
 const LogoImage = styled.img`
@@ -126,7 +126,7 @@ const Header = () => {
           `}
         >
           <Container>
-            <HeaderSearch
+            <SearchBox
               autoFocus={location.pathname !== '/'}
               onBlur={() => {
                 if (location.pathname !== '/') {
