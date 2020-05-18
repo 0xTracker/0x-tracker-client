@@ -1,4 +1,4 @@
-import { useLocation } from 'react-use';
+import { useKey, useLocation } from 'react-use';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
@@ -77,6 +77,11 @@ const Header = () => {
   }, []);
 
   const isDesktop = breakpoint.greaterThan('md');
+
+  useKey('/', (event) => {
+    event.preventDefault();
+    setSearchVisible(true);
+  });
 
   return (
     <SettingsDialogProvider>

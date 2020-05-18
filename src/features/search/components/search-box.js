@@ -1,4 +1,4 @@
-import { useLockBodyScroll } from 'react-use';
+import { useKey, useLockBodyScroll } from 'react-use';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -49,9 +49,14 @@ const SearchButton = styled.button`
 
 const SearchBox = ({ autoFocus, onBlur }) => {
   const [focused, setFocused] = React.useState(autoFocus);
+  const inputRef = React.useRef();
 
   useLockBodyScroll(focused);
   useEscapeKey(onBlur);
+  useKey('/', (event) => {
+    event.preventDefault();
+    inputRef.current.focus();
+  });
 
   return (
     <>
@@ -70,6 +75,7 @@ const SearchBox = ({ autoFocus, onBlur }) => {
             onFocus={() => {
               setFocused(true);
             }}
+            ref={inputRef}
           />
           <SearchButton type="submit">Search</SearchButton>
         </CardBody>

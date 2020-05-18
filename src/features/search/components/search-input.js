@@ -94,14 +94,13 @@ function getSectionSuggestions(section) {
   return section.suggestions;
 }
 
-const SearchInput = ({ autoFocus, onBlur, onFocus }) => {
+const SearchInput = React.forwardRef(({ autoFocus, onBlur, onFocus }, ref) => {
   const { navigateTo } = useNavigator();
   const [inputValue, setInputValue] = React.useState('');
   const [suggestions, setSearchTerm] = useAutocomplete();
-  const inputRef = React.useRef();
 
   useEscapeKey(() => {
-    inputRef.current.blur();
+    ref.current.blur();
   });
 
   return (
@@ -121,7 +120,7 @@ const SearchInput = ({ autoFocus, onBlur, onFocus }) => {
             onFocus();
           },
           placeholder: 'Search for tokens, relayers, traders or fills',
-          ref: inputRef,
+          ref,
           value: inputValue,
         }}
         multiSection
@@ -129,7 +128,7 @@ const SearchInput = ({ autoFocus, onBlur, onFocus }) => {
           setSearchTerm(null);
         }}
         onSuggestionSelected={(event, { suggestion }) => {
-          inputRef.current.blur();
+          ref.current.blur();
 
           if (suggestion.type === 'token') {
             navigateTo(buildTokenUrl(suggestion.address), undefined, {
@@ -169,7 +168,9 @@ const SearchInput = ({ autoFocus, onBlur, onFocus }) => {
       />
     </InputWrapper>
   );
-};
+});
+
+SearchInput.displayName = 'SearchInput';
 
 SearchInput.propTypes = {
   autoFocus: PropTypes.bool.isRequired,
