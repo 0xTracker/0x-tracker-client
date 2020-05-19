@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../../../styles/util';
-import Container from '../../../components/container';
 import TopBannerView from './top-banner-view';
 import useAdvertRandomizer from '../hooks/use-advert-randomizer';
 
@@ -23,11 +22,9 @@ const TopBanner = () => {
   }
 
   return (
-    <Container>
-      <Wrapper>
-        <TopBannerView advert={advert} />
-      </Wrapper>
-    </Container>
+    <Wrapper>
+      <TopBannerView advert={advert} />
+    </Wrapper>
   );
 };
 

@@ -4,7 +4,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
-import { SearchIcon } from '../../../components/icons';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
 import SearchInput from './search-input';
@@ -21,30 +20,6 @@ const SearchOverlay = styled.div.withConfig({
   width: 100%;
   height: 100%;
   z-index: 5;
-`;
-
-const SearchIconWrapper = styled.div`
-  background-color: ${COLORS.NEUTRAL.MYSTIC_100};
-  border-bottom-left-radius: 4px;
-  border-top-left-radius: 4px;
-  color: ${COLORS.NEUTRAL.MYSTIC_400};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 16px;
-`;
-
-const SearchButton = styled.button`
-  background: ${COLORS.ACCENT.ANZAC_500};
-  border: none;
-  border-radius: 4px;
-  color: ${COLORS.ACCENT.ANZAC_1000};
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  margin: 8px;
-  padding: 4px 16px;
-  text-transform: uppercase;
 `;
 
 const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
@@ -74,12 +49,24 @@ const SearchBox = ({ autoFocus, onBlur }) => {
   return (
     <>
       <SearchOverlay visible={focused} />
-      <Card css=" position: relative; z-index: 6;">
-        <CardBody>
-          <form action="/search" css="display: flex;" method="get">
-            <SearchIconWrapper>
+      <Card
+        css={`
+          box-shadow: none;
+          color: ${COLORS.PRIMARY.SCAMPI_1000};
+          position: relative;
+          z-index: 6;
+          height: 36px;
+        `}
+      >
+        <CardBody css="height: 36px;">
+          <form
+            action="/search"
+            css="display: flex; flex-grow: 1; padding: 6px 6px 6px 12px;"
+            method="get"
+          >
+            {/* <SearchIconWrapper>
               <SearchIcon size={20} />
-            </SearchIconWrapper>
+            </SearchIconWrapper> */}
             <SearchInput
               autoFocus={autoFocus}
               name="q"
@@ -99,12 +86,12 @@ const SearchBox = ({ autoFocus, onBlur }) => {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin: 8px 0;
-                padding: 0 16px;
+                padding: 0 8px;
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
                 font-size: 12px;
                 font-weight: 500;
+                height: 100%;
               `}
             >
               <svg
@@ -124,7 +111,7 @@ const SearchBox = ({ autoFocus, onBlur }) => {
               </svg>
               {focused ? 'esc' : '/'}
             </div>
-            <SearchButton type="submit">Search</SearchButton>
+            {/* <SearchButton type="submit">Search</SearchButton> */}
           </form>
         </CardBody>
       </Card>

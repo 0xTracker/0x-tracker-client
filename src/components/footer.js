@@ -7,11 +7,6 @@ import { COLORS } from '../styles/constants';
 import { DiscordIcon, TwitterIcon } from './icons';
 import Container from './container';
 import Link from './link';
-import logoImage from '../assets/images/logo-simple.svg';
-
-const Logo = styled.img`
-  height: 2.25rem;
-`;
 
 const NavHeading = styled.h2`
   color: white;
@@ -30,7 +25,7 @@ const Description = styled.p`
   max-width: 350px;
 
   ${media.greaterThan('md')`
-    margin: 1rem 0 1.5rem;
+    margin: 0 0 1.5rem;
   `}
 `;
 
@@ -117,77 +112,84 @@ const Wrapper = styled.div`
 
 const Footer = () => (
   <Wrapper>
-    <Container>
-      <Row>
-        <Info md={4} xs={12}>
-          <Logo alt="0x Tracker" src={logoImage} />
-          <Description>
-            The leading provider of 0x protocol market data, transparent
-            Ethereum token price index and 0x protocol news aggregator.
-          </Description>
-          <nav css="display: flex;">
-            <SocialLink href="https://twitter.com/0xTracker">
-              <TwitterIcon size="18" />
-            </SocialLink>
-            <SocialLink href="https://discord.gg/tnV8hud">
-              <DiscordIcon size="18" />
-            </SocialLink>
-          </nav>
-        </Info>
-        <Col md={{ offset: 2, size: 2 }} sm={4} xs={6}>
-          <NavHeading>About</NavHeading>
-          <nav>
-            <NavLink href="/news-and-updates/0x-tracker">Blog</NavLink>
-            <NavLink href="https://docs.0xtracker.com/#need-to-get-in-touch">
-              Contact
-            </NavLink>
-            <NavLink href="https://docs.0xtracker.com/faqs">FAQs</NavLink>
-            <NavLink href="https://docs.0xtracker.com/">Overview</NavLink>
-          </nav>
-        </Col>
-        <Col md={2} sm={4} xs={6}>
-          <NavHeading>Developers</NavHeading>
-          <nav>
-            <NavLink href="https://docs.0xtracker.com/api-reference/introduction">
-              API
-            </NavLink>
-            <NavLink href="https://docs.0xtracker.com/contributing">
-              Contributing
-            </NavLink>
-            <NavLink href="https://github.com/0xtracker">GitHub</NavLink>
-          </nav>
-        </Col>
-        <Col md={2} sm={4} xs={6}>
-          <NavHeading>Resources</NavHeading>
-          <nav>
-            <NavLink href="https://headwayapp.co/0x-tracker-changelog">
-              Changelog
-            </NavLink>
-            <NavLink href="/privacy">Privacy Policy</NavLink>
-            <NavLink href="https://trello.com/b/4cY2eOsQ/0x-tracker-roadmap">
-              Roadmap
-            </NavLink>
-            <NavLink href="/terms">Terms Of Use</NavLink>
-          </nav>
-        </Col>
-      </Row>
-      <SecondaryLinks>
-        <License>
-          Licensed under{' '}
-          <FooterLink href="https://github.com/0xTracker/0x-tracker-client/blob/master/LICENSE">
-            Apache-2.0
-          </FooterLink>
-        </License>
-        <PoweredBy>
-          Powered by <FooterLink href="https://0x.org">0x</FooterLink> and{' '}
-          <FooterLink href="https://ethereum.org/">Ethereum</FooterLink> with
-          pricing data from{' '}
-          <FooterLink href="https://min-api.cryptocompare.com/">
-            CryptoCompare
-          </FooterLink>
-        </PoweredBy>
-      </SecondaryLinks>
-    </Container>
+    <Row>
+      <Info md={4} xs={12}>
+        <Description>
+          The leading provider of 0x protocol market data, transparent Ethereum
+          token price index and 0x protocol news aggregator.
+        </Description>
+        <nav css="display: flex;">
+          <SocialLink href="https://twitter.com/0xTracker">
+            <TwitterIcon size="18" />
+          </SocialLink>
+          <SocialLink href="https://discord.gg/tnV8hud">
+            <DiscordIcon size="18" />
+          </SocialLink>
+        </nav>
+      </Info>
+      <Col md={{ offset: 2, size: 2 }} sm={4} xs={6}>
+        <NavHeading>About</NavHeading>
+        <nav>
+          <NavLink href="/news-and-updates/0x-tracker">Blog</NavLink>
+          <NavLink href="https://docs.0xtracker.com/#need-to-get-in-touch">
+            Contact
+          </NavLink>
+          <NavLink
+            href="https://www.buymeacoffee.com/0xTracker"
+            onClick={() => {
+              if (window.fathom) {
+                window.fathom.trackGoal('MYB7SWUU', 0);
+              }
+            }}
+          >
+            Donate
+          </NavLink>
+          <NavLink href="https://docs.0xtracker.com/faqs">FAQs</NavLink>
+          <NavLink href="https://docs.0xtracker.com/">Overview</NavLink>
+        </nav>
+      </Col>
+      <Col md={2} sm={4} xs={6}>
+        <NavHeading>Developers</NavHeading>
+        <nav>
+          <NavLink href="https://docs.0xtracker.com/api-reference/introduction">
+            API
+          </NavLink>
+          <NavLink href="https://docs.0xtracker.com/contributing">
+            Contributing
+          </NavLink>
+          <NavLink href="https://github.com/0xtracker">GitHub</NavLink>
+        </nav>
+      </Col>
+      <Col md={2} sm={4} xs={6}>
+        <NavHeading>Resources</NavHeading>
+        <nav>
+          <NavLink href="https://headwayapp.co/0x-tracker-changelog">
+            Changelog
+          </NavLink>
+          <NavLink href="/privacy">Privacy Policy</NavLink>
+          <NavLink href="https://trello.com/b/4cY2eOsQ/0x-tracker-roadmap">
+            Roadmap
+          </NavLink>
+          <NavLink href="/terms">Terms Of Use</NavLink>
+        </nav>
+      </Col>
+    </Row>
+    <SecondaryLinks>
+      <License>
+        Licensed under{' '}
+        <FooterLink href="https://github.com/0xTracker/0x-tracker-client/blob/master/LICENSE">
+          Apache-2.0
+        </FooterLink>
+      </License>
+      <PoweredBy>
+        Powered by <FooterLink href="https://0x.org">0x</FooterLink> and{' '}
+        <FooterLink href="https://ethereum.org/">Ethereum</FooterLink> with
+        pricing data from{' '}
+        <FooterLink href="https://min-api.cryptocompare.com/">
+          CryptoCompare
+        </FooterLink>
+      </PoweredBy>
+    </SecondaryLinks>
   </Wrapper>
 );
 

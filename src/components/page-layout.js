@@ -3,11 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../styles/util';
-import Container from './container';
+import Hidden from './hidden';
 import PageTitleBlock from './page-title-block';
 import TopBanner from '../features/advertising/components/top-banner';
 
-const PageBody = styled(Container)`
+const PageBody = styled.div`
   align-items: ${(props) => (props.centered ? 'center' : 'initial')};
   display: flex;
   flex-direction: column;
@@ -19,17 +19,21 @@ const StyledPageLayout = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 1.25rem 0;
+  padding: 1.25rem;
 
-  ${media.greaterThan('md')`
-    padding: 2rem 0;
+  ${media.greaterThan('lg')`
+    padding: 2rem;
   `}
 `;
 
 const PageLayout = ({ centered, children, filter, showBanner, title }) => (
   <StyledPageLayout>
     {title ? <PageTitleBlock title={title}>{filter}</PageTitleBlock> : null}
-    {showBanner && <TopBanner />}
+    {showBanner && (
+      <Hidden above="lg">
+        <TopBanner />
+      </Hidden>
+    )}
     <PageBody centered={centered}>{children}</PageBody>
   </StyledPageLayout>
 );

@@ -216,9 +216,6 @@ const ArticlePage = () => {
             </CardGridCol>
             <CardGridCol lg={5}>
               <div css="position: sticky; top: 30px;">
-                <Visible above="md">
-                  <SideBanner css="margin-bottom: 2rem;" />
-                </Visible>
                 <LatestNewsCard autoHeight={false} />
               </div>
             </CardGridCol>

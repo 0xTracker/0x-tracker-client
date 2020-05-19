@@ -2,10 +2,9 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
-import { COLORS } from '../../../styles/constants';
 import {
+  DonateIcon,
   NotificationsIcon,
-  SearchIcon,
   SettingsIcon,
 } from '../../../components/icons';
 import Link from '../../../components/link';
@@ -21,11 +20,10 @@ const ActionButton = styled.button`
   display: flex;
   justify-content: center;
   margin: 0 0.5rem 0 0;
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0 0.5rem 0.75rem;
 
   &:hover {
-    background: white;
-    color: ${COLORS.PRIMARY.SCAMPI_900};
+    color: white;
   }
 
   &:last-child {
@@ -43,7 +41,7 @@ const NotificationsButton = styled(ActionButton)`
   }
 `;
 
-const HeaderActions = ({ onSearchClick, showSearch }) => {
+const HeaderActions = () => {
   const settingsDialog = useSettingsDialog();
 
   useEffect(() => {
@@ -61,15 +59,8 @@ const HeaderActions = ({ onSearchClick, showSearch }) => {
       <NotificationsButton className="headway">
         <NotificationsIcon color="currentColor" height={26} width={26} />
       </NotificationsButton>
-      <ActionButton onClick={() => settingsDialog.show()} title="Settings">
-        <SettingsIcon color="currentColor" height={22} width={22} />
-      </ActionButton>
-      {showSearch && (
-        <ActionButton onClick={() => onSearchClick()} title="Search">
-          <SearchIcon color="currentColor" height={22} width={22} />
-        </ActionButton>
-      )}
-      <Link
+      <ActionButton
+        as={Link}
         href="https://www.buymeacoffee.com/0xTracker"
         onClick={() => {
           if (window.fathom) {
@@ -78,19 +69,13 @@ const HeaderActions = ({ onSearchClick, showSearch }) => {
         }}
         title="Help support 0x Tracker development with a donation"
       >
-        <img
-          alt="Donate"
-          css="height: 37px; border-radius: 0.25rem;"
-          src="https://resources.0xtracker.com/images/donate-button.png"
-        />
-      </Link>
+        <DonateIcon color="currentColor" height={22} width={22} />
+      </ActionButton>
+      <ActionButton onClick={() => settingsDialog.show()} title="Settings">
+        <SettingsIcon color="currentColor" height={22} width={22} />
+      </ActionButton>
     </div>
   );
-};
-
-HeaderActions.propTypes = {
-  onSearchClick: PropTypes.func.isRequired,
-  showSearch: PropTypes.bool.isRequired,
 };
 
 export default HeaderActions;

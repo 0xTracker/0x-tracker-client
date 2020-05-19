@@ -30,12 +30,12 @@ const InputWrapper = styled.div`
     flex-grow: 1;
     height: 100%;
     outline: none;
-    padding: 0 8px;
+    padding: 0;
     text-overflow: ellipsis;
     width: 100%;
 
     &::placeholder {
-      color: ${COLORS.NEUTRAL.MYSTIC_400};
+      color: ${COLORS.NEUTRAL.MYSTIC_500};
     }
   }
 
@@ -46,7 +46,7 @@ const InputWrapper = styled.div`
     display: block;
     left: 0;
     position: absolute;
-    margin: 8px 0 0;
+    margin: 16px 0 0;
     z-index: 100;
     width: 100%;
     overflow-y: auto;
@@ -123,7 +123,6 @@ const SearchInput = React.forwardRef(
           getSuggestionValue={getSuggestionValue}
           highlightFirstSuggestion
           inputProps={{
-            autoFocus,
             name,
             onBlur: () => {
               onBlur();

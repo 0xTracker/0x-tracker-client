@@ -27,6 +27,8 @@ const GlobalStyles = createGlobalStyle`
 
   .table {
     border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     color: currentColor;
     margin: 0;
   }
@@ -63,12 +65,12 @@ const GlobalStyles = createGlobalStyle`
   
   .table tbody td:first-child,
   .table thead th:first-child {
-    padding-left: 2rem;
+    padding-left: 1.5rem;
   }
   
   .table tbody td:last-child,
   .table thead th:last-child {
-    padding-right: 2rem;
+    padding-right: 1.5rem;
   }
 
   .modal-backdrop.show {

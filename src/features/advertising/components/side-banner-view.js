@@ -8,49 +8,46 @@ import Badge from '../../../components/badge';
 import Link from '../../../components/link';
 
 const Icon = styled.img`
+  display: block;
   border-radius: 4px;
-  float: left;
-  height: 20px;
-  margin-right: 8px;
-  width: 20px;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto 16px auto;
 `;
 
 const LearnMoreLink = styled(Link)`
-  color: ${COLORS.PRIMARY.SCAMPI_500};
+  color: ${COLORS.PRIMARY.SCAMPI_300};
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: 14px;
-  margin-left: 28px;
   margin-top: 8px;
 `;
 
 const Wrapper = styled.div`
-  background: ${COLORS.NEUTRAL.MYSTIC_300};
+  background: ${COLORS.PRIMARY.SCAMPI_800};
+  bottom: 12px;
+  position: absolute;
+  color: white;
   border-radius: 4px;
-  padding: 1rem;
-`;
-
-const SponsoredBadge = styled(Badge).attrs({
-  bgColor: COLORS.PRIMARY.SCAMPI_700,
-  textColor: COLORS.NEUTRAL.MYSTIC_100,
-})`
-  align-items: center;
-  display: flex;
-  height: 20px;
-  float: right;
+  padding: 12px;
+  width: 226px;
+  left: 12px;
+  text-align: center;
 `;
 
 const Title = styled.strong`
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   margin-right: 4px;
 `;
 
 const Description = styled.p`
-  margin-bottom: 0;
-  margin-left: 28px;
-  margin-top: 8px;
+  color: ${COLORS.PRIMARY.SCAMPI_100};
+  clear: both;
+  margin-bottom: 16px;
+  padding-top: 8px;
   font-size: 14px;
 `;
 
@@ -63,9 +60,6 @@ const SideBannerView = ({ advert, className }) => {
 
   return (
     <Wrapper className={className}>
-      <AdvertisingTooltip enabled={false}>
-        <SponsoredBadge>Sponsored</SponsoredBadge>
-      </AdvertisingTooltip>
       <Link href={advert.url} onClick={handleClick} sponsored>
         <Icon height={20} src={advert.imageUrl} width={20} />
       </Link>

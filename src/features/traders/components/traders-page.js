@@ -90,7 +90,7 @@ const TradersPage = () => {
       }
     >
       <CardGrid>
-        <CardGridRow>
+        <CardGridRow minHeight="330px">
           <CardGridCol lg={7}>
             <Card>
               <CardHeader>
