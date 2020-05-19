@@ -5,11 +5,10 @@ import styled from 'styled-components';
 import { media } from '../styles/util';
 import { COLORS } from '../styles/constants';
 import { DiscordIcon, TwitterIcon } from './icons';
-import Container from './container';
 import Link from './link';
 
 const NavHeading = styled.h2`
-  color: white;
+  color: ${COLORS.PRIMARY.SCAMPI_500};
   font-size: 0.9rem;
   letter-spacing: 0.05em;
   margin: 2rem 0 1rem 0;
@@ -44,8 +43,8 @@ const NavLink = styled(FooterLink)`
 
 const SocialLink = styled(Link)`
   align-items: center;
-  background-color: ${COLORS.PRIMARY.SCAMPI_800};
-  color: ${COLORS.PRIMARY.SCAMPI_100};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+  color: ${COLORS.PRIMARY.SCAMPI_1000};
   border-radius: 0.25rem;
   display: flex;
   height: 35px;
@@ -54,8 +53,7 @@ const SocialLink = styled(Link)`
   width: 35px;
 
   &:hover {
-    background-color: white;
-    color: ${COLORS.PRIMARY.SCAMPI_900};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 `;
 
@@ -78,7 +76,7 @@ const License = styled.div`
 
 const SecondaryLinks = styled.div`
   border-radius: 1px;
-  border-top: 2px solid ${COLORS.PRIMARY.SCAMPI_800};
+  border-top: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
   font-size: 0.8rem;
   margin-top: 3rem;
   padding-top: 2rem;
@@ -101,8 +99,8 @@ const Info = styled(Col)`
 `;
 
 const Wrapper = styled.div`
-  background-color: ${COLORS.PRIMARY.SCAMPI_900};
-  color: ${COLORS.PRIMARY.SCAMPI_100};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  color: ${COLORS.PRIMARY.SCAMPI_1000};
   padding: 2rem 1rem;
 
   ${media.greaterThan('md')`
@@ -114,6 +112,7 @@ const Footer = () => (
   <Wrapper>
     <Row>
       <Info md={4} xs={12}>
+        <NavHeading>0x Tracker</NavHeading>
         <Description>
           The leading provider of 0x protocol market data, transparent Ethereum
           token price index and 0x protocol news aggregator.
@@ -131,9 +130,6 @@ const Footer = () => (
         <NavHeading>About</NavHeading>
         <nav>
           <NavLink href="/news-and-updates/0x-tracker">Blog</NavLink>
-          <NavLink href="https://docs.0xtracker.com/#need-to-get-in-touch">
-            Contact
-          </NavLink>
           <NavLink
             href="https://www.buymeacoffee.com/0xTracker"
             onClick={() => {

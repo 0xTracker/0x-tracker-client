@@ -7,9 +7,15 @@ import subscribeImage from '../assets/images/subscribe.png';
 
 const Wrapper = styled.div`
   background-color: ${COLORS.NEUTRAL.MYSTIC_300};
-  padding: 2rem 0 3rem 0;
+  padding: 0 2rem;
+`;
+
+const Inner = styled.div`
   align-items: center;
+  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
+  border-radius: 1px;
   justify-content: center;
+  padding: 2rem 0 3rem 0;
 
   ${media.greaterThan('sm')`
     display: flex;
@@ -109,40 +115,42 @@ const Body = styled.div`
 
 const SubscribePanel = () => (
   <Wrapper>
-    <Image alt="" height="180" src={subscribeImage} width="235" />
-    <Body>
-      <Heading>Subscribe to our newsletter</Heading>
-      <Lead>Monthly 0x ecosystem news and analysis.</Lead>
-      <Form
-        action="https://facebook.us2.list-manage.com/subscribe/post?u=1c752e167467d75829bc12aef&amp;id=33b834d61c"
-        method="post"
-        onSubmit={() => {
-          if (window.fathom) {
-            window.fathom.trackGoal('YV6F7FG6', 0);
-          }
-        }}
-        target="_blank"
-      >
-        <HoneyPot aria-hidden="true">
-          <input
-            name="b_1c752e167467d75829bc12aef_33b834d61c"
-            tabIndex="-1"
-            type="text"
-          />
-        </HoneyPot>
-        <FieldWrapper>
-          <EmailInput
-            name="EMAIL"
-            placeholder="Enter your email"
-            required
-            type="email"
-          />
-          <SubscribeButton name="subscribe" type="submit">
-            Subscribe
-          </SubscribeButton>
-        </FieldWrapper>
-      </Form>
-    </Body>
+    <Inner>
+      <Image alt="" height="180" src={subscribeImage} width="235" />
+      <Body>
+        <Heading>Subscribe to our newsletter</Heading>
+        <Lead>Monthly 0x ecosystem news and analysis.</Lead>
+        <Form
+          action="https://facebook.us2.list-manage.com/subscribe/post?u=1c752e167467d75829bc12aef&amp;id=33b834d61c"
+          method="post"
+          onSubmit={() => {
+            if (window.fathom) {
+              window.fathom.trackGoal('YV6F7FG6', 0);
+            }
+          }}
+          target="_blank"
+        >
+          <HoneyPot aria-hidden="true">
+            <input
+              name="b_1c752e167467d75829bc12aef_33b834d61c"
+              tabIndex="-1"
+              type="text"
+            />
+          </HoneyPot>
+          <FieldWrapper>
+            <EmailInput
+              name="EMAIL"
+              placeholder="Enter your email"
+              required
+              type="email"
+            />
+            <SubscribeButton name="subscribe" type="submit">
+              Subscribe
+            </SubscribeButton>
+          </FieldWrapper>
+        </Form>
+      </Body>
+    </Inner>
   </Wrapper>
 );
 
