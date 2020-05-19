@@ -7,7 +7,6 @@ import { COLORS } from '../../../styles/constants';
 import DisableBodyScroll from '../../../components/disable-body-scroll';
 import MobileMenuHeader from './mobile-menu-header';
 import MobileNavigation from './mobile-navigation';
-import MobileSearchForm from './mobile-search-form';
 
 const StyledMobileMenu = styled.div`
   background-color: ${COLORS.PRIMARY.SCAMPI_1000};
@@ -20,12 +19,11 @@ const StyledMobileMenu = styled.div`
   z-index: 100;
 `;
 
-const MobileMenu = ({ onClose, onNavigate, onSearch }) => (
+const MobileMenu = ({ onClose, onNavigate }) => (
   <Portal>
     <DisableBodyScroll />
     <StyledMobileMenu aria-label="Menu" aria-modal role="dialog">
       <MobileMenuHeader onClose={onClose} onNavigate={onNavigate} />
-      <MobileSearchForm onSearch={onSearch} />
       <MobileNavigation onNavigate={onNavigate} />
     </StyledMobileMenu>
   </Portal>
@@ -34,7 +32,6 @@ const MobileMenu = ({ onClose, onNavigate, onSearch }) => (
 MobileMenu.propTypes = {
   onClose: PropTypes.func.isRequired,
   onNavigate: PropTypes.func.isRequired,
-  onSearch: PropTypes.func.isRequired,
 };
 
 export default MobileMenu;

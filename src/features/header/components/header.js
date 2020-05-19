@@ -5,7 +5,11 @@ import styled from 'styled-components';
 import { URL } from '../../../constants';
 import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
-import { MenuIcon, NotificationsIcon } from '../../../components/icons';
+import {
+  MenuIcon,
+  NotificationsIcon,
+  SearchIcon,
+} from '../../../components/icons';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import Container from '../../../components/container';
 import HeaderActions from './header-actions';
@@ -42,7 +46,7 @@ const StyledHeader = styled.header`
 `;
 
 const NotificationsButton = styled(MenuButton)`
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   position: relative;
 
   #HW_badge_cont {
@@ -52,11 +56,32 @@ const NotificationsButton = styled(MenuButton)`
   }
 `;
 
+const ActionButton = styled.button`
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 0.25rem;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 0.5rem 0 0;
+  padding: 0.5rem 0.75rem;
+
+  &:last-child {
+    margin: 0;
+  }
+`;
+
 const Header = () => {
   const location = useLocation();
-  const [searchVisible, setSearchVisible] = useState(location.pathname === '/');
-  const [mobileMenuState, updateMobileMenuState] = useState('closed');
   const breakpoint = useCurrentBreakpoint();
+
+  const showSearchByDefault =
+    breakpoint.greaterThan('xs') && location.pathname === '/';
+
+  const [searchVisible, setSearchVisible] = useState(showSearchByDefault);
+  const [mobileMenuState, updateMobileMenuState] = useState('closed');
 
   const closeMobileMenu = () => {
     updateMobileMenuState('closed');
@@ -86,11 +111,7 @@ const Header = () => {
   return (
     <SettingsDialogProvider>
       {isDesktop || mobileMenuState === 'closed' ? null : (
-        <MobileMenu
-          onClose={closeMobileMenu}
-          onNavigate={closeMobileMenu}
-          onSearch={closeMobileMenu}
-        />
+        <MobileMenu onClose={closeMobileMenu} onNavigate={closeMobileMenu} />
       )}
       <StyledHeader>
         <Container css="align-items: center; display: flex; justify-content: space-between; height: 100%;">
@@ -116,6 +137,14 @@ const Header = () => {
               <NotificationsButton className="headway">
                 <NotificationsIcon height={24} width={24} />
               </NotificationsButton>
+              {!showSearchByDefault && (
+                <ActionButton
+                  onClick={() => setSearchVisible(true)}
+                  title="Search"
+                >
+                  <SearchIcon color="currentColor" height={22} width={22} />
+                </ActionButton>
+              )}
               <MenuButton onClick={openMobileMenu} title="Open menu">
                 <MenuIcon height={20} />
               </MenuButton>
@@ -132,9 +161,9 @@ const Header = () => {
         >
           <Container>
             <SearchBox
-              autoFocus={location.pathname !== '/'}
+              autoFocus={!showSearchByDefault}
               onBlur={() => {
-                if (location.pathname !== '/') {
+                if (!showSearchByDefault) {
                   setSearchVisible(false);
                 }
               }}

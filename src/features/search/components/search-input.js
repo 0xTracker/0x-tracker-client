@@ -103,89 +103,98 @@ function getSectionSuggestions(section) {
   return section.suggestions;
 }
 
-const SearchInput = React.forwardRef(({ autoFocus, onBlur, onFocus }, ref) => {
-  const { navigateTo } = useNavigator();
-  const [inputValue, setInputValue] = React.useState('');
-  const [suggestions, setSearchTerm] = useAutocomplete();
-  const breakpoint = useCurrentBreakpoint();
+const SearchInput = React.forwardRef(
+  ({ autoFocus, name, onBlur, onFocus }, ref) => {
+    const { navigateTo } = useNavigator();
+    const [inputValue, setInputValue] = React.useState('');
+    const [suggestions, setSearchTerm] = useAutocomplete();
+    const breakpoint = useCurrentBreakpoint();
 
-  useEscapeKey(() => {
-    ref.current.blur();
-  });
+    useEscapeKey(() => {
+      ref.current.blur();
+    });
 
-  return (
-    <InputWrapper>
-      <Autosuggest
-        getSectionSuggestions={getSectionSuggestions}
-        getSuggestionValue={getSuggestionValue}
-        inputProps={{
-          autoFocus,
-          onBlur: () => {
-            onBlur();
-          },
-          onChange: (e, { newValue }) => {
-            setInputValue(newValue);
-          },
-          onFocus: () => {
-            onFocus();
-          },
-          placeholder: breakpoint.greaterThan('xs')
-            ? 'Search for tokens, relayers, traders or fills'
-            : 'Search site...',
-          ref,
-          value: inputValue,
-        }}
-        multiSection
-        onSuggestionsClearRequested={() => {
-          setSearchTerm(null);
-        }}
-        onSuggestionSelected={(event, { suggestion }) => {
-          ref.current.blur();
+    return (
+      <InputWrapper>
+        <Autosuggest
+          alwaysRenderSuggestions
+          focusInputOnSuggestionClick={false}
+          getSectionSuggestions={getSectionSuggestions}
+          getSuggestionValue={getSuggestionValue}
+          highlightFirstSuggestion
+          inputProps={{
+            autoFocus,
+            name,
+            onBlur: () => {
+              onBlur();
+            },
+            onChange: (e, { newValue }) => {
+              setInputValue(newValue);
+            },
+            onFocus: () => {
+              onFocus();
+            },
+            placeholder: breakpoint.greaterThan('xs')
+              ? 'Search for tokens, relayers, traders or fills'
+              : 'Search site...',
+            ref,
+            value: inputValue,
+          }}
+          multiSection
+          onSuggestionsClearRequested={() => {
+            setSearchTerm(null);
+          }}
+          onSuggestionSelected={(event, { suggestion }) => {
+            event.preventDefault();
 
-          if (suggestion.type === 'token') {
-            navigateTo(buildTokenUrl(suggestion.address), undefined, {
-              clientSide: false,
-            });
+            if (suggestion.type === 'token') {
+              navigateTo(buildTokenUrl(suggestion.address), undefined, {
+                clientSide: false,
+              });
+            }
+
+            if (suggestion.type === 'relayer') {
+              navigateTo(buildRelayerUrl(suggestion.slug), undefined, {
+                clientSide: false,
+              });
+            }
+
+            if (suggestion.type === 'trader') {
+              navigateTo(buildTraderUrl(suggestion.address), undefined, {
+                clientSide: false,
+              });
+            }
+          }}
+          onSuggestionsFetchRequested={({ value, reason }) => {
+            if (reason === 'input-changed' || reason === 'input-focused') {
+              setSearchTerm(value);
+            }
+          }}
+          renderSectionTitle={(section) =>
+            inputValue === '' ? `Suggested ${section.title}` : section.title
           }
+          renderSuggestion={(suggestion) => (
+            <SearchSuggestion suggestion={suggestion} />
+          )}
+          shouldRenderSuggestions={(value) => {
+            if (!_.isString(value)) {
+              return false;
+            }
 
-          if (suggestion.type === 'relayer') {
-            navigateTo(buildRelayerUrl(suggestion.slug), undefined, {
-              clientSide: false,
-            });
-          }
-
-          if (suggestion.type === 'trader') {
-            navigateTo(buildTraderUrl(suggestion.address), undefined, {
-              clientSide: false,
-            });
-          }
-        }}
-        onSuggestionsFetchRequested={({ value, reason }) => {
-          if (reason === 'input-changed' || reason === 'input-focused') {
-            setSearchTerm(value);
-          }
-        }}
-        renderSectionTitle={(section) => section.title}
-        renderSuggestion={(suggestion) => (
-          <SearchSuggestion suggestion={suggestion} />
-        )}
-        shouldRenderSuggestions={(value) => {
-          if (!_.isString(value)) {
-            return false;
-          }
-
-          return value.trim().length >= 3;
-        }}
-        suggestions={suggestions}
-      />
-    </InputWrapper>
-  );
-});
+            return value.trim().length >= 3;
+          }}
+          suggestions={suggestions}
+        />
+      </InputWrapper>
+    );
+  },
+);
 
 SearchInput.displayName = 'SearchInput';
 
 SearchInput.propTypes = {
   autoFocus: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
   onBlur: PropTypes.func.isRequired,
   onFocus: PropTypes.func.isRequired,
 };

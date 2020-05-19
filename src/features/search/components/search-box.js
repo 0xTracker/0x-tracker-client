@@ -47,41 +47,85 @@ const SearchButton = styled.button`
   text-transform: uppercase;
 `;
 
+const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
+
 const SearchBox = ({ autoFocus, onBlur }) => {
   const [focused, setFocused] = React.useState(autoFocus);
   const inputRef = React.useRef();
-  const iOS =
-    !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
 
   // There are issues with scrolling the results in iOS if body scroll is locked
   useLockBodyScroll(focused && !iOS);
 
-  useEscapeKey(onBlur);
+  useEscapeKey(() => {
+    inputRef.current.blur();
+  });
+
   useKey('/', (event) => {
     event.preventDefault();
     inputRef.current.focus();
   });
 
+  React.useEffect(() => {
+    if (!focused) {
+      onBlur();
+    }
+  }, [focused]);
+
   return (
     <>
       <SearchOverlay visible={focused} />
       <Card css=" position: relative; z-index: 6;">
-        <CardBody css="flex-direction: row;">
-          <SearchIconWrapper>
-            <SearchIcon size={20} />
-          </SearchIconWrapper>
-          <SearchInput
-            autoFocus={autoFocus}
-            onBlur={() => {
-              setFocused(false);
-              onBlur();
-            }}
-            onFocus={() => {
-              setFocused(true);
-            }}
-            ref={inputRef}
-          />
-          <SearchButton type="submit">Search</SearchButton>
+        <CardBody>
+          <form action="/search" css="display: flex;" method="get">
+            <SearchIconWrapper>
+              <SearchIcon size={20} />
+            </SearchIconWrapper>
+            <SearchInput
+              autoFocus={autoFocus}
+              name="q"
+              onBlur={() => {
+                setFocused(false);
+              }}
+              onFocus={() => {
+                setFocused(true);
+              }}
+              ref={inputRef}
+            />
+            <div
+              css={`
+                background: ${COLORS.NEUTRAL.MYSTIC_200};
+                color: ${COLORS.NEUTRAL.MYSTIC_500};
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 8px 0;
+                padding: 0 16px;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                font-size: 12px;
+                font-weight: 500;
+              `}
+            >
+              <svg
+                css="margin-right: 8px;"
+                fill="currentColor"
+                focusable="false"
+                height="22"
+                role="img"
+                viewBox="0 0 576 512"
+                width="22"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M528 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h480c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm8 336c0 4.411-3.589 8-8 8H48c-4.411 0-8-3.589-8-8V112c0-4.411 3.589-8 8-8h480c4.411 0 8 3.589 8 8v288zM170 270v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm-336 82v-28c0-6.627-5.373-12-12-12H82c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm384 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zM122 188v-28c0-6.627-5.373-12-12-12H82c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm-98 158v-16c0-6.627-5.373-12-12-12H180c-6.627 0-12 5.373-12 12v16c0 6.627 5.373 12 12 12h216c6.627 0 12-5.373 12-12z"
+                  fill="currentColor"
+                />
+              </svg>
+              {focused ? 'esc' : '/'}
+            </div>
+            <SearchButton type="submit">Search</SearchButton>
+          </form>
         </CardBody>
       </Card>
     </>
