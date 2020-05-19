@@ -141,6 +141,16 @@ const Footer = () => (
             <NavLink href="https://docs.0xtracker.com/#need-to-get-in-touch">
               Contact
             </NavLink>
+            <NavLink
+              href="https://www.buymeacoffee.com/0xTracker"
+              onClick={() => {
+                if (window.fathom) {
+                  window.fathom.trackGoal('MYB7SWUU', 0);
+                }
+              }}
+            >
+              Donate
+            </NavLink>
             <NavLink href="https://docs.0xtracker.com/faqs">FAQs</NavLink>
             <NavLink href="https://docs.0xtracker.com/">Overview</NavLink>
           </nav>

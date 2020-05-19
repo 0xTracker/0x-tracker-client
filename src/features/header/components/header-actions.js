@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
 import {
+  DonateIcon,
   NotificationsIcon,
   SearchIcon,
   SettingsIcon,
@@ -65,13 +66,8 @@ const HeaderActions = () => {
       <NotificationsButton className="headway">
         <NotificationsIcon color="currentColor" height={26} width={26} />
       </NotificationsButton>
-      <ActionButton onClick={() => settingsDialog.show()} title="Settings">
-        <SettingsIcon color="currentColor" height={22} width={22} />
-      </ActionButton>
-      <ActionButton onClick={() => setSearchVisibility(true)} title="Search">
-        <SearchIcon color="currentColor" height={22} width={22} />
-      </ActionButton>
-      <Link
+      <ActionButton
+        as={Link}
         href="https://www.buymeacoffee.com/0xTracker"
         onClick={() => {
           if (window.fathom) {
@@ -80,12 +76,14 @@ const HeaderActions = () => {
         }}
         title="Help support 0x Tracker development with a donation"
       >
-        <img
-          alt="Donate"
-          css="height: 37px; border-radius: 0.25rem;"
-          src="https://resources.0xtracker.com/images/donate-button.png"
-        />
-      </Link>
+        <DonateIcon color="currentColor" height={22} width={22} />
+      </ActionButton>
+      <ActionButton onClick={() => settingsDialog.show()} title="Settings">
+        <SettingsIcon color="currentColor" height={22} width={22} />
+      </ActionButton>
+      <ActionButton onClick={() => setSearchVisibility(true)} title="Search">
+        <SearchIcon color="currentColor" height={22} width={22} />
+      </ActionButton>
     </div>
   );
 };

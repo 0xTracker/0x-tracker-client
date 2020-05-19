@@ -97,6 +97,14 @@ exports[`should render without props 1`] = `
           </a>
           <a
             class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
+            href="https://www.buymeacoffee.com/0xTracker"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            Donate
+          </a>
+          <a
+            class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
             href="https://docs.0xtracker.com/faqs"
             rel="noreferrer noopener"
             target="_blank"
