@@ -5,6 +5,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
+import { media } from '../../../styles/util';
 import buildRelayerUrl from '../../relayers/util/build-relayer-url';
 import buildTokenUrl from '../../tokens/util/build-token-url';
 import buildTraderUrl from '../../traders/util/build-trader-url';
@@ -12,6 +13,7 @@ import SearchSuggestion from './search-suggestion';
 import useEscapeKey from '../../../hooks/use-escape-key';
 import useAutocomplete from '../hooks/use-autocomplete';
 import useNavigator from '../../../hooks/use-navigator';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 
 const InputWrapper = styled.div`
   display: flex;
@@ -26,8 +28,9 @@ const InputWrapper = styled.div`
     border: none;
     color: inherit;
     flex-grow: 1;
-    margin: 12px 16px 12px 16px;
+    height: 100%;
     outline: none;
+    padding: 0 8px;
     text-overflow: ellipsis;
     width: 100%;
 
@@ -40,13 +43,19 @@ const InputWrapper = styled.div`
     background: white;
     border-radius: 4px;
     box-shadow: 0 3px 3px rgba(126, 142, 177, 0.2);
+    display: block;
     left: 0;
     position: absolute;
     margin: 8px 0 0;
     z-index: 100;
     width: 100%;
-    max-height: 415px;
-    overflow: auto;
+    overflow-y: auto;
+    max-height: 135px;
+    -webkit-overflow-scrolling: touch;
+
+    ${media.greaterThan('sm')`
+      max-height: 420px;
+    `}
   }
 
   .react-autosuggest__suggestions-list {
@@ -98,6 +107,7 @@ const SearchInput = React.forwardRef(({ autoFocus, onBlur, onFocus }, ref) => {
   const { navigateTo } = useNavigator();
   const [inputValue, setInputValue] = React.useState('');
   const [suggestions, setSearchTerm] = useAutocomplete();
+  const breakpoint = useCurrentBreakpoint();
 
   useEscapeKey(() => {
     ref.current.blur();
@@ -119,7 +129,9 @@ const SearchInput = React.forwardRef(({ autoFocus, onBlur, onFocus }, ref) => {
           onFocus: () => {
             onFocus();
           },
-          placeholder: 'Search for tokens, relayers, traders or fills',
+          placeholder: breakpoint.greaterThan('xs')
+            ? 'Search for tokens, relayers, traders or fills'
+            : 'Search site...',
           ref,
           value: inputValue,
         }}

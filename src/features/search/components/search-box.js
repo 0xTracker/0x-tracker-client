@@ -18,8 +18,8 @@ const SearchOverlay = styled.div.withConfig({
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   z-index: 5;
 `;
 
@@ -50,8 +50,12 @@ const SearchButton = styled.button`
 const SearchBox = ({ autoFocus, onBlur }) => {
   const [focused, setFocused] = React.useState(autoFocus);
   const inputRef = React.useRef();
+  const iOS =
+    !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
 
-  useLockBodyScroll(focused);
+  // There are issues with scrolling the results in iOS if body scroll is locked
+  useLockBodyScroll(focused && !iOS);
+
   useEscapeKey(onBlur);
   useKey('/', (event) => {
     event.preventDefault();
