@@ -49,7 +49,7 @@ const Scrollport = styled.div`
 
 const AppLayout = ({ children }) => (
   <AppContainer>
-    <Visible at="lg">
+    <Visible at={['lg']}>
       <CompactSidebar />
     </Visible>
     <Visible above="lg">

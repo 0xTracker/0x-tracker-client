@@ -17,6 +17,11 @@ const StyledNavigationLink = styled(Link)`
   padding: 0 12px;
   width: 100%;
   line-height: 1;
+
+  &:hover {
+    background-color: ${(props) =>
+      props.active ? COLORS.PRIMARY.SCAMPI_800 : COLORS.PRIMARY.SCAMPI_900};
+  }
 `;
 
 const NavigationLink = ({ href, children, ...otherProps }) => {
@@ -39,7 +44,7 @@ const NavigationLink = ({ href, children, ...otherProps }) => {
 };
 
 NavigationLink.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
 };
 

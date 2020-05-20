@@ -7,8 +7,9 @@ import { COLORS } from '../styles/constants';
 
 const StyledFilterButton = styled.button`
   align-items: center;
-  background: ${COLORS.NEUTRAL.MYSTIC_300};
+  background: ${COLORS.NEUTRAL.MYSTIC_100};
   border: none;
+  box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
   border-radius: 0.25rem;
   color: currentColor;
   display: flex;
@@ -21,7 +22,7 @@ const StyledFilterButton = styled.button`
   position: relative;
 
   &:hover {
-    background: ${COLORS.NEUTRAL.MYSTIC_400};
+    box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.4);
   }
 `;
 
