@@ -51,6 +51,7 @@ const SearchBox = ({ autoFocus, onBlur }) => {
       <SearchOverlay visible={focused} />
       <Card
         css={`
+          background: ${COLORS.NEUTRAL.MYSTIC_100};
           box-shadow: none;
           color: ${COLORS.PRIMARY.SCAMPI_1000};
           position: relative;
