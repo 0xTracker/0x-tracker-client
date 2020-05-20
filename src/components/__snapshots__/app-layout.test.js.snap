@@ -242,7 +242,7 @@ exports[`app layout component should render with children 1`] = `
               >
                 <form
                   action="/search"
-                  class="search-box___StyledForm-sc-14vl3sw-3 epQAJv"
+                  class="search-box___StyledForm-sc-14vl3sw-3 jFpRsd"
                   method="get"
                 >
                   <div

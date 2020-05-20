@@ -61,7 +61,7 @@ const SearchBox = ({ autoFocus, onBlur }) => {
         <CardBody css="height: 36px;">
           <form
             action="/search"
-            css="display: flex; flex-grow: 1; padding: 6px 6px 6px 12px;"
+            css="display: flex; flex-grow: 1; height: 100%; padding: 6px 6px 6px 12px;"
             method="get"
             onSubmit={() => {
               if (window.fathom) {
