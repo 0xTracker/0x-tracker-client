@@ -14,16 +14,20 @@ import PropTypes from 'prop-types';
 import { COLORS } from '../../../styles/constants';
 import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
 import AddressMetricsTooltip from './address-metrics-tooltip';
+import CardPlaceholder from '../../../components/card-placeholder';
 import ChartContainer from '../../../components/chart-container';
-import ChartPlaceholder from '../../../components/chart-placeholder';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
 const AddressMetricsChart = React.memo(
   ({ data, keyMetric, onBrushChange, period, granularity }) => {
     const displayCurrency = useDisplayCurrency();
 
-    if (_.isEmpty(data)) {
-      return <ChartPlaceholder>No data available</ChartPlaceholder>;
+    if (_.every(data, { [keyMetric]: 0 })) {
+      return (
+        <CardPlaceholder>
+          No data available for the selected period
+        </CardPlaceholder>
+      );
     }
 
     const sanitizedData = _.map(data, (dataPoint) => ({

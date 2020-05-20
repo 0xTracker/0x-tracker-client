@@ -77,10 +77,6 @@ const TraderPage = () => {
     return <LoadingPage />;
   }
 
-  const titleAddress = breakpoint.greaterThan('xs')
-    ? trader.address
-    : truncateAddress(trader.address, 25);
-
   return (
     <PageLayout
       filter={
@@ -103,14 +99,16 @@ const TraderPage = () => {
             seed={address}
             size="35px"
           />
-          {_.isString(trader.name) ? (
-            <div>
-              {truncateName(trader.name, breakpoint)}
-              <SubTitle>{titleAddress}</SubTitle>
-            </div>
-          ) : (
-            titleAddress
-          )}
+          <div>
+            {_.isString(trader.name)
+              ? truncateName(trader.name, breakpoint)
+              : 'Unknown Trader'}
+            <SubTitle>
+              {breakpoint.greaterThan('xs')
+                ? trader.address
+                : truncateAddress(trader.address, 25)}
+            </SubTitle>
+          </div>
         </div>
       }
     >
