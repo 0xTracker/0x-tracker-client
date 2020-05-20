@@ -147,19 +147,33 @@ const SearchInput = React.forwardRef(
           onSuggestionSelected={(event, { suggestion }) => {
             event.preventDefault();
 
+            console.log('selection made');
+
             if (suggestion.type === 'token') {
+              if (window.fathom) {
+                window.fathom.trackGoal('ZDZEDJID', 0);
+              }
+
               navigateTo(buildTokenUrl(suggestion.address), undefined, {
                 clientSide: false,
               });
             }
 
             if (suggestion.type === 'relayer') {
+              if (window.fathom) {
+                window.fathom.trackGoal('JUOWT2KW', 0);
+              }
+
               navigateTo(buildRelayerUrl(suggestion.slug), undefined, {
                 clientSide: false,
               });
             }
 
             if (suggestion.type === 'trader') {
+              if (window.fathom) {
+                window.fathom.trackGoal('97XS1YIG', 0);
+              }
+
               navigateTo(buildTraderUrl(suggestion.address), undefined, {
                 clientSide: false,
               });

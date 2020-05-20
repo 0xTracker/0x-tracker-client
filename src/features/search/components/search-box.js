@@ -63,6 +63,11 @@ const SearchBox = ({ autoFocus, onBlur }) => {
             action="/search"
             css="display: flex; flex-grow: 1; padding: 6px 6px 6px 12px;"
             method="get"
+            onSubmit={() => {
+              if (window.fathom) {
+                window.fathom.trackGoal('CAKPZWRU', 0);
+              }
+            }}
           >
             <SearchInput
               autoFocus={autoFocus}
