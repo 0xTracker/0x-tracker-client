@@ -25,10 +25,6 @@ const TradersFilterDialog = ({
   };
 
   const handleSubmit = () => {
-    if (window.fathom) {
-      window.fathom.trackGoal('YWA7WQ82', 0);
-    }
-
     onSubmit(values);
   };
 

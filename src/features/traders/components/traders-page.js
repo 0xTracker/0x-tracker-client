@@ -77,6 +77,10 @@ const TradersPage = () => {
         <TradersFilter
           defaultFilters={{ statsPeriod: defaultPeriod, type: undefined }}
           onChange={(newFilters) => {
+            if (window.fathom) {
+              window.fathom.trackGoal('YWA7WQ82', 0);
+            }
+
             navigateTo(URL.TRADERS, newFilters);
           }}
           selectedFilters={selectedFilters}

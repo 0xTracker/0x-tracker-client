@@ -10,8 +10,9 @@ import sharedPropTypes from '../prop-types';
 
 const Button = styled.button`
   align-items: center;
-  background: ${COLORS.NEUTRAL.MYSTIC_300};
+  background: ${COLORS.NEUTRAL.MYSTIC_100};
   border: none;
+  box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
   border-radius: 0.25rem;
   color: currentColor;
   display: flex;
@@ -25,7 +26,7 @@ const Button = styled.button`
 
   &:hover,
   &:active {
-    background: ${COLORS.NEUTRAL.MYSTIC_400};
+    box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.4);
   }
 `;
 
