@@ -43,8 +43,10 @@ const Main = styled.div`
 `;
 
 const Scrollport = styled.div`
-  overflow: auto;
-  max-height: 100vh;
+  ${media.greaterThan('lg')`
+    max-height: 100vh;
+    overflow: auto;
+  `}
 `;
 
 const AppLayout = ({ children }) => (
