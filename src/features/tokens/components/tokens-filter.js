@@ -4,8 +4,9 @@ import React from 'react';
 
 import FilterButton from '../../../components/filter-button';
 import sharedPropTypes from '../../../prop-types';
-import TimePeriodFilter from '../../../components/time-period-filter';
+import MobileTimePeriodFilter from '../../../components/mobile-time-period-filter';
 import TokensFilterDialog from './tokens-filter-dialog';
+import TokenTypeFilter from './token-type-filter';
 import tokensPropTypes from '../prop-types';
 import Visible from '../../../components/visible';
 
@@ -35,22 +36,31 @@ const TokensFilter = ({ defaultFilters, onChange, selectedFilters }) => {
         />
       ) : null}
       <Visible above="xs">
-        <TimePeriodFilter
-          css="width: 200px;"
-          onChange={(newPeriod) => {
-            onChange({ ...selectedFilters, statsPeriod: newPeriod });
+        <TokenTypeFilter
+          css="margin-right: 12px;"
+          onChange={(newType) => {
+            onChange({ ...selectedFilters, type: newType });
           }}
-          value={selectedFilters.statsPeriod}
+          value={selectedFilters.type}
         />
       </Visible>
-      <FilterButton
-        css="margin-left: 0.5rem;"
-        indicatorValue={getAdditionalFilterCount(
-          defaultFilters,
-          selectedFilters,
-        )}
-        onClick={() => setFiltersDialogVisible(true)}
-        title="Show additional filters"
+      <Visible at={['xs']}>
+        <FilterButton
+          css="margin-right: 12px;"
+          indicatorValue={getAdditionalFilterCount(
+            defaultFilters,
+            selectedFilters,
+          )}
+          onClick={() => setFiltersDialogVisible(true)}
+          title="Show additional filters"
+        />
+      </Visible>
+      <MobileTimePeriodFilter
+        css="width: 200px;"
+        onChange={(newPeriod) => {
+          onChange({ ...selectedFilters, statsPeriod: newPeriod });
+        }}
+        value={selectedFilters.statsPeriod}
       />
     </div>
   );
