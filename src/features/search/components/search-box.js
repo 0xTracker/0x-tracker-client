@@ -52,7 +52,6 @@ const SearchBox = ({ autoFocus, onBlur }) => {
       <Card
         css={`
           background: ${COLORS.NEUTRAL.MYSTIC_100};
-          box-shadow: none;
           color: ${COLORS.PRIMARY.SCAMPI_1000};
           position: relative;
           z-index: 6;
@@ -65,9 +64,6 @@ const SearchBox = ({ autoFocus, onBlur }) => {
             css="display: flex; flex-grow: 1; padding: 6px 6px 6px 12px;"
             method="get"
           >
-            {/* <SearchIconWrapper>
-              <SearchIcon size={20} />
-            </SearchIconWrapper> */}
             <SearchInput
               autoFocus={autoFocus}
               name="q"
@@ -112,7 +108,6 @@ const SearchBox = ({ autoFocus, onBlur }) => {
               </svg>
               {focused ? 'esc' : '/'}
             </div>
-            {/* <SearchButton type="submit">Search</SearchButton> */}
           </form>
         </CardBody>
       </Card>

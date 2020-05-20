@@ -6,8 +6,13 @@ import { media } from '../styles/util';
 import subscribeImage from '../assets/images/subscribe.png';
 
 const Wrapper = styled.div`
-  background-color: rgb(231, 233, 243);
-  padding: 0 2rem;
+  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  padding: 48px;
+  text-align: center;
+
+  ${media.greaterThan('sm')`
+    text-align: left;
+  `};
 `;
 
 const Inner = styled.div`
@@ -17,7 +22,6 @@ const Inner = styled.div`
 
   ${media.greaterThan('sm')`
     display: flex;
-    padding: 3rem 0 4rem 0;
   `}
 `;
 
@@ -103,19 +107,11 @@ const Form = styled.form`
   margin-top: 30px;
 `;
 
-const Body = styled.div`
-  padding: 0 30px;
-
-  ${media.greaterThan('sm')`
-    padding: 0;
-  `}
-`;
-
 const SubscribePanel = () => (
   <Wrapper>
     <Inner>
       <Image alt="" height="180" src={subscribeImage} width="235" />
-      <Body>
+      <div>
         <Heading>Subscribe to our newsletter</Heading>
         <Lead>Monthly 0x ecosystem news and analysis.</Lead>
         <Form
@@ -147,7 +143,7 @@ const SubscribePanel = () => (
             </SubscribeButton>
           </FieldWrapper>
         </Form>
-      </Body>
+      </div>
     </Inner>
   </Wrapper>
 );

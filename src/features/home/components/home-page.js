@@ -15,7 +15,6 @@ import NetworkMetrics from '../../metrics/components/network-metrics';
 import PageLayout from '../../../components/page-layout';
 import Pill from '../../../components/pill';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
-import SubscribePanel from '../../../components/subscribe-panel';
 import TabbedCard from '../../../components/tabbed-card';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
@@ -28,93 +27,88 @@ const HomePage = () => {
   const breakpoint = useCurrentBreakpoint();
 
   return (
-    <>
-      <PageLayout>
-        <CardGrid>
-          <HomePageMetrics />
-          <CardGridRow>
-            <CardGridCol lg={7}>
-              <TabbedCard
-                tabs={[
-                  {
-                    actions: (
-                      <Pill as={Link} href={URL.NETWORK_INSIGHTS}>
-                        More Insights
-                      </Pill>
-                    ),
-                    component: (
-                      <NetworkMetrics
-                        period={TIME_PERIOD.YEAR}
-                        type="tradeVolume"
-                      />
-                    ),
-                    title: 'Volume',
-                  },
-                  {
-                    actions: (
-                      <Pill as={Link} href={URL.NETWORK_INSIGHTS}>
-                        More Insights
-                      </Pill>
-                    ),
-                    component: (
-                      <NetworkMetrics
-                        period={TIME_PERIOD.YEAR}
-                        type="tradeCount"
-                      />
-                    ),
-                    title: 'Trades',
-                  },
-                ]}
-              />
-            </CardGridCol>
-            <CardGridCol lg={5}>
-              <TabbedCard
-                tabs={[
-                  {
-                    actions: (
-                      <Pill as={Link} href={URL.TOKENS}>
-                        View More
-                      </Pill>
-                    ),
-                    component: <TopTokens period={TIME_PERIOD.DAY} />,
-                    footer: (
-                      <HomePageTopTokensFooter period={TIME_PERIOD.DAY} />
-                    ),
-                    title: 'Top Tokens',
-                  },
-                  {
-                    actions: (
-                      <Pill as={Link} href={URL.RELAYERS}>
-                        View More
-                      </Pill>
-                    ),
-                    component: <TopRelayers period={TIME_PERIOD.DAY} />,
-                    footer: (
-                      <HomePageTopRelayersFooter period={TIME_PERIOD.DAY} />
-                    ),
-                    title: 'Top Relayers',
-                  },
-                ]}
-              />
-            </CardGridCol>
-          </CardGridRow>
-          <CardGridRow>
-            <CardGridCol lg={7}>
-              <RecentFillsCard />
-            </CardGridCol>
-            <CardGridCol lg={5}>
-              <LatestNewsCard
-                compact={
-                  breakpoint.lessThan('sm') || breakpoint.greaterThan('md')
-                }
-                showImages={breakpoint.greaterThan('xs')}
-              />
-            </CardGridCol>
-          </CardGridRow>
-        </CardGrid>
-      </PageLayout>
-      <SubscribePanel />
-    </>
+    <PageLayout>
+      <CardGrid>
+        <HomePageMetrics />
+        <CardGridRow>
+          <CardGridCol lg={7}>
+            <TabbedCard
+              tabs={[
+                {
+                  actions: (
+                    <Pill as={Link} href={URL.NETWORK_INSIGHTS}>
+                      More Insights
+                    </Pill>
+                  ),
+                  component: (
+                    <NetworkMetrics
+                      period={TIME_PERIOD.YEAR}
+                      type="tradeVolume"
+                    />
+                  ),
+                  title: 'Volume',
+                },
+                {
+                  actions: (
+                    <Pill as={Link} href={URL.NETWORK_INSIGHTS}>
+                      More Insights
+                    </Pill>
+                  ),
+                  component: (
+                    <NetworkMetrics
+                      period={TIME_PERIOD.YEAR}
+                      type="tradeCount"
+                    />
+                  ),
+                  title: 'Trades',
+                },
+              ]}
+            />
+          </CardGridCol>
+          <CardGridCol lg={5}>
+            <TabbedCard
+              tabs={[
+                {
+                  actions: (
+                    <Pill as={Link} href={URL.TOKENS}>
+                      View More
+                    </Pill>
+                  ),
+                  component: <TopTokens period={TIME_PERIOD.DAY} />,
+                  footer: <HomePageTopTokensFooter period={TIME_PERIOD.DAY} />,
+                  title: 'Top Tokens',
+                },
+                {
+                  actions: (
+                    <Pill as={Link} href={URL.RELAYERS}>
+                      View More
+                    </Pill>
+                  ),
+                  component: <TopRelayers period={TIME_PERIOD.DAY} />,
+                  footer: (
+                    <HomePageTopRelayersFooter period={TIME_PERIOD.DAY} />
+                  ),
+                  title: 'Top Relayers',
+                },
+              ]}
+            />
+          </CardGridCol>
+        </CardGridRow>
+        <CardGridRow>
+          <CardGridCol lg={7}>
+            <RecentFillsCard />
+          </CardGridCol>
+          <CardGridCol lg={5}>
+            <LatestNewsCard
+              compact={
+                breakpoint.lessThan('sm') || breakpoint.greaterThan('md')
+              }
+              showImages={breakpoint.greaterThan('xs')}
+            />
+          </CardGridCol>
+        </CardGridRow>
+      </CardGrid>
+    </PageLayout>
   );
 };
 

@@ -69,15 +69,15 @@ const Separator = styled.span`
 `;
 
 const Wrapper = styled.div`
-  background: ${COLORS.NEUTRAL.MYSTIC_300};
+  background: ${COLORS.NEUTRAL.MYSTIC_100};
   border-radius: 4px;
+  margin: 1.25rem 1.25rem 0 1.25rem;
   padding: 1rem;
 
   ${media.greaterThan('lg')`
     align-items: center;
-    background: none;
     display: flex;
-    padding: 0;
+    margin: 2rem 2rem 0 2rem;
   `}
 `;
 

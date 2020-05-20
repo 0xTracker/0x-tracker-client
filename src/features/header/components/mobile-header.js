@@ -1,176 +1,106 @@
-import { useKey, useLocation } from 'react-use';
-import React, { useState, useEffect } from 'react';
+import { useKey } from 'react-use';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { URL } from '../../../constants';
 import { COLORS } from '../../../styles/constants';
-import { media } from '../../../styles/util';
-import {
-  MenuIcon,
-  NotificationsIcon,
-  SearchIcon,
-} from '../../../components/icons';
-import { useCurrentBreakpoint } from '../../../responsive-utils';
-import Container from '../../../components/container';
-import HeaderActions from './header-actions';
+import { CloseIcon, MenuIcon, SearchIcon } from '../../../components/icons';
 import Link from '../../../components/link';
 import logoImage from '../../../assets/images/logo-grayscale.svg';
 import MobileMenu from './mobile-menu';
-import Navigation from './navigation';
-import SearchBox from '../../search/components/search-box';
+import MobileSearch from './mobile-search';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
 
 const LogoImage = styled.img`
-  height: 2.6rem;
-`;
-
-const MenuButton = styled.button`
-  align-items: center;
-  background: none;
-  border: none;
-  color: currentColor;
-  cursor: pointer;
-  display: flex;
-  padding: 0;
+  height: 40px;
 `;
 
 const StyledHeader = styled.header`
+  align-items: center;
   background-color: ${COLORS.PRIMARY.SCAMPI_1000};
   color: ${COLORS.PRIMARY.SCAMPI_100};
-  height: 4.5rem;
-  padding: 0.75rem 0;
-
-  ${media.greaterThan('md')`
-    padding: 0;
-  `};
-`;
-
-const NotificationsButton = styled(MenuButton)`
-  margin-right: 0.5rem;
-  position: relative;
-
-  #HW_badge_cont {
-    position: absolute;
-    right: -10px;
-    top: -13px;
-  }
+  display: flex;
+  height: 70px;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
 `;
 
 const ActionButton = styled.button`
   align-items: center;
   background: none;
   border: none;
-  border-radius: 0.25rem;
   color: inherit;
   cursor: pointer;
   display: flex;
   justify-content: center;
-  margin: 0 0.5rem 0 0;
-  padding: 0.5rem 0.75rem;
+  margin: 0 24px 0 0;
+  padding: 0;
 
   &:last-child {
-    margin: 0;
+    margin-right: 0;
   }
 `;
 
+const Actions = styled.div`
+  align-items: center;
+  display: flex;
+`;
+
 const MobileHeader = () => {
-  const location = useLocation();
-  const breakpoint = useCurrentBreakpoint();
-
-  const showSearchByDefault =
-    breakpoint.greaterThan('xs') && location.pathname === '/';
-
-  const [searchVisible, setSearchVisible] = useState(showSearchByDefault);
-  const [mobileMenuState, updateMobileMenuState] = useState('closed');
-
-  const closeMobileMenu = () => {
-    updateMobileMenuState('closed');
-  };
-
-  const openMobileMenu = () => {
-    updateMobileMenuState('open');
-  };
-
-  useEffect(() => {
-    if (typeof Headway !== 'undefined') {
-      Headway.init({
-        account: 'xGOQOx',
-        selector: '.headway',
-        trigger: '.headway',
-      });
-    }
-  }, []);
-
-  const isDesktop = breakpoint.greaterThan('md');
+  const [searchVisible, setSearchVisible] = useState();
+  const [menuVisible, setMenuVisible] = useState(false);
 
   useKey('/', (event) => {
     event.preventDefault();
     setSearchVisible(true);
   });
 
+  const closeMenu = () => {
+    setMenuVisible(false);
+  };
+
   return (
     <SettingsDialogProvider>
-      {isDesktop || mobileMenuState === 'closed' ? null : (
-        <MobileMenu onClose={closeMobileMenu} onNavigate={closeMobileMenu} />
-      )}
       <StyledHeader>
-        <Container css="align-items: center; display: flex; justify-content: space-between; height: 100%;">
-          <Link href={URL.HOME}>
-            <LogoImage
-              alt="0x Tracker"
-              size={isDesktop ? 'large' : 'small'}
-              src={logoImage}
-            />
-          </Link>
-          {isDesktop ? (
+        <Link href={URL.HOME}>
+          <LogoImage alt="0x Tracker" src={logoImage} />
+        </Link>
+        <Actions>
+          {!menuVisible && (
             <>
-              <Navigation css="flex-grow: 1;" />
-              <HeaderActions
-                onSearchClick={() => {
+              <ActionButton
+                onClick={() => {
                   setSearchVisible(true);
                 }}
-                showSearch={location.pathname !== '/'}
-              />
+                title="Search"
+              >
+                <SearchIcon color="currentColor" height={22} width={22} />
+              </ActionButton>
+              <ActionButton
+                onClick={() => {
+                  setMenuVisible(true);
+                }}
+                title="Open menu"
+              >
+                <MenuIcon size={24} />
+              </ActionButton>
             </>
-          ) : (
-            <div css="display: flex; align-items: center;">
-              <NotificationsButton className="headway">
-                <NotificationsIcon height={24} width={24} />
-              </NotificationsButton>
-              {!showSearchByDefault && (
-                <ActionButton
-                  onClick={() => setSearchVisible(true)}
-                  title="Search"
-                >
-                  <SearchIcon color="currentColor" height={22} width={22} />
-                </ActionButton>
-              )}
-              <MenuButton onClick={openMobileMenu} title="Open menu">
-                <MenuIcon height={20} />
-              </MenuButton>
-            </div>
           )}
-        </Container>
+          {menuVisible && (
+            <ActionButton onClick={closeMenu} title="Close menu">
+              <CloseIcon size={30} />
+            </ActionButton>
+          )}
+        </Actions>
       </StyledHeader>
       {searchVisible && (
-        <div
-          css={`
-            background: ${COLORS.NEUTRAL.MYSTIC_300};
-            padding: 1rem 0;
-          `}
-        >
-          <Container>
-            <SearchBox
-              autoFocus={!showSearchByDefault}
-              onBlur={() => {
-                if (!showSearchByDefault) {
-                  setSearchVisible(false);
-                }
-              }}
-            />
-          </Container>
-        </div>
+        <MobileSearch
+          onBlur={() => {
+            setSearchVisible(false);
+          }}
+        />
       )}
+      {menuVisible && <MobileMenu onNavigate={closeMenu} />}
     </SettingsDialogProvider>
   );
 };

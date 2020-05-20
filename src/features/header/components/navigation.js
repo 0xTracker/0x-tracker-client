@@ -35,12 +35,6 @@ const Navigation = ({ className }) => (
     <NavigationLink href={URL.HOME}>
       <NavigationIcon as={HomeIcon} size={24} /> Home
     </NavigationLink>
-    <NavigationLink href={URL.RELAYERS}>
-      <NavigationIcon as={RelayersIcon} size={20} /> Active Relayers
-    </NavigationLink>
-    <NavigationLink href={URL.TRADERS}>
-      <NavigationIcon as={TradersIcon} size={26} /> Active Traders
-    </NavigationLink>
     <NavigationLink href={URL.ASSET_BRIDGES}>
       <NavigationIcon as={AssetBridgeIcon} size={24} /> Asset Bridges
     </NavigationLink>
@@ -53,8 +47,14 @@ const Navigation = ({ className }) => (
     <NavigationLink href={URL.NEWS} title="News & Updates">
       <NavigationIcon as={NewsIcon} size={22} /> News & Updates
     </NavigationLink>
+    <NavigationLink href={URL.RELAYERS}>
+      <NavigationIcon as={RelayersIcon} size={20} /> Relayers
+    </NavigationLink>
     <NavigationLink href={URL.TOKENS}>
-      <NavigationIcon as={TokensIcon} size={26} /> Traded Tokens
+      <NavigationIcon as={TokensIcon} size={26} /> Tokens
+    </NavigationLink>
+    <NavigationLink href={URL.TRADERS}>
+      <NavigationIcon as={TradersIcon} size={26} /> Traders
     </NavigationLink>
   </StyledNavigation>
 );

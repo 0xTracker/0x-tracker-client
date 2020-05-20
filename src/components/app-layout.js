@@ -56,10 +56,10 @@ const AppLayout = ({ children }) => (
       <Sidebar />
     </Visible>
     <Main>
-      <Hidden above="md">
-        <MobileHeader />
-      </Hidden>
       <Scrollport>
+        <Hidden above="md">
+          <MobileHeader />
+        </Hidden>
         <Visible above="md">
           <Header />
         </Visible>

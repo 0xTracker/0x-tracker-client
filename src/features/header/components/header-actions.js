@@ -14,8 +14,9 @@ const ActionButton = styled.button`
   align-items: center;
   background: none;
   border: none;
-  background: ${COLORS.NEUTRAL.MYSTIC_200};
+  background: ${COLORS.NEUTRAL.MYSTIC_100};
   border-radius: 0.25rem;
+  box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
   color: ${COLORS.PRIMARY.SCAMPI_800};
   cursor: pointer;
   display: flex;
@@ -25,7 +26,7 @@ const ActionButton = styled.button`
   width: 50px;
 
   &:hover {
-    background: ${COLORS.NEUTRAL.MYSTIC_100};
+    background: ${COLORS.NEUTRAL.MYSTIC_200};
   }
 
   &:last-child {

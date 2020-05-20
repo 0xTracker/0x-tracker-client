@@ -10,7 +10,6 @@ import {
   InsightsIcon,
   NewsIcon,
   RelayersIcon,
-  StakingIcon,
   TokensIcon,
   TradersIcon,
 } from '../../../components/icons';
@@ -28,32 +27,26 @@ const CompactNavigation = ({ className }) => (
     <CompactNavigationLink href={URL.HOME}>
       <HomeIcon size={24} />
     </CompactNavigationLink>
-    <CompactNavigationLink href={URL.NETWORK_INSIGHTS}>
-      <InsightsIcon size={24} />
+    <CompactNavigationLink href={URL.ASSET_BRIDGES} title="Asset Bridges">
+      <AssetBridgeIcon size={24} />
     </CompactNavigationLink>
-    <CompactNavigationLink href={URL.FILLS}>
+    <CompactNavigationLink href={URL.FILLS} title="Browse Fills">
       <FillsIcon size={24} />
     </CompactNavigationLink>
-    <CompactNavigationLink href={URL.TOKENS}>
-      <TokensIcon size={26} />
-    </CompactNavigationLink>
-    <CompactNavigationLink href={URL.RELAYERS}>
-      <RelayersIcon size={20} />
-    </CompactNavigationLink>
-    <CompactNavigationLink href={URL.TRADERS}>
-      <TradersIcon size={26} />
-    </CompactNavigationLink>
-    <CompactNavigationLink href={URL.ASSET_BRIDGES}>
-      <AssetBridgeIcon size={24} />
+    <CompactNavigationLink href={URL.NETWORK_INSIGHTS} title="Network Insights">
+      <InsightsIcon size={24} />
     </CompactNavigationLink>
     <CompactNavigationLink href={URL.NEWS} title="News & Updates">
       <NewsIcon size={22} />
     </CompactNavigationLink>
-    <CompactNavigationLink
-      href="https://0x.org/zrx/staking"
-      title="ZRX Staking"
-    >
-      <StakingIcon size={24} />
+    <CompactNavigationLink href={URL.RELAYERS} title="Relayers">
+      <RelayersIcon size={20} />
+    </CompactNavigationLink>
+    <CompactNavigationLink href={URL.TOKENS} title="Tokens">
+      <TokensIcon size={26} />
+    </CompactNavigationLink>
+    <CompactNavigationLink href={URL.TRADERS} title="Traders">
+      <TradersIcon size={26} />
     </CompactNavigationLink>
   </StyledNavigation>
 );

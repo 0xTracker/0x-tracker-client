@@ -23,6 +23,7 @@ import HomeIcon from './home-icon';
 import InsightsIcon from './insights-icon';
 import LeftArrowIcon from './left-arrow-icon';
 import LinkedinShareIcon from './linkedin-share-icon';
+import MailIcon from './mail-icon';
 import MarkerIcon from './marker-icon';
 import MediumIcon from './medium-icon';
 import MenuIcon from './menu-icon';
@@ -77,6 +78,7 @@ export {
   InsightsIcon,
   LeftArrowIcon,
   LinkedinShareIcon,
+  MailIcon,
   MarkerIcon,
   MediumIcon,
   MenuIcon,

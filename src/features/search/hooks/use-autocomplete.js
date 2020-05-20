@@ -30,12 +30,12 @@ const useAutocomplete = () => {
 
     const fetchData = async () => {
       const tokensUrl = buildApiUrl('token-lookup', {
-        limit: 10,
+        limit: searchTerm === '' ? 5 : 10,
         q: searchTerm,
       });
 
       const relayersUrl = buildApiUrl('relayer-lookup', {
-        limit: 10,
+        limit: searchTerm === '' ? 5 : 10,
         q: searchTerm,
       });
 
@@ -52,7 +52,13 @@ const useAutocomplete = () => {
       ]);
 
       const { tokens } = tokensResponse.data;
-      const { relayers } = relayersResponse.data;
+      const relayers =
+        searchTerm === ''
+          ? _.take(
+              relayersResponse.data.relayers.filter((r) => r.id !== 'unknown'),
+              5,
+            )
+          : relayersResponse.data.relayers;
 
       const tokensSection =
         tokens.length > 0
