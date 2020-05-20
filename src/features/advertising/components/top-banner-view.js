@@ -91,7 +91,7 @@ const TopBannerView = ({ advert, className }) => {
   return (
     <Wrapper className={className}>
       <AdvertisingTooltip enabled={false}>
-        <SponsoredBadge>Sponsored</SponsoredBadge>
+        <SponsoredBadge>AD</SponsoredBadge>
       </AdvertisingTooltip>
       <Link href={advert.url} onClick={handleClick} sponsored>
         <Icon height={20} src={advert.imageUrl} width={20} />
