@@ -39,7 +39,7 @@ const SubNavigation = styled.div`
   min-width: 13.5rem;
   padding: 0.5rem 1rem;
   position: absolute;
-  z-index: 1;
+  z-index: 20;
 `;
 
 const SubNavigationIndicator = styled(ChevronDownIcon).attrs({

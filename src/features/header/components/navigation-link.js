@@ -3,34 +3,48 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+import { COLORS } from '../../../styles/constants';
 import Link from '../../../components/link';
 
 const StyledNavigationLink = styled(Link)`
-  align-items: center;
+  background-color: ${(props) =>
+    props.active ? COLORS.PRIMARY.SCAMPI_800 : 'inherit'};
   color: ${(props) => (props.active ? 'white' : 'inherit')};
-  display: inline-flex;
-  height: 100%;
-  margin-right: 1.75rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  height: 45px;
+  padding: 0 12px;
+  width: 100%;
+  line-height: 1;
 
   &:hover {
-    color: white;
-    text-decoration: none;
+    background-color: ${(props) =>
+      props.active ? COLORS.PRIMARY.SCAMPI_800 : COLORS.PRIMARY.SCAMPI_900};
   }
 `;
 
-const NavigationLink = ({ href, children }) => {
+const NavigationLink = ({ href, children, ...otherProps }) => {
   const location = useLocation();
-  const active = location.pathname.startsWith(href);
+
+  const active =
+    (location.pathname === '/' && href === '/') ||
+    (href !== '/' && location.pathname.startsWith(href));
 
   return (
-    <StyledNavigationLink active={active} aria-current={active} href={href}>
+    <StyledNavigationLink
+      active={active}
+      aria-current={active}
+      href={href}
+      {...otherProps}
+    >
       {children}
     </StyledNavigationLink>
   );
 };
 
 NavigationLink.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   href: PropTypes.string.isRequired,
 };
 

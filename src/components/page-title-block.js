@@ -3,16 +3,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../styles/util';
-import Container from './container';
 
 const Inner = styled.div`
   align-items: center;
-  border-bottom: 2px solid hsl(230, 35%, 93%);
   border-radius: 1px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.5rem;
-  padding-bottom: 0.75rem;
 
   ${media.greaterThan('lg')`
   margin-bottom: 2rem;
@@ -37,12 +34,10 @@ const FilterContainer = styled.div`
 `;
 
 const PageTitleBlock = ({ children, title }) => (
-  <Container>
-    <Inner>
-      <Title>{title}</Title>
-      {children ? <FilterContainer>{children}</FilterContainer> : null}
-    </Inner>
-  </Container>
+  <Inner>
+    <Title>{title}</Title>
+    {children ? <FilterContainer>{children}</FilterContainer> : null}
+  </Inner>
 );
 
 PageTitleBlock.propTypes = {

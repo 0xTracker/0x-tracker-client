@@ -9,21 +9,22 @@ const TimePeriodFilter = styled(TimePeriodSelector)`
   }
 
   && .Select__control {
-    background: ${COLORS.NEUTRAL.MYSTIC_300};
+    background: ${COLORS.NEUTRAL.MYSTIC_100};
     border: none;
+    box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
     padding: 0.5rem 1rem;
 
     &:hover {
-      background: ${COLORS.NEUTRAL.MYSTIC_400};
+      box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.4);
     }
   }
 
   .Select__single-value {
-    color: ${COLORS.NEUTRAL.MYSTIC_1000};
+    color: ${COLORS.PRIMARY.SCAMPI_900};
   }
 
   && .Select__indicator {
-    color: ${COLORS.NEUTRAL.MYSTIC_1000};
+    color: ${COLORS.PRIMARY.SCAMPI_900};
   }
 `;
 export default TimePeriodFilter;

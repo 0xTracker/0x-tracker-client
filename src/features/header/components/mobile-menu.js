@@ -1,40 +1,33 @@
-import { Portal } from 'react-portal';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
 import DisableBodyScroll from '../../../components/disable-body-scroll';
-import MobileMenuHeader from './mobile-menu-header';
 import MobileNavigation from './mobile-navigation';
-import MobileSearchForm from './mobile-search-form';
 
-const StyledMobileMenu = styled.div`
+const Wrapper = styled.div`
   background-color: ${COLORS.PRIMARY.SCAMPI_1000};
   color: white;
-  height: 100vh;
+  height: calc(100vh - 70px);
   padding: 1rem 0 0 0;
   position: absolute;
-  top: 0;
+  top: 70px;
   width: 100vw;
   z-index: 100;
 `;
 
-const MobileMenu = ({ onClose, onNavigate, onSearch }) => (
-  <Portal>
+const MobileMenu = ({ onNavigate }) => (
+  <>
     <DisableBodyScroll />
-    <StyledMobileMenu aria-label="Menu" aria-modal role="dialog">
-      <MobileMenuHeader onClose={onClose} onNavigate={onNavigate} />
-      <MobileSearchForm onSearch={onSearch} />
+    <Wrapper aria-label="Menu" aria-modal role="dialog">
       <MobileNavigation onNavigate={onNavigate} />
-    </StyledMobileMenu>
-  </Portal>
+    </Wrapper>
+  </>
 );
 
 MobileMenu.propTypes = {
-  onClose: PropTypes.func.isRequired,
   onNavigate: PropTypes.func.isRequired,
-  onSearch: PropTypes.func.isRequired,
 };
 
 export default MobileMenu;

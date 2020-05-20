@@ -30,6 +30,7 @@ const Overlay = styled.div`
   top: 0;
   left: 0;
   width: 100vw;
+  z-index: 30;
 `;
 
 const DialogBody = styled.div`
