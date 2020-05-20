@@ -33,7 +33,7 @@ const disabledCss = css`
 `;
 
 const PaginationPills = ({ onPageChange, page, pageCount }) => {
-  const disabled = pageCount === undefined;
+  const disabled = pageCount === undefined || pageCount < 2;
 
   return (
     <div>

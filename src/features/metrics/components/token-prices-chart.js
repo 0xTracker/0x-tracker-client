@@ -14,8 +14,8 @@ import PropTypes from 'prop-types';
 
 import { COLORS } from '../../../styles/constants';
 import { formatAxisCurrency, formatAxisDate } from '../util';
+import CardPlaceholder from '../../../components/card-placeholder';
 import ChartContainer from '../../../components/chart-container';
-import ChartPlaceholder from '../../../components/chart-placeholder';
 import TokenPricesTooltip from './token-prices-tooltip';
 
 const getDomainForPriceAxis = (prices) => {
@@ -45,9 +45,9 @@ const TokenPricesChart = ({
     data.every((dataPoint) => dataPoint.price.close === null)
   ) {
     return (
-      <ChartPlaceholder>
+      <CardPlaceholder>
         No data available for the selected period
-      </ChartPlaceholder>
+      </CardPlaceholder>
     );
   }
 

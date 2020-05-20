@@ -25,14 +25,14 @@ const TradeCountWidget = ({ change, period, tradeCount, ...otherProps }) => (
     tooltip={createTooltip(period)}
     {...otherProps}
   >
-    {_.isNumber(tradeCount) ? (
+    {_.isNumber(tradeCount) && tradeCount > 0 && (
       <span css="align-items: baseline; display: flex;">
         {summarizeNumber(tradeCount)}
         {change !== undefined && <PercentageChange>{change}</PercentageChange>}
       </span>
-    ) : (
-      loadingIndicator
     )}
+    {_.isNumber(tradeCount) && tradeCount === 0 && 'None'}
+    {!_.isNumber(tradeCount) && loadingIndicator}
   </StatWidget>
 );
 

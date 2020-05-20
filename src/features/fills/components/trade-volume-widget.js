@@ -25,7 +25,7 @@ const TradeVolumeWidget = ({ change, period, volume, ...otherProps }) => (
     tooltip={createTooltip(period)}
     {...otherProps}
   >
-    {_.isNumber(volume) ? (
+    {_.isNumber(volume) && volume > 0 && (
       <span css="align-items: baseline; display: flex;">
         <LocalisedAmount
           amount={volume}
@@ -34,9 +34,9 @@ const TradeVolumeWidget = ({ change, period, volume, ...otherProps }) => (
         />
         {change !== undefined && <PercentageChange>{change}</PercentageChange>}
       </span>
-    ) : (
-      loadingIndicator
     )}
+    {_.isNumber(volume) && volume === 0 && 'None'}
+    {!_.isNumber(volume) && loadingIndicator}
   </StatWidget>
 );
 

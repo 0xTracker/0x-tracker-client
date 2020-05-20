@@ -13,8 +13,8 @@ import PropTypes from 'prop-types';
 
 import { COLORS } from '../../../styles/constants';
 import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
+import CardPlaceholder from '../../../components/card-placeholder';
 import ChartContainer from '../../../components/chart-container';
-import ChartPlaceholder from '../../../components/chart-placeholder';
 import TokenMetricsTooltip from './token-metrics-tooltip';
 
 const isEmpty = (data, metric) => {
@@ -44,9 +44,9 @@ const TokenMetricsChart = ({
 }) => {
   if (isEmpty(data, type)) {
     return (
-      <ChartPlaceholder>
+      <CardPlaceholder>
         No data available for the selected period
-      </ChartPlaceholder>
+      </CardPlaceholder>
     );
   }
 
