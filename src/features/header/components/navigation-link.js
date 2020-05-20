@@ -13,10 +13,11 @@ const StyledNavigationLink = styled(Link)`
   border-radius: 4px;
   display: flex;
   align-items: center;
-  height: 45px;
+  height: 41px;
   padding: 0 12px;
   width: 100%;
   line-height: 1;
+  margin: 2px 0;
 
   &:hover {
     background-color: ${(props) =>

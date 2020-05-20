@@ -23,7 +23,7 @@ exports[`app layout component should render with children 1`] = `
     >
       <a
         aria-current="true"
-        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 UhSbG"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 ipXOZj"
         href="/"
       >
         <svg
@@ -48,7 +48,7 @@ exports[`app layout component should render with children 1`] = `
       </a>
       <a
         aria-current="false"
-        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 fWLhZM"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
         href="/asset-bridges"
       >
         <svg
@@ -70,7 +70,7 @@ exports[`app layout component should render with children 1`] = `
       </a>
       <a
         aria-current="false"
-        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 fWLhZM"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
         href="/fills"
       >
         <svg
@@ -95,7 +95,7 @@ exports[`app layout component should render with children 1`] = `
       </a>
       <a
         aria-current="false"
-        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 fWLhZM"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
         href="/network-insights"
       >
         <svg
@@ -117,7 +117,7 @@ exports[`app layout component should render with children 1`] = `
       </a>
       <a
         aria-current="false"
-        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 fWLhZM"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
         href="/news-and-updates"
         title="News & Updates"
       >
@@ -140,7 +140,7 @@ exports[`app layout component should render with children 1`] = `
       </a>
       <a
         aria-current="false"
-        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 fWLhZM"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
         href="/relayers"
       >
         <svg
@@ -166,7 +166,7 @@ exports[`app layout component should render with children 1`] = `
       </a>
       <a
         aria-current="false"
-        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 fWLhZM"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
         href="/tokens"
       >
         <svg
@@ -191,7 +191,7 @@ exports[`app layout component should render with children 1`] = `
       </a>
       <a
         aria-current="false"
-        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 fWLhZM"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
         href="/traders"
       >
         <svg
@@ -220,7 +220,7 @@ exports[`app layout component should render with children 1`] = `
     class="app-layout__Main-nr5sez-2 ibLLay"
   >
     <div
-      class="app-layout__Scrollport-nr5sez-3 dLUrVF"
+      class="app-layout__Scrollport-nr5sez-3 bxkNbZ"
     >
       <header
         class="header__StyledHeader-gflnft-1 hDCKsx"
