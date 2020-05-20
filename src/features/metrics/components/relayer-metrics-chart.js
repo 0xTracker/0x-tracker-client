@@ -13,8 +13,8 @@ import React from 'react';
 
 import { COLORS } from '../../../styles/constants';
 import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
+import CardPlaceholder from '../../../components/card-placeholder';
 import ChartContainer from '../../../components/chart-container';
-import ChartPlaceholder from '../../../components/chart-placeholder';
 import RelayerMetricsTooltip from './relayer-metrics-tooltip';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
@@ -22,8 +22,12 @@ const RelayerMetricsChart = React.memo(
   ({ data, granularity, onBrushChange, period, type }) => {
     const displayCurrency = useDisplayCurrency();
 
-    if (_.isEmpty(data)) {
-      return <ChartPlaceholder>No data available</ChartPlaceholder>;
+    if (_.every(data, { [type]: 0 })) {
+      return (
+        <CardPlaceholder>
+          No data available for the selected period
+        </CardPlaceholder>
+      );
     }
 
     const sanitizedData = data.map((dataPoint) => ({
