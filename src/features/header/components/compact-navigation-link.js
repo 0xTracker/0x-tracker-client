@@ -14,6 +14,11 @@ const StyledNavigationLink = styled(Link)`
   height: 50px;
   justify-content: center;
   width: 100%;
+
+  &:hover {
+    background-color: ${(props) =>
+      props.active ? COLORS.PRIMARY.SCAMPI_800 : COLORS.PRIMARY.SCAMPI_900};
+  }
 `;
 
 const CompactNavigationLink = ({ href, children, ...otherProps }) => {
