@@ -18,20 +18,6 @@ import CardPlaceholder from '../../../components/card-placeholder';
 import ChartContainer from '../../../components/chart-container';
 import TokenPricesTooltip from './token-prices-tooltip';
 
-const getDomainForPriceAxis = (prices) => {
-  const high = _.max(prices);
-  const low = _.min(prices);
-  const range = high - low;
-
-  if (range === 0) {
-    return [low, high]; // TODO: Improve later
-  }
-
-  const buffer = range / 2;
-
-  return [low - buffer, high + buffer];
-};
-
 const TokenPricesChart = ({
   data,
   granularity,
@@ -50,9 +36,6 @@ const TokenPricesChart = ({
       </CardPlaceholder>
     );
   }
-
-  const prices = data.map((x) => x.price.close);
-  const domain = getDomainForPriceAxis(prices);
 
   return (
     <ChartContainer>
@@ -92,7 +75,8 @@ const TokenPricesChart = ({
           allowDuplicatedCategory={false}
           axisLine={false}
           dataKey="price.close"
-          domain={domain}
+          domain={['auto', 'auto']}
+          interval={0}
           label={{
             fill: COLORS.ACCENT.ANZAC_600,
             fillOpacity: 0.6,

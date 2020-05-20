@@ -147,8 +147,6 @@ const SearchInput = React.forwardRef(
           onSuggestionSelected={(event, { suggestion }) => {
             event.preventDefault();
 
-            console.log('selection made');
-
             if (suggestion.type === 'token') {
               if (window.fathom) {
                 window.fathom.trackGoal('ZDZEDJID', 0);
