@@ -9,10 +9,10 @@ import SubTitle from '../../../components/sub-title';
 import TokensFilter from './tokens-filter';
 
 const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'in the last 24 hours',
-  [TIME_PERIOD.WEEK]: 'in the last week',
-  [TIME_PERIOD.MONTH]: 'in the last month',
-  [TIME_PERIOD.YEAR]: 'in the last year',
+  [TIME_PERIOD.DAY]: 'from the past 24 hours',
+  [TIME_PERIOD.WEEK]: 'from the past week',
+  [TIME_PERIOD.MONTH]: 'from the past 30 days',
+  [TIME_PERIOD.YEAR]: 'from the past year',
   [TIME_PERIOD.ALL]: 'from all time',
 };
 

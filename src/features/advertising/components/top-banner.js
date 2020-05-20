@@ -9,7 +9,9 @@ const Wrapper = styled.div`
   margin-bottom: 1.5rem;
 
   ${media.greaterThan('lg')`
-    background: none;
+    background: rgb(231, 233, 243);
+    padding: 12px;
+    border-radius: 4px;
     margin-bottom: 2rem;
   `}
 `;

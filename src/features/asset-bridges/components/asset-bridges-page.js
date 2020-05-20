@@ -24,11 +24,11 @@ import useAssetBridges from '../hooks/use-asset-bridges';
 import HelpWidget from '../../../components/help-widget';
 
 const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'in the last 24h',
-  [TIME_PERIOD.WEEK]: 'in the last 7d',
-  [TIME_PERIOD.MONTH]: 'in the last 30d',
-  [TIME_PERIOD.YEAR]: 'in the last 365d',
-  [TIME_PERIOD.ALL]: 'since 0x launch',
+  [TIME_PERIOD.DAY]: 'from the past 24 hours',
+  [TIME_PERIOD.WEEK]: 'from the past week',
+  [TIME_PERIOD.MONTH]: 'from the past 30 days',
+  [TIME_PERIOD.YEAR]: 'from the past year',
+  [TIME_PERIOD.ALL]: 'from all time',
 };
 
 const AssetBridgesPage = () => {
@@ -61,7 +61,7 @@ const AssetBridgesPage = () => {
       title={
         <>
           <span css="display: flex; align-items: center;">
-            Active Asset Bridges{' '}
+            Asset Bridges{' '}
             <HelpWidget css="margin-left: 0.5rem;">
               Asset bridges allow 0x to tap into on-chain liquidity sources like
               Kyber and Uniswap by sourcing maker liquidity from contracts

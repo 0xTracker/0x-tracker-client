@@ -28,12 +28,12 @@ const StyledPageLayout = styled.div`
 
 const PageLayout = ({ centered, children, filter, showBanner, title }) => (
   <StyledPageLayout>
-    {title ? <PageTitleBlock title={title}>{filter}</PageTitleBlock> : null}
     {showBanner && (
       <Hidden above="lg">
         <TopBanner />
       </Hidden>
     )}
+    {title ? <PageTitleBlock title={title}>{filter}</PageTitleBlock> : null}
     <PageBody centered={centered}>{children}</PageBody>
   </StyledPageLayout>
 );

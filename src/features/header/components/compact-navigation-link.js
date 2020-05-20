@@ -9,17 +9,14 @@ import Link from '../../../components/link';
 const StyledNavigationLink = styled(Link)`
   background-color: ${(props) =>
     props.active ? COLORS.PRIMARY.SCAMPI_800 : 'inherit'};
-  color: ${(props) => (props.active ? 'white' : 'inherit')};
-  border-radius: 4px;
   display: flex;
   align-items: center;
-  height: 45px;
-  padding: 0 12px;
+  height: 50px;
+  justify-content: center;
   width: 100%;
-  line-height: 1;
 `;
 
-const NavigationLink = ({ href, children, ...otherProps }) => {
+const CompactNavigationLink = ({ href, children, ...otherProps }) => {
   const location = useLocation();
 
   const active =
@@ -38,9 +35,9 @@ const NavigationLink = ({ href, children, ...otherProps }) => {
   );
 };
 
-NavigationLink.propTypes = {
+CompactNavigationLink.propTypes = {
   children: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
 };
 
-export default NavigationLink;
+export default CompactNavigationLink;

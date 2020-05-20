@@ -3,15 +3,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
-import AdvertisingTooltip from './advertising-tooltip';
-import Badge from '../../../components/badge';
 import Link from '../../../components/link';
 
 const Icon = styled.img`
   display: block;
   border-radius: 4px;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   margin: 0 auto 16px auto;
 `;
 
@@ -26,14 +24,12 @@ const LearnMoreLink = styled(Link)`
 
 const Wrapper = styled.div`
   background: ${COLORS.PRIMARY.SCAMPI_800};
-  bottom: 12px;
-  position: absolute;
   color: white;
   border-radius: 4px;
   padding: 12px;
   width: 226px;
-  left: 12px;
   text-align: center;
+  margin: 0 12px 12px 12px;
 `;
 
 const Title = styled.strong`

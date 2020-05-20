@@ -22,11 +22,11 @@ import TopProtocolsCard from './top-protocols-card';
 import TraderTypesCard from '../../traders/components/trader-types-card';
 
 const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'for the last 24 hours',
-  [TIME_PERIOD.WEEK]: 'for the past week',
-  [TIME_PERIOD.MONTH]: 'for the past month',
-  [TIME_PERIOD.YEAR]: 'for the past year',
-  [TIME_PERIOD.ALL]: 'for all time',
+  [TIME_PERIOD.DAY]: 'from the past 24 hours',
+  [TIME_PERIOD.WEEK]: 'from the past week',
+  [TIME_PERIOD.MONTH]: 'from the past 30 days',
+  [TIME_PERIOD.YEAR]: 'from the past year',
+  [TIME_PERIOD.ALL]: 'from all time',
 };
 
 const NetworkOverviewPage = () => {

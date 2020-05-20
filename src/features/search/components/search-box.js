@@ -55,7 +55,7 @@ const SearchBox = ({ autoFocus, onBlur }) => {
           color: ${COLORS.PRIMARY.SCAMPI_1000};
           position: relative;
           z-index: 6;
-          height: 36px;
+          height: 42px;
         `}
       >
         <CardBody css="height: 36px;">

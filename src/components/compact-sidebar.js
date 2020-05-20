@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { COLORS } from '../styles/constants';
 import { URL } from '../constants';
+import CompactNavigation from '../features/header/components/compact-navigation';
 import Link from './link';
 import logoImage from '../assets/images/icon-grayscale.svg';
 
@@ -24,7 +25,6 @@ const CompactSidebar = () => (
   >
     <div
       css={`
-        border-bottom: 3px solid ${COLORS.PRIMARY.SCAMPI_800};
         display: flex;
         height: 64px;
         align-items: center;
@@ -35,6 +35,7 @@ const CompactSidebar = () => (
         <LogoImage alt="0x Tracker" size="small" src={logoImage} />
       </Link>
     </div>
+    <CompactNavigation />
   </div>
 );
 

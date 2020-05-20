@@ -44,7 +44,7 @@ const Main = styled.div`
 
 const Scrollport = styled.div`
   overflow: auto;
-  max-height: calc(100vh - 64px);
+  max-height: 100vh;
 `;
 
 const AppLayout = ({ children }) => (
@@ -59,10 +59,10 @@ const AppLayout = ({ children }) => (
       <Hidden above="md">
         <MobileHeader />
       </Hidden>
-      <Visible above="md">
-        <Header />
-      </Visible>
       <Scrollport>
+        <Visible above="md">
+          <Header />
+        </Visible>
         <AppBody>{children}</AppBody>
         <Footer />
       </Scrollport>

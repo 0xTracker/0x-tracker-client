@@ -15,18 +15,23 @@ import DonateIcon from './donate-icon';
 import EtherscanIcon from './etherscan-icon';
 import ExternalLinkIcon from './external-link-icon';
 import FacebookShareIcon from './facebook-share-icon';
+import FillsIcon from './fills-icon';
 import FilterIcon from './filter-icon';
 import GitHubIcon from './git-hub-icon';
 import HelpIcon from './help-icon';
+import HomeIcon from './home-icon';
+import InsightsIcon from './insights-icon';
 import LeftArrowIcon from './left-arrow-icon';
 import LinkedinShareIcon from './linkedin-share-icon';
 import MarkerIcon from './marker-icon';
 import MediumIcon from './medium-icon';
 import MenuIcon from './menu-icon';
 import MoreIcon from './more-icon';
+import NewsIcon from './news-icon';
 import NotificationsIcon from './notifications-icon';
 import PrivateIcon from './private-icon';
 import RedditShareIcon from './reddit-share-icon';
+import RelayersIcon from './relayers-icon';
 import ResetIcon from './reset-icon';
 import RightArrowIcon from './right-arrow-icon';
 import ScheduledIcon from './scheduled-icon';
@@ -34,8 +39,11 @@ import SearchIcon from './search-icon';
 import SettingsIcon from './settings-icon';
 import SignOutIcon from './sign-out-icon';
 import SquareIcon from './square-icon';
+import StakingIcon from './staking-icon';
 import TimePeriodIcon from './time-period-icon';
+import TokensIcon from './tokens-icon';
 import TokenIcon from './token-icon';
+import TradersIcon from './traders-icon';
 import TrendingDownIcon from './trending-down-icon';
 import TrendingFlatIcon from './trending-flat-icon';
 import TrendingUpIcon from './trending-up-icon';
@@ -61,18 +69,23 @@ export {
   EtherscanIcon,
   ExternalLinkIcon,
   FacebookShareIcon,
+  FillsIcon,
   FilterIcon,
   GitHubIcon,
   HelpIcon,
+  HomeIcon,
+  InsightsIcon,
   LeftArrowIcon,
   LinkedinShareIcon,
   MarkerIcon,
   MediumIcon,
   MenuIcon,
   MoreIcon,
+  NewsIcon,
   NotificationsIcon,
   PrivateIcon,
   RedditShareIcon,
+  RelayersIcon,
   ResetIcon,
   RightArrowIcon,
   ScheduledIcon,
@@ -80,8 +93,11 @@ export {
   SettingsIcon,
   SignOutIcon,
   SquareIcon,
+  StakingIcon,
   TimePeriodIcon,
   TokenIcon,
+  TokensIcon,
+  TradersIcon,
   TrendingDownIcon,
   TrendingFlatIcon,
   TrendingUpIcon,

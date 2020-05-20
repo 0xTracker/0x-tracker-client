@@ -8,7 +8,7 @@ import { DiscordIcon, TwitterIcon } from './icons';
 import Link from './link';
 
 const NavHeading = styled.h2`
-  color: ${COLORS.PRIMARY.SCAMPI_500};
+  color: ${COLORS.PRIMARY.SCAMPI_600};
   font-size: 0.9rem;
   letter-spacing: 0.05em;
   margin: 2rem 0 1rem 0;

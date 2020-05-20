@@ -26,11 +26,10 @@ const MenuButton = styled.button`
 `;
 
 const StyledHeader = styled.header`
-  background-color: ${COLORS.PRIMARY.SCAMPI_700};
-  border-bottom: 3px solid ${COLORS.PRIMARY.SCAMPI_400};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
   box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
-  color: ${COLORS.PRIMARY.SCAMPI_100};
-  height: 64px;
+  color: ${COLORS.PRIMARY.SCAMPI_900};
+  height: 70px;
   padding: 0 1.25rem;
 
   ${media.greaterThan('lg')`

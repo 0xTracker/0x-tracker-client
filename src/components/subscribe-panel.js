@@ -6,16 +6,14 @@ import { media } from '../styles/util';
 import subscribeImage from '../assets/images/subscribe.png';
 
 const Wrapper = styled.div`
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  background-color: rgb(231, 233, 243);
   padding: 0 2rem;
 `;
 
 const Inner = styled.div`
   align-items: center;
-  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
   border-radius: 1px;
   justify-content: center;
-  padding: 2rem 0 3rem 0;
 
   ${media.greaterThan('sm')`
     display: flex;

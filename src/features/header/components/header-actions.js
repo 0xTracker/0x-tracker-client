@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
@@ -7,6 +6,7 @@ import {
   NotificationsIcon,
   SettingsIcon,
 } from '../../../components/icons';
+import { COLORS } from '../../../styles/constants';
 import Link from '../../../components/link';
 import useSettingsDialog from '../../preferences/hooks/use-settings-dialog';
 
@@ -14,16 +14,18 @@ const ActionButton = styled.button`
   align-items: center;
   background: none;
   border: none;
+  background: ${COLORS.NEUTRAL.MYSTIC_200};
   border-radius: 0.25rem;
-  color: inherit;
+  color: ${COLORS.PRIMARY.SCAMPI_800};
   cursor: pointer;
   display: flex;
   justify-content: center;
-  margin: 0 0.5rem 0 0;
-  padding: 0.5rem 0 0.5rem 0.75rem;
+  margin: 0 12px 0 0;
+  height: 100%;
+  width: 50px;
 
   &:hover {
-    color: white;
+    background: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 
   &:last-child {
@@ -55,9 +57,9 @@ const HeaderActions = () => {
   });
 
   return (
-    <div css="display: flex; align-items: center;">
+    <div css="display: flex; align-items: center; height: 100%; padding: 14px 0 14px;">
       <NotificationsButton className="headway">
-        <NotificationsIcon color="currentColor" height={26} width={26} />
+        <NotificationsIcon color="currentColor" height={24} width={24} />
       </NotificationsButton>
       <ActionButton
         as={Link}
@@ -69,10 +71,10 @@ const HeaderActions = () => {
         }}
         title="Help support 0x Tracker development with a donation"
       >
-        <DonateIcon color="currentColor" height={22} width={22} />
+        <DonateIcon color="currentColor" height={20} width={20} />
       </ActionButton>
       <ActionButton onClick={() => settingsDialog.show()} title="Settings">
-        <SettingsIcon color="currentColor" height={22} width={22} />
+        <SettingsIcon color="currentColor" height={20} width={20} />
       </ActionButton>
     </div>
   );
