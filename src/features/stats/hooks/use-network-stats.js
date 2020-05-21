@@ -1,9 +1,10 @@
 import useApi from '../../../hooks/use-api';
 
-const useNetworkStats = ({ period } = {}) =>
+const useNetworkStats = ({ filters, period } = {}) =>
   useApi('stats/network', {
     autoReload: true,
     params: {
+      ...(filters || {}),
       period,
     },
   });

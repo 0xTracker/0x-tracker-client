@@ -9,9 +9,42 @@ import {
   useSearchParam,
 } from '../../../hooks';
 import Card from '../../../components/card';
+import CardGrid from '../../../components/card-grid';
+import CardGridCol from '../../../components/card-grid-col';
+import CardGridRow from '../../../components/card-grid-row';
 import Fills from './fills';
+import FillsBrowserStats from './fills-browser-stats';
 import FillsFilter from './fills-filter';
+import NetworkMetrics from '../../metrics/components/network-metrics';
 import PageLayout from '../../../components/page-layout';
+import SubTitle from '../../../components/sub-title';
+import TabbedCard from '../../../components/tabbed-card';
+import { FillsIcon } from '../../../components/icons';
+
+const formatDate = (date) => {
+  const parsedDate = new Date(date);
+  const year = parsedDate.getUTCFullYear();
+  const month = _.padStart(parsedDate.getUTCMonth() + 1, 2, 0);
+  const day = _.padStart(parsedDate.getUTCDate(), 2, 0);
+
+  return `${day}/${month}/${year}`;
+};
+
+const getSubTitle = (dateFrom, dateTo) => {
+  if (dateFrom !== undefined && dateTo !== undefined) {
+    return `from ${formatDate(dateFrom)} to ${formatDate(dateTo)}`;
+  }
+
+  if (dateFrom !== undefined) {
+    return `from ${formatDate(dateFrom)} to now`;
+  }
+
+  if (dateTo !== undefined) {
+    return `from 0x launch to ${formatDate(dateTo)}`;
+  }
+
+  return 'from all time';
+};
 
 const FillsPage = () => {
   useMetadata({ title: 'Browse 0x Protocol Fills' });
@@ -27,6 +60,9 @@ const FillsPage = () => {
   const relayer = useSearchParam('relayer');
   const valueFrom = useSearchParam('valueFrom');
   const valueTo = useSearchParam('valueTo');
+
+  const period =
+    dateFrom === undefined && dateTo === undefined ? 'all' : undefined;
 
   return (
     <PageLayout
@@ -60,13 +96,20 @@ const FillsPage = () => {
           }}
         />
       }
-      title="Browse Fills"
+      title={
+        <div css="align-items: center; display: flex;">
+          <FillsIcon css="margin-right: 12px;" size={44} />
+          <div>
+            Browse Fills<SubTitle>{getSubTitle(dateFrom, dateTo)}</SubTitle>
+          </div>
+        </div>
+      }
     >
-      <Card>
-        <Fills
-          filter={{
-            dateFrom,
-            dateTo,
+      <CardGrid>
+        <FillsBrowserStats
+          filters={{
+            periodFrom: dateFrom,
+            periodTo: dateTo,
             protocolVersion,
             relayer,
             status,
@@ -74,10 +117,49 @@ const FillsPage = () => {
             valueFrom,
             valueTo,
           }}
-          onPageChange={setPage}
-          page={page}
+          period={period}
         />
-      </Card>
+        <CardGridRow>
+          <CardGridCol>
+            <TabbedCard
+              tabs={[
+                {
+                  component: (
+                    <NetworkMetrics period={period} type="tradeVolume" />
+                  ),
+                  title: 'Volume',
+                },
+                {
+                  component: (
+                    <NetworkMetrics period={period} type="tradeCount" />
+                  ),
+                  title: 'Trades',
+                },
+              ]}
+            />
+          </CardGridCol>
+        </CardGridRow>
+        <CardGridRow>
+          <CardGridCol>
+            <Card>
+              <Fills
+                filter={{
+                  dateFrom,
+                  dateTo,
+                  protocolVersion,
+                  relayer,
+                  status,
+                  token,
+                  valueFrom,
+                  valueTo,
+                }}
+                onPageChange={setPage}
+                page={page}
+              />
+            </Card>
+          </CardGridCol>
+        </CardGridRow>
+      </CardGrid>
     </PageLayout>
   );
 };
