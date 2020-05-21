@@ -39,8 +39,17 @@ const useAutocomplete = () => {
         q: searchTerm,
       });
 
-      // eslint-disable-next-line compat/compat
-      const [tokensResponse, relayersResponse] = await Promise.all([
+      const tradersUrl = buildApiUrl('trader-lookup', {
+        limit: searchTerm === '' ? 5 : 10,
+        q: searchTerm,
+      });
+
+      /* eslint-disable compat/compat */
+      const [
+        tokensResponse,
+        relayersResponse,
+        tradersResponse,
+      ] = await Promise.all([
         axios.get(tokensUrl, {
           cancelToken: source.token,
           timeout: API_CALL_TIMEOUT,
@@ -49,9 +58,15 @@ const useAutocomplete = () => {
           cancelToken: source.token,
           timeout: API_CALL_TIMEOUT,
         }),
+        axios.get(tradersUrl, {
+          cancelToken: source.token,
+          timeout: API_CALL_TIMEOUT,
+        }),
       ]);
+      /* eslint-enable compat/compat */
 
       const { tokens } = tokensResponse.data;
+      const { traders } = tradersResponse.data;
       const relayers =
         searchTerm === ''
           ? _.take(
@@ -87,9 +102,23 @@ const useAutocomplete = () => {
             }
           : null;
 
-      const newSuggestions = [relayersSection, tokensSection].filter(
-        (x) => x !== null,
-      );
+      const tradersSection =
+        traders.length > 0
+          ? {
+              suggestions: traders.map((trader) => ({
+                address: trader.address,
+                name: trader.name,
+                type: 'trader',
+              })),
+              title: 'Traders',
+            }
+          : null;
+
+      const newSuggestions = [
+        relayersSection,
+        tokensSection,
+        tradersSection,
+      ].filter((x) => x !== null);
 
       setState((prevState) => ({
         ...prevState,
