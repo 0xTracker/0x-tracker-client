@@ -261,7 +261,7 @@ exports[`app layout component should render with children 1`] = `
                         autocomplete="off"
                         class="react-autosuggest__input"
                         name="q"
-                        placeholder="Search for tokens, relayers or fills"
+                        placeholder="Search for tokens, relayers, traders or fills"
                         type="text"
                         value=""
                       />
