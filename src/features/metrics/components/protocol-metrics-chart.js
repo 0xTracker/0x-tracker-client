@@ -5,7 +5,7 @@ import React from 'react';
 
 import { COLORS } from '../../../styles/constants';
 import { formatAxisDate } from '../util';
-import ChartContainer from '../../../components/chart-container';
+import BrushableChartContainer from '../../../components/brushable-chart-container';
 import ChartLegendText from '../../../components/chart-legend-text';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 import ProtocolMetricsTooltip from './protocol-metrics-tooltip';
@@ -24,22 +24,16 @@ const SEGMENT_COLORS = [
   COLORS.ACCENT.FRUIT_SALAD_1000,
 ];
 
-// eslint-disable-next-line react/display-name
-const ProtocolMetricsChart = React.memo(
-  ({ currency, data, granularity, onBrushChange, period }) => {
-    if (_.isEmpty(data)) {
-      return <ChartPlaceholder>No data available</ChartPlaceholder>;
-    }
+const ProtocolMetricsChart = ({ currency, data, granularity, period }) => {
+  if (_.isEmpty(data)) {
+    return <ChartPlaceholder>No data available</ChartPlaceholder>;
+  }
 
-    const sanitizedData = data.map((dataPoint) => ({
-      ...dataPoint,
-      date: dataPoint.date.toISOString(),
-    }));
-
-    return (
-      <ChartContainer>
+  return (
+    <BrushableChartContainer data={data}>
+      {({ brushableData, brushIndexes, handleBrushChange }) => (
         <AreaChart
-          data={sanitizedData}
+          data={brushableData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
           <Tooltip
@@ -89,17 +83,18 @@ const ProtocolMetricsChart = React.memo(
             />
           ))}
           <Brush
+            {...brushIndexes}
             dataKey="date"
             height={30}
-            onChange={onBrushChange}
+            onChange={handleBrushChange}
             stroke={COLORS.NEUTRAL.MYSTIC_300}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           />
         </AreaChart>
-      </ChartContainer>
-    );
-  },
-);
+      )}
+    </BrushableChartContainer>
+  );
+};
 
 ProtocolMetricsChart.propTypes = {
   currency: PropTypes.string.isRequired,
@@ -116,12 +111,7 @@ ProtocolMetricsChart.propTypes = {
     }),
   ).isRequired,
   granularity: PropTypes.string.isRequired,
-  onBrushChange: PropTypes.func,
   period: PropTypes.string.isRequired,
-};
-
-ProtocolMetricsChart.defaultProps = {
-  onBrushChange: undefined,
 };
 
 export default ProtocolMetricsChart;

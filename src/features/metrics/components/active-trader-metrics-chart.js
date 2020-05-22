@@ -14,24 +14,19 @@ import React from 'react';
 import { COLORS } from '../../../styles/constants';
 import { formatAxisDate, formatAxisNumber } from '../util';
 import ActiveTraderMetricsTooltip from './active-trader-metrics-tooltip';
-import ChartContainer from '../../../components/chart-container';
+import BrushableChartContainer from '../../../components/brushable-chart-container';
 import ChartPlaceholder from '../../../components/chart-placeholder';
 
-const ActiveTraderMetricsChart = React.memo(
-  ({ data, granularity, onBrushChange, period, type }) => {
-    if (_.isEmpty(data)) {
-      return <ChartPlaceholder>No data available</ChartPlaceholder>;
-    }
+const ActiveTraderMetricsChart = ({ data, granularity, period, type }) => {
+  if (_.isEmpty(data)) {
+    return <ChartPlaceholder>No data available</ChartPlaceholder>;
+  }
 
-    const sanitizedData = data.map((dataPoint) => ({
-      ...dataPoint,
-      date: dataPoint.date.toISOString(),
-    }));
-
-    return (
-      <ChartContainer>
+  return (
+    <BrushableChartContainer data={data}>
+      {({ brushIndexes, brushableData, handleBrushChange }) => (
         <BarChart
-          data={sanitizedData}
+          data={brushableData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
           <CartesianGrid
@@ -65,17 +60,18 @@ const ActiveTraderMetricsChart = React.memo(
             content={<ActiveTraderMetricsTooltip granularity={granularity} />}
           />
           <Brush
+            {...brushIndexes}
             dataKey="date"
             height={30}
-            onChange={onBrushChange}
+            onChange={handleBrushChange}
             stroke={COLORS.NEUTRAL.MYSTIC_300}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           />
         </BarChart>
-      </ChartContainer>
-    );
-  },
-);
+      )}
+    </BrushableChartContainer>
+  );
+};
 
 ActiveTraderMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
@@ -87,15 +83,8 @@ ActiveTraderMetricsChart.propTypes = {
     }),
   ).isRequired,
   granularity: PropTypes.string.isRequired,
-  onBrushChange: PropTypes.func,
   period: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
 };
-
-ActiveTraderMetricsChart.defaultProps = {
-  onBrushChange: undefined,
-};
-
-ActiveTraderMetricsChart.displayName = 'ActiveTraderMetricsChart';
 
 export default ActiveTraderMetricsChart;

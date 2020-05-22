@@ -1,15 +1,25 @@
+import _ from 'lodash';
+
 import useApi from '../../../hooks/use-api';
 
 const useNetworkMetrics = (
-  { granularity, period } = {},
+  { filters, granularity, period } = {},
   { autoReload } = { autoReload: true },
 ) =>
   useApi('metrics/network', {
     autoReload,
-    params: {
-      granularity,
-      period,
-    },
+    params: _.isPlainObject(period)
+      ? {
+          ...(filters || {}),
+          granularity,
+          periodFrom: period.from,
+          periodTo: period.to,
+        }
+      : {
+          ...(filters || {}),
+          granularity,
+          period,
+        },
   });
 
 export default useNetworkMetrics;

@@ -64,6 +64,11 @@ const FillsPage = () => {
   const period =
     dateFrom === undefined && dateTo === undefined ? 'all' : undefined;
 
+  const metricsPeriod =
+    dateFrom === undefined && dateTo === undefined
+      ? 'all'
+      : { from: dateFrom, to: dateTo };
+
   return (
     <PageLayout
       filter={
@@ -125,13 +130,39 @@ const FillsPage = () => {
               tabs={[
                 {
                   component: (
-                    <NetworkMetrics period={period} type="tradeVolume" />
+                    <NetworkMetrics
+                      filters={{
+                        periodFrom: dateFrom,
+                        periodTo: dateTo,
+                        protocolVersion,
+                        relayer,
+                        status,
+                        token,
+                        valueFrom,
+                        valueTo,
+                      }}
+                      period={metricsPeriod}
+                      type="tradeVolume"
+                    />
                   ),
                   title: 'Volume',
                 },
                 {
                   component: (
-                    <NetworkMetrics period={period} type="tradeCount" />
+                    <NetworkMetrics
+                      filters={{
+                        periodFrom: dateFrom,
+                        periodTo: dateTo,
+                        protocolVersion,
+                        relayer,
+                        status,
+                        token,
+                        valueFrom,
+                        valueTo,
+                      }}
+                      period={metricsPeriod}
+                      type="tradeCount"
+                    />
                   ),
                   title: 'Trades',
                 },
