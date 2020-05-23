@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -55,7 +56,11 @@ const SearchSuggestion = ({ suggestion }) => {
   if (suggestion.type === 'trader') {
     return (
       <Wrapper>
-        <Image as={Blockie} seed={suggestion.address} size="35px" />
+        {_.isString(suggestion.imageUrl) ? (
+          <Image src={suggestion.imageUrl} />
+        ) : (
+          <Image as={Blockie} seed={suggestion.address} size="35px" />
+        )}
         <span>
           {suggestion.name === null ? 'Unknown Trader' : suggestion.name}
           <SubText>

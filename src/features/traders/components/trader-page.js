@@ -23,6 +23,7 @@ import Link from '../../../components/link';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
 import SubTitle from '../../../components/sub-title';
+import TraderOverviewCard from './trader-overview-card';
 import useTrader from '../hooks/use-trader';
 import Visible from '../../../components/visible';
 
@@ -94,11 +95,19 @@ const TraderPage = () => {
       }
       title={
         <div css="display: flex; align-items: center;">
-          <Blockie
-            css="border-radius: 0.25rem; margin-right: 0.75rem;"
-            seed={address}
-            size="35px"
-          />
+          {_.isString(trader.imageUrl) ? (
+            <img
+              css="border-radius: 4px; margin-right: 12px;"
+              height={35}
+              src={trader.imageUrl}
+            />
+          ) : (
+            <Blockie
+              css="border-radius: 4px; margin-right: 12px;"
+              seed={address}
+              size="35px"
+            />
+          )}
           <div>
             {_.isString(trader.name)
               ? truncateName(trader.name, breakpoint)
@@ -113,8 +122,8 @@ const TraderPage = () => {
       }
     >
       <CardGrid>
-        <CardGridRow>
-          <CardGridCol>
+        <CardGridRow minHeight="330px">
+          <CardGridCol lg={7}>
             <ChartsContainer
               charts={[
                 {
@@ -137,6 +146,9 @@ const TraderPage = () => {
                 { label: 'ALL', value: TIME_PERIOD.ALL },
               ]}
             />
+          </CardGridCol>
+          <CardGridCol lg={5}>
+            <TraderOverviewCard trader={trader} />
           </CardGridCol>
         </CardGridRow>
         <CardGridRow>
