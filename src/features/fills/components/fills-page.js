@@ -62,9 +62,6 @@ const FillsPage = () => {
   const valueTo = useSearchParam('valueTo');
 
   const period =
-    dateFrom === undefined && dateTo === undefined ? 'all' : undefined;
-
-  const metricsPeriod =
     dateFrom === undefined && dateTo === undefined
       ? 'all'
       : { from: dateFrom, to: dateTo };
@@ -141,7 +138,7 @@ const FillsPage = () => {
                         valueFrom,
                         valueTo,
                       }}
-                      period={metricsPeriod}
+                      period={period}
                       type="tradeVolume"
                     />
                   ),
@@ -160,7 +157,7 @@ const FillsPage = () => {
                         valueFrom,
                         valueTo,
                       }}
-                      period={metricsPeriod}
+                      period={period}
                       type="tradeCount"
                     />
                   ),
