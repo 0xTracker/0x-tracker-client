@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -68,11 +69,19 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
           </td>
           <td className="align-middle">
             <TraderLink address={trader.address}>
-              <Blockie
-                css="border-radius: 0.25rem; vertical-align: middle;"
-                seed={trader.address}
-                size="40px"
-              />
+              {_.isString(trader.imageUrl) ? (
+                <img
+                  css="border-radius: 0.25rem; vertical-align: middle;"
+                  src={trader.imageUrl}
+                  width={40}
+                />
+              ) : (
+                <Blockie
+                  css="border-radius: 0.25rem; vertical-align: middle;"
+                  seed={trader.address}
+                  size="40px"
+                />
+              )}
             </TraderLink>
           </td>
           <td className="align-middle" width="99%">
