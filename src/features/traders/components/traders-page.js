@@ -10,14 +10,11 @@ import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
 import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
-import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
-import Paginator from '../../../components/paginator';
 import SubTitle from '../../../components/sub-title';
 import TraderBreakdown from './trader-breakdown';
-import TraderList from './trader-list';
 import TradersFilter from './traders-filter';
-import useTraders from '../hooks/use-traders';
+import Traders from './traders';
 
 const defaultPeriod = TIME_PERIOD.MONTH;
 
@@ -41,12 +38,6 @@ const METRIC_TYPE_MAPPINGS = {
   undefined: 'traderCount',
 };
 
-const SORT_BY_MAPPINGS = {
-  maker: 'fillVolume.maker',
-  taker: 'fillVolume.taker',
-  undefined: 'fillVolume.total',
-};
-
 const TradersPage = () => {
   useMetadata({ title: '0x Protocol Trader Metrics & Charts' });
 
@@ -59,17 +50,6 @@ const TradersPage = () => {
     statsPeriod,
     type,
   };
-
-  const [traders, loading] = useTraders({
-    autoReload: true,
-    limit: 25,
-    page,
-    sortBy: SORT_BY_MAPPINGS[type],
-    statsPeriod,
-    type,
-  });
-
-  const { items, pageCount, pageSize, recordCount } = traders;
 
   return (
     <PageLayout
@@ -129,32 +109,19 @@ const TradersPage = () => {
         </CardGridRow>
         <CardGridRow>
           <CardGridCol xs={12}>
-            <Card>
+            <Card errorMessage="An error occurred while loading traders">
               <CardBody>
-                {loading ? (
-                  <LoadingIndicator centered />
-                ) : (
-                  <>
-                    <TraderList
-                      positionOffset={(page - 1) * pageSize}
-                      statsPeriod={statsPeriod}
-                      statsType={type}
-                      traders={items}
-                    />
-                    <Paginator
-                      onPageChange={(newPage) => {
-                        navigateTo(URL.TRADERS, {
-                          page: newPage,
-                          ...selectedFilters,
-                        });
-                      }}
-                      page={page}
-                      pageCount={pageCount}
-                      pageSize={pageSize}
-                      recordCount={recordCount}
-                    />
-                  </>
-                )}
+                <Traders
+                  onPageChange={(newPage) => {
+                    navigateTo(URL.TRADERS, {
+                      page: newPage,
+                      ...selectedFilters,
+                    });
+                  }}
+                  page={page}
+                  statsPeriod={statsPeriod}
+                  type={type}
+                />
               </CardBody>
             </Card>
           </CardGridCol>

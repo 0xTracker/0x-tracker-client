@@ -235,7 +235,7 @@ exports[`app layout component should render with children 1`] = `
               class="search-box__SearchOverlay-sc-14vl3sw-0 cHVapg"
             />
             <div
-              class="card__Card-sc-1u97707-0 search-box___StyledCard-sc-14vl3sw-1 fIOfxn"
+              class="card__Wrapper-sc-1u97707-0 bmsCLB search-box___StyledCard-sc-14vl3sw-1 ccbdoC"
             >
               <div
                 class="card-body__CardBody-sc-1mkhz93-0 search-box___StyledCardBody-sc-14vl3sw-2 bhXCds"

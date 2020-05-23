@@ -38,9 +38,10 @@ const TabbedCard = ({ className, tabs }) => {
   const Tab = tabs[selectedTab].component;
   const TabFooter = tabs[selectedTab].footer;
   const TabActions = tabs[selectedTab].actions;
+  const { errorMessage } = tabs[selectedTab];
 
   return (
-    <Card className={className}>
+    <Card className={className} errorMessage={errorMessage}>
       <TabbedCardHeader>
         {tabs.length === 1 ? (
           tabs[0].title
@@ -88,6 +89,7 @@ TabbedCard.propTypes = {
         PropTypes.node,
         PropTypes.object,
       ]).isRequired,
+      errorMessage: PropTypes.string,
       footer: PropTypes.oneOfType([
         PropTypes.element,
         PropTypes.node,
