@@ -105,10 +105,10 @@ const Info = styled(Col)`
 const Wrapper = styled.div`
   background-color: ${COLORS.NEUTRAL.MYSTIC_200};
   color: ${COLORS.PRIMARY.SCAMPI_1000};
-  padding: 2rem 2rem;
+  padding: 2rem 2rem 7rem;
 
   ${media.greaterThan('md')`
-    padding: 3rem 2rem 2rem;
+    padding: 3rem 2rem 7rem;
   `}
 `;
 

@@ -107,6 +107,7 @@ const useAutocomplete = () => {
           ? {
               suggestions: traders.map((trader) => ({
                 address: trader.address,
+                imageUrl: trader.imageUrl,
                 name: trader.name,
                 type: 'trader',
               })),

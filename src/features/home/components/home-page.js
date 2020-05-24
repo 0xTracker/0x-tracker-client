@@ -46,6 +46,8 @@ const HomePage = () => {
                       type="tradeVolume"
                     />
                   ),
+                  errorMessage:
+                    'An error occurred while loading the volume chart',
                   title: 'Volume',
                 },
                 {
@@ -60,6 +62,8 @@ const HomePage = () => {
                       type="tradeCount"
                     />
                   ),
+                  errorMessage:
+                    'An error occurred while loading the trades chart',
                   title: 'Trades',
                 },
               ]}
@@ -75,6 +79,8 @@ const HomePage = () => {
                     </Pill>
                   ),
                   component: <TopTokens period={TIME_PERIOD.DAY} />,
+                  errorMessage:
+                    'An error occurred while loading the top tokens',
                   footer: <HomePageTopTokensFooter period={TIME_PERIOD.DAY} />,
                   title: 'Top Tokens',
                 },
@@ -85,6 +91,8 @@ const HomePage = () => {
                     </Pill>
                   ),
                   component: <TopRelayers period={TIME_PERIOD.DAY} />,
+                  errorMessage:
+                    'An error occurred while loading the top relayers',
                   footer: (
                     <HomePageTopRelayersFooter period={TIME_PERIOD.DAY} />
                   ),

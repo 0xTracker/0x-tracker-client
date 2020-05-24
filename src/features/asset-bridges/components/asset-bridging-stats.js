@@ -11,7 +11,7 @@ import CardGridRow from '../../../components/card-grid-row';
 import useAssetBridgingStats from '../hooks/use-asset-bridging-stats';
 import VolumeShareWidget from './volume-share-widget';
 
-const AssetBridgingStats = ({ bridgeCount, period }) => {
+const AssetBridgingStats = ({ period }) => {
   const [stats, loading] = useAssetBridgingStats(period);
   const breakpoint = useCurrentBreakpoint();
 
@@ -40,7 +40,10 @@ const AssetBridgingStats = ({ bridgeCount, period }) => {
           />
         </CardGridCol>
         <CardGridCol lg={3} md={6}>
-          <ActiveBridgesWidget bridgeCount={bridgeCount} loading={loading} />
+          <ActiveBridgesWidget
+            bridgeCount={_.get(stats, 'bridgeCount')}
+            loading={loading}
+          />
         </CardGridCol>
       </CardGridRow>
     );
@@ -50,12 +53,7 @@ const AssetBridgingStats = ({ bridgeCount, period }) => {
 };
 
 AssetBridgingStats.propTypes = {
-  bridgeCount: PropTypes.number,
   period: PropTypes.string.isRequired,
-};
-
-AssetBridgingStats.defaultProps = {
-  bridgeCount: undefined,
 };
 
 export default AssetBridgingStats;

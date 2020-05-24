@@ -7,21 +7,18 @@ import {
   usePaginator,
   useSearchParam,
 } from '../../../hooks';
-import AssetBridgeList from './asset-bridge-list';
 import AssetBridgingMetrics from './asset-bridging-metrics';
 import AssetBridgingStats from './asset-bridging-stats';
 import Card from '../../../components/card';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
-import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
-import Paginator from '../../../components/paginator';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
 import SubTitle from '../../../components/sub-title';
 import TabbedCard from '../../../components/tabbed-card';
-import useAssetBridges from '../hooks/use-asset-bridges';
 import HelpWidget from '../../../components/help-widget';
+import AssetBridges from './asset-bridges';
 
 const periodDescriptions = {
   [TIME_PERIOD.DAY]: 'from the past 24 hours',
@@ -37,15 +34,6 @@ const AssetBridgesPage = () => {
   const { navigateTo } = useNavigator();
   const { page, setPage } = usePaginator();
   const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.MONTH);
-
-  const [assetBridges, loadingAssetBridges] = useAssetBridges({
-    autoReload: true,
-    limit: 25,
-    page,
-    statsPeriod,
-  });
-
-  const { items, pageCount, pageSize, recordCount } = assetBridges;
 
   return (
     <PageLayout
@@ -74,7 +62,7 @@ const AssetBridgesPage = () => {
       }
     >
       <CardGrid>
-        <AssetBridgingStats bridgeCount={recordCount} period={statsPeriod} />
+        <AssetBridgingStats period={statsPeriod} />
         <CardGridRow>
           <CardGridCol xs={12}>
             <TabbedCard
@@ -104,24 +92,11 @@ const AssetBridgesPage = () => {
         <CardGridRow>
           <CardGridCol xs={12}>
             <Card>
-              {loadingAssetBridges ? (
-                <LoadingIndicator centered />
-              ) : (
-                <>
-                  <AssetBridgeList
-                    assetBridges={items}
-                    positionOffset={(page - 1) * pageSize}
-                    statsPeriod={statsPeriod}
-                  />
-                  <Paginator
-                    onPageChange={setPage}
-                    page={page}
-                    pageCount={pageCount}
-                    pageSize={pageSize}
-                    recordCount={recordCount}
-                  />
-                </>
-              )}
+              <AssetBridges
+                onPageChange={setPage}
+                page={page}
+                statsPeriod={statsPeriod}
+              />
             </Card>
           </CardGridCol>
         </CardGridRow>
