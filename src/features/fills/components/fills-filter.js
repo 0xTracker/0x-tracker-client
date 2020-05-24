@@ -4,6 +4,7 @@ import React from 'react';
 
 import FilterButton from '../../../components/filter-button';
 import FillsFilterDialog from './fills-filter-dialog';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
 
 const getAdditionalFilterCount = (defaultValues, selectedValues) => {
   const intersection = _.omitBy(
@@ -15,6 +16,7 @@ const getAdditionalFilterCount = (defaultValues, selectedValues) => {
 };
 
 const FillsFilter = ({ defaultFilters, onChange, selectedFilters }) => {
+  const breakpoint = useCurrentBreakpoint();
   const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
 
   return (
@@ -31,6 +33,7 @@ const FillsFilter = ({ defaultFilters, onChange, selectedFilters }) => {
         />
       ) : null}
       <FilterButton
+        compact={breakpoint.lessThan('sm')}
         css="margin-left: 0.5rem; flex-shrink: 0; flex-basis: 36px; height: 36px;"
         indicatorValue={getAdditionalFilterCount(
           defaultFilters,
