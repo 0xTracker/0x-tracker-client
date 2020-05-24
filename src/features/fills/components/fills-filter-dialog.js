@@ -5,7 +5,6 @@ import React from 'react';
 
 import DatePickerField from '../../../components/date-picker-field';
 import Dialog from '../../../components/dialog';
-import FillStatusSelector from './fill-status-selector';
 import FormLabel from '../../../components/form-label';
 import NumberField from '../../../components/number-field';
 import PrimaryFormButton from '../../../components/primary-form-button';
@@ -39,36 +38,14 @@ const FillsFilterDialog = ({
   };
 
   return (
-    <Dialog height={600} onClose={onClose} title="Filter Fills" width={600}>
+    <Dialog height={600} onClose={onClose} title="Filters" width={600}>
       <form noValidate onSubmit={handleSubmit}>
         <FormGroup>
           <Row>
             <Col sm={6} xs={12}>
-              <FormLabel first htmlFor="relayer">
-                Relayer
+              <FormLabel first htmlFor="dateFrom">
+                Date From (UTC)
               </FormLabel>
-              <RelayerSelector
-                maxMenuHeight={200}
-                name="relayer"
-                onChange={handleChange}
-                value={values.relayer}
-              />
-            </Col>
-            <Col sm={6} xs={12}>
-              <FormLabel first htmlFor="relayer">
-                Token
-              </FormLabel>
-              <TokenLookupField
-                maxMenuHeight={200}
-                name="token"
-                onChange={handleChange}
-                value={values.token}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col sm={6} xs={12}>
-              <FormLabel htmlFor="dateFrom">Date From (UTC)</FormLabel>
               <DatePickerField
                 dayPickerProps={{
                   disabledDays: (day) => day > Date.now(),
@@ -79,7 +56,9 @@ const FillsFilterDialog = ({
               />
             </Col>
             <Col sm={6} xs={12}>
-              <FormLabel htmlFor="dateTo">Date To (UTC)</FormLabel>
+              <FormLabel first htmlFor="dateTo">
+                Date To (UTC)
+              </FormLabel>
               <DatePickerField
                 dayPickerProps={{
                   disabledDays: (day) => day > Date.now(),
@@ -93,19 +72,35 @@ const FillsFilterDialog = ({
           </Row>
           <Row>
             <Col sm={6} xs={12}>
+              <FormLabel htmlFor="relayer">Relayer</FormLabel>
+              <RelayerSelector
+                maxMenuHeight={200}
+                name="relayer"
+                onChange={handleChange}
+                value={values.relayer}
+              />
+            </Col>
+            <Col sm={6} xs={12}>
+              <FormLabel htmlFor="relayer">Token</FormLabel>
+              <TokenLookupField
+                maxMenuHeight={200}
+                name="token"
+                onChange={handleChange}
+                value={values.token}
+              />
+            </Col>
+          </Row>
+
+          <Row>
+            <Col sm={6} xs={12}>
+              <FormLabel htmlFor="trader">Trader</FormLabel>
+            </Col>
+            <Col sm={6} xs={12}>
               <FormLabel htmlFor="protocolVersion">Protocol Version</FormLabel>
               <ProtocolVersionSelector
                 name="protocolVersion"
                 onChange={handleChange}
                 value={values.protocolVersion}
-              />
-            </Col>
-            <Col sm={6} xs={12}>
-              <FormLabel htmlFor="status">Status</FormLabel>
-              <FillStatusSelector
-                name="status"
-                onChange={handleChange}
-                value={values.status}
               />
             </Col>
           </Row>
@@ -130,7 +125,7 @@ const FillsFilterDialog = ({
             </Col>
           </Row>
         </FormGroup>
-        <div css="margin-top: 2rem;">
+        <div css="display: flex; margin-top: 2rem;">
           <PrimaryFormButton type="submit">Apply Filters</PrimaryFormButton>
           {_.isEqual(defaultValues, values) ? null : (
             <SecondaryFormButton onClick={handleReset} type="button">
