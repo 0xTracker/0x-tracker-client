@@ -57,6 +57,7 @@ const FillsPage = () => {
   const dateTo = useSearchParam('dateTo');
   const protocolVersion = useSearchParam('protocolVersion');
   const token = useSearchParam('token');
+  const trader = useSearchParam('trader');
   const relayer = useSearchParam('relayer');
   const valueFrom = useSearchParam('valueFrom');
   const valueTo = useSearchParam('valueTo');
@@ -77,6 +78,7 @@ const FillsPage = () => {
             relayer: undefined,
             status: undefined,
             token: undefined,
+            trader: undefined,
             valueFrom: undefined,
             valueTo: undefined,
           }}
@@ -93,6 +95,7 @@ const FillsPage = () => {
             relayer,
             status,
             token,
+            trader,
             valueFrom,
             valueTo,
           }}
@@ -116,6 +119,7 @@ const FillsPage = () => {
             relayer,
             status,
             token,
+            trader,
             valueFrom,
             valueTo,
           }}
@@ -135,6 +139,7 @@ const FillsPage = () => {
                         relayer,
                         status,
                         token,
+                        trader,
                         valueFrom,
                         valueTo,
                       }}
@@ -154,6 +159,7 @@ const FillsPage = () => {
                         relayer,
                         status,
                         token,
+                        trader,
                         valueFrom,
                         valueTo,
                       }}
@@ -178,6 +184,7 @@ const FillsPage = () => {
                   relayer,
                   status,
                   token,
+                  trader,
                   valueFrom,
                   valueTo,
                 }}

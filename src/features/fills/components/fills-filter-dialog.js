@@ -11,6 +11,7 @@ import PrimaryFormButton from '../../../components/primary-form-button';
 import ProtocolVersionSelector from '../../../components/protocol-version-selector';
 import RelayerSelector from '../../relayers/components/relayer-selector';
 import TokenLookupField from '../../tokens/components/token-lookup-field';
+import TraderLookupField from '../../traders/components/trader-lookup-field';
 import SecondaryFormButton from '../../../components/secondary-form-button';
 
 const FillsFilterDialog = ({
@@ -94,6 +95,12 @@ const FillsFilterDialog = ({
           <Row>
             <Col sm={6} xs={12}>
               <FormLabel htmlFor="trader">Trader</FormLabel>
+              <TraderLookupField
+                maxMenuHeight={200}
+                name="trader"
+                onChange={handleChange}
+                value={values.trader}
+              />
             </Col>
             <Col sm={6} xs={12}>
               <FormLabel htmlFor="protocolVersion">Protocol Version</FormLabel>

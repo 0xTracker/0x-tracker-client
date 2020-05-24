@@ -7,19 +7,18 @@ import styled from 'styled-components';
 
 import { callApi, truncateAddress } from '../../../util';
 import { COLORS } from '../../../styles/constants';
-import TokenImage from './token-image';
+import TraderImage from './trader-image';
 
 const SecondaryText = styled.span`
   color: ${COLORS.NEUTRAL.MYSTIC_700};
   font-size: 0.9rem;
 `;
 
-const createOption = (token) => ({
-  address: token.address,
-  imageUrl: token.imageUrl,
-  label: token.name === null ? 'Unknown Token' : token.name,
-  symbol: token.symbol,
-  value: token.address,
+const createOption = (trader) => ({
+  address: trader.address,
+  imageUrl: trader.imageUrl,
+  label: trader.name === null ? 'Unknown Trader' : trader.name,
+  value: trader.address,
 });
 
 const StyledSelect = styled(AsyncSelect).attrs({
@@ -110,8 +109,8 @@ const StyledSelect = styled(AsyncSelect).attrs({
 `;
 
 const loadOptions = async (q) => {
-  const lookupResult = await callApi('token-lookup', { limit: 20, q });
-  const options = lookupResult.tokens.map(createOption);
+  const lookupResult = await callApi('trader-lookup', { limit: 20, q });
+  const options = lookupResult.traders.map(createOption);
 
   return [
     {
@@ -129,11 +128,11 @@ const Option = ({ children, ...props }) => {
   return (
     <components.Option {...props}>
       <div css="align-items: center; display: flex; font-size: 14px;">
-        <TokenImage
-          css="flex-shrink: 0;margin-right: 12px;"
-          height={36}
+        <TraderImage
+          address={address}
+          css="flex-shrink: 0; margin-right: 12px;"
           imageUrl={imageUrl}
-          width={36}
+          size={36}
         />
         {address ? (
           <span css="line-height: 1;">
@@ -159,7 +158,7 @@ Option.propTypes = {
 };
 
 // eslint-disable-next-line react/no-multi-comp
-class TokenLookupField extends React.PureComponent {
+class TraderLookupField extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -171,15 +170,15 @@ class TokenLookupField extends React.PureComponent {
 
     // eslint-disable-next-line compat/compat
     Promise.all([
-      _.isString(value) ? callApi(`tokens/${value}`) : null,
-      callApi('token-lookup', { limit: 20 }),
+      _.isString(value) ? callApi(`traders/${value}`) : null,
+      callApi('trader-lookup', { limit: 20 }),
     ])
-      .then(([token, lookupResult]) => {
-        const filteredResults = lookupResult.tokens.filter(
+      .then(([trader, lookupResult]) => {
+        const filteredResults = lookupResult.traders.filter(
           (t) => t.address !== value,
         );
 
-        const options = [token, ...filteredResults]
+        const options = [trader, ...filteredResults]
           .filter((i) => i !== null)
           .map(createOption);
 
@@ -230,17 +229,17 @@ class TokenLookupField extends React.PureComponent {
   }
 }
 
-TokenLookupField.propTypes = {
+TraderLookupField.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string,
 };
 
-TokenLookupField.defaultProps = {
+TraderLookupField.defaultProps = {
   className: undefined,
   name: undefined,
   value: undefined,
 };
 
-export default TokenLookupField;
+export default TraderLookupField;
