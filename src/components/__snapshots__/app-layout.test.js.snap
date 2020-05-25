@@ -300,7 +300,7 @@ exports[`app layout component should render with children 1`] = `
             class="header-actions___StyledDiv-sc-10491ou-2 hpZxrB"
           >
             <button
-              class="header-actions__ActionButton-sc-10491ou-0 header-actions__NotificationsButton-sc-10491ou-1 cbnhAQ headway"
+              class="header-actions__ActionButton-sc-10491ou-0 header-actions__NotificationsButton-sc-10491ou-1 eCUsXa headway"
             >
               <svg
                 aria-hidden="true"
@@ -319,7 +319,7 @@ exports[`app layout component should render with children 1`] = `
               </svg>
             </button>
             <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB header-actions__ActionButton-sc-10491ou-0 cMdlGO"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB header-actions__ActionButton-sc-10491ou-0 cRwSSX"
               href="https://www.buymeacoffee.com/0xTracker"
               rel="noreferrer noopener"
               target="_blank"
@@ -346,7 +346,7 @@ exports[`app layout component should render with children 1`] = `
               </svg>
             </a>
             <button
-              class="header-actions__ActionButton-sc-10491ou-0 cMdlGO"
+              class="header-actions__ActionButton-sc-10491ou-0 cRwSSX"
               title="Settings"
             >
               <svg

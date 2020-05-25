@@ -28,8 +28,9 @@ import Visible from '../../../components/visible';
 
 const ActionLink = styled(Link)`
   align-items: center;
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_100};
   border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
   display: flex;
   font-size: 14px;
   font-weight: 500;
@@ -37,7 +38,7 @@ const ActionLink = styled(Link)`
   padding: 0 8px;
 
   &:hover {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+    box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.4);
   }
 
   ${media.greaterThan('sm')`
