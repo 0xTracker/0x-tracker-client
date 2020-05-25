@@ -2,8 +2,9 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { getPeriodDescriptor, summarizeNumber } from '../../../util';
+import { getPeriodDescriptor } from '../../../util';
 import LoadingIndicator from '../../../components/loading-indicator';
+import Number from '../../../components/number';
 import PercentageChange from '../../../components/percentage-change';
 import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
@@ -28,7 +29,7 @@ const TradeCountWidget = ({
   >
     {_.isNumber(tradeCount) && tradeCount > 0 && (
       <span css="align-items: baseline; display: flex;">
-        {summarizeNumber(tradeCount)}
+        <Number summarize>{tradeCount}</Number>
         {change !== undefined && <PercentageChange>{change}</PercentageChange>}
       </span>
     )}
