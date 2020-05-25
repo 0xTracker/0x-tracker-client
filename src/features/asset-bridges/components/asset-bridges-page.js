@@ -8,25 +8,18 @@ import {
   useSearchParam,
 } from '../../../hooks';
 import { AssetBridgeIcon } from '../../../components/icons';
+import { getPeriodDescriptor } from '../../../util';
 import AssetBridgingMetrics from './asset-bridging-metrics';
 import AssetBridgingStats from './asset-bridging-stats';
+import AssetBridges from './asset-bridges';
 import Card from '../../../components/card';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
+import HelpWidget from '../../../components/help-widget';
 import PageLayout from '../../../components/page-layout';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
 import TabbedCard from '../../../components/tabbed-card';
-import HelpWidget from '../../../components/help-widget';
-import AssetBridges from './asset-bridges';
-
-const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'from the past 24 hours',
-  [TIME_PERIOD.WEEK]: 'from the past week',
-  [TIME_PERIOD.MONTH]: 'from the past 30 days',
-  [TIME_PERIOD.YEAR]: 'from the past year',
-  [TIME_PERIOD.ALL]: 'from all time',
-};
 
 const AssetBridgesPage = () => {
   useMetadata({ title: '0x Protocol Asset Bridge Metrics & Charts' });
@@ -47,7 +40,7 @@ const AssetBridgesPage = () => {
         />
       }
       icon={<AssetBridgeIcon size={44} />}
-      subTitle={periodDescriptions[statsPeriod]}
+      subTitle={getPeriodDescriptor(statsPeriod)}
       title={
         <span css="display: flex; align-items: center;">
           Asset Bridges{' '}

@@ -1,20 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { TIME_PERIOD } from '../../../constants';
 import { useMetadata } from '../../../hooks';
 import { TokensIcon } from '../../../components/icons';
+import { getPeriodDescriptor } from '../../../util';
 import Card from '../../../components/card';
 import PageLayout from '../../../components/page-layout';
 import TokensFilter from './tokens-filter';
-
-const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'from the past 24 hours',
-  [TIME_PERIOD.WEEK]: 'from the past week',
-  [TIME_PERIOD.MONTH]: 'from the past 30 days',
-  [TIME_PERIOD.YEAR]: 'from the past year',
-  [TIME_PERIOD.ALL]: 'from all time',
-};
 
 const TokensPageLayout = ({
   children,
@@ -34,7 +26,7 @@ const TokensPageLayout = ({
         />
       }
       icon={<TokensIcon size={44} />}
-      subTitle={periodDescriptions[selectedFilters.statsPeriod]}
+      subTitle={getPeriodDescriptor(selectedFilters.statsPeriod)}
       title="Traded Tokens"
     >
       <Card>{children}</Card>

@@ -3,6 +3,7 @@ import React from 'react';
 import { TIME_PERIOD, URL } from '../../../constants';
 import { useMetadata, useNavigator, useSearchParam } from '../../../hooks';
 import { InsightsIcon } from '../../../components/icons';
+import { getPeriodDescriptor } from '../../../util';
 import ActiveTradersCard from '../../traders/components/active-traders-card';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
@@ -21,14 +22,6 @@ import TopTokens from '../../tokens/components/top-tokens';
 import TopProtocolsCard from './top-protocols-card';
 import TraderTypesCard from '../../traders/components/trader-types-card';
 
-const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'from the past 24 hours',
-  [TIME_PERIOD.WEEK]: 'from the past week',
-  [TIME_PERIOD.MONTH]: 'from the past 30 days',
-  [TIME_PERIOD.YEAR]: 'from the past year',
-  [TIME_PERIOD.ALL]: 'from all time',
-};
-
 const NetworkOverviewPage = () => {
   useMetadata({ title: '0x Protocol Trading Activity, Metrics & Charts' });
 
@@ -46,7 +39,7 @@ const NetworkOverviewPage = () => {
         />
       }
       icon={<InsightsIcon size={40} />}
-      subTitle={periodDescriptions[period]}
+      subTitle={getPeriodDescriptor(period)}
       title="Network Insights"
     >
       <CardGrid>

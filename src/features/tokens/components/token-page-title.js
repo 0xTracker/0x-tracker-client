@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
-import { TIME_PERIOD } from '../../../constants';
+import { getPeriodDescriptor } from '../../../util';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import PercentageChange from '../../../components/percentage-change';
 import SubTitle from '../../../components/sub-title';
@@ -19,14 +19,6 @@ const PriceWrapper = styled.span`
   display: flex;
   margin-left: 2rem;
 `;
-
-const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'for the last 24 hours',
-  [TIME_PERIOD.WEEK]: 'for the past week',
-  [TIME_PERIOD.MONTH]: 'for the past month',
-  [TIME_PERIOD.YEAR]: 'for the past year',
-  [TIME_PERIOD.ALL]: 'for all time',
-};
 
 const Wrapper = styled.div`
   align-items: center;
@@ -45,7 +37,7 @@ const TokenPageTitle = ({ statsPeriod, token }) => (
     <span>
       {_.isString(token.name) ? token.name : `Token: ${token.address}`}
       {_.isString(token.symbol) && ` (${token.symbol.toUpperCase()})`}
-      <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
+      <SubTitle>{getPeriodDescriptor(statsPeriod)}</SubTitle>
     </span>
     {_.isFinite(token.price.close) && (
       <Visible above="sm">

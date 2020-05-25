@@ -2,7 +2,7 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { summarizeNumber } from '../../../util';
+import { getPeriodDescriptor, summarizeNumber } from '../../../util';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PercentageChange from '../../../components/percentage-change';
 import sharedPropTypes from '../../../prop-types';
@@ -10,19 +10,20 @@ import StatWidget from '../../../components/stat-widget';
 
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
-const createTooltip = (period) => {
-  if (period === 'all') {
-    return 'Total number of trades since 0x was launched.';
-  }
+const createTooltip = (period) =>
+  `Number of trades ${getPeriodDescriptor(period)}.`;
 
-  return `Total number of trades in the last ${period}.`;
-};
-
-const TradeCountWidget = ({ change, period, tradeCount, ...otherProps }) => (
+const TradeCountWidget = ({
+  change,
+  period,
+  tooltip,
+  tradeCount,
+  ...otherProps
+}) => (
   <StatWidget
     period={period}
     title="Trades"
-    tooltip={createTooltip(period)}
+    tooltip={tooltip || createTooltip(period)}
     {...otherProps}
   >
     {_.isNumber(tradeCount) && tradeCount > 0 && (
@@ -39,12 +40,14 @@ const TradeCountWidget = ({ change, period, tradeCount, ...otherProps }) => (
 TradeCountWidget.propTypes = {
   change: PropTypes.number,
   period: sharedPropTypes.timePeriod,
+  tooltip: PropTypes.string,
   tradeCount: PropTypes.number,
 };
 
 TradeCountWidget.defaultProps = {
   change: undefined,
   period: undefined,
+  tooltip: undefined,
   tradeCount: undefined,
 };
 

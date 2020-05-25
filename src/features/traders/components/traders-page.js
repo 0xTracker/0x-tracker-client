@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
+import { getPeriodDescriptor } from '../../../util';
 import { useMetadata, useNavigator, useSearchParam } from '../../../hooks';
 import { TradersIcon } from '../../../components/icons';
 import ActiveTraderMetrics from '../../metrics/components/active-trader-metrics';
@@ -17,14 +18,6 @@ import TradersFilter from './traders-filter';
 import Traders from './traders';
 
 const defaultPeriod = TIME_PERIOD.MONTH;
-
-const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'from the past 24 hours',
-  [TIME_PERIOD.WEEK]: 'from the past week',
-  [TIME_PERIOD.MONTH]: 'from the past 30 days',
-  [TIME_PERIOD.YEAR]: 'from the past year',
-  [TIME_PERIOD.ALL]: 'from all time',
-};
 
 const DESCRIPTOR_MAPPINGS = {
   maker: 'Makers',
@@ -67,7 +60,7 @@ const TradersPage = () => {
         />
       }
       icon={<TradersIcon size={44} />}
-      subTitle={periodDescriptions[statsPeriod]}
+      subTitle={getPeriodDescriptor(statsPeriod)}
       title={<>Active {DESCRIPTOR_MAPPINGS[type]}</>}
     >
       <CardGrid>
