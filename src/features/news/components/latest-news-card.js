@@ -11,7 +11,10 @@ import Link from '../../../components/link';
 import Pill from '../../../components/pill';
 
 const LatestNewsCard = ({ compact, showImages, ...otherProps }) => (
-  <Card {...otherProps}>
+  <Card
+    errorMessage="An error occurred while loading the latest news"
+    {...otherProps}
+  >
     <CardHeader>
       <CardHeading>Latest News</CardHeading>
       <Pill as={Link} href={URL.NEWS}>

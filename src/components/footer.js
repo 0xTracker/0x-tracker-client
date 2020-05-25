@@ -4,18 +4,15 @@ import styled from 'styled-components';
 
 import { media } from '../styles/util';
 import { COLORS } from '../styles/constants';
-import { DiscordIcon, TwitterIcon } from './icons';
-import Container from './container';
+import { DiscordIcon, MailIcon, TwitterIcon } from './icons';
 import Link from './link';
-import logoImage from '../assets/images/logo-simple.svg';
-
-const Logo = styled.img`
-  height: 2.25rem;
-`;
+import SubscribePanel from './subscribe-panel';
 
 const NavHeading = styled.h2`
-  color: white;
-  font-size: 0.9rem;
+  color: ${COLORS.PRIMARY.SCAMPI_600};
+  font-family: Ubuntu;
+  font-size: 14px;
+  font-weight: 600;
   letter-spacing: 0.05em;
   margin: 2rem 0 1rem 0;
   text-transform: uppercase;
@@ -26,11 +23,12 @@ const NavHeading = styled.h2`
 `;
 
 const Description = styled.p`
+  font-size: 16px;
   margin: 1rem 0 1.5rem;
   max-width: 350px;
 
   ${media.greaterThan('md')`
-    margin: 1rem 0 1.5rem;
+    margin: 0 0 1.5rem;
   `}
 `;
 
@@ -49,8 +47,8 @@ const NavLink = styled(FooterLink)`
 
 const SocialLink = styled(Link)`
   align-items: center;
-  background-color: ${COLORS.PRIMARY.SCAMPI_800};
-  color: ${COLORS.PRIMARY.SCAMPI_100};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  color: ${COLORS.PRIMARY.SCAMPI_800};
   border-radius: 0.25rem;
   display: flex;
   height: 35px;
@@ -59,8 +57,7 @@ const SocialLink = styled(Link)`
   width: 35px;
 
   &:hover {
-    background-color: white;
-    color: ${COLORS.PRIMARY.SCAMPI_900};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
   }
 `;
 
@@ -83,7 +80,7 @@ const License = styled.div`
 
 const SecondaryLinks = styled.div`
   border-radius: 1px;
-  border-top: 2px solid ${COLORS.PRIMARY.SCAMPI_800};
+  border-top: 2px solid rgb(231, 233, 243);
   font-size: 0.8rem;
   margin-top: 3rem;
   padding-top: 2rem;
@@ -106,21 +103,22 @@ const Info = styled(Col)`
 `;
 
 const Wrapper = styled.div`
-  background-color: ${COLORS.PRIMARY.SCAMPI_900};
-  color: ${COLORS.PRIMARY.SCAMPI_100};
-  padding: 2rem 1rem;
+  background-color: ${COLORS.NEUTRAL.MYSTIC_200};
+  color: ${COLORS.PRIMARY.SCAMPI_1000};
+  padding: 2rem 2rem 7rem;
 
   ${media.greaterThan('md')`
-    padding: 3rem 2rem 2rem;
+    padding: 3rem 2rem 7rem;
   `}
 `;
 
 const Footer = () => (
-  <Wrapper>
-    <Container>
+  <>
+    <SubscribePanel />
+    <Wrapper>
       <Row>
         <Info md={4} xs={12}>
-          <Logo alt="0x Tracker" src={logoImage} />
+          <NavHeading>0x Tracker</NavHeading>
           <Description>
             The leading provider of 0x protocol market data, transparent
             Ethereum token price index and 0x protocol news aggregator.
@@ -132,6 +130,9 @@ const Footer = () => (
             <SocialLink href="https://discord.gg/tnV8hud">
               <DiscordIcon size="18" />
             </SocialLink>
+            <SocialLink href="mailto:hello@0xtracker.com">
+              <MailIcon size="20" />
+            </SocialLink>
           </nav>
         </Info>
         <Col md={{ offset: 2, size: 2 }} sm={4} xs={6}>
@@ -139,8 +140,15 @@ const Footer = () => (
           <nav>
             <NavLink href="/advertise">Advertise</NavLink>
             <NavLink href="/news-and-updates/0x-tracker">Blog</NavLink>
-            <NavLink href="https://docs.0xtracker.com/#need-to-get-in-touch">
-              Contact
+            <NavLink
+              href="https://www.buymeacoffee.com/0xTracker"
+              onClick={() => {
+                if (window.fathom) {
+                  window.fathom.trackGoal('MYB7SWUU', 0);
+                }
+              }}
+            >
+              Donate
             </NavLink>
             <NavLink href="https://docs.0xtracker.com/faqs">FAQs</NavLink>
             <NavLink href="https://docs.0xtracker.com/">Overview</NavLink>
@@ -191,8 +199,8 @@ const Footer = () => (
           </FooterLink>
         </PoweredBy>
       </SecondaryLinks>
-    </Container>
-  </Wrapper>
+    </Wrapper>
+  </>
 );
 
 export default Footer;

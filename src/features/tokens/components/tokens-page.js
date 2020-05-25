@@ -40,6 +40,10 @@ const TokensPage = () => {
   const { items, pageCount, pageSize, recordCount } = tokens;
 
   const handleFiltersChange = (newFilters) => {
+    if (window.fathom) {
+      window.fathom.trackGoal('YQQLGWQC', 0);
+    }
+
     navigateTo(URL.TOKENS, newFilters);
   };
 

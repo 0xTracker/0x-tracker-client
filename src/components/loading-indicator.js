@@ -46,7 +46,7 @@ const LoadingIndicator = ({ centered, color, size, type, ...otherProps }) => {
               calcMode="spline"
               dur="1.2s"
               keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8"
-              keytimes="0;0.2;0.7;1"
+              keyTimes="0;0.2;0.7;1"
               repeatCount="indefinite"
               values="0; 4; 0; 0"
             />
@@ -58,7 +58,7 @@ const LoadingIndicator = ({ centered, color, size, type, ...otherProps }) => {
               calcMode="spline"
               dur="1.2s"
               keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8"
-              keytimes="0;0.2;0.7;1"
+              keyTimes="0;0.2;0.7;1"
               repeatCount="indefinite"
               values="0; 4; 0; 0"
             />
@@ -70,7 +70,7 @@ const LoadingIndicator = ({ centered, color, size, type, ...otherProps }) => {
               calcMode="spline"
               dur="1.2s"
               keySplines="0.2 0.2 0.4 0.8;0.2 0.6 0.4 0.8;0.2 0.6 0.4 0.8"
-              keytimes="0;0.2;0.7;1"
+              keyTimes="0;0.2;0.7;1"
               repeatCount="indefinite"
               values="0; 4; 0; 0"
             />

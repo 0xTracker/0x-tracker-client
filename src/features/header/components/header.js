@@ -1,22 +1,19 @@
+import { useLocation } from 'react-use';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { URL } from '../../../constants';
 import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
-import { MenuIcon, NotificationsIcon } from '../../../components/icons';
+import {
+  MenuIcon,
+  NotificationsIcon,
+  SearchIcon,
+} from '../../../components/icons';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
-import Container from '../../../components/container';
 import HeaderActions from './header-actions';
-import Link from '../../../components/link';
-import logoImage from '../../../assets/images/logo-grayscale.svg';
 import MobileMenu from './mobile-menu';
-import Navigation from './navigation';
+import SearchBox from '../../search/components/search-box';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
-
-const LogoImage = styled.img`
-  height: 2.6rem;
-`;
 
 const MenuButton = styled.button`
   align-items: center;
@@ -29,18 +26,19 @@ const MenuButton = styled.button`
 `;
 
 const StyledHeader = styled.header`
-  background-color: ${COLORS.PRIMARY.SCAMPI_1000};
-  color: ${COLORS.PRIMARY.SCAMPI_100};
-  height: 4.5rem;
-  padding: 0.75rem 0;
+  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
+  color: ${COLORS.PRIMARY.SCAMPI_900};
+  height: 70px;
+  padding: 0 1.25rem;
 
-  ${media.greaterThan('md')`
-    padding: 0;
+  ${media.greaterThan('lg')`
+    padding: 0 2rem;
   `};
 `;
 
 const NotificationsButton = styled(MenuButton)`
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   position: relative;
 
   #HW_badge_cont {
@@ -50,9 +48,27 @@ const NotificationsButton = styled(MenuButton)`
   }
 `;
 
+const ActionButton = styled.button`
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 0.25rem;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin: 0 0.5rem 0 0;
+  padding: 0.5rem 0.75rem;
+
+  &:last-child {
+    margin: 0;
+  }
+`;
+
 const Header = () => {
-  const [mobileMenuState, updateMobileMenuState] = useState('closed');
+  const location = useLocation();
   const breakpoint = useCurrentBreakpoint();
+  const [mobileMenuState, updateMobileMenuState] = useState('closed');
 
   const closeMobileMenu = () => {
     updateMobileMenuState('closed');
@@ -77,37 +93,31 @@ const Header = () => {
   return (
     <SettingsDialogProvider>
       {isDesktop || mobileMenuState === 'closed' ? null : (
-        <MobileMenu
-          onClose={closeMobileMenu}
-          onNavigate={closeMobileMenu}
-          onSearch={closeMobileMenu}
-        />
+        <MobileMenu onClose={closeMobileMenu} onNavigate={closeMobileMenu} />
       )}
       <StyledHeader>
-        <Container css="align-items: center; display: flex; justify-content: space-between; height: 100%;">
-          <Link href={URL.HOME}>
-            <LogoImage
-              alt="0x Tracker"
-              size={isDesktop ? 'large' : 'small'}
-              src={logoImage}
-            />
-          </Link>
+        <div css="align-items: center; display: flex; justify-content: space-between; height: 100%;">
           {isDesktop ? (
             <>
-              <Navigation css="flex-grow: 1;" />
-              <HeaderActions />
+              <div css="display: flex; width: 500px">
+                <SearchBox autoFocus={false} onBlur={() => {}} />
+              </div>
+              <HeaderActions showSearch={location.pathname !== '/'} />
             </>
           ) : (
             <div css="display: flex; align-items: center;">
               <NotificationsButton className="headway">
                 <NotificationsIcon height={24} width={24} />
               </NotificationsButton>
+              <ActionButton onClick={() => {}} title="Search">
+                <SearchIcon color="currentColor" height={22} width={22} />
+              </ActionButton>
               <MenuButton onClick={openMobileMenu} title="Open menu">
                 <MenuIcon height={20} />
               </MenuButton>
             </div>
           )}
-        </Container>
+        </div>
       </StyledHeader>
     </SettingsDialogProvider>
   );

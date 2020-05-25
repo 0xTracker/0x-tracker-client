@@ -3,9 +3,11 @@ import React from 'react';
 import IconBase from './icon-base';
 
 const AssetBridgeIcon = (props) => (
-  <IconBase viewBox="0 0 24 24" {...props}>
-    <path d="M0 0h24v24H0z" fill="none" />
-    <path d="M3 3h18a1 1 0 011 1v16a1 1 0 01-1 1H3a1 1 0 01-1-1V4a1 1 0 011-1zm12 4v2h-4v2h4v2l3.5-3L15 7zM9 17v-2h4v-2H9v-2l-3.5 3L9 17z" />
+  <IconBase viewBox="0 0 640 512" {...props}>
+    <path
+      d="M32 224h32v192H32a31.962 31.962 0 01-32-32V256a31.962 31.962 0 0132-32zm512-48v272a64.063 64.063 0 01-64 64H160a64.063 64.063 0 01-64-64V176a79.974 79.974 0 0180-80h112V32a32 32 0 0164 0v64h112a79.974 79.974 0 0180 80zm-280 80a40 40 0 10-40 40 39.997 39.997 0 0040-40zm-8 128h-64v32h64zm96 0h-64v32h64zm104-128a40 40 0 10-40 40 39.997 39.997 0 0040-40zm-8 128h-64v32h64zm192-128v128a31.962 31.962 0 01-32 32h-32V224h32a31.962 31.962 0 0132 32z"
+      fill="currentColor"
+    />
   </IconBase>
 );
 

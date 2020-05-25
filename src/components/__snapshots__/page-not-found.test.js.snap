@@ -2,10 +2,10 @@
 
 exports[`page not found component should render without props 1`] = `
 <div
-  class="page-layout__StyledPageLayout-cls0ob-1 cCoLks"
+  class="page-layout__StyledPageLayout-cls0ob-1 gsBkaH"
 >
   <div
-    class="container__StyledContainer-cj53s7-0 cFWPEe page-layout__PageBody-cls0ob-0 gWvAqi container-fluid"
+    class="page-layout__PageBody-cls0ob-0 gWvAqi"
   >
     <div
       class="error-message__StyledErrorMessage-sc-1wau1ja-0 fsyAbN page-not-found__StyledErrorMessage-sc-1brm731-0 kfqoMm"

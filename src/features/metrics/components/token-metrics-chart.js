@@ -13,8 +13,8 @@ import PropTypes from 'prop-types';
 
 import { COLORS } from '../../../styles/constants';
 import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
-import ChartContainer from '../../../components/chart-container';
-import ChartPlaceholder from '../../../components/chart-placeholder';
+import BrushableChartContainer from '../../../components/brushable-chart-container';
+import CardPlaceholder from '../../../components/card-placeholder';
 import TokenMetricsTooltip from './token-metrics-tooltip';
 
 const isEmpty = (data, metric) => {
@@ -37,72 +37,81 @@ const TokenMetricsChart = ({
   data,
   granularity,
   localCurrency,
-  onBrushChange,
   period,
   tokenSymbol,
   type,
 }) => {
   if (isEmpty(data, type)) {
     return (
-      <ChartPlaceholder>
+      <CardPlaceholder>
         No data available for the selected period
-      </ChartPlaceholder>
+      </CardPlaceholder>
     );
   }
 
   return (
-    <ChartContainer>
-      <BarChart data={data} margin={{ bottom: 0, left: 0, right: 0, top: 0 }}>
-        <CartesianGrid
-          stroke={COLORS.NEUTRAL.MYSTIC_200}
-          strokeDasharray="8 8"
-          strokeOpacity={0.7}
-          vertical={false}
-        />
-        <Bar dataKey={type} fill={COLORS.ACCENT.ANZAC_500} fillOpacity={0.9} />
-        <XAxis
-          axisLine={false}
-          dataKey="date"
-          minTickGap={60}
-          tick={{ fill: COLORS.NEUTRAL.MYSTIC_700, fontSize: '0.8em' }}
-          tickFormatter={(date) => formatAxisDate(date, period, granularity)}
-          tickLine={false}
-        />
-        <YAxis
-          axisLine={false}
-          dataKey={type}
-          mirror
-          scale="linear"
-          tick={{
-            fill: COLORS.PRIMARY.SCAMPI_800,
-            fontSize: '0.8em',
-            fontWeight: 500,
-          }}
-          tickFormatter={
-            type === 'tradeCount'
-              ? formatAxisNumber
-              : (value) => formatAxisCurrency(value, localCurrency)
-          }
-          tickLine={false}
-        />
-        <Tooltip
-          content={
-            <TokenMetricsTooltip
-              granularity={granularity}
-              localCurrency={localCurrency}
-              tokenSymbol={tokenSymbol}
-            />
-          }
-        />
-        <Brush
-          dataKey="date"
-          height={30}
-          onChange={onBrushChange}
-          stroke={COLORS.NEUTRAL.MYSTIC_300}
-          tickFormatter={(date) => formatAxisDate(date, period, granularity)}
-        />
-      </BarChart>
-    </ChartContainer>
+    <BrushableChartContainer data={data}>
+      {({ brushableData, brushIndexes, handleBrushChange }) => (
+        <BarChart
+          data={brushableData}
+          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+        >
+          <CartesianGrid
+            stroke={COLORS.NEUTRAL.MYSTIC_200}
+            strokeDasharray="8 8"
+            strokeOpacity={0.7}
+            vertical={false}
+          />
+          <Bar
+            dataKey={type}
+            fill={COLORS.ACCENT.ANZAC_500}
+            fillOpacity={0.9}
+          />
+          <XAxis
+            axisLine={false}
+            dataKey="date"
+            minTickGap={60}
+            tick={{ fill: COLORS.NEUTRAL.MYSTIC_700, fontSize: '0.8em' }}
+            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
+            tickLine={false}
+          />
+          <YAxis
+            axisLine={false}
+            dataKey={type}
+            mirror
+            scale="linear"
+            tick={{
+              fill: COLORS.PRIMARY.SCAMPI_800,
+              fontSize: '0.8em',
+              fontWeight: 500,
+            }}
+            tickFormatter={
+              type === 'tradeCount'
+                ? formatAxisNumber
+                : (value) => formatAxisCurrency(value, localCurrency)
+            }
+            tickLine={false}
+          />
+          <Tooltip
+            content={
+              <TokenMetricsTooltip
+                granularity={granularity}
+                localCurrency={localCurrency}
+                tokenSymbol={tokenSymbol}
+              />
+            }
+          />
+          <Brush
+            {...brushIndexes}
+            dataKey="date"
+            height={30}
+            onChange={handleBrushChange}
+            stroke={COLORS.NEUTRAL.MYSTIC_300}
+            tickFormatter={(date) => formatAxisDate(date, period, granularity)}
+          />
+        </BarChart>
+      )}
+    </BrushableChartContainer>
   );
 };
 
@@ -119,14 +128,12 @@ TokenMetricsChart.propTypes = {
   ).isRequired,
   granularity: PropTypes.string.isRequired,
   localCurrency: PropTypes.string.isRequired,
-  onBrushChange: PropTypes.func,
   period: PropTypes.string.isRequired,
   tokenSymbol: PropTypes.string.isRequired,
   type: PropTypes.string,
 };
 
 TokenMetricsChart.defaultProps = {
-  onBrushChange: undefined,
   type: 'tradeVolume.USD',
 };
 

@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
+import { getPeriodDescriptor } from '../../../util';
 import { useMetadata, useNavigator, useSearchParam } from '../../../hooks';
+import { TradersIcon } from '../../../components/icons';
 import ActiveTraderMetrics from '../../metrics/components/active-trader-metrics';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
@@ -10,24 +12,12 @@ import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
 import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
-import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
-import Paginator from '../../../components/paginator';
-import SubTitle from '../../../components/sub-title';
 import TraderBreakdown from './trader-breakdown';
-import TraderList from './trader-list';
 import TradersFilter from './traders-filter';
-import useTraders from '../hooks/use-traders';
+import Traders from './traders';
 
 const defaultPeriod = TIME_PERIOD.MONTH;
-
-const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'in the last 24 hours',
-  [TIME_PERIOD.WEEK]: 'in the last week',
-  [TIME_PERIOD.MONTH]: 'in the last month',
-  [TIME_PERIOD.YEAR]: 'in the last year',
-  [TIME_PERIOD.ALL]: 'from all time',
-};
 
 const DESCRIPTOR_MAPPINGS = {
   maker: 'Makers',
@@ -39,12 +29,6 @@ const METRIC_TYPE_MAPPINGS = {
   maker: 'makerCount',
   taker: 'takerCount',
   undefined: 'traderCount',
-};
-
-const SORT_BY_MAPPINGS = {
-  maker: 'fillVolume.maker',
-  taker: 'fillVolume.taker',
-  undefined: 'fillVolume.total',
 };
 
 const TradersPage = () => {
@@ -60,37 +44,27 @@ const TradersPage = () => {
     type,
   };
 
-  const [traders, loading] = useTraders({
-    autoReload: true,
-    limit: 25,
-    page,
-    sortBy: SORT_BY_MAPPINGS[type],
-    statsPeriod,
-    type,
-  });
-
-  const { items, pageCount, pageSize, recordCount } = traders;
-
   return (
     <PageLayout
-      filter={
+      actions={
         <TradersFilter
           defaultFilters={{ statsPeriod: defaultPeriod, type: undefined }}
           onChange={(newFilters) => {
+            if (window.fathom) {
+              window.fathom.trackGoal('YWA7WQ82', 0);
+            }
+
             navigateTo(URL.TRADERS, newFilters);
           }}
           selectedFilters={selectedFilters}
         />
       }
-      title={
-        <>
-          Active {DESCRIPTOR_MAPPINGS[type]}
-          <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
-        </>
-      }
+      icon={<TradersIcon size={44} />}
+      subTitle={getPeriodDescriptor(statsPeriod)}
+      title={<>Active {DESCRIPTOR_MAPPINGS[type]}</>}
     >
       <CardGrid>
-        <CardGridRow>
+        <CardGridRow minHeight="330px">
           <CardGridCol lg={7}>
             <Card>
               <CardHeader>
@@ -125,32 +99,19 @@ const TradersPage = () => {
         </CardGridRow>
         <CardGridRow>
           <CardGridCol xs={12}>
-            <Card>
+            <Card errorMessage="An error occurred while loading traders">
               <CardBody>
-                {loading ? (
-                  <LoadingIndicator centered />
-                ) : (
-                  <>
-                    <TraderList
-                      positionOffset={(page - 1) * pageSize}
-                      statsPeriod={statsPeriod}
-                      statsType={type}
-                      traders={items}
-                    />
-                    <Paginator
-                      onPageChange={(newPage) => {
-                        navigateTo(URL.TRADERS, {
-                          page: newPage,
-                          ...selectedFilters,
-                        });
-                      }}
-                      page={page}
-                      pageCount={pageCount}
-                      pageSize={pageSize}
-                      recordCount={recordCount}
-                    />
-                  </>
-                )}
+                <Traders
+                  onPageChange={(newPage) => {
+                    navigateTo(URL.TRADERS, {
+                      page: newPage,
+                      ...selectedFilters,
+                    });
+                  }}
+                  page={page}
+                  statsPeriod={statsPeriod}
+                  type={type}
+                />
               </CardBody>
             </Card>
           </CardGridCol>

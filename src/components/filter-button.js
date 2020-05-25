@@ -7,21 +7,21 @@ import { COLORS } from '../styles/constants';
 
 const StyledFilterButton = styled.button`
   align-items: center;
-  background: ${COLORS.NEUTRAL.MYSTIC_300};
+  background: ${COLORS.NEUTRAL.MYSTIC_100};
   border: none;
+  box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
   border-radius: 0.25rem;
   color: currentColor;
   display: flex;
   height: 38px;
-  width: 38px;
   flex-shrink: 0;
   flex-grow: 0;
   justify-content: center;
-  padding: 0;
+  padding: 0 12px;
   position: relative;
 
   &:hover {
-    background: ${COLORS.NEUTRAL.MYSTIC_400};
+    box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.4);
   }
 `;
 
@@ -41,18 +41,21 @@ const Indicator = styled.div`
   height: 1.2rem;
 `;
 
-const FilterButton = ({ indicatorValue, ...otherProps }) => (
+const FilterButton = ({ compact, indicatorValue, ...otherProps }) => (
   <StyledFilterButton {...otherProps} type="button">
     {indicatorValue > 0 ? <Indicator>{indicatorValue}</Indicator> : null}
     <FilterIcon height={22} width={22} />
+    {!compact && <span css="font-weight: 500; margin-left: 8px;">Filters</span>}
   </StyledFilterButton>
 );
 
 FilterButton.propTypes = {
+  compact: PropTypes.bool,
   indicatorValue: PropTypes.number,
 };
 
 FilterButton.defaultProps = {
+  compact: true,
   indicatorValue: 0,
 };
 

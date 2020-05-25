@@ -2,10 +2,10 @@
 
 exports[`should render loading page 1`] = `
 <div
-  class="page-layout__StyledPageLayout-cls0ob-1 cCoLks"
+  class="page-layout__StyledPageLayout-cls0ob-1 gsBkaH"
 >
   <div
-    class="container__StyledContainer-cj53s7-0 cFWPEe page-layout__PageBody-cls0ob-0 gWvAqi container-fluid"
+    class="page-layout__PageBody-cls0ob-0 gWvAqi"
   >
     <div
       class="loading-indicator___StyledDiv-sc-1hkz55d-1 cHpmXW"

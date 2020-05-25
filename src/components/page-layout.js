@@ -3,11 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../styles/util';
-import Container from './container';
+import Hidden from './hidden';
 import PageTitleBlock from './page-title-block';
 import TopBanner from '../features/advertising/components/top-banner';
 
-const PageBody = styled(Container)`
+const PageBody = styled.div`
   align-items: ${(props) => (props.centered ? 'center' : 'initial')};
   display: flex;
   flex-direction: column;
@@ -19,33 +19,56 @@ const StyledPageLayout = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 1.25rem 0;
+  padding: 1.25rem;
 
-  ${media.greaterThan('md')`
-    padding: 2rem 0;
+  ${media.greaterThan('lg')`
+    padding: 2rem;
   `}
 `;
 
-const PageLayout = ({ centered, children, filter, showBanner, title }) => (
+const PageLayout = ({
+  actions,
+  centered,
+  children,
+  icon,
+  showBanner,
+  subTitle,
+  title,
+}) => (
   <StyledPageLayout>
-    {title ? <PageTitleBlock title={title}>{filter}</PageTitleBlock> : null}
-    {showBanner && <TopBanner />}
+    {title && (
+      <PageTitleBlock
+        actions={actions}
+        icon={icon}
+        subTitle={subTitle}
+        title={title}
+      />
+    )}
+    {showBanner && (
+      <Hidden above="lg">
+        <TopBanner />
+      </Hidden>
+    )}
     <PageBody centered={centered}>{children}</PageBody>
   </StyledPageLayout>
 );
 
 PageLayout.propTypes = {
+  actions: PropTypes.node,
   centered: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  filter: PropTypes.node,
+  icon: PropTypes.node,
   showBanner: PropTypes.bool,
+  subTitle: PropTypes.string,
   title: PropTypes.node,
 };
 
 PageLayout.defaultProps = {
+  actions: undefined,
   centered: false,
-  filter: undefined,
+  icon: undefined,
   showBanner: true,
+  subTitle: undefined,
   title: undefined,
 };
 

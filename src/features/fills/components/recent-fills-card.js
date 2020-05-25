@@ -12,7 +12,10 @@ import Pill from '../../../components/pill';
 import RecentFills from './recent-fills';
 
 const RecentFillsCard = ({ filter, limit, placeholder, ...otherProps }) => (
-  <Card {...otherProps}>
+  <Card
+    errorMessage="An error occurred while loading recent fills"
+    {...otherProps}
+  >
     <CardHeader>
       <CardHeading>Recent Fills</CardHeading>
       <Pill as={Link} href={buildUrl(URL.FILLS, filter)}>

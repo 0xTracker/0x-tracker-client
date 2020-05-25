@@ -69,15 +69,15 @@ const Separator = styled.span`
 `;
 
 const Wrapper = styled.div`
-  background: ${COLORS.NEUTRAL.MYSTIC_300};
+  background: ${COLORS.NEUTRAL.MYSTIC_100};
   border-radius: 4px;
   padding: 1rem;
+  margin: 0 0 1.25rem;
 
   ${media.greaterThan('lg')`
     align-items: center;
-    background: none;
     display: flex;
-    padding: 0;
+    margin: 0 0 2rem;
   `}
 `;
 
@@ -91,7 +91,7 @@ const TopBannerView = ({ advert, className }) => {
   return (
     <Wrapper className={className}>
       <AdvertisingTooltip enabled={false}>
-        <SponsoredBadge>Sponsored</SponsoredBadge>
+        <SponsoredBadge>AD</SponsoredBadge>
       </AdvertisingTooltip>
       <Link href={advert.url} onClick={handleClick} sponsored>
         <Icon height={20} src={advert.imageUrl} width={20} />

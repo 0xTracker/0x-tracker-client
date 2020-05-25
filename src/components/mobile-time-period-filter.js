@@ -10,8 +10,9 @@ import sharedPropTypes from '../prop-types';
 
 const Button = styled.button`
   align-items: center;
-  background: ${COLORS.NEUTRAL.MYSTIC_300};
+  background: ${COLORS.NEUTRAL.MYSTIC_100};
   border: none;
+  box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
   border-radius: 0.25rem;
   color: currentColor;
   display: flex;
@@ -25,11 +26,11 @@ const Button = styled.button`
 
   &:hover,
   &:active {
-    background: ${COLORS.NEUTRAL.MYSTIC_400};
+    box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.4);
   }
 `;
 
-const MobileTimePeriodFilter = ({ onChange, value }) => {
+const MobileTimePeriodFilter = ({ className, onChange, value }) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef();
 
@@ -38,7 +39,7 @@ const MobileTimePeriodFilter = ({ onChange, value }) => {
   });
 
   return (
-    <div ref={wrapperRef}>
+    <div className={className} ref={wrapperRef}>
       <Button onClick={() => setOpen(!open)}>
         <TimePeriodIcon height={22} width={22} />
       </Button>
@@ -56,8 +57,13 @@ const MobileTimePeriodFilter = ({ onChange, value }) => {
 };
 
 MobileTimePeriodFilter.propTypes = {
+  className: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   value: sharedPropTypes.timePeriod.isRequired,
+};
+
+MobileTimePeriodFilter.defaultProps = {
+  className: undefined,
 };
 
 export default MobileTimePeriodFilter;

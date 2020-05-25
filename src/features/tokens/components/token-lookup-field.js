@@ -109,23 +109,17 @@ const StyledSelect = styled(AsyncSelect).attrs({
   }
 `;
 
-const createOptionsLoader = (selectedToken) => async (q) => {
+const loadOptions = async (q) => {
   const lookupResult = await callApi('token-lookup', { limit: 20, q });
-  const options = [
+  const options = lookupResult.tokens.map(createOption);
+
+  return [
     {
       label: 'All',
       value: undefined,
     },
-    ..._.sortBy(
-      [
-        selectedToken === undefined ? undefined : createOption(selectedToken),
-        ...lookupResult.tokens.map(createOption),
-      ],
-      'label',
-    ),
-  ].filter((x) => x !== undefined);
-
-  return options;
+    ...options,
+  ].filter(_.isPlainObject);
 };
 
 const Option = ({ children, ...props }) => {
@@ -175,53 +169,42 @@ class TokenLookupField extends React.PureComponent {
   componentDidMount() {
     const { value } = this.props;
 
-    if (_.isString(value)) {
-      // eslint-disable-next-line compat/compat
-      Promise.all([
-        callApi(`tokens/${value}`),
-        callApi('tokens', { limit: 20 }),
-      ])
-        .then(([token, tokens]) => {
-          this.setState({
-            defaultOptions: [
-              {
-                label: 'All',
-                value: undefined,
-              },
-              ..._.sortBy(
-                [
-                  createOption(token),
-                  ...tokens.tokens
-                    .filter((t) => t.address !== token.address)
-                    .map(createOption),
-                ],
-                'label',
-              ),
-            ],
-            selectedToken: token,
-          });
-        })
-        .catch(console.error);
-    } else {
-      callApi('tokens')
-        .then((tokens) => {
-          this.setState({
-            defaultOptions: [
-              {
-                label: 'All',
-                value: undefined,
-              },
-              ..._.sortBy(tokens.tokens.map(createOption), 'label'),
-            ],
-          });
-        })
-        .catch(console.error);
-    }
+    // eslint-disable-next-line compat/compat
+    Promise.all([
+      _.isString(value) ? callApi(`tokens/${value}`) : null,
+      callApi('token-lookup', { limit: 20 }),
+    ])
+      .then(([token, lookupResult]) => {
+        const filteredResults = lookupResult.tokens.filter(
+          (t) => t.address !== value,
+        );
+
+        const options = [token, ...filteredResults]
+          .filter((i) => i !== null)
+          .map(createOption);
+
+        const selectedOption = options.find((opt) => opt.address === value) || {
+          label: 'All',
+          value: undefined,
+        };
+
+        this.setState({
+          defaultOptions: [
+            {
+              label: 'All',
+              value: undefined,
+            },
+            ...options,
+          ],
+          selectedOption,
+        });
+      })
+      .catch(console.error); // TODO: Log errors
   }
 
   render() {
     const { className, name, onChange, value, ...otherProps } = this.props;
-    const { defaultOptions, selectedToken } = this.state;
+    const { defaultOptions, selectedOption } = this.state;
 
     return (
       <StyledSelect
@@ -233,12 +216,12 @@ class TokenLookupField extends React.PureComponent {
         getOptionValue={(option) => option.value}
         isClearable={false}
         isSearchable
-        loadOptions={createOptionsLoader(selectedToken)}
+        loadOptions={loadOptions}
         name={name}
         onChange={(option) => onChange(option.value, name)}
         value={
-          selectedToken !== undefined && selectedToken.address === value
-            ? createOption(selectedToken)
+          _.isPlainObject(selectedOption) && selectedOption.value === value
+            ? selectedOption
             : undefined
         }
         {...otherProps}

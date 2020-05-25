@@ -2,398 +2,720 @@
 
 exports[`app layout component should render with children 1`] = `
 <div
-  class="app-layout__AppContainer-nr5sez-0 cejUHU"
+  class="app-layout__AppContainer-nr5sez-0 iAFouo"
 >
-  <header
-    class="header__StyledHeader-gflnft-2 gTRoXu"
+  <div
+    class="sidebar___StyledDiv-sc-1ginpey-1 iddpQE"
   >
-    <div
-      class="container__StyledContainer-cj53s7-0 cFWPEe header___StyledContainer-gflnft-4 EwEUo container-fluid"
+    <a
+      class="link__StyledLink-sc-1m1n17q-0 diqghp sidebar___StyledLink-sc-1ginpey-2 kJBkBW"
+      href="/"
+    >
+      <img
+        alt="0x Tracker"
+        class="sidebar__LogoImage-sc-1ginpey-0 kYAoTy"
+        src="test-file-stub"
+      />
+    </a>
+    <nav
+      aria-label="Primary"
+      class="navigation__StyledNavigation-sc-18grpkd-0 eZxhnh"
     >
       <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp"
+        aria-current="true"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 ipXOZj"
         href="/"
       >
-        <img
-          alt="0x Tracker"
-          class="header__LogoImage-gflnft-0 fhTthn"
-          src="test-file-stub"
-        />
-      </a>
-      <nav
-        aria-label="Primary"
-        class="navigation__StyledNavigation-sc-18grpkd-0 coyDyo header___StyledNavigation-gflnft-5 hpeUjB"
-      >
-        <div
-          class="sub-navigation-parent__StyledSubNavigationParent-sc-10lb7wi-0 lkzFHz"
+        <svg
+          aria-hidden="true"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy navigation__NavigationIcon-sc-18grpkd-1 hWVwlC"
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <div
-            class="sub-navigation-parent__NavigationItem-sc-10lb7wi-1 evwUXx"
-          >
-            Network
-            <svg
-              aria-hidden="true"
-              class="icon-base__IconBase-ngmsqy-0 hvjdWy sub-navigation-parent__SubNavigationIndicator-sc-10lb7wi-3 hIhMXb"
-              fill="currentColor"
-              focusable="false"
-              height="10"
-              viewBox="0 0 448 512"
-              width="10"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-        </div>
-        <a
-          aria-current="false"
-          class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 hrfLla"
-          href="/tokens"
-        >
-          Tokens
-        </a>
-        <a
-          aria-current="false"
-          class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 hrfLla"
-          href="/relayers"
-        >
-          Relayers
-        </a>
-        <a
-          aria-current="false"
-          class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 hrfLla"
-          href="/news-and-updates"
-        >
-          News & Updates
-        </a>
-      </nav>
-      <div
-        class="header-actions___StyledDiv-sc-10491ou-2 gTBFzr"
-      >
-        <button
-          class="header-actions__ActionButton-sc-10491ou-0 header-actions__NotificationsButton-sc-10491ou-1 gEPHTz headway"
-        >
-          <svg
-            aria-hidden="true"
-            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
-            color="currentColor"
-            fill="currentColor"
-            focusable="false"
-            height="26"
-            viewBox="0 0 24 24"
-            width="26"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 002 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
-            />
-          </svg>
-        </button>
-        <button
-          class="header-actions__ActionButton-sc-10491ou-0 jBOBNx"
-          title="Settings"
-        >
-          <svg
-            aria-hidden="true"
-            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
-            color="currentColor"
-            fill="currentColor"
-            focusable="false"
-            height="22"
-            viewBox="0 0 512 512"
-            width="22"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"
-              fill="currentColor"
-            />
-          </svg>
-        </button>
-        <button
-          class="header-actions__ActionButton-sc-10491ou-0 jBOBNx"
-          title="Search"
-        >
-          <svg
-            aria-hidden="true"
-            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
-            color="currentColor"
-            fill="currentColor"
-            focusable="false"
-            height="22"
-            viewBox="0 0 512 512"
-            width="22"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
-              fill="currentColor"
-            />
-          </svg>
-        </button>
-        <a
-          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB"
-          href="https://www.buymeacoffee.com/0xTracker"
-          rel="noreferrer noopener"
-          target="_blank"
-          title="Help support 0x Tracker development with a donation"
-        >
-          <img
-            alt="Donate"
-            class="header-actions___StyledImg-sc-10491ou-3 egctPb"
-            src="https://resources.0xtracker.com/images/donate-button.png"
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
           />
-        </a>
-      </div>
-    </div>
-  </header>
-  <div
-    class="app-layout__AppBody-nr5sez-1 dnRmUC"
-  >
-    Hello World
+          <path
+            d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z"
+          />
+        </svg>
+         Home
+      </a>
+      <a
+        aria-current="false"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
+        href="/asset-bridges"
+      >
+        <svg
+          aria-hidden="true"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy navigation__NavigationIcon-sc-18grpkd-1 hWVwlC"
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          viewBox="0 0 640 512"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M32 224h32v192H32a31.962 31.962 0 01-32-32V256a31.962 31.962 0 0132-32zm512-48v272a64.063 64.063 0 01-64 64H160a64.063 64.063 0 01-64-64V176a79.974 79.974 0 0180-80h112V32a32 32 0 0164 0v64h112a79.974 79.974 0 0180 80zm-280 80a40 40 0 10-40 40 39.997 39.997 0 0040-40zm-8 128h-64v32h64zm96 0h-64v32h64zm104-128a40 40 0 10-40 40 39.997 39.997 0 0040-40zm-8 128h-64v32h64zm192-128v128a31.962 31.962 0 01-32 32h-32V224h32a31.962 31.962 0 0132 32z"
+            fill="currentColor"
+          />
+        </svg>
+         Asset Bridges
+      </a>
+      <a
+        aria-current="false"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
+        href="/fills"
+      >
+        <svg
+          aria-hidden="true"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy navigation__NavigationIcon-sc-18grpkd-1 hWVwlC"
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M3 3h18a1 1 0 011 1v16a1 1 0 01-1 1H3a1 1 0 01-1-1V4a1 1 0 011-1zm12 4v2h-4v2h4v2l3.5-3L15 7zM9 17v-2h4v-2H9v-2l-3.5 3L9 17z"
+          />
+        </svg>
+         Browse Fills
+      </a>
+      <a
+        aria-current="false"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
+        href="/network-insights"
+      >
+        <svg
+          aria-hidden="true"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy navigation__NavigationIcon-sc-18grpkd-1 hWVwlC"
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          viewBox="0 0 512 512"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"
+            fill="currentColor"
+          />
+        </svg>
+         Network Insights
+      </a>
+      <a
+        aria-current="false"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
+        href="/news-and-updates"
+        title="News & Updates"
+      >
+        <svg
+          aria-hidden="true"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy navigation__NavigationIcon-sc-18grpkd-1 hWVwlC"
+          fill="currentColor"
+          focusable="false"
+          height="22"
+          viewBox="0 0 576 512"
+          width="22"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M552 64H88c-13.255 0-24 10.745-24 24v8H24c-13.255 0-24 10.745-24 24v272c0 30.928 25.072 56 56 56h472c26.51 0 48-21.49 48-48V88c0-13.255-10.745-24-24-24zM56 400a8 8 0 01-8-8V144h16v248a8 8 0 01-8 8zm236-16H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm-208-96H140c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm208 0H348c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h152c6.627 0 12 5.373 12 12v8c0 6.627-5.373 12-12 12zm0-96H140c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h360c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12z"
+            fill="currentColor"
+          />
+        </svg>
+         News & Updates
+      </a>
+      <a
+        aria-current="false"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
+        href="/relayers"
+      >
+        <svg
+          aria-hidden="true"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy navigation__NavigationIcon-sc-18grpkd-1 hWVwlC"
+          fill="currentColor"
+          focusable="false"
+          height="20"
+          viewBox="0 0 512 512"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <svg
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M501.62 92.11L267.24 2.04a31.958 31.958 0 00-22.47 0L10.38 92.11A16.001 16.001 0 000 107.09V144c0 8.84 7.16 16 16 16h480c8.84 0 16-7.16 16-16v-36.91c0-6.67-4.14-12.64-10.38-14.98zM64 192v160H48c-8.84 0-16 7.16-16 16v48h448v-48c0-8.84-7.16-16-16-16h-16V192h-64v160h-96V192h-64v160h-96V192H64zm432 256H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h480c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"
+              fill="currentColor"
+            />
+          </svg>
+        </svg>
+         Relayers
+      </a>
+      <a
+        aria-current="false"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
+        href="/tokens"
+      >
+        <svg
+          aria-hidden="true"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy navigation__NavigationIcon-sc-18grpkd-1 hWVwlC"
+          fill="currentColor"
+          focusable="false"
+          height="26"
+          viewBox="0 0 24 24"
+          width="26"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M14 2a8 8 0 013.292 15.293A8 8 0 116.706 6.707 8.003 8.003 0 0114 2zm-3 7H9v1a2.5 2.5 0 00-.164 4.995L9 15h2l.09.008a.5.5 0 010 .984L11 16H7v2h2v1h2v-1a2.5 2.5 0 00.164-4.995L11 13H9l-.09-.008a.5.5 0 010-.984L9 12h4v-2h-2V9zm3-5a5.985 5.985 0 00-4.484 2.013 8 8 0 018.47 8.471A6 6 0 0014 4z"
+          />
+        </svg>
+         Tokens
+      </a>
+      <a
+        aria-current="false"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
+        href="/traders"
+      >
+        <svg
+          aria-hidden="true"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy navigation__NavigationIcon-sc-18grpkd-1 hWVwlC"
+          fill="currentColor"
+          focusable="false"
+          height="26"
+          viewBox="0 0 24 24"
+          width="26"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
+          />
+          <path
+            d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V18c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-1.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05.02.01.03.03.04.04 1.14.83 1.93 1.94 1.93 3.41V18c0 .35-.07.69-.18 1H22c.55 0 1-.45 1-1v-1.5c0-2.33-4.67-3.5-7-3.5z"
+          />
+        </svg>
+         Traders
+      </a>
+    </nav>
   </div>
   <div
-    class="footer__Wrapper-htpw4v-10 bvWyfk"
+    class="app-layout__Main-nr5sez-2 ibLLay"
   >
     <div
-      class="container__StyledContainer-cj53s7-0 cFWPEe container-fluid"
+      class="app-layout__Scrollport-nr5sez-3 bxkNbZ"
     >
-      <div
-        class="row"
+      <header
+        class="header__StyledHeader-gflnft-1 hDCKsx"
       >
         <div
-          class="footer__Info-htpw4v-9 cFMPKE col-12 col-md-4"
+          class="header___StyledDiv-gflnft-4 KCkkY"
+        >
+          <div
+            class="header___StyledDiv2-gflnft-5 evSGjY"
+          >
+            <div
+              class="search-box__SearchOverlay-sc-14vl3sw-0 cHVapg"
+            />
+            <div
+              class="card__Wrapper-sc-1u97707-0 bmsCLB search-box___StyledCard-sc-14vl3sw-1 ccbdoC"
+            >
+              <div
+                class="card-body__CardBody-sc-1mkhz93-0 search-box___StyledCardBody-sc-14vl3sw-2 bhXCds"
+              >
+                <form
+                  action="/search"
+                  class="search-box___StyledForm-sc-14vl3sw-3 jFpRsd"
+                  method="get"
+                >
+                  <div
+                    class="search-input__InputWrapper-m0ltwv-0 huROqU"
+                  >
+                    <div
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-owns="react-autowhatever-1"
+                      class="react-autosuggest__container"
+                      role="combobox"
+                    >
+                      <input
+                        aria-autocomplete="list"
+                        aria-controls="react-autowhatever-1"
+                        autocomplete="off"
+                        class="react-autosuggest__input"
+                        name="q"
+                        placeholder="Search for tokens, relayers, traders or fills"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="react-autosuggest__suggestions-container"
+                        id="react-autowhatever-1"
+                        role="listbox"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="search-box___StyledDiv-sc-14vl3sw-4 dtwUWb"
+                  >
+                    <svg
+                      class="search-box___StyledSvg-sc-14vl3sw-5 gZBlRd"
+                      fill="currentColor"
+                      focusable="false"
+                      height="22"
+                      role="img"
+                      viewBox="0 0 576 512"
+                      width="22"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M528 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h480c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm8 336c0 4.411-3.589 8-8 8H48c-4.411 0-8-3.589-8-8V112c0-4.411 3.589-8 8-8h480c4.411 0 8 3.589 8 8v288zM170 270v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm-336 82v-28c0-6.627-5.373-12-12-12H82c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm384 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zM122 188v-28c0-6.627-5.373-12-12-12H82c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm96 0v-28c0-6.627-5.373-12-12-12h-28c-6.627 0-12 5.373-12 12v28c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12zm-98 158v-16c0-6.627-5.373-12-12-12H180c-6.627 0-12 5.373-12 12v16c0 6.627 5.373 12 12 12h216c6.627 0 12-5.373 12-12z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    /
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div
+            class="header-actions___StyledDiv-sc-10491ou-2 hpZxrB"
+          >
+            <button
+              class="header-actions__ActionButton-sc-10491ou-0 header-actions__NotificationsButton-sc-10491ou-1 eCUsXa headway"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+                color="currentColor"
+                fill="currentColor"
+                focusable="false"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 002 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"
+                />
+              </svg>
+            </button>
+            <a
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB header-actions__ActionButton-sc-10491ou-0 cRwSSX"
+              href="https://www.buymeacoffee.com/0xTracker"
+              rel="noreferrer noopener"
+              target="_blank"
+              title="Help support 0x Tracker development with a donation"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+                color="currentColor"
+                fill="currentColor"
+                focusable="false"
+                height="20"
+                viewBox="0 0 512 512"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>
+                  Donate icon
+                </title>
+                <path
+                  d="M256 416c114.9 0 208-93.1 208-208S370.9 0 256 0 48 93.1 48 208s93.1 208 208 208zM233.8 97.4V80.6c0-9.2 7.4-16.6 16.6-16.6h11.1c9.2 0 16.6 7.4 16.6 16.6v17c15.5.8 30.5 6.1 43 15.4 5.6 4.1 6.2 12.3 1.2 17.1L306 145.6c-3.8 3.7-9.5 3.8-14 1-5.4-3.4-11.4-5.1-17.8-5.1h-38.9c-9 0-16.3 8.2-16.3 18.3 0 8.2 5 15.5 12.1 17.6l62.3 18.7c25.7 7.7 43.7 32.4 43.7 60.1 0 34-26.4 61.5-59.1 62.4v16.8c0 9.2-7.4 16.6-16.6 16.6h-11.1c-9.2 0-16.6-7.4-16.6-16.6v-17c-15.5-.8-30.5-6.1-43-15.4-5.6-4.1-6.2-12.3-1.2-17.1l16.3-15.5c3.8-3.7 9.5-3.8 14-1 5.4 3.4 11.4 5.1 17.8 5.1h38.9c9 0 16.3-8.2 16.3-18.3 0-8.2-5-15.5-12.1-17.6l-62.3-18.7c-25.7-7.7-43.7-32.4-43.7-60.1.1-34 26.4-61.5 59.1-62.4zM480 352h-32.5c-19.6 26-44.6 47.7-73 64h63.8c5.3 0 9.6 3.6 9.6 8v16c0 4.4-4.3 8-9.6 8H73.6c-5.3 0-9.6-3.6-9.6-8v-16c0-4.4 4.3-8 9.6-8h63.8c-28.4-16.3-53.3-38-73-64H32c-17.7 0-32 14.3-32 32v96c0 17.7 14.3 32 32 32h448c17.7 0 32-14.3 32-32v-96c0-17.7-14.3-32-32-32z"
+                  fill="currentColor"
+                />
+              </svg>
+            </a>
+            <button
+              class="header-actions__ActionButton-sc-10491ou-0 cRwSSX"
+              title="Settings"
+            >
+              <svg
+                aria-hidden="true"
+                class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+                color="currentColor"
+                fill="currentColor"
+                focusable="false"
+                height="20"
+                viewBox="0 0 512 512"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+      <div
+        class="app-layout__AppBody-nr5sez-1 dnRmUC"
+      >
+        Hello World
+      </div>
+      <div
+        class="subscribe-panel__Wrapper-sc-5e14js-0 bYlPky"
+      >
+        <div
+          class="subscribe-panel__Inner-sc-5e14js-1 gzeqni"
         >
           <img
-            alt="0x Tracker"
-            class="footer__Logo-htpw4v-0 hmimtr"
+            alt=""
+            class="subscribe-panel__Image-sc-5e14js-2 ieDlrH"
+            height="180"
             src="test-file-stub"
+            width="235"
           />
-          <p
-            class="footer__Description-htpw4v-2 kYtnmf"
-          >
-            The leading provider of 0x protocol market data, transparent Ethereum token price index and 0x protocol news aggregator.
-          </p>
-          <nav
-            class="footer___StyledNav-htpw4v-11 hhjFbS"
-          >
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__SocialLink-htpw4v-5 iYzWiE"
-              href="https://twitter.com/0xTracker"
-              rel="noreferrer noopener"
+          <div>
+            <h2
+              class="subscribe-panel__Heading-sc-5e14js-3 eNGrNG"
+            >
+              Subscribe to our newsletter
+            </h2>
+            <p
+              class="subscribe-panel__Lead-sc-5e14js-4 dPfwaT"
+            >
+              Monthly 0x ecosystem news and analysis.
+            </p>
+            <form
+              action="https://facebook.us2.list-manage.com/subscribe/post?u=1c752e167467d75829bc12aef&id=33b834d61c"
+              class="subscribe-panel__Form-sc-5e14js-9 bccDxU"
+              method="post"
               target="_blank"
             >
-              <svg
+              <div
                 aria-hidden="true"
-                class="icon-base__IconBase-ngmsqy-0 hvjdWy"
-                fill="currentColor"
-                focusable="false"
-                height="18"
-                viewBox="0 0 512 512"
-                width="18"
-                xmlns="http://www.w3.org/2000/svg"
+                class="subscribe-panel__HoneyPot-sc-5e14js-8 kVeLvq"
               >
-                <path
-                  d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
-                  fill="currentColor"
+                <input
+                  name="b_1c752e167467d75829bc12aef_33b834d61c"
+                  tabindex="-1"
+                  type="text"
                 />
-              </svg>
-            </a>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__SocialLink-htpw4v-5 iYzWiE"
-              href="https://discord.gg/tnV8hud"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              <svg
-                aria-hidden="true"
-                class="icon-base__IconBase-ngmsqy-0 hvjdWy"
-                fill="currentColor"
-                focusable="false"
-                height="18"
-                viewBox="0 0 448 512"
-                width="18"
-                xmlns="http://www.w3.org/2000/svg"
+              </div>
+              <div
+                class="subscribe-panel__FieldWrapper-sc-5e14js-6 ihVBSu"
               >
-                <path
-                  d="M297.216 243.2c0 15.616-11.52 28.416-26.112 28.416-14.336 0-26.112-12.8-26.112-28.416s11.52-28.416 26.112-28.416c14.592 0 26.112 12.8 26.112 28.416zm-119.552-28.416c-14.592 0-26.112 12.8-26.112 28.416s11.776 28.416 26.112 28.416c14.592 0 26.112-12.8 26.112-28.416.256-15.616-11.52-28.416-26.112-28.416zM448 52.736V512c-64.494-56.994-43.868-38.128-118.784-107.776l13.568 47.36H52.48C23.552 451.584 0 428.032 0 398.848V52.736C0 23.552 23.552 0 52.48 0h343.04C424.448 0 448 23.552 448 52.736zm-72.96 242.688c0-82.432-36.864-149.248-36.864-149.248-36.864-27.648-71.936-26.88-71.936-26.88l-3.584 4.096c43.52 13.312 63.744 32.512 63.744 32.512-60.811-33.329-132.244-33.335-191.232-7.424-9.472 4.352-15.104 7.424-15.104 7.424s21.248-20.224 67.328-33.536l-2.56-3.072s-35.072-.768-71.936 26.88c0 0-36.864 66.816-36.864 149.248 0 0 21.504 37.12 78.08 38.912 0 0 9.472-11.52 17.152-21.248-32.512-9.728-44.8-30.208-44.8-30.208 3.766 2.636 9.976 6.053 10.496 6.4 43.21 24.198 104.588 32.126 159.744 8.96 8.96-3.328 18.944-8.192 29.44-15.104 0 0-12.8 20.992-46.336 30.464 7.68 9.728 16.896 20.736 16.896 20.736 56.576-1.792 78.336-38.912 78.336-38.912z"
-                  fill="currentColor"
+                <input
+                  class="subscribe-panel__EmailInput-sc-5e14js-5 dEqlIQ"
+                  name="EMAIL"
+                  placeholder="Enter your email"
+                  required=""
+                  type="email"
                 />
-              </svg>
-            </a>
-          </nav>
-        </div>
-        <div
-          class="col-6 col-sm-4 col-md-2 offset-md-2"
-        >
-          <h2
-            class="footer__NavHeading-htpw4v-1 iWyvZs"
-          >
-            About
-          </h2>
-          <nav>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
-              href="/news-and-updates/0x-tracker"
-            >
-              Blog
-            </a>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
-              href="https://docs.0xtracker.com/#need-to-get-in-touch"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              Contact
-            </a>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
-              href="https://docs.0xtracker.com/faqs"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              FAQs
-            </a>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
-              href="https://docs.0xtracker.com/"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              Overview
-            </a>
-          </nav>
-        </div>
-        <div
-          class="col-6 col-sm-4 col-md-2"
-        >
-          <h2
-            class="footer__NavHeading-htpw4v-1 iWyvZs"
-          >
-            Developers
-          </h2>
-          <nav>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
-              href="https://docs.0xtracker.com/api-reference/introduction"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              API
-            </a>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
-              href="https://docs.0xtracker.com/contributing"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              Contributing
-            </a>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
-              href="https://github.com/0xtracker"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              GitHub
-            </a>
-          </nav>
-        </div>
-        <div
-          class="col-6 col-sm-4 col-md-2"
-        >
-          <h2
-            class="footer__NavHeading-htpw4v-1 iWyvZs"
-          >
-            Resources
-          </h2>
-          <nav>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
-              href="https://headwayapp.co/0x-tracker-changelog"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              Changelog
-            </a>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
-              href="/privacy"
-            >
-              Privacy Policy
-            </a>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
-              href="https://trello.com/b/4cY2eOsQ/0x-tracker-roadmap"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              Roadmap
-            </a>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
-              href="/terms"
-            >
-              Terms Of Use
-            </a>
-          </nav>
+                <button
+                  class="subscribe-panel__SubscribeButton-sc-5e14js-7 jHuWul"
+                  name="subscribe"
+                  type="submit"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
       <div
-        class="footer__SecondaryLinks-htpw4v-8 hovuaa"
+        class="footer__Wrapper-htpw4v-9 hDQYsm"
       >
         <div
-          class="footer__License-htpw4v-7 kYdoUS"
+          class="row"
         >
-          Licensed under
-           
-          <a
-            class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 dTeeTl"
-            href="https://github.com/0xTracker/0x-tracker-client/blob/master/LICENSE"
-            rel="noreferrer noopener"
-            target="_blank"
+          <div
+            class="footer__Info-htpw4v-8 hSXhvl col-12 col-md-4"
           >
-            Apache-2.0
-          </a>
+            <h2
+              class="footer__NavHeading-htpw4v-0 kmrZLX"
+            >
+              0x Tracker
+            </h2>
+            <p
+              class="footer__Description-htpw4v-1 guBZuO"
+            >
+              The leading provider of 0x protocol market data, transparent Ethereum token price index and 0x protocol news aggregator.
+            </p>
+            <nav
+              class="footer___StyledNav-htpw4v-10 fuojAz"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__SocialLink-htpw4v-4 fLaCIy"
+                href="https://twitter.com/0xTracker"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+                  fill="currentColor"
+                  focusable="false"
+                  height="18"
+                  viewBox="0 0 512 512"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__SocialLink-htpw4v-4 fLaCIy"
+                href="https://discord.gg/tnV8hud"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+                  fill="currentColor"
+                  focusable="false"
+                  height="18"
+                  viewBox="0 0 448 512"
+                  width="18"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M297.216 243.2c0 15.616-11.52 28.416-26.112 28.416-14.336 0-26.112-12.8-26.112-28.416s11.52-28.416 26.112-28.416c14.592 0 26.112 12.8 26.112 28.416zm-119.552-28.416c-14.592 0-26.112 12.8-26.112 28.416s11.776 28.416 26.112 28.416c14.592 0 26.112-12.8 26.112-28.416.256-15.616-11.52-28.416-26.112-28.416zM448 52.736V512c-64.494-56.994-43.868-38.128-118.784-107.776l13.568 47.36H52.48C23.552 451.584 0 428.032 0 398.848V52.736C0 23.552 23.552 0 52.48 0h343.04C424.448 0 448 23.552 448 52.736zm-72.96 242.688c0-82.432-36.864-149.248-36.864-149.248-36.864-27.648-71.936-26.88-71.936-26.88l-3.584 4.096c43.52 13.312 63.744 32.512 63.744 32.512-60.811-33.329-132.244-33.335-191.232-7.424-9.472 4.352-15.104 7.424-15.104 7.424s21.248-20.224 67.328-33.536l-2.56-3.072s-35.072-.768-71.936 26.88c0 0-36.864 66.816-36.864 149.248 0 0 21.504 37.12 78.08 38.912 0 0 9.472-11.52 17.152-21.248-32.512-9.728-44.8-30.208-44.8-30.208 3.766 2.636 9.976 6.053 10.496 6.4 43.21 24.198 104.588 32.126 159.744 8.96 8.96-3.328 18.944-8.192 29.44-15.104 0 0-12.8 20.992-46.336 30.464 7.68 9.728 16.896 20.736 16.896 20.736 56.576-1.792 78.336-38.912 78.336-38.912z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__SocialLink-htpw4v-4 fLaCIy"
+                href="mailto:hello@0xtracker.com"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+                  fill="currentColor"
+                  focusable="false"
+                  height="20"
+                  viewBox="0 0 100 100"
+                  width="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M85.944 20.189H14.056a2.559 2.559 0 00-2.556 2.557v5.144c0 .237.257.509.467.619l37.786 21.583a.63.63 0 00.318.083.634.634 0 00.324-.088L87.039 28.53c.206-.115.752-.419.957-.559.248-.169.504-.322.504-.625v-4.601a2.559 2.559 0 00-2.556-2.556zm2.237 15.457a.644.644 0 00-.645.004L66.799 47.851a.637.637 0 00-.145.985l20.74 22.357a.632.632 0 00.467.204.64.64 0 00.639-.639V36.201a.638.638 0 00-.319-.555zM60.823 51.948a.636.636 0 00-.791-.118l-8.312 4.891a3.243 3.243 0 01-3.208.021l-7.315-4.179a.64.64 0 00-.751.086L12.668 78.415a.64.64 0 00.114 1.02c.432.254.849.375 1.273.375h71.153a.635.635 0 00.585-.385.635.635 0 00-.118-.689L60.823 51.948zm-26.489-2.347a.639.639 0 00-.115-1.023L12.453 36.146a.638.638 0 00-.953.556v32.62a.637.637 0 001.073.468l21.761-20.189z"
+                  />
+                </svg>
+              </a>
+            </nav>
+          </div>
+          <div
+            class="col-6 col-sm-4 col-md-2 offset-md-2"
+          >
+            <h2
+              class="footer__NavHeading-htpw4v-0 kmrZLX"
+            >
+              About
+            </h2>
+            <nav>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="/news-and-updates/0x-tracker"
+              >
+                Blog
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="https://www.buymeacoffee.com/0xTracker"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                Donate
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="https://docs.0xtracker.com/faqs"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                FAQs
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="https://docs.0xtracker.com/"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                Overview
+              </a>
+            </nav>
+          </div>
+          <div
+            class="col-6 col-sm-4 col-md-2"
+          >
+            <h2
+              class="footer__NavHeading-htpw4v-0 kmrZLX"
+            >
+              Developers
+            </h2>
+            <nav>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="https://docs.0xtracker.com/api-reference/introduction"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                API
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="https://docs.0xtracker.com/contributing"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                Contributing
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="https://github.com/0xtracker"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                GitHub
+              </a>
+            </nav>
+          </div>
+          <div
+            class="col-6 col-sm-4 col-md-2"
+          >
+            <h2
+              class="footer__NavHeading-htpw4v-0 kmrZLX"
+            >
+              Resources
+            </h2>
+            <nav>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="https://headwayapp.co/0x-tracker-changelog"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                Changelog
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="/privacy"
+              >
+                Privacy Policy
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="https://trello.com/b/4cY2eOsQ/0x-tracker-roadmap"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                Roadmap
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="/terms"
+              >
+                Terms Of Use
+              </a>
+            </nav>
+          </div>
         </div>
         <div
-          class="footer__PoweredBy-htpw4v-6 erSKNj"
+          class="footer__SecondaryLinks-htpw4v-7 jYdLlJ"
         >
-          Powered by 
-          <a
-            class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 dTeeTl"
-            href="https://0x.org"
-            rel="noreferrer noopener"
-            target="_blank"
+          <div
+            class="footer__License-htpw4v-6 cUGJzH"
           >
-            0x
-          </a>
-           and
-           
-          <a
-            class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 dTeeTl"
-            href="https://ethereum.org/"
-            rel="noreferrer noopener"
-            target="_blank"
+            Licensed under
+             
+            <a
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 bDMYAg"
+              href="https://github.com/0xTracker/0x-tracker-client/blob/master/LICENSE"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Apache-2.0
+            </a>
+          </div>
+          <div
+            class="footer__PoweredBy-htpw4v-5 kZjLTc"
           >
-            Ethereum
-          </a>
-           with pricing data from
-           
-          <a
-            class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 dTeeTl"
-            href="https://min-api.cryptocompare.com/"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            CryptoCompare
-          </a>
+            Powered by 
+            <a
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 bDMYAg"
+              href="https://0x.org"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              0x
+            </a>
+             and
+             
+            <a
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 bDMYAg"
+              href="https://ethereum.org/"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Ethereum
+            </a>
+             with pricing data from
+             
+            <a
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 bDMYAg"
+              href="https://min-api.cryptocompare.com/"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              CryptoCompare
+            </a>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <a
+    class="contact-button___StyledA-sc-1xyx4yy-0 hPLukp"
+    href="https://0xtracker.typeform.com/to/HfuuTK"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <svg
+      fill="currentColor"
+      focusable="false"
+      height="32"
+      role="img"
+      viewBox="0 0 24 24"
+      width="32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 0h24v24H0V0z"
+        fill="none"
+      />
+      <path
+        d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
+      />
+    </svg>
+  </a>
 </div>
 `;

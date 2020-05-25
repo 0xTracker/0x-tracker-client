@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { COLORS } from '../../../styles/constants';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import { useMetadata } from '../../../hooks';
+import { NewsIcon } from '../../../components/icons';
 import ArticleList from './article-list';
 import ArticlesFilter from './articles-filter';
 import ArticlesProvider from './articles-provider';
@@ -19,11 +20,7 @@ import CardHeading from '../../../components/card-heading';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
-import SideBanner from '../../advertising/components/side-banner';
-import SubscribePanel from '../../../components/subscribe-panel';
-import SubTitle from '../../../components/sub-title';
 import useArticleSources from '../hooks/use-article-sources';
-import Visible from '../../../components/visible';
 
 const LoadMoreButton = styled.button`
   align-items: center;
@@ -56,75 +53,64 @@ const NewsPage = () => {
   const source = _.find(sources, { slug: params.source });
 
   return (
-    <>
-      <PageLayout
-        showBanner={breakpoint.lessThan('lg')}
-        title={
-          <>
-            News & Updates
-            <SubTitle>
-              from {source ? source.name : 'the 0x ecosystem'}
-            </SubTitle>
-          </>
-        }
-      >
-        <CardGrid>
-          <CardGridRow md={8}>
-            <CardGridCol>
-              <Card>
-                <CardBody>
-                  <ArticlesProvider
-                    limit={11}
-                    source={source ? source.slug : undefined}
-                  >
-                    {({
-                      articles,
-                      canLoadMore,
-                      loadingInitial,
-                      loadingMore,
-                      loadMore,
-                    }) =>
-                      loadingInitial ? (
-                        <LoadingIndicator centered />
-                      ) : (
-                        <>
-                          <ArticleList
-                            articles={articles}
-                            compact={breakpoint.equalTo('xs')}
-                            showImages={!breakpoint.equalTo('xs')}
-                          />
-                          {canLoadMore ? (
-                            <LoadMoreButton onClick={loadMore} type="button">
-                              {loadingMore ? (
-                                <LoadingIndicator size="small" type="cylon" />
-                              ) : (
-                                'Load More Stories'
-                              )}
-                            </LoadMoreButton>
-                          ) : null}
-                        </>
-                      )
-                    }
-                  </ArticlesProvider>
-                </CardBody>
-              </Card>
-            </CardGridCol>
-            <CardGridCol md={4}>
-              <Visible above="md">
-                <SideBanner css="margin-bottom: 2rem;" />
-              </Visible>
-              <Card autoHeight={false}>
-                <CardHeader>
-                  <CardHeading>Filter by source</CardHeading>
-                </CardHeader>
-                <ArticlesFilter sources={sources} />
-              </Card>
-            </CardGridCol>
-          </CardGridRow>
-        </CardGrid>
-      </PageLayout>
-      <SubscribePanel />
-    </>
+    <PageLayout
+      icon={<NewsIcon size={44} />}
+      showBanner={breakpoint.lessThan('lg')}
+      subTitle={`from ${source ? source.name : 'the 0x ecosystem'}`}
+      title="News & Updates"
+    >
+      <CardGrid>
+        <CardGridRow md={8}>
+          <CardGridCol>
+            <Card>
+              <CardBody>
+                <ArticlesProvider
+                  limit={11}
+                  source={source ? source.slug : undefined}
+                >
+                  {({
+                    articles,
+                    canLoadMore,
+                    loadingInitial,
+                    loadingMore,
+                    loadMore,
+                  }) =>
+                    loadingInitial ? (
+                      <LoadingIndicator centered />
+                    ) : (
+                      <>
+                        <ArticleList
+                          articles={articles}
+                          compact={breakpoint.equalTo('xs')}
+                          showImages={!breakpoint.equalTo('xs')}
+                        />
+                        {canLoadMore ? (
+                          <LoadMoreButton onClick={loadMore} type="button">
+                            {loadingMore ? (
+                              <LoadingIndicator size="small" type="cylon" />
+                            ) : (
+                              'Load More Stories'
+                            )}
+                          </LoadMoreButton>
+                        ) : null}
+                      </>
+                    )
+                  }
+                </ArticlesProvider>
+              </CardBody>
+            </Card>
+          </CardGridCol>
+          <CardGridCol md={4}>
+            <Card autoHeight={false}>
+              <CardHeader>
+                <CardHeading>Filter by source</CardHeading>
+              </CardHeader>
+              <ArticlesFilter sources={sources} />
+            </Card>
+          </CardGridCol>
+        </CardGridRow>
+      </CardGrid>
+    </PageLayout>
   );
 };
 

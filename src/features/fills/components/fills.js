@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import CardPlaceholder from '../../../components/card-placeholder';
 import fillsPropTypes from '../prop-types';
 import LoadingIndicator from '../../../components/loading-indicator';
-import NoResultsMessage from '../../../components/no-results-message';
 import PagedFillList from './paged-fill-list';
 import useFills from '../hooks/use-fills';
 
@@ -22,9 +22,9 @@ const Fills = ({ excludeColumns, filter, page, onPageChange }) => {
 
   if (items.length === 0) {
     return (
-      <NoResultsMessage>
+      <CardPlaceholder>
         No fills were found matching the selected filters.
-      </NoResultsMessage>
+      </CardPlaceholder>
     );
   }
 
@@ -50,6 +50,7 @@ Fills.propTypes = {
     protocolVersion: PropTypes.number,
     status: fillsPropTypes.status,
     token: PropTypes.string,
+    trader: PropTypes.string,
   }),
   onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,

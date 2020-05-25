@@ -1,6 +1,10 @@
+import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 
-const Card = styled.div`
+import CardErrorBoundary from './card-error-boundary';
+
+const Wrapper = styled.div`
   background-color: white;
   border: none;
   border-radius: 4px;
@@ -8,11 +12,23 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: ${(props) => (props.autoHeight ? '1' : '0')};
-  overflow: hidden;
 `;
+
+const Card = ({ children, errorMessage, ...otherProps }) => (
+  <Wrapper {...otherProps}>
+    <CardErrorBoundary message={errorMessage}>{children}</CardErrorBoundary>
+  </Wrapper>
+);
 
 Card.defaultProps = {
   autoHeight: true,
+  errorMessage: undefined,
+};
+
+Card.propTypes = {
+  autoHeight: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  errorMessage: PropTypes.string,
 };
 
 export default Card;

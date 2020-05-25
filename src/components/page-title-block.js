@@ -3,16 +3,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../styles/util';
-import Container from './container';
+import SubTitle from './sub-title';
+import Visible from './visible';
 
 const Inner = styled.div`
   align-items: center;
-  border-bottom: 2px solid hsl(230, 35%, 93%);
   border-radius: 1px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 1.5rem;
-  padding-bottom: 0.75rem;
 
   ${media.greaterThan('lg')`
   margin-bottom: 2rem;
@@ -20,6 +19,8 @@ const Inner = styled.div`
 `;
 
 const Title = styled.h1`
+  align-items: center;
+  display: flex;
   flex-basis: 100%;
   flex-grow: 1;
   flex-shrink: 1;
@@ -31,27 +32,39 @@ const Title = styled.h1`
   word-break: break-all;
 `;
 
-const FilterContainer = styled.div`
+const Actions = styled.div`
   flex-grow: 1;
   flex-shrink: 0;
 `;
 
-const PageTitleBlock = ({ children, title }) => (
-  <Container>
-    <Inner>
-      <Title>{title}</Title>
-      {children ? <FilterContainer>{children}</FilterContainer> : null}
-    </Inner>
-  </Container>
+const PageTitleBlock = ({ actions, icon, subTitle, title }) => (
+  <Inner>
+    <Title>
+      {icon && (
+        <Visible above="xs">
+          <div css="display: flex; margin-right: 12px;">{icon}</div>
+        </Visible>
+      )}
+      <div>
+        {title}
+        {subTitle && <SubTitle>{subTitle}</SubTitle>}
+      </div>
+    </Title>
+    {actions ? <Actions>{actions}</Actions> : null}
+  </Inner>
 );
 
 PageTitleBlock.propTypes = {
-  children: PropTypes.node,
+  actions: PropTypes.node,
+  icon: PropTypes.node,
+  subTitle: PropTypes.string,
   title: PropTypes.node.isRequired,
 };
 
 PageTitleBlock.defaultProps = {
-  children: undefined,
+  actions: undefined,
+  icon: undefined,
+  subTitle: undefined,
 };
 
 export default PageTitleBlock;

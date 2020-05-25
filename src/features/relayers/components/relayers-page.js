@@ -7,22 +7,12 @@ import {
   usePaginator,
   useSearchParam,
 } from '../../../hooks';
+import { RelayersIcon } from '../../../components/icons';
+import { getPeriodDescriptor } from '../../../util';
 import Card from '../../../components/card';
-import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
-import Paginator from '../../../components/paginator';
-import RelayerList from './relayer-list';
+import Relayers from './relayers';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
-import SubTitle from '../../../components/sub-title';
-import useRelayers from '../hooks/use-relayers';
-
-const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'in the last 24 hours',
-  [TIME_PERIOD.WEEK]: 'in the last week',
-  [TIME_PERIOD.MONTH]: 'in the last month',
-  [TIME_PERIOD.YEAR]: 'in the last year',
-  [TIME_PERIOD.ALL]: 'from all time',
-};
 
 const RelayersPage = () => {
   useMetadata({ title: '0x Protocol Relayer Metrics & Charts' });
@@ -30,17 +20,10 @@ const RelayersPage = () => {
   const { navigateTo } = useNavigator();
   const { page, setPage } = usePaginator();
   const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.MONTH);
-  const [relayers, loadingRelayers] = useRelayers({
-    autoReload: true,
-    limit: 25,
-    page,
-    statsPeriod,
-  });
-  const { items, pageCount, pageSize, recordCount } = relayers;
 
   return (
     <PageLayout
-      filter={
+      actions={
         <ResponsiveTimePeriodFilter
           name="statsPeriod"
           onChange={(newPeriod) => {
@@ -49,32 +32,16 @@ const RelayersPage = () => {
           value={statsPeriod}
         />
       }
-      title={
-        <>
-          Active Relayers
-          <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
-        </>
-      }
+      icon={<RelayersIcon size={32} />}
+      subTitle={getPeriodDescriptor(statsPeriod)}
+      title="Active Relayers"
     >
-      <Card>
-        {loadingRelayers ? (
-          <LoadingIndicator centered />
-        ) : (
-          <>
-            <RelayerList
-              positionOffset={(page - 1) * pageSize}
-              relayers={items}
-              statsPeriod={statsPeriod}
-            />
-            <Paginator
-              onPageChange={setPage}
-              page={page}
-              pageCount={pageCount}
-              pageSize={pageSize}
-              recordCount={recordCount}
-            />
-          </>
-        )}
+      <Card errorMessage="An error occurred while loading relayers">
+        <Relayers
+          onPageChange={setPage}
+          page={page}
+          statsPeriod={statsPeriod}
+        />
       </Card>
     </PageLayout>
   );

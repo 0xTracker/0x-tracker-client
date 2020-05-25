@@ -7,7 +7,7 @@ import Select from './select';
 const OPTIONS = [
   { label: 'Past 24 hours', value: TIME_PERIOD.DAY },
   { label: 'Past week', value: TIME_PERIOD.WEEK },
-  { label: 'Past month', value: TIME_PERIOD.MONTH },
+  { label: 'Past 30 days', value: TIME_PERIOD.MONTH },
   { label: 'Past year', value: TIME_PERIOD.YEAR },
   { label: 'All time', value: TIME_PERIOD.ALL },
 ];

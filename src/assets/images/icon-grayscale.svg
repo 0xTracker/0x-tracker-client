@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="210px" height="273px" viewBox="0 0 210 273" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Logo-Grayscale">
+            <g id="Icon" transform="translate(5.000000, 6.000000)">
+                <g id="Outer" transform="translate(0.000000, 0.244821)" stroke="#6A6586" stroke-width="12">
+                    <polygon id="Stroke-1" points="0 57.7006478 0 172.037736 99.4994505 229.642681 198.5625 172.037736 198.5625 57.7006478 99.4994505 0.095702761"></polygon>
+                    <polyline id="Stroke-3" points="0 57.7006478 99.4994505 110.06878 198.5625 57.7006478"></polyline>
+                    <polygon id="Stroke-5" stroke-linejoin="round" points="0 172.037736 198.5625 172.037736 99.4994505 0.095702761"></polygon>
+                    <line x1="99.484962" y1="172.037736" x2="99.501462" y2="229.642681" id="Stroke-7"></line>
+                </g>
+                <g id="Circle" transform="translate(60.000000, 187.244821)">
+                    <circle id="Oval" fill="#CCC9DB" cx="39.7578125" cy="40.0705378" r="19"></circle>
+                    <circle id="Oval" fill="#FFFFFF" opacity="0.168359375" cx="39.7578125" cy="40.0705378" r="39.2441406"></circle>
+                </g>
+                <g id="Diamond" transform="translate(50.622527, 0.340524)" stroke="#CCC9DB" stroke-width="12">
+                    <polygon id="Stroke-9" stroke-linejoin="round" points="48.8769231 -1.42108547e-14 0.0951354396 84.2982911 48.8769231 171.942033 97.4448742 84.2982911"></polygon>
+                    <polyline id="Stroke-12" points="-3.97903932e-13 83.789011 48.8769231 109.973077 97.3174451 83.789011"></polyline>
+                    <polyline id="Stroke-12" transform="translate(48.658723, 73.881044) rotate(-180.000000) translate(-48.658723, -73.881044) " points="5.54223334e-13 60.789011 48.8769231 86.9730769 97.3174451 60.789011"></polyline>
+                    <line x1="48.8769231" y1="-4.26325641e-14" x2="48.8769231" y2="171.942033" id="Stroke-13"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

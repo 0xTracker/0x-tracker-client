@@ -3,12 +3,19 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../styles/constants';
+import { media } from '../styles/util';
+import ContactButton from './contact-button';
+import CompactSidebar from './compact-sidebar';
 import Footer from './footer';
 import Header from '../features/header/components/header';
+import Hidden from './hidden';
+import MobileHeader from '../features/header/components/mobile-header';
+import Sidebar from './sidebar';
+import Visible from './visible';
 
 const AppContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 100vh;
 `;
 
@@ -20,11 +27,50 @@ const AppBody = styled.div`
   min-height: 500px;
 `;
 
+const Main = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex-shrink: 1;
+  max-width: 100%;
+
+  ${media.greaterThan('lg')`
+    max-width: calc(100vw - 72px);
+  `}
+
+  ${media.greaterThan('xl')`
+    max-width: calc(100vw - 250px);
+  `}
+`;
+
+const Scrollport = styled.div`
+  ${media.greaterThan('lg')`
+    max-height: 100vh;
+    overflow: auto;
+  `}
+`;
+
 const AppLayout = ({ children }) => (
   <AppContainer>
-    <Header />
-    <AppBody>{children}</AppBody>
-    <Footer />
+    <Visible at={['lg']}>
+      <CompactSidebar />
+    </Visible>
+    <Visible above="lg">
+      <Sidebar />
+    </Visible>
+    <Main>
+      <Scrollport>
+        <Hidden above="md">
+          <MobileHeader />
+        </Hidden>
+        <Visible above="md">
+          <Header />
+        </Visible>
+        <AppBody>{children}</AppBody>
+        <Footer />
+      </Scrollport>
+    </Main>
+    <ContactButton />
   </AppContainer>
 );
 

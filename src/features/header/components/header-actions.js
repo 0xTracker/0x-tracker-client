@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
-import { COLORS } from '../../../styles/constants';
 import {
+  DonateIcon,
   NotificationsIcon,
-  SearchIcon,
   SettingsIcon,
 } from '../../../components/icons';
-import HeaderSearch from './header-search';
+import { COLORS } from '../../../styles/constants';
 import Link from '../../../components/link';
 import useSettingsDialog from '../../preferences/hooks/use-settings-dialog';
 
@@ -15,17 +14,20 @@ const ActionButton = styled.button`
   align-items: center;
   background: none;
   border: none;
+  background: ${COLORS.NEUTRAL.MYSTIC_400};
   border-radius: 0.25rem;
-  color: inherit;
+  ${'' /* box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2); */}
+  color: ${COLORS.PRIMARY.SCAMPI_800};
   cursor: pointer;
   display: flex;
   justify-content: center;
-  margin: 0 0.5rem 0 0;
-  padding: 0.5rem 0.75rem;
+  margin: 0 12px 0 0;
+  padding: 0;
+  height: 100%;
+  width: 50px;
 
   &:hover {
-    background: white;
-    color: ${COLORS.PRIMARY.SCAMPI_900};
+    background: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 
   &:last-child {
@@ -44,34 +46,25 @@ const NotificationsButton = styled(ActionButton)`
 `;
 
 const HeaderActions = () => {
-  const [searchVisible, setSearchVisibility] = useState(false);
   const settingsDialog = useSettingsDialog();
-  const hideSearch = () => setSearchVisibility(false);
 
   useEffect(() => {
-    if (typeof Headway !== 'undefined' && !searchVisible) {
+    if (typeof Headway !== 'undefined') {
       Headway.init({
         account: 'xGOQOx',
         selector: '.headway',
         trigger: '.headway',
       });
     }
-  }, [searchVisible]);
+  });
 
-  return searchVisible ? (
-    <HeaderSearch onBlur={hideSearch} onSearch={hideSearch} />
-  ) : (
-    <div css="display: flex; align-items: center;">
+  return (
+    <div css="display: flex; align-items: center; height: 100%; padding: 14px 0 14px;">
       <NotificationsButton className="headway">
-        <NotificationsIcon color="currentColor" height={26} width={26} />
+        <NotificationsIcon color="currentColor" height={24} width={24} />
       </NotificationsButton>
-      <ActionButton onClick={() => settingsDialog.show()} title="Settings">
-        <SettingsIcon color="currentColor" height={22} width={22} />
-      </ActionButton>
-      <ActionButton onClick={() => setSearchVisibility(true)} title="Search">
-        <SearchIcon color="currentColor" height={22} width={22} />
-      </ActionButton>
-      <Link
+      <ActionButton
+        as={Link}
         href="https://www.buymeacoffee.com/0xTracker"
         onClick={() => {
           if (window.fathom) {
@@ -80,12 +73,11 @@ const HeaderActions = () => {
         }}
         title="Help support 0x Tracker development with a donation"
       >
-        <img
-          alt="Donate"
-          css="height: 37px; border-radius: 0.25rem;"
-          src="https://resources.0xtracker.com/images/donate-button.png"
-        />
-      </Link>
+        <DonateIcon color="currentColor" height={20} width={20} />
+      </ActionButton>
+      <ActionButton onClick={() => settingsDialog.show()} title="Settings">
+        <SettingsIcon color="currentColor" height={20} width={20} />
+      </ActionButton>
     </div>
   );
 };

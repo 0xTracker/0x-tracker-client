@@ -1,15 +1,20 @@
 import _ from 'lodash';
 import { useParams } from 'react-router';
 import React from 'react';
+import styled from 'styled-components';
 
 import { TIME_PERIOD } from '../../../constants';
 import { TOKEN_TYPE } from '../constants';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import { useMetadata, useNavigator, useSearchParam } from '../../../hooks';
+import { EtherscanIcon } from '../../../components/icons';
+import { COLORS } from '../../../styles/constants';
+import { media } from '../../../styles/util';
 import buildTokenUrl from '../util/build-token-url';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
+import Link from '../../../components/link';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
@@ -34,6 +39,26 @@ const generateTitle = (token) => {
   return `${descriptor} Price, Metrics & Charts`;
 };
 
+const EtherscanLink = styled(Link)`
+  align-items: center;
+  background-color: ${COLORS.NEUTRAL.MYSTIC_100};
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
+  display: flex;
+  font-size: 14px;
+  font-weight: 500;
+  flex-grow: 1;
+  padding: 0 8px;
+
+  &:hover {
+    box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.4);
+  }
+
+  ${media.greaterThan('sm')`
+    padding: 0 16px;
+  `}
+`;
+
 const TokenPage = () => {
   const { address } = useParams();
   const { navigateTo } = useNavigator();
@@ -49,15 +74,21 @@ const TokenPage = () => {
 
   return (
     <PageLayout
-      filter={
-        <ResponsiveTimePeriodFilter
-          onChange={(newPeriod) => {
-            navigateTo(buildTokenUrl(token.address), {
-              statsPeriod: newPeriod,
-            });
-          }}
-          value={statsPeriod}
-        />
+      actions={
+        <div css="display: flex; flex-grow: 1; height: 100%;">
+          <ResponsiveTimePeriodFilter
+            css="margin-right: 12px;"
+            onChange={(newPeriod) => {
+              navigateTo(buildTokenUrl(token.address), {
+                statsPeriod: newPeriod,
+              });
+            }}
+            value={statsPeriod}
+          />
+          <EtherscanLink href={`https://etherscan.io/address/${address}`}>
+            <EtherscanIcon size={19} />
+          </EtherscanLink>
+        </div>
       }
       title={<TokenPageTitle statsPeriod={statsPeriod} token={token} />}
     >
