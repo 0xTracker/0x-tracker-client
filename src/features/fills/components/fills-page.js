@@ -114,6 +114,16 @@ const FillsPage = () => {
                   ),
                   title: 'Trades',
                 },
+                {
+                  component: (
+                    <NetworkMetrics
+                      filters={selectedFilters}
+                      period={period}
+                      type="protocolFees"
+                    />
+                  ),
+                  title: 'Protocol Fees',
+                },
               ]}
             />
           </CardGridCol>
