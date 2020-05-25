@@ -22,15 +22,15 @@ import Fills from '../../fills/components/fills';
 import Link from '../../../components/link';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
-import SubTitle from '../../../components/sub-title';
 import TraderOverviewCard from './trader-overview-card';
 import useTrader from '../hooks/use-trader';
 import Visible from '../../../components/visible';
 
 const ActionLink = styled(Link)`
   align-items: center;
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_100};
   border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
   display: flex;
   font-size: 14px;
   font-weight: 500;
@@ -38,7 +38,7 @@ const ActionLink = styled(Link)`
   padding: 0 8px;
 
   &:hover {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+    box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.4);
   }
 
   ${media.greaterThan('sm')`
@@ -80,7 +80,7 @@ const TraderPage = () => {
 
   return (
     <PageLayout
-      filter={
+      actions={
         <ActionLink href={`https://etherscan.io/address/${address}`}>
           <EtherscanIcon
             css={`
@@ -93,32 +93,22 @@ const TraderPage = () => {
           <Visible above="sm">View on Etherscan</Visible>
         </ActionLink>
       }
+      icon={
+        _.isString(trader.imageUrl) ? (
+          <img css="border-radius: 4px;" height={35} src={trader.imageUrl} />
+        ) : (
+          <Blockie css="border-radius: 4px;" seed={address} size="35px" />
+        )
+      }
+      subTitle={
+        breakpoint.greaterThan('xs')
+          ? trader.address
+          : truncateAddress(trader.address, 25)
+      }
       title={
-        <div css="display: flex; align-items: center;">
-          {_.isString(trader.imageUrl) ? (
-            <img
-              css="border-radius: 4px; margin-right: 12px;"
-              height={35}
-              src={trader.imageUrl}
-            />
-          ) : (
-            <Blockie
-              css="border-radius: 4px; margin-right: 12px;"
-              seed={address}
-              size="35px"
-            />
-          )}
-          <div>
-            {_.isString(trader.name)
-              ? truncateName(trader.name, breakpoint)
-              : 'Unknown Trader'}
-            <SubTitle>
-              {breakpoint.greaterThan('xs')
-                ? trader.address
-                : truncateAddress(trader.address, 25)}
-            </SubTitle>
-          </div>
-        </div>
+        _.isString(trader.name)
+          ? truncateName(trader.name, breakpoint)
+          : 'Unknown Trader'
       }
     >
       <CardGrid>
@@ -156,7 +146,7 @@ const TraderPage = () => {
             <Card>
               <CardBody>
                 <Fills
-                  filter={{ address }}
+                  filter={{ trader: address }}
                   onPageChange={setPage}
                   page={page}
                 />

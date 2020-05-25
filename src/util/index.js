@@ -8,6 +8,8 @@ import formatCurrency from './format-currency';
 import formatDate from './format-date';
 import formatTokenAmount from './format-token-amount';
 import getCurrencySymbol from './get-currency-symbol';
+import getGranularityForMetrics from './get-granularity-for-metrics';
+import getPeriodDescriptor from './get-period-descriptor';
 import getPeriodOptions from './get-period-options';
 import normalizePeriod from './normalize-period';
 import prettyPeriod from './pretty-period';
@@ -27,6 +29,8 @@ export {
   formatDate,
   formatTokenAmount,
   getCurrencySymbol,
+  getGranularityForMetrics,
+  getPeriodDescriptor,
   getPeriodOptions,
   normalizePeriod,
   prettyPeriod,

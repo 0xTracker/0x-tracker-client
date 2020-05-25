@@ -6,15 +6,14 @@ import { COLORS } from '../../../styles/constants';
 import { SignOutIcon } from '../../../components/icons';
 import Blockie from '../../../components/blockie';
 import PageLayout from '../../../components/page-layout';
-import SubTitle from '../../../components/sub-title';
 
 const AdManagerPageLayout = ({ children }) => {
   const wallet = useWallet();
 
   return (
     <PageLayout
-      filter={
-        wallet.connected ? (
+      actions={
+        wallet.connected && (
           <button
             css={`
               background: ${COLORS.NEUTRAL.MYSTIC_300};
@@ -37,25 +36,20 @@ const AdManagerPageLayout = ({ children }) => {
             Sign Out
             <SignOutIcon css="margin-left: 8px;" height={20} width={20} />
           </button>
-        ) : null
-      }
-      showBanner={false}
-      title={
-        wallet.connected && (
-          <div css="align-items: center; display: flex;">
-            <Blockie
-              css="border-radius: 0.25rem; margin-right: 0.75rem;"
-              seed={wallet.account}
-              size="35px"
-            />
-
-            <div>
-              Advert Manager
-              {wallet.connected && <SubTitle>for {wallet.account}</SubTitle>}
-            </div>
-          </div>
         )
       }
+      icon={
+        wallet.connected && (
+          <Blockie
+            css="border-radius: 0.25rem; margin-right: 0.75rem;"
+            seed={wallet.account}
+            size="35px"
+          />
+        )
+      }
+      showBanner={false}
+      subTitle={wallet.connected && `for ${wallet.account}`}
+      title={wallet.connected && 'Advert Manager'}
     >
       {children}
     </PageLayout>

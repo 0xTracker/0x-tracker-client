@@ -2,6 +2,8 @@ import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
 import { useMetadata, useNavigator, useSearchParam } from '../../../hooks';
+import { InsightsIcon } from '../../../components/icons';
+import { getPeriodDescriptor } from '../../../util';
 import ActiveTradersCard from '../../traders/components/active-traders-card';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
@@ -14,20 +16,11 @@ import Pill from '../../../components/pill';
 import ProtocolMetrics from '../../metrics/components/protocol-metrics';
 import PageLayout from '../../../components/page-layout';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
-import SubTitle from '../../../components/sub-title';
 import TabbedCard from '../../../components/tabbed-card';
 import TopRelayers from '../../relayers/components/top-relayers';
 import TopTokens from '../../tokens/components/top-tokens';
 import TopProtocolsCard from './top-protocols-card';
 import TraderTypesCard from '../../traders/components/trader-types-card';
-
-const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'from the past 24 hours',
-  [TIME_PERIOD.WEEK]: 'from the past week',
-  [TIME_PERIOD.MONTH]: 'from the past 30 days',
-  [TIME_PERIOD.YEAR]: 'from the past year',
-  [TIME_PERIOD.ALL]: 'from all time',
-};
 
 const NetworkOverviewPage = () => {
   useMetadata({ title: '0x Protocol Trading Activity, Metrics & Charts' });
@@ -37,7 +30,7 @@ const NetworkOverviewPage = () => {
 
   return (
     <PageLayout
-      filter={
+      actions={
         <ResponsiveTimePeriodFilter
           onChange={(newPeriod) => {
             navigateTo(URL.NETWORK_INSIGHTS, { period: newPeriod });
@@ -45,12 +38,9 @@ const NetworkOverviewPage = () => {
           value={period}
         />
       }
-      title={
-        <>
-          Network Insights
-          <SubTitle>{periodDescriptions[period]}</SubTitle>
-        </>
-      }
+      icon={<InsightsIcon size={40} />}
+      subTitle={getPeriodDescriptor(period)}
+      title="Network Insights"
     >
       <CardGrid>
         <NetworkOverviewStats period={period} />

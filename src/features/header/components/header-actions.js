@@ -14,19 +14,20 @@ const ActionButton = styled.button`
   align-items: center;
   background: none;
   border: none;
-  background: ${COLORS.NEUTRAL.MYSTIC_100};
+  background: ${COLORS.NEUTRAL.MYSTIC_400};
   border-radius: 0.25rem;
-  box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
+  ${'' /* box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2); */}
   color: ${COLORS.PRIMARY.SCAMPI_800};
   cursor: pointer;
   display: flex;
   justify-content: center;
   margin: 0 12px 0 0;
+  padding: 0;
   height: 100%;
   width: 50px;
 
   &:hover {
-    background: ${COLORS.NEUTRAL.MYSTIC_200};
+    background: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 
   &:last-child {

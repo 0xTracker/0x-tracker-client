@@ -14,31 +14,26 @@ import PropTypes from 'prop-types';
 import { COLORS } from '../../../styles/constants';
 import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
 import AddressMetricsTooltip from './address-metrics-tooltip';
+import BrushableChartContainer from '../../../components/brushable-chart-container';
 import CardPlaceholder from '../../../components/card-placeholder';
-import ChartContainer from '../../../components/chart-container';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
-const AddressMetricsChart = React.memo(
-  ({ data, keyMetric, onBrushChange, period, granularity }) => {
-    const displayCurrency = useDisplayCurrency();
+const AddressMetricsChart = ({ data, keyMetric, period, granularity }) => {
+  const displayCurrency = useDisplayCurrency();
 
-    if (_.every(data, { [keyMetric]: 0 })) {
-      return (
-        <CardPlaceholder>
-          No data available for the selected period
-        </CardPlaceholder>
-      );
-    }
-
-    const sanitizedData = _.map(data, (dataPoint) => ({
-      ...dataPoint,
-      date: dataPoint.date.toISOString(),
-    }));
-
+  if (_.every(data, { [keyMetric]: 0 })) {
     return (
-      <ChartContainer>
+      <CardPlaceholder>
+        No data available for the selected period
+      </CardPlaceholder>
+    );
+  }
+
+  return (
+    <BrushableChartContainer data={data}>
+      {({ brushableData, brushIndexes, handleBrushChange }) => (
         <BarChart
-          data={sanitizedData}
+          data={brushableData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
           <CartesianGrid
@@ -81,19 +76,18 @@ const AddressMetricsChart = React.memo(
             }
           />
           <Brush
+            {...brushIndexes}
             dataKey="date"
             height={30}
-            onChange={onBrushChange}
+            onChange={handleBrushChange}
             stroke={COLORS.NEUTRAL.MYSTIC_300}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           />
         </BarChart>
-      </ChartContainer>
-    );
-  },
-);
-
-AddressMetricsChart.displayName = 'AddressMetricsChart';
+      )}
+    </BrushableChartContainer>
+  );
+};
 
 AddressMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
@@ -105,13 +99,11 @@ AddressMetricsChart.propTypes = {
   ).isRequired,
   granularity: PropTypes.string.isRequired,
   keyMetric: PropTypes.string,
-  onBrushChange: PropTypes.func,
   period: PropTypes.string.isRequired,
 };
 
 AddressMetricsChart.defaultProps = {
   keyMetric: 'tradeVolume',
-  onBrushChange: undefined,
 };
 
 export default AddressMetricsChart;

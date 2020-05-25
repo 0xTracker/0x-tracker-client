@@ -13,32 +13,27 @@ import React from 'react';
 
 import { COLORS } from '../../../styles/constants';
 import { formatAxisCurrency, formatAxisDate, formatAxisNumber } from '../util';
+import BrushableChartContainer from '../../../components/brushable-chart-container';
 import CardPlaceholder from '../../../components/card-placeholder';
-import ChartContainer from '../../../components/chart-container';
 import RelayerMetricsTooltip from './relayer-metrics-tooltip';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
-const RelayerMetricsChart = React.memo(
-  ({ data, granularity, onBrushChange, period, type }) => {
-    const displayCurrency = useDisplayCurrency();
+const RelayerMetricsChart = ({ data, granularity, period, type }) => {
+  const displayCurrency = useDisplayCurrency();
 
-    if (_.every(data, { [type]: 0 })) {
-      return (
-        <CardPlaceholder>
-          No data available for the selected period
-        </CardPlaceholder>
-      );
-    }
-
-    const sanitizedData = data.map((dataPoint) => ({
-      ...dataPoint,
-      date: dataPoint.date.toISOString(),
-    }));
-
+  if (_.every(data, { [type]: 0 })) {
     return (
-      <ChartContainer>
+      <CardPlaceholder>
+        No data available for the selected period
+      </CardPlaceholder>
+    );
+  }
+
+  return (
+    <BrushableChartContainer data={data}>
+      {({ brushableData, brushIndexes, handleBrushChange }) => (
         <BarChart
-          data={sanitizedData}
+          data={brushableData}
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
           <CartesianGrid
@@ -77,19 +72,18 @@ const RelayerMetricsChart = React.memo(
             content={<RelayerMetricsTooltip granularity={granularity} />}
           />
           <Brush
+            {...brushIndexes}
             dataKey="date"
             height={30}
-            onChange={onBrushChange}
+            onChange={handleBrushChange}
             stroke={COLORS.NEUTRAL.MYSTIC_300}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           />
         </BarChart>
-      </ChartContainer>
-    );
-  },
-);
-
-RelayerMetricsChart.displayName = 'RelayerMetricsChart';
+      )}
+    </BrushableChartContainer>
+  );
+};
 
 RelayerMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
@@ -101,13 +95,11 @@ RelayerMetricsChart.propTypes = {
     }),
   ).isRequired,
   granularity: PropTypes.string.isRequired,
-  onBrushChange: PropTypes.func,
   period: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['tradeCount', 'traderCount', 'tradeVolume']),
 };
 
 RelayerMetricsChart.defaultProps = {
-  onBrushChange: undefined,
   type: 'tradeVolume',
 };
 

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { COLORS } from '../../../styles/constants';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import { useMetadata } from '../../../hooks';
+import { NewsIcon } from '../../../components/icons';
 import ArticleList from './article-list';
 import ArticlesFilter from './articles-filter';
 import ArticlesProvider from './articles-provider';
@@ -19,7 +20,6 @@ import CardHeading from '../../../components/card-heading';
 import LoadingIndicator from '../../../components/loading-indicator';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
-import SubTitle from '../../../components/sub-title';
 import useArticleSources from '../hooks/use-article-sources';
 
 const LoadMoreButton = styled.button`
@@ -54,13 +54,10 @@ const NewsPage = () => {
 
   return (
     <PageLayout
+      icon={<NewsIcon size={44} />}
       showBanner={breakpoint.lessThan('lg')}
-      title={
-        <>
-          News & Updates
-          <SubTitle>from {source ? source.name : 'the 0x ecosystem'}</SubTitle>
-        </>
-      }
+      subTitle={`from ${source ? source.name : 'the 0x ecosystem'}`}
+      title="News & Updates"
     >
       <CardGrid>
         <CardGridRow md={8}>

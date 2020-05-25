@@ -1,7 +1,9 @@
 import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
+import { getPeriodDescriptor } from '../../../util';
 import { useMetadata, useNavigator, useSearchParam } from '../../../hooks';
+import { TradersIcon } from '../../../components/icons';
 import ActiveTraderMetrics from '../../metrics/components/active-trader-metrics';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
@@ -11,20 +13,11 @@ import CardGridRow from '../../../components/card-grid-row';
 import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
 import PageLayout from '../../../components/page-layout';
-import SubTitle from '../../../components/sub-title';
 import TraderBreakdown from './trader-breakdown';
 import TradersFilter from './traders-filter';
 import Traders from './traders';
 
 const defaultPeriod = TIME_PERIOD.MONTH;
-
-const periodDescriptions = {
-  [TIME_PERIOD.DAY]: 'from the past 24 hours',
-  [TIME_PERIOD.WEEK]: 'from the past week',
-  [TIME_PERIOD.MONTH]: 'from the past 30 days',
-  [TIME_PERIOD.YEAR]: 'from the past year',
-  [TIME_PERIOD.ALL]: 'from all time',
-};
 
 const DESCRIPTOR_MAPPINGS = {
   maker: 'Makers',
@@ -53,7 +46,7 @@ const TradersPage = () => {
 
   return (
     <PageLayout
-      filter={
+      actions={
         <TradersFilter
           defaultFilters={{ statsPeriod: defaultPeriod, type: undefined }}
           onChange={(newFilters) => {
@@ -66,12 +59,9 @@ const TradersPage = () => {
           selectedFilters={selectedFilters}
         />
       }
-      title={
-        <>
-          Active {DESCRIPTOR_MAPPINGS[type]}
-          <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
-        </>
-      }
+      icon={<TradersIcon size={44} />}
+      subTitle={getPeriodDescriptor(statsPeriod)}
+      title={<>Active {DESCRIPTOR_MAPPINGS[type]}</>}
     >
       <CardGrid>
         <CardGridRow minHeight="330px">

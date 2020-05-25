@@ -10,7 +10,6 @@
     "date-fns",
     "lodash",
     "react-hot-loader/babel",
-    "recharts",
     [
       "transform-imports",
       {

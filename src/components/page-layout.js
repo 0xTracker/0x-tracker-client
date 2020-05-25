@@ -26,9 +26,24 @@ const StyledPageLayout = styled.div`
   `}
 `;
 
-const PageLayout = ({ centered, children, filter, showBanner, title }) => (
+const PageLayout = ({
+  actions,
+  centered,
+  children,
+  icon,
+  showBanner,
+  subTitle,
+  title,
+}) => (
   <StyledPageLayout>
-    {title ? <PageTitleBlock title={title}>{filter}</PageTitleBlock> : null}
+    {title && (
+      <PageTitleBlock
+        actions={actions}
+        icon={icon}
+        subTitle={subTitle}
+        title={title}
+      />
+    )}
     {showBanner && (
       <Hidden above="lg">
         <TopBanner />
@@ -39,17 +54,21 @@ const PageLayout = ({ centered, children, filter, showBanner, title }) => (
 );
 
 PageLayout.propTypes = {
+  actions: PropTypes.node,
   centered: PropTypes.bool,
   children: PropTypes.node.isRequired,
-  filter: PropTypes.node,
+  icon: PropTypes.node,
   showBanner: PropTypes.bool,
+  subTitle: PropTypes.string,
   title: PropTypes.node,
 };
 
 PageLayout.defaultProps = {
+  actions: undefined,
   centered: false,
-  filter: undefined,
+  icon: undefined,
   showBanner: true,
+  subTitle: undefined,
   title: undefined,
 };
 

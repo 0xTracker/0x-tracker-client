@@ -30,7 +30,7 @@ const Button = styled.button`
   }
 `;
 
-const MobileTimePeriodFilter = ({ onChange, value }) => {
+const MobileTimePeriodFilter = ({ className, onChange, value }) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef();
 
@@ -39,7 +39,7 @@ const MobileTimePeriodFilter = ({ onChange, value }) => {
   });
 
   return (
-    <div ref={wrapperRef}>
+    <div className={className} ref={wrapperRef}>
       <Button onClick={() => setOpen(!open)}>
         <TimePeriodIcon height={22} width={22} />
       </Button>
@@ -57,8 +57,13 @@ const MobileTimePeriodFilter = ({ onChange, value }) => {
 };
 
 MobileTimePeriodFilter.propTypes = {
+  className: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   value: sharedPropTypes.timePeriod.isRequired,
+};
+
+MobileTimePeriodFilter.defaultProps = {
+  className: undefined,
 };
 
 export default MobileTimePeriodFilter;
