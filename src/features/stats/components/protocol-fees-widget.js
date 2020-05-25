@@ -34,11 +34,15 @@ const ProtocolFeesWidget = ({
   >
     {_.isNumber(accumulatedFees) ? (
       <span css="align-items: baseline; display: flex;">
-        <LocalisedAmount
-          amount={accumulatedFees}
-          loadingIndicator={loadingIndicator}
-          summarize
-        />
+        {accumulatedFees > 0 ? (
+          <LocalisedAmount
+            amount={accumulatedFees}
+            loadingIndicator={loadingIndicator}
+            summarize
+          />
+        ) : (
+          'None'
+        )}
         {change !== undefined && <PercentageChange>{change}</PercentageChange>}
       </span>
     ) : (

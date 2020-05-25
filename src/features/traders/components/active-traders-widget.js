@@ -32,7 +32,7 @@ const ActiveTradersWidget = ({
   >
     {_.isNumber(traderCount) ? (
       <span css="align-items: baseline; display: flex;">
-        <Number summarize>{traderCount}</Number>
+        {traderCount > 0 ? <Number summarize>{traderCount}</Number> : 'None'}
         {change !== undefined && <PercentageChange>{change}</PercentageChange>}
       </span>
     ) : (
