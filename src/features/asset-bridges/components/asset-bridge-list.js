@@ -2,13 +2,13 @@ import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
+import { COLORS } from '../../../styles/constants';
 import AssetBridgeImage from './asset-bridge-image';
 import HelpWidget from '../../../components/help-widget';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import MiniBridgeMetrics from './mini-bridge-metrics';
 import Number from '../../../components/number';
 import Rank from '../../../components/rank';
-import SubTitle from '../../../components/sub-title';
 
 const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
   <table className="table table-responsive">
@@ -55,7 +55,13 @@ const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
           </td>
           <td className="align-middle" width="99%">
             {_.isString(bridge.name) ? bridge.name : 'Unknown Bridge'}
-            <SubTitle>{bridge.address}</SubTitle>
+            <div
+              css={`
+                color: ${COLORS.NEUTRAL.MYSTIC_700};
+              `}
+            >
+              {bridge.address}
+            </div>
           </td>
           <td className="align-middle text-right">
             <Number summarize>{bridge.stats.tradeCount}</Number>

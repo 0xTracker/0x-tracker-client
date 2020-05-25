@@ -11,11 +11,9 @@ import ProtocolFeesWidget from '../../stats/components/protocol-fees-widget';
 import sharedPropTypes from '../../../prop-types';
 import TradeCountWidget from './trade-count-widget';
 import TradeVolumeWidget from './trade-volume-widget';
-import useNetworkStats from '../../stats/hooks/use-network-stats';
 import useTraderStats from '../../stats/hooks/use-trader-stats';
 
-const FillsBrowserStats = ({ filters, period }) => {
-  const [networkStats] = useNetworkStats({ filters, period });
+const FillsBrowserStats = ({ filters, networkStats, period }) => {
   const [traderStats] = useTraderStats({ filters, period });
   const breakpoint = useCurrentBreakpoint();
 
@@ -89,14 +87,26 @@ FillsBrowserStats.propTypes = {
     relayer: PropTypes.string,
     status: PropTypes.string,
     token: PropTypes.string,
+    trader: PropTypes.string,
     valueFrom: PropTypes.number,
     valueTo: PropTypes.number,
+  }),
+  networkStats: PropTypes.shape({
+    protocolFees: PropTypes.shape({
+      ETH: PropTypes.string.isRequired,
+      USD: PropTypes.number.isRequired,
+    }).isRequired,
+    protocolFeesChange: PropTypes.number.isRequired,
+    tradeCount: PropTypes.number.isRequired,
+    tradeCountChange: PropTypes.number.isRequired,
+    tradeVolume: PropTypes.number.isRequired,
   }),
   period: sharedPropTypes.timePeriod,
 };
 
 FillsBrowserStats.defaultProps = {
   filters: undefined,
+  networkStats: undefined,
   period: undefined,
 };
 

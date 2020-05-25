@@ -7,11 +7,11 @@ import {
   usePaginator,
   useSearchParam,
 } from '../../../hooks';
+import { RelayersIcon } from '../../../components/icons';
 import Card from '../../../components/card';
 import PageLayout from '../../../components/page-layout';
 import Relayers from './relayers';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
-import SubTitle from '../../../components/sub-title';
 
 const periodDescriptions = {
   [TIME_PERIOD.DAY]: 'from the past 24 hours',
@@ -30,7 +30,7 @@ const RelayersPage = () => {
 
   return (
     <PageLayout
-      filter={
+      actions={
         <ResponsiveTimePeriodFilter
           name="statsPeriod"
           onChange={(newPeriod) => {
@@ -39,12 +39,9 @@ const RelayersPage = () => {
           value={statsPeriod}
         />
       }
-      title={
-        <>
-          Active Relayers
-          <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
-        </>
-      }
+      icon={<RelayersIcon size={32} />}
+      subTitle={periodDescriptions[statsPeriod]}
+      title="Active Relayers"
     >
       <Card errorMessage="An error occurred while loading relayers">
         <Relayers

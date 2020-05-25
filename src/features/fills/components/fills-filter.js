@@ -6,6 +6,18 @@ import FilterButton from '../../../components/filter-button';
 import FillsFilterDialog from './fills-filter-dialog';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 
+const DEFAULT_FILTERS = {
+  dateFrom: undefined,
+  dateTo: undefined,
+  protocolVersion: undefined,
+  relayer: undefined,
+  status: undefined,
+  token: undefined,
+  trader: undefined,
+  valueFrom: undefined,
+  valueTo: undefined,
+};
+
 const getAdditionalFilterCount = (defaultValues, selectedValues) => {
   const intersection = _.omitBy(
     selectedValues,
@@ -15,7 +27,7 @@ const getAdditionalFilterCount = (defaultValues, selectedValues) => {
   return Object.keys(intersection).length;
 };
 
-const FillsFilter = ({ defaultFilters, onChange, selectedFilters }) => {
+const FillsFilter = ({ onChange, selectedFilters }) => {
   const breakpoint = useCurrentBreakpoint();
   const [filtersDialogVisible, setFiltersDialogVisible] = React.useState(false);
 
@@ -24,7 +36,7 @@ const FillsFilter = ({ defaultFilters, onChange, selectedFilters }) => {
       {filtersDialogVisible ? (
         <FillsFilterDialog
           currentValues={selectedFilters}
-          defaultValues={defaultFilters}
+          defaultValues={DEFAULT_FILTERS}
           onClose={() => setFiltersDialogVisible(false)}
           onSubmit={(newValues) => {
             onChange({ ...selectedFilters, ...newValues });
@@ -36,7 +48,7 @@ const FillsFilter = ({ defaultFilters, onChange, selectedFilters }) => {
         compact={breakpoint.lessThan('sm')}
         css="margin-left: 0.5rem; flex-shrink: 0; flex-basis: 36px; height: 36px;"
         indicatorValue={getAdditionalFilterCount(
-          defaultFilters,
+          DEFAULT_FILTERS,
           selectedFilters,
         )}
         onClick={() => setFiltersDialogVisible(true)}

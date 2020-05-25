@@ -30,7 +30,10 @@ storiesOf('Traders|TradersFilter', module)
     />
   ))
   .add('in page layout', () => (
-    <PageLayout filter={<TradersFilter {...simpleProps} />} title="Hello World">
+    <PageLayout
+      actions={<TradersFilter {...simpleProps} />}
+      title="Hello World"
+    >
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin egestas
         ligula id nisi fringilla, at feugiat sapien scelerisque. Nulla facilisi.

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { TIME_PERIOD, URL } from '../../../constants';
 import { useMetadata, useNavigator, useSearchParam } from '../../../hooks';
+import { TradersIcon } from '../../../components/icons';
 import ActiveTraderMetrics from '../../metrics/components/active-trader-metrics';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
@@ -11,7 +12,6 @@ import CardGridRow from '../../../components/card-grid-row';
 import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
 import PageLayout from '../../../components/page-layout';
-import SubTitle from '../../../components/sub-title';
 import TraderBreakdown from './trader-breakdown';
 import TradersFilter from './traders-filter';
 import Traders from './traders';
@@ -53,7 +53,7 @@ const TradersPage = () => {
 
   return (
     <PageLayout
-      filter={
+      actions={
         <TradersFilter
           defaultFilters={{ statsPeriod: defaultPeriod, type: undefined }}
           onChange={(newFilters) => {
@@ -66,12 +66,9 @@ const TradersPage = () => {
           selectedFilters={selectedFilters}
         />
       }
-      title={
-        <>
-          Active {DESCRIPTOR_MAPPINGS[type]}
-          <SubTitle>{periodDescriptions[statsPeriod]}</SubTitle>
-        </>
-      }
+      icon={<TradersIcon size={44} />}
+      subTitle={periodDescriptions[statsPeriod]}
+      title={<>Active {DESCRIPTOR_MAPPINGS[type]}</>}
     >
       <CardGrid>
         <CardGridRow minHeight="330px">

@@ -1,57 +1,23 @@
-import _ from 'lodash';
 import React from 'react';
 
-import { URL } from '../../../constants';
-import {
-  useMetadata,
-  useNavigator,
-  usePaginator,
-  useSearchParam,
-} from '../../../hooks';
+import { useMetadata, usePaginator, useSearchParam } from '../../../hooks';
 import Card from '../../../components/card';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
+import CardPlaceholder from '../../../components/card-placeholder';
 import Fills from './fills';
 import FillsBrowserStats from './fills-browser-stats';
-import FillsFilter from './fills-filter';
+import FillsPageLayout from './fills-page-layout';
+import LoadingIndicator from '../../../components/loading-indicator';
 import NetworkMetrics from '../../metrics/components/network-metrics';
-import PageLayout from '../../../components/page-layout';
-import SubTitle from '../../../components/sub-title';
 import TabbedCard from '../../../components/tabbed-card';
-import { FillsIcon } from '../../../components/icons';
-
-const formatDate = (date) => {
-  const parsedDate = new Date(date);
-  const year = parsedDate.getUTCFullYear();
-  const month = _.padStart(parsedDate.getUTCMonth() + 1, 2, 0);
-  const day = _.padStart(parsedDate.getUTCDate(), 2, 0);
-
-  return `${day}/${month}/${year}`;
-};
-
-const getSubTitle = (dateFrom, dateTo) => {
-  if (dateFrom !== undefined && dateTo !== undefined) {
-    return `from ${formatDate(dateFrom)} to ${formatDate(dateTo)}`;
-  }
-
-  if (dateFrom !== undefined) {
-    return `from ${formatDate(dateFrom)} to now`;
-  }
-
-  if (dateTo !== undefined) {
-    return `from 0x launch to ${formatDate(dateTo)}`;
-  }
-
-  return 'from all time';
-};
+import useNetworkStats from '../../stats/hooks/use-network-stats';
 
 const FillsPage = () => {
   useMetadata({ title: 'Browse 0x Protocol Fills' });
 
-  const { navigateTo } = useNavigator();
   const { page, setPage } = usePaginator();
-
   const status = useSearchParam('status');
   const dateFrom = useSearchParam('dateFrom');
   const dateTo = useSearchParam('dateTo');
@@ -62,67 +28,66 @@ const FillsPage = () => {
   const valueFrom = useSearchParam('valueFrom');
   const valueTo = useSearchParam('valueTo');
 
+  const selectedFilters = {
+    protocolVersion,
+    relayer,
+    status,
+    token,
+    trader,
+    valueFrom,
+    valueTo,
+  };
+
   const period =
     dateFrom === undefined && dateTo === undefined
       ? 'all'
       : { from: dateFrom, to: dateTo };
 
+  const [networkStats, loadingNetworkStats] = useNetworkStats({
+    filters: selectedFilters,
+    period,
+  });
+
+  if (loadingNetworkStats) {
+    return (
+      <FillsPageLayout period={period} selectedFilters={selectedFilters}>
+        <CardGrid>
+          <CardGridRow>
+            <CardGridCol>
+              <Card>
+                <LoadingIndicator centered />
+              </Card>
+            </CardGridCol>
+          </CardGridRow>
+        </CardGrid>
+      </FillsPageLayout>
+    );
+  }
+
+  if (networkStats.tradeCount === 0) {
+    return (
+      <FillsPageLayout period={period} selectedFilters={selectedFilters}>
+        <CardGrid>
+          <CardGridRow>
+            <CardGridCol>
+              <Card>
+                <CardPlaceholder>
+                  No fills were found matching the selected filters
+                </CardPlaceholder>
+              </Card>
+            </CardGridCol>
+          </CardGridRow>
+        </CardGrid>
+      </FillsPageLayout>
+    );
+  }
+
   return (
-    <PageLayout
-      filter={
-        <FillsFilter
-          defaultFilters={{
-            dateFrom: undefined,
-            dateTo: undefined,
-            protocolVersion: undefined,
-            relayer: undefined,
-            status: undefined,
-            token: undefined,
-            trader: undefined,
-            valueFrom: undefined,
-            valueTo: undefined,
-          }}
-          onChange={(newFilters) => {
-            navigateTo(URL.FILLS, newFilters);
-          }}
-          selectedFilters={{
-            dateFrom,
-            dateTo,
-            protocolVersion:
-              protocolVersion === undefined
-                ? undefined
-                : _.toNumber(protocolVersion),
-            relayer,
-            status,
-            token,
-            trader,
-            valueFrom,
-            valueTo,
-          }}
-        />
-      }
-      title={
-        <div css="align-items: center; display: flex;">
-          <FillsIcon css="margin-right: 12px;" size={44} />
-          <div>
-            Browse Fills<SubTitle>{getSubTitle(dateFrom, dateTo)}</SubTitle>
-          </div>
-        </div>
-      }
-    >
+    <FillsPageLayout period={period} selectedFilters={selectedFilters}>
       <CardGrid>
         <FillsBrowserStats
-          filters={{
-            periodFrom: dateFrom,
-            periodTo: dateTo,
-            protocolVersion,
-            relayer,
-            status,
-            token,
-            trader,
-            valueFrom,
-            valueTo,
-          }}
+          filters={selectedFilters}
+          networkStats={networkStats}
           period={period}
         />
         <CardGridRow>
@@ -132,17 +97,7 @@ const FillsPage = () => {
                 {
                   component: (
                     <NetworkMetrics
-                      filters={{
-                        periodFrom: dateFrom,
-                        periodTo: dateTo,
-                        protocolVersion,
-                        relayer,
-                        status,
-                        token,
-                        trader,
-                        valueFrom,
-                        valueTo,
-                      }}
+                      filters={selectedFilters}
                       period={period}
                       type="tradeVolume"
                     />
@@ -152,17 +107,7 @@ const FillsPage = () => {
                 {
                   component: (
                     <NetworkMetrics
-                      filters={{
-                        periodFrom: dateFrom,
-                        periodTo: dateTo,
-                        protocolVersion,
-                        relayer,
-                        status,
-                        token,
-                        trader,
-                        valueFrom,
-                        valueTo,
-                      }}
+                      filters={selectedFilters}
                       period={period}
                       type="tradeCount"
                     />
@@ -177,17 +122,7 @@ const FillsPage = () => {
           <CardGridCol>
             <Card>
               <Fills
-                filter={{
-                  dateFrom,
-                  dateTo,
-                  protocolVersion,
-                  relayer,
-                  status,
-                  token,
-                  trader,
-                  valueFrom,
-                  valueTo,
-                }}
+                filter={{ ...selectedFilters, dateFrom, dateTo }}
                 onPageChange={setPage}
                 page={page}
               />
@@ -195,7 +130,7 @@ const FillsPage = () => {
           </CardGridCol>
         </CardGridRow>
       </CardGrid>
-    </PageLayout>
+    </FillsPageLayout>
   );
 };
 

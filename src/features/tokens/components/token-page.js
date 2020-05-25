@@ -74,7 +74,7 @@ const TokenPage = () => {
 
   return (
     <PageLayout
-      filter={
+      actions={
         <div css="display: flex; flex-grow: 1; height: 100%;">
           <ResponsiveTimePeriodFilter
             css="margin-right: 12px;"

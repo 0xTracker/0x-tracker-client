@@ -3,9 +3,9 @@ import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
 import { useMetadata } from '../../../hooks';
+import { TokensIcon } from '../../../components/icons';
 import Card from '../../../components/card';
 import PageLayout from '../../../components/page-layout';
-import SubTitle from '../../../components/sub-title';
 import TokensFilter from './tokens-filter';
 
 const periodDescriptions = {
@@ -26,19 +26,16 @@ const TokensPageLayout = ({
 
   return (
     <PageLayout
-      filter={
+      actions={
         <TokensFilter
           defaultFilters={defaultFilters}
           onChange={onFiltersChange}
           selectedFilters={selectedFilters}
         />
       }
-      title={
-        <span>
-          Traded Tokens
-          <SubTitle>{periodDescriptions[selectedFilters.statsPeriod]}</SubTitle>
-        </span>
-      }
+      icon={<TokensIcon size={44} />}
+      subTitle={periodDescriptions[selectedFilters.statsPeriod]}
+      title="Traded Tokens"
     >
       <Card>{children}</Card>
     </PageLayout>
