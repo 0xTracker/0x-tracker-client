@@ -4,7 +4,6 @@ import React from 'react';
 import { useMetadata } from '../../../hooks';
 import { TokensIcon } from '../../../components/icons';
 import { getPeriodDescriptor } from '../../../util';
-import Card from '../../../components/card';
 import PageLayout from '../../../components/page-layout';
 import TokensFilter from './tokens-filter';
 
@@ -29,7 +28,7 @@ const TokensPageLayout = ({
       subTitle={getPeriodDescriptor(selectedFilters.statsPeriod)}
       title="Traded Tokens"
     >
-      <Card>{children}</Card>
+      {children}
     </PageLayout>
   );
 };
