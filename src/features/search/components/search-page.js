@@ -16,7 +16,7 @@ const SearchPage = () => {
   const searchQuery = useSearchParam('q');
   const [fills, loading] = useFills({
     autoReload: true,
-    filter: { address: _.toLower(searchQuery) },
+    filter: { q: _.toLower(searchQuery) },
     page,
   });
   const { items, pageCount, pageSize, recordCount } = fills;

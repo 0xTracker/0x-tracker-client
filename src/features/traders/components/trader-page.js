@@ -156,7 +156,7 @@ const TraderPage = () => {
             <Card>
               <CardBody>
                 <Fills
-                  filter={{ address }}
+                  filter={{ trader: address }}
                   onPageChange={setPage}
                   page={page}
                 />
