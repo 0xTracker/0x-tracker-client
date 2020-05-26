@@ -1,4 +1,5 @@
 import ActiveIcon from './active-icon';
+import AdvertiseIcon from './advertise-icon';
 import AllIcon from './all-icon';
 import ArrowRightIcon from './arrow-right-icon';
 import AssetBridgeIcon from './asset-bridge-icon';
@@ -54,6 +55,7 @@ import UnknownIcon from './unknown-icon';
 
 export {
   ActiveIcon,
+  AdvertiseIcon,
   AllIcon,
   ArrowRightIcon,
   AssetBridgeIcon,
