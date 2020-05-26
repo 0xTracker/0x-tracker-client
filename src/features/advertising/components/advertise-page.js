@@ -201,10 +201,12 @@ const AdvertisePage = () => (
               >
                 Small Desktop
               </h3>
-              <img
-                css="margin: 0 0 18px; width: 100%;"
-                src="https://resources.0xtracker.com/images/promo-compact-desktop.png"
-              />
+              <Link href="https://resources.0xtracker.com/images/promo-compact-desktop.png">
+                <img
+                  css="margin: 0 0 18px; width: 100%;"
+                  src="https://resources.0xtracker.com/images/promo-compact-desktop.png"
+                />
+              </Link>
 
               <div css="align-items:space-between;display: flex;">
                 <div css="flex-basis: 50%; margin-right: 6px;">
@@ -216,11 +218,13 @@ const AdvertisePage = () => (
                   >
                     Regular Desktop
                   </h3>
-                  <img
-                    css="width: 100%;"
-                    src="https://resources.0xtracker.com/images/promo-desktop.png"
-                    width={200}
-                  />
+                  <Link href="https://resources.0xtracker.com/images/promo-desktop.png">
+                    <img
+                      css="width: 100%;"
+                      src="https://resources.0xtracker.com/images/promo-desktop.png"
+                      width={200}
+                    />
+                  </Link>
                 </div>
                 <div css="flex-basis: 50%; margin-left: 6px;">
                   <h3
@@ -231,10 +235,12 @@ const AdvertisePage = () => (
                   >
                     Mobile / Tablet
                   </h3>
-                  <img
-                    css="width: 100%;"
-                    src="https://resources.0xtracker.com/images/promo-mobile.png"
-                  />
+                  <Link href="https://resources.0xtracker.com/images/promo-mobile.png">
+                    <img
+                      css="width: 100%;"
+                      src="https://resources.0xtracker.com/images/promo-mobile.png"
+                    />
+                  </Link>
                 </div>
               </div>
             </CardBody>
