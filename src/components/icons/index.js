@@ -1,4 +1,5 @@
 import ActiveIcon from './active-icon';
+import AdvertiseIcon from './advertise-icon';
 import AllIcon from './all-icon';
 import ArrowRightIcon from './arrow-right-icon';
 import AssetBridgeIcon from './asset-bridge-icon';
@@ -12,6 +13,7 @@ import CircleIcon from './circle-icon';
 import CloseIcon from './close-icon';
 import DiscordIcon from './discord-icon';
 import DonateIcon from './donate-icon';
+import EditIcon from './edit-icon';
 import EtherscanIcon from './etherscan-icon';
 import ExternalLinkIcon from './external-link-icon';
 import FacebookShareIcon from './facebook-share-icon';
@@ -54,6 +56,7 @@ import UnknownIcon from './unknown-icon';
 
 export {
   ActiveIcon,
+  AdvertiseIcon,
   AllIcon,
   ArrowRightIcon,
   AssetBridgeIcon,
@@ -67,6 +70,7 @@ export {
   CloseIcon,
   DiscordIcon,
   DonateIcon,
+  EditIcon,
   EtherscanIcon,
   ExternalLinkIcon,
   FacebookShareIcon,

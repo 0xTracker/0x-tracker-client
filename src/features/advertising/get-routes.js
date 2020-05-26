@@ -8,6 +8,10 @@ const getRoutes = () => [
       ),
     path: URL.AD_MANAGER,
   },
+  {
+    loader: () => import('./components/advertise-page'),
+    path: URL.ADVERTISE,
+  },
 ];
 
 export default getRoutes;
