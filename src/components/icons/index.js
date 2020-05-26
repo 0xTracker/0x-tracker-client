@@ -13,6 +13,7 @@ import CircleIcon from './circle-icon';
 import CloseIcon from './close-icon';
 import DiscordIcon from './discord-icon';
 import DonateIcon from './donate-icon';
+import EditIcon from './edit-icon';
 import EtherscanIcon from './etherscan-icon';
 import ExternalLinkIcon from './external-link-icon';
 import FacebookShareIcon from './facebook-share-icon';
@@ -69,6 +70,7 @@ export {
   CloseIcon,
   DiscordIcon,
   DonateIcon,
+  EditIcon,
   EtherscanIcon,
   ExternalLinkIcon,
   FacebookShareIcon,
