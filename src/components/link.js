@@ -33,11 +33,7 @@ const Link = ({
   if (isExternal) {
     return (
       <StyledLink
-        css={
-          indicateExternal
-            ? 'display: inline-flex; align-items: center;'
-            : undefined
-        }
+        css={indicateExternal ? 'vertical-align: middle;' : undefined}
         href={href}
         rel={rel.join(' ')}
         target="_blank"
@@ -45,7 +41,7 @@ const Link = ({
       >
         {children}
         {indicateExternal ? (
-          <ExternalLinkIcon css="margin-left: 8px;" size={18} />
+          <ExternalLinkIcon css="margin-left: 6px;" size={16} />
         ) : null}
       </StyledLink>
     );
