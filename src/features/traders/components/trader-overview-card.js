@@ -36,27 +36,35 @@ const TraderOverviewCard = ({ trader }) => (
           >
             Description:
           </dt>
-          <dd css="margin-bottom: 24px;">{trader.description}</dd>
-          <dt
-            css={`
-              color: ${COLORS.NEUTRAL.MYSTIC_700};
-            `}
-          >
-            Website:
-          </dt>
-          <dd>
-            <Link
-              css={`
-                &:hover {
-                  text-decoration: underline;
-                }
-              `}
-              href={trader.url}
-              noFollow
-            >
-              {trader.url}
-            </Link>
+          <dd css="margin-bottom: 24px;">
+            {_.isString(trader.description)
+              ? trader.description
+              : 'No description available for this trader.'}
           </dd>
+          {_.isString(trader.url) && (
+            <>
+              <dt
+                css={`
+                  color: ${COLORS.NEUTRAL.MYSTIC_700};
+                `}
+              >
+                Website:
+              </dt>
+              <dd>
+                <Link
+                  css={`
+                    &:hover {
+                      text-decoration: underline;
+                    }
+                  `}
+                  href={trader.url}
+                  noFollow
+                >
+                  {trader.url}
+                </Link>
+              </dd>
+            </>
+          )}
         </dl>
       ) : (
         <CardPlaceholder>
