@@ -138,17 +138,8 @@ const Footer = () => (
         <Col md={{ offset: 2, size: 2 }} sm={4} xs={6}>
           <NavHeading>About</NavHeading>
           <nav>
+            <NavLink href="/advertise">Advertise</NavLink>
             <NavLink href="/news-and-updates/0x-tracker">Blog</NavLink>
-            <NavLink
-              href="https://www.buymeacoffee.com/0xTracker"
-              onClick={() => {
-                if (window.fathom) {
-                  window.fathom.trackGoal('MYB7SWUU', 0);
-                }
-              }}
-            >
-              Donate
-            </NavLink>
             <NavLink href="https://docs.0xtracker.com/faqs">FAQs</NavLink>
             <NavLink href="https://docs.0xtracker.com/">Overview</NavLink>
           </nav>
@@ -170,6 +161,16 @@ const Footer = () => (
           <nav>
             <NavLink href="https://headwayapp.co/0x-tracker-changelog">
               Changelog
+            </NavLink>
+            <NavLink
+              href="https://www.buymeacoffee.com/0xTracker"
+              onClick={() => {
+                if (window.fathom) {
+                  window.fathom.trackGoal('MYB7SWUU', 0);
+                }
+              }}
+            >
+              Donate
             </NavLink>
             <NavLink href="/privacy">Privacy Policy</NavLink>
             <NavLink href="https://trello.com/b/4cY2eOsQ/0x-tracker-roadmap">

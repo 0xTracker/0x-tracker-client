@@ -534,17 +534,15 @@ exports[`app layout component should render with children 1`] = `
             <nav>
               <a
                 class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="/advertise"
+              >
+                Advertise
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
                 href="/news-and-updates/0x-tracker"
               >
                 Blog
-              </a>
-              <a
-                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
-                href="https://www.buymeacoffee.com/0xTracker"
-                rel="noreferrer noopener"
-                target="_blank"
-              >
-                Donate
               </a>
               <a
                 class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
@@ -615,6 +613,14 @@ exports[`app layout component should render with children 1`] = `
                 target="_blank"
               >
                 Changelog
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                href="https://www.buymeacoffee.com/0xTracker"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                Donate
               </a>
               <a
                 class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
