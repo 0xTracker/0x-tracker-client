@@ -4,6 +4,8 @@
 /trades/:id                    /fills/:id            301
 
 # Valid URL Mappings
+/ad-manager                    /index.html    200
+/advertise                     /index.html    200
 /asset-bridges                 /index.html    200
 /fills                         /index.html    200
 /fills/:index                  /index.html    200
