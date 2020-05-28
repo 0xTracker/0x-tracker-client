@@ -25,9 +25,10 @@ const Content = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: 680px;
+  line-height: 1.65;
 
   p {
-    word-break: break-word;
+    overflow-x: scroll;
   }
 
   a {
@@ -53,8 +54,13 @@ const Content = styled.div`
     padding: 1px;
   }
 
-  pre {
+  em {
     background: ${COLORS.NEUTRAL.MYSTIC_200};
+    padding: 2px 4px;
+  }
+
+  pre {
+    background: ${COLORS.NEUTRAL.MYSTIC_100};
     display: flex;
     margin: 0;
     padding: 16px;
