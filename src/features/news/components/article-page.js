@@ -23,7 +23,12 @@ import useArticle from '../hooks/use-article';
 const Content = styled.div`
   font-size: 16px;
   margin: 0 auto;
+  width: 100%;
   max-width: 680px;
+
+  p {
+    word-break: break-word;
+  }
 
   a {
     color: inherit;
@@ -37,15 +42,31 @@ const Content = styled.div`
     display: none;
   }
 
-  iframe {
+  ${'' /* iframe {
     display: none;
-  }
+  } */}
 
   img {
     max-width: 550px;
     width: 100%;
     border: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
     padding: 1px;
+  }
+
+  pre {
+    background: ${COLORS.NEUTRAL.MYSTIC_200};
+    display: flex;
+    margin: 0;
+    padding: 16px;
+    overflow-x: scroll;
+  }
+
+  pre + pre {
+    padding: 0 16px 16px;
+  }
+
+  pre + p {
+    margin-top: 24px;
   }
 
   figure {
