@@ -3,14 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Basic Metadata -->
+    <title>0x Tracker</title>
+    <meta
       name="description"
       content="The leading provider of 0x protocol market data, transparent Ethereum token price index and 0x protocol news aggregator."
     />
     <meta name="keywords" content="0x, protocol, trade, explorer, viewer" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
-    />
+
+    <!-- Open Graph Metadata -->
     <meta content="0x Tracker" property="og:title" />
     <meta content="website" property="og:type" />
     <meta
@@ -23,6 +28,12 @@
     />
     <meta content="1200" property="og:image:width" />
     <meta content="630" property="og:image:height" />
+
+    <!-- Twitter Metadata-->
+    <meta name="twitter:site" content="@0xTracker" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- PWA Metadata -->
     <link rel="manifest" href="/manifest.json" />
     <link
       rel="icon"
@@ -36,7 +47,8 @@
       href="/assets/img/favicon-2-16x16.png"
       sizes="16x16"
     />
-    <title>0x Tracker</title>
+
+    <!-- Third Party Scripts -->
     <% if (process.env.NODE_ENV === 'production') { %>
     <script src="//d2wy8f7a9ursnm.cloudfront.net/v4/bugsnag.min.js"></script>
     <script>
@@ -58,14 +70,12 @@
         x.parentNode.insertBefore(s, x);
       })();
     </script>
+
+    <!-- Google Fonts -->
     <style rel="stylesheet" type="text/css">
       @import url('https://fonts.googleapis.com/css?family=Ubuntu:400,500,600&display=swap');
       @import url('https://fonts.googleapis.com/css?family=Cabin:500,600&display=swap');
     </style>
-    <meta
-      property="microsponsors:signature"
-      content="0xe25f06fa78430177021977621922afc8ec7f9e2cbd67084c8b32e1c62f93ea3e486664cdb459edbfd142f41fc77ffe2ec6d3a38775f19f15cadcc14cb30beb6a1b"
-    />
   </head>
 
   <body>

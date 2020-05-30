@@ -28,7 +28,7 @@ import useToken from '../hooks/use-token';
 
 const generateTitle = (token) => {
   if (token === undefined) {
-    return '0x Tracker';
+    return undefined;
   }
 
   const name = _.isString(token.name) ? token.name : token.address;
@@ -37,6 +37,19 @@ const generateTitle = (token) => {
     : name;
 
   return `${descriptor} Price, Metrics & Charts`;
+};
+
+const generateDescription = (token) => {
+  if (token === undefined) {
+    return undefined;
+  }
+
+  const name = _.isString(token.name) ? token.name : token.address;
+  const descriptor = _.isString(token.symbol)
+    ? `${name} (${token.symbol.toUpperCase()})`
+    : name;
+
+  return `Market price chart, metrics, and 0x protocol trading data for ${descriptor}.`;
 };
 
 const EtherscanLink = styled(Link)`
@@ -66,7 +79,10 @@ const TokenPage = () => {
   const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.MONTH);
   const [token, loadingToken] = useToken(address, { statsPeriod });
 
-  useMetadata({ title: generateTitle(token) });
+  useMetadata({
+    description: generateDescription(token),
+    title: generateTitle(token),
+  });
 
   if (loadingToken) {
     return <LoadingPage />;

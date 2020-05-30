@@ -2,16 +2,6 @@ import _ from 'lodash';
 import { useEffect } from 'react';
 import { useTitle } from 'react-use';
 
-const defaults = {
-  description:
-    'The leading provider of 0x protocol market data, transparent Ethereum token price index and 0x protocol news aggregator.',
-  ogDescription:
-    'The leading provider of 0x protocol market data, transparent Ethereum token price index and 0x protocol news aggregator.',
-  ogTitle: '0x Tracker',
-  ogType: 'website',
-  title: '0x Tracker',
-};
-
 const useMetaTag = (name, value) => {
   useEffect(() => {
     const metaTag = Array.from(document.getElementsByTagName('meta')).find(
@@ -27,6 +17,19 @@ const useMetaTag = (name, value) => {
 };
 
 const useMetadata = (metadata) => {
+  const defaults = {
+    description:
+      'The leading provider of 0x protocol market data, transparent Ethereum token price index and 0x protocol news aggregator.',
+    ogDescription: _.get(
+      metadata,
+      'description',
+      'The leading provider of 0x protocol market data, transparent Ethereum token price index and 0x protocol news aggregator.',
+    ),
+    ogTitle: _.get(metadata, 'title', '0x Tracker'),
+    ogType: 'website',
+    title: '0x Tracker',
+  };
+
   const title =
     metadata.title === undefined
       ? defaults.title
