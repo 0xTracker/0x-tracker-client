@@ -13,13 +13,14 @@ import FillListAssets from './fill-list-assets';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import RecentFillsItemImage from './recent-fills-item-image';
+import FillAssetsImage from './fill-assets-image';
 
-const StyledRecentFillsItem = styled.div`
+const Wrapper = styled.div`
   align-items: center;
   background-color: ${(props) =>
     (props.index + 1) % 2 === 0 ? COLORS.NEUTRAL.MYSTIC_100 : 'none'};
   display: flex;
+  flex-grow: 1;
   height: 80px;
   padding: 1rem;
 `;
@@ -87,8 +88,8 @@ const RecentFillsItem = ({ fill, index }) => {
   const source = getSource(fill);
 
   return (
-    <StyledRecentFillsItem index={index}>
-      <RecentFillsItemImage fill={fill} />
+    <Wrapper index={index}>
+      <FillAssetsImage assets={fill.assets} css="margin-right: 16px;" />
       <div css="display: flex; flex-direction: column; justify-content: center; flex-grow: 1;">
         <Heading>
           <FillLink fillId={fill.id}>
@@ -117,7 +118,7 @@ const RecentFillsItem = ({ fill, index }) => {
       {breakpoint.greaterThan('xs') && _.has(fill, `value.${BASE_CURRENCY}`) ? (
         <FillAmount amount={fill.value[BASE_CURRENCY]} />
       ) : null}
-    </StyledRecentFillsItem>
+    </Wrapper>
   );
 };
 
