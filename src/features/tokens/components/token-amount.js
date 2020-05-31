@@ -28,7 +28,7 @@ const TokenAmount = ({ amount, linked, summarize, token }) => {
 };
 
 TokenAmount.propTypes = {
-  amount: PropTypes.string.isRequired,
+  amount: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   linked: PropTypes.bool,
   summarize: PropTypes.bool,
   token: PropTypes.shape({

@@ -6,7 +6,7 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import RecentFillsList from './recent-fills-list';
 import useFills from '../hooks/use-fills';
 
-const RecentFills = ({ filter, limit, placeholder }) => {
+const RecentFills = ({ filter, limit, placeholder, showRelayer }) => {
   const [fills, loading] = useFills({
     autoReload: true,
     filter,
@@ -21,7 +21,7 @@ const RecentFills = ({ filter, limit, placeholder }) => {
     return <CardPlaceholder>{placeholder}</CardPlaceholder>;
   }
 
-  return <RecentFillsList fills={fills.items} />;
+  return <RecentFillsList fills={fills.items} showRelayer={showRelayer} />;
 };
 
 RecentFills.propTypes = {
@@ -32,12 +32,14 @@ RecentFills.propTypes = {
   }),
   limit: PropTypes.number,
   placeholder: PropTypes.string,
+  showRelayer: PropTypes.bool,
 };
 
 RecentFills.defaultProps = {
   filter: {},
   limit: 8,
   placeholder: undefined,
+  showRelayer: undefined,
 };
 
 export default RecentFills;

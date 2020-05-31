@@ -46,6 +46,7 @@ const PaginationPills = ({ onPageChange, page, pageCount }) => {
             onPageChange(page - 1);
           }
         }}
+        title="Move to previous page"
       >
         <ChevronLeftIcon size={10} />
       </Pill>
@@ -58,6 +59,7 @@ const PaginationPills = ({ onPageChange, page, pageCount }) => {
             onPageChange(page + 1);
           }
         }}
+        title="Move to next page"
       >
         <ChevronRightIcon size={10} />
       </Pill>

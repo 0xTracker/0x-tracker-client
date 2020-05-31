@@ -2,32 +2,48 @@ import { useParams } from 'react-router';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
-import { useMetadata, usePaginator } from '../../../hooks';
-import Card from '../../../components/card';
-import CardBody from '../../../components/card-body';
+import { useMetadata, useNavigator, useSearchParam } from '../../../hooks';
+import { getPeriodDescriptor } from '../../../util';
+import buildRelayerUrl from '../util/build-relayer-url';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
-import ChartsContainer from '../../../components/charts-container';
-import Fills from '../../fills/components/fills';
-import getPeriodOptions from '../../../util/get-period-options';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
+import RelayerImage from './relayer-image';
 import RelayerMetrics from '../../metrics/components/relayer-metrics';
-import RelayerPageTitle from './relayer-page-title';
+import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
+import TabbedCard from '../../../components/tabbed-card';
 import useRelayer from '../hooks/use-relayer';
+import RecentFillsCard from '../../fills/components/recent-fills-card';
+import RelayerTokensCard from './relayer-tokens-card';
+import RelayerStats from './relayer-stats';
+import UnknownRelayerImage from './unknown-relayer-image';
+
+const getName = (relayer) => {
+  if (relayer === undefined) {
+    return undefined;
+  }
+
+  if (relayer.id === 'unknown') {
+    return 'Unknown Relayer';
+  }
+
+  return relayer.name;
+};
 
 const RelayerPage = () => {
   const { slug } = useParams();
-  const { page, setPage } = usePaginator();
-  const [relayer, loadingRelayer] = useRelayer(slug);
+  const { navigateTo } = useNavigator();
+  const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.MONTH);
+  const [relayer, loadingRelayer] = useRelayer(slug, { statsPeriod });
 
   useMetadata({
     title:
       relayer === undefined
         ? undefined
-        : `${relayer.name} Trading Activity, Metrics & Charts`,
+        : `${getName(relayer)} Trading Activity, Metrics & Charts`,
   });
 
   if (loadingRelayer) {
@@ -39,54 +55,81 @@ const RelayerPage = () => {
   }
 
   return (
-    <PageLayout title={<RelayerPageTitle relayer={relayer} />}>
+    <PageLayout
+      actions={
+        <ResponsiveTimePeriodFilter
+          onChange={(newPeriod) => {
+            navigateTo(buildRelayerUrl(relayer.slug), {
+              statsPeriod: newPeriod,
+            });
+          }}
+          value={statsPeriod}
+        />
+      }
+      icon={
+        relayer.id !== 'unknown' ? (
+          <RelayerImage height={35} imageUrl={relayer.imageUrl} width={35} />
+        ) : (
+          <UnknownRelayerImage size={35} />
+        )
+      }
+      subTitle={getPeriodDescriptor(statsPeriod)}
+      title={getName(relayer)}
+    >
       <CardGrid>
+        <RelayerStats period={statsPeriod} relayer={relayer} />
         <CardGridRow>
           <CardGridCol xs={12}>
-            <ChartsContainer
-              charts={[
+            <TabbedCard
+              tabs={[
                 {
                   component: (
-                    <RelayerMetrics relayerId={relayer.id} type="tradeVolume" />
+                    <RelayerMetrics
+                      period={statsPeriod}
+                      relayerId={relayer.id}
+                      type="tradeVolume"
+                    />
                   ),
                   title: 'Volume',
                 },
                 {
                   component: (
-                    <RelayerMetrics relayerId={relayer.id} type="tradeCount" />
+                    <RelayerMetrics
+                      period={statsPeriod}
+                      relayerId={relayer.id}
+                      type="tradeCount"
+                    />
                   ),
                   title: 'Trades',
                 },
                 {
                   component: (
-                    <RelayerMetrics relayerId={relayer.id} type="traderCount" />
+                    <RelayerMetrics
+                      period={statsPeriod}
+                      relayerId={relayer.id}
+                      type="traderCount"
+                    />
                   ),
                   title: 'Active Traders',
                 },
               ]}
-              defaultPeriod={TIME_PERIOD.MONTH}
-              periods={getPeriodOptions([
-                TIME_PERIOD.DAY,
-                TIME_PERIOD.WEEK,
-                TIME_PERIOD.MONTH,
-                TIME_PERIOD.YEAR,
-                TIME_PERIOD.ALL,
-              ])}
             />
           </CardGridCol>
         </CardGridRow>
         <CardGridRow>
-          <CardGridCol>
-            <Card>
-              <CardBody>
-                <Fills
-                  excludeColumns={['relayer']}
-                  filter={{ relayer: relayer.id }}
-                  onPageChange={setPage}
-                  page={page}
-                />
-              </CardBody>
-            </Card>
+          <CardGridCol lg={7}>
+            <RecentFillsCard
+              filter={{ relayer: relayer.id }}
+              limit={6}
+              showRelayer={false}
+            />
+          </CardGridCol>
+          <CardGridCol lg={5}>
+            <RelayerTokensCard
+              limit={6}
+              relayerSlug={relayer.slug}
+              statsPeriod={statsPeriod}
+            />
           </CardGridCol>
         </CardGridRow>
       </CardGrid>

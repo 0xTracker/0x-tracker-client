@@ -13,13 +13,14 @@ import FillListAssets from './fill-list-assets';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import RecentFillsItemImage from './recent-fills-item-image';
+import FillAssetsImage from './fill-assets-image';
 
-const StyledRecentFillsItem = styled.div`
+const Wrapper = styled.div`
   align-items: center;
   background-color: ${(props) =>
     (props.index + 1) % 2 === 0 ? COLORS.NEUTRAL.MYSTIC_100 : 'none'};
   display: flex;
+  flex-grow: 1;
   height: 80px;
   padding: 1rem;
 `;
@@ -82,13 +83,13 @@ const getSource = (fill) => {
   return { label: 'Unknown Relayer', url: buildRelayerUrl('unknown') };
 };
 
-const RecentFillsItem = ({ fill, index }) => {
+const RecentFillsItem = ({ fill, index, showRelayer }) => {
   const breakpoint = useCurrentBreakpoint();
   const source = getSource(fill);
 
   return (
-    <StyledRecentFillsItem index={index}>
-      <RecentFillsItemImage fill={fill} />
+    <Wrapper index={index}>
+      <FillAssetsImage assets={fill.assets} css="margin-right: 16px;" />
       <div css="display: flex; flex-direction: column; justify-content: center; flex-grow: 1;">
         <Heading>
           <FillLink fillId={fill.id}>
@@ -102,14 +103,18 @@ const RecentFillsItem = ({ fill, index }) => {
           </FillLink>
         </Heading>
         <Metadata>
-          <dt>Relayer</dt>
-          <dd>
-            {source.url ? (
-              <Link href={source.url}>{source.label}</Link>
-            ) : (
-              source.label
-            )}
-          </dd>
+          {showRelayer && (
+            <>
+              <dt>Relayer</dt>
+              <dd>
+                {source.url ? (
+                  <Link href={source.url}>{source.label}</Link>
+                ) : (
+                  source.label
+                )}
+              </dd>
+            </>
+          )}
           <dt>Date</dt>
           <dd>{formatDate(fill.date, DATE_FORMAT.RELATIVE)}</dd>
         </Metadata>
@@ -117,13 +122,18 @@ const RecentFillsItem = ({ fill, index }) => {
       {breakpoint.greaterThan('xs') && _.has(fill, `value.${BASE_CURRENCY}`) ? (
         <FillAmount amount={fill.value[BASE_CURRENCY]} />
       ) : null}
-    </StyledRecentFillsItem>
+    </Wrapper>
   );
 };
 
 RecentFillsItem.propTypes = {
   fill: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
+  showRelayer: PropTypes.bool,
+};
+
+RecentFillsItem.defaultProps = {
+  showRelayer: true,
 };
 
 export default RecentFillsItem;
