@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { useParams } from 'react-router';
 import React from 'react';
 
@@ -19,6 +18,20 @@ import TabbedCard from '../../../components/tabbed-card';
 import useRelayer from '../hooks/use-relayer';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
 import RelayerTokensCard from './relayer-tokens-card';
+import RelayerStats from './relayer-stats';
+import UnknownRelayerImage from './unknown-relayer-image';
+
+const getName = (relayer) => {
+  if (relayer === undefined) {
+    return undefined;
+  }
+
+  if (relayer.id === 'unknown') {
+    return 'Unknown Relayer';
+  }
+
+  return relayer.name;
+};
 
 const RelayerPage = () => {
   const { slug } = useParams();
@@ -30,7 +43,7 @@ const RelayerPage = () => {
     title:
       relayer === undefined
         ? undefined
-        : `${relayer.name} Trading Activity, Metrics & Charts`,
+        : `${getName(relayer)} Trading Activity, Metrics & Charts`,
   });
 
   if (loadingRelayer) {
@@ -54,14 +67,17 @@ const RelayerPage = () => {
         />
       }
       icon={
-        _.has(relayer, 'imageUrl') ? (
+        relayer.id !== 'unknown' ? (
           <RelayerImage height={35} imageUrl={relayer.imageUrl} width={35} />
-        ) : null
+        ) : (
+          <UnknownRelayerImage size={35} />
+        )
       }
       subTitle={getPeriodDescriptor(statsPeriod)}
-      title={relayer.name}
+      title={getName(relayer)}
     >
       <CardGrid>
+        <RelayerStats period={statsPeriod} relayer={relayer} />
         <CardGridRow>
           <CardGridCol xs={12}>
             <TabbedCard
@@ -102,7 +118,11 @@ const RelayerPage = () => {
         </CardGridRow>
         <CardGridRow>
           <CardGridCol lg={7}>
-            <RecentFillsCard filter={{ relayer: relayer.id }} limit={6} />
+            <RecentFillsCard
+              filter={{ relayer: relayer.id }}
+              limit={6}
+              showRelayer={false}
+            />
           </CardGridCol>
           <CardGridCol lg={5}>
             <RelayerTokensCard
