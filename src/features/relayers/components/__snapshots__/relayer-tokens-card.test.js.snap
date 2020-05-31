@@ -718,3 +718,78 @@ exports[`RelayerTokensCard should render first page of results 1`] = `
   </div>
 </DocumentFragment>
 `;
+
+exports[`RelayerTokensCard should render with placeholder when no trading activity available 1`] = `
+<DocumentFragment>
+  <div
+    class="card__Wrapper-sc-1u97707-0 bmsCLB"
+  >
+    <div
+      class="card-header__CardHeader-sc-17r9xuv-0 hxYOsp card-header"
+    >
+      <h2
+        class="card-heading__Wrapper-sc-1332skt-0 eqyjgb"
+      >
+        Traded Tokens
+      </h2>
+      <div>
+        <button
+          class="pill__Pill-vlx7yx-0 pagination-pills___StyledPill-sc-139d0ys-0 bGeJnr"
+          disabled=""
+          title="Move to previous page"
+        >
+          <svg
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+            fill="currentColor"
+            focusable="false"
+            height="10"
+            viewBox="0 0 320 512"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <button
+          class="pill__Pill-vlx7yx-0 pagination-pills___StyledPill2-sc-139d0ys-1 gDQNnc"
+          disabled=""
+          title="Move to next page"
+        >
+          <svg
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+            fill="currentColor"
+            focusable="false"
+            height="10"
+            viewBox="0 0 320 512"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="card-body__CardBody-sc-1mkhz93-0 ccyzzu"
+    >
+      <div
+        class="card-placeholder___StyledDiv-ct41ns-0 ehPamw"
+      >
+        <div
+          class="card-placeholder___StyledDiv2-ct41ns-1 jjUapQ"
+        >
+          No trading activity has been recorded for this relayer in the selected period.
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

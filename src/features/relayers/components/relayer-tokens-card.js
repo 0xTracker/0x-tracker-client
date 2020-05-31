@@ -40,8 +40,8 @@ const RelayerTokensCard = ({ className, limit, relayerSlug, statsPeriod }) => {
           <LoadingIndicator centered />
         ) : tokens.items.length === 0 ? (
           <CardPlaceholder>
-            No trading activity has been recorded for this token on known
-            relayers in the selected period.
+            No trading activity has been recorded for this relayer in the
+            selected period.
           </CardPlaceholder>
         ) : (
           <RelayerTokensTable tokens={tokens.items} />

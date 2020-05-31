@@ -171,6 +171,36 @@ const secondPageFixture = {
 
 // eslint-disable-next-line jest/lowercase-name
 describe('RelayerTokensCard', () => {
+  it('should render with placeholder when no trading activity available', async () => {
+    const mock = new MockAdapter(axios);
+
+    mock
+      .onGet(
+        'https://api.0xtracker.com/relayers/radar-relay/tokens?limit=5&page=1&sortBy=tradeVolumeUSD&statsPeriod=month',
+      )
+      .reply(200, {
+        limit: 5,
+        page: 1,
+        pageCount: 0,
+        sortBy: 'tradeVolumeUSD',
+        statsPeriod: 'month',
+        tokens: [],
+        total: 0,
+      });
+
+    const { asFragment } = render(
+      <RelayerTokensCard
+        limit={5}
+        relayerSlug="radar-relay"
+        statsPeriod="month"
+      />,
+    );
+
+    await waitFor(() => expect(mock.history.get).toHaveLength(1));
+
+    expect(asFragment()).toMatchSnapshot();
+  });
+
   it('should render first page of results', async () => {
     const mock = new MockAdapter(axios);
 
