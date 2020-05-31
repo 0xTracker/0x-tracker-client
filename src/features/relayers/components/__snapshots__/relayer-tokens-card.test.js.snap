@@ -1,0 +1,720 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RelayerTokensCard should navigate to second page of results 1`] = `
+<DocumentFragment>
+  <div
+    class="card__Wrapper-sc-1u97707-0 bmsCLB"
+  >
+    <div
+      class="card-header__CardHeader-sc-17r9xuv-0 hxYOsp card-header"
+    >
+      <h2
+        class="card-heading__Wrapper-sc-1332skt-0 eqyjgb"
+      >
+        Traded Tokens
+      </h2>
+      <div>
+        <button
+          class="pill__Pill-vlx7yx-0 pagination-pills___StyledPill-sc-139d0ys-0 EJmBw"
+          title="Move to previous page"
+        >
+          <svg
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+            fill="currentColor"
+            focusable="false"
+            height="10"
+            viewBox="0 0 320 512"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <button
+          class="pill__Pill-vlx7yx-0 pagination-pills___StyledPill2-sc-139d0ys-1 gdcMcz"
+          title="Move to next page"
+        >
+          <svg
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+            fill="currentColor"
+            focusable="false"
+            height="10"
+            viewBox="0 0 320 512"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="card-body__CardBody-sc-1mkhz93-0 ccyzzu"
+    >
+      <table
+        class="relayer-tokens-table___StyledTable-sc-5e362u-4 VvVqD"
+      >
+        <thead
+          class="relayer-tokens-table___StyledThead-sc-5e362u-5 dlXCBW"
+        >
+          <tr>
+            <th
+              colspan="2"
+            >
+              Token
+            </th>
+            <th>
+              Trade Volume
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="relayer-tokens-table___StyledTr-sc-5e362u-6 fatYMA"
+          >
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell-sc-5e362u-2 ikgeow"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0xdac17f958d2ee523a2206206994597c13d831ec7"
+              >
+                <img
+                  class="token-image___StyledImg-sc-10if1f8-0 gojVIj"
+                  src="https://cdn.staticaly.com/gh/TrustWallet/tokens/master/tokens/0xdac17f958d2ee523a2206206994597c13d831ec7.png"
+                />
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 cqGNBI"
+              width="99%"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table___StyledTokenLink-sc-5e362u-7 dUsGMU"
+                href="/tokens/0xdac17f958d2ee523a2206206994597c13d831ec7"
+              >
+                Tether USD
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                href="/tokens/0xdac17f958d2ee523a2206206994597c13d831ec7"
+              >
+                0xdac17f...13d831ec7
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell2-sc-5e362u-1 hjlzpU"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0xdac17f958d2ee523a2206206994597c13d831ec7"
+              >
+                <span
+                  class="relayer-tokens-table___StyledLocalisedAmount-sc-5e362u-8 ksxDzy"
+                  title="$10,689.74"
+                >
+                  $10.69k
+                </span>
+                <br />
+                <span
+                  class="relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                >
+                  10.69k USDT
+                </span>
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="relayer-tokens-table___StyledTr-sc-5e362u-6 joILlg"
+          >
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell-sc-5e362u-2 ikgeow"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x0d8775f648430679a709e98d2b0cb6250d2887ef"
+              >
+                <img
+                  class="token-image___StyledImg-sc-10if1f8-0 gojVIj"
+                  src="https://cdn.staticaly.com/gh/TrustWallet/tokens/master/tokens/0x0d8775f648430679a709e98d2b0cb6250d2887ef.png"
+                />
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 cqGNBI"
+              width="99%"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table___StyledTokenLink-sc-5e362u-7 dUsGMU"
+                href="/tokens/0x0d8775f648430679a709e98d2b0cb6250d2887ef"
+              >
+                Basic Attention T...
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                href="/tokens/0x0d8775f648430679a709e98d2b0cb6250d2887ef"
+              >
+                0x0d8775...50d2887ef
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell2-sc-5e362u-1 hjlzpU"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x0d8775f648430679a709e98d2b0cb6250d2887ef"
+              >
+                <span
+                  class="relayer-tokens-table___StyledLocalisedAmount-sc-5e362u-8 ksxDzy"
+                  title="$7,127.23"
+                >
+                  $7.13k
+                </span>
+                <br />
+                <span
+                  class="relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                >
+                  32.56k BAT
+                </span>
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="relayer-tokens-table___StyledTr-sc-5e362u-6 fatYMA"
+          >
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell-sc-5e362u-2 ikgeow"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x58b6a8a3302369daec383334672404ee733ab239"
+              >
+                <img
+                  class="token-image___StyledImg-sc-10if1f8-0 gojVIj"
+                  src="https://cdn.staticaly.com/gh/TrustWallet/tokens/master/tokens/0x58b6a8a3302369daec383334672404ee733ab239.png"
+                />
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 cqGNBI"
+              width="99%"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table___StyledTokenLink-sc-5e362u-7 dUsGMU"
+                href="/tokens/0x58b6a8a3302369daec383334672404ee733ab239"
+              >
+                Livepeer Token
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                href="/tokens/0x58b6a8a3302369daec383334672404ee733ab239"
+              >
+                0x58b6a8...e733ab239
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell2-sc-5e362u-1 hjlzpU"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x58b6a8a3302369daec383334672404ee733ab239"
+              >
+                <span
+                  class="relayer-tokens-table___StyledLocalisedAmount-sc-5e362u-8 ksxDzy"
+                  title="$6,457.81"
+                >
+                  $6.46k
+                </span>
+                <br />
+                <span
+                  class="relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                >
+                  3.18k LPT
+                </span>
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="relayer-tokens-table___StyledTr-sc-5e362u-6 joILlg"
+          >
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell-sc-5e362u-2 ikgeow"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x514910771af9ca656af840dff83e8264ecf986ca"
+              >
+                <img
+                  class="token-image___StyledImg-sc-10if1f8-0 gojVIj"
+                  src="https://cdn.staticaly.com/gh/TrustWallet/tokens/master/tokens/0x514910771af9ca656af840dff83e8264ecf986ca.png"
+                />
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 cqGNBI"
+              width="99%"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table___StyledTokenLink-sc-5e362u-7 dUsGMU"
+                href="/tokens/0x514910771af9ca656af840dff83e8264ecf986ca"
+              >
+                ChainLink Token
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                href="/tokens/0x514910771af9ca656af840dff83e8264ecf986ca"
+              >
+                0x514910...4ecf986ca
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell2-sc-5e362u-1 hjlzpU"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x514910771af9ca656af840dff83e8264ecf986ca"
+              >
+                <span
+                  class="relayer-tokens-table___StyledLocalisedAmount-sc-5e362u-8 ksxDzy"
+                  title="$6,215.98"
+                >
+                  $6.22k
+                </span>
+                <br />
+                <span
+                  class="relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                >
+                  1.62k LINK
+                </span>
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="relayer-tokens-table___StyledTr-sc-5e362u-6 fatYMA"
+          >
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell-sc-5e362u-2 ikgeow"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0xe41d2489571d322189246dafa5ebde1f4699f498"
+              >
+                <img
+                  class="token-image___StyledImg-sc-10if1f8-0 gojVIj"
+                  src="https://cdn.staticaly.com/gh/TrustWallet/tokens/master/tokens/0xe41d2489571d322189246dafa5ebde1f4699f498.png"
+                />
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 cqGNBI"
+              width="99%"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table___StyledTokenLink-sc-5e362u-7 dUsGMU"
+                href="/tokens/0xe41d2489571d322189246dafa5ebde1f4699f498"
+              >
+                0x Protocol Token
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                href="/tokens/0xe41d2489571d322189246dafa5ebde1f4699f498"
+              >
+                0xe41d24...f4699f498
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell2-sc-5e362u-1 hjlzpU"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0xe41d2489571d322189246dafa5ebde1f4699f498"
+              >
+                <span
+                  class="relayer-tokens-table___StyledLocalisedAmount-sc-5e362u-8 ksxDzy"
+                  title="$4,572.23"
+                >
+                  $4.57k
+                </span>
+                <br />
+                <span
+                  class="relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                >
+                  16.03k ZRX
+                </span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`RelayerTokensCard should render first page of results 1`] = `
+<DocumentFragment>
+  <div
+    class="card__Wrapper-sc-1u97707-0 bmsCLB"
+  >
+    <div
+      class="card-header__CardHeader-sc-17r9xuv-0 hxYOsp card-header"
+    >
+      <h2
+        class="card-heading__Wrapper-sc-1332skt-0 eqyjgb"
+      >
+        Traded Tokens
+      </h2>
+      <div>
+        <button
+          class="pill__Pill-vlx7yx-0 pagination-pills___StyledPill-sc-139d0ys-0 bGeJnr"
+          disabled=""
+          title="Move to previous page"
+        >
+          <svg
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+            fill="currentColor"
+            focusable="false"
+            height="10"
+            viewBox="0 0 320 512"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M34.52 239.03L228.87 44.69c9.37-9.37 24.57-9.37 33.94 0l22.67 22.67c9.36 9.36 9.37 24.52.04 33.9L131.49 256l154.02 154.75c9.34 9.38 9.32 24.54-.04 33.9l-22.67 22.67c-9.37 9.37-24.57 9.37-33.94 0L34.52 272.97c-9.37-9.37-9.37-24.57 0-33.94z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+        <button
+          class="pill__Pill-vlx7yx-0 pagination-pills___StyledPill2-sc-139d0ys-1 gdcMcz"
+          title="Move to next page"
+        >
+          <svg
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+            fill="currentColor"
+            focusable="false"
+            height="10"
+            viewBox="0 0 320 512"
+            width="10"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+              fill="currentColor"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="card-body__CardBody-sc-1mkhz93-0 ccyzzu"
+    >
+      <table
+        class="relayer-tokens-table___StyledTable-sc-5e362u-4 VvVqD"
+      >
+        <thead
+          class="relayer-tokens-table___StyledThead-sc-5e362u-5 dlXCBW"
+        >
+          <tr>
+            <th
+              colspan="2"
+            >
+              Token
+            </th>
+            <th>
+              Trade Volume
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="relayer-tokens-table___StyledTr-sc-5e362u-6 fatYMA"
+          >
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell-sc-5e362u-2 ikgeow"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x6b175474e89094c44da98b954eedeac495271d0f"
+              >
+                <img
+                  class="token-image___StyledImg-sc-10if1f8-0 gojVIj"
+                  src="https://cdn.staticaly.com/gh/TrustWallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png"
+                />
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 cqGNBI"
+              width="99%"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table___StyledTokenLink-sc-5e362u-7 dUsGMU"
+                href="/tokens/0x6b175474e89094c44da98b954eedeac495271d0f"
+              >
+                Dai Stablecoin
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                href="/tokens/0x6b175474e89094c44da98b954eedeac495271d0f"
+              >
+                0x6b1754...495271d0f
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell2-sc-5e362u-1 hjlzpU"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x6b175474e89094c44da98b954eedeac495271d0f"
+              >
+                <span
+                  class="relayer-tokens-table___StyledLocalisedAmount-sc-5e362u-8 ksxDzy"
+                  title="$245,139.60"
+                >
+                  $245.14k
+                </span>
+                <br />
+                <span
+                  class="relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                >
+                  243.14k DAI
+                </span>
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="relayer-tokens-table___StyledTr-sc-5e362u-6 joILlg"
+          >
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell-sc-5e362u-2 ikgeow"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+              >
+                <img
+                  class="token-image___StyledImg-sc-10if1f8-0 gojVIj"
+                  src="https://cdn.staticaly.com/gh/TrustWallet/tokens/master/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2.png"
+                />
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 cqGNBI"
+              width="99%"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table___StyledTokenLink-sc-5e362u-7 dUsGMU"
+                href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+              >
+                Wrapped Ether
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+              >
+                0xc02aaa...83c756cc2
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell2-sc-5e362u-1 hjlzpU"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+              >
+                <span
+                  class="relayer-tokens-table___StyledLocalisedAmount-sc-5e362u-8 ksxDzy"
+                  title="$235,336.50"
+                >
+                  $235.34k
+                </span>
+                <br />
+                <span
+                  class="relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                >
+                  1.14k WETH
+                </span>
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="relayer-tokens-table___StyledTr-sc-5e362u-6 fatYMA"
+          >
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell-sc-5e362u-2 ikgeow"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+              >
+                <img
+                  class="token-image___StyledImg-sc-10if1f8-0 gojVIj"
+                  src="https://cdn.staticaly.com/gh/TrustWallet/tokens/master/tokens/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48.png"
+                />
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 cqGNBI"
+              width="99%"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table___StyledTokenLink-sc-5e362u-7 dUsGMU"
+                href="/tokens/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+              >
+                USD Coin
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                href="/tokens/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+              >
+                0xa0b869...e3606eb48
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell2-sc-5e362u-1 hjlzpU"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+              >
+                <span
+                  class="relayer-tokens-table___StyledLocalisedAmount-sc-5e362u-8 ksxDzy"
+                  title="$95,918.68"
+                >
+                  $95.92k
+                </span>
+                <br />
+                <span
+                  class="relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                >
+                  95.92k USDC
+                </span>
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="relayer-tokens-table___StyledTr-sc-5e362u-6 joILlg"
+          >
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell-sc-5e362u-2 ikgeow"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+              >
+                <img
+                  class="token-image___StyledImg-sc-10if1f8-0 gojVIj"
+                  src="https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png"
+                />
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 cqGNBI"
+              width="99%"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table___StyledTokenLink-sc-5e362u-7 dUsGMU"
+                href="/tokens/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+              >
+                Wrapped BTC
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                href="/tokens/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+              >
+                0x2260fa...93bc2c599
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell2-sc-5e362u-1 hjlzpU"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+              >
+                <span
+                  class="relayer-tokens-table___StyledLocalisedAmount-sc-5e362u-8 ksxDzy"
+                  title="$31,074.65"
+                >
+                  $31.07k
+                </span>
+                <br />
+                <span
+                  class="relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                >
+                  3.36 WBTC
+                </span>
+              </a>
+            </td>
+          </tr>
+          <tr
+            class="relayer-tokens-table___StyledTr-sc-5e362u-6 fatYMA"
+          >
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell-sc-5e362u-2 ikgeow"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x0000000000085d4780b73119b644ae5ecd22b376"
+              >
+                <img
+                  class="token-image___StyledImg-sc-10if1f8-0 gojVIj"
+                  src="https://cdn.staticaly.com/gh/TrustWallet/tokens/master/tokens/0x0000000000085d4780b73119b644ae5ecd22b376.png"
+                />
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 cqGNBI"
+              width="99%"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table___StyledTokenLink-sc-5e362u-7 dUsGMU"
+                href="/tokens/0x0000000000085d4780b73119b644ae5ecd22b376"
+              >
+                TrueUSD
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                href="/tokens/0x0000000000085d4780b73119b644ae5ecd22b376"
+              >
+                0x000000...ecd22b376
+              </a>
+            </td>
+            <td
+              class="relayer-tokens-table__TableCell-sc-5e362u-0 relayer-tokens-table___StyledTableCell2-sc-5e362u-1 hjlzpU"
+            >
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 diqghp"
+                href="/tokens/0x0000000000085d4780b73119b644ae5ecd22b376"
+              >
+                <span
+                  class="relayer-tokens-table___StyledLocalisedAmount-sc-5e362u-8 ksxDzy"
+                  title="$27,481.20"
+                >
+                  $27.48k
+                </span>
+                <br />
+                <span
+                  class="relayer-tokens-table__SecondaryText-sc-5e362u-3 bVctIA"
+                >
+                  27.48k TUSD
+                </span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;
