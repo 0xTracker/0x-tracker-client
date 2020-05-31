@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -46,34 +47,38 @@ const RelayerTokensTable = ({ tokens }) => (
           key={token.address}
         >
           <TableCell css="padding-right: 1.25rem;">
-            <TokenImage imageUrl={token.imageUrl} size="2.5rem" />
+            <TokenLink address={token.address}>
+              <TokenImage imageUrl={token.imageUrl} size="2.5rem" />
+            </TokenLink>
           </TableCell>
-          <TableCell width="99%;">
+          <TableCell width="99%">
             <TokenLink
               address={token.address}
               css="display: block; line-height: 1;"
             >
-              {token.name}
+              {_.truncate(token.name, { length: 20 })}
             </TokenLink>
             <SecondaryText address={token.address} as={TokenLink}>
-              {truncateAddress(token.address, 30)}
+              {truncateAddress(token.address, 20)}
             </SecondaryText>
           </TableCell>
-          <TableCell css="text-align: right; white-space: nowrap;">
-            <LocalisedAmount
-              amount={token.stats.tradeVolume.USD}
-              css="font-weight: 500;"
-              summarize
-            />
-            <br />
-            <SecondaryText>
-              <TokenAmount
-                amount={token.stats.tradeVolume.token}
-                linked={false}
+          <TableCell css="line-height: 1; text-align: right; white-space: nowrap;">
+            <TokenLink address={token.address}>
+              <LocalisedAmount
+                amount={token.stats.tradeVolume.USD}
+                css="font-weight: 500;"
                 summarize
-                token={token}
               />
-            </SecondaryText>
+              <br />
+              <SecondaryText>
+                <TokenAmount
+                  amount={token.stats.tradeVolume.token}
+                  linked={false}
+                  summarize
+                  token={token}
+                />
+              </SecondaryText>
+            </TokenLink>
           </TableCell>
         </tr>
       ))}

@@ -44,6 +44,9 @@ const RelayerStats = ({ period, relayer }) => {
             change={relayer.stats.activeTradersChange}
             period={period}
             showPeriod={false}
+            tooltip={`Number of unique maker/taker addresses active on ${
+              relayer.name
+            } ${getPeriodDescriptor(period)}.`}
             traderCount={relayer.stats.activeTraders}
           />
         </CardGridCol>
@@ -52,6 +55,9 @@ const RelayerStats = ({ period, relayer }) => {
             change={relayer.stats.tradedTokensChange}
             period={period}
             showPeriod={false}
+            tooltip={`Number of unique tokens traded on ${
+              relayer.name
+            } ${getPeriodDescriptor(period)}.`}
             tradedTokens={relayer.stats.tradedTokens}
           />
         </CardGridCol>

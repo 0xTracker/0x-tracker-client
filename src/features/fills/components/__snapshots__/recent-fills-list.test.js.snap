@@ -3,23 +3,63 @@
 exports[`should render an assortment of fills 1`] = `
 <DocumentFragment>
   <div
-    class="recent-fills-list___StyledDiv-sc-11wan41-0 jMFfPv"
+    class="recent-fills-list__Wrapper-sc-11wan41-0 bgACHr"
   >
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 eLKZIk"
+      class="recent-fills-item__Wrapper-sc-1yc2z6o-0 koJLeh"
     >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp recent-fills-item-image___StyledRelayerLink-hf0nj8-0 kWALch"
-        href="/relayers/token-trove"
-      >
-        <img
-          alt=""
-          class="recent-fills-item-image___StyledImg-hf0nj8-1 jkTdUY"
-          src="https://0xtracker.com/assets/logos/token-trove.png"
-        />
-      </a>
       <div
-        class="recent-fills-item___StyledDiv-sc-1yc2z6o-4 ddRMUy"
+        class="fill-assets-image__Wrapper-sc-1na7yca-0 dQQKqN recent-fills-item___StyledFillAssetsImage-sc-1yc2z6o-4 jtHkNs"
+      >
+        <div
+          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper-sc-1na7yca-3 dzLNIE"
+        >
+          <svg
+            _css2="hsl(235, 14%, 30%)"
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-14.243L7.757 12 12 16.243 16.243 12 12 7.757z"
+            />
+          </svg>
+        </div>
+        <div
+          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper2-sc-1na7yca-2 eoWYQY"
+        >
+          <svg
+            _css2="hsl(235, 14%, 30%)"
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-14.243L7.757 12 12 16.243 16.243 12 12 7.757z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="recent-fills-item___StyledDiv-sc-1yc2z6o-5 ljkUpL"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 ksELXE"
@@ -60,20 +100,60 @@ exports[`should render an assortment of fills 1`] = `
       </span>
     </div>
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gUvXKI"
+      class="recent-fills-item__Wrapper-sc-1yc2z6o-0 txCrt"
     >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp recent-fills-item-image___StyledRelayerLink-hf0nj8-0 kWALch"
-        href="/relayers/token-trove"
-      >
-        <img
-          alt=""
-          class="recent-fills-item-image___StyledImg-hf0nj8-1 jkTdUY"
-          src="https://0xtracker.com/assets/logos/token-trove.png"
-        />
-      </a>
       <div
-        class="recent-fills-item___StyledDiv-sc-1yc2z6o-4 ddRMUy"
+        class="fill-assets-image__Wrapper-sc-1na7yca-0 dQQKqN recent-fills-item___StyledFillAssetsImage-sc-1yc2z6o-4 jtHkNs"
+      >
+        <div
+          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper-sc-1na7yca-3 dzLNIE"
+        >
+          <svg
+            _css2="hsl(235, 14%, 30%)"
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-14.243L7.757 12 12 16.243 16.243 12 12 7.757z"
+            />
+          </svg>
+        </div>
+        <div
+          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper2-sc-1na7yca-2 eoWYQY"
+        >
+          <svg
+            _css2="hsl(235, 14%, 30%)"
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-14.243L7.757 12 12 16.243 16.243 12 12 7.757z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="recent-fills-item___StyledDiv-sc-1yc2z6o-5 ljkUpL"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 ksELXE"
@@ -114,20 +194,60 @@ exports[`should render an assortment of fills 1`] = `
       </span>
     </div>
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 eLKZIk"
+      class="recent-fills-item__Wrapper-sc-1yc2z6o-0 koJLeh"
     >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp recent-fills-item-image___StyledRelayerLink-hf0nj8-0 kWALch"
-        href="/relayers/star-bit"
-      >
-        <img
-          alt=""
-          class="recent-fills-item-image___StyledImg-hf0nj8-1 jkTdUY"
-          src="https://0xtracker.com/assets/logos/starbit.png"
-        />
-      </a>
       <div
-        class="recent-fills-item___StyledDiv-sc-1yc2z6o-4 ddRMUy"
+        class="fill-assets-image__Wrapper-sc-1na7yca-0 dQQKqN recent-fills-item___StyledFillAssetsImage-sc-1yc2z6o-4 jtHkNs"
+      >
+        <div
+          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper-sc-1na7yca-3 dzLNIE"
+        >
+          <svg
+            _css2="hsl(235, 14%, 30%)"
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-14.243L7.757 12 12 16.243 16.243 12 12 7.757z"
+            />
+          </svg>
+        </div>
+        <div
+          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper2-sc-1na7yca-2 eoWYQY"
+        >
+          <svg
+            _css2="hsl(235, 14%, 30%)"
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-14.243L7.757 12 12 16.243 16.243 12 12 7.757z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="recent-fills-item___StyledDiv-sc-1yc2z6o-5 ljkUpL"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 ksELXE"
@@ -168,20 +288,60 @@ exports[`should render an assortment of fills 1`] = `
       </span>
     </div>
     <div
-      class="recent-fills-item__StyledRecentFillsItem-sc-1yc2z6o-0 gUvXKI"
+      class="recent-fills-item__Wrapper-sc-1yc2z6o-0 txCrt"
     >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp recent-fills-item-image___StyledRelayerLink-hf0nj8-0 kWALch"
-        href="/relayers/star-bit"
-      >
-        <img
-          alt=""
-          class="recent-fills-item-image___StyledImg-hf0nj8-1 jkTdUY"
-          src="https://0xtracker.com/assets/logos/starbit.png"
-        />
-      </a>
       <div
-        class="recent-fills-item___StyledDiv-sc-1yc2z6o-4 ddRMUy"
+        class="fill-assets-image__Wrapper-sc-1na7yca-0 dQQKqN recent-fills-item___StyledFillAssetsImage-sc-1yc2z6o-4 jtHkNs"
+      >
+        <div
+          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper-sc-1na7yca-3 dzLNIE"
+        >
+          <svg
+            _css2="hsl(235, 14%, 30%)"
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-14.243L7.757 12 12 16.243 16.243 12 12 7.757z"
+            />
+          </svg>
+        </div>
+        <div
+          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper2-sc-1na7yca-2 eoWYQY"
+        >
+          <svg
+            _css2="hsl(235, 14%, 30%)"
+            aria-hidden="true"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            viewBox="0 0 24 24"
+            width="18"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-14.243L7.757 12 12 16.243 16.243 12 12 7.757z"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="recent-fills-item___StyledDiv-sc-1yc2z6o-5 ljkUpL"
       >
         <h4
           class="recent-fills-item__Heading-sc-1yc2z6o-2 ksELXE"
