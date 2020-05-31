@@ -31,7 +31,15 @@ const UseAdvertisingSlots = (wallet) => {
         ),
       )
       .then((newTokens) => {
-        setTokens(newTokens.filter((token) => token.slotEndTime >= Date.now()));
+        setTokens(
+          newTokens.filter(
+            (token) =>
+              token.minter.toLowerCase() ===
+                '0x56d9fb185343ff68484abb2964ad319728083cc9' &&
+              token.contentId === 'dns%3A0xtracker.com' &&
+              token.slotEndTime >= Date.now(),
+          ),
+        );
         setLoading(false);
       })
       .catch(console.error);
