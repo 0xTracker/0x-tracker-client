@@ -83,7 +83,7 @@ const getSource = (fill) => {
   return { label: 'Unknown Relayer', url: buildRelayerUrl('unknown') };
 };
 
-const RecentFillsItem = ({ fill, index }) => {
+const RecentFillsItem = ({ fill, index, showRelayer }) => {
   const breakpoint = useCurrentBreakpoint();
   const source = getSource(fill);
 
@@ -103,14 +103,18 @@ const RecentFillsItem = ({ fill, index }) => {
           </FillLink>
         </Heading>
         <Metadata>
-          <dt>Relayer</dt>
-          <dd>
-            {source.url ? (
-              <Link href={source.url}>{source.label}</Link>
-            ) : (
-              source.label
-            )}
-          </dd>
+          {showRelayer && (
+            <>
+              <dt>Relayer</dt>
+              <dd>
+                {source.url ? (
+                  <Link href={source.url}>{source.label}</Link>
+                ) : (
+                  source.label
+                )}
+              </dd>
+            </>
+          )}
           <dt>Date</dt>
           <dd>{formatDate(fill.date, DATE_FORMAT.RELATIVE)}</dd>
         </Metadata>
@@ -125,6 +129,11 @@ const RecentFillsItem = ({ fill, index }) => {
 RecentFillsItem.propTypes = {
   fill: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
+  showRelayer: PropTypes.bool,
+};
+
+RecentFillsItem.defaultProps = {
+  showRelayer: true,
 };
 
 export default RecentFillsItem;
