@@ -14,17 +14,15 @@ const Icon = styled.img`
   height: 20px;
   margin-right: 8px;
   width: 20px;
-
-  ${media.greaterThan('lg')`
-    margin-left: 12px;
-  `}
 `;
 
 const LearnMoreLink = styled(Link)`
   color: ${COLORS.PRIMARY.SCAMPI_500};
+  display: block;
   font-size: 14px;
-  margin-left: 28px;
-  margin-top: 8px;
+  margin-right: 28px;
+  margin-left: 32px;
+  margin-top: 12px;
 
   ${media.greaterThan('lg')`
     margin: 0;
@@ -35,23 +33,38 @@ const SponsoredBadge = styled(Badge).attrs({
   bgColor: COLORS.NEUTRAL.MYSTIC_400,
 })`
   align-items: center;
-  display: flex;
+  display: none;
   height: 20px;
   float: right;
+
+  ${media.greaterThan('lg')`
+    display: flex;
+  `}
 `;
 
 const Title = styled.strong`
   display: block;
   font-size: 14px;
   font-weight: 500;
-  margin-right: 4px;
+  margin-bottom: 0;
+  margin-left: 32px;
+
+  ${media.greaterThan('lg')`
+    margin-left: 0;
+    margin-right: 12px;
+
+    &::after {
+      content: ':';
+    }
+  `}
 `;
 
 const Description = styled.p`
   margin-bottom: 0;
-  margin-left: 28px;
-  margin-top: 8px;
+  margin-right: 28px;
+  margin-top: 2px;
   font-size: 14px;
+  margin-left: 32px;
 
   ${media.greaterThan('lg')`
     margin: 0;
@@ -76,8 +89,15 @@ const Wrapper = styled.div`
 
   ${media.greaterThan('lg')`
     align-items: center;
+    justify-content: space-between;
     display: flex;
     margin: 0 0 2rem;
+  `}
+`;
+
+const Body = styled.div`
+  ${media.greaterThan('lg')`
+    display: flex;
   `}
 `;
 
@@ -90,29 +110,31 @@ const TopBannerView = ({ advert, className }) => {
 
   return (
     <Wrapper className={className}>
+      <Body>
+        <Link href={advert.url} onClick={handleClick} sponsored>
+          <Icon height={20} src={advert.imageUrl} width={20} />
+        </Link>
+        <Title as={Link} href={advert.url} onClick={handleClick} sponsored>
+          {advert.title}
+        </Title>
+        <Description>
+          <Link href={advert.url} onClick={handleClick} sponsored>
+            {advert.description}
+          </Link>
+        </Description>
+        <Separator> – </Separator>
+        <LearnMoreLink
+          href={advert.url}
+          indicateExternal
+          onClick={handleClick}
+          sponsored
+        >
+          Learn more
+        </LearnMoreLink>
+      </Body>
       <AdvertisingTooltip enabled={false}>
         <SponsoredBadge>AD</SponsoredBadge>
       </AdvertisingTooltip>
-      <Link href={advert.url} onClick={handleClick} sponsored>
-        <Icon height={20} src={advert.imageUrl} width={20} />
-      </Link>
-      <Title as={Link} href={advert.url} onClick={handleClick} sponsored>
-        {advert.title}:
-      </Title>
-      <Description>
-        <Link href={advert.url} onClick={handleClick} sponsored>
-          {advert.description}
-        </Link>
-      </Description>
-      <Separator> – </Separator>
-      <LearnMoreLink
-        href={advert.url}
-        indicateExternal
-        onClick={handleClick}
-        sponsored
-      >
-        Learn more
-      </LearnMoreLink>
     </Wrapper>
   );
 };

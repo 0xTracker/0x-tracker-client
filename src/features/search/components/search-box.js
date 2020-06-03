@@ -36,6 +36,10 @@ const SearchBox = ({ autoFocus, onBlur }) => {
   });
 
   useKey('/', (event) => {
+    if (event.target && event.target.nodeName === 'INPUT') {
+      return;
+    }
+
     event.preventDefault();
     inputRef.current.focus();
   });
