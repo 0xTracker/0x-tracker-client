@@ -10,6 +10,7 @@ import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
 import Link from '../../../components/link';
 import PageLayout from '../../../components/page-layout';
+import Badge from '../../../components/badge';
 
 const StyledLink = styled(Link)`
   color: ${COLORS.PRIMARY.SCAMPI_500};
@@ -69,22 +70,54 @@ const AdvertisePage = () => (
                 </li>
                 <li>A mention in our monthly ecosystem update newsletter</li>
               </ul>
-              <p>The following slots are currently available:</p>
+              <p>Recent sponsorship slots are:</p>
               <ul>
                 <li>
-                  <StyledLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token43&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
-                    June 3rd 2020 - June 16th 2020
+                  <StyledLink
+                    css="vertical-align: middle;"
+                    href="https://microsponsors.io/exchange.html?view=auctions&sort=token:43&reflink=0xa058f8acfc1fb5c6e4415a1fb46ed3e00b696abb"
+                  >
+                    June 3rd 2020 - June 16th 2020{' '}
                   </StyledLink>
+                  <Badge css="margin-left: 8px;vertical-align: middle;">
+                    SOLD
+                  </Badge>
                 </li>
                 <li>
-                  <StyledLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token44&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
+                  <StyledLink
+                    css="vertical-align: middle;"
+                    href="https://microsponsors.io/exchange.html?view=auctions&sort=token:44&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9"
+                  >
                     June 17th 2020 - June 30th 2020
                   </StyledLink>
+                  <Badge
+                    css={`
+                      margin-left: 8px;
+                      background: ${COLORS.ACCENT.FRUIT_SALAD_300};
+                      color: ${COLORS.ACCENT.FRUIT_SALAD_1000};
+                      vertical-align: middle;
+                    `}
+                  >
+                    AVAILABLE
+                  </Badge>
                 </li>
                 <li>
-                  <StyledLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token45&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
+                  <StyledLink
+                    css="vertical-align: middle;"
+                    href="https://microsponsors.io/exchange.html?view=auctions&sort=token:45&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9"
+                  >
                     July 1st 2020 - July 14th 2020
                   </StyledLink>
+                  <Badge
+                    css={`
+                      margin-left: 8px;
+                      background: ${COLORS.ACCENT.FRUIT_SALAD_300};
+                      color: ${COLORS.ACCENT.FRUIT_SALAD_1000};
+                      vertical-align: middle;
+                    `}
+                  >
+                    AVAILABLE
+                  </Badge>
                 </li>
               </ul>
               <h2
