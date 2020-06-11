@@ -99,9 +99,11 @@ const Article = ({ article, compact, index, showImage }) => (
         <dt>Date</dt>
         <dd>{formatDate(article.date, DATE_FORMAT.RELATIVE)}</dd>
       </ArticleMetadata>
-      <p css="flex-grow: 1; margin: 0;">
-        {_.truncate(article.summary, { length: compact ? 120 : 150 })}
-      </p>
+      {article.summary && (
+        <p css="flex-grow: 1; margin: 0;">
+          {_.truncate(article.summary, { length: compact ? 120 : 150 })}
+        </p>
+      )}
     </div>
   </StyledArticle>
 );
@@ -114,7 +116,7 @@ Article.propTypes = {
       name: PropTypes.string.isRequired,
       url: PropTypes.string,
     }).isRequired,
-    summary: PropTypes.string.isRequired,
+    summary: PropTypes.string,
     title: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
   }).isRequired,
