@@ -97,7 +97,7 @@
     "eslint-plugin-react": "7.20.0",
     "eslint-plugin-react-hooks": "4.0.4",
     "file-loader": "6.0.0",
-    "history": "4.10.1",
+    "history": "5.0.0",
     "html-webpack-plugin": "4.0.2",
     "husky": "4.2.3",
     "jest": "26.0.1",
