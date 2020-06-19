@@ -90,15 +90,8 @@ const AdvertisePage = () => (
                   >
                     June 17th 2020 - June 30th 2020
                   </StyledLink>
-                  <Badge
-                    css={`
-                      margin-left: 8px;
-                      background: ${COLORS.ACCENT.FRUIT_SALAD_300};
-                      color: ${COLORS.ACCENT.FRUIT_SALAD_1000};
-                      vertical-align: middle;
-                    `}
-                  >
-                    AVAILABLE
+                  <Badge css="margin-left: 8px;vertical-align: middle;">
+                    SOLD
                   </Badge>
                 </li>
                 <li>
