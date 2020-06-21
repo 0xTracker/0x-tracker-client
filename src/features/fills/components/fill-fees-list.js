@@ -2,17 +2,17 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { COLORS } from '../../../styles/constants';
+import Badge from '../../../components/badge';
 import FeeAmount from './fee-amount';
 import List from '../../../components/list';
 import ListItem from '../../../components/list-item';
+import LocalisedAmount from '../../currencies/components/localised-amount';
 import TokenLabel from './token-label';
-import TokenTypeBadge from '../../tokens/components/token-type-badge';
 
 const FillFeesList = ({ condensed, fees }) => {
   if (fees.length === 0) {
     return 'None';
   }
-
   return (
     <List>
       {fees.map((fee, index) => (
@@ -26,7 +26,11 @@ const FillFeesList = ({ condensed, fees }) => {
             `}
             token={fee.token}
           />{' '}
-          <TokenTypeBadge>{fee.token.type}</TokenTypeBadge>
+          {fee.amount.USD !== null && (
+            <Badge>
+              <LocalisedAmount amount={fee.amount.USD} />
+            </Badge>
+          )}
         </ListItem>
       ))}
     </List>
