@@ -7,7 +7,6 @@ import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import { DATE_FORMAT } from '../../../constants';
 import { formatDate } from '../../../util';
-import { useCurrentBreakpoint } from '../../../responsive-utils';
 import { useMetadata } from '../../../hooks';
 import ArticleShareButtons from './article-share-buttons';
 import Card from '../../../components/card';
@@ -146,7 +145,6 @@ const ArticlePage = () => {
   const { slug, source } = useParams();
   const [article, loading] = useArticle(source, slug);
 
-  const breakpoint = useCurrentBreakpoint();
   const title = _.get(article, 'title');
   const description = _.get(article, 'summary');
 
@@ -161,7 +159,7 @@ const ArticlePage = () => {
   }
 
   return (
-    <PageLayout showBanner={breakpoint.lessThan('lg')}>
+    <PageLayout>
       <CardGrid>
         <CardGridRow>
           <CardGridCol lg={7}>

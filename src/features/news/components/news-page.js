@@ -55,7 +55,6 @@ const NewsPage = () => {
   return (
     <PageLayout
       icon={<NewsIcon size={44} />}
-      showBanner={breakpoint.lessThan('lg')}
       subTitle={`from ${source ? source.name : 'the 0x ecosystem'}`}
       title="News & Updates"
     >

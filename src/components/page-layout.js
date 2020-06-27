@@ -3,7 +3,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../styles/util';
-import Hidden from './hidden';
 import PageTitleBlock from './page-title-block';
 import TopBanner from '../features/advertising/components/top-banner';
 
@@ -44,11 +43,7 @@ const PageLayout = ({
         title={title}
       />
     )}
-    {showBanner && (
-      <Hidden above="lg">
-        <TopBanner />
-      </Hidden>
-    )}
+    {showBanner && <TopBanner />}
     <PageBody centered={centered}>{children}</PageBody>
   </StyledPageLayout>
 );
