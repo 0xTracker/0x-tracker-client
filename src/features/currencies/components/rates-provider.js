@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import RatesContext from '../contexts/rates-context';
-import useFetchRates from '../hooks/use-fetch-rates';
+import useRates from '../hooks/use-rates';
 
 const RatesProvider = ({ children }) => {
-  const rates = useFetchRates();
+  const [rates] = useRates();
 
   return (
     <RatesContext.Provider value={rates}>{children}</RatesContext.Provider>
