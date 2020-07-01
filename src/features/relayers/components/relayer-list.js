@@ -87,6 +87,13 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
                   yet indexing.
                 </HelpWidget>
               )}
+              {relayer.id === 'matcha' && (
+                <HelpWidget css="margin-left: 0.5rem; vertical-align: middle;">
+                  &lsquo;Matcha&rsquo; trades only include fills of limit orders
+                  created in Matcha. Other volume filled in Matcha is reported
+                  under &lsquo;0x API&rsquo;
+                </HelpWidget>
+              )}
             </span>
             {relayer.url ? (
               <Link
