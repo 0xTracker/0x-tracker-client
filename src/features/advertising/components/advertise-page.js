@@ -21,6 +21,22 @@ const StyledLink = styled(Link)`
   }
 `;
 
+const AvailableBadge = styled(Badge)`
+  background: ${COLORS.ACCENT.FRUIT_SALAD_300};
+  color: ${COLORS.ACCENT.FRUIT_SALAD_1000};
+  margin-left: 8px;
+  vertical-align: middle;
+`;
+
+const SoldBadge = styled(Badge)`
+  margin-left: 8px;
+  vertical-align: middle;
+`;
+
+const AuctionLink = styled(StyledLink)`
+  vertical-align: middle;
+`;
+
 const AdvertisePage = () => (
   <PageLayout
     actions={
@@ -73,44 +89,34 @@ const AdvertisePage = () => (
               <p>Recent sponsorship slots are:</p>
               <ul>
                 <li>
-                  <StyledLink
-                    css="vertical-align: middle;"
-                    href="https://microsponsors.io/exchange.html?view=auctions&sort=token:43&reflink=0xa058f8acfc1fb5c6e4415a1fb46ed3e00b696abb"
-                  >
-                    June 3rd 2020 - June 16th 2020{' '}
-                  </StyledLink>
-                  <Badge css="margin-left: 8px;vertical-align: middle;">
-                    SOLD
-                  </Badge>
-                </li>
-                <li>
-                  <StyledLink
-                    css="vertical-align: middle;"
-                    href="https://microsponsors.io/exchange.html?view=auctions&sort=token:44&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9"
-                  >
+                  <AuctionLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token:44&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
                     June 17th 2020 - June 30th 2020
-                  </StyledLink>
-                  <Badge css="margin-left: 8px;vertical-align: middle;">
-                    SOLD
-                  </Badge>
+                  </AuctionLink>
+                  <SoldBadge>SOLD</SoldBadge>
                 </li>
                 <li>
-                  <StyledLink
-                    css="vertical-align: middle;"
-                    href="https://microsponsors.io/exchange.html?view=auctions&sort=token:45&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9"
-                  >
+                  <AuctionLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token:45&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
                     July 1st 2020 - July 14th 2020
-                  </StyledLink>
-                  <Badge
-                    css={`
-                      margin-left: 8px;
-                      background: ${COLORS.ACCENT.FRUIT_SALAD_300};
-                      color: ${COLORS.ACCENT.FRUIT_SALAD_1000};
-                      vertical-align: middle;
-                    `}
-                  >
-                    AVAILABLE
-                  </Badge>
+                  </AuctionLink>
+                  <SoldBadge>SOLD</SoldBadge>
+                </li>
+                <li>
+                  <AuctionLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token:53&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
+                    July 15th 2020 - July 28th 2020
+                  </AuctionLink>
+                  <AvailableBadge>AVAILABLE</AvailableBadge>
+                </li>
+                <li>
+                  <AuctionLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token:54&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
+                    July 29th 2020 - August 11th 2020
+                  </AuctionLink>
+                  <AvailableBadge>AVAILABLE</AvailableBadge>
+                </li>
+                <li>
+                  <AuctionLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token:55&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
+                    August 12th 2020 - August 25th 2020
+                  </AuctionLink>
+                  <AvailableBadge>AVAILABLE</AvailableBadge>
                 </li>
               </ul>
               <h2
