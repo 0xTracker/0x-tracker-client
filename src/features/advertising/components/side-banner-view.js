@@ -78,7 +78,7 @@ const SideBannerView = ({ advert, className }) => {
         onClick={handleClick}
         sponsored
       >
-        Learn more
+        Play now
       </LearnMoreLink>
     </Wrapper>
   );

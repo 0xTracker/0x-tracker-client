@@ -129,7 +129,7 @@ const TopBannerView = ({ advert, className }) => {
           onClick={handleClick}
           sponsored
         >
-          Learn more
+          Play now
         </LearnMoreLink>
       </Body>
       <AdvertisingTooltip enabled={false}>
