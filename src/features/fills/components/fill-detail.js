@@ -8,8 +8,8 @@ import HelpWidget from '../../../components/help-widget';
 
 const Title = styled.dt`
   font-weight: 500;
-  margin: 0.6rem 0 0;
-  padding: 0 0 0.6rem;
+  margin: 0.75rem 0 0;
+  padding: 0 0 0.75rem;
 
   &:last-of-type {
     border: none;
@@ -23,9 +23,11 @@ const Title = styled.dt`
 `;
 
 const Value = styled.dd`
+  align-items: center;
+  display: flex;
   border-bottom: 1px solid ${COLORS.NEUTRAL.MYSTIC_200};
   overflow: hidden;
-  padding: 0 0 0.6rem;
+  padding: 0 0 0.75rem;
   text-overflow: ellipsis;
 
   &:last-of-type {
@@ -45,7 +47,7 @@ const FillDetail = ({ children, title, tooltip }) => (
       {tooltip !== undefined && (
         <HelpWidget
           css={`
-            color: currentColor;
+            color: ${COLORS.NEUTRAL.MYSTIC_600};
             margin-right: 0.5rem;
           `}
         >

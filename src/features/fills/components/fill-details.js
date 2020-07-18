@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
-import { DATE_FORMAT, ETH_TOKEN, ZRX_TOKEN } from '../../../constants';
+import { DATE_FORMAT, ETH_TOKEN } from '../../../constants';
 import { media } from '../../../styles/util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import AssetLabel from './asset-label';
@@ -15,7 +15,6 @@ import FillAssetsList from './fill-assets-list';
 import FillDetail from './fill-detail';
 import FillFeesList from './fill-fees-list';
 import FillRelayerLink from './fill-relayer-link';
-import FillStatusBadge from './fill-status-badge';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import List from '../../../components/list';
@@ -77,22 +76,67 @@ const FillDetails = ({ fill, maker, taker }) => {
         </FillDetailLink>
       </FillDetail>
 
-      {fill.senderAddress && (
-        <FillDetail
-          title="Sender Address"
-          tooltip="Ethereum address that is allowed to call Exchange contract methods that affect this order."
-        >
+      <FillDetail
+        title="Sender Address"
+        tooltip="Ethereum address that is allowed to call Exchange contract methods that affect this order."
+      >
+        {fill.senderAddress ? (
           <FillDetailLink as={SearchLink} searchQuery={fill.senderAddress}>
             {fill.senderAddress}
           </FillDetailLink>
-        </FillDetail>
-      )}
+        ) : (
+          'None'
+        )}
+      </FillDetail>
 
       <FillDetail
         title="Date"
         tooltip="Date at which the associated Ethereum transaction's block was mined."
       >
         {formatDate(fill.date, DATE_FORMAT.FULL)}
+      </FillDetail>
+
+      <FillDetail
+        title={`Value (${displayCurrency})`}
+        tooltip={`Value of the trade in ${displayCurrency}`}
+      >
+        {_.has(fill.value, 'USD') ? (
+          <LocalisedAmount amount={fill.value.USD} />
+        ) : (
+          'Unknown'
+        )}
+      </FillDetail>
+
+      <FillDetail
+        title="Protocol Version"
+        tooltip="Version of the 0x protocol that this order was created on."
+      >
+        v{fill.protocolVersion}
+      </FillDetail>
+
+      <FillDetail
+        title="Protocol Fee"
+        tooltip="Protocol fee collected for processing this fill. Protocol fees were introduced in v3 and are used to incentivize makers & fund community development."
+      >
+        {fill.protocolFee !== undefined ? (
+          <>
+            <TokenAmount
+              amount={fill.protocolFee.ETH}
+              linked={false}
+              token={ETH_TOKEN}
+            />
+            {fill.protocolFee.USD !== undefined ? (
+              <Badge css="margin-left: 8px;">
+                <LocalisedAmount
+                  amount={fill.protocolFee.USD}
+                  preferredPrecision={fill.protocolFee.USD < 1 ? 5 : 2}
+                />
+              </Badge>
+            ) : null}
+          </>
+        ) : (
+          'None'
+        )}
       </FillDetail>
 
       <FillDetail
@@ -103,27 +147,38 @@ const FillDetails = ({ fill, maker, taker }) => {
       </FillDetail>
 
       <FillDetail
-        title="Status"
-        tooltip="Status of the associated Ethereum transaction."
+        title="Affiliate"
+        tooltip="Ethereum address belonging to the affiliate which coordinated this fill."
       >
-        <FillStatusBadge>{fill.status}</FillStatusBadge>
+        {_.isPlainObject(fill.affiliate) ? (
+          // eslint-disable-next-line react/jsx-no-useless-fragment
+          <>
+            {_.isString(fill.affiliate.name) ? (
+              <div css="display: flex; align-items: center;">
+                {fill.affiliate.imageUrl && (
+                  <img
+                    css="margin-right: 0.5rem; border-radius: 0.25rem;"
+                    height={20}
+                    src={fill.affiliate.imageUrl}
+                    width={20}
+                  />
+                )}
+                {fill.affiliate.name}
+                <Badge
+                  css="margin-left: 12px; text-transform: none;"
+                  upperCase={false}
+                >
+                  {fill.affiliate.address}
+                </Badge>
+              </div>
+            ) : (
+              fill.affiliate.address
+            )}
+          </>
+        ) : (
+          'None'
+        )}
       </FillDetail>
-
-      <FillDetail
-        title="0x Protocol"
-        tooltip="Version of the 0x protocol that this order was created on."
-      >
-        v{fill.protocolVersion}
-      </FillDetail>
-
-      {_.has(fill.value, 'USD') && (
-        <FillDetail
-          title={`Value (${displayCurrency})`}
-          tooltip={`Value of the trade in ${displayCurrency}`}
-        >
-          <LocalisedAmount amount={fill.value.USD} />
-        </FillDetail>
-      )}
 
       <FillDetail title="Maker" tooltip="The party that created the order.">
         {maker && _.isString(maker.name) ? (
@@ -188,16 +243,18 @@ const FillDetails = ({ fill, maker, taker }) => {
         />
       </FillDetail>
 
-      {bridgedAsset !== undefined && (
-        <FillDetail
-          title="Asset Bridge"
-          tooltip="Address of the bridge contract used to supply maker assets."
-        >
+      <FillDetail
+        title="Asset Bridge"
+        tooltip="Address of the bridge contract used to supply maker assets."
+      >
+        {bridgedAsset !== undefined ? (
           <EthereumAddressLink address={bridgedAsset.bridgeAddress}>
             {bridgedAsset.bridgeName || bridgedAsset.bridgeAddress}
           </EthereumAddressLink>
-        </FillDetail>
-      )}
+        ) : (
+          'None'
+        )}
+      </FillDetail>
 
       <FillDetail
         title={`Derived Prices (${displayCurrency})`}
@@ -222,63 +279,25 @@ const FillDetails = ({ fill, maker, taker }) => {
         )}
       </FillDetail>
 
-      {fill.makerFee !== undefined && (
-        <FillDetail
-          title="Maker Fee"
-          tooltip="Fee that was charged to the maker."
-        >
-          {fill.makerFee.ZRX !== '0' ? (
-            <TokenAmount
-              amount={fill.makerFee.ZRX}
-              linked={false}
-              token={ZRX_TOKEN}
-            />
-          ) : (
-            'None'
-          )}
-        </FillDetail>
-      )}
+      <FillDetail
+        title="Maker Fees"
+        tooltip="Relayer fees that were charged to the maker."
+      >
+        <FillFeesList
+          condensed={breakpoint.lessThan('sm')}
+          fees={_.filter(fill.fees, { traderType: 'maker' })}
+        />
+      </FillDetail>
 
-      {fill.takerFee !== undefined && (
-        <FillDetail
-          title="Taker Fee"
-          tooltip="Fee that was charged to the taker."
-        >
-          {fill.takerFee.ZRX !== '0' ? (
-            <TokenAmount
-              amount={fill.takerFee.ZRX}
-              linked={false}
-              token={ZRX_TOKEN}
-            />
-          ) : (
-            'None'
-          )}
-        </FillDetail>
-      )}
-
-      {fill.fees !== undefined && (
-        <>
-          <FillDetail
-            title="Maker Fees"
-            tooltip="Relayer fees that were charged to the maker."
-          >
-            <FillFeesList
-              condensed={breakpoint.lessThan('sm')}
-              fees={_.filter(fill.fees, { traderType: 'maker' })}
-            />
-          </FillDetail>
-
-          <FillDetail
-            title="Taker Fees"
-            tooltip="Relayer fees that were charged to the taker."
-          >
-            <FillFeesList
-              condensed={breakpoint.lessThan('sm')}
-              fees={_.filter(fill.fees, { traderType: 'taker' })}
-            />
-          </FillDetail>
-        </>
-      )}
+      <FillDetail
+        title="Taker Fees"
+        tooltip="Relayer fees that were charged to the taker."
+      >
+        <FillFeesList
+          condensed={breakpoint.lessThan('sm')}
+          fees={_.filter(fill.fees, { traderType: 'taker' })}
+        />
+      </FillDetail>
 
       <FillDetail
         title="Fee Recipient"
@@ -288,27 +307,6 @@ const FillDetails = ({ fill, maker, taker }) => {
           {fill.feeRecipient}
         </FillDetailLink>
       </FillDetail>
-
-      {fill.protocolFee !== undefined ? (
-        <FillDetail
-          title="Protocol Fee"
-          tooltip="Protocol fee collected for processing this fill. Protocol fees are used to incentivize makers & fund community development."
-        >
-          <TokenAmount
-            amount={fill.protocolFee.ETH}
-            linked={false}
-            token={ETH_TOKEN}
-          />
-          {fill.protocolFee.USD !== undefined ? (
-            <Badge css="margin-left: 8px;">
-              <LocalisedAmount
-                amount={fill.protocolFee.USD}
-                preferredPrecision={fill.protocolFee.USD < 1 ? 5 : 2}
-              />
-            </Badge>
-          ) : null}
-        </FillDetail>
-      ) : null}
     </FillDetailList>
   );
 };

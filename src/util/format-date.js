@@ -23,7 +23,7 @@ const formatDate = (date, dateFormat, { timezone } = { timezone: true }) => {
   const parsedDate = new Date(date);
 
   return {
-    [DATE_FORMAT.FULL]: () => format(parsedDate, 'EEEE, MMMM do Y, hh:mm:ss a'),
+    [DATE_FORMAT.FULL]: () => format(parsedDate, 'EEEE, MMMM do Y, pppp'),
     [DATE_FORMAT.RELATIVE]: () =>
       `${formatDistanceStrict(parsedDate, new Date())} ago`,
     [DATE_FORMAT.COMPACT]: () =>
