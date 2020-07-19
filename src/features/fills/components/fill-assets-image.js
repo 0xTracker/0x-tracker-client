@@ -82,7 +82,7 @@ const FillAssetsImage = ({ assets, ...otherProps }) => (
 FillAssetsImage.propTypes = {
   assets: PropTypes.arrayOf(
     PropTypes.shape({
-      tokenImageUrl: PropTypes.string.isRequired,
+      tokenImageUrl: PropTypes.string,
     }),
   ).isRequired,
 };

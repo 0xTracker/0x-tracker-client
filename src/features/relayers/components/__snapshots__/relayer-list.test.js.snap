@@ -157,7 +157,7 @@ exports[`renders with basic props 1`] = `
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB relayer-list___StyledLink-sc-1herowu-7 dDglcc"
+          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB relayer-list___StyledLink-sc-1herowu-8 efsNUn"
           href="https://ddex.io"
           rel="noreferrer noopener nofollow"
           target="_blank"
@@ -183,7 +183,7 @@ exports[`renders with basic props 1`] = `
           $150.46k
         </span>
         <span
-          class="percentage-change___StyledSpan-sc-1ocppi1-0 jgmyRa relayer-list___StyledPercentageChange2-sc-1herowu-9 fKreiS"
+          class="percentage-change___StyledSpan-sc-1ocppi1-0 jgmyRa relayer-list___StyledPercentageChange2-sc-1herowu-10 imDPW"
         >
           22.5
           %
@@ -268,7 +268,7 @@ exports[`renders with basic props 1`] = `
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB relayer-list___StyledLink-sc-1herowu-7 dDglcc"
+          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB relayer-list___StyledLink-sc-1herowu-8 efsNUn"
           href="https://paradex.io"
           rel="noreferrer noopener nofollow"
           target="_blank"
@@ -294,7 +294,7 @@ exports[`renders with basic props 1`] = `
           $124k
         </span>
         <span
-          class="percentage-change___StyledSpan-sc-1ocppi1-0 cnrVcL relayer-list___StyledPercentageChange2-sc-1herowu-9 fKreiS"
+          class="percentage-change___StyledSpan-sc-1ocppi1-0 cnrVcL relayer-list___StyledPercentageChange2-sc-1herowu-10 imDPW"
         >
           -5.2
           %
@@ -379,7 +379,7 @@ exports[`renders with basic props 1`] = `
           </a>
         </span>
         <a
-          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB relayer-list___StyledLink-sc-1herowu-7 dDglcc"
+          class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB relayer-list___StyledLink-sc-1herowu-8 efsNUn"
           href="https://radarrelay.com"
           rel="noreferrer noopener nofollow"
           target="_blank"
@@ -405,7 +405,7 @@ exports[`renders with basic props 1`] = `
           $100k
         </span>
         <span
-          class="percentage-change___StyledSpan-sc-1ocppi1-0 jgmyRa relayer-list___StyledPercentageChange2-sc-1herowu-9 fKreiS"
+          class="percentage-change___StyledSpan-sc-1ocppi1-0 jgmyRa relayer-list___StyledPercentageChange2-sc-1herowu-10 imDPW"
         >
           221.3
           %
