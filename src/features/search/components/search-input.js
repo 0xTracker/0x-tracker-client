@@ -141,9 +141,6 @@ const SearchInput = React.forwardRef(
             value: inputValue,
           }}
           multiSection
-          onSuggestionsClearRequested={() => {
-            setSearchTerm(null);
-          }}
           onSuggestionSelected={(event, { suggestion }) => {
             event.preventDefault();
 
@@ -176,6 +173,9 @@ const SearchInput = React.forwardRef(
                 clientSide: false,
               });
             }
+          }}
+          onSuggestionsClearRequested={() => {
+            setSearchTerm(null);
           }}
           onSuggestionsFetchRequested={({ value, reason }) => {
             if (reason === 'input-changed' || reason === 'input-focused') {

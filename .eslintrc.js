@@ -3,9 +3,6 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  globals: {
-    Headway: true,
-  },
   extends: [
     'airbnb-base',
     'plugin:eslint-comments/recommended',
@@ -15,6 +12,9 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:react/all',
   ],
+  globals: {
+    Headway: true,
+  },
   overrides: [
     { files: ['src/index.js'], rules: { 'filenames/no-index': 'off' } },
 
@@ -31,18 +31,31 @@ module.exports = {
       rules: {
         'filenames/match-exported': 'off',
         'import/no-extraneous-dependencies': 'off',
+        'react/jsx-handler-names': 'off',
         'react/no-multi-comp': 'off',
         'react/prop-types': 'off',
-        'react/jsx-handler-names': 'off',
       },
     },
 
     // NodeJS overrides
     {
-      files: ['jest.config.js', 'config/webpack/*.js', '.storybook/*.js'],
+      files: [
+        '.eslintrc.js',
+        'jest.config.js',
+        'config/webpack/*.js',
+        '.storybook/*.js',
+      ],
       rules: { 'import/no-commonjs': 'off', 'import/no-nodejs-modules': 'off' },
     },
   ],
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: '2017',
+    sourceType: 'module',
+  },
   plugins: [
     'classes',
     'compat',
@@ -55,20 +68,12 @@ module.exports = {
     'react',
     'react-hooks',
   ],
-  parser: 'babel-eslint',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: '2017',
-    sourceType: 'module',
-  },
   root: true,
   rules: {
     'arrow-body-style': ['error', 'as-needed'],
-    'classes/style': 'error',
     'classes/name': ['error', 'class', 'method'],
     'classes/space': 'error',
+    'classes/style': 'error',
     'compat/compat': 'error',
     'filenames/match-exported': ['error', 'kebab'],
     'import/default': 'error',
@@ -97,16 +102,16 @@ module.exports = {
       },
     ],
     'import/no-mutable-exports': 'error',
-    'import/no-named-default': 'error',
     'import/no-named-as-default': 'error',
     'import/no-named-as-default-member': 'error',
+    'import/no-named-default': 'error',
     'import/no-nodejs-modules': 'error',
     'import/no-restricted-paths': [
       'error',
       {
         zones: [
-          { target: './src', from: './stories' },
-          { target: './src', from: './.storybook' },
+          { from: './stories', target: './src' },
+          { from: './.storybook', target: './src' },
         ],
       },
     ],
@@ -150,17 +155,17 @@ module.exports = {
     'jest/valid-describe': 'error',
     'jest/valid-expect-in-promise': 'error',
     'lodash/import-scope': ['error', 'full'],
-    'lodash/prefer-lodash-method': 'off',
     'lodash/prefer-lodash-chain': 'off',
+    'lodash/prefer-lodash-method': 'off',
     'lodash/prefer-noop': 'off',
     'promise/always-return': 'off',
+    'promise/no-callback-in-promise': 'error',
     'promise/no-nesting': 'error',
     'promise/no-promise-in-callback': 'error',
-    'promise/no-callback-in-promise': 'error',
     'promise/no-return-in-finally': 'error',
-    'promise/valid-params': 'error',
-    'promise/prefer-await-to-then': 'warn',
     'promise/prefer-await-to-callbacks': 'error',
+    'promise/prefer-await-to-then': 'warn',
+    'promise/valid-params': 'error',
     quotes: ['error', 'single'],
     'react/forbid-component-props': 'off',
     'react/forbid-dom-props': ['error', { forbid: ['style'] }],
@@ -177,10 +182,10 @@ module.exports = {
     'react/jsx-filename-extension': ['error', { extensions: ['.js'] }],
     'react/jsx-indent': 'off',
     'react/jsx-indent-props': 'off',
-    'react/jsx-max-props-per-line': 'off',
     'react/jsx-max-depth': 'off',
-    'react/jsx-no-literals': 'off',
+    'react/jsx-max-props-per-line': 'off',
     'react/jsx-no-bind': 'off',
+    'react/jsx-no-literals': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'react/jsx-props-no-spreading': 'warn',
     'react/no-set-state': 'off',
