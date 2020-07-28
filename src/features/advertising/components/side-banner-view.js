@@ -5,13 +5,13 @@ import styled from 'styled-components';
 import { COLORS } from '../../../styles/constants';
 import Link from '../../../components/link';
 
-// const Icon = styled.img`
-//   display: block;
-//   border-radius: 4px;
-//   height: 40px;
-//   width: 40px;
-//   margin: 0 auto 16px auto;
-// `;
+const Icon = styled.img`
+  display: block;
+  border-radius: 4px;
+  height: 40px;
+  width: 40px;
+  margin: 0 auto 16px auto;
+`;
 
 const LearnMoreLink = styled(Link)`
   color: ${COLORS.PRIMARY.SCAMPI_300};
@@ -32,12 +32,12 @@ const Wrapper = styled.div`
   margin: 0 12px 12px 12px;
 `;
 
-// const Title = styled.strong`
-//   display: block;
-//   font-size: 16px;
-//   font-weight: 500;
-//   margin-right: 4px;
-// `;
+const Title = styled.strong`
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 4px;
+`;
 
 const Description = styled.p`
   color: ${COLORS.PRIMARY.SCAMPI_100};
@@ -57,16 +57,16 @@ const SideBannerView = ({ advert, className }) => {
   return (
     <Wrapper className={className}>
       <Link href={advert.url} onClick={handleClick} sponsored>
-        {/* <Icon height={20} src={advert.imageUrl} width={20} /> */}
-        <img
+        <Icon height={20} src={advert.imageUrl} width={20} />
+        {/* <img
           css="margin: 16px 0;"
           height={30}
           src="https://www.casoo.com/static/images/logo.svg"
-        />
+        /> */}
       </Link>
-      {/* <Title as={Link} href={advert.url} onClick={handleClick} sponsored>
+      <Title as={Link} href={advert.url} onClick={handleClick} sponsored>
         {advert.title}
-      </Title> */}
+      </Title>
       <Description>
         <Link href={advert.url} onClick={handleClick} sponsored>
           {advert.description}
@@ -78,7 +78,7 @@ const SideBannerView = ({ advert, className }) => {
         onClick={handleClick}
         sponsored
       >
-        Play now
+        Learn more
       </LearnMoreLink>
     </Wrapper>
   );
