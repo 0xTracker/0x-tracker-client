@@ -35,6 +35,7 @@ const PageLayout = ({
   title,
 }) => (
   <StyledPageLayout>
+    {showBanner && <TopBanner />}
     {title && (
       <PageTitleBlock
         actions={actions}
@@ -43,7 +44,6 @@ const PageLayout = ({
         title={title}
       />
     )}
-    {showBanner && <TopBanner />}
     <PageBody centered={centered}>{children}</PageBody>
   </StyledPageLayout>
 );

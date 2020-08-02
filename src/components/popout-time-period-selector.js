@@ -22,6 +22,7 @@ const StyledSelect = styled(Select)`
     position: absolute;
     right: 0;
     width: 200px;
+    z-index: 10;
   }
 `;
 

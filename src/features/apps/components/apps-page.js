@@ -8,10 +8,18 @@ import {
   useSearchParam,
 } from '../../../hooks';
 import { AppsIcon } from '../../../components/icons';
-import { getPeriodDescriptor } from '../../../util';
 import Apps from './apps';
 import PageLayout from '../../../components/page-layout';
-import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
+import AppsFilter from './apps-filter';
+
+const getPeriodDescriptor = (period) =>
+  ({
+    [TIME_PERIOD.DAY]: 'active in the last 24 hours',
+    [TIME_PERIOD.WEEK]: 'active in the past week',
+    [TIME_PERIOD.MONTH]: 'active in the past 30 days',
+    [TIME_PERIOD.YEAR]: 'active in the past year',
+    [TIME_PERIOD.ALL]: 'active since 0x launch',
+  }[period]);
 
 const AppsPage = () => {
   useMetadata({ title: 'Explore 0x Apps' });
@@ -19,23 +27,37 @@ const AppsPage = () => {
   const { navigateTo } = useNavigator();
   const { page, setPage } = usePaginator();
   const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.MONTH);
+  const category = useSearchParam('category');
+
+  const selectedFilters = {
+    category,
+    statsPeriod,
+  };
 
   return (
     <PageLayout
       actions={
-        <ResponsiveTimePeriodFilter
-          name="statsPeriod"
-          onChange={(newPeriod) => {
-            navigateTo(URL.APPS, { statsPeriod: newPeriod });
+        <AppsFilter
+          defaultFilters={{
+            category: undefined,
+            statsPeriod: TIME_PERIOD.MONTH,
           }}
-          value={statsPeriod}
+          onChange={(newFilters) => {
+            navigateTo(URL.APPS, newFilters);
+          }}
+          selectedFilters={selectedFilters}
         />
       }
       icon={<AppsIcon size={44} />}
       subTitle={getPeriodDescriptor(statsPeriod)}
-      title="Explore Active Apps"
+      title="Explore Apps"
     >
-      <Apps onPageChange={setPage} page={page} statsPeriod={statsPeriod} />
+      <Apps
+        category={category}
+        onPageChange={setPage}
+        page={page}
+        statsPeriod={statsPeriod}
+      />
     </PageLayout>
   );
 };

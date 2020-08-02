@@ -5,7 +5,7 @@ import useApi from '../../../hooks/use-api';
 const useApps = (options = {}) => {
   const [response, loading] = useApi('apps', {
     autoReload: options.autoReload,
-    params: _.pick(options, ['limit', 'page', 'statsPeriod']),
+    params: _.pick(options, ['category', 'limit', 'page', 'statsPeriod']),
   });
 
   const { limit, page, pageCount, apps, total } = response || {};

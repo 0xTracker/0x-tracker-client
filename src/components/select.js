@@ -73,6 +73,7 @@ const Select = styled(ReactSelect).attrs({
   && .Select__menu {
     border: none;
     box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
+    z-index: 10;
   }
 
   && .Select__menu-list {

@@ -6,9 +6,10 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import Paginator from '../../../components/paginator';
 import useApps from '../hooks/use-apps';
 
-const Apps = ({ onPageChange, page, statsPeriod }) => {
+const Apps = ({ category, onPageChange, page, statsPeriod }) => {
   const [assetBridges, loading] = useApps({
     autoReload: true,
+    category,
     limit: 25,
     page,
     statsPeriod,
@@ -41,12 +42,14 @@ const Apps = ({ onPageChange, page, statsPeriod }) => {
 };
 
 Apps.propTypes = {
+  category: PropTypes.string,
   onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number,
   statsPeriod: PropTypes.string,
 };
 
 Apps.defaultProps = {
+  category: undefined,
   page: undefined,
   statsPeriod: undefined,
 };

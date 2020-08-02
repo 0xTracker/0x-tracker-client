@@ -9,8 +9,14 @@ import sharedPropTypes from '../../../prop-types';
 const Wrapper = styled.div`
   display: grid;
   gap: 1.25rem 1.25rem;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
+
+  @media screen and (min-width: 760px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: 1300px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const AppsGrid = ({ apps, statsPeriod }) => (

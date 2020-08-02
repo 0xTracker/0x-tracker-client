@@ -25,8 +25,8 @@ const Header = styled.div`
 
 const Logo = styled.img`
   border-radius: 0.25rem;
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   z-index: 5;
 `;
 

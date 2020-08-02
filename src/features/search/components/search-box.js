@@ -19,7 +19,7 @@ const SearchOverlay = styled.div.withConfig({
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 5;
+  z-index: 9;
 `;
 
 const iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
@@ -58,7 +58,7 @@ const SearchBox = ({ autoFocus, onBlur }) => {
           background: ${COLORS.NEUTRAL.MYSTIC_100};
           color: ${COLORS.PRIMARY.SCAMPI_1000};
           position: relative;
-          z-index: 6;
+          z-index: 10;
           height: 42px;
         `}
       >
