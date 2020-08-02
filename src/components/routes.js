@@ -4,6 +4,7 @@ import React from 'react';
 
 import createPageRoute from '../util/create-page-route';
 import getAdvertisingRoutes from '../features/advertising/get-routes';
+import getAppsRoutes from '../features/apps/get-routes';
 import getAssetBridgesRoutes from '../features/asset-bridges/get-routes';
 import getContentRoutes from '../features/content/get-routes';
 import getFillsRoutes from '../features/fills/get-routes';
@@ -17,6 +18,7 @@ import getTradersRoutes from '../features/traders/get-routes';
 
 const routes = _.flatten([
   getAdvertisingRoutes(),
+  getAppsRoutes(),
   getContentRoutes(),
   getHomeRoutes(),
   getFillsRoutes(),
