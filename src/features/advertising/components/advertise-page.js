@@ -104,13 +104,13 @@ const AdvertisePage = () => (
                   <AuctionLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token:53&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
                     July 15th 2020 - July 28th 2020
                   </AuctionLink>
-                  <AvailableBadge>AVAILABLE</AvailableBadge>
+                  <SoldBadge>SOLD</SoldBadge>
                 </li>
                 <li>
                   <AuctionLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token:54&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
                     July 29th 2020 - August 11th 2020
                   </AuctionLink>
-                  <AvailableBadge>AVAILABLE</AvailableBadge>
+                  <SoldBadge>SOLD</SoldBadge>
                 </li>
                 <li>
                   <AuctionLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token:55&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
