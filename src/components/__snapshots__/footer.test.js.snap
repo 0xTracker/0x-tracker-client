@@ -27,7 +27,7 @@ exports[`should render without props 1`] = `
       </p>
       <form
         action="https://facebook.us2.list-manage.com/subscribe/post?u=1c752e167467d75829bc12aef&id=33b834d61c"
-        class="subscribe-panel__Form-sc-5e14js-9 bccDxU"
+        class="subscribe-panel__Form-sc-5e14js-9 hNFVpQ"
         method="post"
         target="_blank"
       >

@@ -104,6 +104,7 @@ const HoneyPot = styled.div`
 `;
 
 const Form = styled.form`
+  position: relative;
   margin-top: 30px;
 `;
 
