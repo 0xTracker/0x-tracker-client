@@ -138,7 +138,7 @@ const Footer = () => (
         <Col md={{ offset: 2, size: 2 }} sm={4} xs={6}>
           <NavHeading>About</NavHeading>
           <nav>
-            <NavLink href="/advertise">Advertise</NavLink>
+            {/* <NavLink href="/advertise">Advertise</NavLink> */}
             <NavLink href="/news-and-updates/0x-tracker">Blog</NavLink>
             <NavLink href="https://docs.0xtracker.com/faqs">FAQs</NavLink>
             <NavLink href="https://docs.0xtracker.com/">Overview</NavLink>
@@ -159,9 +159,6 @@ const Footer = () => (
         <Col md={2} sm={4} xs={6}>
           <NavHeading>Resources</NavHeading>
           <nav>
-            <NavLink href="https://headwayapp.co/0x-tracker-changelog">
-              Changelog
-            </NavLink>
             <NavLink
               href="https://www.buymeacoffee.com/0xTracker"
               onClick={() => {

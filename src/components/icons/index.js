@@ -12,7 +12,6 @@ import ChevronUpIcon from './chevron-up-icon';
 import CircleIcon from './circle-icon';
 import CloseIcon from './close-icon';
 import DiscordIcon from './discord-icon';
-import DonateIcon from './donate-icon';
 import EditIcon from './edit-icon';
 import EtherscanIcon from './etherscan-icon';
 import ExternalLinkIcon from './external-link-icon';
@@ -31,7 +30,6 @@ import MediumIcon from './medium-icon';
 import MenuIcon from './menu-icon';
 import MoreIcon from './more-icon';
 import NewsIcon from './news-icon';
-import NotificationsIcon from './notifications-icon';
 import PrivateIcon from './private-icon';
 import RedditShareIcon from './reddit-share-icon';
 import RelayersIcon from './relayers-icon';
@@ -69,7 +67,6 @@ export {
   CircleIcon,
   CloseIcon,
   DiscordIcon,
-  DonateIcon,
   EditIcon,
   EtherscanIcon,
   ExternalLinkIcon,
@@ -88,7 +85,6 @@ export {
   MenuIcon,
   MoreIcon,
   NewsIcon,
-  NotificationsIcon,
   PrivateIcon,
   RedditShareIcon,
   RelayersIcon,

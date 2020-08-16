@@ -1,14 +1,10 @@
 import { useLocation } from 'react-use';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
-import {
-  MenuIcon,
-  NotificationsIcon,
-  SearchIcon,
-} from '../../../components/icons';
+import { MenuIcon, SearchIcon } from '../../../components/icons';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import HeaderActions from './header-actions';
 import MobileMenu from './mobile-menu';
@@ -35,17 +31,6 @@ const StyledHeader = styled.header`
   ${media.greaterThan('lg')`
     padding: 0 2rem;
   `};
-`;
-
-const NotificationsButton = styled(MenuButton)`
-  margin-right: 0.5rem;
-  position: relative;
-
-  #HW_badge_cont {
-    position: absolute;
-    right: -10px;
-    top: -13px;
-  }
 `;
 
 const ActionButton = styled.button`
@@ -78,16 +63,6 @@ const Header = () => {
     updateMobileMenuState('open');
   };
 
-  useEffect(() => {
-    if (typeof Headway !== 'undefined') {
-      Headway.init({
-        account: 'xGOQOx',
-        selector: '.headway',
-        trigger: '.headway',
-      });
-    }
-  }, []);
-
   const isDesktop = breakpoint.greaterThan('md');
 
   return (
@@ -106,9 +81,6 @@ const Header = () => {
             </>
           ) : (
             <div css="display: flex; align-items: center;">
-              <NotificationsButton className="headway">
-                <NotificationsIcon height={24} width={24} />
-              </NotificationsButton>
               <ActionButton onClick={() => {}} title="Search">
                 <SearchIcon color="currentColor" height={22} width={22} />
               </ActionButton>

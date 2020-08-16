@@ -21,12 +21,12 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const AvailableBadge = styled(Badge)`
-  background: ${COLORS.ACCENT.FRUIT_SALAD_300};
-  color: ${COLORS.ACCENT.FRUIT_SALAD_1000};
-  margin-left: 8px;
-  vertical-align: middle;
-`;
+// const AvailableBadge = styled(Badge)`
+//   background: ${COLORS.ACCENT.FRUIT_SALAD_300};
+//   color: ${COLORS.ACCENT.FRUIT_SALAD_1000};
+//   margin-left: 8px;
+//   vertical-align: middle;
+// `;
 
 const SoldBadge = styled(Badge)`
   margin-left: 8px;
@@ -116,7 +116,7 @@ const AdvertisePage = () => (
                   <AuctionLink href="https://microsponsors.io/exchange.html?view=auctions&sort=token:55&reflink=0x56d9fb185343ff68484abb2964ad319728083cc9">
                     August 12th 2020 - August 25th 2020
                   </AuctionLink>
-                  <AvailableBadge>AVAILABLE</AvailableBadge>
+                  <SoldBadge>SOLD</SoldBadge>
                 </li>
               </ul>
               <h2
