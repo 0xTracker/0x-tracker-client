@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { COLORS } from '../../../styles/constants';
 import Dialog from '../../../components/dialog';
 import SideBannerView from './side-banner-view';
-import TopBannerView from './top-banner-view';
 
 const PlacementHeading = styled.h2`
   border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
@@ -17,8 +16,6 @@ const PlacementHeading = styled.h2`
 
 const AdContentPreview = ({ content, onClose }) => (
   <Dialog height={450} onClose={onClose} title="Advert Preview" width={1024}>
-    <PlacementHeading>Top Placement</PlacementHeading>
-    <TopBannerView advert={content} css="margin-bottom: 48px;" />
     <PlacementHeading>Side Placement</PlacementHeading>
     <SideBannerView advert={content} css="width: 450px;" />
   </Dialog>
