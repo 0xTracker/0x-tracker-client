@@ -7,11 +7,15 @@ import StatWidget from '../../../components/stat-widget';
 import useZrxPrice from '../hooks/use-zrx-price';
 
 const ZRXPriceWidget = (props) => {
-  const [zrxPrice, loading] = useZrxPrice({ autoReload: true });
+  const [zrxPrice, loading, fetchError] = useZrxPrice({
+    autoReload: true,
+    throwErrors: false,
+  });
 
   return (
     <StatWidget {...props} loading={loading} title="ZRX Price">
-      {!loading && (
+      {fetchError !== undefined && 'Unable to get price'}
+      {!loading && !fetchError && (
         <Link
           css="align-items: baseline; display: flex;"
           href="https://www.cryptocompare.com/coins/zrx/overview"

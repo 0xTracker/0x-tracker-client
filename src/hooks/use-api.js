@@ -16,9 +16,10 @@ const useApi = (method, options = {}) => {
   });
 
   // Merge options with default values. User specified options take precedence.
-  const { autoReload, params, version } = _.defaults({}, options, {
+  const { autoReload, params, throwErrors, version } = _.defaults({}, options, {
     autoReload: false,
     params: {},
+    throwErrors: true,
     version: 1,
   });
 
@@ -99,11 +100,11 @@ const useApi = (method, options = {}) => {
   );
 
   // Bail out if the API call failed
-  if (fetchError) {
+  if (fetchError && throwErrors) {
     throw fetchError;
   }
 
-  return [data, loading];
+  return [data, loading, fetchError];
 };
 
 export default useApi;
