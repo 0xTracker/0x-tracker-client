@@ -83,9 +83,7 @@ const FillPage = () => {
   return (
     <PageLayout
       actions={
-        <ActionLink
-          href={`https://etherscan.io/transaction/${fill.transactionHash}`}
-        >
+        <ActionLink href={`https://etherscan.io/tx/${fill.transactionHash}`}>
           <EtherscanIcon
             css={`
               ${media.greaterThan('md')`
