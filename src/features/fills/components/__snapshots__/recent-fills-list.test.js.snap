@@ -9,15 +9,15 @@ exports[`should render an assortment of fills 1`] = `
       class="recent-fills-item__Wrapper-sc-1yc2z6o-0 koJLeh"
     >
       <div
-        class="fill-assets-image__Wrapper-sc-1na7yca-0 dQQKqN recent-fills-item___StyledFillAssetsImage-sc-1yc2z6o-4 jtHkNs"
+        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 bjoghe"
       >
         <div
-          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper-sc-1na7yca-3 dzLNIE"
+          class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper-hf0nj8-3 hyXhcG"
         >
           <svg
             _css2="hsl(235, 14%, 30%)"
             aria-hidden="true"
-            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-2 czOLpO"
             fill="currentColor"
             focusable="false"
             height="18"
@@ -35,12 +35,12 @@ exports[`should render an assortment of fills 1`] = `
           </svg>
         </div>
         <div
-          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper2-sc-1na7yca-2 eoWYQY"
+          class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper2-hf0nj8-2 fcpgFi"
         >
           <svg
             _css2="hsl(235, 14%, 30%)"
             aria-hidden="true"
-            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-2 czOLpO"
             fill="currentColor"
             focusable="false"
             height="18"
@@ -66,7 +66,7 @@ exports[`should render an assortment of fills 1`] = `
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 diqghp"
-            href="/fills/5dd96f9d250aa512ae416656"
+            href="/trades/5dd96f9d250aa512ae416656"
           >
             1 CARD ⇋ 0.19 WETH
           </a>
@@ -103,15 +103,15 @@ exports[`should render an assortment of fills 1`] = `
       class="recent-fills-item__Wrapper-sc-1yc2z6o-0 txCrt"
     >
       <div
-        class="fill-assets-image__Wrapper-sc-1na7yca-0 dQQKqN recent-fills-item___StyledFillAssetsImage-sc-1yc2z6o-4 jtHkNs"
+        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 bjoghe"
       >
         <div
-          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper-sc-1na7yca-3 dzLNIE"
+          class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper-hf0nj8-3 hyXhcG"
         >
           <svg
             _css2="hsl(235, 14%, 30%)"
             aria-hidden="true"
-            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-2 czOLpO"
             fill="currentColor"
             focusable="false"
             height="18"
@@ -129,12 +129,12 @@ exports[`should render an assortment of fills 1`] = `
           </svg>
         </div>
         <div
-          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper2-sc-1na7yca-2 eoWYQY"
+          class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper2-hf0nj8-2 fcpgFi"
         >
           <svg
             _css2="hsl(235, 14%, 30%)"
             aria-hidden="true"
-            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-2 czOLpO"
             fill="currentColor"
             focusable="false"
             height="18"
@@ -160,7 +160,7 @@ exports[`should render an assortment of fills 1`] = `
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 diqghp"
-            href="/fills/5dd96f6d250aa512ae40bad3"
+            href="/trades/5dd96f6d250aa512ae40bad3"
           >
              Unknown ⇋ 0.975 WETH
           </a>
@@ -197,15 +197,15 @@ exports[`should render an assortment of fills 1`] = `
       class="recent-fills-item__Wrapper-sc-1yc2z6o-0 koJLeh"
     >
       <div
-        class="fill-assets-image__Wrapper-sc-1na7yca-0 dQQKqN recent-fills-item___StyledFillAssetsImage-sc-1yc2z6o-4 jtHkNs"
+        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 bjoghe"
       >
         <div
-          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper-sc-1na7yca-3 dzLNIE"
+          class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper-hf0nj8-3 hyXhcG"
         >
           <svg
             _css2="hsl(235, 14%, 30%)"
             aria-hidden="true"
-            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-2 czOLpO"
             fill="currentColor"
             focusable="false"
             height="18"
@@ -223,12 +223,12 @@ exports[`should render an assortment of fills 1`] = `
           </svg>
         </div>
         <div
-          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper2-sc-1na7yca-2 eoWYQY"
+          class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper2-hf0nj8-2 fcpgFi"
         >
           <svg
             _css2="hsl(235, 14%, 30%)"
             aria-hidden="true"
-            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-2 czOLpO"
             fill="currentColor"
             focusable="false"
             height="18"
@@ -254,7 +254,7 @@ exports[`should render an assortment of fills 1`] = `
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 diqghp"
-            href="/fills/5dd96f3f250aa512ae3fb34a"
+            href="/trades/5dd96f3f250aa512ae3fb34a"
           >
             0.0403 WETH ⇋ 2,693 SBT
           </a>
@@ -291,15 +291,15 @@ exports[`should render an assortment of fills 1`] = `
       class="recent-fills-item__Wrapper-sc-1yc2z6o-0 txCrt"
     >
       <div
-        class="fill-assets-image__Wrapper-sc-1na7yca-0 dQQKqN recent-fills-item___StyledFillAssetsImage-sc-1yc2z6o-4 jtHkNs"
+        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 bjoghe"
       >
         <div
-          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper-sc-1na7yca-3 dzLNIE"
+          class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper-hf0nj8-3 hyXhcG"
         >
           <svg
             _css2="hsl(235, 14%, 30%)"
             aria-hidden="true"
-            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-2 czOLpO"
             fill="currentColor"
             focusable="false"
             height="18"
@@ -317,12 +317,12 @@ exports[`should render an assortment of fills 1`] = `
           </svg>
         </div>
         <div
-          class="fill-assets-image__ImageWrapper-sc-1na7yca-1 fill-assets-image___StyledImageWrapper2-sc-1na7yca-2 eoWYQY"
+          class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper2-hf0nj8-2 fcpgFi"
         >
           <svg
             _css2="hsl(235, 14%, 30%)"
             aria-hidden="true"
-            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-6 jySzhe"
+            class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-assets-image___StyledTokenIcon-sc-1na7yca-2 czOLpO"
             fill="currentColor"
             focusable="false"
             height="18"
@@ -348,7 +348,7 @@ exports[`should render an assortment of fills 1`] = `
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 diqghp"
-            href="/fills/5dd96f3f250aa512ae3fb34d"
+            href="/trades/5dd96f3f250aa512ae3fb34d"
           >
             2,693 SBT ⇋  Unknown
           </a>
