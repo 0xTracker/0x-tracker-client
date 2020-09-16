@@ -12,6 +12,7 @@ import Footnote from '../../../components/footnote';
 import Link from '../../../components/link';
 import NetworkOverviewStats from './network-overview-stats';
 import NetworkMetrics from '../../metrics/components/network-metrics';
+import NetworkVolume from '../../metrics/components/network-volume';
 import Pill from '../../../components/pill';
 import ProtocolMetrics from '../../metrics/components/protocol-metrics';
 import PageLayout from '../../../components/page-layout';
@@ -50,13 +51,13 @@ const NetworkOverviewPage = () => {
               tabs={[
                 {
                   component: (
-                    <NetworkMetrics period={period} type="tradeVolume" />
+                    <NetworkVolume period={period} type="tradeVolume" />
                   ),
                   title: 'Volume',
                 },
                 {
                   component: (
-                    <NetworkMetrics period={period} type="tradeCount" />
+                    <NetworkVolume period={period} type="tradeCount" />
                   ),
                   title: 'Trades',
                 },
