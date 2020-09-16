@@ -25,7 +25,7 @@ const TopProtocolsChart = ({ data }) => {
       <PieChart margin={{ bottom: 0, left: 0, right: 0, top: 0 }}>
         <Pie
           data={data}
-          dataKey="fillCount"
+          dataKey="tradeCount"
           nameKey="protocolVersion"
           outerRadius="100%"
           paddingAngle={0}
@@ -54,8 +54,8 @@ const TopProtocolsChart = ({ data }) => {
 TopProtocolsChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      fillCount: PropTypes.number.isRequired,
       protocolVersion: PropTypes.number.isRequired,
+      tradeCount: PropTypes.number.isRequired,
       tradeVolume: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,

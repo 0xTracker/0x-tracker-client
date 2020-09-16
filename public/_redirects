@@ -1,14 +1,13 @@
 # Temporary Redirects
 /addresses/:address            /traders/:address     301
 /addresses                     /traders              301
-/trades/:id                    /fills/:id            301
+/fills/:id                     /trades/:id           301
+/fills                         /trades               301
 
 # Valid URL Mappings
 /ad-manager                    /index.html    200
 /advertise                     /index.html    200
 /asset-bridges                 /index.html    200
-/fills                         /index.html    200
-/fills/:index                  /index.html    200
 /network-insights              /index.html    200
 /news-and-updates              /index.html    200
 /news-and-updates/:source      /index.html    200
@@ -20,6 +19,8 @@
 /terms                         /index.html    200
 /tokens                        /index.html    200
 /tokens/:addresses             /index.html    200
+/trades                        /index.html    200
+/trades/:id                    /index.html    200
 /traders                       /index.html    200
 /traders/:addresses            /index.html    200
 

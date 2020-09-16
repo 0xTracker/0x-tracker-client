@@ -9,11 +9,11 @@ import { DATE_FORMAT } from '../../../constants';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import buildRelayerUrl from '../../relayers/util/build-relayer-url';
 import FillLink from './fill-link';
-import FillListAssets from './fill-list-assets';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import FillAssetsImage from './fill-assets-image';
+import RecentFillsItemAssets from './recent-fills-item-assets';
+import RecentFillsItemImage from './recent-fills-item-image';
 
 const Wrapper = styled.div`
   align-items: center;
@@ -86,20 +86,17 @@ const getSource = (fill) => {
 const RecentFillsItem = ({ fill, index, showRelayer }) => {
   const breakpoint = useCurrentBreakpoint();
   const source = getSource(fill);
+  const makerAssets = _.filter(fill.assets, { traderType: 'maker' });
+  const takerAssets = _.filter(fill.assets, { traderType: 'taker' });
 
   return (
     <Wrapper index={index}>
-      <FillAssetsImage assets={fill.assets} css="margin-right: 16px;" />
+      <RecentFillsItemImage assets={fill.assets} css="margin-right: 16px;" />
       <div css="display: flex; flex-direction: column; justify-content: center; flex-grow: 1;">
         <Heading>
           <FillLink fillId={fill.id}>
-            <FillListAssets
-              assets={_.filter(fill.assets, { traderType: 'maker' })}
-            />{' '}
-            &#8651;{' '}
-            <FillListAssets
-              assets={_.filter(fill.assets, { traderType: 'taker' })}
-            />
+            <RecentFillsItemAssets assets={makerAssets} /> &#8651;{' '}
+            <RecentFillsItemAssets assets={takerAssets} />
           </FillLink>
         </Heading>
         <Metadata>

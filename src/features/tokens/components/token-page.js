@@ -153,7 +153,7 @@ const TokenPage = () => {
             <RecentFillsCard
               filter={{ token: token.address }}
               limit={breakpoint.greaterThan('xs') ? 7 : 5}
-              placeholder="No recent fills are available for this token."
+              placeholder="No recent trades are available for this token."
             />
           </CardGridCol>
           <CardGridCol lg={5}>

@@ -10,45 +10,57 @@ function numZeroesAfterPoint(x) {
 }
 
 const formatCurrency = (amount, currency, preferredPrecision = 2) => {
-  const minPrecision = numZeroesAfterPoint(amount) + 1;
+  const minPrecision = amount > 1 ? 2 : numZeroesAfterPoint(amount) + 1;
   const precision = _.clamp(
     minPrecision,
     minPrecision > preferredPrecision ? minPrecision : preferredPrecision,
     Infinity,
   );
 
+  let result;
+
   switch (currency) {
     case 'BTC':
-      return `Ƀ ${currencyFormatter.format(amount, {
+      result = `Ƀ ${currencyFormatter.format(amount, {
         decimal: '.',
         precision,
         thousand: ',',
       })}`;
+      break;
     case 'ETH':
-      return `Ξ ${currencyFormatter.format(amount, {
+      result = `Ξ ${currencyFormatter.format(amount, {
         decimal: '.',
         precision,
         thousand: ',',
       })}`;
+      break;
     case 'EUR':
-      return currencyFormatter.format(amount, {
+      result = currencyFormatter.format(amount, {
         decimal: ',',
         precision,
         symbol: '€',
         thousand: '.',
       });
+      break;
     case 'AUD':
-      return currencyFormatter.format(amount, {
+      result = currencyFormatter.format(amount, {
         precision,
         symbol: 'A$',
       });
+      break;
     default:
-      return currencyFormatter.format(amount, {
+      result = currencyFormatter.format(amount, {
         code: currency,
         precision,
         thousand: currency === 'EUR' ? '.' : ',',
       });
   }
+
+  if (result.endsWith('.00')) {
+    return result.substr(0, result.length - 3);
+  }
+
+  return result;
 };
 
 export default formatCurrency;

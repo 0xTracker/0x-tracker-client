@@ -289,7 +289,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle text-right"
       >
         <span
-          title="$124,000.00"
+          title="$124,000"
         >
           $124k
         </span>
@@ -400,7 +400,7 @@ exports[`renders with basic props 1`] = `
         class="align-middle text-right"
       >
         <span
-          title="$100,000.00"
+          title="$100,000"
         >
           $100k
         </span>

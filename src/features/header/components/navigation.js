@@ -39,7 +39,7 @@ const Navigation = ({ className }) => (
       <NavigationIcon as={AssetBridgeIcon} size={24} /> Asset Bridges
     </NavigationLink>
     <NavigationLink href={URL.FILLS}>
-      <NavigationIcon as={FillsIcon} size={24} /> Browse Fills
+      <NavigationIcon as={FillsIcon} size={24} /> Browse Trades
     </NavigationLink>
     <NavigationLink href={URL.NETWORK_INSIGHTS}>
       <NavigationIcon as={InsightsIcon} size={24} /> Network Insights

@@ -11,11 +11,12 @@ import FillsBrowserStats from './fills-browser-stats';
 import FillsPageLayout from './fills-page-layout';
 import LoadingIndicator from '../../../components/loading-indicator';
 import NetworkMetrics from '../../metrics/components/network-metrics';
+import NetworkVolume from '../../metrics/components/network-volume';
 import TabbedCard from '../../../components/tabbed-card';
 import useNetworkStats from '../../stats/hooks/use-network-stats';
 
 const FillsPage = () => {
-  useMetadata({ title: 'Browse 0x Protocol Fills' });
+  useMetadata({ title: 'Browse 0x Protocol Trades' });
 
   const { page, setPage } = usePaginator();
   const status = useSearchParam('status');
@@ -72,7 +73,7 @@ const FillsPage = () => {
             <CardGridCol>
               <Card>
                 <CardPlaceholder>
-                  No fills were found matching the selected filters
+                  No trades were found matching the selected filters
                 </CardPlaceholder>
               </Card>
             </CardGridCol>
@@ -96,7 +97,7 @@ const FillsPage = () => {
               tabs={[
                 {
                   component: (
-                    <NetworkMetrics
+                    <NetworkVolume
                       filters={selectedFilters}
                       period={period}
                       type="tradeVolume"
@@ -106,7 +107,7 @@ const FillsPage = () => {
                 },
                 {
                   component: (
-                    <NetworkMetrics
+                    <NetworkVolume
                       filters={selectedFilters}
                       period={period}
                       type="tradeCount"

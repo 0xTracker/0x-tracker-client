@@ -19,11 +19,11 @@ const RecentFillsCard = ({
   ...otherProps
 }) => (
   <Card
-    errorMessage="An error occurred while loading recent fills"
+    errorMessage="An error occurred while loading recent trades"
     {...otherProps}
   >
     <CardHeader>
-      <CardHeading>Recent Fills</CardHeading>
+      <CardHeading>Recent Trades</CardHeading>
       <Pill as={Link} href={buildUrl(URL.FILLS, filter)}>
         View More
       </Pill>

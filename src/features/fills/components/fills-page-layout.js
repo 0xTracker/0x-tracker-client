@@ -55,7 +55,7 @@ const FillsPageLayout = ({ children, period, selectedFilters }) => {
       }
       icon={<FillsIcon size={44} />}
       subTitle={getSubTitle(dateFrom, dateTo)}
-      title="Browse Fills"
+      title="Browse Trades"
     >
       {children}
     </PageLayout>
