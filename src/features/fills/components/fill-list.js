@@ -21,9 +21,9 @@ const FillList = ({ excludeColumns, fills }) => {
       <thead>
         <tr>
           <th>Date</th>
-          <th className="text-right">Maker Amount</th>
-          <th />
-          <th className="text-right">Taker Amount</th>
+          <th colSpan={3}>Traded Assets</th>
+          <th>Protocol</th>
+          <th className="text-right">Protocol Fee</th>
           <th className="text-right">Value</th>
           {includeColumn('relayer') && <th>Relayer</th>}
           <th title="View" />
@@ -41,20 +41,38 @@ const FillList = ({ excludeColumns, fills }) => {
                 linked
               />
             </td>
-            <td className="text-center" width="99%">
-              &#8651;
-            </td>
-            <td className="text-right">
+            <td className="text-center">&#8651;</td>
+            <td className="text-right" width="99%">
               <FillListAssets
                 assets={_.filter(fill.assets, { traderType: 'taker' })}
                 linked
               />
             </td>
+            <td>v{fill.protocolVersion}</td>
+            <td className="text-right">
+              {fill.protocolFee === undefined ? (
+                <span
+                  css={`
+                    color: ${COLORS.NEUTRAL.MYSTIC_600};
+                  `}
+                >
+                  -
+                </span>
+              ) : (
+                <LocalisedAmount amount={fill.protocolFee.USD} />
+              )}
+            </td>
             <td className="text-right">
               {_.has(fill, `value.${BASE_CURRENCY}`) ? (
                 <LocalisedAmount amount={fill.value[BASE_CURRENCY]} />
               ) : (
-                '-'
+                <span
+                  css={`
+                    color: ${COLORS.NEUTRAL.MYSTIC_600};
+                  `}
+                >
+                  -
+                </span>
               )}
             </td>
             {includeColumn('relayer') && (
