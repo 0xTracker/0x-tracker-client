@@ -20,7 +20,8 @@ const Sidebar = () => (
       background: ${COLORS.PRIMARY.SCAMPI_1000};
       height: 100vh;
       flex-shrink: 0;
-      overflow-y: scroll;
+      overflow-x: hidden;
+      overflow-y: auto;
       display: flex;
       flex-direction: column;
     `}

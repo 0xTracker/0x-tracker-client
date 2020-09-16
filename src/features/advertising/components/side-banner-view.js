@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   color: white;
   border-radius: 4px;
   padding: 12px;
-  width: 226px;
+  min-width: 200px;
   text-align: center;
   margin: 0 12px 12px 12px;
 `;
