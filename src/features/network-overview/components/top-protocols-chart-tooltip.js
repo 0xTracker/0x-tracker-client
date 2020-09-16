@@ -14,15 +14,15 @@ const TopProtocolsChartTooltip = ({ payload }) => {
     return null;
   }
 
-  const { protocolVersion, fillCount, tradeVolume } = payload[0].payload;
+  const { protocolVersion, tradeCount, tradeVolume } = payload[0].payload;
 
   return (
     <ChartTooltip
       items={[
         { label: 'Protocol Version', value: protocolVersion },
         {
-          label: 'Fills',
-          value: <Number>{fillCount}</Number>,
+          label: 'Trades',
+          value: <Number>{tradeCount}</Number>,
         },
         {
           label: `Volume (${displayCurrency})`,
@@ -42,8 +42,8 @@ TopProtocolsChartTooltip.propTypes = {
   payload: PropTypes.arrayOf(
     PropTypes.shape({
       payload: PropTypes.shape({
-        fillCount: PropTypes.number.isRequired,
         protocolVersion: PropTypes.number.isRequired,
+        tradeCount: PropTypes.number.isRequired,
         tradeVolume: PropTypes.number.isRequired,
       }),
     }),

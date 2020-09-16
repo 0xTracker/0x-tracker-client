@@ -30,7 +30,7 @@ const CompactNavigation = ({ className }) => (
     <CompactNavigationLink href={URL.ASSET_BRIDGES} title="Asset Bridges">
       <AssetBridgeIcon size={24} />
     </CompactNavigationLink>
-    <CompactNavigationLink href={URL.FILLS} title="Browse Fills">
+    <CompactNavigationLink href={URL.FILLS} title="Browse Trades">
       <FillsIcon size={24} />
     </CompactNavigationLink>
     <CompactNavigationLink href={URL.NETWORK_INSIGHTS} title="Network Insights">

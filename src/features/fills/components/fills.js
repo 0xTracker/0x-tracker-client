@@ -23,7 +23,7 @@ const Fills = ({ excludeColumns, filter, page, onPageChange }) => {
   if (items.length === 0) {
     return (
       <CardPlaceholder>
-        No fills were found matching the selected filters.
+        No trades were found matching the selected filters.
       </CardPlaceholder>
     );
   }

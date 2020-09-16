@@ -15,7 +15,7 @@ import TabbedCard from '../../../components/tabbed-card';
 import useNetworkStats from '../../stats/hooks/use-network-stats';
 
 const FillsPage = () => {
-  useMetadata({ title: 'Browse 0x Protocol Fills' });
+  useMetadata({ title: 'Browse 0x Protocol Trades' });
 
   const { page, setPage } = usePaginator();
   const status = useSearchParam('status');
@@ -72,7 +72,7 @@ const FillsPage = () => {
             <CardGridCol>
               <Card>
                 <CardPlaceholder>
-                  No fills were found matching the selected filters
+                  No trades were found matching the selected filters
                 </CardPlaceholder>
               </Card>
             </CardGridCol>

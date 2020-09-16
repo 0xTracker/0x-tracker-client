@@ -35,9 +35,9 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
         <th className="text-center">#</th>
         <th colSpan={2}>{DESCRIPTOR_MAPPINGS[statsType]}</th>
         <th className="text-center">
-          Fills
+          Trades
           <HelpWidget css="margin-left: 0.25rem;">
-            The number of unique fills for a given{' '}
+            The number of unique trades for a given{' '}
             {DESCRIPTOR_MAPPINGS[statsType].toLowerCase()} in the selected
             period.
           </HelpWidget>
@@ -45,7 +45,7 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
         <th className="text-center">
           Volume
           <HelpWidget css="margin-left: 0.25rem;">
-            The total value of all fills that a given{' '}
+            The total value of all trades that a given{' '}
             {DESCRIPTOR_MAPPINGS[statsType].toLowerCase()} participated in for
             the selected period.
           </HelpWidget>
