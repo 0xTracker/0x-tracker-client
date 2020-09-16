@@ -11,6 +11,7 @@ import FillsBrowserStats from './fills-browser-stats';
 import FillsPageLayout from './fills-page-layout';
 import LoadingIndicator from '../../../components/loading-indicator';
 import NetworkMetrics from '../../metrics/components/network-metrics';
+import NetworkVolume from '../../metrics/components/network-volume';
 import TabbedCard from '../../../components/tabbed-card';
 import useNetworkStats from '../../stats/hooks/use-network-stats';
 
@@ -96,7 +97,7 @@ const FillsPage = () => {
               tabs={[
                 {
                   component: (
-                    <NetworkMetrics
+                    <NetworkVolume
                       filters={selectedFilters}
                       period={period}
                       type="tradeVolume"
@@ -106,7 +107,7 @@ const FillsPage = () => {
                 },
                 {
                   component: (
-                    <NetworkMetrics
+                    <NetworkVolume
                       filters={selectedFilters}
                       period={period}
                       type="tradeCount"
