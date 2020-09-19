@@ -71,7 +71,7 @@ exports[`app layout component should render with children 1`] = `
       <a
         aria-current="false"
         class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
-        href="/trades"
+        href="/fills"
       >
         <svg
           aria-hidden="true"
