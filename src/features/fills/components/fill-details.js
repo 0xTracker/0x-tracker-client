@@ -71,9 +71,13 @@ const FillDetails = ({ fill, maker, taker }) => {
         title="Order Hash"
         tooltip="Unique hash of the order which this fill relates to."
       >
-        <FillDetailLink as={SearchLink} searchQuery={fill.orderHash}>
-          {fill.orderHash}
-        </FillDetailLink>
+        {fill.orderHash ? (
+          <FillDetailLink as={SearchLink} searchQuery={fill.orderHash}>
+            {fill.orderHash}
+          </FillDetailLink>
+        ) : (
+          'None'
+        )}
       </FillDetail>
 
       <FillDetail
@@ -303,9 +307,13 @@ const FillDetails = ({ fill, maker, taker }) => {
         title="Fee Recipient"
         tooltip="Ethereum address which received any associated maker/taker fees."
       >
-        <FillDetailLink address={fill.feeRecipient} as={EthereumAddressLink}>
-          {fill.feeRecipient}
-        </FillDetailLink>
+        {fill.feeRecipient ? (
+          <FillDetailLink address={fill.feeRecipient} as={EthereumAddressLink}>
+            {fill.feeRecipient}
+          </FillDetailLink>
+        ) : (
+          'None'
+        )}
       </FillDetail>
     </FillDetailList>
   );

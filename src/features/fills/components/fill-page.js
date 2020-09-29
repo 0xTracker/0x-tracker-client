@@ -37,7 +37,7 @@ const ActionLink = styled(Link)`
 `;
 
 const FillPage = () => {
-  useMetadata({ title: '0x Protocol Fill Details' });
+  useMetadata({ title: '0x Protocol Trade Details' });
 
   const { id } = useParams();
   const [fill, loading] = useFill(id);
@@ -107,7 +107,7 @@ const FillPage = () => {
         </svg>
       }
       subTitle={`for ${truncateAddress(fill.transactionHash, 30)}`}
-      title="Fill Details"
+      title="Trade Details"
     >
       <Card css="padding: 2rem;">
         <FillDetails fill={fill} maker={maker} taker={taker} />
