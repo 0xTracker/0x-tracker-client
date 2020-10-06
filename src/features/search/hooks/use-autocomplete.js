@@ -98,7 +98,7 @@ const useAutocomplete = () => {
                 slug: relayer.slug,
                 type: 'relayer',
               })),
-              title: 'Relayers',
+              title: 'Apps',
             }
           : null;
 

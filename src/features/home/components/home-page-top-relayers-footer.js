@@ -5,7 +5,7 @@ import { verbosePeriod } from '../../../util';
 import Footnote from '../../../components/footnote';
 
 const HomePageTopRelayersFooter = ({ period }) => (
-  <Footnote>top relayers by {verbosePeriod(period)} volume</Footnote>
+  <Footnote>top apps by {verbosePeriod(period)} volume</Footnote>
 );
 
 HomePageTopRelayersFooter.propTypes = {

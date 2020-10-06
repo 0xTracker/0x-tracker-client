@@ -1,20 +1,24 @@
-# Temporary Redirects
+# Permanent Redirects
 /addresses/:address            /traders/:address     301
 /addresses                     /traders              301
 /trades/:id                    /fills/:id            301
 /trades                        /fills                301
 
+# Temporary Redirects
+/relayers/:slug                /apps/:slug           302
+/relayers                      /apps                 302
+
 # Valid URL Mappings
 /ad-manager                    /index.html    200
 /advertise                     /index.html    200
+/apps                          /index.html    200
+/apps/:slug                    /index.html    200
 /asset-bridges                 /index.html    200
 /network-insights              /index.html    200
 /news-and-updates              /index.html    200
 /news-and-updates/:source      /index.html    200
 /news-and-updates/:source/:slug      /index.html    200
 /privacy                       /index.html    200
-/relayers                      /index.html    200
-/relayers/:slug                /index.html    200
 /search                        /index.html    200
 /terms                         /index.html    200
 /tokens                        /index.html    200

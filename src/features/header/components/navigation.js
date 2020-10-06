@@ -5,12 +5,12 @@ import styled from 'styled-components';
 import { URL } from '../../../constants';
 import { COLORS } from '../../../styles/constants';
 import {
+  AppsIcon,
   AssetBridgeIcon,
   FillsIcon,
   HomeIcon,
   InsightsIcon,
   NewsIcon,
-  RelayersIcon,
   TokensIcon,
   TradersIcon,
 } from '../../../components/icons';
@@ -35,6 +35,9 @@ const Navigation = ({ className }) => (
     <NavigationLink href={URL.HOME}>
       <NavigationIcon as={HomeIcon} size={24} /> Home
     </NavigationLink>
+    <NavigationLink href={URL.APPS}>
+      <NavigationIcon as={AppsIcon} size={24} /> Apps
+    </NavigationLink>
     <NavigationLink href={URL.ASSET_BRIDGES}>
       <NavigationIcon as={AssetBridgeIcon} size={24} /> Asset Bridges
     </NavigationLink>
@@ -46,9 +49,6 @@ const Navigation = ({ className }) => (
     </NavigationLink>
     <NavigationLink href={URL.NEWS} title="News & Updates">
       <NavigationIcon as={NewsIcon} size={22} /> News & Updates
-    </NavigationLink>
-    <NavigationLink href={URL.RELAYERS}>
-      <NavigationIcon as={RelayersIcon} size={20} /> Relayers
     </NavigationLink>
     <NavigationLink href={URL.TOKENS}>
       <NavigationIcon as={TokensIcon} size={26} /> Tokens

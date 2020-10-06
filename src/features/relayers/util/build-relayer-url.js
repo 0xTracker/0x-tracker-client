@@ -1,5 +1,5 @@
 import { URL } from '../../../constants';
 
-const buildRelayerUrl = (slug) => URL.RELAYER.replace(':slug', slug);
+const buildRelayerUrl = (slug) => URL.APP.replace(':slug', slug);
 
 export default buildRelayerUrl;

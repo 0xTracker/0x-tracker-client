@@ -49,6 +49,27 @@ exports[`app layout component should render with children 1`] = `
       <a
         aria-current="false"
         class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
+        href="/apps"
+      >
+        <svg
+          aria-hidden="true"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy navigation__NavigationIcon-sc-18grpkd-1 hWVwlC"
+          fill="currentColor"
+          focusable="false"
+          height="24"
+          viewBox="0 0 512 512"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M104 160a56 56 0 1156-56 56.06 56.06 0 01-56 56zM256 160a56 56 0 1156-56 56.06 56.06 0 01-56 56zM408 160a56 56 0 1156-56 56.06 56.06 0 01-56 56zM104 312a56 56 0 1156-56 56.06 56.06 0 01-56 56zM256 312a56 56 0 1156-56 56.06 56.06 0 01-56 56zM408 312a56 56 0 1156-56 56.06 56.06 0 01-56 56zM104 464a56 56 0 1156-56 56.06 56.06 0 01-56 56zM256 464a56 56 0 1156-56 56.06 56.06 0 01-56 56zM408 464a56 56 0 1156-56 56.06 56.06 0 01-56 56z"
+          />
+        </svg>
+         Apps
+      </a>
+      <a
+        aria-current="false"
+        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
         href="/asset-bridges"
       >
         <svg
@@ -137,28 +158,6 @@ exports[`app layout component should render with children 1`] = `
           />
         </svg>
          News & Updates
-      </a>
-      <a
-        aria-current="false"
-        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
-        href="/relayers"
-      >
-        <svg
-          aria-hidden="true"
-          class="icon-base__IconBase-ngmsqy-0 hvjdWy navigation__NavigationIcon-sc-18grpkd-1 hWVwlC"
-          fill="currentColor"
-          focusable="false"
-          height="20"
-          viewBox="0 0 512 512"
-          width="20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M501.62 92.11L267.24 2.04a31.958 31.958 0 00-22.47 0L10.38 92.11A16.001 16.001 0 000 107.09V144c0 8.84 7.16 16 16 16h480c8.84 0 16-7.16 16-16v-36.91c0-6.67-4.14-12.64-10.38-14.98zM64 192v160H48c-8.84 0-16 7.16-16 16v48h448v-48c0-8.84-7.16-16-16-16h-16V192h-64v160h-96V192h-64v160h-96V192H64zm432 256H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h480c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"
-            fill="currentColor"
-          />
-        </svg>
-         Relayers
       </a>
       <a
         aria-current="false"
@@ -257,7 +256,7 @@ exports[`app layout component should render with children 1`] = `
                         autocomplete="off"
                         class="react-autosuggest__input"
                         name="q"
-                        placeholder="Search for tokens, relayers, traders or trades"
+                        placeholder="Search for tokens, apps, traders or trades"
                         type="text"
                         value=""
                       />

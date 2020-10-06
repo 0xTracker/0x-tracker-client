@@ -80,7 +80,7 @@ exports[`should render an assortment of fills 1`] = `
           <dd>
             <a
               class="link__StyledLink-sc-1m1n17q-0 diqghp"
-              href="/relayers/token-trove"
+              href="/apps/token-trove"
             >
               TokenTrove
             </a>
@@ -174,7 +174,7 @@ exports[`should render an assortment of fills 1`] = `
           <dd>
             <a
               class="link__StyledLink-sc-1m1n17q-0 diqghp"
-              href="/relayers/token-trove"
+              href="/apps/token-trove"
             >
               TokenTrove
             </a>
@@ -268,7 +268,7 @@ exports[`should render an assortment of fills 1`] = `
           <dd>
             <a
               class="link__StyledLink-sc-1m1n17q-0 diqghp"
-              href="/relayers/star-bit"
+              href="/apps/star-bit"
             >
               STAR BIT
             </a>
@@ -362,7 +362,7 @@ exports[`should render an assortment of fills 1`] = `
           <dd>
             <a
               class="link__StyledLink-sc-1m1n17q-0 diqghp"
-              href="/relayers/star-bit"
+              href="/apps/star-bit"
             >
               STAR BIT
             </a>

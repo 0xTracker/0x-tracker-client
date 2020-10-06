@@ -33,8 +33,8 @@ const MobileNavigation = ({ onNavigate }) => {
       <MobileNavigationLink href={URL.TOKENS} onClick={onNavigate}>
         Tokens
       </MobileNavigationLink>
-      <MobileNavigationLink href={URL.RELAYERS} onClick={onNavigate}>
-        Relayers
+      <MobileNavigationLink href={URL.APPS} onClick={onNavigate}>
+        Apps
       </MobileNavigationLink>
       <MobileNavigationLink href={URL.NEWS} onClick={onNavigate}>
         News & Updates

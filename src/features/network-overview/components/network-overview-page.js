@@ -79,13 +79,13 @@ const NetworkOverviewPage = () => {
                 },
                 {
                   actions: (
-                    <Pill as={Link} href={URL.RELAYERS}>
+                    <Pill as={Link} href={URL.APPS}>
                       View More
                     </Pill>
                   ),
                   component: <TopRelayers period={period} />,
-                  footer: <Footnote>Top relayers by volume</Footnote>,
-                  title: 'Top Relayers',
+                  footer: <Footnote>Top apps by volume</Footnote>,
+                  title: 'Top Apps',
                 },
               ]}
             />

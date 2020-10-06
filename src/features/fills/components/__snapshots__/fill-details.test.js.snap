@@ -258,7 +258,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
     >
       <a
         class="link__StyledLink-sc-1m1n17q-0 diqghp fill-relayer-link___StyledRelayerLink-sc-10d6xh4-1 cGetFX"
-        href="/relayers/radar-relay"
+        href="/apps/radar-relay"
       >
         <img
           class="relayer-image___StyledImg-sc-1yudeg-0 iMMSkm fill-relayer-link___StyledRelayerImage-sc-10d6xh4-2 henJQY"
@@ -964,7 +964,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
     >
       <a
         class="link__StyledLink-sc-1m1n17q-0 diqghp fill-relayer-link___StyledRelayerLink-sc-10d6xh4-1 cGetFX"
-        href="/relayers/radar-relay"
+        href="/apps/radar-relay"
       >
         <img
           class="relayer-image___StyledImg-sc-1yudeg-0 iMMSkm fill-relayer-link___StyledRelayerImage-sc-10d6xh4-2 henJQY"
