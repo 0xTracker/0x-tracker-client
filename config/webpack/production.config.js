@@ -1,7 +1,7 @@
 const _ = require('lodash');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
+// const { UnusedFilesWebpackPlugin } = require('unused-files-webpack-plugin');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OfflinePlugin = require('offline-plugin');
@@ -71,23 +71,23 @@ module.exports = (env = {}) =>
         excludes: ['**/.*', '**/*.map', '**/*.gz', '_redirects'],
       }),
 
-      new UnusedFilesWebpackPlugin({
-        failOnUnused: true,
-        globOptions: {
-          ignore: [
-            'src/**/*.stories.js',
-            'src/components/hidden.js',
-            'src/components/visible.js',
-            'src/**/*.test.js',
-            'src/**/*.test.js.snap',
-            'src/test-util/**/*.*',
-            'src/components/filter-button.js',
-            'src/features/traders/components/traders-filter-dialog.js',
-            'src/features/traders/components/traders-filter.js',
-            'src/features/traders/components/trader-type-selector.js',
-          ],
-        },
-        patterns: ['src/**/*.*'],
-      }),
+      // new UnusedFilesWebpackPlugin({
+      //   failOnUnused: true,
+      //   globOptions: {
+      //     ignore: [
+      //       'src/**/*.stories.js',
+      //       'src/components/hidden.js',
+      //       'src/components/visible.js',
+      //       'src/**/*.test.js',
+      //       'src/**/*.test.js.snap',
+      //       'src/test-util/**/*.*',
+      //       'src/components/filter-button.js',
+      //       'src/features/traders/components/traders-filter-dialog.js',
+      //       'src/features/traders/components/traders-filter.js',
+      //       'src/features/traders/components/trader-type-selector.js',
+      //     ],
+      //   },
+      //   patterns: ['src/**/*.*'],
+      // }),
     ]),
   });

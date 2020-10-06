@@ -74,9 +74,9 @@ const TokenRelayersTable = ({ relayers, token }) => {
                 {relayer.id === 'unknown' && (
                   <HelpWidget css="margin-left: 0.5rem; vertical-align: middle;">
                     Unknown app volume includes all trades that don&rsquo;t
-                    belong to known relayers. These trades could be over the
-                    counter (OTC) or belong to relayers which 0x Tracker is not
-                    yet indexing.
+                    belong to known apps. These trades could be over the counter
+                    (OTC) or belong to apps which 0x Tracker is not yet
+                    indexing.
                   </HelpWidget>
                 )}
               </span>
