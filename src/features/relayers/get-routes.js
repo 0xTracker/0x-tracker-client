@@ -6,6 +6,20 @@ const getRoutes = () => [
       import(
         /* webpackChunkName: "page-relayers" */ './components/relayers-page'
       ),
+    path: URL.APPS,
+  },
+  {
+    loader: () =>
+      import(
+        /* webpackChunkName: "page-relayer" */ './components/relayer-page'
+      ),
+    path: URL.APP,
+  },
+  {
+    loader: () =>
+      import(
+        /* webpackChunkName: "page-relayers" */ './components/relayers-page'
+      ),
     path: URL.RELAYERS,
   },
   {

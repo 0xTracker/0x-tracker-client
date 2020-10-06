@@ -37,6 +37,8 @@ const GENESIS_DATE = new Date('2017-08-15T00:00:00Z');
 const URL = {
   AD_MANAGER: '/ad-manager',
   ADVERTISE: '/advertise',
+  APP: '/apps/:slug',
+  APPS: '/apps',
   ASSET_BRIDGES: '/asset-bridges',
   FILL: '/fills/:id',
   FILLS: '/fills',

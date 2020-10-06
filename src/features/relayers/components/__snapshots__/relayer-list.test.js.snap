@@ -14,7 +14,7 @@ exports[`renders with basic props 1`] = `
       <th
         colspan="2"
       >
-        Relayer
+        App
       </th>
       <th
         class="text-right"
@@ -122,7 +122,7 @@ exports[`renders with basic props 1`] = `
       >
         <a
           class="link__StyledLink-sc-1m1n17q-0 diqghp"
-          href="/relayers/ddex"
+          href="/apps/ddex"
         >
           <svg
             aria-hidden="true"
@@ -151,7 +151,7 @@ exports[`renders with basic props 1`] = `
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 diqghp"
-            href="/relayers/ddex"
+            href="/apps/ddex"
           >
             DDEX
           </a>
@@ -233,7 +233,7 @@ exports[`renders with basic props 1`] = `
       >
         <a
           class="link__StyledLink-sc-1m1n17q-0 diqghp"
-          href="/relayers/paradex"
+          href="/apps/paradex"
         >
           <svg
             aria-hidden="true"
@@ -262,7 +262,7 @@ exports[`renders with basic props 1`] = `
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 diqghp"
-            href="/relayers/paradex"
+            href="/apps/paradex"
           >
             Paradex
           </a>
@@ -344,7 +344,7 @@ exports[`renders with basic props 1`] = `
       >
         <a
           class="link__StyledLink-sc-1m1n17q-0 diqghp"
-          href="/relayers/radar-relay"
+          href="/apps/radar-relay"
         >
           <svg
             aria-hidden="true"
@@ -373,7 +373,7 @@ exports[`renders with basic props 1`] = `
         >
           <a
             class="link__StyledLink-sc-1m1n17q-0 diqghp"
-            href="/relayers/radar-relay"
+            href="/apps/radar-relay"
           >
             Radar Relay
           </a>

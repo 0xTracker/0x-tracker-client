@@ -86,17 +86,16 @@ const HomePage = () => {
                 },
                 {
                   actions: (
-                    <Pill as={Link} href={URL.RELAYERS}>
+                    <Pill as={Link} href={URL.APPS}>
                       View More
                     </Pill>
                   ),
                   component: <TopRelayers period={TIME_PERIOD.DAY} />,
-                  errorMessage:
-                    'An error occurred while loading the top relayers',
+                  errorMessage: 'An error occurred while loading the top apps',
                   footer: (
                     <HomePageTopRelayersFooter period={TIME_PERIOD.DAY} />
                   ),
-                  title: 'Top Relayers',
+                  title: 'Top Apps',
                 },
               ]}
             />

@@ -22,7 +22,7 @@ const RelayerStats = ({ period, relayer }) => {
             change={relayer.stats.tradeVolumeChange}
             period={period}
             showPeriod={false}
-            tooltip={`Total value of all trades relayed by ${
+            tooltip={`Total value of all 0x-based trades made through ${
               relayer.name
             } ${getPeriodDescriptor(period)}.`}
             volume={relayer.stats.tradeVolume}
@@ -33,7 +33,7 @@ const RelayerStats = ({ period, relayer }) => {
             change={relayer.stats.tradeCountChange}
             period={period}
             showPeriod={false}
-            tooltip={`Total number of trades relayed by ${
+            tooltip={`Total number of 0x-based trades made through ${
               relayer.name
             } ${getPeriodDescriptor(period)}`}
             tradeCount={relayer.stats.tradeCount}
@@ -44,7 +44,7 @@ const RelayerStats = ({ period, relayer }) => {
             change={relayer.stats.activeTradersChange}
             period={period}
             showPeriod={false}
-            tooltip={`Number of unique maker/taker addresses active on ${
+            tooltip={`Number of unique traders involved in 0x-based trades on ${
               relayer.name
             } ${getPeriodDescriptor(period)}.`}
             traderCount={relayer.stats.activeTraders}
@@ -55,7 +55,7 @@ const RelayerStats = ({ period, relayer }) => {
             change={relayer.stats.tradedTokensChange}
             period={period}
             showPeriod={false}
-            tooltip={`Number of unique tokens traded on ${
+            tooltip={`Number of unique tokens exchanged in 0x-based trades through ${
               relayer.name
             } ${getPeriodDescriptor(period)}.`}
             tradedTokens={relayer.stats.tradedTokens}

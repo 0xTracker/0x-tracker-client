@@ -27,7 +27,7 @@ const getName = (relayer) => {
   }
 
   if (relayer.id === 'unknown') {
-    return 'Unknown Relayer';
+    return 'Unknown App';
   }
 
   return relayer.name;

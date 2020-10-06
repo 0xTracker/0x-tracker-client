@@ -25,7 +25,7 @@ const FillList = ({ excludeColumns, fills }) => {
           <th>Protocol</th>
           <th className="text-right">Protocol Fee</th>
           <th className="text-right">Value</th>
-          {includeColumn('relayer') && <th>Relayer</th>}
+          {includeColumn('relayer') && <th>App</th>}
           <th title="View" />
         </tr>
       </thead>

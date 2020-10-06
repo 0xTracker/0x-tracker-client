@@ -135,7 +135,7 @@ const SearchInput = React.forwardRef(
               onFocus();
             },
             placeholder: breakpoint.greaterThan('xs')
-              ? 'Search for tokens, relayers, traders or trades'
+              ? 'Search for tokens, apps, traders or trades'
               : 'Search site...',
             ref,
             value: inputValue,

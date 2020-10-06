@@ -4,12 +4,12 @@ import styled from 'styled-components';
 
 import { URL } from '../../../constants';
 import {
+  AppsIcon,
   AssetBridgeIcon,
   FillsIcon,
   HomeIcon,
   InsightsIcon,
   NewsIcon,
-  RelayersIcon,
   TokensIcon,
   TradersIcon,
 } from '../../../components/icons';
@@ -27,6 +27,9 @@ const CompactNavigation = ({ className }) => (
     <CompactNavigationLink href={URL.HOME}>
       <HomeIcon size={24} />
     </CompactNavigationLink>
+    <CompactNavigationLink href={URL.APPS} title="Apps">
+      <AppsIcon size={24} />
+    </CompactNavigationLink>
     <CompactNavigationLink href={URL.ASSET_BRIDGES} title="Asset Bridges">
       <AssetBridgeIcon size={24} />
     </CompactNavigationLink>
@@ -38,9 +41,6 @@ const CompactNavigation = ({ className }) => (
     </CompactNavigationLink>
     <CompactNavigationLink href={URL.NEWS} title="News & Updates">
       <NewsIcon size={22} />
-    </CompactNavigationLink>
-    <CompactNavigationLink href={URL.RELAYERS} title="Relayers">
-      <RelayersIcon size={20} />
     </CompactNavigationLink>
     <CompactNavigationLink href={URL.TOKENS} title="Tokens">
       <TokensIcon size={26} />

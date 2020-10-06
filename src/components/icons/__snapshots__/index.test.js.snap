@@ -106,6 +106,40 @@ exports[`should render AllIcon icon at 50x50 1`] = `
 </svg>
 `;
 
+exports[`should render AppsIcon icon at 20x20 1`] = `
+<svg
+  aria-hidden="true"
+  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+  fill="currentColor"
+  focusable="false"
+  height="20"
+  viewBox="0 0 512 512"
+  width="20"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M104 160a56 56 0 1156-56 56.06 56.06 0 01-56 56zM256 160a56 56 0 1156-56 56.06 56.06 0 01-56 56zM408 160a56 56 0 1156-56 56.06 56.06 0 01-56 56zM104 312a56 56 0 1156-56 56.06 56.06 0 01-56 56zM256 312a56 56 0 1156-56 56.06 56.06 0 01-56 56zM408 312a56 56 0 1156-56 56.06 56.06 0 01-56 56zM104 464a56 56 0 1156-56 56.06 56.06 0 01-56 56zM256 464a56 56 0 1156-56 56.06 56.06 0 01-56 56zM408 464a56 56 0 1156-56 56.06 56.06 0 01-56 56z"
+  />
+</svg>
+`;
+
+exports[`should render AppsIcon icon at 50x50 1`] = `
+<svg
+  aria-hidden="true"
+  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+  fill="currentColor"
+  focusable="false"
+  height="50"
+  viewBox="0 0 512 512"
+  width="50"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M104 160a56 56 0 1156-56 56.06 56.06 0 01-56 56zM256 160a56 56 0 1156-56 56.06 56.06 0 01-56 56zM408 160a56 56 0 1156-56 56.06 56.06 0 01-56 56zM104 312a56 56 0 1156-56 56.06 56.06 0 01-56 56zM256 312a56 56 0 1156-56 56.06 56.06 0 01-56 56zM408 312a56 56 0 1156-56 56.06 56.06 0 01-56 56zM104 464a56 56 0 1156-56 56.06 56.06 0 01-56 56zM256 464a56 56 0 1156-56 56.06 56.06 0 01-56 56zM408 464a56 56 0 1156-56 56.06 56.06 0 01-56 56z"
+  />
+</svg>
+`;
+
 exports[`should render ArrowRightIcon icon at 20x20 1`] = `
 <svg
   aria-hidden="true"

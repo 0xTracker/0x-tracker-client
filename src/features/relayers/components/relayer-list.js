@@ -21,33 +21,33 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
     <thead>
       <tr>
         <th className="text-center">#</th>
-        <th colSpan="2">Relayer</th>
+        <th colSpan="2">App</th>
 
         <th className="text-right">
           Trades
           <HelpWidget css="margin-left: 0.25rem;">
-            The number of unique trades for a given relayer in the selected
-            period.
+            Total value of all 0x-based trades made through this app in the
+            selected period.
           </HelpWidget>
         </th>
         <th className="text-right">
           Volume
           <HelpWidget css="margin-left: 0.25rem;">
-            The total value of all trades for a given relayer in the selected
-            period.
+            Total number of 0x-based trades made through this app in the
+            selected period.
           </HelpWidget>
         </th>
         <th className="text-right">
           Traders{' '}
           <HelpWidget css="margin-left: 0.25rem;">
-            The number of unique maker/taker addresses for a given relayer in
+            Number of unique traders involved in 0x-based trades on this app in
             the selected period.
           </HelpWidget>
         </th>
         <th className="text-right">
           Volume Trend
           <HelpWidget css="margin-left: 0.25rem;">
-            The trend of trading volume for a given relayer in the selected
+            The trend of 0x-based trading volume for this app in the selected
             period.
           </HelpWidget>
         </th>
@@ -81,17 +81,16 @@ const RelayerList = ({ positionOffset, relayers, statsPeriod }) => (
               )}
               {relayer.id === 'unknown' && (
                 <HelpWidget css="margin-left: 0.5rem; vertical-align: middle;">
-                  Unknown relayer volume includes all trades that don&rsquo;t
-                  belong to known relayers. These trades could be over the
-                  counter (OTC) or belong to relayers which 0x Tracker is not
-                  yet indexing.
+                  Unknown app volume includes all trades that don&rsquo;t belong
+                  to known apps. These trades could be over the counter (OTC) or
+                  belong to app which 0x Tracker is not yet aware of.
                 </HelpWidget>
               )}
-              {relayer.id === 'matcha' && (
+              {relayer.id === 'oneInchExchange' && (
                 <HelpWidget css="margin-left: 0.5rem; vertical-align: middle;">
-                  &lsquo;Matcha&rsquo; trades only include fills of limit orders
-                  created in Matcha. Other volume filled in Matcha is reported
-                  under &lsquo;0x API&rsquo;
+                  &lsquo;1inch.exchange&rsquo; trades only include fills of
+                  limit orders. Full tracking for 0x-based 1inch.exchange trades
+                  is coming soon.
                 </HelpWidget>
               )}
             </span>
