@@ -24,7 +24,7 @@
     "@tippyjs/react": "4.0.0-alpha.4",
     "axios": "0.19.2",
     "babel-polyfill": "6.26.0",
-    "bootstrap": "4.4.1",
+    "bootstrap": "4.5.3",
     "core-js": "3.6.4",
     "currency-formatter": "1.5.5",
     "date-fns": "2.11.0",
