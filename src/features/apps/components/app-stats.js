@@ -4,14 +4,15 @@ import React from 'react';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import { getPeriodDescriptor } from '../../../util';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
+import AppStatsCarousel from './app-stats-carousel';
+import appsPropTypes from '../prop-types';
+import AverageTradeSizeWidget from '../../fills/components/average-trade-size-widget';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
-import TokenStatsCarousel from './relayer-stats-carousel';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
-import TradedTokensWidget from '../../tokens/components/traded-tokens-widget';
 
-const RelayerStats = ({ period, relayer }) => {
+const AppStats = ({ app, period }) => {
   const breakpoint = useCurrentBreakpoint();
 
   if (breakpoint.greaterThan('md')) {
@@ -19,70 +20,58 @@ const RelayerStats = ({ period, relayer }) => {
       <CardGridRow minHeight="90px">
         <CardGridCol lg={3} md={6}>
           <TradeVolumeWidget
-            change={relayer.stats.tradeVolumeChange}
+            change={app.stats.tradeVolumeChange.total}
             period={period}
             showPeriod={false}
             tooltip={`Total value of all 0x-based trades made through ${
-              relayer.name
+              app.name
             } ${getPeriodDescriptor(period)}.`}
-            volume={relayer.stats.tradeVolume}
+            volume={app.stats.tradeVolume.total}
           />
         </CardGridCol>
         <CardGridCol lg={3} md={6}>
           <TradeCountWidget
-            change={relayer.stats.tradeCountChange}
+            change={app.stats.tradeCountChange.total}
             period={period}
             showPeriod={false}
             tooltip={`Total number of 0x-based trades made through ${
-              relayer.name
+              app.name
             } ${getPeriodDescriptor(period)}`}
-            tradeCount={relayer.stats.tradeCount}
+            tradeCount={app.stats.tradeCount.total}
           />
         </CardGridCol>
         <CardGridCol lg={3} md={6}>
           <ActiveTradersWidget
-            change={relayer.stats.activeTradersChange}
+            change={app.stats.activeTradersChange}
             period={period}
             showPeriod={false}
             tooltip={`Number of unique traders involved in 0x-based trades on ${
-              relayer.name
+              app.name
             } ${getPeriodDescriptor(period)}.`}
-            traderCount={relayer.stats.activeTraders}
+            traderCount={app.stats.activeTraders}
           />
         </CardGridCol>
         <CardGridCol lg={3} md={6}>
-          <TradedTokensWidget
-            change={relayer.stats.tradedTokensChange}
+          <AverageTradeSizeWidget
+            avgSize={app.stats.avgTradeSize}
+            change={app.stats.avgTradeSizeChange}
             period={period}
             showPeriod={false}
-            tooltip={`Number of unique tokens exchanged in 0x-based trades through ${
-              relayer.name
+            tooltip={`Average size of 0x-based trades on ${
+              app.name
             } ${getPeriodDescriptor(period)}.`}
-            tradedTokens={relayer.stats.tradedTokens}
           />
         </CardGridCol>
       </CardGridRow>
     );
   }
 
-  return <TokenStatsCarousel period={period} relayer={relayer} />;
+  return <AppStatsCarousel app={app} period={period} />;
 };
 
-RelayerStats.propTypes = {
+AppStats.propTypes = {
+  app: appsPropTypes.appWithStats.isRequired,
   period: PropTypes.string.isRequired,
-  relayer: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    stats: PropTypes.shape({
-      activeTraders: PropTypes.number.isRequired,
-      activeTradersChange: PropTypes.number.isRequired,
-      tradeCount: PropTypes.number.isRequired,
-      tradeCountChange: PropTypes.number.isRequired,
-      tradeVolume: PropTypes.number.isRequired,
-      tradeVolumeChange: PropTypes.number.isRequired,
-      tradedTokens: PropTypes.number.isRequired,
-      tradedTokensChange: PropTypes.number.isRequired,
-    }).isRequired,
-  }).isRequired,
 };
 
-export default RelayerStats;
+export default AppStats;

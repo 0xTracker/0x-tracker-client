@@ -5,6 +5,8 @@ import { TIME_PERIOD } from '../../../constants';
 import { useMetadata, useNavigator, useSearchParam } from '../../../hooks';
 import { getPeriodDescriptor } from '../../../util';
 import AppLogo from './app-logo';
+import AppMetrics from './app-metrics';
+import AppStats from './app-stats';
 import buildAppUrl from '../util/build-app-url';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
@@ -12,44 +14,30 @@ import CardGridRow from '../../../components/card-grid-row';
 import LoadingPage from '../../../components/loading-page';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
-import RelayerMetrics from '../../metrics/components/relayer-metrics';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
 import TabbedCard from '../../../components/tabbed-card';
-import useRelayer from '../hooks/use-relayer';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
-import RelayerTokensCard from './relayer-tokens-card';
-import RelayerStats from './relayer-stats';
-
-const getName = (relayer) => {
-  if (relayer === undefined) {
-    return undefined;
-  }
-
-  if (relayer.id === 'unknown') {
-    return 'Unknown App';
-  }
-
-  return relayer.name;
-};
+// import RelayerTokensCard from './relayer-tokens-card';
+import useApp from '../hooks/use-app';
 
 const AppPage = () => {
   const { slug } = useParams();
   const { navigateTo } = useNavigator();
   const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.MONTH);
-  const [relayer, loadingRelayer] = useRelayer(slug, { statsPeriod });
+  const [app, loading] = useApp(slug, { statsPeriod });
 
   useMetadata({
     title:
-      relayer === undefined
+      app === undefined
         ? undefined
-        : `${getName(relayer)} Trading Activity, Metrics & Charts`,
+        : `${app.name} Trading Activity, Metrics & Charts`,
   });
 
-  if (loadingRelayer) {
+  if (loading) {
     return <LoadingPage />;
   }
 
-  if (relayer === undefined) {
+  if (app === undefined) {
     return <PageNotFound />;
   }
 
@@ -58,28 +46,28 @@ const AppPage = () => {
       actions={
         <ResponsiveTimePeriodFilter
           onChange={(newPeriod) => {
-            navigateTo(buildAppUrl(relayer.slug), {
+            navigateTo(buildAppUrl(app.urlSlug), {
               statsPeriod: newPeriod,
             });
           }}
           value={statsPeriod}
         />
       }
-      icon={<AppLogo height={35} imageUrl={relayer.imageUrl} width={35} />}
+      icon={<AppLogo height={35} imageUrl={app.logoUrl} width={35} />}
       subTitle={getPeriodDescriptor(statsPeriod)}
-      title={getName(relayer)}
+      title={`${app.name} Activity`}
     >
       <CardGrid>
-        <RelayerStats period={statsPeriod} relayer={relayer} />
+        <AppStats app={app} period={statsPeriod} />
         <CardGridRow>
           <CardGridCol xs={12}>
             <TabbedCard
               tabs={[
                 {
                   component: (
-                    <RelayerMetrics
+                    <AppMetrics
+                      appId={app.id}
                       period={statsPeriod}
-                      relayerId={relayer.id}
                       type="tradeVolume"
                     />
                   ),
@@ -87,9 +75,9 @@ const AppPage = () => {
                 },
                 {
                   component: (
-                    <RelayerMetrics
+                    <AppMetrics
+                      appId={app.id}
                       period={statsPeriod}
-                      relayerId={relayer.id}
                       type="tradeCount"
                     />
                   ),
@@ -97,10 +85,10 @@ const AppPage = () => {
                 },
                 {
                   component: (
-                    <RelayerMetrics
+                    <AppMetrics
+                      appId={app.id}
                       period={statsPeriod}
-                      relayerId={relayer.id}
-                      type="traderCount"
+                      type="activeTraders"
                     />
                   ),
                   title: 'Active Traders',
@@ -112,17 +100,17 @@ const AppPage = () => {
         <CardGridRow>
           <CardGridCol lg={7}>
             <RecentFillsCard
-              filter={{ relayer: relayer.id }}
+              // filter={{ relayer: relayer.id }}
               limit={6}
               showRelayer={false}
             />
           </CardGridCol>
           <CardGridCol lg={5}>
-            <RelayerTokensCard
+            {/* <RelayerTokensCard
               limit={6}
               relayerSlug={relayer.slug}
               statsPeriod={statsPeriod}
-            />
+            /> */}
           </CardGridCol>
         </CardGridRow>
       </CardGrid>

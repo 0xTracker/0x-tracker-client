@@ -37,7 +37,7 @@ const AppsPage = () => {
       }
       icon={<AppsIcon size={40} />}
       subTitle={getPeriodDescriptor(statsPeriod)}
-      title="Active Apps"
+      title="Apps Activity"
     >
       <CardGrid>
         <CardGridRow>

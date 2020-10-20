@@ -1,9 +1,9 @@
 import useApi from '../../../hooks/use-api';
 
-const useRelayer = (slug, options = {}) =>
-  useApi(`relayers/${slug}`, {
+const useApp = (slug, options = {}) =>
+  useApi(`apps/${slug}`, {
     autoReload: true,
     params: { statsPeriod: options.statsPeriod },
   });
 
-export default useRelayer;
+export default useApp;
