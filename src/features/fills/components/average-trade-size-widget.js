@@ -12,7 +12,7 @@ import StatWidget from '../../../components/stat-widget';
 const loadingIndicator = <LoadingIndicator size="small" type="cylon" />;
 
 const createTooltip = (period) =>
-  `Number of trades ${getPeriodDescriptor(period)}.`;
+  `Average trade size ${getPeriodDescriptor(period)}.`;
 
 const AverageTradeSizeWidget = ({
   avgSize,
@@ -23,7 +23,7 @@ const AverageTradeSizeWidget = ({
 }) => (
   <StatWidget
     period={period}
-    title="Trades"
+    title="Avg Trade Size"
     tooltip={tooltip || createTooltip(period)}
     {...otherProps}
   >

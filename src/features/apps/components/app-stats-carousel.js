@@ -8,6 +8,7 @@ import '../../../styles/css/slick-carousel.css';
 import { BREAKPOINTS } from '../../../styles/constants';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
 import appsPropTypes from '../prop-types';
+import AverageTradeSizeWidget from '../../fills/components/average-trade-size-widget';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
 
@@ -56,6 +57,13 @@ const AppStatsCarousel = ({ app, period }) => (
       period={period}
       showPeriod={false}
       traderCount={app.stats.activeTraders}
+    />
+    <CarouselStat
+      as={AverageTradeSizeWidget}
+      avgSize={app.stats.avgTradeSize}
+      change={app.stats.avgTradeSizeChange}
+      period={period}
+      showPeriod={false}
     />
   </Slider>
 );
