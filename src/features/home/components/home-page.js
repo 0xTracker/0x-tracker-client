@@ -7,7 +7,7 @@ import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
 import HomePageMetrics from './home-page-metrics';
-import HomePageTopRelayersFooter from './home-page-top-relayers-footer';
+import HomePageTopAppsFooter from './home-page-top-relayers-footer';
 import HomePageTopTokensFooter from './home-page-top-tokens-footer';
 import LatestNewsCard from '../../news/components/latest-news-card';
 import Link from '../../../components/link';
@@ -16,7 +16,7 @@ import PageLayout from '../../../components/page-layout';
 import Pill from '../../../components/pill';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
 import TabbedCard from '../../../components/tabbed-card';
-import TopRelayers from '../../relayers/components/top-relayers';
+import TopApps from '../../apps/components/top-apps';
 import TopTokens from '../../tokens/components/top-tokens';
 
 const HomePage = () => {
@@ -90,11 +90,9 @@ const HomePage = () => {
                       View More
                     </Pill>
                   ),
-                  component: <TopRelayers period={TIME_PERIOD.DAY} />,
+                  component: <TopApps period={TIME_PERIOD.DAY} />,
                   errorMessage: 'An error occurred while loading the top apps',
-                  footer: (
-                    <HomePageTopRelayersFooter period={TIME_PERIOD.DAY} />
-                  ),
+                  footer: <HomePageTopAppsFooter period={TIME_PERIOD.DAY} />,
                   title: 'Top Apps',
                 },
               ]}
