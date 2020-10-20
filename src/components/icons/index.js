@@ -33,7 +33,6 @@ import MoreIcon from './more-icon';
 import NewsIcon from './news-icon';
 import PrivateIcon from './private-icon';
 import RedditShareIcon from './reddit-share-icon';
-import RelayersIcon from './relayers-icon';
 import ResetIcon from './reset-icon';
 import RightArrowIcon from './right-arrow-icon';
 import ScheduledIcon from './scheduled-icon';
@@ -89,7 +88,6 @@ export {
   NewsIcon,
   PrivateIcon,
   RedditShareIcon,
-  RelayersIcon,
   ResetIcon,
   RightArrowIcon,
   ScheduledIcon,
