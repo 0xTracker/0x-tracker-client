@@ -7,6 +7,7 @@ import { getPeriodDescriptor } from '../../../util';
 import AppLogo from './app-logo';
 import AppMetrics from './app-metrics';
 import AppStats from './app-stats';
+import AppTokensCard from './app-tokens-card';
 import buildAppUrl from '../util/build-app-url';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
@@ -17,7 +18,6 @@ import PageNotFound from '../../../components/page-not-found';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
 import TabbedCard from '../../../components/tabbed-card';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
-// import RelayerTokensCard from './relayer-tokens-card';
 import useApp from '../hooks/use-app';
 
 const AppPage = () => {
@@ -99,18 +99,14 @@ const AppPage = () => {
         </CardGridRow>
         <CardGridRow>
           <CardGridCol lg={7}>
-            <RecentFillsCard
-              filter={{ apps: [app.id] }}
-              limit={6}
-              showRelayer={false}
-            />
+            <RecentFillsCard filter={{ apps: [app.id] }} limit={6} />
           </CardGridCol>
           <CardGridCol lg={5}>
-            {/* <RelayerTokensCard
+            <AppTokensCard
+              appSlug={app.urlSlug}
               limit={6}
-              relayerSlug={relayer.slug}
               statsPeriod={statsPeriod}
-            /> */}
+            />
           </CardGridCol>
         </CardGridRow>
       </CardGrid>

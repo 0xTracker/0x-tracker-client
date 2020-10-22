@@ -28,7 +28,7 @@ const SecondaryText = styled.span`
   font-size: 0.9rem;
 `;
 
-const RelayerTokensTable = ({ tokens }) => (
+const AppTokensTable = ({ tokens }) => (
   <table css="width: 100%;">
     <thead css="display: none;">
       <tr>
@@ -54,7 +54,7 @@ const RelayerTokensTable = ({ tokens }) => (
           <TableCell width="99%">
             <TokenLink
               address={token.address}
-              css="display: block; line-height: 1;"
+              css="display: block; line-height: 1; margin-bottom: 0.2rem;"
             >
               {_.truncate(token.name, { length: 20 })}
             </TokenLink>
@@ -62,14 +62,18 @@ const RelayerTokensTable = ({ tokens }) => (
               {truncateAddress(token.address, 20)}
             </SecondaryText>
           </TableCell>
-          <TableCell css="line-height: 1; text-align: right; white-space: nowrap;">
+          <TableCell css="text-align: right; white-space: nowrap;">
             <TokenLink address={token.address}>
-              <LocalisedAmount
-                amount={token.stats.tradeVolume.USD}
-                css="font-weight: 500;"
-                summarize
-              />
-              <br />
+              <span css="display: block; line-height: 1; margin-bottom: 0.2rem;">
+                {token.stats.tradeVolume.USD === 0 ? (
+                  'Unknown'
+                ) : (
+                  <LocalisedAmount
+                    amount={token.stats.tradeVolume.USD}
+                    summarize
+                  />
+                )}
+              </span>
               <SecondaryText>
                 <TokenAmount
                   amount={token.stats.tradeVolume.token}
@@ -86,8 +90,8 @@ const RelayerTokensTable = ({ tokens }) => (
   </table>
 );
 
-RelayerTokensTable.propTypes = {
+AppTokensTable.propTypes = {
   tokens: PropTypes.array.isRequired,
 };
 
-export default RelayerTokensTable;
+export default AppTokensTable;

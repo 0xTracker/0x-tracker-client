@@ -85,10 +85,10 @@ const FillsBrowserStats = ({ filters, networkStats, period }) => {
 
 FillsBrowserStats.propTypes = {
   filters: PropTypes.shape({
+    apps: PropTypes.arrayOf(PropTypes.string.isRequired),
     periodFrom: PropTypes.instanceOf(Date),
     periodTo: PropTypes.instanceOf(Date),
     protocolVersion: PropTypes.number,
-    relayer: PropTypes.string,
     status: PropTypes.string,
     token: PropTypes.string,
     trader: PropTypes.string,

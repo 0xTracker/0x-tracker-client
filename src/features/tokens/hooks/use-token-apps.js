@@ -2,18 +2,17 @@ import _ from 'lodash';
 
 import useApi from '../../../hooks/use-api';
 
-const useTokenRelayers = (tokenAddress, options = {}) => {
-  const [response, loading] = useApi(`tokens/${tokenAddress}/relayers`, {
+const useTokenApps = (tokenAddress, options = {}) => {
+  const [response, loading] = useApi(`tokens/${tokenAddress}/apps`, {
     autoReload: options.autoReload,
     params: _.pick(options, ['limit', 'page', 'sortBy', 'statsPeriod']),
   });
 
-  const { limit, pageCount, relayers, sortBy, statsPeriod, total } =
-    response || {};
+  const { apps, limit, pageCount, sortBy, statsPeriod, total } = response || {};
 
   return [
     {
-      items: relayers,
+      items: apps,
       limit,
       pageCount,
       sortBy,
@@ -24,4 +23,4 @@ const useTokenRelayers = (tokenAddress, options = {}) => {
   ];
 };
 
-export default useTokenRelayers;
+export default useTokenApps;

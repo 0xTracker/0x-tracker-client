@@ -4,12 +4,12 @@ import React from 'react';
 import { verbosePeriod } from '../../../util';
 import Footnote from '../../../components/footnote';
 
-const HomePageTopRelayersFooter = ({ period }) => (
+const HomePageTopAppsFooter = ({ period }) => (
   <Footnote>top apps by {verbosePeriod(period)} volume</Footnote>
 );
 
-HomePageTopRelayersFooter.propTypes = {
+HomePageTopAppsFooter.propTypes = {
   period: PropTypes.string.isRequired,
 };
 
-export default HomePageTopRelayersFooter;
+export default HomePageTopAppsFooter;

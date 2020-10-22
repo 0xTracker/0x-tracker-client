@@ -20,9 +20,9 @@ import PageLayout from '../../../components/page-layout';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
 import TabbedCard from '../../../components/tabbed-card';
+import TokenAppsCard from './token-apps-card';
 import TokenMetrics from '../../metrics/components/token-metrics';
 import TokenPageTitle from './token-page-title';
-import TokenRelayersCard from './token-relayers-card';
 import TokenStats from './token-stats';
 import useToken from '../hooks/use-token';
 
@@ -157,7 +157,7 @@ const TokenPage = () => {
             />
           </CardGridCol>
           <CardGridCol lg={5}>
-            <TokenRelayersCard
+            <TokenAppsCard
               limit={breakpoint.greaterThan('xs') ? 7 : 5}
               statsPeriod={statsPeriod}
               token={token}

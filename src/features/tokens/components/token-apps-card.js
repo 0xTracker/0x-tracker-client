@@ -11,12 +11,13 @@ import CardPlaceholder from '../../../components/card-placeholder';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PaginationPills from '../../../components/pagination-pills';
 import tokenPropTypes from '../prop-types';
-import TokenRelayersTable from './token-relayers-table';
-import useTokenRelayers from '../hooks/use-token-relayers';
+import TokenAppsTable from './token-apps-table';
+import useTokenApps from '../hooks/use-token-apps';
+import HelpWidget from '../../../components/help-widget';
 
-const TokenRelayersCard = ({ className, limit, statsPeriod, token }) => {
+const TokenAppsCard = ({ className, limit, statsPeriod, token }) => {
   const [page, setPage] = React.useState(1);
-  const [relayers, loadingRelayers] = useTokenRelayers(token.address, {
+  const [apps, loading] = useTokenApps(token.address, {
     autoReload: true,
     limit,
     page,
@@ -27,42 +28,48 @@ const TokenRelayersCard = ({ className, limit, statsPeriod, token }) => {
   return (
     <Card className={className}>
       <CardHeader>
-        <CardHeading>Relayers</CardHeading>
-        {_.isObject(relayers) && (
+        <CardHeading>
+          Associated Apps{' '}
+          <HelpWidget>
+            Apps which {token.name || 'this token'} has been traded through in
+            the selected period.
+          </HelpWidget>
+        </CardHeading>
+        {_.isObject(apps) && (
           <PaginationPills
             onPageChange={(newPage) => setPage(newPage)}
             page={page}
-            pageCount={relayers.pageCount}
+            pageCount={apps.pageCount}
           />
         )}
       </CardHeader>
       <CardBody>
-        {loadingRelayers ? (
+        {loading ? (
           <LoadingIndicator centered />
-        ) : relayers.items.length === 0 ? (
+        ) : apps.items.length === 0 ? (
           <CardPlaceholder>
-            No trading activity has been recorded for this token on known
-            relayers in the selected period.
+            No trading activity has been recorded for this token on known apps
+            in the selected period.
           </CardPlaceholder>
         ) : (
-          <TokenRelayersTable relayers={relayers.items} token={token} />
+          <TokenAppsTable apps={apps.items} token={token} />
         )}
       </CardBody>
     </Card>
   );
 };
 
-TokenRelayersCard.propTypes = {
+TokenAppsCard.propTypes = {
   className: PropTypes.string,
   limit: PropTypes.number,
   statsPeriod: PropTypes.string.isRequired,
   token: tokenPropTypes.tokenWithStats.isRequired,
 };
 
-TokenRelayersCard.defaultProps = {
+TokenAppsCard.defaultProps = {
   className: undefined,
   limit: undefined,
 };
 
-export default TokenRelayersCard;
+export default TokenAppsCard;
 /* eslint-enable no-nested-ternary */
