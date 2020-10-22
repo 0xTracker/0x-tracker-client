@@ -34,7 +34,7 @@ const useAutocomplete = () => {
         q: searchTerm,
       });
 
-      const relayersUrl = buildApiUrl('relayer-lookup', {
+      const appsUrl = buildApiUrl('app-lookup', {
         limit: searchTerm === '' ? 5 : 10,
         q: searchTerm,
       });
@@ -45,35 +45,27 @@ const useAutocomplete = () => {
       });
 
       /* eslint-disable compat/compat */
-      const [
-        tokensResponse,
-        relayersResponse,
-        tradersResponse,
-      ] = await Promise.all([
-        axios.get(tokensUrl, {
-          cancelToken: source.token,
-          timeout: API_CALL_TIMEOUT,
-        }),
-        axios.get(relayersUrl, {
-          cancelToken: source.token,
-          timeout: API_CALL_TIMEOUT,
-        }),
-        axios.get(tradersUrl, {
-          cancelToken: source.token,
-          timeout: API_CALL_TIMEOUT,
-        }),
-      ]);
+      const [tokensResponse, appsResponse, tradersResponse] = await Promise.all(
+        [
+          axios.get(tokensUrl, {
+            cancelToken: source.token,
+            timeout: API_CALL_TIMEOUT,
+          }),
+          axios.get(appsUrl, {
+            cancelToken: source.token,
+            timeout: API_CALL_TIMEOUT,
+          }),
+          axios.get(tradersUrl, {
+            cancelToken: source.token,
+            timeout: API_CALL_TIMEOUT,
+          }),
+        ],
+      );
       /* eslint-enable compat/compat */
 
       const { tokens } = tokensResponse.data;
       const { traders } = tradersResponse.data;
-      const relayers =
-        searchTerm === ''
-          ? _.take(
-              relayersResponse.data.relayers.filter((r) => r.id !== 'unknown'),
-              5,
-            )
-          : relayersResponse.data.relayers;
+      const { apps } = appsResponse.data;
 
       const tokensSection =
         tokens.length > 0
@@ -89,14 +81,14 @@ const useAutocomplete = () => {
             }
           : null;
 
-      const relayersSection =
-        relayers.length > 0
+      const appsSection =
+        apps.length > 0
           ? {
-              suggestions: relayers.map((relayer) => ({
-                imageUrl: relayer.imageUrl,
-                name: relayer.name,
-                slug: relayer.slug,
-                type: 'relayer',
+              suggestions: apps.map((app) => ({
+                imageUrl: app.logoUrl,
+                name: app.name,
+                type: 'app',
+                urlSlug: app.urlSlug,
               })),
               title: 'Apps',
             }
@@ -116,7 +108,7 @@ const useAutocomplete = () => {
           : null;
 
       const newSuggestions = [
-        relayersSection,
+        appsSection,
         tokensSection,
         tradersSection,
       ].filter((x) => x !== null);

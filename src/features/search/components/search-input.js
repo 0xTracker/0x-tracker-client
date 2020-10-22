@@ -6,14 +6,14 @@ import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
-import buildRelayerUrl from '../../relayers/util/build-relayer-url';
+import { useCurrentBreakpoint } from '../../../responsive-utils';
+import buildAppUrl from '../../apps/util/build-app-url';
 import buildTokenUrl from '../../tokens/util/build-token-url';
 import buildTraderUrl from '../../traders/util/build-trader-url';
 import SearchSuggestion from './search-suggestion';
 import useEscapeKey from '../../../hooks/use-escape-key';
 import useAutocomplete from '../hooks/use-autocomplete';
 import useNavigator from '../../../hooks/use-navigator';
-import { useCurrentBreakpoint } from '../../../responsive-utils';
 
 const InputWrapper = styled.div`
   display: flex;
@@ -154,12 +154,12 @@ const SearchInput = React.forwardRef(
               });
             }
 
-            if (suggestion.type === 'relayer') {
+            if (suggestion.type === 'app') {
               if (window.fathom) {
                 window.fathom.trackGoal('JUOWT2KW', 0);
               }
 
-              navigateTo(buildRelayerUrl(suggestion.slug), undefined, {
+              navigateTo(buildAppUrl(suggestion.urlSlug), undefined, {
                 clientSide: false,
               });
             }
