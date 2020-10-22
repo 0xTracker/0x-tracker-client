@@ -19,19 +19,19 @@ const FillsPage = () => {
   useMetadata({ title: 'Browse 0x Protocol Trades' });
 
   const { page, setPage } = usePaginator();
+  const apps = useSearchParam('apps', undefined, { isArray: true });
   const status = useSearchParam('status');
   const dateFrom = useSearchParam('dateFrom');
   const dateTo = useSearchParam('dateTo');
   const protocolVersion = useSearchParam('protocolVersion');
   const token = useSearchParam('token');
   const trader = useSearchParam('trader');
-  const relayer = useSearchParam('relayer');
   const valueFrom = useSearchParam('valueFrom');
   const valueTo = useSearchParam('valueTo');
 
   const selectedFilters = {
+    apps,
     protocolVersion,
-    relayer,
     status,
     token,
     trader,

@@ -7,7 +7,7 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import PagedFillList from './paged-fill-list';
 import useFills from '../hooks/use-fills';
 
-const Fills = ({ excludeColumns, filter, page, onPageChange }) => {
+const Fills = ({ filter, page, onPageChange }) => {
   const [fills, loading] = useFills({
     autoReload: true,
     filter,
@@ -30,7 +30,6 @@ const Fills = ({ excludeColumns, filter, page, onPageChange }) => {
 
   return (
     <PagedFillList
-      excludeColumns={excludeColumns}
       fills={items}
       onPageChange={onPageChange}
       page={page}
@@ -42,9 +41,9 @@ const Fills = ({ excludeColumns, filter, page, onPageChange }) => {
 };
 
 Fills.propTypes = {
-  excludeColumns: PropTypes.arrayOf(PropTypes.oneOf(['relayer'])),
   filter: PropTypes.shape({
     address: PropTypes.string,
+    apps: PropTypes.arrayOf(PropTypes.string.isRequired),
     dateFrom: PropTypes.string,
     dateTo: PropTypes.string,
     protocolVersion: PropTypes.number,
@@ -57,7 +56,6 @@ Fills.propTypes = {
 };
 
 Fills.defaultProps = {
-  excludeColumns: undefined,
   filter: {},
 };
 

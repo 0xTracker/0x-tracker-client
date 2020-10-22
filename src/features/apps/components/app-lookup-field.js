@@ -6,23 +6,23 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import Select from '../../../components/select';
 import useApps from '../hooks/use-apps';
 
-const RelayerSelector = ({ name, onChange, value, ...otherProps }) => {
-  const [relayers, loading] = useApps({ statsPeriod: 'all' });
+const AppLookupField = ({ name, onChange, value, ...otherProps }) => {
+  const [apps, loading] = useApps({ statsPeriod: 'all' });
 
   if (loading) {
     return <LoadingIndicator size="small" type="cylon" />;
   }
 
-  const sortedRelayers = _.sortBy(relayers.items, 'name');
+  const sortedApps = _.sortBy(apps.items, 'name');
 
   const options = [
     {
       label: 'All',
       value: undefined,
     },
-    ...sortedRelayers.map((relayer) => ({
-      label: relayer.name,
-      value: relayer.id,
+    ...sortedApps.map((app) => ({
+      label: app.name,
+      value: app.id,
     })),
   ];
 
@@ -40,15 +40,15 @@ const RelayerSelector = ({ name, onChange, value, ...otherProps }) => {
   );
 };
 
-RelayerSelector.propTypes = {
+AppLookupField.propTypes = {
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string,
 };
 
-RelayerSelector.defaultProps = {
+AppLookupField.defaultProps = {
   name: undefined,
   value: undefined,
 };
 
-export default RelayerSelector;
+export default AppLookupField;

@@ -42,7 +42,7 @@ const RecentFillsCard = ({
 RecentFillsCard.propTypes = {
   filter: PropTypes.shape({
     address: PropTypes.string,
-    relayer: PropTypes.string,
+    apps: PropTypes.arrayOf(PropTypes.string.isRequired),
     token: PropTypes.string,
   }),
   limit: PropTypes.number,

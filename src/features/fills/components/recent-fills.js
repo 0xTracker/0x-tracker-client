@@ -27,7 +27,7 @@ const RecentFills = ({ filter, limit, placeholder, showRelayer }) => {
 RecentFills.propTypes = {
   filter: PropTypes.shape({
     address: PropTypes.string,
-    relayer: PropTypes.string,
+    apps: PropTypes.arrayOf(PropTypes.string.isRequired),
     token: PropTypes.string,
   }),
   limit: PropTypes.number,

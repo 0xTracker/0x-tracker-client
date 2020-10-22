@@ -6,9 +6,10 @@ const useFills = (options = {}) => {
   const [response, loading] = useApi('fills', {
     autoReload: options.autoReload,
     params: {
+      ...filter,
+      apps: Array.isArray(filter.apps) ? filter.apps.join(',') : undefined,
       limit: options.limit,
       page: options.page,
-      ...filter,
     },
   });
 

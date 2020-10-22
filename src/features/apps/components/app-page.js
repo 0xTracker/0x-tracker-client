@@ -100,7 +100,7 @@ const AppPage = () => {
         <CardGridRow>
           <CardGridCol lg={7}>
             <RecentFillsCard
-              // filter={{ relayer: relayer.id }}
+              filter={{ apps: [app.id] }}
               limit={6}
               showRelayer={false}
             />
