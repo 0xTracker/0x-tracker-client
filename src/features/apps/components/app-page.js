@@ -149,11 +149,7 @@ const AppPage = () => {
               limit={5}
               statsPeriod={statsPeriod}
             />
-            <AppTokensCard
-              appSlug={app.urlSlug}
-              limit={5}
-              statsPeriod={statsPeriod}
-            />
+            <AppTokensCard app={app} limit={5} statsPeriod={statsPeriod} />
           </CardGridCol>
         </CardGridRow>
       </CardGrid>

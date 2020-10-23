@@ -6,9 +6,11 @@ import styled from 'styled-components';
 import { COLORS } from '../../../styles/constants';
 import { truncateAddress } from '../../../util';
 import LocalisedAmount from '../../currencies/components/localised-amount';
+import Number from '../../../components/number';
 import TokenAmount from '../../tokens/components/token-amount';
 import TokenImage from '../../tokens/components/token-image';
 import TokenLink from '../../tokens/components/token-link';
+import Tooltip from '../../../components/tooltip';
 
 const TableCell = styled.td`
   height: 80px;
@@ -28,7 +30,7 @@ const SecondaryText = styled.span`
   font-size: 0.9rem;
 `;
 
-const AppTokensTable = ({ tokens }) => (
+const AppTokensTable = ({ appName, tokens }) => (
   <table css="width: 100%;">
     <thead css="display: none;">
       <tr>
@@ -63,26 +65,79 @@ const AppTokensTable = ({ tokens }) => (
             </SecondaryText>
           </TableCell>
           <TableCell css="text-align: right; white-space: nowrap;">
-            <TokenLink address={token.address}>
-              <span css="display: block; line-height: 1; margin-bottom: 0.2rem;">
-                {token.stats.tradeVolume.USD === 0 ? (
-                  'Unknown'
-                ) : (
-                  <LocalisedAmount
-                    amount={token.stats.tradeVolume.USD}
+            <Tooltip
+              content={
+                <>
+                  <p>
+                    There were{' '}
+                    <strong>
+                      <Number summarize>{token.stats.tradeCount}</Number> trades
+                    </strong>{' '}
+                    involving {token.name} on {appName} in the selected period,
+                    totalling{' '}
+                    <strong>
+                      <TokenAmount
+                        amount={token.stats.tradeVolume.token}
+                        linked={false}
+                        summarize
+                        token={token}
+                      />{' '}
+                      (
+                      <LocalisedAmount
+                        amount={token.stats.tradeVolume.USD}
+                        summarize
+                      />
+                      )
+                    </strong>
+                    .
+                  </p>
+                  <p>
+                    The average size of trades on {appName} involving{' '}
+                    {token.name} for this period was{' '}
+                    <strong>
+                      <TokenAmount
+                        amount={
+                          token.stats.tradeVolume.token / token.stats.tradeCount
+                        }
+                        linked={false}
+                        summarize
+                        token={token}
+                      />{' '}
+                      (
+                      <LocalisedAmount
+                        amount={
+                          token.stats.tradeVolume.USD / token.stats.tradeCount
+                        }
+                        summarize
+                      />
+                      )
+                    </strong>
+                    .
+                  </p>
+                </>
+              }
+            >
+              <span>
+                <span css="display: block; line-height: 1; margin-bottom: 0.2rem;">
+                  {token.stats.tradeVolume.USD === 0 ? (
+                    'Unknown'
+                  ) : (
+                    <LocalisedAmount
+                      amount={token.stats.tradeVolume.USD}
+                      summarize
+                    />
+                  )}
+                </span>
+                <SecondaryText>
+                  <TokenAmount
+                    amount={token.stats.tradeVolume.token}
+                    linked={false}
                     summarize
+                    token={token}
                   />
-                )}
+                </SecondaryText>
               </span>
-              <SecondaryText>
-                <TokenAmount
-                  amount={token.stats.tradeVolume.token}
-                  linked={false}
-                  summarize
-                  token={token}
-                />
-              </SecondaryText>
-            </TokenLink>
+            </Tooltip>
           </TableCell>
         </tr>
       ))}
@@ -91,6 +146,7 @@ const AppTokensTable = ({ tokens }) => (
 );
 
 AppTokensTable.propTypes = {
+  appName: PropTypes.string.isRequired,
   tokens: PropTypes.array.isRequired,
 };
 

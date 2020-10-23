@@ -115,6 +115,20 @@ const RelatedAppsTable = ({ app, relatedApps }) => {
                         in volume.
                       </p>
                     )}
+                    <p>
+                      The average size of trades involving both{' '}
+                      {relatedApp.name} and {app.name} was{' '}
+                      <strong>
+                        <LocalisedAmount
+                          amount={
+                            relatedApp.stats.tradeVolume.total /
+                            relatedApp.stats.tradeCount.total
+                          }
+                          summarize
+                        />
+                      </strong>
+                      .
+                    </p>
                   </>
                 }
               >
