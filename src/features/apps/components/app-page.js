@@ -21,8 +21,9 @@ import LoadingPage from '../../../components/loading-page';
 import MobileTimePeriodFilter from '../../../components/mobile-time-period-filter';
 import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
-import TabbedCard from '../../../components/tabbed-card';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
+import RelatedAppsCard from './related-apps-card';
+import TabbedCard from '../../../components/tabbed-card';
 import useApp from '../hooks/use-app';
 import Visible from '../../../components/visible';
 
@@ -139,12 +140,18 @@ const AppPage = () => {
         </CardGridRow>
         <CardGridRow>
           <CardGridCol lg={7}>
-            <RecentFillsCard filter={{ apps: [app.id] }} limit={6} />
+            <RecentFillsCard filter={{ apps: [app.id] }} limit={10} />
           </CardGridCol>
           <CardGridCol lg={5}>
+            <RelatedAppsCard
+              app={app}
+              css="margin-bottom: 2rem;"
+              limit={5}
+              statsPeriod={statsPeriod}
+            />
             <AppTokensCard
               appSlug={app.urlSlug}
-              limit={6}
+              limit={5}
               statsPeriod={statsPeriod}
             />
           </CardGridCol>

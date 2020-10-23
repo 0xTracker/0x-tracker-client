@@ -42,6 +42,10 @@ const Tooltip = styled(Tippy).attrs({ placement: 'right' })`
       font-size: 0.9rem;
       margin: 0 0 0 0.25rem;
     }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 `;
 
