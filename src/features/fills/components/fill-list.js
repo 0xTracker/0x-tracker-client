@@ -8,10 +8,10 @@ import { COLORS } from '../../../styles/constants';
 import { MoreIcon } from '../../../components/icons';
 import buildFillUrl from '../util/build-fill-url';
 import FillListAssets from './fill-list-assets';
-import FillRelayerLink from './fill-relayer-link';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
+import FillListApps from './fill-list-apps';
 
 const FillList = ({ fills }) => (
   <table className="table table-responsive">
@@ -19,10 +19,9 @@ const FillList = ({ fills }) => (
       <tr>
         <th>Date</th>
         <th colSpan={3}>Traded Assets</th>
-        <th>Protocol</th>
+        <th>Associated Apps</th>
+        <th className="text-right">Traded Value</th>
         <th className="text-right">Protocol Fee</th>
-        <th className="text-right">Value</th>
-        <th>App</th>
         <th title="View" />
       </tr>
     </thead>
@@ -45,19 +44,8 @@ const FillList = ({ fills }) => (
               linked
             />
           </td>
-          <td>v{fill.protocolVersion}</td>
-          <td className="text-right">
-            {fill.protocolFee === undefined ? (
-              <span
-                css={`
-                  color: ${COLORS.NEUTRAL.MYSTIC_600};
-                `}
-              >
-                -
-              </span>
-            ) : (
-              <LocalisedAmount amount={fill.protocolFee.USD} />
-            )}
+          <td>
+            <FillListApps apps={fill.apps} />
           </td>
           <td className="text-right">
             {_.has(fill, `value.${BASE_CURRENCY}`) ? (
@@ -72,9 +60,20 @@ const FillList = ({ fills }) => (
               </span>
             )}
           </td>
-          <td>
-            <FillRelayerLink fill={fill} showImage />
+          <td className="text-right">
+            {fill.protocolFee === undefined ? (
+              <span
+                css={`
+                  color: ${COLORS.NEUTRAL.MYSTIC_600};
+                `}
+              >
+                -
+              </span>
+            ) : (
+              <LocalisedAmount amount={fill.protocolFee.USD} />
+            )}
           </td>
+
           <td
             className="text-center"
             css={`

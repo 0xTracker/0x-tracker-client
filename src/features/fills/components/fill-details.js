@@ -13,8 +13,8 @@ import EthereumAddressLink from '../../../components/ethereum-address-link';
 import fillsPropTypes from '../prop-types';
 import FillAssetsList from './fill-assets-list';
 import FillDetail from './fill-detail';
+import FillDetailsApps from './fill-details-apps';
 import FillFeesList from './fill-fees-list';
-import FillRelayerLink from './fill-relayer-link';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
 import List from '../../../components/list';
@@ -144,10 +144,10 @@ const FillDetails = ({ fill, maker, taker }) => {
       </FillDetail>
 
       <FillDetail
-        title="Relayer"
+        title="Associated Apps"
         tooltip="The 0x relayer which facilitated the exchange of assets. 0x relayers connect makers with takers."
       >
-        <FillRelayerLink fill={fill} showImage />
+        <FillDetailsApps apps={fill.apps} />
       </FillDetail>
 
       <FillDetail

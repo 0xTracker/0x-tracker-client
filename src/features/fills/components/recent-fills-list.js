@@ -12,26 +12,16 @@ const Wrapper = styled.div`
   overflow-x: scroll;
 `;
 
-const RecentFillsList = ({ fills, showRelayer }) => (
+const RecentFillsList = ({ fills }) => (
   <Wrapper>
     {fills.map((fill, index) => (
-      <RecentFillsItem
-        fill={fill}
-        index={index}
-        key={fill.id}
-        showRelayer={showRelayer}
-      />
+      <RecentFillsItem fill={fill} index={index} key={fill.id} />
     ))}
   </Wrapper>
 );
 
 RecentFillsList.propTypes = {
   fills: PropTypes.arrayOf(fillsPropTypes.partialFill).isRequired,
-  showRelayer: PropTypes.bool,
-};
-
-RecentFillsList.defaultProps = {
-  showRelayer: undefined,
 };
 
 export default RecentFillsList;
