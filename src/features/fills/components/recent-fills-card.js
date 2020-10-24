@@ -11,13 +11,7 @@ import Link from '../../../components/link';
 import Pill from '../../../components/pill';
 import RecentFills from './recent-fills';
 
-const RecentFillsCard = ({
-  filter,
-  limit,
-  placeholder,
-  showRelayer,
-  ...otherProps
-}) => (
+const RecentFillsCard = ({ filter, limit, placeholder, ...otherProps }) => (
   <Card
     errorMessage="An error occurred while loading recent trades"
     {...otherProps}
@@ -29,12 +23,7 @@ const RecentFillsCard = ({
       </Pill>
     </CardHeader>
     <CardBody>
-      <RecentFills
-        filter={filter}
-        limit={limit}
-        placeholder={placeholder}
-        showRelayer={showRelayer}
-      />
+      <RecentFills filter={filter} limit={limit} placeholder={placeholder} />
     </CardBody>
   </Card>
 );
@@ -42,19 +31,17 @@ const RecentFillsCard = ({
 RecentFillsCard.propTypes = {
   filter: PropTypes.shape({
     address: PropTypes.string,
-    relayer: PropTypes.string,
+    apps: PropTypes.arrayOf(PropTypes.string.isRequired),
     token: PropTypes.string,
   }),
   limit: PropTypes.number,
   placeholder: PropTypes.string,
-  showRelayer: PropTypes.bool,
 };
 
 RecentFillsCard.defaultProps = {
   filter: undefined,
   limit: undefined,
   placeholder: undefined,
-  showRelayer: undefined,
 };
 
 export default RecentFillsCard;

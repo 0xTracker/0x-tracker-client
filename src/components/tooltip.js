@@ -3,7 +3,9 @@ import Tippy from '@tippyjs/react';
 
 import { COLORS } from '../styles/constants';
 
-const Tooltip = styled(Tippy).attrs({ placement: 'right' })`
+const Tooltip = styled(Tippy).attrs((props) => ({
+  placement: props.placement || 'right',
+}))`
   && {
     background-color: ${COLORS.ACCENT.ANZAC_500};
     border-radius: 0.25rem;
@@ -41,6 +43,10 @@ const Tooltip = styled(Tippy).attrs({ placement: 'right' })`
       display: inline-block;
       font-size: 0.9rem;
       margin: 0 0 0 0.25rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
     }
   }
 `;

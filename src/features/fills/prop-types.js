@@ -27,11 +27,6 @@ const fillShape = PropTypes.shape({
   }),
   orderHash: PropTypes.string.isRequired,
   protocolVersion: PropTypes.number.isRequired,
-  relayer: PropTypes.shape({
-    imageUrl: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-  }),
   senderAddress: PropTypes.string.isRequired,
   status: fillStatusPropType.isRequired,
   takerAddress: PropTypes.string.isRequired,
@@ -63,11 +58,6 @@ const partialFillShape = PropTypes.shape({
   feeRecipient: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   makerAddress: PropTypes.string.isRequired,
-  relayer: PropTypes.shape({
-    imageUrl: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    slug: PropTypes.string.isRequired,
-  }),
   status: fillStatusPropType.isRequired,
   takerAddress: PropTypes.string.isRequired,
   value: PropTypes.shape({ USD: PropTypes.number.isRequired }),

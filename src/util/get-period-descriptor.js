@@ -13,26 +13,26 @@ const formatDate = (date) => {
 
 const getDescriptorForDates = (dateFrom, dateTo) => {
   if (dateFrom !== undefined && dateTo !== undefined) {
-    return `from ${formatDate(dateFrom)} to ${formatDate(dateTo)}`;
+    return `between ${formatDate(dateFrom)} and ${formatDate(dateTo)}`;
   }
 
   if (dateFrom !== undefined) {
-    return `from ${formatDate(dateFrom)} to now`;
+    return `between ${formatDate(dateFrom)} and now`;
   }
 
-  return `from 0x launch to ${formatDate(dateTo)}`;
+  return `between 0x launch and ${formatDate(dateTo)}`;
 };
 
-const getPeriodDescriptor = (period) => {
+const getPeriodDescriptor = (period, { prefix } = { prefix: 'from' }) => {
   if (_.isPlainObject(period)) {
     return getDescriptorForDates(period.from, period.to);
   }
 
   return {
-    [TIME_PERIOD.DAY]: 'from the past 24 hours',
-    [TIME_PERIOD.WEEK]: 'from the past week',
-    [TIME_PERIOD.MONTH]: 'from the past 30 days',
-    [TIME_PERIOD.YEAR]: 'from the past year',
+    [TIME_PERIOD.DAY]: `${prefix} the past 24 hours`,
+    [TIME_PERIOD.WEEK]: `${prefix} the past week`,
+    [TIME_PERIOD.MONTH]: `${prefix} the past 30 days`,
+    [TIME_PERIOD.YEAR]: `${prefix} the past year`,
     [TIME_PERIOD.ALL]: 'since 0x launch',
   }[period];
 };

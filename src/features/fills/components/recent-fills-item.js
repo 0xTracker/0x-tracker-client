@@ -7,13 +7,12 @@ import { COLORS } from '../../../styles/constants';
 import { BASE_CURRENCY } from '../../currencies/constants';
 import { DATE_FORMAT } from '../../../constants';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
-import buildRelayerUrl from '../../relayers/util/build-relayer-url';
 import FillLink from './fill-link';
 import formatDate from '../../../util/format-date';
-import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import RecentFillsItemAssets from './recent-fills-item-assets';
 import RecentFillsItemImage from './recent-fills-item-image';
+import RecentFillsListApps from './recent-fills-list-apps';
 
 const Wrapper = styled.div`
   align-items: center;
@@ -72,20 +71,8 @@ const FillAmount = styled(LocalisedAmount)`
   font-weight: 600;
 `;
 
-const getSource = (fill) => {
-  if (fill.relayer) {
-    return {
-      label: fill.relayer.name,
-      url: buildRelayerUrl(fill.relayer.slug),
-    };
-  }
-
-  return { label: 'Unknown Relayer', url: buildRelayerUrl('unknown') };
-};
-
-const RecentFillsItem = ({ fill, index, showRelayer }) => {
+const RecentFillsItem = ({ fill, index }) => {
   const breakpoint = useCurrentBreakpoint();
-  const source = getSource(fill);
   const makerAssets = _.filter(fill.assets, { traderType: 'maker' });
   const takerAssets = _.filter(fill.assets, { traderType: 'taker' });
 
@@ -100,15 +87,11 @@ const RecentFillsItem = ({ fill, index, showRelayer }) => {
           </FillLink>
         </Heading>
         <Metadata>
-          {showRelayer && (
+          {fill.apps.length > 0 && (
             <>
-              <dt>Relayer</dt>
+              <dt>Apps</dt>
               <dd>
-                {source.url ? (
-                  <Link href={source.url}>{source.label}</Link>
-                ) : (
-                  source.label
-                )}
+                <RecentFillsListApps apps={fill.apps} />
               </dd>
             </>
           )}
@@ -126,11 +109,6 @@ const RecentFillsItem = ({ fill, index, showRelayer }) => {
 RecentFillsItem.propTypes = {
   fill: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
-  showRelayer: PropTypes.bool,
-};
-
-RecentFillsItem.defaultProps = {
-  showRelayer: true,
 };
 
 export default RecentFillsItem;

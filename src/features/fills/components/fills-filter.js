@@ -7,10 +7,10 @@ import FillsFilterDialog from './fills-filter-dialog';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 
 const DEFAULT_FILTERS = {
+  apps: undefined,
   dateFrom: undefined,
   dateTo: undefined,
   protocolVersion: undefined,
-  relayer: undefined,
   status: undefined,
   token: undefined,
   trader: undefined,
@@ -60,16 +60,16 @@ const FillsFilter = ({ onChange, selectedFilters }) => {
 
 FillsFilter.propTypes = {
   defaultFilters: PropTypes.shape({
+    apps: PropTypes.arrayOf(PropTypes.string.isRequired),
     protocolVersion: PropTypes.number,
-    relayer: PropTypes.string,
     status: PropTypes.string,
     valueFrom: PropTypes.number,
     valueTo: PropTypes.number,
   }).isRequired,
   onChange: PropTypes.func.isRequired,
   selectedFilters: PropTypes.shape({
+    apps: PropTypes.arrayOf(PropTypes.string.isRequired),
     protocolVersion: PropTypes.number,
-    relayer: PropTypes.string,
     status: PropTypes.string,
     valueFrom: PropTypes.number,
     valueTo: PropTypes.number,

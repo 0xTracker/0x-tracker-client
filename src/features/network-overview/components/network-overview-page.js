@@ -18,7 +18,7 @@ import ProtocolMetrics from '../../metrics/components/protocol-metrics';
 import PageLayout from '../../../components/page-layout';
 import ResponsiveTimePeriodFilter from '../../../components/responsive-time-period-filter';
 import TabbedCard from '../../../components/tabbed-card';
-import TopRelayers from '../../relayers/components/top-relayers';
+import TopApps from '../../apps/components/top-apps';
 import TopTokens from '../../tokens/components/top-tokens';
 import TopProtocolsCard from './top-protocols-card';
 import TraderTypesCard from '../../traders/components/trader-types-card';
@@ -83,7 +83,7 @@ const NetworkOverviewPage = () => {
                       View More
                     </Pill>
                   ),
-                  component: <TopRelayers period={period} />,
+                  component: <TopApps period={period} />,
                   footer: <Footnote>Top apps by volume</Footnote>,
                   title: 'Top Apps',
                 },

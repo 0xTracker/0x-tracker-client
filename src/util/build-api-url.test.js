@@ -2,30 +2,26 @@ import buildApiUrl from './build-api-url';
 
 describe('build api url', () => {
   it('should build V1 api url by default', () => {
-    const url = buildApiUrl('relayers');
+    const url = buildApiUrl('apps');
 
-    expect(url).toBe('https://api.0xtracker.com/relayers');
+    expect(url).toBe('https://api.0xtracker.com/apps');
   });
 
   it('should build V1 api url without parameters', () => {
-    const url = buildApiUrl('relayers', undefined, { version: 1 });
+    const url = buildApiUrl('apps', undefined, { version: 1 });
 
-    expect(url).toBe('https://api.0xtracker.com/relayers');
+    expect(url).toBe('https://api.0xtracker.com/apps');
   });
 
   it('should build V1 api url with a single parameter', () => {
-    const url = buildApiUrl(
-      'relayers',
-      { statsPeriod: 'week' },
-      { version: 1 },
-    );
+    const url = buildApiUrl('apps', { statsPeriod: 'week' }, { version: 1 });
 
-    expect(url).toBe('https://api.0xtracker.com/relayers?statsPeriod=week');
+    expect(url).toBe('https://api.0xtracker.com/apps?statsPeriod=week');
   });
 
   it('should build V1 api url with multiple parameters', () => {
     const url = buildApiUrl(
-      'relayers',
+      'apps',
       {
         excludeInactive: true,
         statsPeriod: 'week',
@@ -34,7 +30,7 @@ describe('build api url', () => {
     );
 
     expect(url).toBe(
-      'https://api.0xtracker.com/relayers?excludeInactive=true&statsPeriod=week',
+      'https://api.0xtracker.com/apps?excludeInactive=true&statsPeriod=week',
     );
   });
 

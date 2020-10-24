@@ -87,7 +87,7 @@ SearchSuggestion.propTypes = {
     imageUrl: PropTypes.string,
     name: PropTypes.string,
     symbol: PropTypes.string,
-    type: PropTypes.oneOf(['relayer', 'token', 'trader']).isRequired,
+    type: PropTypes.oneOf(['app', 'token', 'trader']).isRequired,
   }).isRequired,
 };
 

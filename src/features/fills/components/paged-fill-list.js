@@ -17,7 +17,6 @@ class PagedFillList extends React.PureComponent {
   render() {
     const {
       changingPage,
-      excludeColumns,
       fills,
       onPageChange,
       page,
@@ -28,7 +27,7 @@ class PagedFillList extends React.PureComponent {
 
     return (
       <>
-        <FillList excludeColumns={excludeColumns} fills={fills} />
+        <FillList fills={fills} />
         <Paginator
           changingPage={changingPage}
           onPageChange={onPageChange}
@@ -44,7 +43,6 @@ class PagedFillList extends React.PureComponent {
 
 PagedFillList.propTypes = {
   changingPage: PropTypes.bool,
-  excludeColumns: PropTypes.arrayOf(PropTypes.oneOf(['relayer'])),
   fills: PropTypes.arrayOf(PropTypes.object).isRequired,
   onPageChange: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
@@ -55,7 +53,6 @@ PagedFillList.propTypes = {
 
 PagedFillList.defaultProps = {
   changingPage: false,
-  excludeColumns: undefined,
 };
 
 export default PagedFillList;
