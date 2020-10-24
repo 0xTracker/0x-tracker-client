@@ -4,9 +4,9 @@ import React from 'react';
 import { COLORS } from '../../../styles/constants';
 import AssetAmount from './asset-amount';
 import AssetLabel from './asset-label';
+import Badge from '../../../components/badge';
 import List from '../../../components/list';
 import ListItem from '../../../components/list-item';
-import TokenTypeBadge from '../../tokens/components/token-type-badge';
 
 const FillAssetsList = ({ assets, condensed }) => {
   if (assets.length === 0) {
@@ -18,6 +18,7 @@ const FillAssetsList = ({ assets, condensed }) => {
       {assets.map((asset, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <ListItem key={index}>
+          {asset.tokenImageUrl}
           <AssetAmount asset={asset} />{' '}
           <AssetLabel
             asset={asset}
@@ -25,8 +26,8 @@ const FillAssetsList = ({ assets, condensed }) => {
             css={`
               color: ${COLORS.PRIMARY.SCAMPI_500};
             `}
-          />{' '}
-          <TokenTypeBadge>{asset.type}</TokenTypeBadge>
+          />
+          <Badge css="margin-left: 0.75rem;">{asset.traderType}</Badge>
         </ListItem>
       ))}
     </List>

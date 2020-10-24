@@ -1,3 +1,4 @@
+import { CardBody } from 'reactstrap';
 import { useParams } from 'react-router';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -8,6 +9,10 @@ import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import { EtherscanIcon } from '../../../components/icons';
 import Card from '../../../components/card';
+import CardGrid from '../../../components/card-grid';
+import CardGridCol from '../../../components/card-grid-col';
+import CardGridRow from '../../../components/card-grid-row';
+import FillAddresses from './fill-addresses';
 import FillDetails from './fill-details';
 import Link from '../../../components/link';
 import LoadingPage from '../../../components/loading-page';
@@ -109,9 +114,26 @@ const FillPage = () => {
       subTitle={`for ${truncateAddress(fill.transactionHash, 30)}`}
       title="Trade Details"
     >
-      <Card css="padding: 2rem;">
-        <FillDetails fill={fill} maker={maker} taker={taker} />
-      </Card>
+      <CardGrid>
+        <CardGridRow>
+          <CardGridCol>
+            <Card autoHeight={false}>
+              <CardBody>
+                <FillDetails fill={fill} />
+              </CardBody>
+            </Card>
+          </CardGridCol>
+        </CardGridRow>
+        <CardGridRow>
+          <CardGridCol>
+            <Card autoHeight={false}>
+              <CardBody>
+                <FillAddresses fill={fill} maker={maker} taker={taker} />
+              </CardBody>
+            </Card>
+          </CardGridCol>
+        </CardGridRow>
+      </CardGrid>
     </PageLayout>
   );
 };
