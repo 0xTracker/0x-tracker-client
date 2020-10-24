@@ -10,7 +10,7 @@ const AppVolumeLabel = ({ stats }) => {
     return 'Unknown';
   }
 
-  return <LocalisedAmount amount={tradeVolume.total} summarize />;
+  return <LocalisedAmount amount={tradeVolume.total} summarize title={false} />;
 };
 
 AppVolumeLabel.propTypes = {
