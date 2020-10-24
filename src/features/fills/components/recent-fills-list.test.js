@@ -15,6 +15,7 @@ afterAll(() => {
 it('should render an assortment of fills', () => {
   const fills = [
     {
+      apps: [],
       assets: [
         {
           amount: '1',
@@ -51,6 +52,7 @@ it('should render an assortment of fills', () => {
       },
     },
     {
+      apps: [],
       assets: [
         {
           tokenAddress: '0x0e3a2a1f2146d86a604adc220b4967a898d7fe07',
@@ -81,6 +83,7 @@ it('should render an assortment of fills', () => {
       },
     },
     {
+      apps: [],
       assets: [
         {
           amount: '0.04030042144',
@@ -116,6 +119,7 @@ it('should render an assortment of fills', () => {
       },
     },
     {
+      apps: [],
       assets: [
         {
           amount: '2693',

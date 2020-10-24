@@ -5,6 +5,7 @@ import { renderWithRouter } from '../../../test-util/react';
 import FillDetails from './fill-details';
 
 const simpleFill = {
+  apps: [],
   assets: [
     {
       amount: '0.96955',
@@ -33,11 +34,6 @@ const simpleFill = {
   orderHash:
     '0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71',
   protocolVersion: 2,
-  relayer: {
-    imageUrl: 'https://0xtracker.com/assets/logos/radar-relay.png',
-    name: 'Radar Relay',
-    slug: 'radar-relay',
-  },
   senderAddress: '0x0dc411b17d337af85d83ea5a3577d09132aae866',
   status: 'successful',
   takerAddress: '0x0dc411b17d337af85d83ea5a3577d09132aae866',

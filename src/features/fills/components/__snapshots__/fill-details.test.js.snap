@@ -25,6 +25,33 @@ exports[`fillDetails component should render V2 fill 1`] = `
           d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
         />
       </svg>
+      Date:
+    </dt>
+    <dd
+      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+    >
+      Thursday, October 10th 2019, 6:13:48 AM GMT-03:00
+    </dd>
+    <dt
+      class="fill-detail__Title-q3it9r-0 jGBHMR"
+    >
+      <svg
+        aria-hidden="true"
+        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
+        fill="currentColor"
+        focusable="false"
+        height="18"
+        viewBox="0 0 24 24"
+        width="18"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
+        />
+        <path
+          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
+        />
+      </svg>
       Transaction Hash:
     </dt>
     <dd
@@ -88,65 +115,6 @@ exports[`fillDetails component should render V2 fill 1`] = `
       >
         0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71
       </a>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Sender Address:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
-        href="/search?q=0x0dc411b17d337af85d83ea5a3577d09132aae866"
-      >
-        0x0dc411b17d337af85d83ea5a3577d09132aae866
-      </a>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Date:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      Thursday, October 10th 2019, 6:13:48 AM GMT-03:00
     </dd>
     <dt
       class="fill-detail__Title-q3it9r-0 jGBHMR"
@@ -251,43 +219,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
           d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
         />
       </svg>
-      Relayer:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-relayer-link___StyledRelayerLink-sc-10d6xh4-1 cGetFX"
-        href="/apps/radar-relay"
-      >
-        <img
-          class="relayer-image___StyledImg-sc-1yudeg-0 iMMSkm fill-relayer-link___StyledRelayerImage-sc-10d6xh4-2 henJQY"
-          src="https://0xtracker.com/assets/logos/radar-relay.png"
-        />
-        Radar Relay
-      </a>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Affiliate:
+      Associated Apps:
     </dt>
     <dd
       class="fill-detail__Value-q3it9r-1 cLRIUQ"
@@ -314,71 +246,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
           d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
         />
       </svg>
-      Maker:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
-        href="/traders/0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3"
-      >
-        0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3
-      </a>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Taker:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
-        href="/traders/0x0dc411b17d337af85d83ea5a3577d09132aae866"
-      >
-        0x0dc411b17d337af85d83ea5a3577d09132aae866
-      </a>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Maker Assets:
+      Traded Assets:
     </dt>
     <dd
       class="fill-detail__Value-q3it9r-1 cLRIUQ"
@@ -413,44 +281,13 @@ exports[`fillDetails component should render V2 fill 1`] = `
             >
               Wrapped Ether  (WETH)
             </a>
-             
             <span
-              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 jGmjIN badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-assets-list___StyledBadge-sc-2koyyn-1 krcwTA"
             >
-              ERC-20
+              MAKER
             </span>
           </span>
         </li>
-      </ul>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Taker Assets:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      <ul
-        class="list__List-sc-1hr42jb-0 bICncC"
-      >
         <li
           class="list-item__Container-sc-1m8jbnt-0 hTThPt"
         >
@@ -478,42 +315,14 @@ exports[`fillDetails component should render V2 fill 1`] = `
             >
               FOAM Token  (FOAM)
             </a>
-             
             <span
-              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 jGmjIN badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-assets-list___StyledBadge-sc-2koyyn-1 krcwTA"
             >
-              ERC-20
+              TAKER
             </span>
           </span>
         </li>
       </ul>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Asset Bridge:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      None
     </dd>
     <dt
       class="fill-detail__Title-q3it9r-0 jGBHMR"
@@ -567,7 +376,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
               Wrapped Ether  (WETH)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge5-sc-5nb7jb-8 fdcWVy"
+              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge2-sc-5nb7jb-3 klpNUG"
             >
               <span>
                 $190.08
@@ -599,7 +408,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
               FOAM Token  (FOAM)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge5-sc-5nb7jb-8 fdcWVy"
+              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge2-sc-5nb7jb-3 klpNUG"
             >
               <span>
                 $0.03686
@@ -663,6 +472,15 @@ exports[`fillDetails component should render V2 fill 1`] = `
     >
       None
     </dd>
+  </dl>
+</DocumentFragment>
+`;
+
+exports[`fillDetails component should render V3 fill 1`] = `
+<DocumentFragment>
+  <dl
+    class="fill-details__FillDetailList-sc-5nb7jb-0 ARBAf"
+  >
     <dt
       class="fill-detail__Title-q3it9r-0 jGBHMR"
     >
@@ -683,27 +501,13 @@ exports[`fillDetails component should render V2 fill 1`] = `
           d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
         />
       </svg>
-      Fee Recipient:
+      Date:
     </dt>
     <dd
       class="fill-detail__Value-q3it9r-1 cLRIUQ"
     >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
-        href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
-      >
-        0xa258b39954cef5cb142fd567a46cddb31a670124
-      </a>
+      Thursday, October 10th 2019, 6:13:48 AM GMT-03:00
     </dd>
-  </dl>
-</DocumentFragment>
-`;
-
-exports[`fillDetails component should render V3 fill 1`] = `
-<DocumentFragment>
-  <dl
-    class="fill-details__FillDetailList-sc-5nb7jb-0 ARBAf"
-  >
     <dt
       class="fill-detail__Title-q3it9r-0 jGBHMR"
     >
@@ -787,65 +591,6 @@ exports[`fillDetails component should render V3 fill 1`] = `
       >
         0x8104d4c4a32da7f1df357779fe6b8fc11dc6f4287de54566fe22eb35a74b0c71
       </a>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Sender Address:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
-        href="/search?q=0x0dc411b17d337af85d83ea5a3577d09132aae866"
-      >
-        0x0dc411b17d337af85d83ea5a3577d09132aae866
-      </a>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Date:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      Thursday, October 10th 2019, 6:13:48 AM GMT-03:00
     </dd>
     <dt
       class="fill-detail__Title-q3it9r-0 jGBHMR"
@@ -957,43 +702,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
           d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
         />
       </svg>
-      Relayer:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-relayer-link___StyledRelayerLink-sc-10d6xh4-1 cGetFX"
-        href="/apps/radar-relay"
-      >
-        <img
-          class="relayer-image___StyledImg-sc-1yudeg-0 iMMSkm fill-relayer-link___StyledRelayerImage-sc-10d6xh4-2 henJQY"
-          src="https://0xtracker.com/assets/logos/radar-relay.png"
-        />
-        Radar Relay
-      </a>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Affiliate:
+      Associated Apps:
     </dt>
     <dd
       class="fill-detail__Value-q3it9r-1 cLRIUQ"
@@ -1020,71 +729,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
           d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
         />
       </svg>
-      Maker:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
-        href="/traders/0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3"
-      >
-        0x2cfb4faaece38d5d03ef1ec9dfdf34964d6ab1b3
-      </a>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Taker:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
-        href="/traders/0x0dc411b17d337af85d83ea5a3577d09132aae866"
-      >
-        0x0dc411b17d337af85d83ea5a3577d09132aae866
-      </a>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Maker Assets:
+      Traded Assets:
     </dt>
     <dd
       class="fill-detail__Value-q3it9r-1 cLRIUQ"
@@ -1119,44 +764,13 @@ exports[`fillDetails component should render V3 fill 1`] = `
             >
               Wrapped Ether  (WETH)
             </a>
-             
             <span
-              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 jGmjIN badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-assets-list___StyledBadge-sc-2koyyn-1 krcwTA"
             >
-              ERC-20
+              MAKER
             </span>
           </span>
         </li>
-      </ul>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Taker Assets:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      <ul
-        class="list__List-sc-1hr42jb-0 bICncC"
-      >
         <li
           class="list-item__Container-sc-1m8jbnt-0 hTThPt"
         >
@@ -1184,42 +798,14 @@ exports[`fillDetails component should render V3 fill 1`] = `
             >
               FOAM Token  (FOAM)
             </a>
-             
             <span
-              class="badge__Badge-sc-8ieo9x-0 token-type-badge__TokenTypeBadge-sc-16xfdr5-0 jGmjIN badge"
+              class="badge__Badge-sc-8ieo9x-0 fill-assets-list___StyledBadge-sc-2koyyn-1 krcwTA"
             >
-              ERC-20
+              TAKER
             </span>
           </span>
         </li>
       </ul>
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Asset Bridge:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      None
     </dd>
     <dt
       class="fill-detail__Title-q3it9r-0 jGBHMR"
@@ -1273,7 +859,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
               Wrapped Ether  (WETH)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge5-sc-5nb7jb-8 fdcWVy"
+              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge2-sc-5nb7jb-3 klpNUG"
             >
               <span>
                 $190.08
@@ -1305,7 +891,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
               FOAM Token  (FOAM)
             </span>
             <span
-              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge5-sc-5nb7jb-8 fdcWVy"
+              class="badge__Badge-sc-8ieo9x-0 fill-details___StyledBadge2-sc-5nb7jb-3 klpNUG"
             >
               <span>
                 $0.03686
@@ -1368,38 +954,6 @@ exports[`fillDetails component should render V3 fill 1`] = `
       class="fill-detail__Value-q3it9r-1 cLRIUQ"
     >
       None
-    </dd>
-    <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
-    >
-      <svg
-        aria-hidden="true"
-        class="icon-base__IconBase-ngmsqy-0 hvjdWy fill-detail___StyledHelpWidget-q3it9r-2 dYSwqK"
-        fill="currentColor"
-        focusable="false"
-        height="18"
-        viewBox="0 0 24 24"
-        width="18"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M12 6a3.939 3.939 0 00-3.934 3.934h2C10.066 8.867 10.934 8 12 8s1.934.867 1.934 1.934c0 .598-.481 1.032-1.216 1.626a9.208 9.208 0 00-.691.599c-.998.997-1.027 2.056-1.027 2.174V15h2l-.001-.633c.001-.016.033-.386.441-.793.15-.15.339-.3.535-.458.779-.631 1.958-1.584 1.958-3.182A3.937 3.937 0 0012 6zm-1 10h2v2h-2z"
-        />
-        <path
-          d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"
-        />
-      </svg>
-      Fee Recipient:
-    </dt>
-    <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
-    >
-      <a
-        class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
-        href="/search?q=0xa258b39954cef5cb142fd567a46cddb31a670124"
-      >
-        0xa258b39954cef5cb142fd567a46cddb31a670124
-      </a>
     </dd>
   </dl>
 </DocumentFragment>

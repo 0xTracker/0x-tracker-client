@@ -75,17 +75,6 @@ exports[`should render an assortment of fills 1`] = `
           class="recent-fills-item__Metadata-sc-1yc2z6o-1 bqxKWz"
         >
           <dt>
-            Relayer
-          </dt>
-          <dd>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 diqghp"
-              href="/apps/token-trove"
-            >
-              TokenTrove
-            </a>
-          </dd>
-          <dt>
             Date
           </dt>
           <dd>
@@ -168,17 +157,6 @@ exports[`should render an assortment of fills 1`] = `
         <dl
           class="recent-fills-item__Metadata-sc-1yc2z6o-1 bqxKWz"
         >
-          <dt>
-            Relayer
-          </dt>
-          <dd>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 diqghp"
-              href="/apps/token-trove"
-            >
-              TokenTrove
-            </a>
-          </dd>
           <dt>
             Date
           </dt>
@@ -263,17 +241,6 @@ exports[`should render an assortment of fills 1`] = `
           class="recent-fills-item__Metadata-sc-1yc2z6o-1 bqxKWz"
         >
           <dt>
-            Relayer
-          </dt>
-          <dd>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 diqghp"
-              href="/apps/star-bit"
-            >
-              STAR BIT
-            </a>
-          </dd>
-          <dt>
             Date
           </dt>
           <dd>
@@ -356,17 +323,6 @@ exports[`should render an assortment of fills 1`] = `
         <dl
           class="recent-fills-item__Metadata-sc-1yc2z6o-1 bqxKWz"
         >
-          <dt>
-            Relayer
-          </dt>
-          <dd>
-            <a
-              class="link__StyledLink-sc-1m1n17q-0 diqghp"
-              href="/apps/star-bit"
-            >
-              STAR BIT
-            </a>
-          </dd>
           <dt>
             Date
           </dt>

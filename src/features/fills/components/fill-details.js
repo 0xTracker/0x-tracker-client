@@ -125,7 +125,7 @@ const FillDetails = ({ fill }) => {
 
       <FillDetail
         title="Associated Apps"
-        tooltip="The 0x relayer which facilitated the exchange of assets. 0x relayers connect makers with takers."
+        tooltip="The 0x apps which facilitated the trade by relaying orders or consuming 0x liquidity."
       >
         <FillDetailsApps apps={fill.apps} />
       </FillDetail>
