@@ -12,6 +12,7 @@ import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import Number from '../../../components/number';
 import Tooltip from '../../../components/tooltip';
+import { HelpIcon } from '../../../components/icons';
 
 const TableCell = styled.td`
   height: 80px;
@@ -131,21 +132,29 @@ const RelatedAppsTable = ({ app, relatedApps }) => {
                     </p>
                   </>
                 }
+                placement="bottom"
               >
-                <span>
-                  <span css="display: block;">
-                    <LocalisedAmount
-                      amount={relatedApp.stats.tradeVolume.total}
-                      summarize
-                      title={false}
-                    />
+                <span css="display: flex; align-items: center; justify-content: flex-end;">
+                  <span>
+                    <span css="display: block;">
+                      <LocalisedAmount
+                        amount={relatedApp.stats.tradeVolume.total}
+                        summarize
+                        title={false}
+                      />
+                    </span>
+                    <SecondaryText>
+                      <Number summarize title={false}>
+                        {relatedApp.stats.tradeCount.total}
+                      </Number>{' '}
+                      trades
+                    </SecondaryText>
                   </span>
-                  <SecondaryText>
-                    <Number summarize title={false}>
-                      {relatedApp.stats.tradeCount.total}
-                    </Number>{' '}
-                    trades
-                  </SecondaryText>
+                  <HelpIcon
+                    color={COLORS.NEUTRAL.MYSTIC_500}
+                    css="margin-left: 0.75rem;"
+                    size={18}
+                  />
                 </span>
               </Tooltip>
             </TableCell>

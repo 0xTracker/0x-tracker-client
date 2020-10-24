@@ -11,6 +11,7 @@ import TokenAmount from '../../tokens/components/token-amount';
 import TokenImage from '../../tokens/components/token-image';
 import TokenLink from '../../tokens/components/token-link';
 import Tooltip from '../../../components/tooltip';
+import { HelpIcon } from '../../../components/icons';
 
 const TableCell = styled.td`
   height: 80px;
@@ -116,26 +117,34 @@ const AppTokensTable = ({ appName, tokens }) => (
                   </p>
                 </>
               }
+              placement="bottom"
             >
-              <span>
-                <span css="display: block; line-height: 1; margin-bottom: 0.2rem;">
-                  {token.stats.tradeVolume.USD === 0 ? (
-                    'Unknown'
-                  ) : (
-                    <LocalisedAmount
-                      amount={token.stats.tradeVolume.USD}
+              <span css="display: flex; align-items: center; justify-content: flex-end;">
+                <span>
+                  <span css="display: block; line-height: 1; margin-bottom: 0.2rem;">
+                    {token.stats.tradeVolume.USD === 0 ? (
+                      'Unknown'
+                    ) : (
+                      <LocalisedAmount
+                        amount={token.stats.tradeVolume.USD}
+                        summarize
+                      />
+                    )}
+                  </span>
+                  <SecondaryText>
+                    <TokenAmount
+                      amount={token.stats.tradeVolume.token}
+                      linked={false}
                       summarize
+                      token={token}
                     />
-                  )}
+                  </SecondaryText>
                 </span>
-                <SecondaryText>
-                  <TokenAmount
-                    amount={token.stats.tradeVolume.token}
-                    linked={false}
-                    summarize
-                    token={token}
-                  />
-                </SecondaryText>
+                <HelpIcon
+                  color={COLORS.NEUTRAL.MYSTIC_500}
+                  css="margin-left: 0.75rem;"
+                  size={18}
+                />
               </span>
             </Tooltip>
           </TableCell>

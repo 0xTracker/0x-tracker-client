@@ -9,7 +9,6 @@ import CardBody from '../../../components/card-body';
 import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
 import CardPlaceholder from '../../../components/card-placeholder';
-import HelpWidget from '../../../components/help-widget';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PaginationPills from '../../../components/pagination-pills';
 import RelatedAppsTable from './related-apps-table';
@@ -28,13 +27,7 @@ const RelatedAppsCard = ({ app, className, limit, statsPeriod }) => {
   return (
     <Card className={className}>
       <CardHeader>
-        <CardHeading>
-          Related Apps{' '}
-          <HelpWidget>
-            Other apps which were involved with {app.name} trades in the
-            selected period and the amount of volume they have in common.
-          </HelpWidget>
-        </CardHeading>
+        <CardHeading>Related Apps</CardHeading>
         {_.isObject(relatedApps) && (
           <PaginationPills
             onPageChange={(newPage) => setPage(newPage)}

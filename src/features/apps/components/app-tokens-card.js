@@ -10,7 +10,6 @@ import CardBody from '../../../components/card-body';
 import CardHeader from '../../../components/card-header';
 import CardHeading from '../../../components/card-heading';
 import CardPlaceholder from '../../../components/card-placeholder';
-import HelpWidget from '../../../components/help-widget';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PaginationPills from '../../../components/pagination-pills';
 import useAppTokens from '../hooks/use-app-tokens';
@@ -28,12 +27,7 @@ const AppTokensCard = ({ app, className, limit, statsPeriod }) => {
   return (
     <Card className={className}>
       <CardHeader>
-        <CardHeading>
-          Traded Tokens{' '}
-          <HelpWidget>
-            Tokens which were traded through {app.name} in the selected period.
-          </HelpWidget>
-        </CardHeading>
+        <CardHeading>Traded Tokens</CardHeading>
         {_.isObject(tokens) && (
           <PaginationPills
             onPageChange={(newPage) => setPage(newPage)}

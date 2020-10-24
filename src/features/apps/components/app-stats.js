@@ -5,6 +5,8 @@ import { useCurrentBreakpoint } from '../../../responsive-utils';
 import { getPeriodDescriptor } from '../../../util';
 import ActiveTradersWidget from '../../traders/components/active-traders-widget';
 import AppStatsCarousel from './app-stats-carousel';
+import AppTradesTooltip from './app-trades-tooltip';
+import AppVolumeTooltip from './app-volume-tooltip';
 import appsPropTypes from '../prop-types';
 import AverageTradeSizeWidget from '../../fills/components/average-trade-size-widget';
 import CardGridCol from '../../../components/card-grid-col';
@@ -23,9 +25,13 @@ const AppStats = ({ app, period }) => {
             change={app.stats.tradeVolumeChange.total}
             period={period}
             showPeriod={false}
-            tooltip={`Total value of all 0x-based trades made through ${
-              app.name
-            } ${getPeriodDescriptor(period)}.`}
+            tooltip={
+              <AppVolumeTooltip
+                appName={app.name}
+                period={period}
+                tradeVolume={app.stats.tradeVolume}
+              />
+            }
             volume={app.stats.tradeVolume.total}
           />
         </CardGridCol>
@@ -34,9 +40,13 @@ const AppStats = ({ app, period }) => {
             change={app.stats.tradeCountChange.total}
             period={period}
             showPeriod={false}
-            tooltip={`Total number of 0x-based trades made through ${
-              app.name
-            } ${getPeriodDescriptor(period)}`}
+            tooltip={
+              <AppTradesTooltip
+                appName={app.name}
+                period={period}
+                tradeCount={app.stats.tradeCount}
+              />
+            }
             tradeCount={app.stats.tradeCount.total}
           />
         </CardGridCol>
@@ -45,9 +55,9 @@ const AppStats = ({ app, period }) => {
             change={app.stats.activeTradersChange}
             period={period}
             showPeriod={false}
-            tooltip={`Number of unique traders involved in 0x-based trades on ${
+            tooltip={`Number of unique traders involved in 0x-based trades made through ${
               app.name
-            } ${getPeriodDescriptor(period)}.`}
+            } ${getPeriodDescriptor(period, { prefix: 'during' })}.`}
             traderCount={app.stats.activeTraders}
           />
         </CardGridCol>
@@ -57,9 +67,9 @@ const AppStats = ({ app, period }) => {
             change={app.stats.avgTradeSizeChange}
             period={period}
             showPeriod={false}
-            tooltip={`Average size of 0x-based trades on ${
+            tooltip={`Average size of 0x-based trades made through ${
               app.name
-            } ${getPeriodDescriptor(period)}.`}
+            } ${getPeriodDescriptor(period, { prefix: 'during' })}.`}
           />
         </CardGridCol>
       </CardGridRow>
