@@ -11,7 +11,7 @@ const FillAssetImage = styled.img`
 `;
 
 const FillAssetsImage = ({ assets }) => {
-  if (assets.length > 1) {
+  if (assets.length > 1 || assets.length === 0) {
     return (
       <TokensIcon
         css={`

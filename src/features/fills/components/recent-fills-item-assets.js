@@ -5,6 +5,10 @@ import React from 'react';
 import AssetAmount from './asset-amount';
 
 const RecentFillsItemAssets = ({ assets }) => {
+  if (assets.length === 0) {
+    return 'None';
+  }
+
   if (assets.length > 1) {
     return 'Multiple Assets';
   }
