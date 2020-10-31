@@ -1,11 +1,12 @@
+import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'styled-components';
 import Tippy from '@tippyjs/react';
 
 import { COLORS } from '../styles/constants';
+import { HelpIcon } from './icons';
 
-const Tooltip = styled(Tippy).attrs((props) => ({
-  placement: props.placement || 'right',
-}))`
+const StyledTippy = styled(Tippy)`
   && {
     background-color: ${COLORS.ACCENT.ANZAC_500};
     border-radius: 0.25rem;
@@ -50,5 +51,26 @@ const Tooltip = styled(Tippy).attrs((props) => ({
     }
   }
 `;
+
+const Tooltip = ({ children, content, iconColor, placement }) => (
+  <StyledTippy content={content} placement={placement}>
+    <span css="display: flex; align-items: center; justify-content: flex-end; text-align: right;">
+      <span>{children}</span>
+      <HelpIcon color={iconColor} css="margin-left: 0.5rem;" size={18} />
+    </span>
+  </StyledTippy>
+);
+
+Tooltip.defaultProps = {
+  iconColor: 'inherit',
+  placement: 'right',
+};
+
+Tooltip.propTypes = {
+  children: PropTypes.node.isRequired,
+  content: PropTypes.node.isRequired,
+  iconColor: PropTypes.string,
+  placement: PropTypes.string,
+};
 
 export default Tooltip;

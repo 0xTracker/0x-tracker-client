@@ -49,7 +49,6 @@ const GlobalStyles = createGlobalStyle`
     letter-spacing: 0.05em;
     text-transform: uppercase;
     font-size: 12px;
-    vertical-align: middle;
   }
   
   .table tbody td,
@@ -57,6 +56,7 @@ const GlobalStyles = createGlobalStyle`
     white-space: nowrap;
     padding-left: 1rem;
     padding-right: 1rem;
+    vertical-align: middle;
   }
   
   .table tbody tr:nth-child(2n) {
