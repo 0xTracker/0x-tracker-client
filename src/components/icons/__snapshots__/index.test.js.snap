@@ -1496,6 +1496,74 @@ exports[`should render SignOutIcon icon at 50x50 1`] = `
 </svg>
 `;
 
+exports[`should render SortAscendingIcon icon at 20x20 1`] = `
+<svg
+  aria-hidden="true"
+  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+  fill="currentColor"
+  focusable="false"
+  height="20"
+  viewBox="0 0 24 24"
+  width="20"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M18.2 13.3L12 7l-6.2 6.3c-.2.2-.3.5-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7z"
+  />
+</svg>
+`;
+
+exports[`should render SortAscendingIcon icon at 50x50 1`] = `
+<svg
+  aria-hidden="true"
+  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+  fill="currentColor"
+  focusable="false"
+  height="50"
+  viewBox="0 0 24 24"
+  width="50"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M18.2 13.3L12 7l-6.2 6.3c-.2.2-.3.5-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7z"
+  />
+</svg>
+`;
+
+exports[`should render SortDescendingIcon icon at 20x20 1`] = `
+<svg
+  aria-hidden="true"
+  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+  fill="currentColor"
+  focusable="false"
+  height="20"
+  viewBox="0 0 24 24"
+  width="20"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M5.8 9.7L12 16l6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.4-.3.7s.1.5.3.7z"
+  />
+</svg>
+`;
+
+exports[`should render SortDescendingIcon icon at 50x50 1`] = `
+<svg
+  aria-hidden="true"
+  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+  fill="currentColor"
+  focusable="false"
+  height="50"
+  viewBox="0 0 24 24"
+  width="50"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M5.8 9.7L12 16l6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.4-.3.7s.1.5.3.7z"
+  />
+</svg>
+`;
+
 exports[`should render SquareIcon icon at 20x20 1`] = `
 <svg
   aria-hidden="true"
