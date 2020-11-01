@@ -19,10 +19,24 @@ import Rank from '../../../components/rank';
 import sharedPropTypes from '../../../prop-types';
 import Th from '../../../components/th';
 import Tooltip from '../../../components/tooltip';
+import useTableSort from '../../../hooks/use-table-sort';
 
-const AppList = ({ apps, positionOffset, statsPeriod }) => {
+const AppList = ({
+  apps,
+  onSort,
+  positionOffset,
+  sortBy,
+  sortDirection,
+  statsPeriod,
+}) => {
   const periodDescriptor = getPeriodDescriptor(statsPeriod, {
     prefix: 'during',
+  });
+
+  const { getSortableColumnProps } = useTableSort({
+    onSort,
+    sortBy,
+    sortDirection,
   });
 
   return (
@@ -32,6 +46,7 @@ const AppList = ({ apps, positionOffset, statsPeriod }) => {
           <th className="text-center">#</th>
           <th colSpan="2">App</th>
           <Th
+            {...getSortableColumnProps('tradeCount')}
             className="text-right"
             tooltip={
               <p>
@@ -43,6 +58,7 @@ const AppList = ({ apps, positionOffset, statsPeriod }) => {
             Trades
           </Th>
           <Th
+            {...getSortableColumnProps('tradeVolume')}
             className="text-right"
             tooltip={
               <p>
@@ -54,6 +70,7 @@ const AppList = ({ apps, positionOffset, statsPeriod }) => {
             Volume
           </Th>
           <Th
+            {...getSortableColumnProps('activeTraders')}
             className="text-right"
             tooltip={
               <p>
@@ -182,7 +199,10 @@ const AppList = ({ apps, positionOffset, statsPeriod }) => {
 
 AppList.propTypes = {
   apps: PropTypes.arrayOf(appsPropTypes.appWithStats).isRequired,
+  onSort: PropTypes.func.isRequired,
   positionOffset: PropTypes.number,
+  sortBy: PropTypes.string.isRequired,
+  sortDirection: PropTypes.string.isRequired,
   statsPeriod: sharedPropTypes.timePeriod.isRequired,
 };
 
