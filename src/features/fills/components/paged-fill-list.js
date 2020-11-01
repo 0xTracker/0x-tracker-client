@@ -19,15 +19,23 @@ class PagedFillList extends React.PureComponent {
       changingPage,
       fills,
       onPageChange,
+      onSort,
       page,
       pageCount,
       pageSize,
+      sortBy,
+      sortDirection,
       total,
     } = this.props;
 
     return (
       <>
-        <FillList fills={fills} />
+        <FillList
+          fills={fills}
+          onSort={onSort}
+          sortBy={sortBy}
+          sortDirection={sortDirection}
+        />
         <Paginator
           changingPage={changingPage}
           onPageChange={onPageChange}
@@ -45,9 +53,12 @@ PagedFillList.propTypes = {
   changingPage: PropTypes.bool,
   fills: PropTypes.arrayOf(PropTypes.object).isRequired,
   onPageChange: PropTypes.func.isRequired,
+  onSort: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
   pageCount: PropTypes.number.isRequired,
   pageSize: PropTypes.number.isRequired,
+  sortBy: PropTypes.string.isRequired,
+  sortDirection: PropTypes.string.isRequired,
   total: PropTypes.number.isRequired,
 };
 
