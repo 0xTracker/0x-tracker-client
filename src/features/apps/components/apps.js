@@ -6,11 +6,20 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import Paginator from '../../../components/paginator';
 import useApps from '../hooks/use-apps';
 
-const Apps = ({ onPageChange, page, statsPeriod }) => {
+const Apps = ({
+  onPageChange,
+  onSort,
+  page,
+  sortBy,
+  sortDirection,
+  statsPeriod,
+}) => {
   const [apps, loading] = useApps({
     autoReload: true,
     limit: 25,
     page,
+    sortBy,
+    sortDirection,
     statsPeriod,
   });
 
@@ -24,7 +33,10 @@ const Apps = ({ onPageChange, page, statsPeriod }) => {
     <>
       <AppList
         apps={items}
+        onSort={onSort}
         positionOffset={(page - 1) * pageSize}
+        sortBy={sortBy}
+        sortDirection={sortDirection}
         statsPeriod={statsPeriod}
       />
       <Paginator
@@ -40,7 +52,10 @@ const Apps = ({ onPageChange, page, statsPeriod }) => {
 
 Apps.propTypes = {
   onPageChange: PropTypes.func.isRequired,
+  onSort: PropTypes.func.isRequired,
   page: PropTypes.number,
+  sortBy: PropTypes.string.isRequired,
+  sortDirection: PropTypes.string.isRequired,
   statsPeriod: PropTypes.string,
 };
 

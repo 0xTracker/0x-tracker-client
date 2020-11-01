@@ -39,6 +39,8 @@ import ScheduledIcon from './scheduled-icon';
 import SearchIcon from './search-icon';
 import SettingsIcon from './settings-icon';
 import SignOutIcon from './sign-out-icon';
+import SortAscendingIcon from './sort-ascending-icon';
+import SortDescendingIcon from './sort-descending-icon';
 import SquareIcon from './square-icon';
 import StakingIcon from './staking-icon';
 import TimePeriodIcon from './time-period-icon';
@@ -94,6 +96,8 @@ export {
   SearchIcon,
   SettingsIcon,
   SignOutIcon,
+  SortAscendingIcon,
+  SortDescendingIcon,
   SquareIcon,
   StakingIcon,
   TimePeriodIcon,
