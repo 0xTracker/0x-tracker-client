@@ -7,11 +7,20 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import PagedFillList from './paged-fill-list';
 import useFills from '../hooks/use-fills';
 
-const Fills = ({ filter, page, onPageChange }) => {
+const Fills = ({
+  filter,
+  page,
+  onPageChange,
+  onSort,
+  sortBy,
+  sortDirection,
+}) => {
   const [fills, loading] = useFills({
     autoReload: true,
     filter,
     page,
+    sortBy,
+    sortDirection,
   });
 
   const { items, pageCount, pageSize, recordCount } = fills;
@@ -32,9 +41,12 @@ const Fills = ({ filter, page, onPageChange }) => {
     <PagedFillList
       fills={items}
       onPageChange={onPageChange}
+      onSort={onSort}
       page={page}
       pageCount={pageCount}
       pageSize={pageSize}
+      sortBy={sortBy}
+      sortDirection={sortDirection}
       total={recordCount}
     />
   );
@@ -52,7 +64,10 @@ Fills.propTypes = {
     trader: PropTypes.string,
   }),
   onPageChange: PropTypes.func.isRequired,
+  onSort: PropTypes.func.isRequired,
   page: PropTypes.number.isRequired,
+  sortBy: PropTypes.string.isRequired,
+  sortDirection: PropTypes.string.isRequired,
 };
 
 Fills.defaultProps = {

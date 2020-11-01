@@ -10,6 +10,8 @@ const useFills = (options = {}) => {
       apps: Array.isArray(filter.apps) ? filter.apps.join(',') : undefined,
       limit: options.limit,
       page: options.page,
+      sortBy: options.sortBy,
+      sortDirection: options.sortDirection,
     },
   });
 

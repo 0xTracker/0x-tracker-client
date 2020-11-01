@@ -14,11 +14,16 @@ import NetworkMetrics from '../../metrics/components/network-metrics';
 import NetworkVolume from '../../metrics/components/network-volume';
 import TabbedCard from '../../../components/tabbed-card';
 import useNetworkStats from '../../stats/hooks/use-network-stats';
+import useSortOptions from '../../../hooks/use-sort-options';
 
 const FillsPage = () => {
   useMetadata({ title: 'Browse 0x Protocol Trades' });
 
   const { page, setPage } = usePaginator();
+  const { setSortOptions, sortBy, sortDirection } = useSortOptions(
+    'date',
+    'desc',
+  );
   const apps = useSearchParam('apps', undefined, { isArray: true });
   const status = useSearchParam('status');
   const dateFrom = useSearchParam('dateFrom');
@@ -135,7 +140,10 @@ const FillsPage = () => {
               <Fills
                 filter={{ ...selectedFilters, dateFrom, dateTo }}
                 onPageChange={setPage}
+                onSort={setSortOptions}
                 page={page}
+                sortBy={sortBy}
+                sortDirection={sortDirection}
               />
             </Card>
           </CardGridCol>

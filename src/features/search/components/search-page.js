@@ -8,16 +8,23 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import PageLayout from '../../../components/page-layout';
 import SearchResults from './search-results';
 import useFills from '../../fills/hooks/use-fills';
+import useSortOptions from '../../../hooks/use-sort-options';
 
 const SearchPage = () => {
   useMetadata({ title: 'Search Results' });
 
   const { page, setPage } = usePaginator();
+  const { setSortOptions, sortBy, sortDirection } = useSortOptions(
+    'date',
+    'desc',
+  );
   const searchQuery = useSearchParam('q');
   const [fills, loading] = useFills({
     autoReload: true,
     filter: { q: _.toLower(searchQuery) },
     page,
+    sortBy,
+    sortDirection,
   });
   const { items, pageCount, pageSize, recordCount } = fills;
 
@@ -32,10 +39,13 @@ const SearchPage = () => {
               changingPage={loading}
               fills={items}
               onPageChange={setPage}
+              onSort={setSortOptions}
               page={page}
               pageCount={pageCount}
               pageSize={pageSize}
               searchQuery={_.toLower(searchQuery)}
+              sortBy={sortBy}
+              sortDirection={sortDirection}
               total={recordCount}
             />
           )}
