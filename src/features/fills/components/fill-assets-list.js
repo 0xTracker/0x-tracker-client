@@ -18,7 +18,6 @@ const FillAssetsList = ({ assets, condensed }) => {
       {assets.map((asset, index) => (
         // eslint-disable-next-line react/no-array-index-key
         <ListItem key={index}>
-          {asset.tokenImageUrl}
           <AssetAmount asset={asset} />{' '}
           <AssetLabel
             asset={asset}
