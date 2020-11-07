@@ -6,11 +6,12 @@ import { media } from '../styles/util';
 import subscribeImage from '../assets/images/subscribe.png';
 
 const Wrapper = styled.div`
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
-  padding: 48px;
+  background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+  padding: 2rem 1rem;
   text-align: center;
 
   ${media.greaterThan('sm')`
+    padding: 48px;
     text-align: left;
   `};
 `;
@@ -35,7 +36,7 @@ const Image = styled.img`
 `;
 
 const Heading = styled.h2`
-  font-size: 24px;
+  font-size: 1.5rem;
   margin: 0 0 0.25rem 0;
   line-height: 1;
 
@@ -46,7 +47,7 @@ const Heading = styled.h2`
 
 const Lead = styled.p`
   color: ${COLORS.NEUTRAL.MYSTIC_800};
-  font-size: 18px;
+  font-size: 1rem;
   max-width: 400px;
   margin: 0;
 
@@ -65,7 +66,7 @@ const EmailInput = styled.input`
   min-width: 0;
 
   &::placeholder {
-    color: ${COLORS.NEUTRAL.MYSTIC_800};
+    color: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 `;
 
@@ -105,7 +106,7 @@ const HoneyPot = styled.div`
 
 const Form = styled.form`
   position: relative;
-  margin-top: 30px;
+  margin-top: 1rem;
 `;
 
 const SubscribePanel = () => (

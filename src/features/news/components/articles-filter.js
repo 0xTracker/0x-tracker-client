@@ -9,14 +9,13 @@ import { AllIcon } from '../../../components/icons';
 import Link from '../../../components/link';
 
 const FilterItem = styled(Link)`
-  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_100};
-  color: ${(props) => (props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_600)};
+  color: ${(props) => (props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_700)};
   display: flex;
   justify-content: space-between;
   padding: 0.75rem 1rem;
 
   &:hover {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_200};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_100};
   }
 `;
 

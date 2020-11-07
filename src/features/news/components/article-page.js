@@ -49,12 +49,12 @@ const Content = styled.div`
   img {
     max-width: 550px;
     width: 100%;
-    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
     padding: 1px;
   }
 
   em {
-    background: ${COLORS.NEUTRAL.MYSTIC_200};
+    background: ${COLORS.NEUTRAL.MYSTIC_300};
     padding: 2px 4px;
   }
 
@@ -97,7 +97,7 @@ const Content = styled.div`
   }
 
   figcaption {
-    color: ${COLORS.NEUTRAL.MYSTIC_600};
+    color: ${COLORS.NEUTRAL.MYSTIC_700};
     margin: 0.5rem 0 0 0;
     max-width: 400px;
     font-size: 15px;
@@ -181,7 +181,7 @@ const ArticlePage = () => {
                     align-items: center;
                     display: flex;
                     margin-bottom: 2rem;
-                    border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+                    border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
                     padding-bottom: 1rem;
                     justify-content: space-between;
                   `}
@@ -199,7 +199,7 @@ const ArticlePage = () => {
                       <dt>Date</dt>
                       <dd
                         css={`
-                          color: ${COLORS.NEUTRAL.MYSTIC_700};
+                          color: ${COLORS.NEUTRAL.MYSTIC_800};
                         `}
                       >
                         {formatDate(article.date, DATE_FORMAT.COMPACT, {
@@ -220,7 +220,7 @@ const ArticlePage = () => {
                 <div
                   css={`
                     align-items: center;
-                    border-top: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+                    border-top: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
                     display: flex;
                     justify-content: flex-end;
                     margin-top: 8px;

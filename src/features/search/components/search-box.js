@@ -56,7 +56,7 @@ const SearchBox = ({ autoFocus, onBlur }) => {
       <Card
         css={`
           background: ${COLORS.NEUTRAL.MYSTIC_100};
-          color: ${COLORS.PRIMARY.SCAMPI_1000};
+          color: inherit;
           position: relative;
           z-index: 6;
           height: 42px;
@@ -86,7 +86,7 @@ const SearchBox = ({ autoFocus, onBlur }) => {
             />
             <div
               css={`
-                background: ${COLORS.NEUTRAL.MYSTIC_200};
+                background: ${COLORS.NEUTRAL.MYSTIC_300};
                 color: ${COLORS.NEUTRAL.MYSTIC_500};
                 border-radius: 4px;
                 display: flex;

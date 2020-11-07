@@ -19,7 +19,7 @@ const Container = styled.li`
 const ListItem = ({ children }) => (
   <Container>
     <CaretRightIcon
-      color={COLORS.NEUTRAL.MYSTIC_400}
+      color={COLORS.NEUTRAL.MYSTIC_500}
       css="margin: 2px 0 0 -5px"
       height={16}
       width={16}

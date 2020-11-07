@@ -5,11 +5,12 @@ exports[`should render an assortment of fills 1`] = `
   <div
     class="recent-fills-list__Wrapper-sc-11wan41-0 bgACHr"
   >
-    <div
-      class="recent-fills-item__Wrapper-sc-1yc2z6o-0 koJLeh"
+    <a
+      class="link__StyledLink-sc-1m1n17q-0 diqghp recent-fills-item__Wrapper-sc-1yc2z6o-0 jrqhQZ"
+      href="/fills/5dd96f9d250aa512ae416656"
     >
       <div
-        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 bjoghe"
+        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 dWTESo"
       >
         <div
           class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper-hf0nj8-3 hyXhcG"
@@ -58,19 +59,14 @@ exports[`should render an assortment of fills 1`] = `
           </svg>
         </div>
       </div>
-      <div
-        class="recent-fills-item___StyledDiv-sc-1yc2z6o-5 ljkUpL"
+      <span
+        class="recent-fills-item___StyledSpan-sc-1yc2z6o-5 iCYxL"
       >
-        <h4
-          class="recent-fills-item__Heading-sc-1yc2z6o-2 ksELXE"
+        <span
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 cBXSzx"
         >
-          <a
-            class="link__StyledLink-sc-1m1n17q-0 diqghp"
-            href="/fills/5dd96f9d250aa512ae416656"
-          >
-            1 CARD ⇋ 0.19 WETH
-          </a>
-        </h4>
+          1 CARD ⇋ 0.19 WETH
+        </span>
         <dl
           class="recent-fills-item__Metadata-sc-1yc2z6o-1 bqxKWz"
         >
@@ -81,18 +77,19 @@ exports[`should render an assortment of fills 1`] = `
             18 minutes ago
           </dd>
         </dl>
-      </div>
+      </span>
       <span
-        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 dbRRNV"
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 bilzGA"
       >
         $29.24
       </span>
-    </div>
-    <div
-      class="recent-fills-item__Wrapper-sc-1yc2z6o-0 txCrt"
+    </a>
+    <a
+      class="link__StyledLink-sc-1m1n17q-0 diqghp recent-fills-item__Wrapper-sc-1yc2z6o-0 hMEXSl"
+      href="/fills/5dd96f6d250aa512ae40bad3"
     >
       <div
-        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 bjoghe"
+        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 dWTESo"
       >
         <div
           class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper-hf0nj8-3 hyXhcG"
@@ -141,19 +138,14 @@ exports[`should render an assortment of fills 1`] = `
           </svg>
         </div>
       </div>
-      <div
-        class="recent-fills-item___StyledDiv-sc-1yc2z6o-5 ljkUpL"
+      <span
+        class="recent-fills-item___StyledSpan-sc-1yc2z6o-5 iCYxL"
       >
-        <h4
-          class="recent-fills-item__Heading-sc-1yc2z6o-2 ksELXE"
+        <span
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 cBXSzx"
         >
-          <a
-            class="link__StyledLink-sc-1m1n17q-0 diqghp"
-            href="/fills/5dd96f6d250aa512ae40bad3"
-          >
-             Unknown ⇋ 0.975 WETH
-          </a>
-        </h4>
+           Unknown ⇋ 0.975 WETH
+        </span>
         <dl
           class="recent-fills-item__Metadata-sc-1yc2z6o-1 bqxKWz"
         >
@@ -164,18 +156,19 @@ exports[`should render an assortment of fills 1`] = `
             19 minutes ago
           </dd>
         </dl>
-      </div>
+      </span>
       <span
-        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 dbRRNV"
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 bilzGA"
       >
         $150.06
       </span>
-    </div>
-    <div
-      class="recent-fills-item__Wrapper-sc-1yc2z6o-0 koJLeh"
+    </a>
+    <a
+      class="link__StyledLink-sc-1m1n17q-0 diqghp recent-fills-item__Wrapper-sc-1yc2z6o-0 jrqhQZ"
+      href="/fills/5dd96f3f250aa512ae3fb34a"
     >
       <div
-        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 bjoghe"
+        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 dWTESo"
       >
         <div
           class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper-hf0nj8-3 hyXhcG"
@@ -224,19 +217,14 @@ exports[`should render an assortment of fills 1`] = `
           </svg>
         </div>
       </div>
-      <div
-        class="recent-fills-item___StyledDiv-sc-1yc2z6o-5 ljkUpL"
+      <span
+        class="recent-fills-item___StyledSpan-sc-1yc2z6o-5 iCYxL"
       >
-        <h4
-          class="recent-fills-item__Heading-sc-1yc2z6o-2 ksELXE"
+        <span
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 cBXSzx"
         >
-          <a
-            class="link__StyledLink-sc-1m1n17q-0 diqghp"
-            href="/fills/5dd96f3f250aa512ae3fb34a"
-          >
-            0.0403 WETH ⇋ 2,693 SBT
-          </a>
-        </h4>
+          0.0403 WETH ⇋ 2,693 SBT
+        </span>
         <dl
           class="recent-fills-item__Metadata-sc-1yc2z6o-1 bqxKWz"
         >
@@ -247,18 +235,19 @@ exports[`should render an assortment of fills 1`] = `
             20 minutes ago
           </dd>
         </dl>
-      </div>
+      </span>
       <span
-        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 dbRRNV"
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 bilzGA"
       >
         $6.20
       </span>
-    </div>
-    <div
-      class="recent-fills-item__Wrapper-sc-1yc2z6o-0 txCrt"
+    </a>
+    <a
+      class="link__StyledLink-sc-1m1n17q-0 diqghp recent-fills-item__Wrapper-sc-1yc2z6o-0 hMEXSl"
+      href="/fills/5dd96f3f250aa512ae3fb34d"
     >
       <div
-        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 bjoghe"
+        class="recent-fills-item-image__Wrapper-hf0nj8-0 cAvzIX recent-fills-item___StyledRecentFillsItemImage-sc-1yc2z6o-4 dWTESo"
       >
         <div
           class="recent-fills-item-image__ImageWrapper-hf0nj8-1 recent-fills-item-image___StyledImageWrapper-hf0nj8-3 hyXhcG"
@@ -307,19 +296,14 @@ exports[`should render an assortment of fills 1`] = `
           </svg>
         </div>
       </div>
-      <div
-        class="recent-fills-item___StyledDiv-sc-1yc2z6o-5 ljkUpL"
+      <span
+        class="recent-fills-item___StyledSpan-sc-1yc2z6o-5 iCYxL"
       >
-        <h4
-          class="recent-fills-item__Heading-sc-1yc2z6o-2 ksELXE"
+        <span
+          class="recent-fills-item__Heading-sc-1yc2z6o-2 cBXSzx"
         >
-          <a
-            class="link__StyledLink-sc-1m1n17q-0 diqghp"
-            href="/fills/5dd96f3f250aa512ae3fb34d"
-          >
-            2,693 SBT ⇋  Unknown
-          </a>
-        </h4>
+          2,693 SBT ⇋  Unknown
+        </span>
         <dl
           class="recent-fills-item__Metadata-sc-1yc2z6o-1 bqxKWz"
         >
@@ -330,13 +314,13 @@ exports[`should render an assortment of fills 1`] = `
             20 minutes ago
           </dd>
         </dl>
-      </div>
+      </span>
       <span
-        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 dbRRNV"
+        class="recent-fills-item__FillAmount-sc-1yc2z6o-3 bilzGA"
       >
         $6.06
       </span>
-    </div>
+    </a>
   </div>
 </DocumentFragment>
 `;

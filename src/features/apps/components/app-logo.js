@@ -19,7 +19,7 @@ const AppLogo = ({ className, height, imageUrl, width }) =>
   ) : (
     <SquareIcon
       className={className}
-      color={COLORS.NEUTRAL.MYSTIC_400}
+      color={COLORS.NEUTRAL.MYSTIC_500}
       height={height}
       width={width}
     />

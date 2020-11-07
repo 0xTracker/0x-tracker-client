@@ -14,7 +14,7 @@ const getColor = (value) => {
     return COLORS.ACCENT.POMEGRANATE_500;
   }
 
-  return COLORS.NEUTRAL.MYSTIC_600;
+  return COLORS.NEUTRAL.MYSTIC_700;
 };
 
 const PercentageChange = ({ children, className }) => {

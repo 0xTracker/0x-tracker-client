@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { COLORS } from '../../../styles/constants';
-import { media } from '../../../styles/util';
 import { MenuIcon, SearchIcon } from '../../../components/icons';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import HeaderActions from './header-actions';
 import MobileMenu from './mobile-menu';
 import SearchBox from '../../search/components/search-box';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
+import { media } from '../../../styles/util';
 
 const MenuButton = styled.button`
   align-items: center;
@@ -22,15 +22,15 @@ const MenuButton = styled.button`
 `;
 
 const StyledHeader = styled.header`
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_400};
   box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
   color: ${COLORS.PRIMARY.SCAMPI_900};
   height: 70px;
-  padding: 0 1.25rem;
+  padding: 0 1.5rem;
 
-  ${media.greaterThan('lg')`
+  ${media.greaterThan('xl')`
     padding: 0 2rem;
-  `};
+  `}
 `;
 
 const ActionButton = styled.button`

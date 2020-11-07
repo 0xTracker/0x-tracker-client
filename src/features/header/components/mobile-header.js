@@ -10,9 +10,10 @@ import logoImage from '../../../assets/images/logo-grayscale.svg';
 import MobileMenu from './mobile-menu';
 import MobileSearch from './mobile-search';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
+import { media } from '../../../styles/util';
 
 const LogoImage = styled.img`
-  height: 40px;
+  height: 2.5rem;
 `;
 
 const StyledHeader = styled.header`
@@ -22,7 +23,11 @@ const StyledHeader = styled.header`
   display: flex;
   height: 70px;
   justify-content: space-between;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 1rem;
+
+  ${media.greaterThan('md')`
+    padding: 0.75rem 1.5rem;
+  `}
 `;
 
 const ActionButton = styled.button`
@@ -74,7 +79,7 @@ const MobileHeader = () => {
                 }}
                 title="Search"
               >
-                <SearchIcon color="currentColor" height={22} width={22} />
+                <SearchIcon color="currentColor" height={20} width={20} />
               </ActionButton>
               <ActionButton
                 onClick={() => {
@@ -82,13 +87,13 @@ const MobileHeader = () => {
                 }}
                 title="Open menu"
               >
-                <MenuIcon size={24} />
+                <MenuIcon size={20} />
               </ActionButton>
             </>
           )}
           {menuVisible && (
             <ActionButton onClick={closeMenu} title="Close menu">
-              <CloseIcon size={30} />
+              <CloseIcon css="margin-right: -5px" size={30} />
             </ActionButton>
           )}
         </Actions>

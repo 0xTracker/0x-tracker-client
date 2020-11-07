@@ -7,10 +7,10 @@ import { COLORS } from '../styles/constants';
 import CardPlaceholder from './card-placeholder';
 
 const TryAgainButton = styled.button`
-  background: ${COLORS.NEUTRAL.MYSTIC_300};
+  background: ${COLORS.NEUTRAL.MYSTIC_400};
   border: none;
   border-radius: 4px;
-  color: ${COLORS.NEUTRAL.MYSTIC_700};
+  color: ${COLORS.NEUTRAL.MYSTIC_800};
   display: block;
   font-size: 12px;
   text-transform: uppercase;
@@ -21,7 +21,7 @@ const TryAgainButton = styled.button`
   text-align: center;
 
   &:hover {
-    background: ${COLORS.NEUTRAL.MYSTIC_400};
+    background: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 `;
 

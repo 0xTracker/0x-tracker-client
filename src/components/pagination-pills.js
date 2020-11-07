@@ -16,15 +16,15 @@ const enabledCss = css`
 `;
 
 const disabledCss = css`
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
-  color: ${COLORS.NEUTRAL.MYSTIC_500};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+  color: ${COLORS.NEUTRAL.MYSTIC_600};
   cursor: not-allowed;
   display: inline-block;
   margin-right: 0.25rem;
 
   &:hover {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_300};
-    color: ${COLORS.NEUTRAL.MYSTIC_500};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+    color: ${COLORS.NEUTRAL.MYSTIC_600};
   }
 
   &:last-child {

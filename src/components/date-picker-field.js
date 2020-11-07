@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   }
 
   .DayPickerInput input {
-    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
+    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
     border-radius: 0.25rem;
     color: inherit;
     padding: 0.5rem 0.7rem;
@@ -23,11 +23,11 @@ const Wrapper = styled.div`
 
     &:active,
     &:focus {
-      border: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
+      border: 2px solid ${COLORS.NEUTRAL.MYSTIC_500};
     }
 
     &::placeholder {
-      color: ${COLORS.NEUTRAL.MYSTIC_400};
+      color: ${COLORS.NEUTRAL.MYSTIC_500};
       opacity: 1;
     }
 

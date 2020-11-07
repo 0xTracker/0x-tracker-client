@@ -17,7 +17,7 @@ const Title = styled.dt`
   }
 
   ${media.greaterThan('md')`
-    border-bottom: 1px solid ${COLORS.NEUTRAL.MYSTIC_200};
+    border-bottom: 1px solid ${COLORS.NEUTRAL.MYSTIC_300};
     width: 20%;
   `};
 `;
@@ -25,7 +25,7 @@ const Title = styled.dt`
 const Value = styled.dd`
   align-items: center;
   display: flex;
-  border-bottom: 1px solid ${COLORS.NEUTRAL.MYSTIC_200};
+  border-bottom: 1px solid ${COLORS.NEUTRAL.MYSTIC_300};
   overflow: hidden;
   padding: 0 0 0.75rem;
   text-overflow: ellipsis;
@@ -47,7 +47,7 @@ const FillDetail = ({ children, title, tooltip }) => (
       {tooltip !== undefined && (
         <HelpWidget
           css={`
-            color: ${COLORS.NEUTRAL.MYSTIC_600};
+            color: ${COLORS.NEUTRAL.MYSTIC_700};
             margin-right: 0.5rem;
           `}
         >

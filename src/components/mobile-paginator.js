@@ -17,17 +17,18 @@ const StyledMobilePaginator = styled.div`
 const PageButton = styled.button.attrs({ type: 'button' })`
   border: none;
   background: none;
-  color: inherit;
+  color: ${COLORS.NEUTRAL.MYSTIC_700};
   cursor: pointer;
   flex-grow: 0;
   padding: 1rem 1.25rem;
 
-  &:hover {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_200};
+  &:hover,
+  &:active {
+    color: inherit;
   }
 
   &:disabled {
-    color: ${COLORS.NEUTRAL.MYSTIC_300};
+    color: ${COLORS.NEUTRAL.MYSTIC_400};
 
     &:hover {
       background: none;

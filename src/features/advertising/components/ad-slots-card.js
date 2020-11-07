@@ -51,7 +51,7 @@ const AdSlotsCard = ({ adSlots, onSlotSelected, selectedSlot }) => (
                 border-radius: 4px;
                 color: ${(props) =>
                   // eslint-disable-next-line react/prop-types
-                  props.selected ? 'inherit' : COLORS.NEUTRAL.MYSTIC_700};
+                  props.selected ? 'inherit' : COLORS.NEUTRAL.MYSTIC_800};
                 display: flex;
                 list-style-type: none;
                 padding: 16px;

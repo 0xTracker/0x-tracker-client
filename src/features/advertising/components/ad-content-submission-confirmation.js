@@ -12,7 +12,7 @@ const AdContentSubmissionConfirmation = ({ onClose }) => (
     onClose={onClose}
     width={450}
   >
-    <SpeechBubble color={COLORS.NEUTRAL.MYSTIC_300} mood="happy" size={80} />
+    <SpeechBubble color={COLORS.NEUTRAL.MYSTIC_400} mood="happy" size={80} />
     <p css="font-size: 18px; margin: 32px; text-align: center;">
       Thanks for your submission. We&rsquo;ll review your request and notify you
       by email when it has been processed.

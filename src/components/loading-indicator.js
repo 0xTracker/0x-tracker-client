@@ -114,7 +114,7 @@ LoadingIndicator.propTypes = {
 };
 
 LoadingIndicator.defaultProps = {
-  color: COLORS.NEUTRAL.MYSTIC_700,
+  color: COLORS.NEUTRAL.MYSTIC_800,
   size: 'large',
   type: 'spinner',
 };

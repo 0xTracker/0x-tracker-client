@@ -37,16 +37,16 @@ const AddressMetricsChart = ({ data, keyMetric, period, granularity }) => {
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
           <CartesianGrid
-            stroke={COLORS.NEUTRAL.MYSTIC_200}
+            stroke={COLORS.NEUTRAL.MYSTIC_300}
             strokeDasharray="8 8"
             strokeOpacity={0.7}
             vertical={false}
           />
           <Bar dataKey={keyMetric} fill={COLORS.ACCENT.ANZAC_500} />
           <XAxis
-            axisLine={{ stroke: COLORS.NEUTRAL.MYSTIC_200 }}
+            axisLine={{ stroke: COLORS.NEUTRAL.MYSTIC_300 }}
             dataKey="date"
-            tick={{ fill: COLORS.NEUTRAL.MYSTIC_700, fontSize: '0.8em' }}
+            tick={{ fill: COLORS.NEUTRAL.MYSTIC_800, fontSize: '0.8em' }}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
             tickLine={false}
           />
@@ -80,7 +80,7 @@ const AddressMetricsChart = ({ data, keyMetric, period, granularity }) => {
             dataKey="date"
             height={30}
             onChange={handleBrushChange}
-            stroke={COLORS.NEUTRAL.MYSTIC_300}
+            stroke={COLORS.NEUTRAL.MYSTIC_400}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           />
         </BarChart>

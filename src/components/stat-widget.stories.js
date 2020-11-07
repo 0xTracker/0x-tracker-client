@@ -8,7 +8,7 @@ const config = {
   decorators: [(storyFn) => <div css="max-width: 200px;">{storyFn()}</div>],
   parameters: {
     backgrounds: [
-      { default: true, name: 'Body', value: COLORS.NEUTRAL.MYSTIC_200 },
+      { default: true, name: 'Body', value: COLORS.NEUTRAL.MYSTIC_300 },
     ],
   },
   title: 'Common|StatWidget',

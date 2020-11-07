@@ -57,7 +57,7 @@ const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
             {_.isString(bridge.name) ? bridge.name : 'Unknown Bridge'}
             <div
               css={`
-                color: ${COLORS.NEUTRAL.MYSTIC_700};
+                color: ${COLORS.NEUTRAL.MYSTIC_800};
               `}
             >
               {bridge.address}

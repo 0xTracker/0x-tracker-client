@@ -7,7 +7,7 @@ import Number from '../../../components/number';
 import Tooltip from '../../../components/tooltip';
 
 const EmptyValue = styled.span`
-  color: ${COLORS.NEUTRAL.MYSTIC_400};
+  color: ${COLORS.NEUTRAL.MYSTIC_500};
 `;
 
 const getDisplayValue = (fillCount, statsType) => {

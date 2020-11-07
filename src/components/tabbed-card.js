@@ -28,7 +28,7 @@ const TabLink = styled(NavLink)`
     &:hover,
     &:active {
       color: ${(props) =>
-        props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_700};
+        props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_800};
     }
   }
 `;

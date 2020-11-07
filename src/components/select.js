@@ -11,7 +11,7 @@ const Select = styled(ReactSelect).attrs({
   color: inherit;
 
   && .Select__control {
-    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
+    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
     min-height: 0;
     padding: 0.5rem 1rem;
 
@@ -30,13 +30,7 @@ const Select = styled(ReactSelect).attrs({
 
   .Select__dropdown-indicator,
   .Select__clear-indicator {
-    color: ${COLORS.NEUTRAL.MYSTIC_400};
-  }
-
-  .Select__clear-indicator {
-    &:hover {
-      color: ${COLORS.NEUTRAL.MYSTIC_1000};
-    }
+    color: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 
   .Select__indicator-separator {
@@ -50,7 +44,7 @@ const Select = styled(ReactSelect).attrs({
   .Select__option:hover,
   .Select__option:active,
   .Select__option--is-focused {
-    background: ${COLORS.NEUTRAL.MYSTIC_300};
+    background: ${COLORS.NEUTRAL.MYSTIC_400};
     color: inherit;
     cursor: pointer;
   }
@@ -62,7 +56,7 @@ const Select = styled(ReactSelect).attrs({
 
   &:hover {
     .Select__control {
-      border-color: ${COLORS.NEUTRAL.MYSTIC_400};
+      border-color: ${COLORS.NEUTRAL.MYSTIC_500};
     }
 
     .Select__dropdown-indicator {
@@ -76,13 +70,13 @@ const Select = styled(ReactSelect).attrs({
   }
 
   && .Select__menu-list {
-    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
+    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_500};
     border-radius: 4px;
     padding: 0;
   }
 
   && .Select__placeholder {
-    color: ${COLORS.NEUTRAL.MYSTIC_400};
+    color: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 `;
 

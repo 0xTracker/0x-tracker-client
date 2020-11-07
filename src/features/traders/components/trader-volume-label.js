@@ -7,7 +7,7 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 import Tooltip from '../../../components/tooltip';
 
 const EmptyValue = styled.span`
-  color: ${COLORS.NEUTRAL.MYSTIC_400};
+  color: ${COLORS.NEUTRAL.MYSTIC_500};
 `;
 
 const getDisplayValue = (volume, statsType) => {

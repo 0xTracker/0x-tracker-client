@@ -8,10 +8,24 @@ import { DiscordIcon, MailIcon, TwitterIcon } from './icons';
 import Link from './link';
 import SubscribePanel from './subscribe-panel';
 
-const NavHeading = styled.h2`
+const InfoHeading = styled.h2`
   color: ${COLORS.PRIMARY.SCAMPI_600};
   font-family: Ubuntu;
   font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+
+  ${media.greaterThan('md')`
+    margin: 0 0 1rem 0;
+  `}
+`;
+
+const NavHeading = styled.h2`
+  color: ${COLORS.PRIMARY.SCAMPI_600};
+  font-family: Ubuntu;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.05em;
   margin: 2rem 0 1rem 0;
@@ -23,7 +37,6 @@ const NavHeading = styled.h2`
 `;
 
 const Description = styled.p`
-  font-size: 16px;
   margin: 1rem 0 1.5rem;
   max-width: 350px;
 
@@ -47,7 +60,7 @@ const NavLink = styled(FooterLink)`
 
 const SocialLink = styled(Link)`
   align-items: center;
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_400};
   color: ${COLORS.PRIMARY.SCAMPI_800};
   border-radius: 0.25rem;
   display: flex;
@@ -57,7 +70,7 @@ const SocialLink = styled(Link)`
   width: 35px;
 
   &:hover {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 `;
 
@@ -82,7 +95,7 @@ const SecondaryLinks = styled.div`
   border-radius: 1px;
   border-top: 2px solid rgb(231, 233, 243);
   font-size: 0.8rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
   padding-top: 2rem;
 
   ${media.greaterThan('md')`
@@ -105,10 +118,14 @@ const Info = styled(Col)`
 const Wrapper = styled.div`
   background-color: ${COLORS.NEUTRAL.MYSTIC_200};
   color: ${COLORS.PRIMARY.SCAMPI_1000};
-  padding: 2rem 2rem 7rem;
+  padding: 2rem 1rem;
 
   ${media.greaterThan('md')`
-    padding: 3rem 2rem 7rem;
+    padding: 2rem 1.5rem;
+  `}
+
+  ${media.greaterThan('xl')`
+    padding: 3rem 2rem;
   `}
 `;
 
@@ -117,8 +134,8 @@ const Footer = () => (
     <SubscribePanel />
     <Wrapper>
       <Row>
-        <Info md={4} xs={12}>
-          <NavHeading>0x Tracker</NavHeading>
+        <Info lg={4} md={5} xs={12}>
+          <InfoHeading>0x Tracker</InfoHeading>
           <Description>
             The leading provider of 0x protocol market data, transparent
             Ethereum token price index and 0x protocol news aggregator.
@@ -135,11 +152,13 @@ const Footer = () => (
             </SocialLink>
           </nav>
         </Info>
-        <Col md={{ offset: 2, size: 2 }} sm={4} xs={6}>
+        <Col lg={{ offset: 2 }} md={2} sm={4} xs={6}>
           <NavHeading>About</NavHeading>
           <nav>
-            {/* <NavLink href="/advertise">Advertise</NavLink> */}
             <NavLink href="/news-and-updates/0x-tracker">Blog</NavLink>
+            <NavLink href="https://0xtracker.typeform.com/to/HfuuTK">
+              Contact
+            </NavLink>
             <NavLink href="https://docs.0xtracker.com/faqs">FAQs</NavLink>
             <NavLink href="https://docs.0xtracker.com/">Overview</NavLink>
           </nav>
@@ -148,7 +167,7 @@ const Footer = () => (
           <NavHeading>Developers</NavHeading>
           <nav>
             <NavLink href="https://docs.0xtracker.com/api-reference/introduction">
-              API
+              API Docs
             </NavLink>
             <NavLink href="https://docs.0xtracker.com/contributing">
               Contributing
@@ -156,7 +175,7 @@ const Footer = () => (
             <NavLink href="https://github.com/0xtracker">GitHub</NavLink>
           </nav>
         </Col>
-        <Col md={2} sm={4} xs={6}>
+        <Col lg={2} md={3} sm={4} xs={6}>
           <NavHeading>Resources</NavHeading>
           <nav>
             <NavLink

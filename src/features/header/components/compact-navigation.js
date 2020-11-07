@@ -7,7 +7,6 @@ import {
   AppsIcon,
   AssetBridgeIcon,
   FillsIcon,
-  HomeIcon,
   InsightsIcon,
   NewsIcon,
   TokensIcon,
@@ -19,14 +18,11 @@ const StyledNavigation = styled.nav`
   color: white;
   display: flex;
   flex-direction: column;
-  margin: 16px 0 0;
+  margin: 24px 0 0;
 `;
 
 const CompactNavigation = ({ className }) => (
   <StyledNavigation aria-label="Primary" className={className}>
-    <CompactNavigationLink href={URL.HOME}>
-      <HomeIcon size={24} />
-    </CompactNavigationLink>
     <CompactNavigationLink href={URL.APPS} title="Apps">
       <AppsIcon size={24} />
     </CompactNavigationLink>

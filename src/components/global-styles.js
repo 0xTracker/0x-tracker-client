@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   .table {
-    border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+    border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     color: currentColor;

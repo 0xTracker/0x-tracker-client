@@ -90,9 +90,9 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
             </span>
             {trader.name && (
               <Badge
-                bgColor={COLORS.NEUTRAL.MYSTIC_400}
+                bgColor={COLORS.NEUTRAL.MYSTIC_500}
                 css="margin-right: 0.5rem;"
-                textColor={COLORS.NEUTRAL.MYSTIC_1000}
+                textColor={COLORS.NEUTRAL.MYSTIC_900}
               >
                 {trader.name}
               </Badge>
@@ -112,7 +112,7 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
               <Tooltip content="This trader has been a taker during the selected period.">
                 <Badge
                   bgColor={COLORS.ACCENT.FRUIT_SALAD_500}
-                  textColor={COLORS.ACCENT.FRUIT_SALAD_1000}
+                  textColor={COLORS.ACCENT.FRUIT_SALAD_900}
                 >
                   taker
                 </Badge>
@@ -145,7 +145,7 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
                 <TraderLink
                   address={trader.address}
                   css={`
-                    color: ${COLORS.NEUTRAL.MYSTIC_700};
+                    color: ${COLORS.NEUTRAL.MYSTIC_800};
                     margin-right: 0.5rem;
 
                     &:hover {
@@ -161,7 +161,7 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
               <span>
                 <Link
                   css={`
-                    color: ${COLORS.NEUTRAL.MYSTIC_700};
+                    color: ${COLORS.NEUTRAL.MYSTIC_800};
 
                     &:hover {
                       color: inherit;

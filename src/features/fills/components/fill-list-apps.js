@@ -29,7 +29,7 @@ const FillListApps = ({ apps }) => {
           {index !== apps.length - 1 && (
             <span
               css={`
-                color: ${COLORS.NEUTRAL.MYSTIC_600};
+                color: ${COLORS.NEUTRAL.MYSTIC_700};
                 font-weight: 500;
                 font-size: 1.2rem;
                 margin: 0 1rem;

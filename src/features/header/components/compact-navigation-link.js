@@ -9,6 +9,7 @@ import Link from '../../../components/link';
 const StyledNavigationLink = styled(Link)`
   background-color: ${(props) =>
     props.active ? COLORS.PRIMARY.SCAMPI_800 : 'inherit'};
+  color: ${(props) => (props.active ? COLORS.ACCENT.ANZAC_600 : 'inherit')};
   display: flex;
   align-items: center;
   height: 50px;
@@ -18,6 +19,7 @@ const StyledNavigationLink = styled(Link)`
   &:hover {
     background-color: ${(props) =>
       props.active ? COLORS.PRIMARY.SCAMPI_800 : COLORS.PRIMARY.SCAMPI_900};
+    color: ${(props) => (props.active ? COLORS.ACCENT.ANZAC_600 : 'inherit')};
   }
 `;
 

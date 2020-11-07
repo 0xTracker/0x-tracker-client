@@ -15,7 +15,7 @@ const ImageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   background: white;
-  border: 1px solid ${COLORS.NEUTRAL.MYSTIC_300};
+  border: 1px solid ${COLORS.NEUTRAL.MYSTIC_400};
   border-radius: 4px;
   padding: 4px;
   display: flex;

@@ -4,7 +4,7 @@ import { COLORS } from '../styles/constants';
 
 const Pill = styled.span`
   align-items: center;
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_400};
   border-radius: 0.25rem;
   border: none;
   color: inherit;
@@ -19,7 +19,7 @@ const Pill = styled.span`
   text-transform: uppercase;
 
   &:hover {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_500};
     color: currentColor;
     text-decoration: none;
   }

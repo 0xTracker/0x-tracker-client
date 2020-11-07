@@ -6,7 +6,7 @@ import { COLORS } from '../../../styles/constants';
 import SearchBox from '../../search/components/search-box';
 
 const Wrapper = styled.div`
-  background: ${COLORS.NEUTRAL.MYSTIC_300};
+  background: ${COLORS.NEUTRAL.MYSTIC_400};
   padding: 1rem 1.25rem;
 `;
 

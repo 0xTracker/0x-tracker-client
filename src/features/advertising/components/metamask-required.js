@@ -30,7 +30,7 @@ const MetamaskRequired = () => (
                 <Link
                   css={`
                     align-items: center;
-                    background: ${COLORS.NEUTRAL.MYSTIC_300};
+                    background: ${COLORS.NEUTRAL.MYSTIC_400};
                     border: none;
                     border-radius: 4px;
                     display: flex;
@@ -41,7 +41,7 @@ const MetamaskRequired = () => (
                     text-transform: uppercase;
 
                     &:hover {
-                      background: ${COLORS.NEUTRAL.MYSTIC_400};
+                      background: ${COLORS.NEUTRAL.MYSTIC_500};
                     }
                   `}
                   href="https://metamask.io"
@@ -70,7 +70,7 @@ const MetamaskRequired = () => (
                   <h2 css="font-size: 24px;">Advert Manager</h2>
                   <p
                     css={`
-                      color: ${COLORS.NEUTRAL.MYSTIC_700};
+                      color: ${COLORS.NEUTRAL.MYSTIC_800};
                       font-size: 18px;
                     `}
                   >
@@ -80,7 +80,7 @@ const MetamaskRequired = () => (
                   </p>
                 </div>
                 <Cat
-                  color={COLORS.NEUTRAL.MYSTIC_400}
+                  color={COLORS.NEUTRAL.MYSTIC_500}
                   css="align-self: flex-end;"
                   mood="happy"
                   size={250}

@@ -21,7 +21,7 @@ const ActionButton = styled.button`
   width: 50px;
 
   &:hover {
-    background: ${COLORS.NEUTRAL.MYSTIC_400};
+    background: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 
   &:last-child {

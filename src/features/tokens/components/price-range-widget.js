@@ -19,7 +19,7 @@ const VisualWrapper = styled.div`
 `;
 
 const PriceMarkerWrapper = styled.div`
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_400};
   border-radius: 2px;
   height: 5px;
   margin-bottom: 0.15rem;
