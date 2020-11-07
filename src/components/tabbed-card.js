@@ -10,7 +10,7 @@ import CardFooter from './card-footer';
 
 const TabbedCardHeader = styled(CardHeader)`
   background: none;
-  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
+  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
   display: flex;
   justify-content: space-between;
   padding: 1rem;
