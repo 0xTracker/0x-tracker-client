@@ -228,7 +228,7 @@ const AdvertisePage = () => (
               <h3
                 css={`
                   font-size: 15px;
-                  color: ${COLORS.NEUTRAL.MYSTIC_700};
+                  color: ${COLORS.NEUTRAL.MYSTIC_800};
                 `}
               >
                 Small Desktop
@@ -245,7 +245,7 @@ const AdvertisePage = () => (
                   <h3
                     css={`
                       font-size: 15px;
-                      color: ${COLORS.NEUTRAL.MYSTIC_700};
+                      color: ${COLORS.NEUTRAL.MYSTIC_800};
                     `}
                   >
                     Regular Desktop
@@ -262,7 +262,7 @@ const AdvertisePage = () => (
                   <h3
                     css={`
                       font-size: 15px;
-                      color: ${COLORS.NEUTRAL.MYSTIC_700};
+                      color: ${COLORS.NEUTRAL.MYSTIC_800};
                     `}
                   >
                     Mobile / Tablet

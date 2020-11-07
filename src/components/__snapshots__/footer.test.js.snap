@@ -2,7 +2,7 @@
 
 exports[`should render without props 1`] = `
 <div
-  class="subscribe-panel__Wrapper-sc-5e14js-0 bYlPky"
+  class="subscribe-panel__Wrapper-sc-5e14js-0 iJofAr"
 >
   <div
     class="subscribe-panel__Inner-sc-5e14js-1 gzeqni"
@@ -16,18 +16,18 @@ exports[`should render without props 1`] = `
     />
     <div>
       <h2
-        class="subscribe-panel__Heading-sc-5e14js-3 eNGrNG"
+        class="subscribe-panel__Heading-sc-5e14js-3 gXRUBg"
       >
         Subscribe to our newsletter
       </h2>
       <p
-        class="subscribe-panel__Lead-sc-5e14js-4 dPfwaT"
+        class="subscribe-panel__Lead-sc-5e14js-4 MKubs"
       >
         Monthly 0x ecosystem news and analysis.
       </p>
       <form
         action="https://facebook.us2.list-manage.com/subscribe/post?u=1c752e167467d75829bc12aef&id=33b834d61c"
-        class="subscribe-panel__Form-sc-5e14js-9 hNFVpQ"
+        class="subscribe-panel__Form-sc-5e14js-9 tRCHs"
         method="post"
         target="_blank"
       >
@@ -45,7 +45,7 @@ exports[`should render without props 1`] = `
           class="subscribe-panel__FieldWrapper-sc-5e14js-6 ihVBSu"
         >
           <input
-            class="subscribe-panel__EmailInput-sc-5e14js-5 dEqlIQ"
+            class="subscribe-panel__EmailInput-sc-5e14js-5 fROhb"
             name="EMAIL"
             placeholder="Enter your email"
             required=""

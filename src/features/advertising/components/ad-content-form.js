@@ -115,7 +115,7 @@ const AdContentForm = ({ defaultValues, onSubmit }) => {
         </FormGroup>
         <div
           css={`
-            border-top: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+            border-top: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
             display: flex;
             margin-top: 2rem;
             padding-top: 1rem;

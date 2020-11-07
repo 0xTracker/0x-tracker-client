@@ -15,7 +15,7 @@ const getTypeBadgeColor = (type) => {
     return { bg: COLORS.PRIMARY.SCAMPI_600, text: 'white' };
   }
 
-  return { bg: COLORS.NEUTRAL.MYSTIC_300, text: COLORS.NEUTRAL.MYSTIC_1000 };
+  return { bg: COLORS.NEUTRAL.MYSTIC_400, text: COLORS.NEUTRAL.MYSTIC_900 };
 };
 
 const TokenTypeBadge = styled(Badge).attrs((props) => ({

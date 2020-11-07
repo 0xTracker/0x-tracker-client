@@ -31,7 +31,7 @@ const AssetBridgeImage = ({
       <PrivateIcon
         className={className}
         css={`
-          color: ${COLORS.NEUTRAL.MYSTIC_400};
+          color: ${COLORS.NEUTRAL.MYSTIC_500};
         `}
         height={height}
         width={width}
@@ -43,7 +43,7 @@ const AssetBridgeImage = ({
     <AssetBridgeIcon
       className={className}
       css={`
-        color: ${COLORS.NEUTRAL.MYSTIC_400};
+        color: ${COLORS.NEUTRAL.MYSTIC_500};
       `}
       height={height}
       width={width}

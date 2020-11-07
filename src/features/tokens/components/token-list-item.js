@@ -38,7 +38,7 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
       </span>
       <span
         css={`
-          color: ${COLORS.NEUTRAL.MYSTIC_700};
+          color: ${COLORS.NEUTRAL.MYSTIC_800};
           font-size: 14px;
         `}
       >

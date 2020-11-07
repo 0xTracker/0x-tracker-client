@@ -17,15 +17,19 @@ import RecentFillsListApps from './recent-fills-list-apps';
 const Wrapper = styled.div`
   align-items: center;
   background-color: ${(props) =>
-    (props.index + 1) % 2 === 0 ? COLORS.NEUTRAL.MYSTIC_100 : 'none'};
+    props.highlight ? COLORS.NEUTRAL.MYSTIC_100 : 'none'};
   display: flex;
   flex-grow: 1;
   height: 80px;
   padding: 1rem;
+
+  &:hover {
+    background-color: ${COLORS.NEUTRAL.MYSTIC_200};
+  }
 `;
 
 const Metadata = styled.dl`
-  color: ${COLORS.NEUTRAL.MYSTIC_700};
+  color: ${COLORS.NEUTRAL.MYSTIC_800};
   font-size: 14px;
   margin: 0;
 
@@ -57,8 +61,9 @@ const Metadata = styled.dl`
   }
 `;
 
-const Heading = styled.h4`
+const Heading = styled.span`
   font-size: 1rem;
+  font-weight: 600;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -69,6 +74,7 @@ const FillAmount = styled(LocalisedAmount)`
   color: inherit;
   font-size: 18px;
   font-weight: 600;
+  margin-left: 2rem;
 `;
 
 const RecentFillsItem = ({ fill, index }) => {
@@ -77,28 +83,29 @@ const RecentFillsItem = ({ fill, index }) => {
   const takerAssets = _.filter(fill.assets, { traderType: 'taker' });
 
   return (
-    <Wrapper index={index}>
-      <RecentFillsItemImage assets={fill.assets} css="margin-right: 16px;" />
-      <div css="display: flex; flex-direction: column; justify-content: center; flex-grow: 1;">
+    <Wrapper as={FillLink} fillId={fill.id} highlight={(index + 1) % 2 === 0}>
+      <RecentFillsItemImage
+        assets={fill.assets}
+        css="flex-shrink: 0; margin-right: 16px;"
+      />
+      <span css="display: flex; flex-direction: column; justify-content: center; flex-grow: 1; overflow: hidden;">
         <Heading>
-          <FillLink fillId={fill.id}>
-            <RecentFillsItemAssets assets={makerAssets} /> &#8651;{' '}
-            <RecentFillsItemAssets assets={takerAssets} />
-          </FillLink>
+          <RecentFillsItemAssets assets={makerAssets} /> &#8651;{' '}
+          <RecentFillsItemAssets assets={takerAssets} />
         </Heading>
         <Metadata>
+          <dt>Date</dt>
+          <dd>{formatDate(fill.date, DATE_FORMAT.RELATIVE)}</dd>
           {fill.apps.length > 0 && (
             <>
               <dt>Apps</dt>
               <dd>
-                <RecentFillsListApps apps={fill.apps} />
+                via <RecentFillsListApps apps={fill.apps} />
               </dd>
             </>
           )}
-          <dt>Date</dt>
-          <dd>{formatDate(fill.date, DATE_FORMAT.RELATIVE)}</dd>
         </Metadata>
-      </div>
+      </span>
       {breakpoint.greaterThan('xs') && _.has(fill, `value.${BASE_CURRENCY}`) ? (
         <FillAmount amount={fill.value[BASE_CURRENCY]} />
       ) : null}

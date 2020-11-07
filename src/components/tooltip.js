@@ -10,7 +10,7 @@ const Tooltip = styled(Tippy).attrs((props) => ({
     background-color: ${COLORS.ACCENT.ANZAC_500};
     border-radius: 0.25rem;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    color: ${COLORS.NEUTRAL.MYSTIC_1000};
+    color: inherit;
     font-weight: 400;
     max-width: 320px !important;
     padding: 0.75rem 1.25rem;

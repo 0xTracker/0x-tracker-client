@@ -48,7 +48,7 @@ const ProtocolMetricsChart = ({ currency, data, granularity, period }) => {
           <XAxis
             axisLine={false}
             dataKey="date"
-            tick={{ fill: COLORS.NEUTRAL.MYSTIC_700, fontSize: '0.8em' }}
+            tick={{ fill: COLORS.NEUTRAL.MYSTIC_800, fontSize: '0.8em' }}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
             tickLine={false}
           />
@@ -87,7 +87,7 @@ const ProtocolMetricsChart = ({ currency, data, granularity, period }) => {
             dataKey="date"
             height={30}
             onChange={handleBrushChange}
-            stroke={COLORS.NEUTRAL.MYSTIC_300}
+            stroke={COLORS.NEUTRAL.MYSTIC_400}
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
           />
         </AreaChart>

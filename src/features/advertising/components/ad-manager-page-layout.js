@@ -16,7 +16,7 @@ const AdManagerPageLayout = ({ children }) => {
         wallet.connected && (
           <button
             css={`
-              background: ${COLORS.NEUTRAL.MYSTIC_300};
+              background: ${COLORS.NEUTRAL.MYSTIC_400};
               border: none;
               border-radius: 4px;
               color: inherit;
@@ -27,7 +27,7 @@ const AdManagerPageLayout = ({ children }) => {
               padding: 0 16px;
 
               &:hover {
-                background: ${COLORS.NEUTRAL.MYSTIC_400};
+                background: ${COLORS.NEUTRAL.MYSTIC_500};
               }
             `}
             onClick={() => wallet.deactivate()}

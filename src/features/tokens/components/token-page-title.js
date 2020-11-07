@@ -15,7 +15,7 @@ import Visible from '../../../components/visible';
 
 const PriceWrapper = styled.span`
   align-items: center;
-  color: ${COLORS.NEUTRAL.MYSTIC_700};
+  color: ${COLORS.NEUTRAL.MYSTIC_800};
   display: flex;
   margin-left: 2rem;
 `;

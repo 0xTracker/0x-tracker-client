@@ -64,7 +64,7 @@ const FillList = ({ fills, onSort, sortBy, sortDirection }) => {
               ) : (
                 <span
                   css={`
-                    color: ${COLORS.NEUTRAL.MYSTIC_600};
+                    color: ${COLORS.NEUTRAL.MYSTIC_700};
                   `}
                 >
                   -
@@ -75,7 +75,7 @@ const FillList = ({ fills, onSort, sortBy, sortDirection }) => {
               {fill.protocolFee === undefined ? (
                 <span
                   css={`
-                    color: ${COLORS.NEUTRAL.MYSTIC_600};
+                    color: ${COLORS.NEUTRAL.MYSTIC_700};
                   `}
                 >
                   -
@@ -88,7 +88,7 @@ const FillList = ({ fills, onSort, sortBy, sortDirection }) => {
             <td
               className="text-center"
               css={`
-                color: ${COLORS.NEUTRAL.MYSTIC_700};
+                color: ${COLORS.NEUTRAL.MYSTIC_800};
 
                 &:hover {
                   color: inherit;

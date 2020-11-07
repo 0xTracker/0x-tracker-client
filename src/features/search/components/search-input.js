@@ -35,7 +35,7 @@ const InputWrapper = styled.div`
     width: 100%;
 
     &::placeholder {
-      color: ${COLORS.NEUTRAL.MYSTIC_700};
+      color: ${COLORS.NEUTRAL.MYSTIC_800};
     }
   }
 
@@ -77,7 +77,7 @@ const InputWrapper = styled.div`
     background: ${COLORS.NEUTRAL.MYSTIC_100};
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    color: ${COLORS.NEUTRAL.MYSTIC_700};
+    color: ${COLORS.NEUTRAL.MYSTIC_800};
     font-weight: 500;
     padding: 12px 16px;
   }

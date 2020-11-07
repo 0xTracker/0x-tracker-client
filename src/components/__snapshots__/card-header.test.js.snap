@@ -2,7 +2,7 @@
 
 exports[`card header component should render with children 1`] = `
 <div
-  class="card-header__CardHeader-sc-17r9xuv-0 hxYOsp card-header"
+  class="card-header__CardHeader-sc-17r9xuv-0 eNCuFk card-header"
 >
   Hello World
 </div>

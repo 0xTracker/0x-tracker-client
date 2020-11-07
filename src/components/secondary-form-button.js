@@ -4,7 +4,7 @@ import { COLORS } from '../styles/constants';
 
 const SecondaryFormButton = styled.button`
   align-items: center;
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_400};
   border: none;
   border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_500};
   border-radius: 0.25rem;
@@ -23,15 +23,17 @@ const SecondaryFormButton = styled.button`
 
   &:hover,
   &:active {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_500};
+    border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_600};
   }
 
   &:active {
-    border-bottom-color: ${COLORS.NEUTRAL.MYSTIC_400};
+    border-bottom-color: ${COLORS.NEUTRAL.MYSTIC_500};
+    border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_600};
   }
 
   &:disabled {
-    color: ${COLORS.NEUTRAL.MYSTIC_600};
+    color: ${COLORS.NEUTRAL.MYSTIC_700};
   }
 `;
 

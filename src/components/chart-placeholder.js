@@ -7,7 +7,7 @@ const ChartPlaceholder = ({ children }) => (
   <div
     css={`
       align-items: center;
-      color: ${COLORS.NEUTRAL.MYSTIC_500};
+      color: ${COLORS.NEUTRAL.MYSTIC_600};
       display: flex;
       height: 100%;
       justify-content: center;

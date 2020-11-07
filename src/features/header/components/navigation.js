@@ -8,7 +8,6 @@ import {
   AppsIcon,
   AssetBridgeIcon,
   FillsIcon,
-  HomeIcon,
   InsightsIcon,
   NewsIcon,
   TokensIcon,
@@ -20,7 +19,7 @@ const StyledNavigation = styled.nav`
   color: ${COLORS.PRIMARY.SCAMPI_100};
   display: flex;
   flex-direction: column;
-  margin: 24px 12px 0;
+  margin: 36px 12px 0;
   flex-grow: 1;
 `;
 
@@ -32,9 +31,6 @@ const NavigationIcon = styled.span`
 
 const Navigation = ({ className }) => (
   <StyledNavigation aria-label="Primary" className={className}>
-    <NavigationLink href={URL.HOME}>
-      <NavigationIcon as={HomeIcon} size={24} /> Home
-    </NavigationLink>
     <NavigationLink href={URL.APPS}>
       <NavigationIcon as={AppsIcon} size={24} /> Apps
     </NavigationLink>

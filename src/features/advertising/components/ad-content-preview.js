@@ -7,7 +7,7 @@ import Dialog from '../../../components/dialog';
 import SideBannerView from './side-banner-view';
 
 const PlacementHeading = styled.h2`
-  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
   border-radius: 1px;
   font-size: 16px;
   margin: 0 0 16px;

@@ -25,7 +25,7 @@ const Image = styled.img`
 `;
 
 const SubText = styled.span`
-  color: ${COLORS.NEUTRAL.MYSTIC_600};
+  color: ${COLORS.NEUTRAL.MYSTIC_700};
   display: block;
 `;
 

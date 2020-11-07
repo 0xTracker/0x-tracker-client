@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { COLORS } from '../styles/constants';
 
 const Badge = styled.span.attrs((props) => ({
-  bgColor: props.bgColor ? props.bgColor : COLORS.NEUTRAL.MYSTIC_300,
+  bgColor: props.bgColor ? props.bgColor : COLORS.NEUTRAL.MYSTIC_400,
   children:
     _.isString(props.children) && props.upperCase
       ? props.children.toUpperCase()

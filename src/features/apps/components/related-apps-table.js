@@ -28,7 +28,7 @@ const TableCell = styled.td`
 `;
 
 const SecondaryText = styled.span`
-  color: ${COLORS.NEUTRAL.MYSTIC_700};
+  color: ${COLORS.NEUTRAL.MYSTIC_800};
   font-size: 0.9rem;
 `;
 

@@ -37,7 +37,7 @@ addDecorator(new StoryRouter());
 addParameters({
   backgrounds: [
     { default: true, name: 'None', value: 'white' },
-    { name: 'Body', value: COLORS.NEUTRAL.MYSTIC_100 },
+    { name: 'Body', value: COLORS.NEUTRAL.MYSTIC_200 },
   ],
   options: {
     storySort: (a, b) =>

@@ -19,33 +19,8 @@ exports[`app layout component should render with children 1`] = `
     </a>
     <nav
       aria-label="Primary"
-      class="navigation__StyledNavigation-sc-18grpkd-0 eZxhnh"
+      class="navigation__StyledNavigation-sc-18grpkd-0 craLwW"
     >
-      <a
-        aria-current="true"
-        class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 ipXOZj"
-        href="/"
-      >
-        <svg
-          aria-hidden="true"
-          class="icon-base__IconBase-ngmsqy-0 hvjdWy navigation__NavigationIcon-sc-18grpkd-1 hWVwlC"
-          fill="currentColor"
-          focusable="false"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M0 0h24v24H0V0z"
-            fill="none"
-          />
-          <path
-            d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z"
-          />
-        </svg>
-         Home
-      </a>
       <a
         aria-current="false"
         class="link__StyledLink-sc-1m1n17q-0 diqghp navigation-link__StyledNavigationLink-do5zl-0 dPHgzV"
@@ -218,7 +193,7 @@ exports[`app layout component should render with children 1`] = `
       class="app-layout__Scrollport-nr5sez-3 bxkNbZ"
     >
       <header
-        class="header__StyledHeader-gflnft-1 hDCKsx"
+        class="header__StyledHeader-gflnft-1 DipzI"
       >
         <div
           class="header___StyledDiv-gflnft-3 koKNgv"
@@ -230,7 +205,7 @@ exports[`app layout component should render with children 1`] = `
               class="search-box__SearchOverlay-sc-14vl3sw-0 cHVapg"
             />
             <div
-              class="card__Wrapper-sc-1u97707-0 bmsCLB search-box___StyledCard-sc-14vl3sw-1 ccbdoC"
+              class="card__Wrapper-sc-1u97707-0 fHGyNm search-box___StyledCard-sc-14vl3sw-1 gZIiCY"
             >
               <div
                 class="card-body__CardBody-sc-1mkhz93-0 search-box___StyledCardBody-sc-14vl3sw-2 bhXCds"
@@ -241,7 +216,7 @@ exports[`app layout component should render with children 1`] = `
                   method="get"
                 >
                   <div
-                    class="search-input__InputWrapper-m0ltwv-0 huROqU"
+                    class="search-input__InputWrapper-m0ltwv-0 EQckh"
                   >
                     <div
                       aria-expanded="false"
@@ -268,7 +243,7 @@ exports[`app layout component should render with children 1`] = `
                     </div>
                   </div>
                   <div
-                    class="search-box___StyledDiv-sc-14vl3sw-4 dtwUWb"
+                    class="search-box___StyledDiv-sc-14vl3sw-4 egXxeQ"
                   >
                     <svg
                       class="search-box___StyledSvg-sc-14vl3sw-5 gZBlRd"
@@ -343,12 +318,12 @@ exports[`app layout component should render with children 1`] = `
         </div>
       </header>
       <div
-        class="app-layout__AppBody-nr5sez-1 dnRmUC"
+        class="app-layout__AppBody-nr5sez-1 htrrnH"
       >
         Hello World
       </div>
       <div
-        class="subscribe-panel__Wrapper-sc-5e14js-0 bYlPky"
+        class="subscribe-panel__Wrapper-sc-5e14js-0 iJofAr"
       >
         <div
           class="subscribe-panel__Inner-sc-5e14js-1 gzeqni"
@@ -362,18 +337,18 @@ exports[`app layout component should render with children 1`] = `
           />
           <div>
             <h2
-              class="subscribe-panel__Heading-sc-5e14js-3 eNGrNG"
+              class="subscribe-panel__Heading-sc-5e14js-3 gXRUBg"
             >
               Subscribe to our newsletter
             </h2>
             <p
-              class="subscribe-panel__Lead-sc-5e14js-4 dPfwaT"
+              class="subscribe-panel__Lead-sc-5e14js-4 MKubs"
             >
               Monthly 0x ecosystem news and analysis.
             </p>
             <form
               action="https://facebook.us2.list-manage.com/subscribe/post?u=1c752e167467d75829bc12aef&id=33b834d61c"
-              class="subscribe-panel__Form-sc-5e14js-9 hNFVpQ"
+              class="subscribe-panel__Form-sc-5e14js-9 tRCHs"
               method="post"
               target="_blank"
             >
@@ -391,7 +366,7 @@ exports[`app layout component should render with children 1`] = `
                 class="subscribe-panel__FieldWrapper-sc-5e14js-6 ihVBSu"
               >
                 <input
-                  class="subscribe-panel__EmailInput-sc-5e14js-5 dEqlIQ"
+                  class="subscribe-panel__EmailInput-sc-5e14js-5 fROhb"
                   name="EMAIL"
                   placeholder="Enter your email"
                   required=""
@@ -410,29 +385,29 @@ exports[`app layout component should render with children 1`] = `
         </div>
       </div>
       <div
-        class="footer__Wrapper-htpw4v-9 hDQYsm"
+        class="footer__Wrapper-htpw4v-10 SlwmK"
       >
         <div
           class="row"
         >
           <div
-            class="footer__Info-htpw4v-8 hSXhvl col-12 col-md-4"
+            class="footer__Info-htpw4v-9 cFMPKE col-12 col-md-5 col-lg-4"
           >
             <h2
-              class="footer__NavHeading-htpw4v-0 kmrZLX"
+              class="footer__InfoHeading-htpw4v-0 cqvhbg"
             >
               0x Tracker
             </h2>
             <p
-              class="footer__Description-htpw4v-1 guBZuO"
+              class="footer__Description-htpw4v-2 fPIQvA"
             >
               The leading provider of 0x protocol market data, transparent Ethereum token price index and 0x protocol news aggregator.
             </p>
             <nav
-              class="footer___StyledNav-htpw4v-10 fuojAz"
+              class="footer___StyledNav-htpw4v-11 hhjFbS"
             >
               <a
-                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__SocialLink-htpw4v-4 fLaCIy"
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__SocialLink-htpw4v-5 fyprxL"
                 href="https://twitter.com/0xTracker"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -454,7 +429,7 @@ exports[`app layout component should render with children 1`] = `
                 </svg>
               </a>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__SocialLink-htpw4v-4 fLaCIy"
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__SocialLink-htpw4v-5 fyprxL"
                 href="https://discord.gg/tnV8hud"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -476,7 +451,7 @@ exports[`app layout component should render with children 1`] = `
                 </svg>
               </a>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__SocialLink-htpw4v-4 fLaCIy"
+                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__SocialLink-htpw4v-5 fyprxL"
                 href="mailto:hello@0xtracker.com"
               >
                 <svg
@@ -497,22 +472,30 @@ exports[`app layout component should render with children 1`] = `
             </nav>
           </div>
           <div
-            class="col-6 col-sm-4 col-md-2 offset-md-2"
+            class="col-6 col-sm-4 col-md-2 offset-lg-2"
           >
             <h2
-              class="footer__NavHeading-htpw4v-0 kmrZLX"
+              class="footer__NavHeading-htpw4v-1 hljzCu"
             >
               About
             </h2>
             <nav>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
                 href="/news-and-updates/0x-tracker"
               >
                 Blog
               </a>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
+                href="https://0xtracker.typeform.com/to/HfuuTK"
+                rel="noreferrer noopener"
+                target="_blank"
+              >
+                Contact
+              </a>
+              <a
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
                 href="https://docs.0xtracker.com/faqs"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -520,7 +503,7 @@ exports[`app layout component should render with children 1`] = `
                 FAQs
               </a>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
                 href="https://docs.0xtracker.com/"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -533,21 +516,21 @@ exports[`app layout component should render with children 1`] = `
             class="col-6 col-sm-4 col-md-2"
           >
             <h2
-              class="footer__NavHeading-htpw4v-0 kmrZLX"
+              class="footer__NavHeading-htpw4v-1 hljzCu"
             >
               Developers
             </h2>
             <nav>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
                 href="https://docs.0xtracker.com/api-reference/introduction"
                 rel="noreferrer noopener"
                 target="_blank"
               >
-                API
+                API Docs
               </a>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
                 href="https://docs.0xtracker.com/contributing"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -555,7 +538,7 @@ exports[`app layout component should render with children 1`] = `
                 Contributing
               </a>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
                 href="https://github.com/0xtracker"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -565,16 +548,16 @@ exports[`app layout component should render with children 1`] = `
             </nav>
           </div>
           <div
-            class="col-6 col-sm-4 col-md-2"
+            class="col-6 col-sm-4 col-md-3 col-lg-2"
           >
             <h2
-              class="footer__NavHeading-htpw4v-0 kmrZLX"
+              class="footer__NavHeading-htpw4v-1 hljzCu"
             >
               Resources
             </h2>
             <nav>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
                 href="https://www.buymeacoffee.com/0xTracker"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -582,13 +565,13 @@ exports[`app layout component should render with children 1`] = `
                 Donate
               </a>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
                 href="/privacy"
               >
                 Privacy Policy
               </a>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
                 href="https://trello.com/b/4cY2eOsQ/0x-tracker-roadmap"
                 rel="noreferrer noopener"
                 target="_blank"
@@ -596,7 +579,7 @@ exports[`app layout component should render with children 1`] = `
                 Roadmap
               </a>
               <a
-                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-2 footer__NavLink-htpw4v-3 cPTYEM"
+                class="link__StyledLink-sc-1m1n17q-0 diqghp footer__FooterLink-htpw4v-3 footer__NavLink-htpw4v-4 cILDXv"
                 href="/terms"
               >
                 Terms Of Use
@@ -605,15 +588,15 @@ exports[`app layout component should render with children 1`] = `
           </div>
         </div>
         <div
-          class="footer__SecondaryLinks-htpw4v-7 jYdLlJ"
+          class="footer__SecondaryLinks-htpw4v-8 vmuIz"
         >
           <div
-            class="footer__License-htpw4v-6 cUGJzH"
+            class="footer__License-htpw4v-7 kYdoUS"
           >
             Licensed under
              
             <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 bDMYAg"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 dTeeTl"
               href="https://github.com/0xTracker/0x-tracker-client/blob/master/LICENSE"
               rel="noreferrer noopener"
               target="_blank"
@@ -622,11 +605,11 @@ exports[`app layout component should render with children 1`] = `
             </a>
           </div>
           <div
-            class="footer__PoweredBy-htpw4v-5 kZjLTc"
+            class="footer__PoweredBy-htpw4v-6 erSKNj"
           >
             Powered by 
             <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 bDMYAg"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 dTeeTl"
               href="https://0x.org"
               rel="noreferrer noopener"
               target="_blank"
@@ -636,7 +619,7 @@ exports[`app layout component should render with children 1`] = `
              and
              
             <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 bDMYAg"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 dTeeTl"
               href="https://ethereum.org/"
               rel="noreferrer noopener"
               target="_blank"
@@ -646,7 +629,7 @@ exports[`app layout component should render with children 1`] = `
              with pricing data from
              
             <a
-              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-2 bDMYAg"
+              class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB footer__FooterLink-htpw4v-3 dTeeTl"
               href="https://min-api.cryptocompare.com/"
               rel="noreferrer noopener"
               target="_blank"
@@ -658,29 +641,5 @@ exports[`app layout component should render with children 1`] = `
       </div>
     </div>
   </div>
-  <a
-    class="contact-button___StyledA-sc-1xyx4yy-0 hPLukp"
-    href="https://0xtracker.typeform.com/to/HfuuTK"
-    rel="noopener noreferrer"
-    target="_blank"
-  >
-    <svg
-      fill="currentColor"
-      focusable="false"
-      height="32"
-      role="img"
-      viewBox="0 0 24 24"
-      width="32"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M0 0h24v24H0V0z"
-        fill="none"
-      />
-      <path
-        d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"
-      />
-    </svg>
-  </a>
 </div>
 `;

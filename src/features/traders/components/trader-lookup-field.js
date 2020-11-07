@@ -10,7 +10,7 @@ import { COLORS } from '../../../styles/constants';
 import TraderImage from './trader-image';
 
 const SecondaryText = styled.span`
-  color: ${COLORS.NEUTRAL.MYSTIC_700};
+  color: ${COLORS.NEUTRAL.MYSTIC_800};
   font-size: 0.9rem;
 `;
 
@@ -28,7 +28,7 @@ const StyledSelect = styled(AsyncSelect).attrs({
   color: inherit;
 
   && .Select__control {
-    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
+    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
     min-height: 0;
     padding: 0.5rem 1rem;
 
@@ -52,13 +52,7 @@ const StyledSelect = styled(AsyncSelect).attrs({
 
   .Select__dropdown-indicator,
   .Select__clear-indicator {
-    color: ${COLORS.NEUTRAL.MYSTIC_400};
-  }
-
-  .Select__clear-indicator {
-    &:hover {
-      color: ${COLORS.NEUTRAL.MYSTIC_1000};
-    }
+    color: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 
   .Select__indicator-separator {
@@ -72,19 +66,19 @@ const StyledSelect = styled(AsyncSelect).attrs({
   .Select__option:hover,
   .Select__option:active,
   .Select__option--is-focused {
-    background: ${COLORS.NEUTRAL.MYSTIC_300};
+    background: ${COLORS.NEUTRAL.MYSTIC_400};
     color: inherit;
     cursor: pointer;
   }
 
   .Select__option--is-selected {
-    background: ${COLORS.NEUTRAL.MYSTIC_200};
+    background: ${COLORS.NEUTRAL.MYSTIC_300};
     color: inherit;
   }
 
   &:hover {
     .Select__control {
-      border-color: ${COLORS.NEUTRAL.MYSTIC_400};
+      border-color: ${COLORS.NEUTRAL.MYSTIC_500};
     }
 
     .Select__dropdown-indicator {
@@ -98,13 +92,13 @@ const StyledSelect = styled(AsyncSelect).attrs({
   }
 
   && .Select__menu-list {
-    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
+    border: 2px solid ${COLORS.NEUTRAL.MYSTIC_500};
     border-radius: 4px;
     padding: 0;
   }
 
   && .Select__placeholder {
-    color: ${COLORS.NEUTRAL.MYSTIC_400};
+    color: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 `;
 

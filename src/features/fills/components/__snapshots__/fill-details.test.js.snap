@@ -6,7 +6,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
     class="fill-details__FillDetailList-sc-5nb7jb-0 ARBAf"
   >
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -28,12 +28,12 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Date:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       Thursday, October 10th 2019, 6:13:48 AM GMT-03:00
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -55,7 +55,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Transaction Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       <a
         class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 dENzOP fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
@@ -85,7 +85,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -107,7 +107,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Order Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       <a
         class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
@@ -117,7 +117,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -139,14 +139,14 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Value (USD):
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       <span>
         $184.29
       </span>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -168,12 +168,12 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Protocol Version:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       v2
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -195,12 +195,12 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Protocol Fee:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       None
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -222,12 +222,12 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Associated Apps:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       None
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -249,7 +249,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Traded Assets:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       <ul
         class="list__List-sc-1hr42jb-0 bICncC"
@@ -325,7 +325,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -347,7 +347,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Derived Prices (USD):
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       <ul
         class="list__List-sc-1hr42jb-0 bICncC"
@@ -419,7 +419,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -441,12 +441,12 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Maker Fees:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       None
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -468,7 +468,7 @@ exports[`fillDetails component should render V2 fill 1`] = `
       Taker Fees:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       None
     </dd>
@@ -482,7 +482,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
     class="fill-details__FillDetailList-sc-5nb7jb-0 ARBAf"
   >
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -504,12 +504,12 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Date:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       Thursday, October 10th 2019, 6:13:48 AM GMT-03:00
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -531,7 +531,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Transaction Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       <a
         class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 dENzOP fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
@@ -561,7 +561,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -583,7 +583,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Order Hash:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       <a
         class="link__StyledLink-sc-1m1n17q-0 diqghp fill-details__FillDetailLink-sc-5nb7jb-1 jdKtAI"
@@ -593,7 +593,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </a>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -615,14 +615,14 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Value (USD):
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       <span>
         $184.29
       </span>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -644,12 +644,12 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Protocol Version:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       v2
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -671,7 +671,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Protocol Fee:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       0.0001 ETH
       <span
@@ -683,7 +683,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </span>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -705,12 +705,12 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Associated Apps:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       None
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -732,7 +732,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Traded Assets:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       <ul
         class="list__List-sc-1hr42jb-0 bICncC"
@@ -808,7 +808,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -830,7 +830,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Derived Prices (USD):
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       <ul
         class="list__List-sc-1hr42jb-0 bICncC"
@@ -902,7 +902,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       </ul>
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -924,12 +924,12 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Maker Fees:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       None
     </dd>
     <dt
-      class="fill-detail__Title-q3it9r-0 jGBHMR"
+      class="fill-detail__Title-q3it9r-0 cfGFUm"
     >
       <svg
         aria-hidden="true"
@@ -951,7 +951,7 @@ exports[`fillDetails component should render V3 fill 1`] = `
       Taker Fees:
     </dt>
     <dd
-      class="fill-detail__Value-q3it9r-1 cLRIUQ"
+      class="fill-detail__Value-q3it9r-1 hgaUGL"
     >
       None
     </dd>

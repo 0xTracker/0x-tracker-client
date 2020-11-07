@@ -10,7 +10,7 @@ import CardFooter from './card-footer';
 
 const TabbedCardHeader = styled(CardHeader)`
   background: none;
-  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
+  border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_300};
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -28,7 +28,7 @@ const TabLink = styled(NavLink)`
     &:hover,
     &:active {
       color: ${(props) =>
-        props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_700};
+        props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_800};
     }
   }
 `;

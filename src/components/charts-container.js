@@ -15,7 +15,7 @@ import verbosePeriod from '../util/verbose-period';
 const ChartLink = styled(NavLink)`
   &&& {
     background: none;
-    color: ${(props) => (props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_600)};
+    color: ${(props) => (props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_700)};
     font-weight: ${(props) => (props.active ? '500' : '400')};
     cursor: pointer;
     border: none;
@@ -25,14 +25,14 @@ const ChartLink = styled(NavLink)`
     &:hover,
     &:active {
       color: ${(props) =>
-        props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_700};
+        props.active ? 'inherit' : COLORS.NEUTRAL.MYSTIC_800};
     }
   }
 `;
 
 const PeriodLink = styled(NavLink)`
   && {
-    color: ${COLORS.NEUTRAL.MYSTIC_600};
+    color: ${COLORS.NEUTRAL.MYSTIC_700};
     cursor: pointer;
     margin: 0 0.25rem;
     padding: 0.4rem 0.5rem;
@@ -42,13 +42,13 @@ const PeriodLink = styled(NavLink)`
     line-height: 1;
 
     &&.active {
-      background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+      background-color: ${COLORS.NEUTRAL.MYSTIC_400};
       color: inherit;
     }
 
     &:hover,
     &&.active:hover {
-      background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+      background-color: ${COLORS.NEUTRAL.MYSTIC_500};
     }
   }
 `;

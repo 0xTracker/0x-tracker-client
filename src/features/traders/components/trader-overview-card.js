@@ -31,7 +31,7 @@ const TraderOverviewCard = ({ trader }) => (
         <dl>
           <dt
             css={`
-              color: ${COLORS.NEUTRAL.MYSTIC_700};
+              color: ${COLORS.NEUTRAL.MYSTIC_800};
             `}
           >
             Description:
@@ -45,7 +45,7 @@ const TraderOverviewCard = ({ trader }) => (
             <>
               <dt
                 css={`
-                  color: ${COLORS.NEUTRAL.MYSTIC_700};
+                  color: ${COLORS.NEUTRAL.MYSTIC_800};
                 `}
               >
                 Website:

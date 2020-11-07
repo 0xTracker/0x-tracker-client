@@ -20,7 +20,7 @@ const UnsupportedBreakpoint = () => (
                 <h2 css="font-size: 24px; margin: 0;">Unsupported Device</h2>
                 <p
                   css={`
-                    color: ${COLORS.NEUTRAL.MYSTIC_700};
+                    color: ${COLORS.NEUTRAL.MYSTIC_800};
                     font-size: 18px;
                   `}
                 >
@@ -29,7 +29,7 @@ const UnsupportedBreakpoint = () => (
                 </p>
               </div>
               <div css="bottom: 40px; right: 40px; position: absolute;">
-                <Cat color={COLORS.NEUTRAL.MYSTIC_400} mood="sad" size={200} />
+                <Cat color={COLORS.NEUTRAL.MYSTIC_500} mood="sad" size={200} />
               </div>
             </CardBody>
           </Card>

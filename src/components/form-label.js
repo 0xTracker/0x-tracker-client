@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { COLORS } from '../styles/constants';
 
 const FormLabel = styled.label`
-  color: ${COLORS.NEUTRAL.MYSTIC_600};
+  color: ${COLORS.NEUTRAL.MYSTIC_700};
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.05em;

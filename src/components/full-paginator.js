@@ -27,7 +27,7 @@ const Pages = styled.div`
   }
 
   .page-item .page-link {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_200};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_300};
     border: none;
     border-radius: 0;
     color: currentColor;
@@ -48,11 +48,11 @@ const Pages = styled.div`
   }
 
   .page-item.active .page-link {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
   }
 
   .page-item .page-link:hover {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 
   .page-item.disabled .page-link,
@@ -67,7 +67,7 @@ const StyledPaginator = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 1.5rem 2rem;
+  margin: 1.5rem 1.75rem;
 `;
 
 const FullPaginator = ({

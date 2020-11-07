@@ -17,7 +17,7 @@ const FillListAssets = ({ assets }) => (
         width: 25px;
         height: 25px;
         margin-right: 0.5rem;
-        border: 1px solid ${COLORS.NEUTRAL.MYSTIC_300};
+        border: 1px solid ${COLORS.NEUTRAL.MYSTIC_400};
         border-radius: 4px;
         padding: 4px;
       `}
@@ -35,7 +35,7 @@ const FillListAssets = ({ assets }) => (
           <TokenLink
             address={assets[0].tokenAddress}
             css={`
-              color: ${COLORS.NEUTRAL.MYSTIC_600};
+              color: ${COLORS.NEUTRAL.MYSTIC_700};
               letter-spacing: 0.05em;
             `}
           >

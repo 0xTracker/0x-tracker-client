@@ -6,7 +6,6 @@ import CardErrorBoundary from './card-error-boundary';
 
 const Wrapper = styled.div`
   background-color: white;
-  border: none;
   border-radius: 4px;
   box-shadow: 0px 1px 3px rgba(126, 142, 177, 0.2);
   display: flex;

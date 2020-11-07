@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 `;
 
 const TryAgainButton = styled.button`
-  background: ${COLORS.NEUTRAL.MYSTIC_300};
+  background: ${COLORS.NEUTRAL.MYSTIC_400};
   border: none;
   border-radius: 0.25rem;
   color: ${COLORS.NEUTRAL.MYSTIC_900};
@@ -27,7 +27,7 @@ const TryAgainButton = styled.button`
   text-transform: uppercase;
 
   &:hover {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_500};
     text-decoration: none;
   }
 `;

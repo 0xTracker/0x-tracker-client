@@ -24,7 +24,7 @@ import useArticleSources from '../hooks/use-article-sources';
 
 const LoadMoreButton = styled.button`
   align-items: center;
-  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_400};
   border: none;
   border-radius: 0.25rem;
   color: currentColor;
@@ -35,7 +35,7 @@ const LoadMoreButton = styled.button`
   padding: 1rem 0;
 
   &:hover {
-    background-color: ${COLORS.NEUTRAL.MYSTIC_400};
+    background-color: ${COLORS.NEUTRAL.MYSTIC_500};
   }
 `;
 

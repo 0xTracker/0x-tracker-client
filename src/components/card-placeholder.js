@@ -7,7 +7,7 @@ const CardPlaceholder = ({ children }) => (
   <div
     css={`
       align-items: center;
-      color: ${COLORS.NEUTRAL.MYSTIC_500};
+      color: ${COLORS.NEUTRAL.MYSTIC_600};
       display: flex;
       flex-grow: 1;
       justify-content: center;

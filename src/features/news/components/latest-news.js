@@ -6,7 +6,7 @@ import ArticlesProvider from './articles-provider';
 import LoadingIndicator from '../../../components/loading-indicator';
 
 const LatestNews = ({ compact, showImages }) => (
-  <ArticlesProvider limit={4}>
+  <ArticlesProvider limit={8}>
     {({ articles, loadingInitial }) =>
       loadingInitial ? (
         <LoadingIndicator centered />

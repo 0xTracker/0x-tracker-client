@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import { media } from '../styles/util';
 import PageTitleBlock from './page-title-block';
-// import TopBanner from '../features/advertising/components/top-banner';
 
 const PageBody = styled.div`
   align-items: ${(props) => (props.centered ? 'center' : 'initial')};
@@ -18,22 +17,18 @@ const StyledPageLayout = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding: 1.25rem;
+  padding: 1rem;
 
-  ${media.greaterThan('lg')`
+  ${media.greaterThan('md')`
+    padding: 2rem 1.5rem;
+  `}
+
+  ${media.greaterThan('xl')`
     padding: 2rem;
   `}
 `;
 
-const PageLayout = ({
-  actions,
-  centered,
-  children,
-  icon,
-  // showBanner,
-  subTitle,
-  title,
-}) => (
+const PageLayout = ({ actions, centered, children, icon, subTitle, title }) => (
   <StyledPageLayout>
     {title && (
       <PageTitleBlock
@@ -43,7 +38,6 @@ const PageLayout = ({
         title={title}
       />
     )}
-    {/* {showBanner && <TopBanner />} */}
     <PageBody centered={centered}>{children}</PageBody>
   </StyledPageLayout>
 );
@@ -53,7 +47,6 @@ PageLayout.propTypes = {
   centered: PropTypes.bool,
   children: PropTypes.node.isRequired,
   icon: PropTypes.node,
-  // showBanner: PropTypes.bool,
   subTitle: PropTypes.string,
   title: PropTypes.node,
 };
@@ -62,7 +55,6 @@ PageLayout.defaultProps = {
   actions: undefined,
   centered: false,
   icon: undefined,
-  // showBanner: true,
   subTitle: undefined,
   title: undefined,
 };

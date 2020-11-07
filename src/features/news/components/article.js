@@ -27,7 +27,7 @@ const StyledArticle = styled.div`
 `;
 
 const ArticleMetadata = styled.dl`
-  color: ${COLORS.NEUTRAL.MYSTIC_700};
+  color: ${COLORS.NEUTRAL.MYSTIC_800};
   font-size: 0.9rem;
   margin: 0 0 0.5rem;
 
@@ -99,11 +99,6 @@ const Article = ({ article, compact, index, showImage }) => (
         <dt>Date</dt>
         <dd>{formatDate(article.date, DATE_FORMAT.RELATIVE)}</dd>
       </ArticleMetadata>
-      {article.summary && (
-        <p css="flex-grow: 1; margin: 0;">
-          {_.truncate(article.summary, { length: compact ? 120 : 150 })}
-        </p>
-      )}
     </div>
   </StyledArticle>
 );

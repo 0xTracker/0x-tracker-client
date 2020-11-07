@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 import { COLORS } from '../styles/constants';
 import { media } from '../styles/util';
-import ContactButton from './contact-button';
 import CompactSidebar from './compact-sidebar';
 import Footer from './footer';
 import Header from '../features/header/components/header';
@@ -70,7 +69,6 @@ const AppLayout = ({ children }) => (
         <Footer />
       </Scrollport>
     </Main>
-    <ContactButton />
   </AppContainer>
 );
 
