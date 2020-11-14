@@ -1,4 +1,3 @@
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { addParameters, addDecorator } from '@storybook/react';
 import { createGlobalStyle } from 'styled-components';
 import React from 'react';
@@ -15,6 +14,10 @@ import GlobalStyles from '../src/components/global-styles';
 const StorybookStyles = createGlobalStyle`
   body {
     background-color: initial;
+  }
+
+  #root {
+    display: block;
   }
 `;
 
@@ -35,17 +38,17 @@ addDecorator(withGlobalStyles);
 addDecorator(new StoryRouter());
 
 addParameters({
-  backgrounds: [
-    { default: true, name: 'None', value: 'white' },
-    { name: 'Body', value: COLORS.NEUTRAL.MYSTIC_200 },
-  ],
+  backgrounds: {
+    default: 'White',
+    values: [
+      { name: 'White', value: 'white' },
+      { name: 'Body', value: COLORS.NEUTRAL.MYSTIC_200 },
+    ],
+  },
   options: {
     storySort: (a, b) =>
       a[1].kind === b[1].kind
         ? 0
         : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
-  },
-  viewport: {
-    viewports: INITIAL_VIEWPORTS,
   },
 });

@@ -12,7 +12,7 @@ import TokenLookupField from '../features/tokens/components/token-lookup-field';
 import TokenTypeSelector from '../features/tokens/components/token-type-selector';
 import TimePeriodSelector from '../components/time-period-selector';
 
-storiesOf('Common|Forms', module)
+storiesOf('Common/Forms', module)
   .addDecorator((storyFn) => (
     <div css="padding: 2rem; max-width: 450px;">{storyFn()}</div>
   ))

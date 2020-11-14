@@ -3,7 +3,7 @@ import React from 'react';
 
 import ChartTooltip from './chart-tooltip';
 
-storiesOf('Charts|ChartTooltip', module).add('default', () => (
+storiesOf('Charts/ChartTooltip', module).add('default', () => (
   <div css="width: 300px;">
     <ChartTooltip
       items={[

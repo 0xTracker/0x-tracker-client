@@ -16,7 +16,7 @@ const config = {
       { default: true, name: 'Body', value: COLORS.NEUTRAL.MYSTIC_200 },
     ],
   },
-  title: 'Common|Card',
+  title: 'Common/Card',
 };
 
 const content =
