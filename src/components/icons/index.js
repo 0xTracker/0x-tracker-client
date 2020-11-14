@@ -5,6 +5,7 @@ import AppsIcon from './apps-icon';
 import ArrowRightIcon from './arrow-right-icon';
 import AssetBridgeIcon from './asset-bridge-icon';
 import AsteriskIcon from './asterisk-icon';
+import CaretDownIcon from './caret-down-icon';
 import CaretRightIcon from './caret-right-icon';
 import ChevronDownIcon from './chevron-down-icon';
 import ChevronLeftIcon from './chevron-left-icon';
@@ -62,6 +63,7 @@ export {
   ArrowRightIcon,
   AssetBridgeIcon,
   AsteriskIcon,
+  CaretDownIcon,
   CaretRightIcon,
   ChevronDownIcon,
   ChevronLeftIcon,
