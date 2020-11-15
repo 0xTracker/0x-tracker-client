@@ -7,8 +7,6 @@ import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
 import HomePageMetrics from './home-page-metrics';
-import HomePageTopAppsFooter from './home-page-top-apps-footer';
-import HomePageTopTokensFooter from './home-page-top-tokens-footer';
 import LatestNewsCard from '../../news/components/latest-news-card';
 import Link from '../../../components/link';
 import NetworkMetrics from '../../metrics/components/network-metrics';
@@ -16,8 +14,7 @@ import PageLayout from '../../../components/page-layout';
 import Pill from '../../../components/pill';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
 import TabbedCard from '../../../components/tabbed-card';
-import TopApps from '../../apps/components/top-apps';
-import TopTokens from '../../tokens/components/top-tokens';
+import TopPerformersCard from '../../top-performers/components/top-performers-card';
 
 const HomePage = () => {
   useMetadata({
@@ -70,33 +67,7 @@ const HomePage = () => {
             />
           </CardGridCol>
           <CardGridCol lg={5}>
-            <TabbedCard
-              tabs={[
-                {
-                  actions: (
-                    <Pill as={Link} href={URL.TOKENS}>
-                      View More
-                    </Pill>
-                  ),
-                  component: <TopTokens period={TIME_PERIOD.DAY} />,
-                  errorMessage:
-                    'An error occurred while loading the top tokens',
-                  footer: <HomePageTopTokensFooter period={TIME_PERIOD.DAY} />,
-                  title: 'Top Tokens',
-                },
-                {
-                  actions: (
-                    <Pill as={Link} href={URL.APPS}>
-                      View More
-                    </Pill>
-                  ),
-                  component: <TopApps period={TIME_PERIOD.DAY} />,
-                  errorMessage: 'An error occurred while loading the top apps',
-                  footer: <HomePageTopAppsFooter period={TIME_PERIOD.DAY} />,
-                  title: 'Top Apps',
-                },
-              ]}
-            />
+            <TopPerformersCard initialPeriod={TIME_PERIOD.DAY} />
           </CardGridCol>
         </CardGridRow>
         <CardGridRow>

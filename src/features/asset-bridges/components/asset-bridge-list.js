@@ -9,6 +9,7 @@ import LocalisedAmount from '../../currencies/components/localised-amount';
 import MiniBridgeMetrics from './mini-bridge-metrics';
 import Number from '../../../components/number';
 import Rank from '../../../components/rank';
+import TraderLink from '../../traders/components/trader-link';
 
 const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
   <table className="table table-responsive">
@@ -46,22 +47,26 @@ const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
             <Rank>{positionOffset + index + 1}</Rank>
           </td>
           <td className="align-middle">
-            <AssetBridgeImage
-              imageUrl={bridge.imageUrl}
-              isPrivate={
-                _.isString(bridge.name) && bridge.name.startsWith('Private')
-              }
-            />
+            <TraderLink address={bridge.address}>
+              <AssetBridgeImage
+                imageUrl={bridge.imageUrl}
+                isPrivate={
+                  _.isString(bridge.name) && bridge.name.startsWith('Private')
+                }
+              />
+            </TraderLink>
           </td>
           <td className="align-middle" width="99%">
-            {_.isString(bridge.name) ? bridge.name : 'Unknown Bridge'}
-            <div
-              css={`
-                color: ${COLORS.NEUTRAL.MYSTIC_800};
-              `}
-            >
-              {bridge.address}
-            </div>
+            <TraderLink address={bridge.address}>
+              {_.isString(bridge.name) ? bridge.name : 'Unknown Bridge'}
+              <div
+                css={`
+                  color: ${COLORS.NEUTRAL.MYSTIC_800};
+                `}
+              >
+                {bridge.address}
+              </div>
+            </TraderLink>
           </td>
           <td className="align-middle text-right">
             <Number summarize>{bridge.stats.tradeCount}</Number>

@@ -100,7 +100,7 @@ const AppPage = () => {
     >
       <CardGrid>
         <AppStats app={app} period={statsPeriod} />
-        <CardGridRow>
+        <CardGridRow minHeight="360px">
           <CardGridCol xs={12}>
             <TabbedCard
               tabs={[
@@ -140,7 +140,7 @@ const AppPage = () => {
         </CardGridRow>
         <CardGridRow>
           <CardGridCol lg={7}>
-            <RecentFillsCard filter={{ apps: [app.id] }} limit={10} />
+            <RecentFillsCard filter={{ apps: [app.id] }} limit={12} />
           </CardGridCol>
           <CardGridCol lg={5}>
             <RelatedAppsCard

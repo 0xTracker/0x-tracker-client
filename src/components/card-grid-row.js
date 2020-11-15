@@ -16,7 +16,7 @@ const CardGridRow = styled(Row)
 `;
 
 CardGridRow.defaultProps = {
-  minHeight: '360px',
+  minHeight: '300px',
 };
 
 export default CardGridRow;

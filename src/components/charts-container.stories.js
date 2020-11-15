@@ -5,7 +5,7 @@ import ChartsContainer from './charts-container';
 import TopApps from '../features/apps/components/top-apps';
 import TopTokens from '../features/tokens/components/top-tokens';
 
-storiesOf('Layout|ChartsContainer', module)
+storiesOf('Layout/ChartsContainer', module)
   .addDecorator((getStory) => (
     <div css="padding: 20px; max-width: 680px;">{getStory()}</div>
   ))

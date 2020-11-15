@@ -11,7 +11,6 @@ const TraderImage = ({ address, imageUrl, size, ...otherProps }) => {
       <img
         css={`
           border-radius: 4px;
-          margin-right: 12px;
           height: ${size}px;
         `}
         src={imageUrl}
@@ -23,7 +22,7 @@ const TraderImage = ({ address, imageUrl, size, ...otherProps }) => {
   if (_.isString(address)) {
     return (
       <Blockie
-        css="border-radius: 4px; margin-right: 12px;"
+        css="border-radius: 4px;"
         seed={address}
         size={`${size}px`}
         {...otherProps}

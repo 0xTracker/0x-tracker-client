@@ -3,7 +3,7 @@ import React from 'react';
 
 import LoadingIndicator from './loading-indicator';
 
-storiesOf('Common|LoadingIndicator', module)
+storiesOf('Common/LoadingIndicator', module)
   .add('large spinner', () => <LoadingIndicator />)
   .add('large cylon', () => <LoadingIndicator type="cylon" />)
   .add('medium spinner', () => <LoadingIndicator size="medium" />)

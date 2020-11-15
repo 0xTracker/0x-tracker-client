@@ -10,6 +10,6 @@ const simpleProps = {
   onSearch: _.noop,
 };
 
-storiesOf('Layout|MobileMenu', module)
+storiesOf('Layout/MobileMenu', module)
   .addParameters({ viewport: { defaultViewport: 'iphone6' } })
   .add('default', () => <MobileMenu {...simpleProps} />);

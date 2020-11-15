@@ -96,7 +96,7 @@ const FillsPage = () => {
           networkStats={networkStats}
           period={period}
         />
-        <CardGridRow>
+        <CardGridRow minHeight="360px">
           <CardGridCol>
             <TabbedCard
               tabs={[

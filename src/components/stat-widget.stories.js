@@ -11,7 +11,7 @@ const config = {
       { default: true, name: 'Body', value: COLORS.NEUTRAL.MYSTIC_300 },
     ],
   },
-  title: 'Common|StatWidget',
+  title: 'Common/StatWidget',
 };
 
 const Loading = () => <StatWidget loading title="Trade Volume" />;

@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import styled from 'styled-components';
 
-import { COLORS } from './constants';
+import { COLORS } from '../styles/constants';
 
 const ColorBox = ({ color, name }) => (
   <div css="display: inline-block; margin: 0 5px 25px 0;">
@@ -28,7 +28,7 @@ const GroupHeading = styled.h2`
   margin: 0 0 8px 0;
 `;
 
-storiesOf('Documentation|Style Guide', module).add('colors', () => (
+storiesOf('Common/Colors', module).add('Default', () => (
   <div css="padding: 15px 25px;">
     <h1 css="font-size: 24px; margin: 0 0 8px">Color Palette 🎨</h1>
     <p css="width: 45em; margin: 0 0 36px">

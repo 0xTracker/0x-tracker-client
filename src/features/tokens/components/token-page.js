@@ -110,7 +110,7 @@ const TokenPage = () => {
     >
       <CardGrid>
         <TokenStats period={statsPeriod} token={token} />
-        <CardGridRow>
+        <CardGridRow minHeight="360px">
           <CardGridCol>
             <TabbedCard
               tabs={[

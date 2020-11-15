@@ -11,7 +11,7 @@ const simpleProps = {
   recordCount: 276,
 };
 
-storiesOf('Common|Paginator', module)
+storiesOf('Common/Paginator', module)
   .add('default', () => <Paginator {...simpleProps} />)
   .add('with page changing', () => <Paginator {...simpleProps} changingPage />)
   .add('with 3 pages', () => <Paginator {...simpleProps} pageCount={3} />);
