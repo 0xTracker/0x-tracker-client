@@ -1,17 +1,45 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactSelect from 'react-select';
+import ReactSelect, { components } from 'react-select';
 import styled from 'styled-components';
 
 import { COLORS } from '../styles/constants';
 import { CaretDownIcon } from './icons';
 
+const { Option } = components;
+
 const DropdownIndicator = () => <CaretDownIcon size={10} />;
+
+// eslint-disable-next-line react/no-multi-comp
+const CustomOption = (props) => {
+  const { children, data } = props;
+
+  if (data.icon === undefined) {
+    return <Option {...props} />;
+  }
+
+  return (
+    <Option {...props}>
+      <div css="align-items: center; display: flex;">
+        <div css="display: flex; margin-right: 0.5rem;">{data.icon}</div>
+        {children}
+      </div>
+    </Option>
+  );
+};
+
+CustomOption.propTypes = {
+  children: PropTypes.node.isRequired,
+  data: PropTypes.shape({
+    icon: PropTypes.node,
+  }).isRequired,
+};
 
 const Dropdown = styled(ReactSelect).attrs({
   classNamePrefix: 'Select',
   components: {
     DropdownIndicator,
+    Option: CustomOption,
   },
   isClearable: false,
   isSearchable: false,
@@ -117,6 +145,7 @@ DropdownPill.propTypes = {
   onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
+      icon: PropTypes.node,
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
     }).isRequired,

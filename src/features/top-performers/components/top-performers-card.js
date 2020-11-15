@@ -13,6 +13,14 @@ import TopAssetBridges from '../../asset-bridges/components/top-asset-bridges';
 import TopTokens from '../../tokens/components/top-tokens';
 import TopTraders from '../../traders/components/top-traders';
 import { TIME_PERIOD } from '../../../constants';
+import {
+  AppsIcon,
+  AssetBridgeIcon,
+  MakersIcon,
+  TakersIcon,
+  TokensIcon,
+  TradersIcon,
+} from '../../../components/icons';
 
 const TopPerformersCard = ({
   canTogglePeriod,
@@ -33,12 +41,36 @@ const TopPerformersCard = ({
           <DropdownPill
             onChange={setType}
             options={[
-              { label: 'Apps', value: 'apps' },
-              { label: 'Asset Bridges', value: 'asset-bridges' },
-              { label: 'Makers', value: 'makers' },
-              { label: 'Takers', value: 'takers' },
-              { label: 'Tokens', value: 'tokens' },
-              { label: 'Traders', value: 'traders' },
+              {
+                icon: <AppsIcon size={16} />,
+                label: 'Apps',
+                value: 'apps',
+              },
+              {
+                icon: <AssetBridgeIcon size={16} />,
+                label: 'Asset Bridges',
+                value: 'asset-bridges',
+              },
+              {
+                icon: <MakersIcon size={16} />,
+                label: 'Makers',
+                value: 'makers',
+              },
+              {
+                icon: <TakersIcon size={16} />,
+                label: 'Takers',
+                value: 'takers',
+              },
+              {
+                icon: <TokensIcon size={16} />,
+                label: 'Tokens',
+                value: 'tokens',
+              },
+              {
+                icon: <TradersIcon size={16} />,
+                label: 'Traders',
+                value: 'traders',
+              },
             ]}
             value={type}
           />

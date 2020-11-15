@@ -27,6 +27,7 @@ import InsightsIcon from './insights-icon';
 import LeftArrowIcon from './left-arrow-icon';
 import LinkedinShareIcon from './linkedin-share-icon';
 import MailIcon from './mail-icon';
+import MakersIcon from './makers-icon';
 import MarkerIcon from './marker-icon';
 import MediumIcon from './medium-icon';
 import MenuIcon from './menu-icon';
@@ -44,6 +45,7 @@ import SortAscendingIcon from './sort-ascending-icon';
 import SortDescendingIcon from './sort-descending-icon';
 import SquareIcon from './square-icon';
 import StakingIcon from './staking-icon';
+import TakersIcon from './takers-icon';
 import TimePeriodIcon from './time-period-icon';
 import TokensIcon from './tokens-icon';
 import TokenIcon from './token-icon';
@@ -85,6 +87,7 @@ export {
   LeftArrowIcon,
   LinkedinShareIcon,
   MailIcon,
+  MakersIcon,
   MarkerIcon,
   MediumIcon,
   MenuIcon,
@@ -102,6 +105,7 @@ export {
   SortDescendingIcon,
   SquareIcon,
   StakingIcon,
+  TakersIcon,
   TimePeriodIcon,
   TokenIcon,
   TokensIcon,
