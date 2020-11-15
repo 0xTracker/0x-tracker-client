@@ -16,7 +16,7 @@ const TopApps = ({ period }) => {
     return <LoadingIndicator centered />;
   }
 
-  return <TopAppsTable apps={apps.items} />;
+  return <TopAppsTable apps={apps.items} statsPeriod={period} />;
 };
 
 TopApps.propTypes = {

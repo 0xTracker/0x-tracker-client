@@ -11,11 +11,11 @@ const BREAKPOINTS = {
 };
 
 const TIME_PERIOD = {
-  ALL: 'all',
   DAY: 'day',
-  MONTH: 'month',
   WEEK: 'week',
+  MONTH: 'month', // eslint-disable-line sort-keys
   YEAR: 'year',
+  ALL: 'all', // eslint-disable-line sort-keys
 };
 
 const METRIC_GRANULARITY = {

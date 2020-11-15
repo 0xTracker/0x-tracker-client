@@ -43,7 +43,12 @@ const AppVolumeTooltip = ({ appName, period, tradeVolume }) => {
       <strong>
         sourced <LocalisedAmount amount={sourced} summarize title={false} />
       </strong>{' '}
-      of liquidity from other 0x relayers {periodDescriptor}.
+      of liquidity from other 0x relayers {periodDescriptor}. Total volume for
+      the period was{' '}
+      <strong>
+        <LocalisedAmount amount={tradeVolume.total} summarize title={false} />
+      </strong>
+      .
     </p>
   );
 };

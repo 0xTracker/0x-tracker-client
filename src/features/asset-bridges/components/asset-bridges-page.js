@@ -55,7 +55,7 @@ const AssetBridgesPage = () => {
     >
       <CardGrid>
         <AssetBridgingStats period={statsPeriod} />
-        <CardGridRow>
+        <CardGridRow minHeight="360px">
           <CardGridCol xs={12}>
             <TabbedCard
               tabs={[

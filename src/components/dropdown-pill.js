@@ -13,7 +13,6 @@ const Dropdown = styled(ReactSelect).attrs({
   components: {
     DropdownIndicator,
   },
-  hideSelectedOptions: true,
   isClearable: false,
   isSearchable: false,
 })`
@@ -75,6 +74,12 @@ const Dropdown = styled(ReactSelect).attrs({
     white-space: nowrap;
   }
 
+  .Select__option--is-selected {
+    background: ${COLORS.NEUTRAL.MYSTIC_200};
+    color: inherit;
+    cursor: pointer;
+  }
+
   .Select__option:hover,
   .Select__option:active,
   .Select__option--is-focused {
@@ -98,8 +103,9 @@ const Dropdown = styled(ReactSelect).attrs({
 `;
 
 // eslint-disable-next-line react/no-multi-comp
-const DropdownPill = ({ onChange, options, value }) => (
+const DropdownPill = ({ className, onChange, options, value }) => (
   <Dropdown
+    className={className}
     onChange={(option) => onChange(option.value)}
     options={options}
     value={options.find((x) => x.value === value)}
@@ -107,6 +113,7 @@ const DropdownPill = ({ onChange, options, value }) => (
 );
 
 DropdownPill.propTypes = {
+  className: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   options: PropTypes.arrayOf(
     PropTypes.shape({
@@ -115,6 +122,10 @@ DropdownPill.propTypes = {
     }).isRequired,
   ).isRequired,
   value: PropTypes.string.isRequired,
+};
+
+DropdownPill.defaultProps = {
+  className: undefined,
 };
 
 export default DropdownPill;

@@ -1,82 +1,74 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
-import { COLORS } from '../../../styles/constants';
-import { useCurrentBreakpoint } from '../../../responsive-utils';
-import AppLink from './app-link';
 import AppLogo from './app-logo';
 import appsPropTypes from '../prop-types';
-import Link from '../../../components/link';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import PercentageChange from '../../../components/percentage-change';
+import EntityList from '../../../components/entity-list';
+import EntityListItem from '../../../components/entity-list-item';
+import buildAppUrl from '../util/build-app-url';
+import { HelpIcon } from '../../../components/icons';
+import { COLORS } from '../../../styles/constants';
+import Tooltip from '../../../components/tooltip';
+import AppVolumeTooltip from './app-volume-tooltip';
+import sharedPropTypes from '../../../prop-types';
 
-const TableCell = styled.td`
-  padding-bottom: 1rem;
-`;
-
-const TableRow = styled.tr`
-  &:last-child ${TableCell} {
-    padding-bottom: 0;
-  }
-`;
-
-const SecondaryText = styled.span`
-  color: ${COLORS.NEUTRAL.MYSTIC_800};
-  font-size: 0.9rem;
-`;
-
-const TopAppsTable = ({ apps }) => {
-  const breakpoint = useCurrentBreakpoint();
-
-  return (
-    <table css="width: 100%;">
-      <thead css="display: none;">
-        <tr>
-          <th colSpan="2">App</th>
-          <th>Trade Volume</th>
-        </tr>
-      </thead>
-      <tbody>
-        {apps.map((app) => (
-          <TableRow key={app.id}>
-            <TableCell css="padding-right: 1.25rem;">
-              <AppLogo imageUrl={app.logoUrl} size="40px" />
-            </TableCell>
-            <TableCell width="99%;">
-              <span css="display: flex; align-items: center">
-                <AppLink urlSlug={app.urlSlug}>{app.name}</AppLink>
-              </span>
-              {_.isString(app.websiteUrl) ? (
-                <SecondaryText as={Link} href={app.websiteUrl} noFollow>
-                  {_.truncate(app.websiteUrl, {
-                    length: breakpoint.greaterThan('xs') ? 35 : 25,
-                  })}
-                </SecondaryText>
-              ) : null}
-            </TableCell>
-            <TableCell css="white-space: nowrap; text-align: right;">
-              <LocalisedAmount
-                amount={app.stats.tradeVolume.total}
-                css="font-weight: 500;"
-                summarize
+const TopAppsTable = ({ apps, statsPeriod }) => (
+  <EntityList>
+    {apps.map((app, index) => (
+      <EntityListItem
+        complement={
+          <Tooltip
+            content={
+              <AppVolumeTooltip
+                appName={app.name}
+                period={statsPeriod}
+                tradeVolume={app.stats.tradeVolume}
               />
-              {_.isNumber(app.stats.tradeVolumeChange.total) && (
-                <PercentageChange css="display: block;">
-                  {app.stats.tradeVolumeChange.total}
-                </PercentageChange>
-              )}
-            </TableCell>
-          </TableRow>
-        ))}
-      </tbody>
-    </table>
-  );
-};
+            }
+            placement="bottom"
+          >
+            <span css="display: flex; align-items: center; justify-content: flex-end;">
+              <span>
+                <LocalisedAmount
+                  amount={app.stats.tradeVolume.total}
+                  css="font-weight: 500;"
+                  summarize
+                  title={false}
+                />
+                {_.isNumber(app.stats.tradeVolumeChange.total) && (
+                  <PercentageChange css="display: block;">
+                    {app.stats.tradeVolumeChange.total}
+                  </PercentageChange>
+                )}
+              </span>
+              <HelpIcon
+                color={COLORS.NEUTRAL.MYSTIC_500}
+                css="margin-left: 0.75rem;"
+                size={18}
+              />
+            </span>
+          </Tooltip>
+        }
+        image={<AppLogo imageUrl={app.logoUrl} size="40px" />}
+        index={index}
+        key={app.id}
+        metadata={app.categories.map((category, categoryIndex) => ({
+          label: `Category ${categoryIndex + 1}`,
+          value: category,
+        }))}
+        title={app.name}
+        url={buildAppUrl(app.urlSlug)}
+      />
+    ))}
+  </EntityList>
+);
 
 TopAppsTable.propTypes = {
   apps: PropTypes.arrayOf(appsPropTypes.appWithStats).isRequired,
+  statsPeriod: sharedPropTypes.timePeriod.isRequired,
 };
 
 export default TopAppsTable;

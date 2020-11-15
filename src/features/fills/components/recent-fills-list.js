@@ -1,23 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import styled from 'styled-components';
 
+import EntityList from '../../../components/entity-list';
 import fillsPropTypes from '../prop-types';
 import RecentFillsItem from './recent-fills-item';
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  overflow-x: scroll;
-`;
-
 const RecentFillsList = ({ fills }) => (
-  <Wrapper>
+  <EntityList>
     {fills.map((fill, index) => (
       <RecentFillsItem fill={fill} index={index} key={fill.id} />
     ))}
-  </Wrapper>
+  </EntityList>
 );
 
 RecentFillsList.propTypes = {
