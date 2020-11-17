@@ -60,17 +60,17 @@ const Heading = styled.span`
   white-space: nowrap;
 `;
 
-const EntityListItem = ({ complement, image, index, metadata, title, url }) => (
-  <Wrapper as={Link} highlight={(index + 1) % 2 === 0} href={url}>
+const EntityListItem = ({ complement, image, metadata, title, url }) => (
+  <Wrapper as={Link} href={url}>
     <span css="display: flex; margin-right: 1rem;">{image}</span>
     <span css="display: flex; flex-direction: column; justify-content: center; flex-grow: 1; overflow: hidden;">
       <Heading>{title}</Heading>
       <Metadata>
         {metadata.map((x) => (
-          <>
+          <React.Fragment key={x.label}>
             <dt>{x.label}</dt>
             <dd>{x.value}</dd>
-          </>
+          </React.Fragment>
         ))}
       </Metadata>
     </span>
@@ -81,7 +81,6 @@ const EntityListItem = ({ complement, image, index, metadata, title, url }) => (
 EntityListItem.propTypes = {
   complement: PropTypes.node,
   image: PropTypes.node.isRequired,
-  index: PropTypes.number.isRequired,
   metadata: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,

@@ -27,7 +27,7 @@ const Content = styled.div`
   line-height: 1.65;
 
   p {
-    overflow-x: scroll;
+    overflow-x: auto;
   }
 
   a {
@@ -63,7 +63,7 @@ const Content = styled.div`
     display: flex;
     margin: 0;
     padding: 16px;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
 
   pre + pre {
