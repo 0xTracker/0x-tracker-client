@@ -3,7 +3,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { media } from '../styles/util';
+import MatchaLeaderboard from '../features/advertising/components/matcha-leaderboard';
 import PageTitleBlock from './page-title-block';
+import Hidden from './hidden';
+import MatchaMobileBanner from '../features/advertising/components/matcha-mobile-banner';
+import Visible from './visible';
 
 const PageBody = styled.div`
   align-items: ${(props) => (props.centered ? 'center' : 'initial')};
@@ -30,6 +34,14 @@ const StyledPageLayout = styled.div`
 
 const PageLayout = ({ actions, centered, children, icon, subTitle, title }) => (
   <StyledPageLayout>
+    <Visible above="sm">
+      <Hidden above="lg">
+        <MatchaLeaderboard />
+      </Hidden>
+    </Visible>
+    <Hidden above="sm">
+      <MatchaMobileBanner />
+    </Hidden>
     {title && (
       <PageTitleBlock
         actions={actions}

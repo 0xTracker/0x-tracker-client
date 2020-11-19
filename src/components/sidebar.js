@@ -6,7 +6,7 @@ import { URL } from '../constants';
 import Link from './link';
 import logoImage from '../assets/images/logo-grayscale.svg';
 import Navigation from '../features/header/components/navigation';
-import SideBanner from '../features/advertising/components/side-banner';
+import MatchaSideBanner from '../features/advertising/components/matcha-side-banner';
 
 const LogoImage = styled.img`
   display: block;
@@ -30,7 +30,8 @@ const Sidebar = () => (
       <LogoImage alt="0x Tracker" size="small" src={logoImage} />
     </Link>
     <Navigation />
-    <SideBanner />
+    {/* <SideBanner /> */}
+    <MatchaSideBanner />
   </div>
 );
 
