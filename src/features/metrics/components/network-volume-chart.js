@@ -43,8 +43,14 @@ const NetworkVolumeChart = ({ data, period, type }) => {
             strokeOpacity={0.7}
             vertical={false}
           />
-          <Bar dataKey={type} fill={COLORS.NEUTRAL.MYSTIC_400} yAxisId={type} />
+          <Bar
+            animationDuration={0}
+            dataKey={type}
+            fill={COLORS.NEUTRAL.MYSTIC_400}
+            yAxisId={type}
+          />
           <Line
+            animationDuration={0}
             dataKey="avgTradeSize"
             dot={false}
             stroke={COLORS.ACCENT.ANZAC_500}
@@ -63,7 +69,6 @@ const NetworkVolumeChart = ({ data, period, type }) => {
             allowDuplicatedCategory={false}
             axisLine={false}
             dataKey={type}
-            interval={0}
             label={{
               fill: COLORS.NEUTRAL.MYSTIC_700,
               fillOpacity: 0.6,
@@ -74,12 +79,12 @@ const NetworkVolumeChart = ({ data, period, type }) => {
             }}
             mirror
             padding={{ top: 40 }}
-            scale="linear"
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
               fontWeight: 500,
             }}
+            tickCount={5}
             tickFormatter={
               type === 'tradeVolume'
                 ? (value) => formatAxisCurrency(value, displayCurrency)
@@ -102,12 +107,12 @@ const NetworkVolumeChart = ({ data, period, type }) => {
             mirror
             orientation="right"
             padding={{ top: 40 }}
-            scale="linear"
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
               fontWeight: 500,
             }}
+            tickCount={5}
             tickFormatter={(value) =>
               formatAxisCurrency(value, displayCurrency)
             }

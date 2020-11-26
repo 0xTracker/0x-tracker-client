@@ -75,6 +75,7 @@ const ProtocolMetricsChart = ({
           />
           {getProtocols(data).map((protocolVersion, index) => (
             <Area
+              animationDuration={0}
               dataKey={(dataPoint) => {
                 const total = _.sum(dataPoint.stats.map((x) => x[compareBy]));
                 const stat = dataPoint.stats.find(
