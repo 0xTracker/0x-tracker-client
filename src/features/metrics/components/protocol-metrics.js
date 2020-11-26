@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
@@ -7,6 +6,7 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useProtocolMetrics from '../hooks/use-protocol-metrics';
+import sharedPropTypes from '../../../prop-types';
 
 const determineGranularity = (period) => {
   if (period === TIME_PERIOD.WEEK || period === TIME_PERIOD.MONTH) {
@@ -24,9 +24,14 @@ const determineGranularity = (period) => {
   return 'hour';
 };
 
-const ProtocolMetrics = ({ period }) => {
-  const granularity = determineGranularity(period);
-  const [metrics, loading] = useProtocolMetrics({ granularity, period });
+const ProtocolMetrics = ({ granularity, period }) => {
+  const defaultGranularity = determineGranularity(period);
+
+  const [metrics, loading] = useProtocolMetrics({
+    granularity: granularity || defaultGranularity,
+    period,
+  });
+
   const conversionRate = useConversionRate();
   const displayCurrency = useDisplayCurrency();
 
@@ -46,18 +51,20 @@ const ProtocolMetrics = ({ period }) => {
     <ProtocolMetricsChart
       currency={displayCurrency}
       data={data}
-      granularity={granularity}
+      granularity={granularity || defaultGranularity}
       period={period}
     />
   );
 };
 
 ProtocolMetrics.propTypes = {
-  period: PropTypes.string,
+  granularity: sharedPropTypes.granularity,
+  period: sharedPropTypes.timePeriod,
 };
 
 ProtocolMetrics.defaultProps = {
-  period: TIME_PERIOD.MONTH,
+  granularity: undefined,
+  period: undefined,
 };
 
 export default ProtocolMetrics;
