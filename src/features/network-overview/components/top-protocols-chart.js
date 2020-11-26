@@ -7,6 +7,8 @@ import { COLORS } from '../../../styles/constants';
 import ChartContainer from '../../../components/chart-container';
 import ChartLegendText from '../../../components/chart-legend-text';
 import TopProtocolsChartTooltip from './top-protocols-chart-tooltip';
+import LocalisedAmount from '../../currencies/components/localised-amount';
+import Number from '../../../components/number';
 
 const SEGMENT_COLORS = [
   COLORS.PRIMARY.SCAMPI_100,
@@ -15,7 +17,7 @@ const SEGMENT_COLORS = [
   COLORS.PRIMARY.SCAMPI_1000,
 ];
 
-const TopProtocolsChart = ({ data }) => {
+const TopProtocolsChart = ({ data, sortBy }) => {
   if (_.isEmpty(data)) {
     return 'No data available';
   }
@@ -25,7 +27,7 @@ const TopProtocolsChart = ({ data }) => {
       <PieChart margin={{ bottom: 0, left: 0, right: 0, top: 0 }}>
         <Pie
           data={data}
-          dataKey="tradeCount"
+          dataKey={sortBy === 'fillCount' ? 'tradeCount' : 'tradeVolume'}
           nameKey="protocolVersion"
           outerRadius="100%"
           paddingAngle={0}
@@ -40,7 +42,18 @@ const TopProtocolsChart = ({ data }) => {
         </Pie>
         <Legend
           align="right"
-          formatter={ChartLegendText}
+          formatter={(value, entry, index) =>
+            ChartLegendText(
+              <span>
+                {value} -{' '}
+                {sortBy === 'fillVolume' ? (
+                  <LocalisedAmount amount={data[index].tradeVolume} summarize />
+                ) : (
+                  <Number summarize>{data[index].tradeCount}</Number>
+                )}
+              </span>,
+            )
+          }
           iconType="circle"
           layout="vertical"
           verticalAlign="middle"
@@ -59,6 +72,7 @@ TopProtocolsChart.propTypes = {
       tradeVolume: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  sortBy: PropTypes.string.isRequired,
 };
 
 export default TopProtocolsChart;

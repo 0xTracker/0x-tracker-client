@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import { TIME_PERIOD } from '../../../constants';
@@ -24,7 +25,7 @@ const determineGranularity = (period) => {
   return 'hour';
 };
 
-const ProtocolMetrics = ({ granularity, period }) => {
+const ProtocolMetrics = ({ compareBy, granularity, period }) => {
   const defaultGranularity = determineGranularity(period);
 
   const [metrics, loading] = useProtocolMetrics({
@@ -49,6 +50,7 @@ const ProtocolMetrics = ({ granularity, period }) => {
 
   return (
     <ProtocolMetricsChart
+      compareBy={compareBy}
       currency={displayCurrency}
       data={data}
       granularity={granularity || defaultGranularity}
@@ -58,6 +60,7 @@ const ProtocolMetrics = ({ granularity, period }) => {
 };
 
 ProtocolMetrics.propTypes = {
+  compareBy: PropTypes.string.isRequired,
   granularity: sharedPropTypes.granularity,
   period: sharedPropTypes.timePeriod,
 };

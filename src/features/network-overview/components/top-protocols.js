@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 import LoadingIndicator from '../../../components/loading-indicator';
@@ -6,11 +7,11 @@ import sharedPropTypes from '../../../prop-types';
 import TopProtocolsChart from './top-protocols-chart';
 import useProtocols from '../hooks/use-protocols';
 
-const TopProtocols = ({ period }) => {
+const TopProtocols = ({ period, sortBy }) => {
   const [protocols, loading] = useProtocols({
-    limit: 3,
+    limit: 10,
     page: 1,
-    sortBy: 'fillCount',
+    sortBy,
     statsPeriod: period,
   });
 
@@ -27,11 +28,12 @@ const TopProtocols = ({ period }) => {
     'protocolVersion',
   );
 
-  return <TopProtocolsChart data={stats} />;
+  return <TopProtocolsChart data={stats} sortBy={sortBy} />;
 };
 
 TopProtocols.propTypes = {
   period: sharedPropTypes.timePeriod.isRequired,
+  sortBy: PropTypes.string.isRequired,
 };
 
 export default TopProtocols;

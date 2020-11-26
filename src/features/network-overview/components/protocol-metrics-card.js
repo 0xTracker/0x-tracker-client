@@ -34,7 +34,7 @@ const getDefaultGranularity = (period) => {
 };
 
 const ProtocolMetricsCard = ({ period }) => {
-  const [type, setType] = React.useState('adoption');
+  const [type, setType] = React.useState('adoption-by-trades');
   const [granularityPreference, setGranularityPreference] = React.useState();
 
   const granularity =
@@ -52,7 +52,8 @@ const ProtocolMetricsCard = ({ period }) => {
             css="margin-right: 0.5rem;"
             onChange={setType}
             options={[
-              { label: 'Adoption', value: 'adoption' },
+              { label: 'Adoption (by trades)', value: 'adoption-by-trades' },
+              { label: 'Adoption (by volume)', value: 'adoption-by-volume' },
               { label: 'Collected Fees', value: 'fees' },
             ]}
             value={type}
@@ -65,8 +66,19 @@ const ProtocolMetricsCard = ({ period }) => {
         </div>
       </CardHeader>
       <CardBody padded>
-        {type === 'adoption' && (
-          <ProtocolMetrics granularity={granularity} period={period} />
+        {type === 'adoption-by-trades' && (
+          <ProtocolMetrics
+            compareBy="tradeCount"
+            granularity={granularity}
+            period={period}
+          />
+        )}
+        {type === 'adoption-by-volume' && (
+          <ProtocolMetrics
+            compareBy="tradeVolume"
+            granularity={granularity}
+            period={period}
+          />
         )}
         {type === 'fees' && (
           <NetworkMetrics
