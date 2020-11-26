@@ -14,7 +14,7 @@ const Button = styled.button`
   display: flex;
   padding: 0.25rem 0.5rem;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 `;
 
 const ResetChartButton = ({ className, onClick }) => (
