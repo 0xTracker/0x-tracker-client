@@ -36,10 +36,7 @@ const NetworkVolumeChart = ({ data, period, type }) => {
   return (
     <BrushableChartContainer data={data}>
       {({ brushIndexes, brushableData, handleBrushChange }) => (
-        <ComposedChart
-          data={brushableData}
-          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
-        >
+        <ComposedChart data={brushableData}>
           <CartesianGrid
             stroke={COLORS.NEUTRAL.MYSTIC_300}
             strokeDasharray="8 8"
@@ -51,7 +48,7 @@ const NetworkVolumeChart = ({ data, period, type }) => {
             dataKey="avgTradeSize"
             dot={false}
             stroke={COLORS.ACCENT.ANZAC_500}
-            strokeWidth={2}
+            strokeWidth={1}
             type="monotone"
             yAxisId="avgTradeSize"
           />
@@ -62,12 +59,10 @@ const NetworkVolumeChart = ({ data, period, type }) => {
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
             tickLine={false}
           />
-
           <YAxis
             allowDuplicatedCategory={false}
             axisLine={false}
             dataKey={type}
-            domain={['auto', 'auto']}
             interval={0}
             label={{
               fill: COLORS.NEUTRAL.MYSTIC_700,
