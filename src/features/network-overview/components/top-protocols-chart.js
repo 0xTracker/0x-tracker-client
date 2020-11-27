@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -7,8 +8,6 @@ import { COLORS } from '../../../styles/constants';
 import ChartContainer from '../../../components/chart-container';
 import ChartLegendText from '../../../components/chart-legend-text';
 import TopProtocolsChartTooltip from './top-protocols-chart-tooltip';
-import LocalisedAmount from '../../currencies/components/localised-amount';
-import Number from '../../../components/number';
 
 const SEGMENT_COLORS = [
   COLORS.PRIMARY.SCAMPI_100,
@@ -17,10 +16,20 @@ const SEGMENT_COLORS = [
   COLORS.PRIMARY.SCAMPI_1000,
 ];
 
+const formatPercentage = (value) => {
+  if (value > 0 && value < 0.01) {
+    return '<0.01%';
+  }
+  return numeral(value).format('0.[00]%');
+};
+
 const TopProtocolsChart = ({ data, sortBy }) => {
   if (_.isEmpty(data)) {
     return 'No data available';
   }
+
+  const totalVolume = _.sum(data.map((x) => x.tradeVolume));
+  const totalTrades = _.sum(data.map((x) => x.tradeCount));
 
   return (
     <ChartContainer>
@@ -47,11 +56,9 @@ const TopProtocolsChart = ({ data, sortBy }) => {
             ChartLegendText(
               <span>
                 {value} -{' '}
-                {sortBy === 'fillVolume' ? (
-                  <LocalisedAmount amount={data[index].tradeVolume} summarize />
-                ) : (
-                  <Number summarize>{data[index].tradeCount}</Number>
-                )}
+                {sortBy === 'fillVolume'
+                  ? formatPercentage(data[index].tradeVolume / totalVolume)
+                  : formatPercentage(data[index].tradeCount / totalTrades)}
               </span>,
             )
           }
