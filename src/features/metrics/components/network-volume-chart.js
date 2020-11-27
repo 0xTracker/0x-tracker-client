@@ -36,7 +36,10 @@ const NetworkVolumeChart = ({ data, period, type }) => {
   return (
     <BrushableChartContainer data={data}>
       {({ brushIndexes, brushableData, handleBrushChange }) => (
-        <ComposedChart data={brushableData}>
+        <ComposedChart
+          data={brushableData}
+          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+        >
           <CartesianGrid
             stroke={COLORS.NEUTRAL.MYSTIC_300}
             strokeDasharray="8 8"
