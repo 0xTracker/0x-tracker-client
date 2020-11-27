@@ -5,10 +5,10 @@ exports[`app layout component should render with children 1`] = `
   class="app-layout__AppContainer-nr5sez-0 iAFouo"
 >
   <div
-    class="sidebar___StyledDiv-sc-1ginpey-1 cqKTGM"
+    class="sidebar___StyledDiv-sc-1ginpey-3 iLqFtO"
   >
     <a
-      class="link__StyledLink-sc-1m1n17q-0 diqghp sidebar___StyledLink-sc-1ginpey-2 kJBkBW"
+      class="link__StyledLink-sc-1m1n17q-0 diqghp sidebar___StyledLink-sc-1ginpey-4 glyHCt"
       href="/"
     >
       <img
@@ -19,7 +19,7 @@ exports[`app layout component should render with children 1`] = `
     </a>
     <nav
       aria-label="Primary"
-      class="navigation__StyledNavigation-sc-18grpkd-0 craLwW"
+      class="navigation__StyledNavigation-sc-18grpkd-0 jAleuT"
     >
       <a
         aria-current="false"
@@ -186,20 +186,52 @@ exports[`app layout component should render with children 1`] = `
       </a>
     </nav>
     <a
-      class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB matcha-side-banner___StyledLink-sc-5jp42j-0 jgBuSW"
+      class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB matcha-side-banner___StyledLink-sc-5jp42j-0 bBqdMp"
       href="https://matcha.xyz/?utm_source=0xtracker&utm_medium=banner&utm_campaign=allthetokens"
-      rel="noreferrer noopener"
+      rel="nofollow"
       target="_blank"
     >
+      <span
+        class="badge__Badge-sc-8ieo9x-0 matcha-side-banner___StyledBadge-sc-5jp42j-1 KHhnq"
+      >
+        AD
+      </span>
       <img
         alt="1000+ tokens available on Matcha"
-        class="matcha-side-banner___StyledImg-sc-5jp42j-1 ljdTUX"
+        class="matcha-side-banner___StyledImg-sc-5jp42j-2 eeGshU"
         src="/assets/advertising/matcha-side-banner.png"
       />
     </a>
+    <div
+      class="sidebar__Footer-sc-1ginpey-2 gKnwRH"
+    >
+      <button
+        class="sidebar__ContractButton-sc-1ginpey-1 hMciQI"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+          fill="currentColor"
+          focusable="false"
+          height="20"
+          viewBox="0 0 24 24"
+          width="20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 0h24v24H0z"
+            fill="none"
+          />
+          <path
+            d="M21 18v2H3v-2h18zM6.596 3.904L8.01 5.318 4.828 8.5l3.182 3.182-1.414 1.414L2 8.5l4.596-4.596zM21 11v2h-9v-2h9zm0-7v2h-9V4h9z"
+          />
+        </svg>
+      </button>
+    </div>
   </div>
   <div
-    class="app-layout__Main-nr5sez-2 ibLLay"
+    class="app-layout__Main-nr5sez-2 cBExpF"
   >
     <div
       class="app-layout__Scrollport-nr5sez-3 bxkNbZ"

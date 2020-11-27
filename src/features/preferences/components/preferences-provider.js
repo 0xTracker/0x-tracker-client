@@ -11,21 +11,34 @@ const PreferencesProvider = ({ children }) => {
     BASE_CURRENCY,
   );
 
+  const [sidebar, setSidebar] = useLocalStorage('preferences.sidebar', 'full');
+
   const updatePreferences = React.useCallback((newPreferences) => {
     setDisplayCurrency(newPreferences.displayCurrency);
   }, []);
 
-  const [value, setValue] = React.useState({
-    update: updatePreferences,
-    values: { displayCurrency },
-  });
+  const setPreference = React.useCallback((key, value) => {
+    if (key === 'sidebar') {
+      setSidebar(value);
+      return;
+    }
 
-  React.useEffect(() => {
-    setValue({
+    if (key === 'displayCurrency') {
+      setDisplayCurrency(value);
+      return;
+    }
+
+    throw new Error(`Unknown preference: ${key}`);
+  }, []);
+
+  const value = React.useMemo(
+    () => ({
+      set: setPreference,
       update: updatePreferences,
-      values: { displayCurrency },
-    });
-  }, [displayCurrency]);
+      values: { displayCurrency, sidebar },
+    }),
+    [displayCurrency, sidebar],
+  );
 
   return (
     <PreferencesContext.Provider value={value}>

@@ -13,6 +13,7 @@ import {
   TradersIcon,
 } from '../../../components/icons';
 import CompactNavigationLink from './compact-navigation-link';
+import Tooltip from '../../../components/tooltip';
 
 const StyledNavigation = styled.nav`
   color: white;
@@ -23,27 +24,41 @@ const StyledNavigation = styled.nav`
 
 const CompactNavigation = ({ className }) => (
   <StyledNavigation aria-label="Primary" className={className}>
-    <CompactNavigationLink href={URL.APPS} title="Apps">
-      <AppsIcon size={24} />
-    </CompactNavigationLink>
-    <CompactNavigationLink href={URL.ASSET_BRIDGES} title="Asset Bridges">
-      <AssetBridgeIcon size={24} />
-    </CompactNavigationLink>
-    <CompactNavigationLink href={URL.FILLS} title="Browse Trades">
-      <FillsIcon size={24} />
-    </CompactNavigationLink>
-    <CompactNavigationLink href={URL.NETWORK_INSIGHTS} title="Network Insights">
-      <InsightsIcon size={24} />
-    </CompactNavigationLink>
-    <CompactNavigationLink href={URL.NEWS} title="News & Updates">
-      <NewsIcon size={22} />
-    </CompactNavigationLink>
-    <CompactNavigationLink href={URL.TOKENS} title="Tokens">
-      <TokensIcon size={26} />
-    </CompactNavigationLink>
-    <CompactNavigationLink href={URL.TRADERS} title="Traders">
-      <TradersIcon size={26} />
-    </CompactNavigationLink>
+    <Tooltip content="Apps">
+      <CompactNavigationLink href={URL.APPS}>
+        <AppsIcon size={24} />
+      </CompactNavigationLink>
+    </Tooltip>
+    <Tooltip content="Asset Bridges">
+      <CompactNavigationLink href={URL.ASSET_BRIDGES}>
+        <AssetBridgeIcon size={24} />
+      </CompactNavigationLink>
+    </Tooltip>
+    <Tooltip content="Browse Trades">
+      <CompactNavigationLink href={URL.FILLS}>
+        <FillsIcon size={24} />
+      </CompactNavigationLink>
+    </Tooltip>
+    <Tooltip content="Network Insights">
+      <CompactNavigationLink href={URL.NETWORK_INSIGHTS}>
+        <InsightsIcon size={24} />
+      </CompactNavigationLink>
+    </Tooltip>
+    <Tooltip content="News & Updates">
+      <CompactNavigationLink href={URL.NEWS}>
+        <NewsIcon size={22} />
+      </CompactNavigationLink>
+    </Tooltip>
+    <Tooltip content="Tokens">
+      <CompactNavigationLink href={URL.TOKENS}>
+        <TokensIcon size={26} />
+      </CompactNavigationLink>
+    </Tooltip>
+    <Tooltip content="Traders">
+      <CompactNavigationLink href={URL.TRADERS}>
+        <TradersIcon size={26} />
+      </CompactNavigationLink>
+    </Tooltip>
   </StyledNavigation>
 );
 

@@ -14,45 +14,47 @@ const StyledLink = styled.a`
   }
 `;
 
-const Link = ({
-  children,
-  href,
-  indicateExternal,
-  noFollow,
-  sponsored,
-  ...otherProps
-}) => {
-  const isExternal = href.startsWith('http://') || href.startsWith('https://');
-  const rel = [
-    isExternal ? 'noreferrer' : undefined,
-    isExternal ? 'noopener' : undefined,
-    sponsored ? 'sponsored' : undefined,
-    sponsored || noFollow ? 'nofollow' : undefined,
-  ].filter((i) => i !== undefined);
+const Link = React.forwardRef(
+  (
+    { children, href, indicateExternal, noFollow, sponsored, ...otherProps },
+    ref,
+  ) => {
+    const isExternal =
+      href.startsWith('http://') || href.startsWith('https://');
+    const rel = [
+      isExternal ? 'noreferrer' : undefined,
+      isExternal ? 'noopener' : undefined,
+      sponsored ? 'sponsored' : undefined,
+      sponsored || noFollow ? 'nofollow' : undefined,
+    ].filter((i) => i !== undefined);
 
-  if (isExternal) {
+    if (isExternal) {
+      return (
+        <StyledLink
+          css={indicateExternal ? 'vertical-align: middle;' : undefined}
+          href={href}
+          rel={rel.join(' ')}
+          target="_blank"
+          {...otherProps}
+          ref={ref}
+        >
+          {children}
+          {indicateExternal ? (
+            <ExternalLinkIcon css="margin-left: 6px;" size={16} />
+          ) : null}
+        </StyledLink>
+      );
+    }
+
     return (
-      <StyledLink
-        css={indicateExternal ? 'vertical-align: middle;' : undefined}
-        href={href}
-        rel={rel.join(' ')}
-        target="_blank"
-        {...otherProps}
-      >
+      <StyledLink href={href} ref={ref} {...otherProps}>
         {children}
-        {indicateExternal ? (
-          <ExternalLinkIcon css="margin-left: 6px;" size={16} />
-        ) : null}
       </StyledLink>
     );
-  }
+  },
+);
 
-  return (
-    <StyledLink href={href} {...otherProps}>
-      {children}
-    </StyledLink>
-  );
-};
+Link.displayName = 'Link';
 
 Link.propTypes = {
   children: PropTypes.node.isRequired,

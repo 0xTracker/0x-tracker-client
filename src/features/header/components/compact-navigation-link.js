@@ -9,7 +9,7 @@ import Link from '../../../components/link';
 const StyledNavigationLink = styled(Link)`
   background-color: ${(props) =>
     props.active ? COLORS.PRIMARY.SCAMPI_800 : 'inherit'};
-  color: ${(props) => (props.active ? COLORS.ACCENT.ANZAC_600 : 'inherit')};
+  color: inherit;
   display: flex;
   align-items: center;
   height: 50px;
@@ -19,28 +19,33 @@ const StyledNavigationLink = styled(Link)`
   &:hover {
     background-color: ${(props) =>
       props.active ? COLORS.PRIMARY.SCAMPI_800 : COLORS.PRIMARY.SCAMPI_900};
-    color: ${(props) => (props.active ? COLORS.ACCENT.ANZAC_600 : 'inherit')};
+    color: inherit;
   }
 `;
 
-const CompactNavigationLink = ({ href, children, ...otherProps }) => {
-  const location = useLocation();
+const CompactNavigationLink = React.forwardRef(
+  ({ href, children, ...otherProps }, ref) => {
+    const location = useLocation();
 
-  const active =
-    (location.pathname === '/' && href === '/') ||
-    (href !== '/' && location.pathname.startsWith(href));
+    const active =
+      (location.pathname === '/' && href === '/') ||
+      (href !== '/' && location.pathname.startsWith(href));
 
-  return (
-    <StyledNavigationLink
-      active={active}
-      aria-current={active}
-      href={href}
-      {...otherProps}
-    >
-      {children}
-    </StyledNavigationLink>
-  );
-};
+    return (
+      <StyledNavigationLink
+        {...otherProps}
+        active={active}
+        aria-current={active}
+        href={href}
+        ref={ref}
+      >
+        {children}
+      </StyledNavigationLink>
+    );
+  },
+);
+
+CompactNavigationLink.displayName = 'CompactNavigationLink';
 
 CompactNavigationLink.propTypes = {
   children: PropTypes.string.isRequired,

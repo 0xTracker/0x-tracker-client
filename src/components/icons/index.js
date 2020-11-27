@@ -40,6 +40,8 @@ import RightArrowIcon from './right-arrow-icon';
 import ScheduledIcon from './scheduled-icon';
 import SearchIcon from './search-icon';
 import SettingsIcon from './settings-icon';
+import SidebarContractIcon from './sidebar-contract-icon';
+import SidebarExpandIcon from './sidebar-expand-icon';
 import SignOutIcon from './sign-out-icon';
 import SortAscendingIcon from './sort-ascending-icon';
 import SortDescendingIcon from './sort-descending-icon';
@@ -100,6 +102,8 @@ export {
   ScheduledIcon,
   SearchIcon,
   SettingsIcon,
+  SidebarContractIcon,
+  SidebarExpandIcon,
   SignOutIcon,
   SortAscendingIcon,
   SortDescendingIcon,

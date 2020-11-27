@@ -8,6 +8,7 @@ import PageTitleBlock from './page-title-block';
 import Hidden from './hidden';
 import MatchaMobileBanner from '../features/advertising/components/matcha-mobile-banner';
 import Visible from './visible';
+import usePreferences from '../features/preferences/hooks/use-preferences';
 
 const PageBody = styled.div`
   align-items: ${(props) => (props.centered ? 'center' : 'initial')};
@@ -32,27 +33,36 @@ const StyledPageLayout = styled.div`
   `}
 `;
 
-const PageLayout = ({ actions, centered, children, icon, subTitle, title }) => (
-  <StyledPageLayout>
-    <Visible above="sm">
-      <Hidden above="lg">
-        <MatchaLeaderboard />
+const PageLayout = ({ actions, centered, children, icon, subTitle, title }) => {
+  const preferences = usePreferences();
+
+  return (
+    <StyledPageLayout>
+      <Visible above="sm">
+        <Hidden above="lg">
+          <MatchaLeaderboard />
+        </Hidden>
+      </Visible>
+      <Hidden above="sm">
+        <MatchaMobileBanner />
       </Hidden>
-    </Visible>
-    <Hidden above="sm">
-      <MatchaMobileBanner />
-    </Hidden>
-    {title && (
-      <PageTitleBlock
-        actions={actions}
-        icon={icon}
-        subTitle={subTitle}
-        title={title}
-      />
-    )}
-    <PageBody centered={centered}>{children}</PageBody>
-  </StyledPageLayout>
-);
+      {preferences.values.sidebar === 'compact' && (
+        <Visible above="lg">
+          <MatchaLeaderboard />
+        </Visible>
+      )}
+      {title && (
+        <PageTitleBlock
+          actions={actions}
+          icon={icon}
+          subTitle={subTitle}
+          title={title}
+        />
+      )}
+      <PageBody centered={centered}>{children}</PageBody>
+    </StyledPageLayout>
+  );
+};
 
 PageLayout.propTypes = {
   actions: PropTypes.node,
