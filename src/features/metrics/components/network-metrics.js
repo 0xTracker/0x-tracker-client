@@ -8,6 +8,7 @@ import LoadingIndicator from '../../../components/loading-indicator';
 import useConversionRate from '../../currencies/hooks/use-conversion-rate';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import useNetworkMetrics from '../hooks/use-network-metrics';
+import sharedPropTypes from '../../../prop-types';
 
 const determineGranularity = (period) => {
   if (_.isPlainObject(period)) {
@@ -29,10 +30,10 @@ const determineGranularity = (period) => {
   return 'hour';
 };
 
-const NetworkMetrics = ({ filters, period, type }) => {
-  const granularity = determineGranularity(period);
+const NetworkMetrics = ({ filters, granularity, period, type }) => {
+  const defaultGranularity = determineGranularity(period);
   const [metrics, loading] = useNetworkMetrics(
-    { filters, granularity, period },
+    { filters, granularity: granularity || defaultGranularity, period },
     { autoReload: true },
   );
   const conversionRate = useConversionRate();
@@ -62,13 +63,15 @@ const NetworkMetrics = ({ filters, period, type }) => {
 
 NetworkMetrics.propTypes = {
   filters: PropTypes.object,
-  period: PropTypes.string,
+  granularity: sharedPropTypes.granularity,
+  period: sharedPropTypes.timePeriod,
   type: PropTypes.string,
 };
 
 NetworkMetrics.defaultProps = {
   filters: undefined,
-  period: TIME_PERIOD.MONTH,
+  granularity: undefined,
+  period: undefined,
   type: 'tradeVolume',
 };
 

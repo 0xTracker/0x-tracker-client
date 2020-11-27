@@ -37,8 +37,9 @@ const NetworkVolumeChart = ({ data, period, type }) => {
     <BrushableChartContainer data={data}>
       {({ brushIndexes, brushableData, handleBrushChange }) => (
         <ComposedChart
+          baseValue="dataMin"
           data={brushableData}
-          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+          margin={{ bottom: 0, left: 0, right: 0, top: 40 }}
         >
           <CartesianGrid
             stroke={COLORS.NEUTRAL.MYSTIC_300}
@@ -46,12 +47,18 @@ const NetworkVolumeChart = ({ data, period, type }) => {
             strokeOpacity={0.7}
             vertical={false}
           />
-          <Bar dataKey={type} fill={COLORS.NEUTRAL.MYSTIC_400} yAxisId={type} />
+          <Bar
+            animationDuration={0}
+            dataKey={type}
+            fill={COLORS.NEUTRAL.MYSTIC_400}
+            yAxisId={type}
+          />
           <Line
+            animationDuration={0}
             dataKey="avgTradeSize"
             dot={false}
             stroke={COLORS.ACCENT.ANZAC_500}
-            strokeWidth={2}
+            strokeWidth={1}
             type="monotone"
             yAxisId="avgTradeSize"
           />
@@ -62,24 +69,20 @@ const NetworkVolumeChart = ({ data, period, type }) => {
             tickFormatter={(date) => formatAxisDate(date, period, granularity)}
             tickLine={false}
           />
-
           <YAxis
             allowDuplicatedCategory={false}
             axisLine={false}
             dataKey={type}
-            domain={['auto', 'auto']}
-            interval={0}
             label={{
               fill: COLORS.NEUTRAL.MYSTIC_700,
               fillOpacity: 0.6,
               fontSize: '0.7rem',
               fontWeight: 500,
-              position: 'insideTopLeft',
+              offset: 30,
+              position: 'top',
               value: type === 'tradeVolume' ? 'VOLUME' : 'TRADES',
             }}
             mirror
-            padding={{ top: 40 }}
-            scale="linear"
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
@@ -101,13 +104,12 @@ const NetworkVolumeChart = ({ data, period, type }) => {
               fill: COLORS.ACCENT.ANZAC_500,
               fontSize: '0.7rem',
               fontWeight: 500,
-              position: 'insideTopRight',
-              value: 'AVG TRADE SIZE',
+              offset: 30,
+              position: 'top',
+              value: 'AVG SIZE',
             }}
             mirror
             orientation="right"
-            padding={{ top: 40 }}
-            scale="linear"
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',

@@ -22,8 +22,8 @@ const ProtocolMetricsTooltip = ({ currency, granularity, payload }) => {
         .map((stat) => ({
           label: `v${stat.protocolVersion}`,
           value: `${formatCurrency(stat.tradeVolume, currency)} / ${numeral(
-            stat.fillCount,
-          ).format('0,0')} fills`,
+            stat.tradeCount,
+          ).format('0,0')} trades`,
         }))}
     />
   );
@@ -38,8 +38,8 @@ ProtocolMetricsTooltip.propTypes = {
         date: PropTypes.string.isRequired,
         stats: PropTypes.arrayOf(
           PropTypes.shape({
-            fillCount: PropTypes.number.isRequired,
             protocolVersion: PropTypes.number.isRequired,
+            tradeCount: PropTypes.number.isRequired,
             tradeVolume: PropTypes.number.isRequired,
           }),
         ).isRequired,

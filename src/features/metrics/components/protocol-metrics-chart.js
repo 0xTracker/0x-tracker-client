@@ -1,5 +1,14 @@
 import _ from 'lodash';
-import { Area, AreaChart, XAxis, Tooltip, Brush, Legend } from 'recharts';
+import {
+  Area,
+  AreaChart,
+  XAxis,
+  Tooltip,
+  Brush,
+  Legend,
+  YAxis,
+  CartesianGrid,
+} from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -24,7 +33,13 @@ const SEGMENT_COLORS = [
   COLORS.ACCENT.FRUIT_SALAD_1000,
 ];
 
-const ProtocolMetricsChart = ({ currency, data, granularity, period }) => {
+const ProtocolMetricsChart = ({
+  compareBy,
+  currency,
+  data,
+  granularity,
+  period,
+}) => {
   if (_.isEmpty(data)) {
     return <ChartPlaceholder>No data available</ChartPlaceholder>;
   }
@@ -60,8 +75,9 @@ const ProtocolMetricsChart = ({ currency, data, granularity, period }) => {
           />
           {getProtocols(data).map((protocolVersion, index) => (
             <Area
+              animationDuration={0}
               dataKey={(dataPoint) => {
-                const total = _.sum(dataPoint.stats.map((x) => x.fillCount));
+                const total = _.sum(dataPoint.stats.map((x) => x[compareBy]));
                 const stat = dataPoint.stats.find(
                   (x) => x.protocolVersion === protocolVersion,
                 );
@@ -70,7 +86,7 @@ const ProtocolMetricsChart = ({ currency, data, granularity, period }) => {
                   return 0;
                 }
 
-                return (stat.fillCount / total) * 100;
+                return Math.round((stat[compareBy] / total) * 100);
               }}
               fill={SEGMENT_COLORS[index]}
               fillOpacity={1}
@@ -82,6 +98,32 @@ const ProtocolMetricsChart = ({ currency, data, granularity, period }) => {
               type="monotone"
             />
           ))}
+          <CartesianGrid
+            horizontalCoordinatesGenerator={({ yAxis }) => {
+              const hundredth = yAxis.height / 100;
+
+              return [20, 40, 60, 80].map((x) => hundredth * x + yAxis.y); // 20%, 40%, 60%, 80%
+            }}
+            stroke="white"
+            strokeDasharray="4 4"
+            strokeOpacity={0.3}
+            vertical={false}
+          />
+          <YAxis
+            axisLine={false}
+            domain={[20, 80]}
+            mirror
+            tick={{
+              fill: 'white',
+              fontSize: '0.8em',
+              fontWeight: 300,
+            }}
+            tickCount={6} // 0%, 20%, 40%, 80%, 100%
+            tickFormatter={
+              (value) => (value === 0 || value === 100 ? '' : `${value}%`) // Hide 0% and 100%
+            }
+            tickLine={false}
+          />
           <Brush
             {...brushIndexes}
             dataKey="date"
@@ -97,6 +139,7 @@ const ProtocolMetricsChart = ({ currency, data, granularity, period }) => {
 };
 
 ProtocolMetricsChart.propTypes = {
+  compareBy: PropTypes.string.isRequired,
   currency: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(
     PropTypes.shape({

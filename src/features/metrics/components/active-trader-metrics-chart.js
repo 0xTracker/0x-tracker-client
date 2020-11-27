@@ -27,7 +27,7 @@ const ActiveTraderMetricsChart = ({ data, granularity, period, type }) => {
       {({ brushIndexes, brushableData, handleBrushChange }) => (
         <BarChart
           data={brushableData}
-          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+          margin={{ bottom: 0, left: 0, right: 0, top: 10 }}
         >
           <CartesianGrid
             stroke={COLORS.NEUTRAL.MYSTIC_300}
@@ -47,13 +47,18 @@ const ActiveTraderMetricsChart = ({ data, granularity, period, type }) => {
             axisLine={false}
             dataKey={type}
             mirror
-            scale="linear"
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
               fontWeight: 500,
             }}
-            tickFormatter={formatAxisNumber}
+            tickFormatter={(value, index) => {
+              if (index === 0) {
+                return '';
+              }
+
+              return formatAxisNumber(value);
+            }}
             tickLine={false}
           />
           <Tooltip

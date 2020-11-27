@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
+import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -15,17 +16,28 @@ const SEGMENT_COLORS = [
   COLORS.PRIMARY.SCAMPI_1000,
 ];
 
-const TopProtocolsChart = ({ data }) => {
+const formatPercentage = (value) => {
+  if (value > 0 && value < 0.01) {
+    return '<0.01%';
+  }
+  return numeral(value).format('0.[00]%');
+};
+
+const TopProtocolsChart = ({ data, sortBy }) => {
   if (_.isEmpty(data)) {
     return 'No data available';
   }
+
+  const totalVolume = _.sum(data.map((x) => x.tradeVolume));
+  const totalTrades = _.sum(data.map((x) => x.tradeCount));
 
   return (
     <ChartContainer>
       <PieChart margin={{ bottom: 0, left: 0, right: 0, top: 0 }}>
         <Pie
+          animationDuration={0}
           data={data}
-          dataKey="tradeCount"
+          dataKey={sortBy === 'fillCount' ? 'tradeCount' : 'tradeVolume'}
           nameKey="protocolVersion"
           outerRadius="100%"
           paddingAngle={0}
@@ -40,7 +52,16 @@ const TopProtocolsChart = ({ data }) => {
         </Pie>
         <Legend
           align="right"
-          formatter={ChartLegendText}
+          formatter={(value, entry, index) =>
+            ChartLegendText(
+              <span>
+                {value} -{' '}
+                {sortBy === 'fillVolume'
+                  ? formatPercentage(data[index].tradeVolume / totalVolume)
+                  : formatPercentage(data[index].tradeCount / totalTrades)}
+              </span>,
+            )
+          }
           iconType="circle"
           layout="vertical"
           verticalAlign="middle"
@@ -59,6 +80,7 @@ TopProtocolsChart.propTypes = {
       tradeVolume: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  sortBy: PropTypes.string.isRequired,
 };
 
 export default TopProtocolsChart;

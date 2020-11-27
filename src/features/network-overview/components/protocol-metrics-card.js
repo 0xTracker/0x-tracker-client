@@ -1,16 +1,17 @@
 import _ from 'lodash';
 import React from 'react';
 
-import ActiveTraderMetrics from '../../metrics/components/active-trader-metrics';
 import Card from '../../../components/card';
 import CardBody from '../../../components/card-body';
-import CardHeading from '../../../components/card-heading';
 import CardHeader from '../../../components/card-header';
-import sharedPropTypes from '../../../prop-types';
+import CardHeading from '../../../components/card-heading';
 import DropdownPill from '../../../components/dropdown-pill';
 import GranularityPill from '../../../components/granularity-pill';
-import granularityValidForPeriod from '../../../util/granularity-valid-for-period';
 import { TIME_PERIOD } from '../../../constants';
+import sharedPropTypes from '../../../prop-types';
+import granularityValidForPeriod from '../../../util/granularity-valid-for-period';
+import NetworkMetrics from '../../metrics/components/network-metrics';
+import ProtocolMetrics from '../../metrics/components/protocol-metrics';
 
 const getDefaultGranularity = (period) => {
   if (_.isPlainObject(period)) {
@@ -32,8 +33,8 @@ const getDefaultGranularity = (period) => {
   return 'hour';
 };
 
-const ActiveTradersCard = ({ period }) => {
-  const [type, setType] = React.useState('traderCount');
+const ProtocolMetricsCard = ({ period }) => {
+  const [type, setType] = React.useState('adoption-by-trades');
   const [granularityPreference, setGranularityPreference] = React.useState();
 
   const granularity =
@@ -43,17 +44,17 @@ const ActiveTradersCard = ({ period }) => {
       : granularityPreference;
 
   return (
-    <Card css="height: 360px;">
+    <Card errorMessage="An error occurred while loading the chart">
       <CardHeader>
-        <CardHeading>Active Traders</CardHeading>
+        <CardHeading>Protocol Metrics</CardHeading>
         <div css="display: flex;">
           <DropdownPill
             css="margin-right: 0.5rem;"
             onChange={setType}
             options={[
-              { label: 'Active Makers', value: 'makerCount' },
-              { label: 'Active Takers', value: 'takerCount' },
-              { label: 'Active Traders', value: 'traderCount' },
+              { label: 'Adoption (by trades)', value: 'adoption-by-trades' },
+              { label: 'Adoption (by volume)', value: 'adoption-by-volume' },
+              { label: 'Collected Fees', value: 'fees' },
             ]}
             value={type}
           />
@@ -65,18 +66,34 @@ const ActiveTradersCard = ({ period }) => {
         </div>
       </CardHeader>
       <CardBody padded>
-        <ActiveTraderMetrics
-          granularity={granularity}
-          period={period}
-          type={type}
-        />
+        {type === 'adoption-by-trades' && (
+          <ProtocolMetrics
+            compareBy="tradeCount"
+            granularity={granularity}
+            period={period}
+          />
+        )}
+        {type === 'adoption-by-volume' && (
+          <ProtocolMetrics
+            compareBy="tradeVolume"
+            granularity={granularity}
+            period={period}
+          />
+        )}
+        {type === 'fees' && (
+          <NetworkMetrics
+            granularity={granularity}
+            period={period}
+            type="protocolFees"
+          />
+        )}
       </CardBody>
     </Card>
   );
 };
 
-ActiveTradersCard.propTypes = {
+ProtocolMetricsCard.propTypes = {
   period: sharedPropTypes.timePeriod.isRequired,
 };
 
-export default ActiveTradersCard;
+export default ProtocolMetricsCard;
