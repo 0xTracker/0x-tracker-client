@@ -8,7 +8,7 @@ exports[`app layout component should render with children 1`] = `
     class="sidebar___StyledDiv-sc-1ginpey-3 iLqFtO"
   >
     <a
-      class="link__StyledLink-sc-1m1n17q-0 diqghp sidebar___StyledLink-sc-1ginpey-4 juiaoY"
+      class="link__StyledLink-sc-1m1n17q-0 diqghp sidebar___StyledLink-sc-1ginpey-4 glyHCt"
       href="/"
     >
       <img
@@ -19,7 +19,7 @@ exports[`app layout component should render with children 1`] = `
     </a>
     <nav
       aria-label="Primary"
-      class="navigation__StyledNavigation-sc-18grpkd-0 craLwW"
+      class="navigation__StyledNavigation-sc-18grpkd-0 jAleuT"
     >
       <a
         aria-current="false"
@@ -207,7 +207,6 @@ exports[`app layout component should render with children 1`] = `
     >
       <button
         class="sidebar__ContractButton-sc-1ginpey-1 hMciQI"
-        title="Contract menu"
         type="button"
       >
         <svg

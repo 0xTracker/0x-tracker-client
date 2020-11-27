@@ -72,7 +72,6 @@ const Sidebar = () => {
           onClick={() => {
             preferences.set('sidebar', 'compact');
           }}
-          title="Contract menu"
           type="button"
         >
           <SidebarContractIcon size={20} />
