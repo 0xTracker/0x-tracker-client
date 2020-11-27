@@ -27,14 +27,9 @@ const ActiveTraderMetricsChart = ({ data, granularity, period, type }) => {
       {({ brushIndexes, brushableData, handleBrushChange }) => (
         <BarChart
           data={brushableData}
-          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+          margin={{ bottom: 0, left: 0, right: 0, top: 10 }}
         >
           <CartesianGrid
-            horizontalCoordinatesGenerator={({ yAxis }) => {
-              const hundredth = yAxis.height / 100;
-
-              return [20, 40, 60, 80].map((x) => hundredth * x + yAxis.y); // 20%, 40%, 60%, 80%
-            }}
             stroke={COLORS.NEUTRAL.MYSTIC_300}
             strokeDasharray="8 8"
             strokeOpacity={0.7}
@@ -57,9 +52,8 @@ const ActiveTraderMetricsChart = ({ data, granularity, period, type }) => {
               fontSize: '0.8em',
               fontWeight: 500,
             }}
-            tickCount={6}
             tickFormatter={(value, index) => {
-              if (index === 0 || index === 5) {
+              if (index === 0) {
                 return '';
               }
 

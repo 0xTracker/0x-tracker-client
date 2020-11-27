@@ -30,6 +30,10 @@ const TopPerformersCard = ({
   const [type, setType] = React.useState('apps');
   const [period, setPeriod] = React.useState(initialPeriod);
 
+  React.useEffect(() => {
+    setPeriod(initialPeriod);
+  }, [initialPeriod]);
+
   return (
     <Card
       errorMessage={`An error occurred while loading the top performing ${type}`}

@@ -37,15 +37,11 @@ const NetworkVolumeChart = ({ data, period, type }) => {
     <BrushableChartContainer data={data}>
       {({ brushIndexes, brushableData, handleBrushChange }) => (
         <ComposedChart
+          baseValue="dataMin"
           data={brushableData}
-          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+          margin={{ bottom: 0, left: 0, right: 0, top: 40 }}
         >
           <CartesianGrid
-            horizontalCoordinatesGenerator={({ yAxis }) => {
-              const hundredth = yAxis.height / 100;
-
-              return [20, 40, 60, 80].map((x) => hundredth * x + yAxis.y); // 20%, 40%, 60%, 80%
-            }}
             stroke={COLORS.NEUTRAL.MYSTIC_300}
             strokeDasharray="8 8"
             strokeOpacity={0.7}
@@ -82,17 +78,16 @@ const NetworkVolumeChart = ({ data, period, type }) => {
               fillOpacity: 0.6,
               fontSize: '0.7rem',
               fontWeight: 500,
-              position: 'insideTopLeft',
+              offset: 30,
+              position: 'top',
               value: type === 'tradeVolume' ? 'VOLUME' : 'TRADES',
             }}
             mirror
-            padding={{ top: 40 }}
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
               fontWeight: 500,
             }}
-            tickCount={5}
             tickFormatter={
               type === 'tradeVolume'
                 ? (value) => formatAxisCurrency(value, displayCurrency)
@@ -109,18 +104,17 @@ const NetworkVolumeChart = ({ data, period, type }) => {
               fill: COLORS.ACCENT.ANZAC_500,
               fontSize: '0.7rem',
               fontWeight: 500,
-              position: 'insideTopRight',
-              value: 'AVG TRADE SIZE',
+              offset: 30,
+              position: 'top',
+              value: 'AVG SIZE',
             }}
             mirror
             orientation="right"
-            padding={{ top: 40 }}
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
               fontWeight: 500,
             }}
-            tickCount={5}
             tickFormatter={(value) =>
               formatAxisCurrency(value, displayCurrency)
             }
