@@ -30,6 +30,11 @@ const ActiveTraderMetricsChart = ({ data, granularity, period, type }) => {
           margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
         >
           <CartesianGrid
+            horizontalCoordinatesGenerator={({ yAxis }) => {
+              const hundredth = yAxis.height / 100;
+
+              return [20, 40, 60, 80].map((x) => hundredth * x + yAxis.y); // 20%, 40%, 60%, 80%
+            }}
             stroke={COLORS.NEUTRAL.MYSTIC_300}
             strokeDasharray="8 8"
             strokeOpacity={0.7}
@@ -47,13 +52,19 @@ const ActiveTraderMetricsChart = ({ data, granularity, period, type }) => {
             axisLine={false}
             dataKey={type}
             mirror
-            scale="linear"
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
               fontWeight: 500,
             }}
-            tickFormatter={formatAxisNumber}
+            tickCount={6}
+            tickFormatter={(value, index) => {
+              if (index === 0 || index === 5) {
+                return '';
+              }
+
+              return formatAxisNumber(value);
+            }}
             tickLine={false}
           />
           <Tooltip
