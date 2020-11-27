@@ -13,7 +13,7 @@ const TabbedCardHeader = styled(CardHeader)`
   border-bottom: 2px solid ${COLORS.NEUTRAL.MYSTIC_200};
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0.8rem 1rem;
 `;
 
 const TabLink = styled(NavLink)`
