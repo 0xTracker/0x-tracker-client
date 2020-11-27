@@ -11,6 +11,7 @@ import Hidden from './hidden';
 import MobileHeader from '../features/header/components/mobile-header';
 import Sidebar from './sidebar';
 import Visible from './visible';
+import usePreferences from '../features/preferences/hooks/use-preferences';
 
 const AppContainer = styled.div`
   display: flex;
@@ -32,14 +33,6 @@ const Main = styled.div`
   flex-basis: 100%;
   flex-shrink: 1;
   max-width: 100%;
-
-  ${media.greaterThan('lg')`
-    max-width: calc(100vw - 72px);
-  `}
-
-  ${media.greaterThan('xl')`
-    max-width: calc(100vw - 250px);
-  `}
 `;
 
 const Scrollport = styled.div`
@@ -49,28 +42,36 @@ const Scrollport = styled.div`
   `}
 `;
 
-const AppLayout = ({ children }) => (
-  <AppContainer>
-    <Visible at={['lg']}>
-      <CompactSidebar />
-    </Visible>
-    <Visible above="lg">
-      <Sidebar />
-    </Visible>
-    <Main>
-      <Scrollport>
-        <Hidden above="md">
-          <MobileHeader />
-        </Hidden>
-        <Visible above="md">
-          <Header />
-        </Visible>
-        <AppBody>{children}</AppBody>
-        <Footer />
-      </Scrollport>
-    </Main>
-  </AppContainer>
-);
+const AppLayout = ({ children }) => {
+  const preferences = usePreferences();
+
+  return (
+    <AppContainer>
+      <Visible at={['lg']}>
+        <CompactSidebar />
+      </Visible>
+      <Visible above="lg">
+        {preferences.values.sidebar === 'compact' ? (
+          <CompactSidebar />
+        ) : (
+          <Sidebar />
+        )}
+      </Visible>
+      <Main>
+        <Scrollport>
+          <Hidden above="md">
+            <MobileHeader />
+          </Hidden>
+          <Visible above="md">
+            <Header />
+          </Visible>
+          <AppBody>{children}</AppBody>
+          <Footer />
+        </Scrollport>
+      </Main>
+    </AppContainer>
+  );
+};
 
 AppLayout.propTypes = {
   children: PropTypes.node.isRequired,

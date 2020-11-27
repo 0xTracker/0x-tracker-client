@@ -1524,6 +1524,90 @@ exports[`should render SettingsIcon icon at 50x50 1`] = `
 </svg>
 `;
 
+exports[`should render SidebarContractIcon icon at 20x20 1`] = `
+<svg
+  aria-hidden="true"
+  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+  fill="currentColor"
+  focusable="false"
+  height="20"
+  viewBox="0 0 24 24"
+  width="20"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+  <path
+    d="M21 18v2H3v-2h18zM6.596 3.904L8.01 5.318 4.828 8.5l3.182 3.182-1.414 1.414L2 8.5l4.596-4.596zM21 11v2h-9v-2h9zm0-7v2h-9V4h9z"
+  />
+</svg>
+`;
+
+exports[`should render SidebarContractIcon icon at 50x50 1`] = `
+<svg
+  aria-hidden="true"
+  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+  fill="currentColor"
+  focusable="false"
+  height="50"
+  viewBox="0 0 24 24"
+  width="50"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+  <path
+    d="M21 18v2H3v-2h18zM6.596 3.904L8.01 5.318 4.828 8.5l3.182 3.182-1.414 1.414L2 8.5l4.596-4.596zM21 11v2h-9v-2h9zm0-7v2h-9V4h9z"
+  />
+</svg>
+`;
+
+exports[`should render SidebarExpandIcon icon at 20x20 1`] = `
+<svg
+  aria-hidden="true"
+  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+  fill="currentColor"
+  focusable="false"
+  height="20"
+  viewBox="0 0 24 24"
+  width="20"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+  <path
+    d="M21 18v2H3v-2h18zM17.404 3.904L22 8.5l-4.596 4.596-1.414-1.414L19.172 8.5 15.99 5.318l1.414-1.414zM12 11v2H3v-2h9zm0-7v2H3V4h9z"
+  />
+</svg>
+`;
+
+exports[`should render SidebarExpandIcon icon at 50x50 1`] = `
+<svg
+  aria-hidden="true"
+  class="icon-base__IconBase-ngmsqy-0 hvjdWy"
+  fill="currentColor"
+  focusable="false"
+  height="50"
+  viewBox="0 0 24 24"
+  width="50"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+  <path
+    d="M21 18v2H3v-2h18zM17.404 3.904L22 8.5l-4.596 4.596-1.414-1.414L19.172 8.5 15.99 5.318l1.414-1.414zM12 11v2H3v-2h9zm0-7v2H3V4h9z"
+  />
+</svg>
+`;
+
 exports[`should render SignOutIcon icon at 20x20 1`] = `
 <svg
   aria-hidden="true"
