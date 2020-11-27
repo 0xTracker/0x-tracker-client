@@ -52,7 +52,17 @@ const Sidebar = () => {
         flex-direction: column;
       `}
     >
-      <Link css="display: block; margin: 16px 0 0 16px;" href={URL.HOME}>
+      <Link
+        css={`
+          align-items: center;
+          background-color: ${COLORS.PRIMARY.SCAMPI_900};
+          display: flex;
+          padding-left: 1.5rem;
+          height: 70px;
+          flex-shrink: 0;
+        `}
+        href={URL.HOME}
+      >
         <LogoImage alt="0x Tracker" size="small" src={logoImage} />
       </Link>
       <Navigation />

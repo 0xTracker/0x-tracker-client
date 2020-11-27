@@ -33,7 +33,7 @@ const ExpandButton = styled.button`
 const Footer = styled.div`
   justify-content: center;
   display: flex;
-  padding: 0.5rem 1rem;
+  padding: 0 1rem 1rem;
 `;
 
 const CompactSidebar = () => {
@@ -53,6 +53,7 @@ const CompactSidebar = () => {
     >
       <div
         css={`
+          background-color: ${COLORS.PRIMARY.SCAMPI_900};
           display: flex;
           height: 80px;
           align-items: center;

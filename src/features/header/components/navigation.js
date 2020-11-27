@@ -19,7 +19,7 @@ const StyledNavigation = styled.nav`
   color: ${COLORS.PRIMARY.SCAMPI_100};
   display: flex;
   flex-direction: column;
-  margin: 36px 12px 0;
+  margin: 2rem 12px 0;
   flex-grow: 1;
 `;
 
