@@ -13,14 +13,17 @@ import CardPlaceholder from '../../../components/card-placeholder';
 import LoadingIndicator from '../../../components/loading-indicator';
 import PaginationPills from '../../../components/pagination-pills';
 import useAppTokens from '../hooks/use-app-tokens';
+import CardFooter from '../../../components/card-footer';
+import DropdownPill from '../../../components/dropdown-pill';
 
 const AppTokensCard = ({ app, className, limit, statsPeriod }) => {
+  const [sortBy, setSortBy] = React.useState('tradeVolumeUSD');
   const [page, setPage] = React.useState(1);
   const [tokens, loading] = useAppTokens(app.urlSlug, {
     autoReload: true,
     limit,
     page,
-    sortBy: 'tradeVolumeUSD',
+    sortBy,
     statsPeriod,
   });
 
@@ -28,13 +31,14 @@ const AppTokensCard = ({ app, className, limit, statsPeriod }) => {
     <Card className={className}>
       <CardHeader>
         <CardHeading>Traded Tokens</CardHeading>
-        {_.isObject(tokens) && (
-          <PaginationPills
-            onPageChange={(newPage) => setPage(newPage)}
-            page={page}
-            pageCount={tokens.pageCount}
-          />
-        )}
+        <DropdownPill
+          onChange={setSortBy}
+          options={[
+            { label: 'By Trades', value: 'tradeCount' },
+            { label: 'By Volume', value: 'tradeVolumeUSD' },
+          ]}
+          value={sortBy}
+        />
       </CardHeader>
       <CardBody>
         {loading ? (
@@ -48,6 +52,21 @@ const AppTokensCard = ({ app, className, limit, statsPeriod }) => {
           <AppTokensTable appName={app.name} tokens={tokens.items} />
         )}
       </CardBody>
+      <CardFooter css="align-items: center; display: flex; justify-content: space-between;">
+        {tokens.total > 0 && (
+          <span>
+            Showing {(page - 1) * limit + 1} to{' '}
+            {_.clamp(page * limit, 0, tokens.total)} of {tokens.total} tokens
+          </span>
+        )}
+        {_.isObject(tokens) && (
+          <PaginationPills
+            onPageChange={(newPage) => setPage(newPage)}
+            page={page}
+            pageCount={tokens.pageCount}
+          />
+        )}
+      </CardFooter>
     </Card>
   );
 };
