@@ -7,6 +7,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from './icons';
 import Pill from './pill';
 
 const enabledCss = css`
+  color: ${COLORS.NEUTRAL.MYSTIC_1000};
   display: inline-block;
   margin-right: 0.25rem;
 
