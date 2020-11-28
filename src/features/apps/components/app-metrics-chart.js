@@ -12,20 +12,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import { COLORS } from '../../../styles/constants';
-import {
-  formatAxisCurrency,
-  formatAxisDate,
-  formatAxisNumber,
-} from '../../metrics/util';
+import { formatAxisDate, formatAxisNumber } from '../../metrics/util';
 import AppMetricsTooltip from './app-metrics-tooltip';
 import BrushableChartContainer from '../../../components/brushable-chart-container';
 import CardPlaceholder from '../../../components/card-placeholder';
-import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 
-const AppMetricsChart = ({ data, granularity, period, type }) => {
-  const displayCurrency = useDisplayCurrency();
-
-  if (_.every(data, { [type]: 0 })) {
+const AppMetricsChart = ({ data, granularity, period }) => {
+  if (_.every(data, { activeTraders: 0 })) {
     return (
       <CardPlaceholder>
         No data available for the selected period
@@ -38,7 +31,7 @@ const AppMetricsChart = ({ data, granularity, period, type }) => {
       {({ brushableData, brushIndexes, handleBrushChange }) => (
         <BarChart
           data={brushableData}
-          margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+          margin={{ bottom: 0, left: 0, right: 0, top: 10 }}
         >
           <CartesianGrid
             stroke={COLORS.NEUTRAL.MYSTIC_300}
@@ -46,7 +39,11 @@ const AppMetricsChart = ({ data, granularity, period, type }) => {
             strokeOpacity={0.7}
             vertical={false}
           />
-          <Bar dataKey={type} fill={COLORS.ACCENT.ANZAC_500} />
+          <Bar
+            animationDuration={0}
+            dataKey="activeTraders"
+            fill={COLORS.ACCENT.ANZAC_500}
+          />
           <XAxis
             axisLine={{ stroke: COLORS.NEUTRAL.MYSTIC_300 }}
             dataKey="date"
@@ -57,19 +54,14 @@ const AppMetricsChart = ({ data, granularity, period, type }) => {
           />
           <YAxis
             axisLine={false}
-            dataKey={type}
+            dataKey="activeTraders"
             mirror
-            scale="linear"
             tick={{
               fill: COLORS.PRIMARY.SCAMPI_800,
               fontSize: '0.8em',
               fontWeight: 500,
             }}
-            tickFormatter={
-              type === 'tradeCount' || type === 'activeTraders'
-                ? formatAxisNumber
-                : (value) => formatAxisCurrency(value, displayCurrency)
-            }
+            tickFormatter={formatAxisNumber}
             tickLine={false}
           />
           <Tooltip content={<AppMetricsTooltip granularity={granularity} />} />
@@ -98,8 +90,6 @@ AppMetricsChart.propTypes = {
   ).isRequired,
   granularity: PropTypes.string.isRequired,
   period: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['activeTraders', 'tradeCount', 'tradeVolume'])
-    .isRequired,
 };
 
 export default AppMetricsChart;
