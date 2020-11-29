@@ -9,7 +9,6 @@ import { media } from '../../../styles/util';
 import { TIME_PERIOD } from '../../../constants';
 import { useMetadata, useNavigator, useSearchParam } from '../../../hooks';
 import AppLogo from './app-logo';
-import AppMetrics from './app-metrics';
 import AppStats from './app-stats';
 import AppTokensCard from './app-tokens-card';
 import buildAppUrl from '../util/build-app-url';
@@ -23,9 +22,9 @@ import PageLayout from '../../../components/page-layout';
 import PageNotFound from '../../../components/page-not-found';
 import RecentFillsCard from '../../fills/components/recent-fills-card';
 import RelatedAppsCard from './related-apps-card';
-import TabbedCard from '../../../components/tabbed-card';
 import useApp from '../hooks/use-app';
 import Visible from '../../../components/visible';
+import AppChartsCard from './app-charts-card';
 
 const ActionLink = styled(Link)`
   align-items: center;
@@ -102,40 +101,7 @@ const AppPage = () => {
         <AppStats app={app} period={statsPeriod} />
         <CardGridRow minHeight="360px">
           <CardGridCol xs={12}>
-            <TabbedCard
-              tabs={[
-                {
-                  component: (
-                    <AppMetrics
-                      appId={app.id}
-                      period={statsPeriod}
-                      type="tradeVolume"
-                    />
-                  ),
-                  title: 'Volume',
-                },
-                {
-                  component: (
-                    <AppMetrics
-                      appId={app.id}
-                      period={statsPeriod}
-                      type="tradeCount"
-                    />
-                  ),
-                  title: 'Trades',
-                },
-                {
-                  component: (
-                    <AppMetrics
-                      appId={app.id}
-                      period={statsPeriod}
-                      type="activeTraders"
-                    />
-                  ),
-                  title: 'Active Traders',
-                },
-              ]}
-            />
+            <AppChartsCard appId={app.id} statsPeriod={statsPeriod} />
           </CardGridCol>
         </CardGridRow>
         <CardGridRow>

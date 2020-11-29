@@ -7,8 +7,13 @@ import { ChevronLeftIcon, ChevronRightIcon } from './icons';
 import Pill from './pill';
 
 const enabledCss = css`
-  display: inline-block;
+  color: ${COLORS.NEUTRAL.MYSTIC_1000};
+  display: flex;
   margin-right: 0.25rem;
+
+  &:hover {
+    color: ${COLORS.NEUTRAL.MYSTIC_1000};
+  }
 
   &:last-child {
     margin: 0;
@@ -19,7 +24,7 @@ const disabledCss = css`
   background-color: ${COLORS.NEUTRAL.MYSTIC_400};
   color: ${COLORS.NEUTRAL.MYSTIC_600};
   cursor: not-allowed;
-  display: inline-block;
+  display: flex;
   margin-right: 0.25rem;
 
   &:hover {
@@ -36,7 +41,7 @@ const PaginationPills = ({ onPageChange, page, pageCount }) => {
   const disabled = pageCount === undefined || pageCount < 2;
 
   return (
-    <div>
+    <div css="display: flex;">
       <Pill
         as="button"
         css={page === 1 || disabled ? disabledCss : enabledCss}

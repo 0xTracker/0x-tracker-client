@@ -55,6 +55,7 @@ const NetworkVolumeChart = ({ data, period, type }) => {
           />
           <Line
             animationDuration={0}
+            connectNulls
             dataKey="avgTradeSize"
             dot={false}
             stroke={COLORS.ACCENT.ANZAC_500}
