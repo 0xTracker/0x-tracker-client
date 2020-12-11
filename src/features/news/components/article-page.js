@@ -33,7 +33,10 @@ const Content = styled.div`
   a {
     color: inherit;
     text-decoration: underline;
-    word-break: break-all;
+
+    em {
+      padding: 0;
+    }
   }
 
   > p:last-of-type,
@@ -54,7 +57,7 @@ const Content = styled.div`
   }
 
   em {
-    background: ${COLORS.NEUTRAL.MYSTIC_300};
+    color: ${COLORS.NEUTRAL.MYSTIC_700};
     padding: 2px 4px;
   }
 
