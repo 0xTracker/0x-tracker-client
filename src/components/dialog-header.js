@@ -38,7 +38,7 @@ const StyledDialogHeader = styled.div`
 
 const DialogHeader = ({ children, onClose }) => (
   <StyledDialogHeader>
-    <DialogHeading>{children}</DialogHeading>
+    {children && <DialogHeading>{children}</DialogHeading>}
     <CloseButton autoFocus onClick={onClose} title="Close" type="button">
       <CloseIcon width={32} />
     </CloseButton>
