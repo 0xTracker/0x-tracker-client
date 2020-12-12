@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import DialogHeader from './dialog-header';
 import DisableBodyScroll from './disable-body-scroll';
 import useEscapeKey from '../hooks/use-escape-key';
+import { CloseIcon } from './icons';
+import { COLORS } from '../styles/constants';
 
 const StyledDialog = styled.section`
   background-color: white;
@@ -14,9 +16,10 @@ const StyledDialog = styled.section`
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - 50px);
-  height: ${(props) => props.height}px;
-  max-width: ${(props) => props.width}px;
-  width: ${(props) => props.width}px;
+  max-width: calc(100vw - 50px);
+  height: ${(props) => (props.height ? `${props.height}px` : 'initial')};
+  width: ${(props) => (props.width ? `${props.width}px` : 'initial')};
+  position: relative;
 `;
 
 const Overlay = styled.div`
@@ -40,6 +43,25 @@ const DialogBody = styled.div`
   padding: 0 1.5rem;
 `;
 
+const CloseButton = styled.button`
+  background: ${COLORS.PRIMARY.SCAMPI_600};
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.2);
+  color: white;
+  cursor: pointer;
+  margin-right: -6px; /* Icon doesn't sit flush with bounding box */
+  outline: none;
+  padding: 0.25rem;
+  position: absolute;
+  right: -15px;
+  top: -20px;
+
+  &:hover {
+    background: ${COLORS.PRIMARY.SCAMPI_800};
+  }
+`;
+
 const Dialog = ({ children, className, onClose, width, height, title }) => {
   useEscapeKey(onClose);
 
@@ -50,6 +72,11 @@ const Dialog = ({ children, className, onClose, width, height, title }) => {
         <Overlay>
           <StyledDialog height={height} width={width}>
             {title && <DialogHeader onClose={onClose}>{title}</DialogHeader>}
+            {title === undefined && (
+              <CloseButton onClick={onClose} title="Close" type="button">
+                <CloseIcon size={30} />
+              </CloseButton>
+            )}
             <DialogBody className={className}>{children}</DialogBody>
           </StyledDialog>
         </Overlay>
@@ -69,9 +96,9 @@ Dialog.propTypes = {
 
 Dialog.defaultProps = {
   className: undefined,
-  height: 600,
+  height: undefined,
   title: undefined,
-  width: 800,
+  width: undefined,
 };
 
 export default Dialog;
