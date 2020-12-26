@@ -29,9 +29,12 @@ const RecentFillsItem = ({ fill }) => {
   return (
     <EntityListItem
       complement={
-        breakpoint.greaterThan('xs') && (
+        breakpoint.greaterThan('xs') &&
+        (!fill.value[BASE_CURRENCY] ? (
+          '-'
+        ) : (
           <FillAmount amount={fill.value[BASE_CURRENCY]} />
-        )
+        ))
       }
       image={<RecentFillsItemImage assets={fill.assets} />}
       metadata={_.compact([
