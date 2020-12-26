@@ -32,7 +32,12 @@ const FillList = ({ fills, onSort, sortBy, sortDirection }) => {
           <Th {...getSortableColumnProps('value')} className="text-right">
             Traded Value
           </Th>
-          <th className="text-right">Protocol Fee</th>
+          <Th
+            {...getSortableColumnProps('protocolFeeUSD')}
+            className="text-right"
+          >
+            Protocol Fee
+          </Th>
           <th title="View" />
         </tr>
       </thead>
