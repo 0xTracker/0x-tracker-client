@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -10,10 +11,12 @@ const FillListApps = ({ apps }) => {
     return 'None';
   }
 
+  const uniqApps = _.uniqWith(apps, (a, b) => a.id === b.id);
+
   return (
     <div css="display: flex;">
-      {apps.map((app, index) => (
-        <>
+      {uniqApps.map((app, index) => (
+        <React.Fragment key={app.id}>
           <AppLink
             css="display: flex; align-items: center;"
             urlSlug={app.urlSlug}
@@ -26,7 +29,7 @@ const FillListApps = ({ apps }) => {
             />
             {app.name}
           </AppLink>
-          {index !== apps.length - 1 && (
+          {index !== uniqApps.length - 1 && (
             <span
               css={`
                 color: ${COLORS.NEUTRAL.MYSTIC_700};
@@ -38,7 +41,7 @@ const FillListApps = ({ apps }) => {
               +
             </span>
           )}
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
