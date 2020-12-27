@@ -11,8 +11,8 @@ const TokenImage = ({ className, imageUrl, size }) =>
       className={className}
       css={`
         border-radius: 0.25rem;
-        height: ${size};
-        width: ${size};
+        height: ${size}px;
+        width: ${size}px;
       `}
       src={imageUrl}
     />
@@ -29,12 +29,12 @@ const TokenImage = ({ className, imageUrl, size }) =>
 TokenImage.propTypes = {
   className: PropTypes.string, // eslint-disable-line react/require-default-props
   imageUrl: PropTypes.string,
-  size: PropTypes.string,
+  size: PropTypes.number,
 };
 
 TokenImage.defaultProps = {
   imageUrl: undefined,
-  size: '40px',
+  size: 40,
 };
 
 export default TokenImage;

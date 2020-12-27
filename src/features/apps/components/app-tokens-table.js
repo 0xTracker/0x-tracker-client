@@ -106,7 +106,7 @@ const AppTokensTable = ({ appName, tokens }) => (
             </span>
           </Tooltip>
         }
-        image={<TokenImage imageUrl={token.imageUrl} size="40px" />}
+        image={<TokenImage imageUrl={token.imageUrl} />}
         key={token.address}
         metadata={[
           { label: 'Address', value: truncateAddress(token.address, 20) },

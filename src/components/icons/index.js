@@ -13,6 +13,9 @@ import ChevronRightIcon from './chevron-right-icon';
 import ChevronUpIcon from './chevron-up-icon';
 import CircleIcon from './circle-icon';
 import CloseIcon from './close-icon';
+import ContractIcon from './contract-icon';
+import CopyIcon from './copy-icon';
+import CopiedIcon from './copied-icon';
 import DiscordIcon from './discord-icon';
 import EditIcon from './edit-icon';
 import EtherscanIcon from './etherscan-icon';
@@ -58,6 +61,7 @@ import TrendingUpIcon from './trending-up-icon';
 import TwitterIcon from './twitter-icon';
 import TwitterShareIcon from './twitter-share-icon';
 import UnknownIcon from './unknown-icon';
+import WalletIcon from './wallet-icon';
 
 export {
   ActiveIcon,
@@ -75,6 +79,9 @@ export {
   ChevronUpIcon,
   CircleIcon,
   CloseIcon,
+  ContractIcon,
+  CopyIcon,
+  CopiedIcon,
   DiscordIcon,
   EditIcon,
   EtherscanIcon,
@@ -120,4 +127,5 @@ export {
   TwitterIcon,
   TwitterShareIcon,
   UnknownIcon,
+  WalletIcon,
 };

@@ -40,7 +40,7 @@ const TopTokens = ({ period }) => {
               )}
             </>
           }
-          image={<TokenImage imageUrl={token.imageUrl} size="40px" />}
+          image={<TokenImage imageUrl={token.imageUrl} />}
           key={token.address}
           metadata={[{ label: 'Symbol', value: token.symbol }]}
           title={token.name}
