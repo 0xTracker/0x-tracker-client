@@ -57,9 +57,9 @@ const FillDetails = ({ fill }) => {
         title="Transaction Hash"
         tooltip="Hash of the Ethereum transaction which processed this fill."
       >
-        <SearchLink searchQuery={fill.transactionHash}>
+        <FillDetailLink as={SearchLink} searchQuery={fill.transactionHash}>
           {fill.transactionHash}
-        </SearchLink>
+        </FillDetailLink>
         <Visible above="md">
           <Tooltip content="View transaction on Etherscan" placement="top">
             <Link
