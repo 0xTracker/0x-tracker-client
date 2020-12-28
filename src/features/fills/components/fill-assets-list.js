@@ -8,6 +8,11 @@ import AssetLabel from './asset-label';
 import Badge from '../../../components/badge';
 import TokenImage from '../../tokens/components/token-image';
 import LocalisedAmount from '../../currencies/components/localised-amount';
+import Tooltip from '../../../components/tooltip';
+import Link from '../../../components/link';
+import { EtherscanIcon } from '../../../components/icons';
+import CopyToClipboardButton from './copy-to-clipboard-button';
+import Visible from '../../../components/visible';
 
 const FillAssetsList = ({ assets, condensed }) => {
   if (assets.length === 0) {
@@ -36,13 +41,21 @@ const FillAssetsList = ({ assets, condensed }) => {
           />
           <span>
             <AssetAmount asset={asset} />{' '}
-            <AssetLabel
-              asset={asset}
-              condensed={condensed}
-              css={`
-                color: ${COLORS.PRIMARY.SCAMPI_500};
-              `}
-            />
+            <Tooltip
+              content={asset.tokenAddress}
+              maxWidth="initial"
+              placement="top"
+            >
+              <span>
+                <AssetLabel
+                  asset={asset}
+                  condensed={condensed}
+                  css={`
+                    color: ${COLORS.PRIMARY.SCAMPI_500};
+                  `}
+                />
+              </span>
+            </Tooltip>
           </span>
           <Badge css="margin-left: 16px;" upperCase={false}>
             {_.startCase(asset.traderType)}
@@ -60,6 +73,21 @@ const FillAssetsList = ({ assets, condensed }) => {
               />
             </Badge>
           )}
+          <Visible above="md">
+            <Tooltip content="View token on Etherscan" placement="top">
+              <Link
+                css="margin-left: 8px;"
+                href={`https://etherscan.io/token/${asset.tokenAddress}`}
+              >
+                <EtherscanIcon size={16} />
+              </Link>
+            </Tooltip>
+            <CopyToClipboardButton
+              css="margin-left: 8px;"
+              text={asset.tokenAddress}
+              title="Copy token address to clipboard"
+            />
+          </Visible>
         </div>
       ))}
     </div>

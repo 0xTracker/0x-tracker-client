@@ -27,6 +27,10 @@ const Title = styled.dt`
   `};
 
   ${media.greaterThan('lg')`
+    width: 30%;
+  `};
+
+  ${media.greaterThan('xl')`
     width: 20%;
   `};
 `;
@@ -54,6 +58,10 @@ const Value = styled.dd`
   `};
 
   ${media.greaterThan('lg')`
+    width: 70%;
+  `};
+
+  ${media.greaterThan('xl')`
     width: 80%;
   `};
 `;

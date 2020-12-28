@@ -13,6 +13,7 @@ import ChevronRightIcon from './chevron-right-icon';
 import ChevronUpIcon from './chevron-up-icon';
 import CircleIcon from './circle-icon';
 import CloseIcon from './close-icon';
+import ConsumerIcon from './consumer-icon';
 import ContractIcon from './contract-icon';
 import CopyIcon from './copy-icon';
 import CopiedIcon from './copied-icon';
@@ -38,6 +39,7 @@ import MoreIcon from './more-icon';
 import NewsIcon from './news-icon';
 import PrivateIcon from './private-icon';
 import RedditShareIcon from './reddit-share-icon';
+import RelayerIcon from './relayer-icon';
 import ResetIcon from './reset-icon';
 import RightArrowIcon from './right-arrow-icon';
 import ScheduledIcon from './scheduled-icon';
@@ -79,6 +81,7 @@ export {
   ChevronUpIcon,
   CircleIcon,
   CloseIcon,
+  ConsumerIcon,
   ContractIcon,
   CopyIcon,
   CopiedIcon,
@@ -104,6 +107,7 @@ export {
   NewsIcon,
   PrivateIcon,
   RedditShareIcon,
+  RelayerIcon,
   ResetIcon,
   RightArrowIcon,
   ScheduledIcon,

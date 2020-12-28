@@ -6,6 +6,7 @@ import { COLORS } from '../../../styles/constants';
 import AppLink from '../../apps/components/app-link';
 import AppLogo from '../../apps/components/app-logo';
 import Badge from '../../../components/badge';
+import { ConsumerIcon, RelayerIcon } from '../../../components/icons';
 
 const FillDetailsApps = ({ apps }) => {
   if (apps.length === 0) {
@@ -43,7 +44,16 @@ const FillDetailsApps = ({ apps }) => {
             />
             {app.name}
           </AppLink>
-          <Badge css="margin-left: 16px" upperCase={false}>
+          <Badge
+            css="align-items: center; display: flex; margin-left: 16px"
+            upperCase={false}
+          >
+            {app.type === 'relayer' && (
+              <RelayerIcon css="margin-right: 4px" size={14} />
+            )}
+            {app.type === 'consumer' && (
+              <ConsumerIcon css="margin-right: 4px" size={14} />
+            )}
             {_.startCase(_.lowerCase(app.type))}
           </Badge>
         </div>

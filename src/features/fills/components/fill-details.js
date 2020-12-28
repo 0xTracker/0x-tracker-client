@@ -21,6 +21,7 @@ import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
 import { EtherscanIcon } from '../../../components/icons';
 import Tooltip from '../../../components/tooltip';
 import CopyToClipboardButton from './copy-to-clipboard-button';
+import Visible from '../../../components/visible';
 
 const FillDetailList = styled.dl`
   margin-bottom: 1.5rem;
@@ -56,20 +57,24 @@ const FillDetails = ({ fill }) => {
         title="Transaction Hash"
         tooltip="Hash of the Ethereum transaction which processed this fill."
       >
-        {fill.transactionHash}
-        <Tooltip content="View transaction on Etherscan" placement="top">
-          <Link
-            css="margin-left: 16px;"
-            href={`https://etherscan.io/tx/${fill.transactionHash}`}
-          >
-            <EtherscanIcon size={16} />
-          </Link>
-        </Tooltip>
-        <CopyToClipboardButton
-          css="margin-left: 8px;"
-          text={fill.transactionHash}
-          title="Copy transaction hash to clipboard"
-        />
+        <SearchLink searchQuery={fill.transactionHash}>
+          {fill.transactionHash}
+        </SearchLink>
+        <Visible above="md">
+          <Tooltip content="View transaction on Etherscan" placement="top">
+            <Link
+              css="margin-left: 16px;"
+              href={`https://etherscan.io/tx/${fill.transactionHash}`}
+            >
+              <EtherscanIcon size={16} />
+            </Link>
+          </Tooltip>
+          <CopyToClipboardButton
+            css="margin-left: 8px;"
+            text={fill.transactionHash}
+            title="Copy transaction hash to clipboard"
+          />
+        </Visible>
       </FillDetail>
 
       <FillDetail
@@ -81,11 +86,13 @@ const FillDetails = ({ fill }) => {
             <FillDetailLink as={SearchLink} searchQuery={fill.orderHash}>
               {fill.orderHash}
             </FillDetailLink>
-            <CopyToClipboardButton
-              css="margin-left: 16px;"
-              text={fill.orderHash}
-              title="Copy order hash to clipboard"
-            />
+            <Visible above="md">
+              <CopyToClipboardButton
+                css="margin-left: 16px;"
+                text={fill.orderHash}
+                title="Copy order hash to clipboard"
+              />
+            </Visible>
           </>
         ) : (
           'None'
@@ -148,7 +155,7 @@ const FillDetails = ({ fill }) => {
       >
         <FillAssetsList
           assets={fill.assets}
-          condensed={breakpoint.lessThan('sm')}
+          condensed={breakpoint.lessThan('lg')}
         />
       </FillDetail>
 
