@@ -1,3 +1,4 @@
+import { useCopyToClipboard } from 'react-use';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -16,20 +17,18 @@ const Button = styled.button`
 
 const CopyToClipboardButton = ({ className, text, title }) => {
   const [copied, setCopied] = React.useState(false);
+  const [, copyToClipboard] = useCopyToClipboard();
 
   return (
     <Tooltip content={title} placement="top">
       <Button
         className={className}
         onClick={() => {
-          // eslint-disable-next-line promise/catch-or-return, compat/compat
-          navigator.clipboard.writeText(text).then(() => {
-            setCopied(true);
-
-            setTimeout(() => {
-              setCopied(false);
-            }, 2000);
-          });
+          copyToClipboard(text);
+          setCopied(true);
+          setTimeout(() => {
+            setCopied(false);
+          }, 2000);
         }}
         type="button"
       >
