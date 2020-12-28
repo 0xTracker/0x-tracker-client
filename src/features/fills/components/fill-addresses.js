@@ -24,6 +24,7 @@ const FillDetailList = styled.dl`
 const FillAddresses = ({ fill }) => {
   const {
     affiliate,
+    feeRecipientMetadata,
     maker,
     sender,
     taker,
@@ -64,7 +65,7 @@ const FillAddresses = ({ fill }) => {
           title="Fee Recipient"
           tooltip="Ethereum address which received any associated maker/taker fees."
         >
-          <FillAddressEntity address={fill.feeRecipient} />
+          <FillAddressEntity {...feeRecipientMetadata} />
         </FillDetail>
       )}
 
