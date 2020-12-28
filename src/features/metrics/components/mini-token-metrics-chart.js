@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Bar, BarChart } from 'recharts';
+import { Area, AreaChart } from 'recharts';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -11,25 +11,22 @@ const MiniTokenMetricsChart = React.memo(({ data, height, type, width }) => {
   }
 
   return (
-    <div
-      css={`
-        border-bottom: 1px solid ${COLORS.ACCENT.ANZAC_200};
-      `}
+    <AreaChart
+      data={data}
+      height={height}
+      margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
+      width={width}
     >
-      <BarChart
-        data={data}
-        height={height}
-        margin={{ bottom: 0, left: 0, right: 0, top: 0 }}
-        width={width}
-      >
-        <Bar
-          animationDuration={0}
-          dataKey={type}
-          fill={COLORS.ACCENT.ANZAC_500}
-          fillOpacity={1}
-        />
-      </BarChart>
-    </div>
+      <Area
+        animationDuration={0}
+        dataKey={type}
+        fill={COLORS.ACCENT.ANZAC_300}
+        fillOpacity={0.5}
+        stroke={COLORS.ACCENT.ANZAC_700}
+        strokeOpacity={1}
+        strokeWidth={2}
+      />
+    </AreaChart>
   );
 });
 
