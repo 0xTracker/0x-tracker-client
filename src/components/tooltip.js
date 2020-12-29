@@ -12,7 +12,7 @@ const Tooltip = styled(Tippy).attrs((props) => ({
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
     color: ${COLORS.NEUTRAL.MYSTIC_100};
     font-weight: 400;
-    max-width: 320px !important;
+    max-width: ${(props) => props.maxWidth || '320px'} !important;
     padding: 0.75rem 1.25rem;
 
     .tippy-content {

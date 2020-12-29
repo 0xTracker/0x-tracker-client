@@ -6,7 +6,6 @@ import { COLORS } from '../../../styles/constants';
 import { DATE_FORMAT, ETH_TOKEN } from '../../../constants';
 import { media } from '../../../styles/util';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
-import AssetLabel from './asset-label';
 import Badge from '../../../components/badge';
 import fillsPropTypes from '../prop-types';
 import FillAssetsList from './fill-assets-list';
@@ -15,12 +14,14 @@ import FillDetailsApps from './fill-details-apps';
 import FillFeesList from './fill-fees-list';
 import formatDate from '../../../util/format-date';
 import Link from '../../../components/link';
-import List from '../../../components/list';
-import ListItem from '../../../components/list-item';
 import LocalisedAmount from '../../currencies/components/localised-amount';
 import SearchLink from '../../search/components/search-link';
 import TokenAmount from '../../tokens/components/token-amount';
 import useDisplayCurrency from '../../preferences/hooks/use-display-currency';
+import { EtherscanIcon } from '../../../components/icons';
+import Tooltip from '../../../components/tooltip';
+import CopyToClipboardButton from './copy-to-clipboard-button';
+import Visible from '../../../components/visible';
 
 const FillDetailList = styled.dl`
   margin-bottom: 1.5rem;
@@ -42,9 +43,6 @@ const FillDetailLink = styled(Link)`
 const FillDetails = ({ fill }) => {
   const breakpoint = useCurrentBreakpoint();
   const displayCurrency = useDisplayCurrency();
-  const assetsWithPrices = _.filter(fill.assets, (asset) =>
-    _.isObject(asset.price),
-  );
 
   return (
     <FillDetailList>
@@ -59,12 +57,24 @@ const FillDetails = ({ fill }) => {
         title="Transaction Hash"
         tooltip="Hash of the Ethereum transaction which processed this fill."
       >
-        <FillDetailLink
-          href={`https://etherscan.io/tx/${fill.transactionHash}`}
-          indicateExternal
-        >
+        <FillDetailLink as={SearchLink} searchQuery={fill.transactionHash}>
           {fill.transactionHash}
         </FillDetailLink>
+        <Visible above="md">
+          <Tooltip content="View transaction on Etherscan" placement="top">
+            <Link
+              css="margin-left: 16px;"
+              href={`https://etherscan.io/tx/${fill.transactionHash}`}
+            >
+              <EtherscanIcon size={16} />
+            </Link>
+          </Tooltip>
+          <CopyToClipboardButton
+            css="margin-left: 8px;"
+            text={fill.transactionHash}
+            title="Copy transaction hash to clipboard"
+          />
+        </Visible>
       </FillDetail>
 
       <FillDetail
@@ -72,9 +82,18 @@ const FillDetails = ({ fill }) => {
         tooltip="Unique hash of the order which this fill relates to."
       >
         {fill.orderHash ? (
-          <FillDetailLink as={SearchLink} searchQuery={fill.orderHash}>
-            {fill.orderHash}
-          </FillDetailLink>
+          <>
+            <FillDetailLink as={SearchLink} searchQuery={fill.orderHash}>
+              {fill.orderHash}
+            </FillDetailLink>
+            <Visible above="md">
+              <CopyToClipboardButton
+                css="margin-left: 16px;"
+                text={fill.orderHash}
+                title="Copy order hash to clipboard"
+              />
+            </Visible>
+          </>
         ) : (
           'None'
         )}
@@ -136,31 +155,8 @@ const FillDetails = ({ fill }) => {
       >
         <FillAssetsList
           assets={fill.assets}
-          condensed={breakpoint.lessThan('sm')}
+          condensed={breakpoint.lessThan('lg')}
         />
-      </FillDetail>
-
-      <FillDetail
-        title={`Derived Prices (${displayCurrency})`}
-        tooltip="Prices of tokens derived from the value of this fill."
-      >
-        {assetsWithPrices.length === 0 ? (
-          'None'
-        ) : (
-          <List>
-            {assetsWithPrices.map((asset) => (
-              <ListItem key={`${asset.tokenAddress}-${asset.tokenId}`}>
-                <AssetLabel asset={asset} linked={false} />
-                <Badge css="margin-left: 8px;">
-                  <LocalisedAmount
-                    amount={asset.price.USD}
-                    preferredPrecision={asset.price.USD < 1 ? 5 : 2}
-                  />
-                </Badge>
-              </ListItem>
-            ))}
-          </List>
-        )}
       </FillDetail>
 
       <FillDetail

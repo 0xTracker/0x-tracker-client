@@ -1,14 +1,14 @@
-import { CardBody } from 'reactstrap';
 import { useParams } from 'react-router';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { useMetadata } from '../../../hooks';
-import { callApi, truncateAddress } from '../../../util';
+import { truncateAddress } from '../../../util';
 import { COLORS } from '../../../styles/constants';
 import { media } from '../../../styles/util';
 import { EtherscanIcon } from '../../../components/icons';
 import Card from '../../../components/card';
+import CardBody from '../../../components/card-body';
 import CardGrid from '../../../components/card-grid';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
@@ -46,42 +46,12 @@ const FillPage = () => {
 
   const { id } = useParams();
   const [fill, loading] = useFill(id);
-  const [maker, setMaker] = useState();
-  const [taker, setTaker] = useState();
-
-  useEffect(() => {
-    if (fill !== undefined) {
-      callApi(`traders/${fill.takerAddress}`)
-        .then((foundTaker) => {
-          setTaker(foundTaker);
-        })
-        .catch((error) => {
-          if (error.response && error.response === 404) {
-            return;
-          }
-
-          throw error;
-        });
-
-      callApi(`traders/${fill.makerAddress}`)
-        .then((foundMaker) => {
-          setMaker(foundMaker);
-        })
-        .catch((error) => {
-          if (error.response && error.response === 404) {
-            return;
-          }
-
-          throw error;
-        });
-    }
-  }, [fill]);
 
   if (fill === undefined && !loading) {
     return <PageNotFound />;
   }
 
-  if (loading || maker === undefined || taker === undefined) {
+  if (loading) {
     return <LoadingPage />;
   }
 
@@ -118,7 +88,7 @@ const FillPage = () => {
         <CardGridRow>
           <CardGridCol>
             <Card autoHeight={false}>
-              <CardBody>
+              <CardBody padded>
                 <FillDetails fill={fill} />
               </CardBody>
             </Card>
@@ -127,8 +97,8 @@ const FillPage = () => {
         <CardGridRow>
           <CardGridCol>
             <Card autoHeight={false}>
-              <CardBody>
-                <FillAddresses fill={fill} maker={maker} taker={taker} />
+              <CardBody padded>
+                <FillAddresses fill={fill} />
               </CardBody>
             </Card>
           </CardGridCol>

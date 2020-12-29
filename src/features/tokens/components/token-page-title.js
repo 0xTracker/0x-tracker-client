@@ -28,11 +28,7 @@ const Wrapper = styled.div`
 const TokenPageTitle = ({ statsPeriod, token }) => (
   <Wrapper>
     {_.isString(token.imageUrl) && (
-      <TokenImage
-        css="margin-right: 0.75rem;"
-        imageUrl={token.imageUrl}
-        size="35px"
-      />
+      <TokenImage css="margin-right: 0.75rem;" imageUrl={token.imageUrl} />
     )}
     <span>
       {_.isString(token.name) ? token.name : `Token: ${token.address}`}

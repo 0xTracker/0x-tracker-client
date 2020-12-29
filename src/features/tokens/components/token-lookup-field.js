@@ -124,10 +124,9 @@ const Option = ({ children, ...props }) => {
     <components.Option {...props}>
       <div css="align-items: center; display: flex; font-size: 14px;">
         <TokenImage
-          css="flex-shrink: 0;margin-right: 12px;"
-          height={36}
+          css="flex-shrink: 0; margin-right: 12px;"
           imageUrl={imageUrl}
-          width={36}
+          size={36}
         />
         {address ? (
           <span css="line-height: 1;">

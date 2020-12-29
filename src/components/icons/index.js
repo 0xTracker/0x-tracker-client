@@ -13,6 +13,10 @@ import ChevronRightIcon from './chevron-right-icon';
 import ChevronUpIcon from './chevron-up-icon';
 import CircleIcon from './circle-icon';
 import CloseIcon from './close-icon';
+import ConsumerIcon from './consumer-icon';
+import ContractIcon from './contract-icon';
+import CopyIcon from './copy-icon';
+import CopiedIcon from './copied-icon';
 import DiscordIcon from './discord-icon';
 import EditIcon from './edit-icon';
 import EtherscanIcon from './etherscan-icon';
@@ -35,6 +39,7 @@ import MoreIcon from './more-icon';
 import NewsIcon from './news-icon';
 import PrivateIcon from './private-icon';
 import RedditShareIcon from './reddit-share-icon';
+import RelayerIcon from './relayer-icon';
 import ResetIcon from './reset-icon';
 import RightArrowIcon from './right-arrow-icon';
 import ScheduledIcon from './scheduled-icon';
@@ -58,6 +63,7 @@ import TrendingUpIcon from './trending-up-icon';
 import TwitterIcon from './twitter-icon';
 import TwitterShareIcon from './twitter-share-icon';
 import UnknownIcon from './unknown-icon';
+import WalletIcon from './wallet-icon';
 
 export {
   ActiveIcon,
@@ -75,6 +81,10 @@ export {
   ChevronUpIcon,
   CircleIcon,
   CloseIcon,
+  ConsumerIcon,
+  ContractIcon,
+  CopyIcon,
+  CopiedIcon,
   DiscordIcon,
   EditIcon,
   EtherscanIcon,
@@ -97,6 +107,7 @@ export {
   NewsIcon,
   PrivateIcon,
   RedditShareIcon,
+  RelayerIcon,
   ResetIcon,
   RightArrowIcon,
   ScheduledIcon,
@@ -120,4 +131,5 @@ export {
   TwitterIcon,
   TwitterShareIcon,
   UnknownIcon,
+  WalletIcon,
 };

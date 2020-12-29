@@ -9,7 +9,7 @@ const Badge = styled.span.attrs((props) => ({
     _.isString(props.children) && props.upperCase
       ? props.children.toUpperCase()
       : props.children,
-  textColor: props.textColor ? props.textColor : COLORS.PRIMARY.SCAMPI_1000,
+  textColor: props.textColor ? props.textColor : COLORS.NEUTRAL.MYSTIC_900,
 }))`
   background-color: ${(props) => props.bgColor};
   border-radius: 4px;
