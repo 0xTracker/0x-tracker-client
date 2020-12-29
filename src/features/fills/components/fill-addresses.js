@@ -53,10 +53,7 @@ const FillAddresses = ({ fill }) => {
           title="Asset Bridge"
           tooltip="Address of the bridge contract used to supply maker assets."
         >
-          <FillAddressEntity
-            address={bridgedAsset.bridgeAddress}
-            name={bridgedAsset.bridgeName}
-          />
+          <FillAddressEntity {...bridgedAsset.bridge} />
         </FillDetail>
       )}
 
