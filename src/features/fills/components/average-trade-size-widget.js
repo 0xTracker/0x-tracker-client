@@ -4,7 +4,7 @@ import React from 'react';
 
 import { getPeriodDescriptor } from '../../../util';
 import LoadingIndicator from '../../../components/loading-indicator';
-import Number from '../../../components/number';
+import LocalisedAmount from '../../currencies/components/localised-amount';
 import PercentageChange from '../../../components/percentage-change';
 import sharedPropTypes from '../../../prop-types';
 import StatWidget from '../../../components/stat-widget';
@@ -29,7 +29,7 @@ const AverageTradeSizeWidget = ({
   >
     {_.isNumber(avgSize) && avgSize > 0 && (
       <span css="align-items: baseline; display: flex;">
-        <Number summarize>{avgSize}</Number>
+        <LocalisedAmount amount={avgSize} summarize />
         {change !== undefined && <PercentageChange>{change}</PercentageChange>}
       </span>
     )}
