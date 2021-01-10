@@ -16,11 +16,7 @@ const getGranularityForMetrics = (metrics) => {
     return 'week';
   }
 
-  if (diff === 2678400000) {
-    return 'month';
-  }
-
-  throw new Error('Unsupported metrics granularity');
+  return 'month';
 };
 
 export default getGranularityForMetrics;
