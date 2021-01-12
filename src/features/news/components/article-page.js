@@ -136,6 +136,14 @@ const Content = styled.div`
   li:last-child {
     margin: 0;
   }
+
+  h3 {
+    margin-bottom: 2rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+  }
 `;
 
 const ArticleMetadata = styled.dl`
