@@ -6,12 +6,13 @@ import { COLORS } from '../../../styles/constants';
 import AssetBridgeImage from './asset-bridge-image';
 import HelpWidget from '../../../components/help-widget';
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import MiniBridgeMetrics from './mini-bridge-metrics';
+// import MiniBridgeMetrics from './mini-bridge-metrics';
 import Number from '../../../components/number';
 import Rank from '../../../components/rank';
 import TraderLink from '../../traders/components/trader-link';
 
-const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
+const AssetBridgeList = ({ assetBridges, positionOffset }) => (
+  // const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
   <table className="table table-responsive">
     <thead>
       <tr>
@@ -31,13 +32,13 @@ const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
             selected period.
           </HelpWidget>
         </th>
-        <th className="text-right">
+        {/* <th className="text-right">
           Volume Trend
           <HelpWidget css="margin-left: 0.25rem;">
             The trend of trading volume for a given bridge in the selected
             period.
           </HelpWidget>
-        </th>
+        </th> */}
       </tr>
     </thead>
     <tbody>
@@ -74,14 +75,14 @@ const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
           <td className="align-middle text-right">
             <LocalisedAmount amount={bridge.stats.tradeVolume} summarize />
           </td>
-          <td>
+          {/* <td>
             <MiniBridgeMetrics
               bridgeAddress={bridge.address}
               height={40}
               period={statsPeriod}
               width={120}
             />
-          </td>
+          </td> */}
         </tr>
       ))}
     </tbody>
@@ -91,7 +92,7 @@ const AssetBridgeList = ({ assetBridges, positionOffset, statsPeriod }) => (
 AssetBridgeList.propTypes = {
   assetBridges: PropTypes.array.isRequired,
   positionOffset: PropTypes.number.isRequired,
-  statsPeriod: PropTypes.string.isRequired,
+  // statsPeriod: PropTypes.string.isRequired,
 };
 
 export default AssetBridgeList;

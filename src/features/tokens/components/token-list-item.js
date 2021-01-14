@@ -6,7 +6,7 @@ import { COLORS } from '../../../styles/constants';
 import { truncateAddress } from '../../../util';
 import formatTokenSymbol from '../util/format-token-symbol';
 import LocalisedAmount from '../../currencies/components/localised-amount';
-import MiniTokenMetrics from '../../metrics/components/mini-token-metrics';
+// import MiniTokenMetrics from '../../metrics/components/mini-token-metrics';
 import Number from '../../../components/number';
 import PercentageChange from '../../../components/percentage-change';
 import Rank from '../../../components/rank';
@@ -90,14 +90,14 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
     <td className="align-middle" css="text-align: right;">
       <TokenListItemVolume statsPeriod={statsPeriod} token={token} />
     </td>
-    <td>
+    {/* <td>
       <MiniTokenMetrics
         height={40}
         period={statsPeriod}
         tokenAddress={token.address}
         width={120}
       />
-    </td>
+    </td> */}
   </tr>
 );
 

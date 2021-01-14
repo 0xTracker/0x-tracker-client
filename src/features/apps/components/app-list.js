@@ -12,7 +12,7 @@ import AppVolumeLabel from './app-volume-label';
 import AppVolumeTooltip from './app-volume-tooltip';
 import appsPropTypes from '../prop-types';
 import Badge from '../../../components/badge';
-import MiniAppMetrics from './mini-app-metrics';
+// import MiniAppMetrics from './mini-app-metrics';
 import Number from '../../../components/number';
 import PercentageChange from '../../../components/percentage-change';
 import Rank from '../../../components/rank';
@@ -81,7 +81,7 @@ const AppList = ({
           >
             Traders
           </Th>
-          <Th
+          {/* <Th
             className="text-right"
             tooltip={
               <p>
@@ -90,7 +90,7 @@ const AppList = ({
             }
           >
             Volume Trend
-          </Th>
+          </Th> */}
         </tr>
       </thead>
       <tbody>
@@ -181,7 +181,7 @@ const AppList = ({
                 </PercentageChange>
               )}
             </td>
-            <td>
+            {/* <td>
               <MiniAppMetrics
                 appId={app.id}
                 height={40}
@@ -189,7 +189,7 @@ const AppList = ({
                 type="tradeVolume"
                 width={120}
               />
-            </td>
+            </td> */}
           </tr>
         ))}
       </tbody>

@@ -60,13 +60,13 @@ const TokenList = ({
                   : `The total trade volume for a token in the last ${statsPeriod}.`}
               </HelpWidget>
             </th>
-            <th className="text-right">
+            {/* <th className="text-right">
               Volume Trend{' '}
               <HelpWidget css="margin-left: 0.25rem;">
                 The trend of trading volume for a given token in the selected
                 period.
               </HelpWidget>
-            </th>
+            </th> */}
           </tr>
         </thead>
         <tbody>

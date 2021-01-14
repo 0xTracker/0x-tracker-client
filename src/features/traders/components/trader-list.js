@@ -14,7 +14,7 @@ import tradersPropTypes from '../prop-types';
 import TraderLink from './trader-link';
 import TraderFillCountLabel from './trader-fill-count-label';
 import TraderVolumeLabel from './trader-volume-label';
-import MiniTraderMetrics from './mini-trader-metrics';
+// import MiniTraderMetrics from './mini-trader-metrics';
 
 const DESCRIPTOR_MAPPINGS = {
   maker: 'Maker',
@@ -22,13 +22,14 @@ const DESCRIPTOR_MAPPINGS = {
   undefined: 'Trader',
 };
 
-const METRIC_TYPE_MAPPINGS = {
-  maker: 'fillVolume.maker',
-  taker: 'fillVolume.taker',
-  undefined: 'fillVolume.total',
-};
+// const METRIC_TYPE_MAPPINGS = {
+//   maker: 'fillVolume.maker',
+//   taker: 'fillVolume.taker',
+//   undefined: 'fillVolume.total',
+// };
 
-const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
+const TraderList = ({ positionOffset, statsType, traders }) => (
+  // const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
   <table className="table table-responsive">
     <thead>
       <tr>
@@ -50,14 +51,14 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
             the selected period.
           </HelpWidget>
         </th>
-        <th>
+        {/* <th>
           Volume Trend
           <HelpWidget css="margin-left: 0.25rem;">
             Volume trend for a given{' '}
             {DESCRIPTOR_MAPPINGS[statsType].toLowerCase()} in the selected
             period.
           </HelpWidget>
-        </th>
+        </th> */}
         <th title="Actions" />
       </tr>
     </thead>
@@ -130,7 +131,7 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
               volume={trader.stats.fillVolume}
             />
           </td>
-          <td>
+          {/* <td>
             <MiniTraderMetrics
               address={trader.address}
               height={40}
@@ -138,7 +139,7 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
               type={METRIC_TYPE_MAPPINGS[statsType]}
               width={120}
             />
-          </td>
+          </td> */}
           <td className="align-middle text-center">
             <Tooltip content="View Detail">
               <span>
@@ -182,7 +183,7 @@ const TraderList = ({ positionOffset, statsPeriod, statsType, traders }) => (
 
 TraderList.propTypes = {
   positionOffset: PropTypes.number,
-  statsPeriod: PropTypes.string.isRequired,
+  // statsPeriod: PropTypes.string.isRequired,
   statsType: PropTypes.string,
   traders: PropTypes.arrayOf(tradersPropTypes.traderWithStats).isRequired,
 };
