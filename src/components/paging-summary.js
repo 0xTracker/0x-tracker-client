@@ -14,6 +14,7 @@ const PagingSummary = ({ className, compact, page, pageSize, recordCount }) => {
       {compact ? '' : 'Displaying '}
       {formatNumber(startIndex)} to {formatNumber(endIndex)} of{' '}
       {formatNumber(recordCount)}
+      {recordCount === 10000 ? '+' : ''}
     </p>
   );
 };
