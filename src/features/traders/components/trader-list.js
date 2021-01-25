@@ -12,7 +12,7 @@ import Rank from '../../../components/rank';
 import Tooltip from '../../../components/tooltip';
 import tradersPropTypes from '../prop-types';
 import TraderLink from './trader-link';
-import TraderFillCountLabel from './trader-fill-count-label';
+import TraderTradeCountLabel from './trader-trade-count-label';
 import TraderVolumeLabel from './trader-volume-label';
 // import MiniTraderMetrics from './mini-trader-metrics';
 
@@ -23,9 +23,9 @@ const DESCRIPTOR_MAPPINGS = {
 };
 
 // const METRIC_TYPE_MAPPINGS = {
-//   maker: 'fillVolume.maker',
-//   taker: 'fillVolume.taker',
-//   undefined: 'fillVolume.total',
+//   maker: 'tradeVolume.maker',
+//   taker: 'tradeVolume.taker',
+//   undefined: 'tradeVolume.total',
 // };
 
 const TraderList = ({ positionOffset, statsType, traders }) => (
@@ -98,7 +98,7 @@ const TraderList = ({ positionOffset, statsType, traders }) => (
                 {trader.name}
               </Badge>
             )}
-            {trader.stats.fillCount.maker > 0 && (
+            {trader.stats.tradeCount.maker > 0 && (
               <Tooltip content="This trader has been a maker during the selected period.">
                 <Badge
                   bgColor={COLORS.ACCENT.ANZAC_500}
@@ -109,7 +109,7 @@ const TraderList = ({ positionOffset, statsType, traders }) => (
                 </Badge>
               </Tooltip>
             )}
-            {trader.stats.fillCount.taker > 0 && (
+            {trader.stats.tradeCount.taker > 0 && (
               <Tooltip content="This trader has been a taker during the selected period.">
                 <Badge
                   bgColor={COLORS.ACCENT.FRUIT_SALAD_500}
@@ -121,14 +121,14 @@ const TraderList = ({ positionOffset, statsType, traders }) => (
             )}
           </td>
           <td className="align-middle text-center" side="left">
-            <TraderFillCountLabel statsType={statsType}>
-              {trader.stats.fillCount}
-            </TraderFillCountLabel>
+            <TraderTradeCountLabel statsType={statsType}>
+              {trader.stats.tradeCount}
+            </TraderTradeCountLabel>
           </td>
           <td className="align-middle text-center" side="left">
             <TraderVolumeLabel
               statsType={statsType}
-              volume={trader.stats.fillVolume}
+              volume={trader.stats.tradeVolume}
             />
           </td>
           {/* <td>

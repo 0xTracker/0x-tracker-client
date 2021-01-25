@@ -37,7 +37,7 @@ const TopProtocolsChart = ({ data, sortBy }) => {
         <Pie
           animationDuration={0}
           data={data}
-          dataKey={sortBy === 'fillCount' ? 'tradeCount' : 'tradeVolume'}
+          dataKey={sortBy}
           nameKey="protocolVersion"
           outerRadius="100%"
           paddingAngle={0}
@@ -56,7 +56,7 @@ const TopProtocolsChart = ({ data, sortBy }) => {
             ChartLegendText(
               <span>
                 {value} -{' '}
-                {sortBy === 'fillVolume'
+                {sortBy === 'tradeVolume'
                   ? formatPercentage(data[index].tradeVolume / totalVolume)
                   : formatPercentage(data[index].tradeCount / totalTrades)}
               </span>,

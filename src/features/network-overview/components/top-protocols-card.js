@@ -9,7 +9,7 @@ import TopProtocols from './top-protocols';
 import DropdownPill from '../../../components/dropdown-pill';
 
 const TopProtocolsCard = ({ period }) => {
-  const [sortBy, setSortBy] = React.useState('fillVolume');
+  const [sortBy, setSortBy] = React.useState('tradeVolume');
 
   return (
     <Card css="height: 360px;">
@@ -18,8 +18,8 @@ const TopProtocolsCard = ({ period }) => {
         <DropdownPill
           onChange={setSortBy}
           options={[
-            { label: 'By Trades', value: 'fillCount' },
-            { label: 'By Volume', value: 'fillVolume' },
+            { label: 'By Trades', value: 'tradeCount' },
+            { label: 'By Volume', value: 'tradeVolume' },
           ]}
           value={sortBy}
         />

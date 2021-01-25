@@ -22,7 +22,7 @@ import ProtocolMetricsTooltip from './protocol-metrics-tooltip';
 const getProtocols = (data) =>
   _.uniq(
     _.flatten(data.map((dataPoint) => dataPoint.stats))
-      .filter((stat) => stat.fillCount > 0)
+      .filter((stat) => stat.tradeCount > 0)
       .map((stat) => stat.protocolVersion),
   ).sort();
 
@@ -146,8 +146,8 @@ ProtocolMetricsChart.propTypes = {
       date: PropTypes.instanceOf(Date).isRequired,
       stats: PropTypes.arrayOf(
         PropTypes.shape({
-          fillCount: PropTypes.number.isRequired,
           protocolVersion: PropTypes.number.isRequired,
+          tradeCount: PropTypes.number.isRequired,
           tradeVolume: PropTypes.number.isRequired,
         }),
       ).isRequired,

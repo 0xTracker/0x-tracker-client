@@ -23,11 +23,6 @@ const tokenShape = {
 };
 
 const statsShape = {
-  fillCount: PropTypes.number.isRequired,
-  fillVolume: {
-    USD: PropTypes.number.isRequired,
-    token: PropTypes.number.isRequired,
-  },
   tradeCount: PropTypes.number.isRequired,
   tradeVolume: {
     USD: PropTypes.number.isRequired,

@@ -37,16 +37,6 @@ MiniTraderMetricsChart.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       date: PropTypes.instanceOf(Date).isRequired,
-      fillCount: PropTypes.shape({
-        maker: PropTypes.number.isRequired,
-        taker: PropTypes.number.isRequired,
-        total: PropTypes.number.isRequired,
-      }).isRequired,
-      fillVolume: PropTypes.shape({
-        maker: PropTypes.number.isRequired,
-        taker: PropTypes.number.isRequired,
-        total: PropTypes.number.isRequired,
-      }).isRequired,
       tradeCount: PropTypes.shape({
         maker: PropTypes.number.isRequired,
         taker: PropTypes.number.isRequired,
@@ -61,12 +51,6 @@ MiniTraderMetricsChart.propTypes = {
   ).isRequired,
   height: PropTypes.number.isRequired,
   type: PropTypes.oneOf([
-    'fillCount.maker',
-    'fillCount.taker',
-    'fillCount.total',
-    'fillVolume.maker',
-    'fillVolume.taker',
-    'fillVolume.total',
     'tradeCount.maker',
     'tradeCount.taker',
     'tradeCount.total',

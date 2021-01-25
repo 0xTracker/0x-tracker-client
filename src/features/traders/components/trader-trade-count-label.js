@@ -10,19 +10,19 @@ const EmptyValue = styled.span`
   color: ${COLORS.NEUTRAL.MYSTIC_500};
 `;
 
-const getDisplayValue = (fillCount, statsType) => {
+const getDisplayValue = (tradeCount, statsType) => {
   if (statsType === 'maker') {
-    return fillCount.maker;
+    return tradeCount.maker;
   }
 
   if (statsType === 'taker') {
-    return fillCount.taker;
+    return tradeCount.taker;
   }
 
-  return fillCount.total;
+  return tradeCount.total;
 };
 
-const TraderFillCountLabel = ({ children, statsType }) => {
+const TraderTradeCountLabel = ({ children, statsType }) => {
   const displayValue = getDisplayValue(children, statsType);
 
   if (children.total === 0) {
@@ -67,7 +67,7 @@ const TraderFillCountLabel = ({ children, statsType }) => {
   );
 };
 
-TraderFillCountLabel.propTypes = {
+TraderTradeCountLabel.propTypes = {
   children: PropTypes.shape({
     maker: PropTypes.number.isRequired,
     taker: PropTypes.number.isRequired,
@@ -76,4 +76,4 @@ TraderFillCountLabel.propTypes = {
   statsType: PropTypes.string.isRequired,
 };
 
-export default TraderFillCountLabel;
+export default TraderTradeCountLabel;

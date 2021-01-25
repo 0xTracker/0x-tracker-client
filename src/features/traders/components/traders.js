@@ -7,9 +7,9 @@ import TraderList from './trader-list';
 import useTraders from '../hooks/use-traders';
 
 const SORT_BY_MAPPINGS = {
-  maker: 'fillVolume.maker',
-  taker: 'fillVolume.taker',
-  undefined: 'fillVolume.total',
+  maker: 'tradeVolume.maker',
+  taker: 'tradeVolume.taker',
+  undefined: 'tradeVolume.total',
 };
 
 const Traders = ({ onPageChange, page, statsPeriod, type }) => {

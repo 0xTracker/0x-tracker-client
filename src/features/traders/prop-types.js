@@ -8,12 +8,12 @@ const traderShape = {
 };
 
 const statsShape = {
-  fillCount: PropTypes.shape({
+  tradeCount: PropTypes.shape({
     maker: PropTypes.number.isRequired,
     taker: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,
   }).isRequired,
-  fillVolume: PropTypes.shape({
+  tradeVolume: PropTypes.shape({
     maker: PropTypes.number.isRequired,
     taker: PropTypes.number.isRequired,
     total: PropTypes.number.isRequired,

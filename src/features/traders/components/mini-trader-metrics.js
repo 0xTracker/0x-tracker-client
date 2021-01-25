@@ -24,12 +24,6 @@ const MiniTraderMetrics = ({ address, height, period, type, width }) => {
 
   const data = (metrics || []).map((metric) => ({
     date: new Date(metric.date),
-    fillCount: metric.fillCount,
-    fillVolume: {
-      maker: metric.fillVolume.maker * conversionRate,
-      taker: metric.fillVolume.taker * conversionRate,
-      total: metric.fillVolume.total * conversionRate,
-    },
     tradeCount: metric.tradeCount,
     tradeVolume: {
       maker: metric.tradeVolume.maker * conversionRate,

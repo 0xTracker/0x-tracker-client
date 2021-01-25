@@ -18,7 +18,7 @@ const ProtocolMetricsTooltip = ({ currency, granularity, payload }) => {
       date={date}
       granularity={granularity}
       items={_.sortBy(stats, 'protocolVersion')
-        .filter((stat) => stat.fillCount > 0)
+        .filter((stat) => stat.tradeCount > 0)
         .map((stat) => ({
           label: `v${stat.protocolVersion}`,
           value: `${formatCurrency(stat.tradeVolume, currency)} / ${numeral(
