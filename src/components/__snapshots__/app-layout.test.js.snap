@@ -185,23 +185,6 @@ exports[`app layout component should render with children 1`] = `
          Traders
       </a>
     </nav>
-    <a
-      class="link__StyledLink-sc-1m1n17q-0 link___StyledStyledLink-sc-1m1n17q-1 jcGDtB matcha-side-banner___StyledLink-sc-5jp42j-0 bBqdMp"
-      href="https://matcha.xyz/?utm_source=0xtracker&utm_medium=banner&utm_campaign=allthetokens"
-      rel="nofollow"
-      target="_blank"
-    >
-      <span
-        class="badge__Badge-sc-8ieo9x-0 matcha-side-banner___StyledBadge-sc-5jp42j-1 KHhnq"
-      >
-        AD
-      </span>
-      <img
-        alt="1000+ tokens available on Matcha"
-        class="matcha-side-banner___StyledImg-sc-5jp42j-2 eeGshU"
-        src="/assets/advertising/matcha-side-banner.png"
-      />
-    </a>
     <div
       class="sidebar__Footer-sc-1ginpey-2 gKnwRH"
     >

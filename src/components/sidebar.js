@@ -6,7 +6,6 @@ import { URL } from '../constants';
 import Link from './link';
 import logoImage from '../assets/images/logo-grayscale.svg';
 import Navigation from '../features/header/components/navigation';
-import MatchaSideBanner from '../features/advertising/components/matcha-side-banner';
 import usePreferences from '../features/preferences/hooks/use-preferences';
 import { SidebarContractIcon } from './icons';
 
@@ -66,7 +65,6 @@ const Sidebar = () => {
         <LogoImage alt="0x Tracker" size="small" src={logoImage} />
       </Link>
       <Navigation />
-      <MatchaSideBanner />
       <Footer>
         <ContractButton
           onClick={() => {
