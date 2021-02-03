@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 
 import { useMetadata, usePaginator, useSearchParam } from '../../../hooks';
@@ -28,7 +29,7 @@ const FillsPage = () => {
 
   const selectedFilters = {
     apps,
-    protocolVersion,
+    protocolVersion: protocolVersion ? _.toNumber(protocolVersion) : undefined,
     status,
     token,
     trader,
