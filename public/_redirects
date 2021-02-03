@@ -1,12 +1,10 @@
 # Permanent Redirects
 /addresses/:address            /traders/:address     301
 /addresses                     /traders              301
+/relayers                      /apps                 301
+/relayers/:slug                /apps/:slug           301
 /trades/:id                    /fills/:id            301
 /trades                        /fills                301
-
-# Temporary Redirects
-/relayers/:slug                /apps/:slug           302
-/relayers                      /apps                 302
 
 # Valid URL Mappings
 /ad-manager                    /index.html    200
