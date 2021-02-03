@@ -86,7 +86,7 @@ const ProtocolMetricsChart = ({
                   return 0;
                 }
 
-                return Math.round((stat[compareBy] / total) * 100);
+                return (stat[compareBy] / total) * 100;
               }}
               fill={SEGMENT_COLORS[index]}
               fillOpacity={1}
@@ -120,7 +120,10 @@ const ProtocolMetricsChart = ({
             }}
             tickCount={6} // 0%, 20%, 40%, 80%, 100%
             tickFormatter={
-              (value) => (value === 0 || value === 100 ? '' : `${value}%`) // Hide 0% and 100%
+              (value) =>
+                Math.round(value) === 0 || Math.round(value) === 100
+                  ? ''
+                  : `${value}%` // Hide 0% and 100%
             }
             tickLine={false}
           />
