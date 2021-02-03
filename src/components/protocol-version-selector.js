@@ -8,6 +8,7 @@ const OPTIONS = [
   { label: 'v1', value: 1 },
   { label: 'v2', value: 2 },
   { label: 'v3', value: 3 },
+  { label: 'v4', value: 4 },
 ];
 
 const ProtocolVersionSelector = ({ className, name, onChange, value }) => (
