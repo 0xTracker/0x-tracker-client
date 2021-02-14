@@ -67,7 +67,7 @@ const FillAddresses = ({ fill }) => {
       )}
 
       <FillDetail title="Maker" tooltip="The party that created the order.">
-        <FillAddressEntity {...maker} />
+        {maker ? <FillAddressEntity {...maker} defaultValue="None" /> : 'None'}
       </FillDetail>
 
       {sender && (
