@@ -26,7 +26,7 @@ const AssetBridgesPage = () => {
 
   const { navigateTo } = useNavigator();
   const { page, setPage } = usePaginator();
-  const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.MONTH);
+  const statsPeriod = useSearchParam('statsPeriod', TIME_PERIOD.DAY);
 
   return (
     <PageLayout

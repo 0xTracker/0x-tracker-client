@@ -21,7 +21,7 @@ const NetworkOverviewPage = () => {
   useMetadata({ title: '0x Protocol Trading Activity, Metrics & Charts' });
 
   const { navigateTo } = useNavigator();
-  const period = useSearchParam('period', TIME_PERIOD.YEAR);
+  const period = useSearchParam('period', TIME_PERIOD.DAY);
 
   return (
     <PageLayout
