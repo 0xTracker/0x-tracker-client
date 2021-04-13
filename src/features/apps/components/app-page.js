@@ -73,6 +73,7 @@ const AppPage = () => {
         <div css="display: flex;">
           <MobileTimePeriodFilter
             css="margin-right: 1rem;"
+            disableExpensive
             onChange={(newPeriod) => {
               navigateTo(buildAppUrl(app.urlSlug), {
                 statsPeriod: newPeriod,

@@ -94,6 +94,7 @@ const TokenPage = () => {
         <div css="display: flex; flex-grow: 1; height: 100%;">
           <ResponsiveTimePeriodFilter
             css="margin-right: 12px;"
+            disableExpensive
             onChange={(newPeriod) => {
               navigateTo(buildTokenUrl(token.address), {
                 statsPeriod: newPeriod,

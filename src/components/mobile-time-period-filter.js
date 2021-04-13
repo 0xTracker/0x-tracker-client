@@ -30,7 +30,12 @@ const Button = styled.button`
   }
 `;
 
-const MobileTimePeriodFilter = ({ className, onChange, value }) => {
+const MobileTimePeriodFilter = ({
+  className,
+  disableExpensive,
+  onChange,
+  value,
+}) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef();
 
@@ -45,6 +50,7 @@ const MobileTimePeriodFilter = ({ className, onChange, value }) => {
       </Button>
       {open && (
         <PopoutTimePeriodSelector
+          disableExpensive={disableExpensive}
           onChange={(newValue) => {
             onChange(newValue);
             setOpen(false);
@@ -58,12 +64,14 @@ const MobileTimePeriodFilter = ({ className, onChange, value }) => {
 
 MobileTimePeriodFilter.propTypes = {
   className: PropTypes.string,
+  disableExpensive: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   value: sharedPropTypes.timePeriod.isRequired,
 };
 
 MobileTimePeriodFilter.defaultProps = {
   className: undefined,
+  disableExpensive: undefined,
 };
 
 export default MobileTimePeriodFilter;

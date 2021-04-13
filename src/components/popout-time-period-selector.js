@@ -25,7 +25,13 @@ const StyledSelect = styled(Select)`
   }
 `;
 
-const PopoutTimePeriodSelector = ({ className, name, onChange, value }) => (
+const PopoutTimePeriodSelector = ({
+  className,
+  disableExpensive,
+  name,
+  onChange,
+  value,
+}) => (
   <StyledSelect
     autoFocus
     className={className}
@@ -36,13 +42,16 @@ const PopoutTimePeriodSelector = ({ className, name, onChange, value }) => (
     menuIsOpen
     name={name}
     onChange={(option) => onChange(option.value, name)}
-    options={OPTIONS}
+    options={OPTIONS.filter(
+      (o) => !disableExpensive || (o.value !== 'all' && o.value !== 'year'),
+    )}
     value={OPTIONS.find((option) => option.value === value)}
   />
 );
 
 PopoutTimePeriodSelector.propTypes = {
   className: PropTypes.string,
+  disableExpensive: PropTypes.bool,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
@@ -50,6 +59,7 @@ PopoutTimePeriodSelector.propTypes = {
 
 PopoutTimePeriodSelector.defaultProps = {
   className: undefined,
+  disableExpensive: undefined,
   name: undefined,
 };
 

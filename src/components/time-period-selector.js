@@ -12,26 +12,36 @@ const OPTIONS = [
   { label: 'All time', value: TIME_PERIOD.ALL },
 ];
 
-const TimePeriodSelector = ({ name, onChange, value, ...otherProps }) => (
+const TimePeriodSelector = ({
+  disableExpensive,
+  name,
+  onChange,
+  value,
+  ...otherProps
+}) => (
   <Select
     controlShouldRenderValue
     isClearable={false}
     isSearchable={false}
     name={name}
     onChange={(option) => onChange(option.value, name)}
-    options={OPTIONS}
+    options={OPTIONS.filter(
+      (o) => !disableExpensive || (o.value !== 'all' && o.value !== 'year'),
+    )}
     value={OPTIONS.find((option) => option.value === value)}
     {...otherProps}
   />
 );
 
 TimePeriodSelector.propTypes = {
+  disableExpensive: PropTypes.bool,
   name: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
 };
 
 TimePeriodSelector.defaultProps = {
+  disableExpensive: undefined,
   name: undefined,
 };
 

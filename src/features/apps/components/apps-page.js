@@ -33,6 +33,7 @@ const AppsPage = () => {
     <PageLayout
       actions={
         <ResponsiveTimePeriodFilter
+          disableExpensive
           name="statsPeriod"
           onChange={(newPeriod) => {
             navigateTo(URL.APPS, {
