@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { URL } from '../../../constants';
 import {
   AppsIcon,
-  AssetBridgeIcon,
   FillsIcon,
   InsightsIcon,
   NewsIcon,
@@ -27,11 +26,6 @@ const CompactNavigation = ({ className }) => (
     <Tooltip content="Apps">
       <CompactNavigationLink href={URL.APPS}>
         <AppsIcon size={24} />
-      </CompactNavigationLink>
-    </Tooltip>
-    <Tooltip content="Asset Bridges">
-      <CompactNavigationLink href={URL.ASSET_BRIDGES}>
-        <AssetBridgeIcon size={24} />
       </CompactNavigationLink>
     </Tooltip>
     <Tooltip content="Browse Trades">

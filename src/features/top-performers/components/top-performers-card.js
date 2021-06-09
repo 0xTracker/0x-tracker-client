@@ -15,7 +15,6 @@ import TopTraders from '../../traders/components/top-traders';
 import { TIME_PERIOD } from '../../../constants';
 import {
   AppsIcon,
-  AssetBridgeIcon,
   MakersIcon,
   TakersIcon,
   TokensIcon,
@@ -49,11 +48,6 @@ const TopPerformersCard = ({
                 icon: <AppsIcon size={16} />,
                 label: 'Apps',
                 value: 'apps',
-              },
-              {
-                icon: <AssetBridgeIcon size={16} />,
-                label: 'Asset Bridges',
-                value: 'asset-bridges',
               },
               {
                 icon: <MakersIcon size={16} />,

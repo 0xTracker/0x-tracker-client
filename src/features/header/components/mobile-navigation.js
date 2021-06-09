@@ -6,7 +6,6 @@ import { URL } from '../../../constants';
 import MobileNavigationLink from './mobile-navigation-link';
 import {
   AppsIcon,
-  AssetBridgeIcon,
   FillsIcon,
   InsightsIcon,
   NewsIcon,
@@ -30,10 +29,6 @@ const MobileNavigation = ({ onNavigate }) => (
     <MobileNavigationLink href={URL.APPS} onClick={onNavigate}>
       <MobileNavigationIcon as={AppsIcon} />
       Apps
-    </MobileNavigationLink>
-    <MobileNavigationLink href={URL.ASSET_BRIDGES} onClick={onNavigate}>
-      <MobileNavigationIcon as={AssetBridgeIcon} />
-      Asset Bridges
     </MobileNavigationLink>
     <MobileNavigationLink href={URL.FILLS} onClick={onNavigate}>
       <MobileNavigationIcon as={FillsIcon} />

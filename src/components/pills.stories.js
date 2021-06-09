@@ -20,7 +20,6 @@ const Dropdown = () => (
     onChange={action('change')}
     options={[
       { label: 'Apps', value: 'apps' },
-      { label: 'Asset Bridges', value: 'asset-bridges' },
       { label: 'Tokens', value: 'tokens' },
     ]}
     value="apps"

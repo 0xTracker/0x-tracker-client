@@ -6,7 +6,6 @@ import { URL } from '../../../constants';
 import { COLORS } from '../../../styles/constants';
 import {
   AppsIcon,
-  AssetBridgeIcon,
   FillsIcon,
   InsightsIcon,
   NewsIcon,
@@ -33,9 +32,6 @@ const Navigation = ({ className }) => (
   <StyledNavigation aria-label="Primary" className={className}>
     <NavigationLink href={URL.APPS}>
       <NavigationIcon as={AppsIcon} size={24} /> Apps
-    </NavigationLink>
-    <NavigationLink href={URL.ASSET_BRIDGES}>
-      <NavigationIcon as={AssetBridgeIcon} size={24} /> Asset Bridges
     </NavigationLink>
     <NavigationLink href={URL.FILLS}>
       <NavigationIcon as={FillsIcon} size={24} /> Browse Trades
