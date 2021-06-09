@@ -13,7 +13,6 @@ import Rank from '../../../components/rank';
 import TokenImage from './token-image';
 import TokenLink from './token-link';
 import TokenListItemVolume from './token-list-item-volume';
-import TokenMarketCapTooltip from './token-market-cap-tooltip';
 import TokenPriceTooltip from './token-price-tooltip';
 import TokenTypeBadge from './token-type-badge';
 import Tooltip from '../../../components/tooltip';
@@ -66,17 +65,6 @@ const TokenListItem = ({ position, statsPeriod, token }) => (
         </Tooltip>
       ) : (
         '-'
-      )}
-    </td>
-    <td className="align-middle" css="text-align: right;">
-      {token.marketCap === null ? (
-        '-'
-      ) : (
-        <Tooltip content={<TokenMarketCapTooltip token={token} />}>
-          <span>
-            <LocalisedAmount amount={token.marketCap} summarize />
-          </span>
-        </Tooltip>
       )}
     </td>
     <td className="align-middle" css="text-align: right;">

@@ -4,11 +4,11 @@ import React from 'react';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import CardGridCol from '../../../components/card-grid-col';
 import CardGridRow from '../../../components/card-grid-row';
-import MarketCapWidget from './market-cap-widget';
 import PriceRangeWidget from './price-range-widget';
 import TokenStatsCarousel from './token-stats-carousel';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
 import TradeVolumeWidget from '../../fills/components/trade-volume-widget';
+import PriceWidget from './price-widget';
 
 const TokenStats = ({ period, token }) => {
   const breakpoint = useCurrentBreakpoint();
@@ -31,7 +31,7 @@ const TokenStats = ({ period, token }) => {
           />
         </CardGridCol>
         <CardGridCol lg={3} md={6}>
-          <MarketCapWidget token={token} />
+          <PriceWidget price={token.price} />
         </CardGridCol>
         <CardGridCol lg={3} md={6}>
           <PriceRangeWidget price={token.price} />

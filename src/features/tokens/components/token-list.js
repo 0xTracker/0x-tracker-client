@@ -37,14 +37,6 @@ const TokenList = ({
               </HelpWidget>
             </th>
             <th className="text-right">
-              Market Cap
-              <HelpWidget css="margin-left: 0.25rem;">
-                Current market cap of the token. Calculated by multiplying
-                current price by circulating or total supply of the token
-                (depending on what&rsquo;s available).
-              </HelpWidget>
-            </th>
-            <th className="text-right">
               Trades
               <HelpWidget css="margin-left: 0.25rem;">
                 {statsPeriod === 'all'

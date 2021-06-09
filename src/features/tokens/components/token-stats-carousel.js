@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import '../../../styles/css/slick-carousel.css';
 
 import { BREAKPOINTS } from '../../../styles/constants';
-import MarketCapWidget from './market-cap-widget';
 import PriceRangeWidget from './price-range-widget';
 import TokenPriceWidget from './token-price-widget';
 import TradeCountWidget from '../../fills/components/trade-count-widget';
@@ -48,7 +47,6 @@ const TokenStatsCarousel = ({ period, token }) => (
       period={period}
       tradeCount={token.stats.tradeCount}
     />
-    <CarouselStat as={MarketCapWidget} token={token} />
     <CarouselStat as={PriceRangeWidget} price={token.price} />
   </Slider>
 );

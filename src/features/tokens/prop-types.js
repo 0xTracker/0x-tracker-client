@@ -8,7 +8,6 @@ const tokenShape = {
     date: PropTypes.instanceOf(Date).isRequired,
     id: PropTypes.string.isRequired,
   }),
-  marketCap: PropTypes.number,
   name: PropTypes.string,
   price: PropTypes.shape({
     change: PropTypes.number,
