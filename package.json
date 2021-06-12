@@ -28,7 +28,6 @@
     "core-js": "3.6.4",
     "currency-formatter": "1.5.5",
     "date-fns": "2.16.1",
-    "ethers": "4.0.47",
     "lodash": "4.17.15",
     "mediaquery": "0.0.4",
     "numeral": "2.0.6",
@@ -53,8 +52,7 @@
     "recharts": "2.0.4",
     "styled-components": "5.1.0",
     "styled-media-query": "2.1.2",
-    "tippy.js": "6.1.0",
-    "use-wallet": "0.5.0"
+    "tippy.js": "6.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
