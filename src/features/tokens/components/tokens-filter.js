@@ -56,7 +56,6 @@ const TokensFilter = ({ defaultFilters, onChange, selectedFilters }) => {
         />
       </Visible>
       <MobileTimePeriodFilter
-        disableExpensive
         onChange={(newPeriod) => {
           onChange({ ...selectedFilters, statsPeriod: newPeriod });
         }}
