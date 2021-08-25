@@ -4,10 +4,6 @@ const tokenShape = {
   address: PropTypes.string.isRequired,
   circulatingSupply: PropTypes.number,
   imageUrl: PropTypes.string,
-  lastTrade: PropTypes.shape({
-    date: PropTypes.instanceOf(Date).isRequired,
-    id: PropTypes.string.isRequired,
-  }),
   name: PropTypes.string,
   price: PropTypes.shape({
     change: PropTypes.number,
