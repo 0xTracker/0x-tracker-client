@@ -328,69 +328,7 @@ exports[`app layout component should render with children 1`] = `
         Hello World
       </div>
       <div
-        class="subscribe-panel__Wrapper-sc-5e14js-0 iJofAr"
-      >
-        <div
-          class="subscribe-panel__Inner-sc-5e14js-1 gzeqni"
-        >
-          <img
-            alt=""
-            class="subscribe-panel__Image-sc-5e14js-2 ieDlrH"
-            height="180"
-            src="test-file-stub"
-            width="235"
-          />
-          <div>
-            <h2
-              class="subscribe-panel__Heading-sc-5e14js-3 gXRUBg"
-            >
-              Subscribe to our newsletter
-            </h2>
-            <p
-              class="subscribe-panel__Lead-sc-5e14js-4 MKubs"
-            >
-              Monthly 0x ecosystem news and analysis.
-            </p>
-            <form
-              action="https://facebook.us2.list-manage.com/subscribe/post?u=1c752e167467d75829bc12aef&id=33b834d61c"
-              class="subscribe-panel__Form-sc-5e14js-9 tRCHs"
-              method="post"
-              target="_blank"
-            >
-              <div
-                aria-hidden="true"
-                class="subscribe-panel__HoneyPot-sc-5e14js-8 kVeLvq"
-              >
-                <input
-                  name="b_1c752e167467d75829bc12aef_33b834d61c"
-                  tabindex="-1"
-                  type="text"
-                />
-              </div>
-              <div
-                class="subscribe-panel__FieldWrapper-sc-5e14js-6 ihVBSu"
-              >
-                <input
-                  class="subscribe-panel__EmailInput-sc-5e14js-5 fROhb"
-                  name="EMAIL"
-                  placeholder="Enter your email"
-                  required=""
-                  type="email"
-                />
-                <button
-                  class="subscribe-panel__SubscribeButton-sc-5e14js-7 jHuWul"
-                  name="subscribe"
-                  type="submit"
-                >
-                  Subscribe
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div
-        class="footer__Wrapper-htpw4v-10 SlwmK"
+        class="footer__Wrapper-htpw4v-10 ga-dXKY"
       >
         <div
           class="row"
@@ -593,7 +531,7 @@ exports[`app layout component should render with children 1`] = `
           </div>
         </div>
         <div
-          class="footer__SecondaryLinks-htpw4v-8 vmuIz"
+          class="footer__SecondaryLinks-htpw4v-8 dNNsEr"
         >
           <div
             class="footer__License-htpw4v-7 kYdoUS"

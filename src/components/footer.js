@@ -6,7 +6,6 @@ import { media } from '../styles/util';
 import { COLORS } from '../styles/constants';
 import { DiscordIcon, MailIcon, TwitterIcon } from './icons';
 import Link from './link';
-import SubscribePanel from './subscribe-panel';
 
 const InfoHeading = styled.h2`
   color: ${COLORS.PRIMARY.SCAMPI_600};
@@ -93,7 +92,7 @@ const License = styled.div`
 
 const SecondaryLinks = styled.div`
   border-radius: 1px;
-  border-top: 2px solid rgb(231, 233, 243);
+  border-top: 2px solid ${COLORS.NEUTRAL.MYSTIC_400};
   font-size: 0.8rem;
   margin-top: 2rem;
   padding-top: 2rem;
@@ -116,7 +115,7 @@ const Info = styled(Col)`
 `;
 
 const Wrapper = styled.div`
-  background-color: ${COLORS.NEUTRAL.MYSTIC_200};
+  background-color: ${COLORS.NEUTRAL.MYSTIC_300};
   color: ${COLORS.PRIMARY.SCAMPI_1000};
   padding: 2rem 1rem;
 
@@ -130,90 +129,87 @@ const Wrapper = styled.div`
 `;
 
 const Footer = () => (
-  <>
-    <SubscribePanel />
-    <Wrapper>
-      <Row>
-        <Info lg={4} md={5} xs={12}>
-          <InfoHeading>0x Tracker</InfoHeading>
-          <Description>
-            The leading provider of 0x protocol market data, transparent
-            Ethereum token price index and 0x protocol news aggregator.
-          </Description>
-          <nav css="display: flex;">
-            <SocialLink href="https://twitter.com/0xTracker">
-              <TwitterIcon size="18" />
-            </SocialLink>
-            <SocialLink href="https://discord.gg/tnV8hud">
-              <DiscordIcon size="18" />
-            </SocialLink>
-            <SocialLink href="mailto:hello@0xtracker.com">
-              <MailIcon size="20" />
-            </SocialLink>
-          </nav>
-        </Info>
-        <Col lg={{ offset: 2 }} md={2} sm={4} xs={6}>
-          <NavHeading>About</NavHeading>
-          <nav>
-            <NavLink href="/news-and-updates/0x-tracker">Blog</NavLink>
-            <NavLink href="https://0xtracker.typeform.com/to/HfuuTK">
-              Contact
-            </NavLink>
-            <NavLink href="https://docs.0xtracker.com/faqs">FAQs</NavLink>
-            <NavLink href="https://docs.0xtracker.com/">Overview</NavLink>
-          </nav>
-        </Col>
-        <Col md={2} sm={4} xs={6}>
-          <NavHeading>Developers</NavHeading>
-          <nav>
-            <NavLink href="https://docs.0xtracker.com/api-reference/introduction">
-              API Docs
-            </NavLink>
-            <NavLink href="https://docs.0xtracker.com/contributing">
-              Contributing
-            </NavLink>
-            <NavLink href="https://github.com/0xtracker">GitHub</NavLink>
-          </nav>
-        </Col>
-        <Col lg={2} md={3} sm={4} xs={6}>
-          <NavHeading>Resources</NavHeading>
-          <nav>
-            <NavLink
-              href="https://www.buymeacoffee.com/0xTracker"
-              onClick={() => {
-                if (window.fathom) {
-                  window.fathom.trackGoal('MYB7SWUU', 0);
-                }
-              }}
-            >
-              Donate
-            </NavLink>
-            <NavLink href="/privacy">Privacy Policy</NavLink>
-            <NavLink href="https://trello.com/b/4cY2eOsQ/0x-tracker-roadmap">
-              Roadmap
-            </NavLink>
-            <NavLink href="/terms">Terms Of Use</NavLink>
-          </nav>
-        </Col>
-      </Row>
-      <SecondaryLinks>
-        <License>
-          Licensed under{' '}
-          <FooterLink href="https://github.com/0xTracker/0x-tracker-client/blob/master/LICENSE">
-            Apache-2.0
-          </FooterLink>
-        </License>
-        <PoweredBy>
-          Powered by <FooterLink href="https://0x.org">0x</FooterLink> and{' '}
-          <FooterLink href="https://ethereum.org/">Ethereum</FooterLink> with
-          pricing data from{' '}
-          <FooterLink href="https://min-api.cryptocompare.com/">
-            CryptoCompare
-          </FooterLink>
-        </PoweredBy>
-      </SecondaryLinks>
-    </Wrapper>
-  </>
+  <Wrapper>
+    <Row>
+      <Info lg={4} md={5} xs={12}>
+        <InfoHeading>0x Tracker</InfoHeading>
+        <Description>
+          The leading provider of 0x protocol market data, transparent Ethereum
+          token price index and 0x protocol news aggregator.
+        </Description>
+        <nav css="display: flex;">
+          <SocialLink href="https://twitter.com/0xTracker">
+            <TwitterIcon size="18" />
+          </SocialLink>
+          <SocialLink href="https://discord.gg/tnV8hud">
+            <DiscordIcon size="18" />
+          </SocialLink>
+          <SocialLink href="mailto:hello@0xtracker.com">
+            <MailIcon size="20" />
+          </SocialLink>
+        </nav>
+      </Info>
+      <Col lg={{ offset: 2 }} md={2} sm={4} xs={6}>
+        <NavHeading>About</NavHeading>
+        <nav>
+          <NavLink href="/news-and-updates/0x-tracker">Blog</NavLink>
+          <NavLink href="https://0xtracker.typeform.com/to/HfuuTK">
+            Contact
+          </NavLink>
+          <NavLink href="https://docs.0xtracker.com/faqs">FAQs</NavLink>
+          <NavLink href="https://docs.0xtracker.com/">Overview</NavLink>
+        </nav>
+      </Col>
+      <Col md={2} sm={4} xs={6}>
+        <NavHeading>Developers</NavHeading>
+        <nav>
+          <NavLink href="https://docs.0xtracker.com/api-reference/introduction">
+            API Docs
+          </NavLink>
+          <NavLink href="https://docs.0xtracker.com/contributing">
+            Contributing
+          </NavLink>
+          <NavLink href="https://github.com/0xtracker">GitHub</NavLink>
+        </nav>
+      </Col>
+      <Col lg={2} md={3} sm={4} xs={6}>
+        <NavHeading>Resources</NavHeading>
+        <nav>
+          <NavLink
+            href="https://www.buymeacoffee.com/0xTracker"
+            onClick={() => {
+              if (window.fathom) {
+                window.fathom.trackGoal('MYB7SWUU', 0);
+              }
+            }}
+          >
+            Donate
+          </NavLink>
+          <NavLink href="/privacy">Privacy Policy</NavLink>
+          <NavLink href="https://trello.com/b/4cY2eOsQ/0x-tracker-roadmap">
+            Roadmap
+          </NavLink>
+          <NavLink href="/terms">Terms Of Use</NavLink>
+        </nav>
+      </Col>
+    </Row>
+    <SecondaryLinks>
+      <License>
+        Licensed under{' '}
+        <FooterLink href="https://github.com/0xTracker/0x-tracker-client/blob/master/LICENSE">
+          Apache-2.0
+        </FooterLink>
+      </License>
+      <PoweredBy>
+        Powered by <FooterLink href="https://0x.org">0x</FooterLink> and{' '}
+        <FooterLink href="https://ethereum.org/">Ethereum</FooterLink> with
+        pricing data from{' '}
+        <FooterLink href="https://min-api.cryptocompare.com/">
+          CryptoCompare
+        </FooterLink>
+      </PoweredBy>
+    </SecondaryLinks>
+  </Wrapper>
 );
 
 export default Footer;
