@@ -18,6 +18,7 @@ const TokenStats = ({ period, token }) => {
       <CardGridRow minHeight="90px">
         <CardGridCol lg={3} md={6}>
           <TradeVolumeWidget
+            change={token.stats.tradeVolumeChange.USD}
             period={period}
             showPeriod={false}
             volume={token.stats.tradeVolume.USD}
@@ -25,6 +26,7 @@ const TokenStats = ({ period, token }) => {
         </CardGridCol>
         <CardGridCol lg={3} md={6}>
           <TradeCountWidget
+            change={token.stats.tradeCountChange}
             period={period}
             showPeriod={false}
             tradeCount={token.stats.tradeCount}
@@ -53,7 +55,11 @@ TokenStats.propTypes = {
     }).isRequired,
     stats: PropTypes.shape({
       tradeCount: PropTypes.number.isRequired,
+      tradeCountChange: PropTypes.number.isRequired,
       tradeVolume: PropTypes.shape({
+        USD: PropTypes.number.isRequired,
+      }).isRequired,
+      tradeVolumeChange: PropTypes.shape({
         USD: PropTypes.number.isRequired,
       }).isRequired,
     }).isRequired,
