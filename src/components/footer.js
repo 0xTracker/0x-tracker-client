@@ -77,9 +77,9 @@ const PoweredBy = styled.div`
   max-width: 250px;
 
   ${media.greaterThan('md')`
-    max-width: initial; 
-    text-align: right;
-  `}
+     max-width: initial; 
+     text-align: right;
+   `}
 `;
 
 const License = styled.div`
