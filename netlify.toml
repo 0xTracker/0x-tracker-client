@@ -1,5 +1,2 @@
 [context.production]
   ignore = "exit 0"
-
-[context.master]
-  ignore = "exit 0"

@@ -142,7 +142,3 @@ Infrastructure for 0x Tracker is generously supported by these companies.
 ## 👩‍⚖️ License
 
 [Apache 2.0](https://github.com/0xTracker/0x-tracker-worker/blob/master/LICENSE)
-
-## Other
-
-Testing, please ignore.
