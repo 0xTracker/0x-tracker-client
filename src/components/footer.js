@@ -73,6 +73,15 @@ const SocialLink = styled(Link)`
   }
 `;
 
+const PoweredBy = styled.div`
+  max-width: 250px;
+
+  ${media.greaterThan('md')`
+     max-width: initial; 
+     text-align: right;
+   `}
+`;
+
 const License = styled.div`
   margin-bottom: 1rem;
 
@@ -191,6 +200,14 @@ const Footer = () => (
           Apache-2.0
         </FooterLink>
       </License>
+      <PoweredBy>
+        Powered by <FooterLink href="https://0x.org">0x</FooterLink> and{' '}
+        <FooterLink href="https://ethereum.org/">Ethereum</FooterLink> with
+        pricing data from{' '}
+        <FooterLink href="https://min-api.cryptocompare.com/">
+          CryptoCompare
+        </FooterLink>
+      </PoweredBy>
     </SecondaryLinks>
   </Wrapper>
 );
