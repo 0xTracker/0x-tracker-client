@@ -38,7 +38,7 @@ const SurveyBanner = ({ isMobile }) => {
   return (
     <Banner>
       <BannerContent>
-        Let us know how you use 0xTracker and earn $100 in ZRX!{'  '}
+        Let us know how you use 0xTracker and earn $100!{'  '}
         <BannerLink href="https://forms.gle/ryRNZSr1LMrGjke7A" target="_blank">
           Take the survey!
         </BannerLink>
