@@ -10,6 +10,7 @@ import logoImage from '../../../assets/images/logo-grayscale.svg';
 import MobileMenu from './mobile-menu';
 import MobileSearch from './mobile-search';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
+import SurveyBanner from '../../../components/survey-banner';
 import { media } from '../../../styles/util';
 
 const LogoImage = styled.img`
@@ -98,6 +99,8 @@ const MobileHeader = () => {
           )}
         </Actions>
       </StyledHeader>
+      <SurveyBanner isMobile />
+
       {searchVisible && (
         <MobileSearch
           onBlur={() => {
