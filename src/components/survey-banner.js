@@ -24,12 +24,17 @@ const MobileBanner = styled.div`
 
 const BannerContent = styled.div``;
 
+const ArrowCTA = styled.svg`
+  margin-left: 0.25rem;
+  margin-top: -4px;
+`;
+
 const BannerLink = styled.a`
   font-weight: bold;
   color: white;
   padding-left: 0.5rem;
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
     color: white;
   }
 `;
@@ -38,9 +43,18 @@ const SurveyBanner = ({ isMobile }) => {
   return (
     <Banner>
       <BannerContent>
-        Let us know how you use 0xTracker and earn $100!{'  '}
+        Do you love crypto data? We want to chat! Earn $100 for your time.{'  '}
         <BannerLink href="https://forms.gle/ryRNZSr1LMrGjke7A" target="_blank">
-          Take the survey!
+          Apply Here
+          <ArrowCTA
+            fill="white"
+            height="15"
+            viewBox="0 0 16 15"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M4.484.246l.024 1.411 8.146.053L.817 13.547l.996.996L13.65 2.706l.052 8.146 1.412.024L15.045.315 4.484.246z" />
+          </ArrowCTA>
         </BannerLink>
       </BannerContent>
     </Banner>
