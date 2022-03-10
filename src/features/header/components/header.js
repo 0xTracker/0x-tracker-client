@@ -7,7 +7,6 @@ import { MenuIcon, SearchIcon } from '../../../components/icons';
 import { useCurrentBreakpoint } from '../../../responsive-utils';
 import HeaderActions from './header-actions';
 import MobileMenu from './mobile-menu';
-import SurveyBanner from '../../../components/survey-banner';
 import SearchBox from '../../search/components/search-box';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
 import { media } from '../../../styles/util';
@@ -92,7 +91,6 @@ const Header = () => {
           )}
         </div>
       </StyledHeader>
-      <SurveyBanner />
     </SettingsDialogProvider>
   );
 };
