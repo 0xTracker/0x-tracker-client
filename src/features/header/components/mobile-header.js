@@ -11,6 +11,7 @@ import MobileMenu from './mobile-menu';
 import MobileSearch from './mobile-search';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
 import { media } from '../../../styles/util';
+import Notice from './notice';
 
 const LogoImage = styled.img`
   height: 2.5rem;
@@ -107,6 +108,7 @@ const MobileHeader = () => {
         />
       )}
       {menuVisible && <MobileMenu onNavigate={closeMenu} />}
+      <Notice />
     </SettingsDialogProvider>
   );
 };

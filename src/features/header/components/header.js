@@ -10,6 +10,7 @@ import MobileMenu from './mobile-menu';
 import SearchBox from '../../search/components/search-box';
 import SettingsDialogProvider from '../../preferences/components/settings-dialog-provider';
 import { media } from '../../../styles/util';
+import Notice from './notice';
 
 const MenuButton = styled.button`
   align-items: center;
@@ -91,6 +92,7 @@ const Header = () => {
           )}
         </div>
       </StyledHeader>
+      <Notice />
     </SettingsDialogProvider>
   );
 };
