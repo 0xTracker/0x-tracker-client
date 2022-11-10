@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "browsers:list": "browserslist",
-    "build": "cp ./temp/index.html ./dist/index.html",
+    "build": "cp -r ./temp ./dist",
     "build:old": "webpack -p --config config/webpack/production.config.js && cp ./_redirects ./dist/_redirects",
     "build:analyze": "webpack -p --config config/webpack/production.config.js --env.analyze=true",
     "build:serve": "npm-run-all -s build serve",
